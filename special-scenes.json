@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "game": "The Forest of Love",
+  "build": "0.45",
+  "inventory": "assets/source-v2/textures.json",
+  "inventorySha256": "9bb9d3ec8441806fa6cba540181ffc0ffa502d59c9ae0b5b734c7b738dcb39d8",
+  "discoveryCoverage": {
+    "textureScreening": "1375/1375 at contact-sheet scale, selected small atlases at native size",
+    "textAndScriptSemanticDiscovery": "not-run; extracted fields retain unresolved consumer classifications",
+    "audioVideo": "source file inventory only; transcription and semantic review not-run",
+    "runtimeConsumerTracing": "not-run"
+  },
+  "sourceAcceptance": "needs-review",
+  "localePretranslationGate": "not-run; no locale selected",
+  "cases": [
+    {
+      "id": "visual-control-labels",
+      "title": "Tutorial diagrams and control glyphs",
+      "category": "input-and-image-dependency",
+      "sourceBehavior": "Tutorial text is baked into control diagrams; L/R, Space and ESC also appear as separate sprites.",
+      "invariant": "Preserve the actual control binding and distinguish localized labels from physical input identity.",
+      "route": "texture/editorial group after text and font preparation",
+      "positive": "Localized diagram points to the same controller and keyboard actions; physical control identity is unchanged.",
+      "negative": "Translated diagram implies a different key or action.",
+      "dependencies": [
+        {
+          "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-8345622523006170175",
+          "name": "CritterLog_Navigation_Left",
+          "path": "assets/source-v2/textures/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--8345622523006170175.png",
+          "sha256": "31340a616e8b8be6246092b9cc69bd52dd4a93b5f57c3e01192f8604dac3d8ff",
+          "reviewIndex": 23
+        },
+        {
+          "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:4187711351805404041",
+          "name": "CritterLog_Navigation_Right",
+          "path": "assets/source-v2/textures/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28-4187711351805404041.png",
+          "sha256": "2fa301b0480387f5e3be77d881a0861da2b80a73c6a41504d91f5cc636d2bbe0",
+          "reviewIndex": 349
+        },
+        {
+          "id": "sharedassets0.assets:27",
+          "name": "DialogueTutorial_4",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-27.png",
+          "sha256": "5c56bea454f56dc1c34abae45181ed18ae4d8fd097034b14558706ed0fcdfac2",
+          "reviewIndex": 572
+        },
+        {
+          "id": "sharedassets0.assets:53",
+          "name": "GossipTutorial_2",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-53.png",
+          "sha256": "e2bcc972b97371bd81f9afcc2ecf2967c7923ba46c4b23c89e92a9a7ce07081f",
+          "reviewIndex": 598
+        },
+        {
+          "id": "sharedassets0.assets:63",
+          "name": "DialogueTutorial_3",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-63.png",
+          "sha256": "cc3d1dbf5f0f7b9b954976a7d351f4da2b73d94289ce38a08648541f013f99ac",
+          "reviewIndex": 608
+        },
+        {
+          "id": "sharedassets0.assets:66",
+          "name": "GossipTutorial_1",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-66.png",
+          "sha256": "3ad0391823e6f6cd874db30207a22594c55c4fdb241871a37520b46a9e0c4c3e",
+          "reviewIndex": 611
+        },
+        {
+          "id": "sharedassets0.assets:70",
+          "name": "DialogueTutorial_2",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-70.png",
+          "sha256": "e212846de48c06402733c7dbc6be4fb96a1a5919b3b33c6d0bd5b3c0023d8cfe",
+          "reviewIndex": 615
+        },
+        {
+          "id": "sharedassets0.assets:89",
+          "name": "GalleryTutorial_2",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-89.png",
+          "sha256": "955b6eff049f99ddea166b7dcec94b86c3389ffcd9f90fe13beb93215cf759d4",
+          "reviewIndex": 634
+        },
+        {
+          "id": "sharedassets0.assets:136",
+          "name": "ChatUIIcons_Controls",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-136.png",
+          "sha256": "13c652adfbc41e270786892feeb528bb7b48ac7975942374cd1eb04e532f6c28",
+          "reviewIndex": 681
+        },
+        {
+          "id": "sharedassets0.assets:141",
+          "name": "ControlTutorial_Artwork",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-141.png",
+          "sha256": "09f2eddbb3676c892b3620a7a5886afeba24f3e4cdf64502eb8c9c44021a0375",
+          "reviewIndex": 686
+        },
+        {
+          "id": "sharedassets0.assets:157",
+          "name": "ControlTutorial_CF",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-157.png",
+          "sha256": "471d601f3512fe936971e2e706240ca8a42ad5cee304fea371a5ab81925d1fb4",
+          "reviewIndex": 702
+        },
+        {
+          "id": "sharedassets0.assets:178",
+          "name": "DialogueTutorial_1",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-178.png",
+          "sha256": "e88bc0ca32e4b0cbce94f29cf9e346c410e3e220f039f693030d1884bd61c1dc",
+          "reviewIndex": 723
+        },
+        {
+          "id": "sharedassets0.assets:198",
+          "name": "ControlTutorial",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-198.png",
+          "sha256": "d84e340d8cad8f395690eac42ac234f240caed1928dded129dc107248559c06c",
+          "reviewIndex": 743
+        },
+        {
+          "id": "sharedassets0.assets:201",
+          "name": "GalleryTutorial_1",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-201.png",
+          "sha256": "c7e62eb5b3802495a846217a7ade2f7bfd8eb94fdc3b8fad527d4b0ec35b273d",
+          "reviewIndex": 746
+        }
+      ],
+      "sourceAnalysis": "needs-review: visual evidence recorded; full runtime consumers not traced",
+      "editorial": "not-run",
+      "adapter": "not-run",
+      "structural": "dependency IDs and PNG checksums recorded",
+      "runtimeVisual": "not-run",
+      "localeDecisions": {}
+    },
+    {
+      "id": "fictional-script",
+      "title": "Runes and fictional-script rendering",
+      "category": "hidden-script-and-font-dependency",
+      "sourceBehavior": "Ruins illustrations and glyph atlases contain fictional writing; a font atlas is explicitly named OkkLanguage_TMP_Atlas. The encoding and consumer relationship are not yet traced.",
+      "invariant": "Preserve encoded information and its correspondence between live writing and depicted runes until the mechanism is understood.",
+      "route": "needs-review: trace font character mapping and narrative/scene consumers before deciding whether any marks change",
+      "positive": "Every retained symbol resolves to the same original glyph and scene clue.",
+      "negative": "An ordinary texture replacement changes or removes a clue or breaks the glyph mapping.",
+      "dependencies": [
+        {
+          "id": "sharedassets0.assets:224",
+          "name": "Act 2 Capstone",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-224.png",
+          "sha256": "2e1660f0e910bbf4f2e7f481446fedbc5d3c14fa66c7a7b606099da86a6e053b",
+          "reviewIndex": 768
+        },
+        {
+          "id": "sharedassets0.assets:245",
+          "name": "OokLanguage_TMP Atlas",
+          "path": "assets/source-v2/textures/57009919ee-sharedassets0.assets-245.png",
+          "sha256": "4ba40daf36750869cc3ab0dcba9f1680b17fe23f737afa5e18180b1700b89a82",
+          "reviewIndex": 788
+        },
+        {
+          "id": "sharedassets16.assets:4",
+          "name": "Ruins_Background",
+          "path": "assets/source-v2/textures/e50b50e2c3-sharedassets16.assets-4.png",
+          "sha256": "d2a0a295b2cbc912dd4d28e6267e8ffd3492f195fae89b4249a9b5cab07d78c1",
+          "reviewIndex": 1010
+        },
+        {
+          "id": "sharedassets16.assets:6",
+          "name": "Glyphs",
+          "path": "assets/source-v2/textures/e50b50e2c3-sharedassets16.assets-6.png",
+          "sha256": "d09bc139bba1aac0ec6c3dce0a2072b908cd3dce147e51bfadb40a6b76704550",
+          "reviewIndex": 1012
+        },
+        {
+          "id": "sharedassets4.assets:18",
+          "name": "sactx-0-256x512-BC7-ruinsglyphs_atlas-e54b59bb",
+          "path": "assets/source-v2/textures/8f371d340c-sharedassets4.assets-18.png",
+          "sha256": "00fabb12d155f57ef01e412a7eb7fc9b37a2bcb28c218173f34c0c67d28cf3a1",
+          "reviewIndex": 1217
+        }
+      ],
+      "sourceAnalysis": "needs-review: visual evidence recorded; full runtime consumers not traced",
+      "editorial": "not-run",
+      "adapter": "not-run",
+      "structural": "dependency IDs and PNG checksums recorded",
+      "runtimeVisual": "not-run",
+      "localeDecisions": {}
+    },
+    {
+      "id": "inventory-atlas-text",
+      "title": "Titles and labels inside small sprite atlases",
+      "category": "visual-and-resource-dependency",
+      "sourceBehavior": "Inventory and quest atlases contain readable titles/labels, including the PLAYBEAR cover and The Blessing of the Bells artwork. Sprite regions and reuse must remain intact.",
+      "invariant": "Edit visible wording only while preserving the stable sprite lookup, crop, artwork identity and alpha.",
+      "route": "texture group after source glossary and glyph preparation; retain every duplicate source occurrence",
+      "positive": "Reinserted sprite shows the intended wording with the same crop/pivot and item identity.",
+      "negative": "A changed atlas coordinate selects the wrong item or clips the lettering.",
+      "dependencies": [
+        {
+          "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-7516614952582679988",
+          "name": "sactx-0-512x1024-BC7-quest_portraits_atlas-9c9832ed",
+          "path": "assets/source-v2/textures/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--7516614952582679988.png",
+          "sha256": "ee535c881716679959b3a3adeb33a28033d95b94e7c0156b9480c3e82e93e7bc",
+          "reviewIndex": 50
+        },
+        {
+          "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-5351113954096111273",
+          "name": "00 Banner Intro",
+          "path": "assets/source-v2/textures/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--5351113954096111273.png",
+          "sha256": "2ca2174dd8ead3cc988c812ec796dea4d2038290112ed76c0c7dde77c846c2b9",
+          "reviewIndex": 96
+        },
+        {
+          "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:5933655946008629389",
+          "name": "sactx-0-512x256-BC7-inventoryitems_atlas-d42ed61b",
+          "path": "assets/source-v2/textures/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28-5933655946008629389.png",
+          "sha256": "e793a3275976d02e5b5dce807c37bd33334fd495fd5621724d4bc70a00673a69",
+          "reviewIndex": 402
+        },
+        {
+          "id": "sharedassets4.assets:17",
+          "name": "sactx-0-512x256-BC7-inventoryitems_atlas-d42ed61b",
+          "path": "assets/source-v2/textures/8f371d340c-sharedassets4.assets-17.png",
+          "sha256": "e793a3275976d02e5b5dce807c37bd33334fd495fd5621724d4bc70a00673a69",
+          "reviewIndex": 1216
+        }
+      ],
+      "sourceAnalysis": "needs-review: visual evidence recorded; full runtime consumers not traced",
+      "editorial": "not-run",
+      "adapter": "not-run",
+      "structural": "dependency IDs and PNG checksums recorded",
+      "runtimeVisual": "not-run",
+      "localeDecisions": {}
+    },
+    {
+      "id": "meter-initials",
+      "title": "F/E meter abbreviations",
+      "category": "gameplay-symbols",
+      "sourceBehavior": "Vial_TopStack contains F and E beside a graduated meter. Runtime semantics remain unverified.",
+      "invariant": "The player must correctly distinguish both meter endpoints; preserve the mechanical values and direction.",
+      "route": "needs-review: trace the actual meter consumer before choosing localized abbreviations",
+      "positive": "Both endpoint labels agree with the observed game state.",
+      "negative": "The localized labels invert endpoint meaning or change a control key.",
+      "dependencies": [
+        {
+          "id": "sharedassets4.assets:49",
+          "name": "Vial_TopStack",
+          "path": "assets/source-v2/textures/8f371d340c-sharedassets4.assets-49.png",
+          "sha256": "c4b13a88d6af940fe44240c04957f268a88de8288834478ef364784c328ef556",
+          "reviewIndex": 1248
+        }
+      ],
+      "sourceAnalysis": "needs-review: visual evidence recorded; full runtime consumers not traced",
+      "editorial": "not-run",
+      "adapter": "not-run",
+      "structural": "dependency IDs and PNG checksums recorded",
+      "runtimeVisual": "not-run",
+      "localeDecisions": {}
+    }
+  ]
+}

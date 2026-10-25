@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "sourceManifest": "assets/source-v2/textures.json",
+  "reviewer": "GPT-6.1 Sol (high)",
+  "method": "Visual screening of all 1375 exported textures on 29 contact sheets, native-size checks of small atlases, and local Apple Vision OCR. OCR is candidate evidence, not acceptance.",
+  "groups": {
+    "Tutorials": [572,598,608,611,615,634,686,702,723,743,746,1041],
+    "Menus and interface": [23,136,349,437,517,560,574,585,594,607,645,659,679,681,684,685,767,796,801,802,817,819,823,828,829,830,835,837,847,854,863,864,865,868,870,880,881,886,897,900,908,915,919,924,933,937,942,945,956,961,974,978,980,984,985,1048,1062,1071,1072,1078,1082,1090,1100,1127,1130,1133,1136,1137,1143,1145,1248],
+    "Illustrations and item atlases": [28,50,64,90,96,105,156,402,417,1216],
+    "UI mockups with baked text": [1040,1064,1066,1085,1128],
+    "Development and engine text": [18,286,499,503,506,514,519,520,522,528,1027,1233,1336,1338,1339,1340,1341,1342,1343,1344,1346,1347],
+    "Font atlases": [427,440,494,552,680,787,788,789]
+  },
+  "specialVisualDependencies": [768,1010,1012,1217],
+  "limitations": [
+    "Contact-sheet screening cannot prove the absence of subpixel text in every illustration; originals and OCR evidence remain available.",
+    "Font atlases and fictional-script graphics require font/renderer analysis, not ordinary texture translation.",
+    "Presence in game assets does not establish runtime reachability. Development/editor/engine and mockup groups require consumer checks before localization.",
+    "Equivalent textures in different containers retain every source ID even when gallery previews are grouped by exact decoded pixels."
+  ]
+}

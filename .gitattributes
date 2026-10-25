@@ -1,0 +1,7 @@
+# Original payload bytes and line endings are part of the source fingerprint.
+assets/source-v2/text-assets/* -text -diff
+assets/source-v2/fonts/* -text -diff
+*.png binary
+*.jpg binary
+*.gz binary
+*.zip binary
