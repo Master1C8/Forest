@@ -23,6 +23,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', type=Path)
     parser.add_argument('--inventory-sample', action='store_true', help='Two synthetic empty-cell display literals only; no inventory identities/state changes')
+    parser.add_argument('--startup-markers', action='store_true', help='Passive original bootstrap/menu entry logs; never a readiness or input-policy substitute')
     args = parser.parse_args()
     run = args.run.resolve()
     assert run.parent == ROOT / 'localization/probes'
@@ -53,7 +54,8 @@ def main():
     subprocess.run(['dotnet', 'build', str(snapshot / 'InjectProbe.csproj'), '--nologo', '--verbosity', 'quiet'], check=True)
     injector = snapshot / 'bin/Debug/net8.0/InjectProbe.dll'
     subprocess.run(['dotnet', str(injector), str(ORIGINAL), str(run / 'ForestProbe.dll'),
-                    str(run / 'Assembly-CSharp.hook.dll')] + (['--inventory-sample'] if args.inventory_sample else []), check=True)
+                    str(run / 'Assembly-CSharp.hook.dll')] + (['--inventory-sample'] if args.inventory_sample else []) +
+                   (['--startup-markers'] if args.startup_markers else []), check=True)
     shutil.copy2(run / 'ForestProbe.dll', target / 'ForestProbe.dll')
     shutil.copy2(run / 'Assembly-CSharp.hook.dll', target / 'Assembly-CSharp.dll')
     receipt = {'builtAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -64,7 +66,10 @@ def main():
                'hookSha256': sha(target / 'Assembly-CSharp.dll'),
                'injectorSha256': sha(injector),
                'boundary': 'Exact instruction readback; MainMenuController.Start hook' +
-                           (' and two InventoryInfoTicker.OnCellSelected empty-cell display literals only' if args.inventory_sample else ' only'),
+                           ('; passive RootActivator Awake/scene-change, PrefabDropper Awake and menu entry logs' if args.startup_markers else '') +
+                           ('; two InventoryInfoTicker.OnCellSelected empty-cell display literals' if args.inventory_sample else '') +
+                           '; original hook/bootstrap bodies, branches, locals and exception handlers preserved',
+               'startupMarkers': args.startup_markers,
                'inventorySample': {'title': 'Ёж Йй 123 — Latin!',
                                    'description': 'Е\u0308 и\u0306; Ё й. Щъ Ыь Эю Яя; 123 — Latin!'} if args.inventory_sample else None,
                'releaseUse': 'forbidden; inspection bridge only'}

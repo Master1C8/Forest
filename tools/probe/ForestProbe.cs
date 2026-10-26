@@ -60,12 +60,18 @@ public sealed class ForestProbe : MonoBehaviour
     [DllImport("user32.dll")] static extern short GetAsyncKeyState(int key);
     [DllImport("kernel32.dll")] static extern uint GetCurrentProcessId();
     public static void Install() {
+        Debug.Log("FOREST_STARTUP INSTALL_ENTER company=" + Application.companyName + " product=" + Application.productName);
         if (Application.companyName != "VNRevivalQA" || Application.productName != "ForestRuRendererProbe")
             throw new InvalidOperationException("QA bridge requires the isolated player identity.");
+        Debug.Log("FOREST_STARTUP IDENTITY_ACCEPTED");
         var go = new GameObject("ForestRendererProbeBridge");
-        DontDestroyOnLoad(go); go.AddComponent<ForestProbe>();
+        DontDestroyOnLoad(go);
+        Debug.Log("FOREST_STARTUP BEFORE_ADD_COMPONENT");
+        go.AddComponent<ForestProbe>();
+        Debug.Log("FOREST_STARTUP INSTALL_RETURN");
     }
     void Awake() {
+        Debug.Log("FOREST_STARTUP AWAKE_ENTER");
         root = Path.GetFullPath(Path.Combine(Application.dataPath,"../.."));
         Debug.Log("FOREST_PROBE_READY " + root + " SAVES " + Application.persistentDataPath);
     }

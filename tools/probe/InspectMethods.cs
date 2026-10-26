@@ -10,6 +10,13 @@ IEnumerable<TypeDefinition> Types(IEnumerable<TypeDefinition> types) {
         }
 }
 var types = Types(assembly.MainModule.Types).ToArray();
+if (args[1] == "--runtime-initializers") {
+    foreach (var method in types.SelectMany(t => t.Methods))
+        foreach (var attribute in method.CustomAttributes.Where(a => a.AttributeType.FullName == "UnityEngine.RuntimeInitializeOnLoadMethodAttribute"))
+            Console.WriteLine(method.FullName + " | loadType=" +
+                (attribute.ConstructorArguments.Count == 0 ? "default" : attribute.ConstructorArguments[0].Value));
+    return;
+}
 if (args[1] == "--types") {
     foreach (var item in types.Where(t => t.FullName.Contains(args[2], StringComparison.OrdinalIgnoreCase)))
         Console.WriteLine(item.FullName);

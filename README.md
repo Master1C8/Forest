@@ -1,3 +1,34 @@
+## Phase0029: passive startup boundaries traced and statically verified
+
+Original BuildSettings identifies FirstLaunch before StartMenu. Pinned scene/source
+bytes establish the active RootActivator hierarchy and its original Awake/scene-change
+logic, then the PrefabDropper queue. None of the original Assembly-CSharp methods has
+a RuntimeInitializeOnLoadMethod attribute. The exact cause of37's missing readiness
+is still unknown; high load was not promoted to a diagnosis.
+
+`prepare_bridge.py RUN --startup-markers` now optionally prefixes only original
+RootActivator Awake/scene-change, PrefabDropper Awake and MainMenu Start with Unity
+logger calls. Early bootstrap hooks have no bridge reference. Bridge logs distinguish
+Install entry/actual identity, accepted identity, AddComponent, Awake, READY and return.
+No focus, map, input, story, object-state or original scene-flow replacement was added.
+The injector verifies all serialized methods and, after removing allowed prefixes,
+all original hook/bootstrap instructions, branches, locals and exception handlers.
+
+Both utilities and the fresh bridge compiled. Five static cases passed: baseline,
+startup markers, inventory sample, combined flags, and exact duplicate-flag rejection
+with a valid positive control. Evidence/recipe: `localization/source/startup-boundary-20261026/`
+and `tools/inspect_startup_source.py`. These checks establish source/IL preservation,
+not Unity startup, original eligibility, renderer or route acceptance. No game or
+image was launched; no38 was prepared.37's consumed artifacts and pending command
+remain unchanged; all asset lanes remain outside technical writes/index ownership.
+
+Next: one new fully pinned immutable38 can test this changed startup instrumentation,
+with accepted resource bytes and the strict original two-frame idle/menu gate before
+New. Preserve every loaded Player/map/focus/filter/story/door/ingress/release guard.
+An entered marker proves only that boundary; absence still includes JIT/scheduling/
+logger possibilities. Stop at the first unexplained boundary; never relaunch37.
+All broader localization acceptance and final-delivery gates remain pending.
+
 ## Phase0028: strict original eligibility guards; startup37 failed before readiness
 
 The shared gameplay gate now requires actual original Rewired ready/global/filter,
