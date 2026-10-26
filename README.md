@@ -12,6 +12,38 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
+Phase0021 consumed immutable candidate30 once. It followed the original New/intro
+through49 content nodes and10 source-bound responses, observed final145:249 and two
+real terminal samples with the original end trigger, no intro controllers and one
+active bed. One read-only loaded BunnyHouse travel dump then exposed two diagnostic
+binding defects. The root Player has an original Dynamic Rigidbody2D and the active
+PlayerFootSensor has another; demanding one body in total rejected valid topology.
+The game also loads the CentralForest door under
+`SpawnedContent/Environment/Environment/Content/Environment/Doorways`, so a bridge
+matched only to the serialized RootActivator path emitted no pair diagnostics.
+The failed runtime receipt and immutable dependencies remain intact.
+
+The actual idle Player was at approximately(3.450,1.290), with movement enabled,
+no waypoints/transitions, zero input and root-body velocity, an enabled nontrigger
+Player-tag circle, gravity0, Continuous collision detection and FreezeRotation.
+The original door was active/enabled, nontransitioning, delay0, at(2.424,0.183),
+with enabled2.16×0.22 box trigger and disabled circle. Their Y bounds were disjoint.
+This proves loaded settings/geometry, without proving pair collision settings,
+an unobstructed route or movement. The shared recipe now binds the root Player-tag
+collider's attached body and the doorway's scene/destination/surviving path suffix,
+retaining child bodies separately. Eight guard tests and a fresh bridge compile
+pass; replaying the actual dump now reaches the exact missing-pair rejection.
+The corrected bridge has not run. See
+`localization/probes/ru-20261026-30/runtime-diagnosis.json` and
+`localization/source/loaded-travel-20261026/verification.json`.
+
+Candidate30 quit normally, restored the original QA assembly and removed the bridge.
+Current task processes are absent;150 original managed references,5 resource pairs,
+all7 asset pins, exact launch snapshots and317 frozen dependencies with2 intended
+DLL cleanup exceptions were verified. No movement or images were submitted.
+Use a new immutable candidate31 for actual loaded pair diagnostics and later guarded
+movement; do not relaunch30. Settings remain no evidence of story-save continuation.
+
 Phase0019 pinned ten original native keyboard/policy groups with
 `tools/inspect_native_input_source.py` in `localization/source/native-input-20261026/`.
 The shipped Rewired producer reads `user32.GetKeyboardState`, consumes original key
@@ -52,8 +84,8 @@ confirmed 150 original managed references, all 7 pins, 5 source/candidate resour
 and 317 frozen dependencies plus the 2 expected DLL cleanup exceptions. Candidate28
 remains superseded and unlaunched;29 must not be relaunched.
 
-The next boundary is original guarded Player movement, loaded BunnyHouse door geometry
-and natural CentralForest entry/tutorial after the accepted source-bound intro.
+The next boundary is corrected loaded Player/door pair diagnostics, original guarded
+Player movement and natural CentralForest entry/tutorial after the source-bound intro.
 Menu axis ingress does not establish gameplay movement or collision. No New, intro,
 images or accepted10/15 surface captures ran in phase0020. Preserve original producers,
 focus, maps and story/transition/doorway guards, and use a new immutable candidate.
@@ -62,11 +94,11 @@ Phase0018's original geometry/input evidence remains unchanged in
 `localization/source/travel-20261026/`. BunnyHouse is BuildSettings level3, not level2
 BeaverHouse (both have a CentralForest door). Its real door is
 `RootActivator/Root/Environment/Doorways/DoorwayToCentralForest`, at(2.424,0.183),
-with enabled2.16×0.22 box trigger, disabled circle and zero travel delay. Loaded
-collider/travel acceptance is still untested. Original joystick Awake destroys it;
+with enabled2.16×0.22 box trigger, disabled circle and zero travel delay. Candidate30 adds the loaded
+geometry above; pair collision settings and actual travel remain untested. Original joystick Awake destroys it;
 replacing it or feeding its custom-controller callbacks bypasses the producer.
-`dump-travel` now has actual menu runtime evidence, but Player physics, real doorway
-collision, tutorial, notebook and inventory remain unverified. Keep any later QA-only
+`dump-travel` has menu and the partial loaded30 evidence above. Player movement,
+real doorway collision, tutorial, notebook and inventory remain unverified. Keep any later QA-only
 focus-policy change explicit as a replaced harness dependency; preserve actual focus,
 original callbacks, Player/doorway/story guards, owner installation and saves.
 

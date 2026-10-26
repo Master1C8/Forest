@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Follow original New through source-bound intro dialogue to the first free gameplay state.
 
+Then inspect loaded original Player/doorway geometry without movement.
 No screenshots, forced chapter selection, trigger mutation or inventory opening.
 Run a frozen copy in the probe directory; all later-read helpers live there too.
 """
@@ -104,6 +105,46 @@ def intro_complete(state, guards, seen_dialogue, diagnostics):
     return trigger.get('count', '').isdigit() and int(trigger['count']) > 0
 
 
+def loaded_travel(state):
+    """Require actual loaded objects, not serialized or menu-only geometry."""
+    assert state['scene'] == 'BunnyHouse', 'Loaded travel requires BunnyHouse'
+    rows = state['diagnostics']
+    guards = diagnostic_fields(rows, 'travelGuards')
+    assert all(guards.get(k) == v for k, v in {
+        'gameplay': 'True', 'anyEvent': 'False', 'conversation': 'False', 'axis': '0,0,0'
+    }.items()), 'Loaded travel requires guarded idle gameplay'
+    player = diagnostic_fields(rows, 'travelPlayer')
+    assert player['active'] == 'True' and player['enabled'] == 'True', 'Original Player inactive'
+    doors = [r for r in rows if r.startswith('travelDoor | ') and
+             any(part.startswith('path=') and part.endswith('/Doorways/DoorwayToCentralForest')
+                 for part in r.split(' | ')[1:])]
+    door = diagnostic_fields(doors, 'travelDoor')
+    assert door['scene'] == 'BunnyHouse' and door['destination'] == 'CentralForest', 'Wrong loaded doorway'
+    colliders = [dict(part.split('=', 1) for part in r.split(' | ')[1:])
+                 for r in rows if r.startswith('travelCollider | ')]
+    player_colliders = [c for c in colliders if c['owner'] == player['id']]
+    door_colliders = [c for c in colliders if c['owner'] == door['id']]
+    assert player_colliders and door_colliders, 'Missing loaded colliders'
+    root_colliders = [c for c in player_colliders if c['path'] == player['path'] and c['tag'] == 'Player']
+    assert len(root_colliders) == 1, 'Missing or ambiguous root Player-tag collider'
+    root = root_colliders[0]
+    bodies = [dict(part.split('=', 1) for part in r.split(' | ')[1:])
+              for r in rows if r.startswith('travelBody | ')]
+    attached = root['rigidbody'].rsplit('#', 1)
+    assert len(attached) == 2, 'Root Player collider has no attached body identity'
+    root_bodies = [b for b in bodies if b['id'] == attached[1]]
+    assert len(root_bodies) == 1, 'Missing or ambiguous attached Player body'
+    body = root_bodies[0]
+    assert body['owner'] == player['id'] and body['path'] == player['path'], 'Body does not belong to original Player'
+    pairs = [dict(part.split('=', 1) for part in r.split(' | ')[1:])
+             for r in rows if r.startswith('travelPair | ')]
+    assert pairs, 'Missing actual enabled collider-pair diagnostics'
+    assert any(p['playerCollider'] == root['id'] and
+               p['doorCollider'] in {c['id'] for c in door_colliders} for p in pairs), 'Missing root Player/door collider pair'
+    return dict(guards=guards, player=player, body=body, door=door,
+                bodies=bodies, playerColliders=player_colliders, doorColliders=door_colliders, pairs=pairs)
+
+
 def main():
     global RUN, GAME, EXE
     RUN = Path(sys.argv[1]).resolve()
@@ -139,7 +180,7 @@ def main():
         write('launch.json', {'pid': child.pid, 'command': args,
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
-                             'scope': 'Original New and normal Continue through source-bound145 intro; no screenshots or forced eligibility'})
+                             'scope': 'Original New/source-bound145 intro and loaded idle Player/door geometry; no movement, screenshots or forced eligibility'})
         deadline = time.monotonic() + 300
         while not (RUN / 'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN / 'player.log').read_text(errors='replace'):
             assert time.monotonic() < deadline, 'Startup marker timeout'
@@ -247,6 +288,15 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
         command('dump-tutorial')
         shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
+        loaded = []
+        for index in range(2):
+            command('dump-travel')
+            travel = json.loads((RUN / 'travel-route.json').read_text())
+            loaded.append(loaded_travel(travel))
+            shutil.copy2(RUN / 'travel-route.json', RUN / ('loaded-travel-%d.json' % (index + 1)))
+            time.sleep(.5)
+        write('loaded-geometry.json', {'samples': loaded,
+              'boundary': 'Two actual idle loaded-world observations after strict intro cleanup; no movement or collision acceptance'})
         print('Original intro completed in', state['scene'], guards, flush=True)
         success = True
     except BaseException as ex:
@@ -254,6 +304,10 @@ def main():
     finally:
         owned = processes()
         if owned and not (RUN / 'command.txt').exists():
+            try:
+                command('restore-input-policy')
+            except Exception as ex:
+                error = (error or '') + ' input-policy cleanup: ' + repr(ex)
             try:
                 command('quit')
                 quit_ok = True
@@ -279,7 +333,7 @@ def main():
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
                                       'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': 0,
-                                      'imagesOpened': 0, 'scope': 'Original New and source-bound145 intro through original delayed cleanup',
+                                      'imagesOpened': 0, 'scope': 'Original New/source-bound145 intro through delayed cleanup and loaded idle Player/doorway geometry; no movement',
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 

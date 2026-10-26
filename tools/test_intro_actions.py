@@ -19,6 +19,29 @@ def state(entry=205):
 
 
 class IntroActions(unittest.TestCase):
+    def test_loaded_geometry_requires_real_scene_owned_body_and_pair_rows(self):
+        rows = [
+            'travelGuards | gameplay=True | anyEvent=False | conversation=False | axis=0,0,0',
+            'travelPlayer | id=10 | path=Spawned/Player | active=True | enabled=True',
+            'travelBody | id=11 | owner=10 | path=Spawned/Player',
+            'travelBody | id=13 | owner=10 | path=Spawned/Player/PlayerFootSensor',
+            'travelDoor | id=20 | path=Spawned/Environment/Content/Environment/Doorways/DoorwayToCentralForest | scene=BunnyHouse | destination=CentralForest',
+            'travelCollider | id=12 | owner=10 | path=Spawned/Player | tag=Player | rigidbody=Spawned/Player#11',
+            'travelCollider | id=14 | owner=10 | path=Spawned/Player/PlayerFootSensor | tag=Untagged | rigidbody=Spawned/Player/PlayerFootSensor#13',
+            'travelCollider | id=21 | owner=20',
+            'travelPair | playerCollider=12 | doorCollider=21',
+        ]
+        self.assertEqual(intro.loaded_travel(dict(scene='BunnyHouse', diagnostics=rows))['body']['id'], '11')
+        with self.assertRaisesRegex(AssertionError, 'requires BunnyHouse'):
+            intro.loaded_travel(dict(scene='StartMenu', diagnostics=rows))
+        wrong_body = [r.replace('id=11 | owner=10', 'id=11 | owner=99') for r in rows]
+        with self.assertRaisesRegex(AssertionError, 'Body does not belong'):
+            intro.loaded_travel(dict(scene='BunnyHouse', diagnostics=wrong_body))
+        with self.assertRaisesRegex(AssertionError, 'Missing actual enabled collider-pair'):
+            intro.loaded_travel(dict(scene='BunnyHouse', diagnostics=rows[:-1]))
+        with self.assertRaisesRegex(AssertionError, 'requires guarded idle gameplay'):
+            intro.loaded_travel(dict(scene='BunnyHouse', diagnostics=[r.replace('axis=0,0,0', 'axis=-1,0,0') for r in rows]))
+
     def test_final_content_and_free_flags_do_not_replace_original_cleanup(self):
         s = dict(scene='BunnyHouse', conversationActive=False)
         guards = 'guards | gameplay=True | dustin=False | glitch=False | anyEvent=False | notebookLearned=False'

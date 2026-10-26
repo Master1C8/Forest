@@ -260,13 +260,21 @@ public sealed class ForestProbe : MonoBehaviour
     static void TravelColliders(List<string> rows, Component owner) {
         foreach(var collider in owner.GetComponentsInChildren<Collider2D>(true)) {
             var body=collider.attachedRigidbody;
-            rows.Add("travelCollider | owner="+owner.GetInstanceID()+" | path="+Address(collider.transform)+
+            rows.Add("travelCollider | owner="+owner.GetInstanceID()+" | id="+collider.GetInstanceID()+" | path="+Address(collider.transform)+
                 " | type="+collider.GetType().Name+" | active="+collider.gameObject.activeInHierarchy+
                 " | enabled="+collider.enabled+" | trigger="+collider.isTrigger+" | tag="+collider.gameObject.tag+
                 " | layer="+collider.gameObject.layer+" | offset="+Vector(collider.offset)+
                 " | boundsCenter="+Vector(collider.bounds.center)+" | boundsSize="+Vector(collider.bounds.size)+
+                " | boundsMin="+Vector(collider.bounds.min)+" | boundsMax="+Vector(collider.bounds.max)+
                 " | rigidbody="+ObjectAddress(body)+" | simulated="+(body!=null && body.simulated));
         }
+        foreach(var body in owner.GetComponentsInChildren<Rigidbody2D>(true))
+            rows.Add("travelBody | owner="+owner.GetInstanceID()+" | id="+body.GetInstanceID()+
+                " | path="+Address(body.transform)+" | active="+body.gameObject.activeInHierarchy+
+                " | layer="+body.gameObject.layer+" | type="+body.bodyType+" | simulated="+body.simulated+
+                " | position="+Vector(body.position)+" | velocity="+Vector(body.velocity)+
+                " | constraints="+body.constraints+" | gravityScale="+body.gravityScale+
+                " | collisionDetection="+body.collisionDetectionMode+" | fullKinematicContacts="+body.useFullKinematicContacts);
     }
     // Original movement/joystick getters are pinned in travel-20261026. This
     // diagnostic never feeds input, changes focus, enables controls or moves objects.
@@ -299,6 +307,31 @@ public sealed class ForestProbe : MonoBehaviour
                     " | transitioning="+ReadField(door,"transitioning")+" | delay="+ReadField(door,"secondsBeforeTravel")+
                     " | position="+Vector(door.transform.position));
                 TravelColliders(rows,door);
+                // Read only loaded pair settings. These queries do not deliver
+                // collision callbacks or establish that the Player can walk here.
+                // The original spawner reparents Environment under SpawnedContent.
+                // Bind loaded scene, destination and surviving Doorways/name suffix;
+                // the serialized RootActivator path is not a runtime identity.
+                if(door.gameObject.scene.name=="BunnyHouse" &&
+                    DiagnosticValue(ReadField(door,"sceneName"))=="CentralForest" &&
+                    Address(door.transform).EndsWith("/Doorways/DoorwayToCentralForest",StringComparison.Ordinal))
+                    foreach(var player in Resources.FindObjectsOfTypeAll<TheForestOfLove.Player>())
+                        if(player.gameObject.scene.IsValid() && player.gameObject.activeInHierarchy)
+                            foreach(var playerCollider in player.GetComponentsInChildren<Collider2D>(true))
+                                foreach(var doorCollider in door.GetComponentsInChildren<Collider2D>(true))
+                                    if(playerCollider.enabled && playerCollider.gameObject.activeInHierarchy &&
+                                       doorCollider.enabled && doorCollider.gameObject.activeInHierarchy) {
+                                        var distance=playerCollider.Distance(doorCollider);
+                                        rows.Add("travelPair | playerCollider="+playerCollider.GetInstanceID()+
+                                            " | doorCollider="+doorCollider.GetInstanceID()+
+                                            " | ignoredLayers="+Physics2D.GetIgnoreLayerCollision(playerCollider.gameObject.layer,doorCollider.gameObject.layer)+
+                                            " | ignoredPair="+Physics2D.GetIgnoreCollision(playerCollider,doorCollider)+
+                                            " | touching="+playerCollider.IsTouching(doorCollider)+
+                                            " | boundsIntersect="+playerCollider.bounds.Intersects(doorCollider.bounds)+
+                                            " | distanceValid="+distance.isValid+" | overlapped="+distance.isOverlapped+
+                                            " | distance="+distance.distance+" | playerPoint="+Vector(distance.pointA)+
+                                            " | doorPoint="+Vector(distance.pointB));
+                                    }
             }
         foreach(var helper in Resources.FindObjectsOfTypeAll<TheForestOfLove.InputHelper>())
             if(helper.gameObject.scene.IsValid()) {
