@@ -1,0 +1,338 @@
+{
+  "source": "localization/probes/ru-20261026-48/notebook-route.json",
+  "sourceSha256": "64ac868647a275e8a215264bca9777cd0473bc717b40e0a731f53089c9df0730",
+  "scene": "StartMenu",
+  "fields": {
+    "DialoguePreconditionFullAvailabilityRule.areas": {
+      "value": "DialoguePreconditionRequireArea"
+    },
+    "DialoguePreconditionFullAvailabilityRule.areas.areasAllowed": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.areas.areasDenied": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.areas.areasPriorRequired": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.areas.areasPriorDisallowed": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen": {
+      "value": "DialoguePreconditionActorOnscreenOffscreen"
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen.onscreenTriggerName": {
+      "value": "null"
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen.offscreenTriggerName": {
+      "value": "null"
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen.requireActorsOnscreenAny": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen.requireActorsOnscreenAll": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen.requireActorsOffscreenAny": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.actorsOnscreenOffscreen.requireActorsOffscreenAll": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.requireTime": {
+      "value": "DialoguePreconditionRequireTime"
+    },
+    "DialoguePreconditionFullAvailabilityRule.requireTime.triggerName": {
+      "value": "null"
+    },
+    "DialoguePreconditionFullAvailabilityRule.requireTime.requiredTime": {
+      "value": "0"
+    },
+    "DialoguePreconditionFullAvailabilityRule.randomChance": {
+      "value": "DialoguePreconditionPercentChance"
+    },
+    "DialoguePreconditionFullAvailabilityRule.randomChance.percentChance": {
+      "value": "0"
+    },
+    "DialoguePreconditionFullAvailabilityRule.randomChance.maxUnluckyRolls": {
+      "value": "0"
+    },
+    "DialoguePreconditionFullAvailabilityRule.randomChance.lastTotalSceneLoads": {
+      "value": "0"
+    },
+    "DialoguePreconditionFullAvailabilityRule.randomChance.lastRandomValue": {
+      "value": "0"
+    },
+    "DialoguePreconditionFullAvailabilityRule.randomChance.currentUnluckyRolls": {
+      "value": "0"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAny": {
+      "value": "DialoguePreconditionPrecedingQuests"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAny.quests": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAny.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAll": {
+      "value": "DialoguePreconditionPrecedingQuests"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAll.quests": {
+      "values": "Quest(Act1_TutorialQuest)"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.questsAll.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAny": {
+      "value": "DialoguePreconditionPrecedingQuests"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAny.quests": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAny.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAll": {
+      "value": "DialoguePreconditionPrecedingQuests"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAll.quests": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiQuestsAll.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAny": {
+      "value": "DialoguePreconditionPrecedingDialogues"
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAny.dialogues": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAny.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAll": {
+      "value": "DialoguePreconditionPrecedingDialogues"
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAll.dialogues": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.dialoguesAll.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAny": {
+      "value": "DialoguePreconditionPrecedingDialogues"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAny.dialogues": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAny.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAll": {
+      "value": "DialoguePreconditionPrecedingDialogues"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAll.dialogues": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiDialoguesAll.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAny": {
+      "value": "DialoguePreconditionPrecedingTags"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAny.tags": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAny.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAll": {
+      "value": "DialoguePreconditionPrecedingTags"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAll.tags": {
+      "values": "Tag(Main Act 1)"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.tagsAll.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAny": {
+      "value": "DialoguePreconditionPrecedingTags"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAny.tags": {
+      "values": "Tag(Instanced Event)"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAny.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAll": {
+      "value": "DialoguePreconditionPrecedingTags"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAll.tags": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTagsAll.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAny": {
+      "value": "DialoguePreconditionPrecedingTriggers"
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAny.triggers": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAny.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAll": {
+      "value": "DialoguePreconditionPrecedingTriggers"
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAll.triggers": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.triggersAll.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAny": {
+      "value": "DialoguePreconditionPrecedingTriggers"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAny.triggers": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAny.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAll": {
+      "value": "DialoguePreconditionPrecedingTriggers"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAll.triggers": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiTriggersAll.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAny": {
+      "value": "DialoguePreconditionPrecedingItems"
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAny.items": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAny.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAll": {
+      "value": "DialoguePreconditionPrecedingItems"
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAll.items": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.itemsAll.negateCondition": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAny": {
+      "value": "DialoguePreconditionPrecedingItems"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAny.items": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAny.requireAll": {
+      "value": "False"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAny.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAll": {
+      "value": "DialoguePreconditionPrecedingItems"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAll.items": {
+      "values": ""
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAll.requireAll": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.antiItemsAll.negateCondition": {
+      "value": "True"
+    },
+    "DialoguePreconditionFullAvailabilityRule.governingRule": {
+      "value": "null"
+    }
+  },
+  "identityAndTriggerRows": [
+    "notebookDialogue | dbName=GossipQuest_GetTheNotebook | actor=Actor(Scarlett) | quest=Quest(Act1_GossipQuest) | status=Default",
+    "notebookTrigger | conversation=225 | entry=195 | executed=False | skipChapterSelect=False"
+  ],
+  "tutorialRows": [
+    "guards | gameplay=False | anyEvent=False | conversation=False",
+    "activeTags | values=Tag(Main),Tag(Main Act 1)",
+    "quest | name=Act1_TutorialQuest | status=0 | enableWithTags=Tag(Main) | disableWithTags=",
+    "questDialogue | name=TutorialQuest_AskOtterForSugar | actor=Maverick | initialActor=Maverick | status=0 | conversation=128 | type=Quest | first=False | last=False",
+    "primaryArc | dialogue=TutorialQuest_AskOtterForSugar | suffix=p1 | status=0 | entry=165",
+    "questDialogue | name=TutorialQuest_BeaverIntroduction | actor=Bucky | initialActor=Narrator | status=0 | conversation=141 | type=Quest | first=False | last=False",
+    "primaryArc | dialogue=TutorialQuest_BeaverIntroduction | suffix=p1 | status=0 | entry=215",
+    "questDialogue | name=TutorialQuest_DeliverSugarToBunny | actor=Scarlett | initialActor=Scarlett | status=0 | conversation=129 | type=Quest | first=False | last=False",
+    "primaryArc | dialogue=TutorialQuest_DeliverSugarToBunny | suffix=p1 | status=0 | entry=170",
+    "questDialogue | name=TutorialQuest_IntroFromBunny | actor=Scarlett | initialActor=Scarlett | status=0 | conversation=120 | type=Quest | first=True | last=False",
+    "primaryArc | dialogue=TutorialQuest_IntroFromBunny | suffix=p1 | status=0 | entry=153",
+    "questDialogue | name=TutorialQuest_MouseIntroduction | actor=Mabel | initialActor=Mabel | status=0 | conversation=142 | type=Quest | first=False | last=False",
+    "primaryArc | dialogue=TutorialQuest_MouseIntroduction | suffix=p1 | status=0 | entry=155",
+    "questDialogue | name=TutorialQuest_OtterIntroduction | actor=Maverick | initialActor=Maverick | status=0 | conversation=143 | type=Quest | first=False | last=False",
+    "primaryArc | dialogue=TutorialQuest_OtterIntroduction | suffix=p1 | status=0 | entry=162",
+    "quest | name=Act1_GossipQuest | status=0 | enableWithTags=Tag(Main) | disableWithTags=",
+    "questDialogue | name=GossipQuest_GetTheNotebook | actor=Scarlett | initialActor=Scarlett | status=0 | conversation=225 | type=Quest | first=True | last=True",
+    "primaryArc | dialogue=GossipQuest_GetTheNotebook | suffix=p1 | status=0 | entry=191"
+  ],
+  "boundary": "Existing read-only StartMenu snapshot; no condition evaluation, gameplay availability or post-tutorial state measured"
+}

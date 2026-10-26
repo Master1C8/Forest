@@ -1,0 +1,113 @@
+TYPE TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule
+METHOD System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::IsConditionSatisfied() | attributes=Family, Virtual, HideBySig | impl=IL
+IL_0000: ldarg.0
+IL_0001: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::governingRule
+IL_0006: brfalse.s IL_0017
+IL_0008: ldarg.0
+IL_0009: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::governingRule
+IL_000e: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0013: brtrue.s IL_0017
+IL_0015: ldc.i4.0
+IL_0016: ret
+IL_0017: ldc.i4.1
+IL_0018: ldarg.0
+IL_0019: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionRequireArea TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::areas
+IL_001e: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0023: and
+IL_0024: ldarg.0
+IL_0025: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::actorsOnscreenOffscreen
+IL_002a: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_002f: and
+IL_0030: ldarg.0
+IL_0031: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionRequireTime TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::requireTime
+IL_0036: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_003b: and
+IL_003c: ldarg.0
+IL_003d: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPercentChance TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::randomChance
+IL_0042: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0047: and
+IL_0048: ldarg.0
+IL_0049: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingQuests TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::questsAny
+IL_004e: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0053: and
+IL_0054: ldarg.0
+IL_0055: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingQuests TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::questsAll
+IL_005a: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_005f: and
+IL_0060: ldarg.0
+IL_0061: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingQuests TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiQuestsAny
+IL_0066: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_006b: and
+IL_006c: ldarg.0
+IL_006d: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingQuests TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiQuestsAll
+IL_0072: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0077: and
+IL_0078: ldarg.0
+IL_0079: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingDialogues TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::dialoguesAny
+IL_007e: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0083: and
+IL_0084: ldarg.0
+IL_0085: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingDialogues TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::dialoguesAll
+IL_008a: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_008f: and
+IL_0090: ldarg.0
+IL_0091: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingDialogues TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiDialoguesAny
+IL_0096: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_009b: and
+IL_009c: ldarg.0
+IL_009d: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingDialogues TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiDialoguesAll
+IL_00a2: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00a7: and
+IL_00a8: ldarg.0
+IL_00a9: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTags TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::tagsAny
+IL_00ae: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00b3: and
+IL_00b4: ldarg.0
+IL_00b5: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTags TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::tagsAll
+IL_00ba: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00bf: and
+IL_00c0: ldarg.0
+IL_00c1: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTags TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiTagsAny
+IL_00c6: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00cb: brtrue.s IL_00d4
+IL_00cd: ldsfld System.Boolean Globals::Dialogue_Prerequisites_Disable_Antitags_Check
+IL_00d2: br.s IL_00d5
+IL_00d4: ldc.i4.1
+IL_00d5: and
+IL_00d6: ldarg.0
+IL_00d7: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTags TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiTagsAll
+IL_00dc: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00e1: and
+IL_00e2: ldarg.0
+IL_00e3: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTriggers TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::triggersAny
+IL_00e8: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00ed: and
+IL_00ee: ldarg.0
+IL_00ef: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTriggers TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::triggersAll
+IL_00f4: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_00f9: and
+IL_00fa: ldarg.0
+IL_00fb: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTriggers TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiTriggersAny
+IL_0100: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0105: and
+IL_0106: ldarg.0
+IL_0107: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTriggers TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiTriggersAll
+IL_010c: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0111: and
+IL_0112: ldarg.0
+IL_0113: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingItems TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::itemsAny
+IL_0118: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_011d: and
+IL_011e: ldarg.0
+IL_011f: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingItems TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::itemsAll
+IL_0124: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0129: and
+IL_012a: ldarg.0
+IL_012b: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingItems TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiItemsAny
+IL_0130: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0135: and
+IL_0136: ldarg.0
+IL_0137: ldfld TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingItems TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule::antiItemsAll
+IL_013c: callvirt System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePrecondition::get_IsSatisfied()
+IL_0141: and
+IL_0142: ret
