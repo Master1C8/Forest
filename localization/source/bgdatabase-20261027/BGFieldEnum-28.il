@@ -1,0 +1,8 @@
+System.Int32 BansheeGz.BGDatabase.BGFieldEnum::get_ValueSize()
+System.Void BansheeGz.BGDatabase.BGFieldEnum::.ctor(BansheeGz.BGDatabase.BGMetaEntity,System.String,System.Type)
+System.Void BansheeGz.BGDatabase.BGFieldEnum::.ctor(BansheeGz.BGDatabase.BGMetaEntity,BansheeGz.BGDatabase.BGId,System.String)
+System.Func`4<BansheeGz.BGDatabase.BGMetaEntity,BansheeGz.BGDatabase.BGId,System.String,BansheeGz.BGDatabase.BGField> BansheeGz.BGDatabase.BGFieldEnum::CreateFieldFactory()
+System.Enum BansheeGz.BGDatabase.BGFieldEnum::StoredValueToEnum(System.Int32)
+System.Int32 BansheeGz.BGDatabase.BGFieldEnum::EnumToStoredValue(System.Enum)
+System.Byte[] BansheeGz.BGDatabase.BGFieldEnum::ToBytes(System.Int32)
+System.Void BansheeGz.BGDatabase.BGFieldEnum::FromBytes(System.Int32,System.ArraySegment`1<System.Byte>)

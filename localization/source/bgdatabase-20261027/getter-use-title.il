@@ -1,0 +1,1 @@
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass14_0::<GenerateItems>b__0(TheForestOfLove.DB.InventoryItem) | IL_0057: callvirt System.String TheForestOfLove.DB.InventoryItem::get_title()

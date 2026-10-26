@@ -1,0 +1,127 @@
+{
+  "scope": "Only six manually inspected item-output/glitch method files (eight methods); not all managed literals",
+  "fragments": [
+    {
+      "id": "ItemGetNotification-18.il#METHOD System.Void TheForestOfLove.ItemGetNotification::ShowInventoryItemNotification(TheForestOfLove.Inventory.InventoryItemType)@IL_0060",
+      "file": "ItemGetNotification-18.il",
+      "method": "METHOD System.Void TheForestOfLove.ItemGetNotification::ShowInventoryItemNotification(TheForestOfLove.Inventory.InventoryItemType)",
+      "offset": "IL_0060",
+      "source": "You got {0}!",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": [
+        "{0}"
+      ]
+    },
+    {
+      "id": "DialogueCanvasItemGetNotificationController-42.il#METHOD System.Void TheForestOfLove.DialogueCanvasItemGetNotificationController::ShowNotification(System.String)@IL_000e",
+      "file": "DialogueCanvasItemGetNotificationController-42.il",
+      "method": "METHOD System.Void TheForestOfLove.DialogueCanvasItemGetNotificationController::ShowNotification(System.String)",
+      "offset": "IL_000e",
+      "source": "Item received: ",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "DialogueCanvasItemGetNotificationController-42.il#METHOD System.Void TheForestOfLove.DialogueCanvasItemGetNotificationController::ShowNotification(System.String)@IL_002e",
+      "file": "DialogueCanvasItemGetNotificationController-42.il",
+      "method": "METHOD System.Void TheForestOfLove.DialogueCanvasItemGetNotificationController::ShowNotification(System.String)",
+      "offset": "IL_002e",
+      "source": "show",
+      "role": "preserve-exactly",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "DialogueCanvasItemLostNotificationController-43.il#METHOD System.Void TheForestOfLove.DialogueCanvasItemLostNotificationController::TakeItem(System.String)@IL_000e",
+      "file": "DialogueCanvasItemLostNotificationController-43.il",
+      "method": "METHOD System.Void TheForestOfLove.DialogueCanvasItemLostNotificationController::TakeItem(System.String)",
+      "offset": "IL_000e",
+      "source": "Item delivered: ",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "DialogueCanvasItemLostNotificationController-43.il#METHOD System.Void TheForestOfLove.DialogueCanvasItemLostNotificationController::TakeItem(System.String)@IL_002e",
+      "file": "DialogueCanvasItemLostNotificationController-43.il",
+      "method": "METHOD System.Void TheForestOfLove.DialogueCanvasItemLostNotificationController::TakeItem(System.String)",
+      "offset": "IL_002e",
+      "source": "show",
+      "role": "preserve-exactly",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "OverworldItemGetNotificationLite-44.il#METHOD System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)@IL_0007",
+      "file": "OverworldItemGetNotificationLite-44.il",
+      "method": "METHOD System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)",
+      "offset": "IL_0007",
+      "source": "Plank! <.<",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "OverworldItemGetNotificationLite-44.il#METHOD System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)@IL_0022",
+      "file": "OverworldItemGetNotificationLite-44.il",
+      "method": "METHOD System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)",
+      "offset": "IL_0022",
+      "source": "Item found: ",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "OverworldItemGetNotificationLite-44.il#METHOD System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)@IL_0042",
+      "file": "OverworldItemGetNotificationLite-44.il",
+      "method": "METHOD System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)",
+      "offset": "IL_0042",
+      "source": "show",
+      "role": "preserve-exactly",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "OverworldAllInOneNotificationItem-52.il#METHOD System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemFoundNotification(UnityEngine.Sprite,System.String)@IL_004a",
+      "file": "OverworldAllInOneNotificationItem-52.il",
+      "method": "METHOD System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemFoundNotification(UnityEngine.Sprite,System.String)",
+      "offset": "IL_004a",
+      "source": "Item found:\n",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "OverworldAllInOneNotificationItem-52.il#METHOD System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemGetNotification(UnityEngine.Sprite,System.String)@IL_004a",
+      "file": "OverworldAllInOneNotificationItem-52.il",
+      "method": "METHOD System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemGetNotification(UnityEngine.Sprite,System.String)",
+      "offset": "IL_004a",
+      "source": "Item received:\n",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "OverworldAllInOneNotificationItem-52.il#METHOD System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemLostNotification(UnityEngine.Sprite,System.String)@IL_004a",
+      "file": "OverworldAllInOneNotificationItem-52.il",
+      "method": "METHOD System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemLostNotification(UnityEngine.Sprite,System.String)",
+      "offset": "IL_004a",
+      "source": "Item delivered:\n",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "InventoryInfoTicker-46.il#METHOD System.Void TheForestOfLove.InventoryInfoTicker::RandomizeGlitchItemInfoTickerText()@IL_001c",
+      "file": "InventoryInfoTicker-46.il",
+      "method": "METHOD System.Void TheForestOfLove.InventoryInfoTicker::RandomizeGlitchItemInfoTickerText()",
+      "offset": "IL_001c",
+      "source": "NullReferenceException: Object reference not set to an instance of an object\r\nTheForestOfLove.Graphs.Graph.DoWakeUpEdges (System.Collections.Generic.List`1[T] inEdges, System.Collections.Generic.List`1[T] ok, System.Collections.Generic.List`1[T] error, System.Boolean inEdgesUsedToBeValid) (at <b82d8d0a349d4d70807c2fc5746a710f>:0)\r\nat (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\nat System.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Object[] parameters) [0x00032] in <695d1cc93cca45069c528c15c9fdd749>:0 \r\n",
+      "role": "mixed-fictional-code-display",
+      "syntaxPreserved": []
+    },
+    {
+      "id": "InventoryInfoTicker-46.il#METHOD System.Void TheForestOfLove.InventoryInfoTicker::RandomizeGlitchItemInfoTickerText()@IL_0054",
+      "file": "InventoryInfoTicker-46.il",
+      "method": "METHOD System.Void TheForestOfLove.InventoryInfoTicker::RandomizeGlitchItemInfoTickerText()",
+      "offset": "IL_0054",
+      "source": " <color=\"purple\">(Use Me)</color>",
+      "role": "visible-display-fragment",
+      "syntaxPreserved": [
+        "<color=\"purple\">",
+        "</color>"
+      ]
+    }
+  ]
+}

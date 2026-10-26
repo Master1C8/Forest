@@ -1,36 +1,38 @@
-## Phase0066: native termination branch observed with bounded task trace
+## Phase0067: BGDatabase inventory rows and item-text consumers
 
-A finite task-stderr filter is implemented and exercised in one new candidate53.
-All144 tests and40 preflight checks passed;330 files frozen. Both debug masks append
-trace+macdrv, with exact native birth/argv and Windows PID binding. Other macdrv
-records are rejected before persistence; retained trace and diagnostic bytes are bounded.
-Five resource pairs, six recipes, both87-method compiled bridge modes and original
-host/story guards reuse exact verified bytes; no source/input/focus policy change.
+The original resources.assets:320 BGDatabase now has a bounded semantic decoder for
+its InventoryItem sheet. All506640 original bytes are framed, with29 sheet envelopes;
+48 ordered inventory rows /18 typed columns produce144 authored display candidates
+and720 protected cells. All864 cell states match source,818 stored spans re-encode
+exactly and46 absent cells stay absent. Six generated consumer-ID constants match.
+Identical Package/Jar/Fireflies wording retains separate row IDs. The schema's
+uk_savekey is nonunique despite its name; actual48 key values were checked before maps.
 
-53 reached source dialogue153/155/156/157/158 and acknowledged guarded completion158,
-then the game disappeared.15 exact-task trace rows show Unix quit reason0, three
-positive query results, all three end-session completions, reply1 and the driver's
-terminating-process branch. This trace precedes TerminateProcess: syscall success,
-game numeric exit, Cocoa sender and upstream action remain unknown.101 lifecycle
-rows have no observed quit/destroy rows. No crash/owner-action inference or new retry.
-EOF false remains an explicit tail gap, with no retained byte-budget drops.
+Original loader -> DB getters -> GenerateItems -> inventory ticker/notification
+consumers are pinned, including nested tags/vectors and addressable paths. Thirteen
+compiled literal occurrences distinguish9 visible fragments,3 Animator keys and1
+mixed fictional stack trace. Type400's glitch output deliberately displays random
+slices of that trace; its644 characters and four embedded CR bytes are preserved.
+This is authored game content, not runtime crash evidence. Map input hints, the
+Rosetta glyph dependency and cookie icing wording are recorded as source findings.
 
-All15 postrun checks passed: originals150/262, resources5, pins19, owner files,
-QA restoration/bridge removal, empty QA persistence and exact process absence.
-Zero images captured/opened. Seven asset lanes continue independently/read-only.
-53 is consumed; no54 exists. Next bounded work is independent BGDatabase/item-text
-source-consumer inventory in a separate supplement; keep live source/glossary pins
-unchanged and runtime on hold without a materially different admitted hypothesis.
-Complete source/parser/special-scene, initial spawn/other three introductions/notebook/
-Bucky loaded consumers, editorial/final fonts/licenses/resources/local delivery remain
-pending. Accepted10/15/47/48 visuals and50 route remain unchanged. No deployment.
+Exact original Unity TextAsset/hash readback, no-op cell reconstruction and repeated
+extraction pass. No resource was reinserted, translated or run. Other28 BGDatabase
+value/consumer surfaces and complete source/parser/special-scene gates remain pending.
+All19 frozen source/glossary/lane pins remain unchanged; seven asset lanes continue
+independently and read-only to this technical lane. Zero game launches/images/nested model jobs/agents.
 
-Evidence: `localization/source/tutorial-20261026/phase0066/ADAPTER.md`,
-`tests.json`, `format-pins.json`, `verification.json`, `preservation.json`;
-`tools/probe/termination_trace.py`;
-`localization/probes/ru-20261026-53/runtime-diagnosis.json`,
-`termination-trace.log`, `termination-trace-retention.json`, `final-verification.json`.
-Prior summary: `localization/history/phase0065-summary.md`.
+Next: bounded QuestProgressLogText (119 rows,6 columns) and its replacement/history
+consumer, using the known lost-photos comparison finding. Preserve accepted10/15/
+47/48 visuals and50 route.53 stays consumed with no unchanged runtime retry/no54.
+Initial spawn/other3 introductions/notebook/Bucky loaded consumers, editorial/final
+fonts/licenses/resources/local delivery remain pending. No publication/deployment.
+
+Evidence: `localization/source/bgdatabase-20261027/ADAPTER.md`, `source-trace.json`,
+`inventory-decoded.json`, `compiled-fragments.json`, `readback/verification.json`,
+`reproducibility.json`; bounded `decode_inventory.py`, `collect_il.py`,
+`verify_inventory.py` use the existing exporter and Cecil inspector.
+Prior summary: `localization/history/phase0066-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 
