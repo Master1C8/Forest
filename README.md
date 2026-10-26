@@ -12,54 +12,69 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
-Phase0016 completed the original intro in isolated candidate23 through the real
-Start → Play New menus, natural IntroForest/BunnyHouse cutscenes, 49 observed content
-nodes and ten original response buttons. The empty dynamic wrapper109:0 was observed
-with `NewGame_Intro` / `red_double_take` and received no Continue. The final145:249 was
-seen, followed by two BunnyHouse gameplay observations with no conversation or event.
-This is bounded runtime acceptance, with no images or OS input tested.
+Phase0017 traced the original tutorial route and repaired an early-stop defect in
+`tools/probe/diagnose_newgame.py`. Candidate24 reached final145:249 and two free-event
+samples while the BunnyHouse intro controller was still alive, its end trigger absent
+and bed interaction disabled. Its original bounded receipt is preserved; it establishes
+the observed content sequence, not terminal cleanup. The shared runner now waits for
+`Cutscene_IntroBunnyHouse`, destruction of every loaded intro controller, exactly one
+active original bed controller, and all normal no-dialogue/no-event/gameplay guards in
+two consecutive samples. It never invokes cleanup callbacks itself.
 
-Candidate21 found that145:205 needs the sole original response206, rather than the
-subtitle Continue button. Candidate22 then exposed Unity omitting nested custom row
-arrays from the external bridge's JSON. Both failed attempts and cleanup are retained.
-The repaired bridge sends scalar response records in a string array, verifies actual
-response destination/target/visibility, and invokes the original Button.onClick only
-for the sole source-bound successor. The runner checks this transport before New and
-bounds unchanged no-op actions. Six focused tests cover the selector and serialization
-contract; candidate23 separately exercised real Unity production and response delivery.
+Candidate25 exercised this repair in real Unity: early free flags were rejected, then
+the original end trigger fired and delayed cleanup enabled the bed and removed the
+controller. It followed original Start → Play New and the natural intro through49
+content nodes and ten source-bound response buttons. Read-only diagnostics confirmed
+both tutorial/gossip quests and all seven primary arcs at status0, four tutorial
+completion triggers0, active `Main` / `Main Act 1`, and only Player as an active actor.
+There is no active Scarlett interaction to select in this BunnyHouse state. No images,
+OS input, notebook/inventory, CentralForest or tutorial conversation were exercised.
 
-Canonical `tools/probe/diagnose_newgame.py` also waits on empty145 metadata before the
-visible-content branching guard. Original empty145:188 has six outgoing arc roots and
-must receive no input. This small post-launch correction is unit-tested, with identical
-actions on all104 candidate23 recorded states;188 itself was not observed at runtime.
-Never change a live run's frozen helper chain. Freeze the current runner, command.py,
-intro graph, bridge sources/dependencies and build/pin receipts in a new run before use.
+Supplemental original IL, field layouts and six tutorial graphs are pinned under
+`localization/source/tutorial-20261026/`, with reproducible inspector commands and
+hashes. The primary extraction recipe is `tools/inspect_tutorial_source.py`; the other
+bounded getter, input, doorway and cleanup dependencies have separate command receipts.
+Original `CentralForestSpawner.SpawnObjects` automatically creates the tutorial intro
+when `TutorialQuest_IntroFromBunny` is unplayed. Completing `Act1_TutorialQuest` requires
+all four ordinary events: `intro_from_beaver`, `intro_from_mouse`, `intro_from_otter`,
+and `give_sugar_to_bunny`. Normal entry into CentralForest is the next route to verify.
+Source120:158 has two choices159/181; prepare an explicit original-control choice plan
+before following this branch. Do not invoke scene changes, dialogue IDs, callbacks or
+trigger targets directly, or manufacture quest/actor/interaction state.
 
-The original notebook binding remains **225:195**, at the end of PRIMARY129 → 191 →
-192 → 193 → 194 → 195. The loaded `GossipQuest_GetTheNotebook` belongs to actor
-`Scarlett` / quest `Act1_GossipQuest`. Its read-only nested condition fields require,
-under normal rules, completed `Act1_TutorialQuest`, active `Main Act 1` and inactive
-`Instanced Event`. These are necessary conditions, not complete eligibility. Do not
-invoke225 directly, manufacture triggers/quest states or bypass actor/interaction guards.
-The final23 state still has an unlearned notebook and closed MasterLog; inventory has
-not been opened or accepted. Current tutorial state and the ordinary interaction route
-need investigation before a guarded page3/ordinary-empty-cell renderer probe.
+The new `dump-tutorial` bridge command reads original statuses, tags, primary-arc
+states, trigger counts, actual actor/controller identities, authority, touching,
+existing available options and UI selection/lock. Its getters are source-verified;
+it never evaluates dialogue/chance availability, refreshes options or calls CanTrigger.
+Seven focused tests verify the guarded selector, response transport and cleanup
+predicate with matching positive/negative controls. Tests replace state production;
+actual25 separately exercises the original Unity producer and delayed cleanup.
+Candidate24's initial private-getter compilation failure was repaired before any
+launch and its source snapshot/receipt is retained.
 
-Candidates21–23 quit with their exact game/wrapper/crash-helper processes absent;
-original QA assemblies were restored and bridges removed. All original resources/player
-files, five candidate hashes and seven frozen asset-lane inputs stayed unchanged.
-Candidate23 contains only generated `tfol.settings`; the mapped QA persistent directory
-was empty. No restorable story checkpoint is established. Preserve these copies and do
-not rerun them. A later normal replay to exercise a new stage is a new dependency run,
-not a repeated acceptance claim. With low disk space, verified APFS clonefile copies
-provide distinct inodes and isolated writes without deleting prior evidence.
+Candidate21's original response205 issue and22's omitted nested Unity response-array
+issue remain in their exact evidence. Scalar response records and sole-source-successor
+Button.onClick guards remain unchanged. The canonical empty145 metadata wait precedes
+the visible-content branch guard; unobserved bootstrap combinations remain source/test
+only. Preserve candidate10/15's exact accepted dialogue/nameplate/settings native pairs.
 
-See `localization/probes/ru-20261026-23/runtime-diagnosis.json` and
-`localization/source/intro-response-20261026/source-trace.json` for the exact boundary.
-The original13 source groups/intro graph remain reproducible with
-`python3 tools/inspect_newgame_source.py --output <new-project-evidence-directory>`;
-the nine supplemental original consumer groups have exact inspector commands and hashes
-in the new source directory's `extraction.json`. No frozen source/glossary input changed.
+The original notebook activation remains **225:195**, at the end of PRIMARY129 → 191 →
+192 → 193 → 194 → 195. `GossipQuest_GetTheNotebook` belongs to Scarlett / Act1_GossipQuest;
+its normal necessary conditions include completed Act1_TutorialQuest, active Main Act 1
+and inactive Instanced Event. Full quest/actor/unplayed-arc/interaction eligibility still
+needs proof. The final25 notebook remains unlearned,225:195 unexecuted and MasterLog
+closed on pageInventory. Require natural unlock and every original MasterLog guard
+before any guarded inventory/page3/ordinary-empty-cell renderer probe.
+
+Candidates24/25 quit normally with their exact launch/game/wrapper/crash-helper PIDs
+absent. Original QA assemblies were restored and inspection bridges removed; original
+recursive player files, five original/five candidate resources and all seven frozen
+asset-lane inputs are unchanged. Each run froze43 dependencies, including the entire
+later-read helper/bridge/injector chain; all immutable non-runtime snapshots remain
+unchanged. Copies use APFS clonefile with separate inodes and isolated-write fixtures,
+excluding all nested tfol files. Only generated QA settings remain; the mapped QA
+persistent directory is empty. No restorable story checkpoint is established. Trace
+normal input/save consumers before another dependency run; do not rerun old copies.
 
 The quest consumer has three `Contains("lost photos")` tests over displayed history
 before appending photo counters. This needs a bounded consumer adapter before localized

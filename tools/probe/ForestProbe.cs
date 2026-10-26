@@ -74,6 +74,12 @@ public sealed class ForestProbe : MonoBehaviour
                     persistentDataPath=Application.persistentDataPath,diagnostics=NotebookRouteDiagnostics()};
                 File.WriteAllText(Path.Combine(root,"notebook-route.json"),JsonUtility.ToJson(state,true));
             }
+            else if(text=="dump-tutorial") {
+                var state=new NotebookRouteState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                    company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
+                    persistentDataPath=Application.persistentDataPath,diagnostics=TutorialRouteDiagnostics()};
+                File.WriteAllText(Path.Combine(root,"tutorial-route.json"),JsonUtility.ToJson(state,true));
+            }
             else if(text=="quit") Application.Quit();
             else if(text=="show-menu") {
                 var controller=FindObjectOfType<TheForestOfLove.MainMenuController>();
@@ -166,6 +172,101 @@ public sealed class ForestProbe : MonoBehaviour
         if(type.IsPrimitive || type.IsEnum || value is string)return value.ToString();
         var dbName=type.GetField("dbName",BindingFlags.Instance|BindingFlags.Public);
         return type.Name+(dbName==null?"":"("+dbName.GetValue(value)+")");
+    }
+    static object ReadField(object owner, string name) {
+        if(owner==null)return null;
+        var field=owner.GetType().GetField(name,BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic);
+        if(field==null)throw new Exception("Unknown diagnostic field: "+owner.GetType().Name+"."+name);
+        return field.GetValue(owner);
+    }
+    static string ObjectAddress(object value) {
+        var component=value as Component;
+        return component==null?DiagnosticValue(value):Address(component.transform)+"#"+component.GetInstanceID();
+    }
+    static string ListValues(IEnumerable values) {
+        var rows=new List<string>();
+        if(values!=null)foreach(var value in values) {
+            if(rows.Count>=128)throw new Exception("Unexpected diagnostic collection size");
+            rows.Add(DiagnosticValue(value));
+        }
+        return String.Join(",",rows.ToArray());
+    }
+    // Each getter below has read-only original IL pinned in tutorial-20261026.
+    // Never call an oracle, CanTrigger, HasAvailableMessages or IsSatisfied here:
+    // those availability paths can evaluate chance and change the later story.
+    string[] TutorialRouteDiagnostics() {
+        var rows=new List<string>();
+        int introControllers=0,bedControllers=0,activeBedControllers=0;
+        foreach(var cutscene in Resources.FindObjectsOfTypeAll<TheForestOfLove.IntroBunnyHouseCutscene>())
+            if(cutscene.gameObject.scene.IsValid()) {
+                introControllers++;
+                rows.Add("introCutscene | path="+Address(cutscene.transform)+" | active="+cutscene.gameObject.activeInHierarchy+
+                    " | stage="+ReadField(cutscene,"currentStage")+" | timerSet="+ReadField(cutscene,"timerSet")+
+                    " | timerSeconds="+ReadField(cutscene,"timerSecondsRemaining"));
+            }
+        rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
+            " | conversation="+DialogueManager.isConversationActive);
+        rows.Add("activeTags | values="+ListValues(TheForestOfLove.Services.Persistence.DataService.GetActiveTags()));
+        foreach(var questName in new[]{"Act1_TutorialQuest","Act1_GossipQuest"}) {
+            var quest=TheForestOfLove.Services.Persistence.DataService.GetQuestByDbName(questName);
+            if(quest==null)throw new Exception("Missing original quest: "+questName);
+            rows.Add("quest | name="+quest.dbName+" | status="+(int)quest.status+
+                " | enableWithTags="+ListValues(quest.enableWithTags)+" | disableWithTags="+ListValues(quest.disableWithTags));
+            foreach(var dialogue in quest.dialogues) {
+                rows.Add("questDialogue | name="+dialogue.dbName+" | actor="+dialogue.primaryActorDbName+
+                    " | initialActor="+dialogue.initialActorDbName+" | status="+(int)dialogue.status+
+                    " | conversation="+(dialogue.pluginDbConversation==null?-1:dialogue.pluginDbConversation.id)+
+                    " | type="+dialogue.dialogueType+" | first="+dialogue.isFirstDialogueInQuest+
+                    " | last="+dialogue.isLastDialogueInQuest);
+                foreach(var arc in dialogue.primaryArcs)
+                    rows.Add("primaryArc | dialogue="+dialogue.dbName+" | suffix="+arc.pluginDbSuffix+
+                        " | status="+(int)arc.status+" | entry="+(arc.pluginDbFirstDialogueEntry==null?-1:arc.pluginDbFirstDialogueEntry.id));
+            }
+        }
+        foreach(var name in new[]{"Cutscene_IntroForest","Cutscene_IntroBunnyHouse","intro_from_beaver","intro_from_mouse","intro_from_otter","give_sugar_to_bunny"}) {
+            var trigger=TheForestOfLove.Services.Persistence.DataService.GetTriggerByName(name);
+            // Read the backing field, including an explicit absent-record result.
+            rows.Add("trigger | name="+name+" | count="+(trigger==null?"absent":DiagnosticValue(ReadField(trigger,"<CountActivated>k__BackingField"))));
+        }
+        foreach(var actor in Resources.FindObjectsOfTypeAll<TheForestOfLove.Gameplay.SpawnableActor>())
+            if(actor.gameObject.scene.IsValid())
+                rows.Add("actor | path="+Address(actor.transform)+" | id="+actor.GetInstanceID()+
+                    " | dbName="+actor.ActorDbName+" | active="+actor.gameObject.activeInHierarchy+
+                    " | position="+actor.transform.position);
+        foreach(var controller in Resources.FindObjectsOfTypeAll<TheForestOfLove.InteractionUiController>())
+            if(controller.gameObject.scene.IsValid()) {
+                if(Address(controller.transform)=="SpawnedContent/Elements/Bed/Content/Bed(Clone)/Interaction/InteractionIconInspect") {
+                    bedControllers++;
+                    if(controller.gameObject.activeInHierarchy && controller.enabled)activeBedControllers++;
+                }
+                var actor=ReadField(controller,"character") as TheForestOfLove.Gameplay.SpawnableActor;
+                var trigger=ReadField(controller,"dialogueInteractionTrigger") as TheForestOfLove.Interaction.DialogueInteractionTrigger;
+                rows.Add("interaction | path="+Address(controller.transform)+" | id="+controller.GetInstanceID()+
+                    " | active="+controller.gameObject.activeInHierarchy+" | enabled="+controller.enabled+
+                    " | authority="+controller.isAuthority+" | playerTouching="+ReadField(controller,"isPlayerTouching")+
+                    " | actor="+(actor==null?"null":actor.ActorDbName)+" | actorObject="+ObjectAddress(actor)+
+                    " | ui="+ObjectAddress(ReadField(controller,"interactionUi"))+
+                    " | trigger="+ObjectAddress(trigger)+" | options="+ListValues(ReadField(controller,"availableOptions") as IEnumerable)+
+                    " | disallowed="+ListValues(ReadField(controller,"disallowedOptions") as IEnumerable));
+                if(trigger!=null) {
+                    var settings=ReadField(trigger,"settings") as TheForestOfLove.DialogueSettings;
+                    rows.Add("interactionTrigger | owner="+controller.GetInstanceID()+" | active="+trigger.gameObject.activeInHierarchy+
+                        " | authority="+((int)trigger.GetType().GetField("authorityId",BindingFlags.Static|BindingFlags.NonPublic|BindingFlags.Public).GetValue(null)==trigger.gameObject.GetInstanceID())+" | mode="+trigger.interactionMode+
+                        " | touching="+ReadField(trigger,"isPlayerTouching")+" | triggered="+ReadField(trigger,"isTriggered")+
+                        " | onCollision="+ReadField(trigger,"triggerOnCollision")+" | cooldown="+ReadField(trigger,"cooldownLoopsRemaining")+
+                        " | actor="+(settings==null?"null":settings.ActorDbName)+
+                        " | dialogue="+(settings==null?"null":settings.DialogueDbName)+" | arc="+(settings==null?"null":settings.ArcDbName));
+                }
+            }
+        foreach(var ui in Resources.FindObjectsOfTypeAll<TheForestOfLove.InteractionUi>())
+            if(ui.gameObject.scene.IsValid())
+                rows.Add("interactionUi | path="+Address(ui.transform)+" | active="+ui.gameObject.activeInHierarchy+
+                    " | visible="+TheForestOfLove.InteractionUi.visible+" | locked="+ui.locked+" | selected="+ui.currentSelectedOption+
+                    " | available="+ListValues(ReadField(ui,"availableOptions") as IEnumerable));
+        rows.Add("introCleanup | remainingControllers="+introControllers+" | bedControllers="+bedControllers+
+            " | activeBedControllers="+activeBedControllers);
+        return rows.ToArray();
     }
     static void NotebookConditionFields(List<string> rows, object condition, string prefix, int depth) {
         if(condition==null)return;

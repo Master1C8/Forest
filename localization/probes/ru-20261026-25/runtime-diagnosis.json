@@ -1,0 +1,56 @@
+{
+  "result": "passed original final cleanup and bounded tutorial-state diagnostics",
+  "sourceTrace": "localization/source/tutorial-20261026/source-trace.json",
+  "contentNodesObserved": 49,
+  "originalResponsesSubmitted": 10,
+  "guardRegression": {
+    "actualFreeFlagButUnfinishedSamples": 2,
+    "firstFalseFreeElapsed": 216.02,
+    "firstActualCleanupElapsed": 220.888,
+    "twoCompleteConsecutiveSamples": [
+      220.888,
+      222.997
+    ],
+    "actualBoundary": "Original end trigger present, intro object destroyed and bed enabled; early free flags rejected"
+  },
+  "current": {
+    "scene": "BunnyHouse",
+    "tutorialQuestStatus": 0,
+    "gossipQuestStatus": 0,
+    "allSevenPrimaryArcsStatus": 0,
+    "activeTags": [
+      "Main",
+      "Main Act 1"
+    ],
+    "fourTutorialCompletionTriggers": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bothOriginalIntroTriggerCounts": 1,
+    "introControllers": 0,
+    "activeOriginalBedControllers": 1,
+    "activeActorIdentities": [
+      "Player"
+    ],
+    "notebookLearned": false,
+    "notebook225Line195Executed": false,
+    "MasterLog": "closed; pageInventory"
+  },
+  "ordinaryNextRoute": "Normal Player input and actual Doorway collision to CentralForest; original spawner auto-instantiates TutorialQuestBunnyIntroduction if120 unplayed. No direct scene/ID/callback/trigger invocation.",
+  "notTested": [
+    "CentralForest entry",
+    "tutorial120 and its branch158",
+    "ordinary actor interaction",
+    "inventory",
+    "OS input",
+    "visual rendering",
+    "save-and-restore continuation"
+  ],
+  "technicalCheck": "7 source-bound selector/transport/cleanup tests; actual Unity read-only diagnostic production and original delayed cleanup are separate positive runtime evidence",
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "frozenDependencyCount": 43,
+  "durationSeconds": 227.99
+}

@@ -25,6 +25,12 @@ if (args[1] == "--find-literal" || args[1] == "--find-calls") {
     return;
 }
 var type = types.Single(t => t.FullName == args[1]);
+if (args[2] == "--fields") {
+    Console.WriteLine("TYPE " + type.FullName + " BASE " + type.BaseType);
+    foreach (var field in type.Fields) Console.WriteLine("FIELD " + field.FullName + (field.HasConstant ? " = " + field.Constant : ""));
+    foreach (var property in type.Properties) Console.WriteLine("PROPERTY " + property.FullName);
+    return;
+}
 if (args[2] == "--list") {
     foreach (var method in type.Methods) Console.WriteLine(method.FullName);
     return;

@@ -1,0 +1,39 @@
+{
+  "result": "passed bounded original content and new read-only diagnostics; original terminal cleanup not reached by old stop predicate",
+  "sourceTrace": "localization/source/tutorial-20261026/source-trace.json",
+  "evidence": {
+    "newgame-state.json": "278f248729ba7b61d739abbeefc0859fb3953e2002b1188a4cb8259de2a872e2",
+    "newgame-tutorial.json": "5042c0d43c271acbf79236f6a779b912c115df1503138a986068538f45722867",
+    "newgame-notebook.json": "c7415f1345958bf8e0a891a97d5f3c0e85e98b8dbde46110690baa8f84f0a79a",
+    "intro-progression.json": "0dbc33b558aaad79033c908232426438f9825230e5259fbc08d70a38f7a59db0",
+    "cleanup.json": "07cf03a6cad9e9fcb3519db7be0810c7b54e4bd9ab92d9c07fbcaee7015ff28b",
+    "runtime-result.json": "4e175e165067dcc63b5a95e10e216cf397c57ab6a1f61a2e066dcf2ef2b0e7a2"
+  },
+  "observed": {
+    "tutorialQuestStatus": 0,
+    "gossipQuestStatus": 0,
+    "allSevenPrimaryArcsStatus": 0,
+    "activeTags": [
+      "Main",
+      "Main Act 1"
+    ],
+    "fourTutorialCompletionTriggers": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bunnyHouseEndTrigger": "absent",
+    "liveIntroController": true,
+    "bedInteractionActive": false,
+    "anyEvent": false,
+    "notebookLearned": false,
+    "actorScarlett": "inactive cutscene child; no active actor interaction ownership",
+    "interactionAuthority": "all11 loaded controllers false; visible global UI false"
+  },
+  "correction": "Strengthen canonical shared completion predicate.25 is a changed-hypothesis dependency run; never rerun or overwrite24.",
+  "originalInstallSavesResourcesAndSevenPinsUnchanged": true,
+  "imagesOpened": 0,
+  "imagesCaptured": 0,
+  "compileFailure": "compile-attempt-01.json; preserved old source; failed before install/launch, later fixed authority field read compiled successfully"
+}

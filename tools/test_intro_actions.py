@@ -19,6 +19,25 @@ def state(entry=205):
 
 
 class IntroActions(unittest.TestCase):
+    def test_final_content_and_free_flags_do_not_replace_original_cleanup(self):
+        s = dict(scene='BunnyHouse', conversationActive=False)
+        guards = 'guards | gameplay=True | dustin=False | glitch=False | anyEvent=False | notebookLearned=False'
+        cleanup = 'introCleanup | remainingControllers=0 | bedControllers=1 | activeBedControllers=1'
+        trigger = 'trigger | name=Cutscene_IntroBunnyHouse | count=1'
+        self.assertTrue(intro.intro_complete(s, guards, {249}, [cleanup, trigger]))
+        for old, new in [('remainingControllers=0', 'remainingControllers=1'),
+                         ('bedControllers=1', 'bedControllers=0'),
+                         ('activeBedControllers=1', 'activeBedControllers=0')]:
+            self.assertFalse(intro.intro_complete(s, guards, {249}, [cleanup.replace(old, new), trigger]))
+        for count in ['absent', '0']:
+            self.assertFalse(intro.intro_complete(s, guards, {249}, [cleanup, trigger.replace('count=1', 'count='+count)]))
+        self.assertFalse(intro.intro_complete(s, guards, set(), [cleanup, trigger]))
+        self.assertFalse(intro.intro_complete(s, guards.replace('anyEvent=False', 'anyEvent=True'), {249}, [cleanup, trigger]))
+        with self.assertRaisesRegex(AssertionError, 'Missing or ambiguous diagnostic: introCleanup'):
+            intro.intro_complete(s, guards, {249}, [trigger])
+        with self.assertRaisesRegex(AssertionError, 'Missing or ambiguous diagnostic: introCleanup'):
+            intro.intro_complete(s, guards, {249}, [cleanup, cleanup, trigger])
+
     def test_response_transport_requires_complete_serialized_records(self):
         s = dict(responseCount=0, responseRecords=[])
         self.assertEqual(intro.decode_state(s)['responses'], [])

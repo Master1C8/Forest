@@ -82,6 +82,28 @@ def intro_action(state, graph):
     return 'continue'
 
 
+def diagnostic_fields(rows, prefix):
+    matches = [row for row in rows if row.split(' | ')[0] == prefix]
+    assert len(matches) == 1, 'Missing or ambiguous diagnostic: ' + prefix
+    return dict(part.split('=', 1) for part in matches[0].split(' | ')[1:])
+
+
+def intro_complete(state, guards, seen_dialogue, diagnostics):
+    """Original final content, end trigger and delayed cleanup must all finish."""
+    if state['conversationActive'] or state['scene'] != 'BunnyHouse' or 249 not in seen_dialogue:
+        return False
+    fields = diagnostic_fields([guards], 'guards')
+    if any(fields.get(k) != v for k, v in {'gameplay': 'True', 'anyEvent': 'False',
+                                          'dustin': 'False', 'glitch': 'False'}.items()):
+        return False
+    cleanup = diagnostic_fields(diagnostics, 'introCleanup')
+    if cleanup != {'remainingControllers': '0', 'bedControllers': '1', 'activeBedControllers': '1'}:
+        return False
+    triggers = [r for r in diagnostics if r.startswith('trigger | name=Cutscene_IntroBunnyHouse | ')]
+    trigger = diagnostic_fields(triggers, 'trigger')
+    return trigger.get('count', '').isdigit() and int(trigger['count']) > 0
+
+
 def main():
     global RUN, GAME, EXE
     RUN = Path(sys.argv[1]).resolve()
@@ -100,6 +122,8 @@ def main():
     owner[DATA + '/Managed/Assembly-CSharp.dll'] = sha(SOURCE / DATA / 'Managed/Assembly-CSharp.dll')
     pins = json.loads((RUN / 'input-pins.json').read_text())
     assert len(pins) == 7 and all(sha(Path(p)) == h for p, h in pins.items())
+    frozen = json.loads((RUN / 'frozen-files.json').read_text())
+    assert frozen and all(sha(RUN / p) == h for p, h in frozen.items()), 'Frozen dependency mismatch before launch'
     write('original-before.json', owner)
     args = ['/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin/wine', '--bottle',
             '/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam', '--no-update', str(EXE),
@@ -114,7 +138,7 @@ def main():
             child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
         write('launch.json', {'pid': child.pid, 'command': args,
                              'snapshots': {name: sha(RUN / name) for name in
-                                           ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json']},
+                                           ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
                              'scope': 'Original New and normal Continue through source-bound145 intro; no screenshots or forced eligibility'})
         deadline = time.monotonic() + 300
         while not (RUN / 'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN / 'player.log').read_text(errors='replace'):
@@ -129,6 +153,8 @@ def main():
         shutil.copy2(RUN / 'state.json', RUN / 'main-menu.json')
         command('dump-notebook')
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'main-menu-notebook.json')
+        command('dump-tutorial')
+        shutil.copy2(RUN / 'tutorial-route.json', RUN / 'main-menu-tutorial.json')
         command('menu StartScreenMainMenu OnClickStart')
         command('dump')
         state = read_state()
@@ -198,9 +224,14 @@ def main():
                 stable_free = 0
             else:
                 previous = None
-                free = ('gameplay=True' in guards and 'anyEvent=False' in guards
-                        and state['scene'] not in ('IntroForest', 'StartMenu')
-                        and 249 in seen_dialogue)
+                free = False
+                if state['scene'] == 'BunnyHouse' and 249 in seen_dialogue:
+                    command('dump-tutorial')
+                    tutorial = json.loads((RUN / 'tutorial-route.json').read_text())
+                    free = intro_complete(state, guards, seen_dialogue, tutorial['diagnostics'])
+                    observations[-1]['cleanupDiagnostics'] = [r for r in tutorial['diagnostics']
+                        if r.startswith(('introCutscene |', 'introCleanup |', 'trigger | name=Cutscene_IntroBunnyHouse |'))]
+                    write('newgame-observations.json', observations)
                 stable_free = stable_free + 1 if free else 0
                 if stable_free >= 2:
                     break
@@ -211,8 +242,11 @@ def main():
         write('intro-progression.json', {'conversationId': 145, 'seenEntries': sorted(seen_dialogue),
               'observedTransitions': observed_transitions, 'finalScene': state['scene'], 'guards': guards,
               'submittedResponses': submitted_responses,
+              'cleanupBoundary': 'Original Cutscene_IntroBunnyHouse fired, all intro controllers destroyed, exactly one active original bed interaction; two consecutive guarded observations',
               'inputBoundary': 'Original Continue and sole source-bound response Button.onClick on active145 entries; no OS keyboard/controller delivery or forced story state'})
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
+        command('dump-tutorial')
+        shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
         print('Original intro completed in', state['scene'], guards, flush=True)
         success = True
     except BaseException as ex:
@@ -245,7 +279,7 @@ def main():
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
                                       'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': 0,
-                                      'imagesOpened': 0, 'scope': 'Original New and source-bound145 intro to first free gameplay state',
+                                      'imagesOpened': 0, 'scope': 'Original New and source-bound145 intro through original delayed cleanup',
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 
