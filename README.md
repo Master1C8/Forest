@@ -1,43 +1,46 @@
-## Phase0046: original save/Continue consumers and fixture guards prepared
+## Phase0047: ordinary Continue admitted; transition diagnostic failure preserved
 
-Nineteen bounded original IL groups now trace DataPath/PlayerPrefs loading,
-version cleanup, original PlayMenu Continue, normal soft-reset dispatch and
-exact-position Player restoration. The preserved43 QA save matches the required
-schema versions and records its real CentralForest arrival from BunnyHouse,
-completed NewGame_Intro, exact respawn position and unplayed tutorial state.
-Static parsing does not establish successful restoration or continued execution.
+The separate Continue adapter requires the exact frozen QA43 fixture; default New
+still rejects every tfol.*. Native saved-session/menu/control guards precede the
+original PlayMenu.OnClickContinue, including a new game-thread control recheck.
+The primary tutorial arc uses save suffix p1 with an unnamed custom arc; source IL
+and root129->153 binding are pinned separately. All96 focused tests passed. A fresh
+bridge retained33 existing top-level method bodies and original startup markers.
 
-Normal Continue passes through the original ChapterSelect soft-reset scene and
-the original next-update BeginPlaySession callback. It does not need a direct
-chapter selection. The alternate settings object named settingsPersistentData
-uses PlayerPrefs: an empty QA persistence directory alone cannot establish that
-no alternate state exists. The fixture admission helper requires the pinned
-QA-only manifest, exact original file bytes and exactly two DataPath tfol.*
-files, rejecting extra nested saves, changed bytes and symlinked candidates.
+One immutable candidate44 was prepared with472 frozen files. All30 preflight
+checks passed:150 original managed references,262 other originals,5 resource pairs,
+19 lane pins, owner saves/identities/catalog and exact two-file QA fixture. Startup
+became ready in32.173s. Actual native menu fields passed the full fixture guard:
+HasSavedPlaySession, CentralForest/BunnyHouse, respawn vectors/flags/camera, story
+clock, tutorial flags, completed intro, tags and pending tutorial quest/dialogue/arc.
+This proves loaded menu data, not restored Player position or continued execution.
 
-The additive dump-save-continuation diagnostic compiled against all150 original
-managed assemblies. Exact IL comparison retained33 existing top-level methods;
-only dispatch and the new read-only diagnostic differ. It observes loaded
-manifest fields, original flags, real frame/time, Player identity/position and
-existing tutorial diagnostics. Native serialization and runtime order remain
-unverified. All79 focused tests passed (existing70 plus9 fixture-admission
-checks);16 static checks passed, including19 lane pins,150 managed/262 other
-original files,5 resource pairs, owner saves/identity/catalog and no QA runtime.
+Original Continue was acknowledged. After one real StartMenu observation pair,
+DumpSaveContinuation received an exact native NullReferenceException FAIL during
+the transition. The observer retained exit1 and its command hold; no retry, choice,
+forced progression or capture followed. Manifest getters dereference the service
+singleton/manifest before the producer's null check. Temporary service absence is
+the source-backed leading explanation; the failing scene/null field was not
+serialized and remains unobserved. Add read-only service-readiness observations
+before those getters in the next version, preserving real-frame and time budgets.
 
-Candidate44 has NOT been created/prepared/launched. The existing New-only
-observer still rejects every tfol.* and invokes New; its Continue control,
-budget and restored-state branch must be implemented before freezing44. The
-source-backed next recipe stops safely at120:158 before selecting159/181.
-No game launch, image input, original-install write or asset-lane write occurred.
-Accepted43 route/cleanup and10/15 visuals remain scoped and unchanged. Full
-source/special-scene/renderer/editorial/resource/delivery gates remain pending.
+The exact completed FAIL/transport1 was reconciled for cleanup only. Original policy
+restore and Quit were acknowledged; exact task processes are absent, QA DLL restored
+and bridge removed. All15 postrun checks passed;19 lane pins, original install/saves
+and both QA fixture bytes remain unchanged. Original failed runtime/cleanup receipts
+remain historical, with separate reconciliation/cleanup evidence. Numeric game and
+launcher exits remain unknown. Zero images were captured/opened;120:158, initial
+Player restoration and continued tutorial execution remain unverified.
 
-Evidence and the next concrete recipe:
-`localization/source/save-continue-20261026/source-trace.json`,
-`CONTINUE-RECIPE.md`, `fixture-binding.json`, `bridge-verification.json`,
-`tests.json` and `verification.json`. Continue with one new immutable44 only
-once its repaired observer and full freeze/preflight pass; never replay43.
-Previous summary: `localization/history/phase0045-summary.md`.
+Evidence: `localization/probes/ru-20261026-44/runtime-diagnosis.json`,
+`command-reconciliation.json`, `reconciled-cleanup.json`, `final-verification.json`,
+and `localization/source/save-continue-20261026/phase0047/ADAPTER.md`,
+`runtime-finding.json`, `tests.json`, `bridge-verification.json` and `verification.json`.
+Repair the transition diagnostic before a new45;44/43 are consumed and must never
+be replayed. Accepted43 route and10/15 visual evidence remain unchanged. All seven
+asset lanes remain authorized and read-only here. Complete source/special-scene,
+renderer/editorial/resource/delivery acceptance remains pending.
+Previous summary: `localization/history/phase0046-summary.md`.
 
 # The Forest of Love: Russian localization work
 

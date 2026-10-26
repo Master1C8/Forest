@@ -221,9 +221,21 @@ public sealed class ForestProbe : MonoBehaviour
                 match.onClick.Invoke();
             } else if(text.StartsWith("menu ")) {
                 var parts=text.Substring(5).Split(' ');
+                bool savedContinue=parts.Length==2 && parts[0]=="PlayMenu" && parts[1]=="OnClickContinue";
                 if(parts.Length!=2 || !(parts[0]=="StartScreenMainMenu" || parts[0]=="PlayMenu" || parts[0]=="OptionsMenu") ||
-                   !(parts[1]=="OnClickStart" || parts[1]=="OnClickOptions" || parts[1]=="OnClickBack"))
+                   !(parts[1]=="OnClickStart" || parts[1]=="OnClickOptions" || parts[1]=="OnClickBack" || savedContinue))
                     throw new Exception("Unsupported menu command");
+                if(savedContinue) {
+                    if(!TheForestOfLove.Services.Persistence.SaveManager.HasSavedPlaySession ||
+                       UnityEngine.SceneManagement.SceneManager.GetActiveScene().name!="StartMenu" ||
+                       Globals.isChapterSelect || Globals.isCheatCode || DialogueManager.isConversationActive)
+                        throw new Exception("Original saved Continue state unavailable");
+                    int controls=0;
+                    foreach(var b in Resources.FindObjectsOfTypeAll<Button>())
+                        if(b.gameObject.scene.IsValid() && b.gameObject.activeInHierarchy && b.interactable &&
+                           Address(b.transform)=="Canvas/PlayMenu/Controls/Continue")controls++;
+                    if(controls!=1)throw new Exception("Exact original Continue control unavailable");
+                }
                 MonoBehaviour match=null;
                 foreach(var b in Resources.FindObjectsOfTypeAll<MonoBehaviour>())
                     if(b!=null && b.gameObject.activeInHierarchy && b.GetType().Name==parts[0]){
@@ -877,6 +889,7 @@ public sealed class ForestProbe : MonoBehaviour
         public bool finishedControlTutorial, finishedDialogueTutorial, finishedGossipTutorial;
         public string playerPath;
         public int playerInstance;
+        public int introStatus, tutorialIntroControllers;
         public string[] diagnostics;
     }
     void DumpSaveContinuation() {
@@ -886,6 +899,11 @@ public sealed class ForestProbe : MonoBehaviour
         var general=TheForestOfLove.Services.Persistence.DataService.GetGeneralData();
         if(respawn==null || general==null)throw new Exception("Original save manifest not ready");
         var player=TheForestOfLove.Player.current;
+        var intro=TheForestOfLove.Services.Persistence.DataService.GetDialogueByDbName("NewGame_Intro");
+        if(intro==null)throw new Exception("Missing original intro record");
+        int controllers=0;
+        foreach(var controller in Resources.FindObjectsOfTypeAll<TheForestOfLove.TutorialQuestBunnyIntroduction>())
+            if(controller.gameObject.scene.IsValid() && controller.gameObject.activeInHierarchy)controllers++;
         var state=new SaveContinuationState {
             scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
             company=Application.companyName,product=Application.productName,
@@ -907,6 +925,7 @@ public sealed class ForestProbe : MonoBehaviour
             playerPresent=player!=null && player.gameObject.activeInHierarchy,
             playerPath=player==null?null:Address(player.transform),playerInstance=player==null?0:player.GetInstanceID(),
             playerPosition=player==null?Vector3.zero:player.transform.position,
+            introStatus=(int)intro.status,tutorialIntroControllers=controllers,
             diagnostics=TutorialRouteDiagnostics()
         };
         File.WriteAllText(Path.Combine(root,"save-continuation.json"),JsonUtility.ToJson(state,true));

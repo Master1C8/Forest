@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Follow original New through source-bound intro dialogue to the first free gameplay state.
+"""Follow original New/intro or exact QA43 save through ordinary Continue.
 
 Then follow the source-backed natural doorway corridor with guarded left/down pulses.
 No screenshots, forced chapter selection, trigger mutation or inventory opening.
@@ -42,6 +42,8 @@ def launch_options(argv):
     parser.add_argument('--retain-exit', action='store_true', help='Ordinary task-owned parent waits for observer and retains its actual exit code')
     parser.add_argument('--startup-diagnostics', action='store_true',
                         help='Opt-in Wine loader/exception/process and Mono logs; no runtime-policy changes')
+    parser.add_argument('--continue-fixture', action='store_true',
+                        help='Admit only the frozen QA43 fixture and use original Continue; never fall back to New')
     return parser.parse_args(argv)
 
 
@@ -821,6 +823,191 @@ def natural_doorway_route(loaded):
     raise AssertionError('Source-backed route pulse count exhausted; no blind continuation')
 
 
+FIXTURE_SHA256 = '4ff9760850d3d2aa20ceae44a20696c4a5aab3daf59a3ba00fdd3ec4f72b2d36'
+
+
+def admit_session(game, run, use_continue):
+    """Default New stays file-free; Continue admits only exact frozen QA43 bytes."""
+    if not use_continue:
+        assert not list(game.rglob('tfol.*')), 'New forbids every existing player file'
+        return None
+    # Import from this observer's own frozen directory, never a live checkout helper.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from save_fixture import expectations, candidate_files
+    fixture = expectations(run / 'qa-fixture/manifest.json', FIXTURE_SHA256)
+    candidate_files(game, fixture['files'])
+    return fixture
+
+
+def qa_identity(state):
+    assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe', 'Unexpected QA identity'
+    assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA), 'Unexpected QA DataPath'
+
+
+def vector_matches(actual, expected):
+    return set(actual) == set(expected) == {'x', 'y', 'z'} and all(
+        math.isfinite(actual[k]) and abs(actual[k] - expected[k]) <= .00001 for k in expected)
+
+
+def loaded_fixture_guard(state, fixture):
+    """Original loaded data at the menu, before any Continue submission."""
+    qa_identity(state)
+    assert state['scene'] == 'StartMenu' and state['hasSavedPlaySession'] is True, 'Original saved session not loaded at menu'
+    assert all(state[k] is False for k in ['isChapterSelect', 'isCheatCode', 'isFinishingSoftReset',
+                                         'gameplay', 'anyEvent', 'conversation', 'playerPresent']), 'Unexpected saved menu flags'
+    assert state['currentArea'] == 'CentralForest' and state['lastArea'] == 'BunnyHouse', 'Loaded saved areas differ'
+    respawn = fixture['playerRespawnData']
+    for key in ['lastPosition', 'lastSpawnPosition']:
+        assert vector_matches(state[key], respawn[key]), 'Loaded saved vector differs: ' + key
+    for key in ['lastPositionExact', 'isSwimming', 'isFastTraveling', 'cameraSettingsObjectName']:
+        assert state[key] == respawn[key], 'Loaded saved field differs: ' + key
+    general = fixture['generalData']
+    assert math.isfinite(state['storyClock']) and abs(state['storyClock'] - general['storyClock']) <= .00001, 'Loaded story clock differs'
+    assert all(state[k] == general[k] for k in ['finishedControlTutorial', 'finishedDialogueTutorial', 'finishedGossipTutorial']), 'Loaded tutorial completion differs'
+    assert state['introStatus'] == 200 and state['tutorialIntroControllers'] == 0, 'Loaded intro state differs'
+    rows = state['diagnostics']
+    assert diagnostic_fields(rows, 'activeTags') == {'values': 'Tag(Main),Tag(Main Act 1)'}, 'Loaded tags differ'
+    expected_rows = [
+        'trigger | name=Cutscene_IntroBunnyHouse | count=1',
+        'quest | name=Act1_TutorialQuest | status=0 | enableWithTags=Tag(Main) | disableWithTags=',
+        'questDialogue | name=TutorialQuest_IntroFromBunny | actor=Scarlett | initialActor=Scarlett | status=0 | conversation=120 | type=Quest | first=True | last=False',
+        'primaryArc | dialogue=TutorialQuest_IntroFromBunny | suffix=p1 | status=0 | entry=153']
+    assert all(rows.count(row) == 1 for row in expected_rows), 'Loaded intro/tutorial records differ'
+
+
+def continue_menu_guard(state):
+    qa_identity(state)
+    assert state['scene'] == 'StartMenu' and 'PlayMenu Canvas/PlayMenu' in state['components'], 'Original Play menu not active'
+    assert state['buttons'].count('Canvas/PlayMenu/Controls/Continue') == 1, 'Exact original Continue control unavailable'
+
+
+def tutorial_action(state, prefix):
+    """Advance only the pinned linear prefix;158 is an unconditional choice stop."""
+    if not state['conversationActive']:
+        return None
+    assert state['narrativeDbName'] == 'TutorialQuest_IntroFromBunny' and state['narrativeArcName'] in [None, ''], 'Unexpected restored narrative binding'
+    if state['conversationId'] == 109:
+        assert state['entryId'] in [0, 5, 8] and not state.get('conversationState'), 'Unexpected tutorial wrapper content'
+        return None
+    assert state['conversationId'] == prefix['conversation'] == 120, 'Unexpected tutorial conversation'
+    assert state['entryId'] in range(153, 159), 'Stop before unapproved tutorial choice'
+    entry = next(e for e in prefix['entries'] if e['id'] == state['entryId'])
+    # [pic=N] is a source portrait directive, absent from the formatted subtitle.
+    text = entry['text']
+    if text.startswith('[pic='):
+        text = text.split(']', 1)[1]
+    assert state['conversationState'] == text, 'Tutorial subtitle differs from exact source'
+    responses = [r for r in state['responses'] if r['visible'] and r['clickable']]
+    links = entry['outgoingLinks']
+    if state['entryId'] == 158:
+        if state['typing'] or not responses:
+            return None
+        assert len(responses) == 2 and {r['entryId'] for r in responses} == {159, 181}, 'Tutorial choice set differs'
+        for row in responses:
+            target = next(e for e in prefix['entries'] if e['id'] == row['entryId'])
+            assert row['conversationId'] == 120 and row['targetPath'] and row['text'] == target['text'], 'Tutorial choice binding/text differs'
+        return 'target-settled'
+    assert len(links) == 1 and links[0]['destinationConversationID'] == 120 and links[0]['destinationDialogueID'] == state['entryId'] + 1, 'Tutorial linear source changed'
+    if responses:
+        assert len(responses) == 1, 'Unexpected tutorial response branch'
+        row = responses[0]
+        target = next(e for e in prefix['entries'] if e['id'] == state['entryId'] + 1)
+        assert row['conversationId'] == 120 and row['entryId'] == target['id'] and row['text'] == target['text'] and row['targetPath'], 'Tutorial sole response differs'
+        return 'response %s 120 %s' % (state['entryId'], target['id'])
+    return 'continue-bound 120 ' + str(state['entryId'])
+
+
+class ContinueObservationBudget(IntroObservationBudget):
+    """Same hard/stage/idle caps, monotone real frames and source-only milestones."""
+    def observe_continue(self, now, state, prefix):
+        self.check(now)
+        assert state['frame'] > self.frame and state['realtime'] > self.realtime, 'Continue observation must be a new real frame'
+        assert all(math.isfinite(state[k]) and state[k] >= 0 for k in ['realtime', 'scaledTime', 'timeScale']), 'Invalid original Unity clocks'
+        self.frame, self.realtime = state['frame'], state['realtime']
+        assert state['scene'] in ['StartMenu', 'SoftResetLoadingScene', 'ChapterSelect', 'CentralForest'], 'Unexpected restored scene'
+        action = tutorial_action(state, prefix)
+        milestone = ('scene', state['scene']) if not state['conversationActive'] else ('entry', state['conversationId'], state['entryId'])
+        if action is not None and self.stage == 'bootstrap':
+            self.stage, self.stage_started, self.progress_at = 'dialogue', now, now
+        if milestone not in self.milestones:
+            self.milestones.add(milestone)
+            self.progress_at = now
+        self.terminal_frames = self.terminal_frames + [state['frame']] if action == 'target-settled' else []
+        return action, len(self.terminal_frames) >= 2
+
+
+def continue_from_fixture(menu, fixture, budget):
+    continue_menu_guard(menu)
+    command('dump-save-continuation', deadline=budget.deadline)
+    loaded = json.loads((RUN / 'save-continuation.json').read_text())
+    shutil.copy2(RUN / 'save-continuation.json', RUN / 'continue-menu-loaded.json')
+    loaded_fixture_guard(loaded, fixture)
+    prefix = json.loads((RUN / 'tutorial-prefix.json').read_text())
+    command('menu PlayMenu OnClickContinue', deadline=budget.deadline)
+    observations, actions = [], []
+    first_player = None
+    saw_controller = False
+    previous_entry = None
+    last_action, repeats = None, 0
+    while True:
+        budget.check(time.monotonic())
+        command('dump-save-continuation', deadline=budget.deadline)
+        saved = json.loads((RUN / 'save-continuation.json').read_text())
+        qa_identity(saved)
+        command('dump-intro', deadline=budget.deadline)
+        state = decode_state(json.loads((RUN / 'intro-state.json').read_text()))
+        qa_identity(state)
+        action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix)
+        assert saved['hasSavedPlaySession'] and not saved['isChapterSelect'] and not saved['isCheatCode'], 'Restored session flags changed'
+        if saved['scene'] == 'CentralForest' and saved['playerPresent']:
+            assert saved['gameplay'] and saved['playerPath'] == 'SpawnedContent/Player/Content/Player(Clone)' and saved['playerInstance'] != 0, 'Restored root Player identity differs'
+            if first_player is None:
+                first_player = dict(saved, matchesFixturePosition=vector_matches(saved['playerPosition'], fixture['playerRespawnData']['lastPosition']),
+                                    boundary='First host-observed Player; original tutorial may already have moved it. Not necessarily the spawn frame.')
+                write('continue-first-player.json', first_player)
+            saw_controller = saw_controller or saved['tutorialIntroControllers'] == 1
+        observations.append(dict(save=saved, intro=state, action=action, budget=budget.receipt(time.monotonic())))
+        write('continue-observations.json', observations)
+        write('intro-observation-budget.json', budget.receipt(time.monotonic()))
+        if state['conversationActive'] and state['conversationId'] == 120:
+            if previous_entry is not None:
+                assert state['entryId'] in [previous_entry, previous_entry + 1], 'Unexpected tutorial transition'
+            else:
+                assert state['entryId'] == 153, 'Tutorial prefix did not start at153'
+            previous_entry = state['entryId']
+        if terminal_pair:
+            assert first_player is not None and saw_controller, 'Missing original Player/tutorial controller observation'
+            write('continue-progression.json', dict(result='target-settled', conversationId=120, entryId=158,
+                actualTerminalFrames=budget.terminal_frames, choicesSubmitted=0, initialSpawnPositionVerified=False,
+                firstObservedPositionMatchesFixture=first_player['matchesFixturePosition'],
+                positionBoundary='Host observation cannot establish the initial spawn frame; retained separately from normal continuation.',
+                observationBudget=budget.receipt(time.monotonic())))
+            # Native Unity framebuffer capture, no activation, OS overlay or pixel input.
+            command('capture ru-01-tutorial-choice.png', deadline=budget.deadline)
+            capture = RUN / 'ru-01-tutorial-choice.png'
+            while not capture.exists() and time.monotonic() < budget.deadline:
+                time.sleep(.1)
+            assert capture.is_file(), 'Native capture did not materialize within existing observation budget'
+            command('dump', deadline=budget.deadline)
+            final = read_state()
+            assert tutorial_action(final, prefix) == 'target-settled', 'Tutorial state changed across capture'
+            shutil.copy2(RUN / 'state.json', RUN / 'capture-state.json')
+            break
+        if action and action != 'target-settled':
+            key = (state['entryId'], action)
+            repeats = repeats + 1 if key == last_action else 1
+            last_action = key
+            assert repeats <= (1 if action.startswith('response ') else 3), 'Tutorial action did not advance'
+            command(action, deadline=budget.deadline)
+            receipt = json.loads((RUN / 'continue-receipt.json').read_text()) if action.startswith('continue-bound ') else None
+            if receipt is not None:
+                continue_outcome(state, receipt)
+            actions.append(dict(action=action, frame=state['frame'], receipt=receipt))
+            write('continue-actions.json', actions)
+        budget.check(time.monotonic())
+        time.sleep(min(.3 if state['conversationActive'] else 1, max(0, budget.deadline-time.monotonic())))
+
+
 def main():
     global RUN, GAME, EXE, LAUNCHER
     options = launch_options(sys.argv[1:])
@@ -830,7 +1017,7 @@ def main():
     assert RUN.parent == Path('/Users/antonkrutov/Desktop/Forest/localization/probes')
     assert Path(__file__).resolve().parent == RUN, 'Run the immutable snapshot'
     assert not (RUN / 'launch.json').exists() and not processes(), 'Reconcile any previous launch'
-    assert not list(GAME.rglob('tfol.*'))
+    fixture = admit_session(GAME, RUN, options.continue_fixture)
     report = json.loads((RUN / 'build.json').read_text())
     assert len(report['files']) == 5 and report['saveIsolation']['companyName'] == 'VNRevivalQA'
     for row in report['files']:
@@ -864,7 +1051,7 @@ def main():
                              'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
-                             'scope': 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility'})
+                             'scope': ('Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility')})
         wait_for_ready(child)
         (RUN / 'actions.log').touch(exist_ok=True)
         observe_focus_boundary('ready', force=True)
@@ -875,7 +1062,7 @@ def main():
         assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
         shutil.copy2(RUN / 'state.json', RUN / 'main-menu.json')
         observe_original_menu()
-        observe_focus_boundary('menu-before-New', force=True)
+        observe_focus_boundary('menu-before-Continue' if options.continue_fixture else 'menu-before-New', force=True)
         command('dump-notebook')
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'main-menu-notebook.json')
         command('dump-tutorial')
@@ -887,100 +1074,104 @@ def main():
         shutil.copy2(RUN / 'state.json', RUN / 'play-menu.json')
         command('dump-notebook')
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'play-menu-notebook.json')
-        assert 'Canvas/PlayMenu/Controls/New' in state['buttons']
-        assert not any('/Continue' in b for b in state['buttons']), 'Do not overwrite an existing QA session'
-        graph = json.loads((RUN / 'intro-graph.json').read_text())
-        assert graph['conversationId'] == 145
-        assert graph['wrapper']['conversationId'] == 109
-        assert graph['wrapper']['bootstrapEntries'] == [0, 5, 8]
-        assert graph['wrapper']['narrativeDbName'] == 'NewGame_Intro'
-        entries = {e['id']: e for e in graph['entries']}
-        budget = IntroObservationBudget(time.monotonic())
-        command('menu PlayMenu OnClickStart', deadline=budget.deadline)
-        observations = []
-        seen_dialogue = set()
-        previous = None
-        observed_transitions = []
-        submitted_responses = []
-        submitted_continues = []
-        last_action_key = None
-        same_action_count = 0
-        while True:
-            budget.check(time.monotonic())
-            command('dump-intro', deadline=budget.deadline)
-            state = decode_state(json.loads((RUN / 'intro-state.json').read_text()))
-            assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
-            assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
-            guards, action, terminal_pair = budget.observe(time.monotonic(), state, graph, seen_dialogue)
-            observe_focus_boundary('intro')
-            key = (state['scene'], state['conversationActive'], state['conversationId'], state['entryId'])
-            observations.append({'elapsed': round(time.monotonic() - started, 3),
-                                 'scene': key[0], 'conversationActive': key[1],
-                                 'conversationId': key[2], 'entryId': key[3], 'typing': state['typing'],
-                                 'narrativeDbName': state['narrativeDbName'], 'narrativeArcName': state['narrativeArcName'],
-                                 'responses': state['responses'],
-                                 'guards': guards, 'frame': state['frame'], 'realtime': state['realtime'],
-                                 'scaledTime': state['scaledTime'], 'timeScale': state['timeScale'],
-                                 'cleanupDiagnostics': state['introDiagnostics'],
-                                 'budget': budget.receipt(time.monotonic())})
-            write('newgame-observations.json', observations)
-            write('intro-observation-budget.json', budget.receipt(time.monotonic()))
-            if terminal_pair:
-                break
-            if state['conversationActive'] and action is None:
-                # Original wrapper/bootstrap and empty metadata must progress themselves.
-                previous = None
-            elif state['conversationActive']:
-                if previous is not None and previous != state['entryId']:
-                    links = entries[previous]['outgoingLinks']
-                    if links:
-                        assert (links[0]['destinationConversationID'], links[0]['destinationDialogueID']) == (145, state['entryId']), 'Unexpected graph transition'
-                    observed_transitions.append([previous, state['entryId']])
-                previous = state['entryId']
-                seen_dialogue.add(state['entryId'])
-                action_key = (key, action)
-                same_action_count = same_action_count + 1 if action_key == last_action_key else 1
-                last_action_key = action_key
-                # At most fast-forward then advance, with one settling observation.
-                # A response submits once. Never repeat an unchanged no-op indefinitely.
-                assert same_action_count <= (1 if action.startswith('response ') else 3), 'Original action did not advance; inspect boundary'
-                command(action, deadline=budget.deadline)
-                if action.startswith('continue-bound '):
-                    receipt = json.loads((RUN / 'continue-receipt.json').read_text())
-                    result = continue_outcome(state, receipt)
-                    submitted_continues.append(dict(action=action, receipt=receipt))
-                    write('intro-continues.json', submitted_continues)
-                    if result == 'stale':
-                        # Re-observe original progression. Do not replay this
-                        # stale request or credit an action to another entry.
-                        previous = last_action_key = None
-                        same_action_count = 0
-                if action.startswith('response '):
-                    destination = int(action.split()[3])
-                    submitted_responses.append({'source': state['entryId'], 'destination': destination,
-                                                'response': state['responses'], 'action': action})
-                    write('intro-responses.json', submitted_responses)
-                    observed_transitions.append([state['entryId'], destination])
-                    previous = destination
-            else:
-                previous = None
-            budget.check(time.monotonic())
-            time.sleep(min(.3 if state['conversationActive'] else 1,
-                           max(0, budget.deadline-time.monotonic())))
-        write('newgame-state.json', state)
-        write('intro-progression.json', {'conversationId': 145, 'seenEntries': sorted(seen_dialogue),
-              'observedTransitions': observed_transitions, 'finalScene': state['scene'], 'guards': guards,
-              'submittedResponses': submitted_responses,
-              'observationBudget': budget.receipt(time.monotonic()),
-              'cleanupBoundary': 'Original Cutscene_IntroBunnyHouse fired, all intro controllers destroyed, exactly one active original bed interaction; two consecutive guarded observations',
-              'inputBoundary': 'Original Continue and sole source-bound response Button.onClick on active145 entries; no OS keyboard/controller delivery or forced story state'})
-        command('dump-notebook')
-        shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
-        command('dump-tutorial')
-        shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
-        loaded = observe_loaded_travel()
-        natural_doorway_route(loaded[-1])
-        print('Original intro completed in', state['scene'], guards, flush=True)
+        if options.continue_fixture:
+            budget = ContinueObservationBudget(time.monotonic())
+            continue_from_fixture(state, fixture, budget)
+        else:
+            assert 'Canvas/PlayMenu/Controls/New' in state['buttons']
+            assert not any('/Continue' in b for b in state['buttons']), 'Do not overwrite an existing QA session'
+            graph = json.loads((RUN / 'intro-graph.json').read_text())
+            assert graph['conversationId'] == 145
+            assert graph['wrapper']['conversationId'] == 109
+            assert graph['wrapper']['bootstrapEntries'] == [0, 5, 8]
+            assert graph['wrapper']['narrativeDbName'] == 'NewGame_Intro'
+            entries = {e['id']: e for e in graph['entries']}
+            budget = IntroObservationBudget(time.monotonic())
+            command('menu PlayMenu OnClickStart', deadline=budget.deadline)
+            observations = []
+            seen_dialogue = set()
+            previous = None
+            observed_transitions = []
+            submitted_responses = []
+            submitted_continues = []
+            last_action_key = None
+            same_action_count = 0
+            while True:
+                budget.check(time.monotonic())
+                command('dump-intro', deadline=budget.deadline)
+                state = decode_state(json.loads((RUN / 'intro-state.json').read_text()))
+                assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
+                assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
+                guards, action, terminal_pair = budget.observe(time.monotonic(), state, graph, seen_dialogue)
+                observe_focus_boundary('intro')
+                key = (state['scene'], state['conversationActive'], state['conversationId'], state['entryId'])
+                observations.append({'elapsed': round(time.monotonic() - started, 3),
+                                     'scene': key[0], 'conversationActive': key[1],
+                                     'conversationId': key[2], 'entryId': key[3], 'typing': state['typing'],
+                                     'narrativeDbName': state['narrativeDbName'], 'narrativeArcName': state['narrativeArcName'],
+                                     'responses': state['responses'],
+                                     'guards': guards, 'frame': state['frame'], 'realtime': state['realtime'],
+                                     'scaledTime': state['scaledTime'], 'timeScale': state['timeScale'],
+                                     'cleanupDiagnostics': state['introDiagnostics'],
+                                     'budget': budget.receipt(time.monotonic())})
+                write('newgame-observations.json', observations)
+                write('intro-observation-budget.json', budget.receipt(time.monotonic()))
+                if terminal_pair:
+                    break
+                if state['conversationActive'] and action is None:
+                    # Original wrapper/bootstrap and empty metadata must progress themselves.
+                    previous = None
+                elif state['conversationActive']:
+                    if previous is not None and previous != state['entryId']:
+                        links = entries[previous]['outgoingLinks']
+                        if links:
+                            assert (links[0]['destinationConversationID'], links[0]['destinationDialogueID']) == (145, state['entryId']), 'Unexpected graph transition'
+                        observed_transitions.append([previous, state['entryId']])
+                    previous = state['entryId']
+                    seen_dialogue.add(state['entryId'])
+                    action_key = (key, action)
+                    same_action_count = same_action_count + 1 if action_key == last_action_key else 1
+                    last_action_key = action_key
+                    # At most fast-forward then advance, with one settling observation.
+                    # A response submits once. Never repeat an unchanged no-op indefinitely.
+                    assert same_action_count <= (1 if action.startswith('response ') else 3), 'Original action did not advance; inspect boundary'
+                    command(action, deadline=budget.deadline)
+                    if action.startswith('continue-bound '):
+                        receipt = json.loads((RUN / 'continue-receipt.json').read_text())
+                        result = continue_outcome(state, receipt)
+                        submitted_continues.append(dict(action=action, receipt=receipt))
+                        write('intro-continues.json', submitted_continues)
+                        if result == 'stale':
+                            # Re-observe original progression. Do not replay this
+                            # stale request or credit an action to another entry.
+                            previous = last_action_key = None
+                            same_action_count = 0
+                    if action.startswith('response '):
+                        destination = int(action.split()[3])
+                        submitted_responses.append({'source': state['entryId'], 'destination': destination,
+                                                    'response': state['responses'], 'action': action})
+                        write('intro-responses.json', submitted_responses)
+                        observed_transitions.append([state['entryId'], destination])
+                        previous = destination
+                else:
+                    previous = None
+                budget.check(time.monotonic())
+                time.sleep(min(.3 if state['conversationActive'] else 1,
+                               max(0, budget.deadline-time.monotonic())))
+            write('newgame-state.json', state)
+            write('intro-progression.json', {'conversationId': 145, 'seenEntries': sorted(seen_dialogue),
+                  'observedTransitions': observed_transitions, 'finalScene': state['scene'], 'guards': guards,
+                  'submittedResponses': submitted_responses,
+                  'observationBudget': budget.receipt(time.monotonic()),
+                  'cleanupBoundary': 'Original Cutscene_IntroBunnyHouse fired, all intro controllers destroyed, exactly one active original bed interaction; two consecutive guarded observations',
+                  'inputBoundary': 'Original Continue and sole source-bound response Button.onClick on active145 entries; no OS keyboard/controller delivery or forced story state'})
+            command('dump-notebook')
+            shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
+            command('dump-tutorial')
+            shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
+            loaded = observe_loaded_travel()
+            natural_doorway_route(loaded[-1])
+            print('Original intro completed in', state['scene'], guards, flush=True)
         success = True
     except BaseException as ex:
         error = repr(ex)
@@ -1022,8 +1213,8 @@ def main():
                                'inputPinsUnchanged': pins_ok, 'candidateAssetHashesUnchanged': all(sha(GAME / DATA / r['path']) == r['probeSha256'] for r in report['files']),
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
-                                      'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': 0,
-                                      'imagesOpened': 0, 'scope': 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry',
+                                      'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': len(list(RUN.glob('ru-*.png'))),
+                                      'imagesOpened': 0, 'scope': ('Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 

@@ -1,0 +1,19 @@
+2026-10-26T16:55:33.9774290Z OK dump-focus
+2026-10-26T16:55:34.8208760Z OK show-menu
+2026-10-26T16:55:35.0598920Z OK dump
+2026-10-26T16:55:35.4071550Z OK sample-keyboard-start
+2026-10-26T16:55:35.6270590Z OK sample-keyboard-snapshot
+2026-10-26T16:55:35.8410080Z OK sample-keyboard-stop
+2026-10-26T16:55:36.2407830Z OK dump-focus
+2026-10-26T16:55:36.6750030Z OK dump-notebook
+2026-10-26T16:55:36.8868210Z OK dump-tutorial
+2026-10-26T16:55:37.2855300Z OK menu StartScreenMainMenu OnClickStart
+2026-10-26T16:55:37.5095930Z OK dump
+2026-10-26T16:55:37.6940080Z OK dump-notebook
+2026-10-26T16:55:38.1170950Z OK dump-save-continuation
+2026-10-26T16:55:38.3331790Z OK menu PlayMenu OnClickContinue
+2026-10-26T16:55:38.5449740Z OK dump-save-continuation
+2026-10-26T16:55:38.7623060Z OK dump-intro
+2026-10-26T16:55:40.0307840Z FAIL dump-save-continuation System.NullReferenceException: Object reference not set to an instance of an object
+  at ForestProbe.DumpSaveContinuation () [0x00001] in <614a80564cca4b8f830efa255125b52b>:0 
+  at ForestProbe.Update () [0x000b4] in <614a80564cca4b8f830efa255125b52b>:0 
