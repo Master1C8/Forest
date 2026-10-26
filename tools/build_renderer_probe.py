@@ -15,6 +15,7 @@ from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
 from extract_assets import read_tree, canonical
 from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
+from settings_glow import settings_glow_plan
 
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
@@ -54,7 +55,9 @@ def main():
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
     parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
+    parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     args = parser.parse_args()
+    assert not args.repair_settings_glow or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     out = args.output.resolve()
@@ -69,6 +72,7 @@ def main():
     # Preserve the recipe used by this attempt, including partial failures.
     shutil.copy2(Path(__file__), out / 'build_renderer_probe.py')
     shutil.copy2(PROJECT / 'tools/tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
+    shutil.copy2(PROJECT / 'tools/settings_glow.py', out / 'settings_glow.py')
     runtime = out / 'game'
     shutil.copytree(SOURCE, runtime, ignore=shutil.ignore_patterns('tfol.*', '*.log', '*.dmp'))
     target = runtime / DATA_NAME
@@ -98,6 +102,7 @@ def main():
         env = UnityPy.load(str(SOURCE / DATA_NAME / name))
         objects = {o.path_id: o for o in env.objects}
         selected = {}
+        glow_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
@@ -139,6 +144,9 @@ def main():
                 tree = read_tree(obj, generator)
                 if tree.get('m_text') in report['menuSamples']:
                     selected[obj.path_id] = obj
+            if args.repair_settings_glow:
+                glow_repairs, report['settingsGlowRepair'] = settings_glow_plan(objects, generator)
+                selected.update({pid: objects[pid] for pid in glow_repairs})
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
         raw_hashes = {pid: hashlib.sha256(obj.get_raw_data()).hexdigest() for pid, obj in objects.items()}
@@ -178,7 +186,10 @@ def main():
                     # existing glyph/atlas tables of this dynamic fallback.
                     tree['m_FaceInfo']['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
             elif name == 'level1':
-                tree['m_text'] = report['menuSamples'][tree['m_text']]
+                if pid in glow_repairs:
+                    tree = copy.deepcopy(glow_repairs[pid])
+                else:
+                    tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif obj.type.name == 'Font':
                 assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
                 # The default repair extends the existing fallback only. The

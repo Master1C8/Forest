@@ -22,6 +22,8 @@ public sealed class ForestProbe : MonoBehaviour
         public int conversationId, entryId, tmpObjectCount;
         public string[] rendererDiagnostics;
         public string[] subtitleGlyphDiagnostics;
+        public string[] settingsGlyphDiagnostics, settingsLayoutDiagnostics, settingsControlDiagnostics;
+        public bool fullscreen, stretch; public int scaleIndex;
         public int width, height; public TextRow[] texts; public string[] buttons, components;
     }
     private string root;
@@ -103,21 +105,33 @@ public sealed class ForestProbe : MonoBehaviour
         var tmpObjects=Resources.FindObjectsOfTypeAll<TMP_Text>();
         var rendererDiagnostics=new List<string>();
         var subtitleGlyphDiagnostics=new List<string>();
+        var settingsGlyphDiagnostics=new List<string>();
+        var settingsLayoutDiagnostics=new List<string>();
+        var settingsControlDiagnostics=new List<string>();
         foreach(var t in tmpObjects)
             if(t.gameObject.activeInHierarchy)
             {
-                if(t.name=="Subtitle Text") {
+                bool settings=t.gameObject.scene.IsValid() && Address(t.transform).StartsWith("Canvas/OptionsMenu/");
+                if(settings) {
+                    var r=t.rectTransform; var pos=r.position; var rect=r.rect;
+                    settingsLayoutDiagnostics.Add(String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                        "{0} | text={1} | fontSize={2:R} | alignment={3} | color={4} | world=({5:R},{6:R}) | rect=({7:R},{8:R}) | anchorY=({9:R},{10:R}) | sizeDeltaY={11:R} | preferredHeight={12:R}",
+                        Address(t.transform),t.text,t.fontSize,t.alignment,t.color,pos.x,pos.y,rect.width,rect.height,
+                        r.anchorMin.y,r.anchorMax.y,r.sizeDelta.y,t.preferredHeight));
+                }
+                if(t.name=="Subtitle Text" || (settings && (t.text=="Off" || t.text=="On"))) {
                     // Measurement only: never mutate fonts, strings, meshes or typewriter state.
                     var info=t.textInfo;
                     for(int i=0;i<info.characterCount;i++) {
                         var ch=info.characterInfo[i]; if(ch.textElement==null)continue;
                         var g=ch.textElement.glyph; var metrics=g.metrics;
-                        subtitleGlyphDiagnostics.Add(String.Format(System.Globalization.CultureInfo.InvariantCulture,
-                            "{0} | U+{1:X4} | glyph={2} | font={3} | face={4} | origin={5:R} | advance={6:R} | baseline={7:R} | scale={8:R} | bearing=({9:R},{10:R}) | size=({11:R},{12:R}) | glyphAdvance={13:R} | topLeft=({14:R},{15:R}) | bottomRight=({16:R},{17:R})",
+                        var world=t.transform.TransformPoint(new Vector3(ch.origin,ch.baseLine,0));
+                        (settings?settingsGlyphDiagnostics:subtitleGlyphDiagnostics).Add(Address(t.transform)+" | "+String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                            "{0} | U+{1:X4} | glyph={2} | font={3} | face={4} | origin={5:R} | advance={6:R} | baseline={7:R} | scale={8:R} | bearing=({9:R},{10:R}) | size=({11:R},{12:R}) | glyphAdvance={13:R} | topLeft=({14:R},{15:R}) | bottomRight=({16:R},{17:R}) | worldOriginBaseline=({18:R},{19:R})",
                             i,(int)ch.character,g.index,ch.fontAsset==null?"":ch.fontAsset.name,
                             ch.fontAsset==null?"":ch.fontAsset.faceInfo.familyName,
                             ch.origin,ch.xAdvance,ch.baseLine,ch.scale,metrics.horizontalBearingX,metrics.horizontalBearingY,
-                            metrics.width,metrics.height,metrics.horizontalAdvance,ch.topLeft.x,ch.topLeft.y,ch.bottomRight.x,ch.bottomRight.y));
+                            metrics.width,metrics.height,metrics.horizontalAdvance,ch.topLeft.x,ch.topLeft.y,ch.bottomRight.x,ch.bottomRight.y,world.x,world.y));
                     }
                 }
                 texts.Add(new TextRow{path=Address(t.transform),text=t.text,font=t.font==null?"":t.font.name,size=t.fontSize,overflow=t.isTextOverflowing});
@@ -134,11 +148,17 @@ public sealed class ForestProbe : MonoBehaviour
         foreach(var b in Resources.FindObjectsOfTypeAll<MonoBehaviour>())
             if(b!=null && b.gameObject.activeInHierarchy && b.gameObject.scene.IsValid() && b.GetType().Namespace=="TheForestOfLove")
                 components.Add(b.GetType().Name+" "+Address(b.transform));
+        foreach(var im in Resources.FindObjectsOfTypeAll<Image>())
+            if(im.gameObject.scene.IsValid() && Address(im.transform).StartsWith("Canvas/OptionsMenu/Controls/Scale"))
+                settingsControlDiagnostics.Add(Address(im.transform)+" | activeSelf="+im.gameObject.activeSelf+" | activeInHierarchy="+im.gameObject.activeInHierarchy+" | sprite="+(im.sprite==null?"null":im.sprite.name));
         var state=new State{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
             dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
             company=Application.companyName,product=Application.productName,width=Screen.width,height=Screen.height,
             texts=texts.ToArray(),buttons=buttons.ToArray(),components=components.ToArray(),
             tmpObjectCount=tmpObjects.Length,rendererDiagnostics=rendererDiagnostics.ToArray(),subtitleGlyphDiagnostics=subtitleGlyphDiagnostics.ToArray(),
+            settingsGlyphDiagnostics=settingsGlyphDiagnostics.ToArray(), settingsLayoutDiagnostics=settingsLayoutDiagnostics.ToArray(),
+            settingsControlDiagnostics=settingsControlDiagnostics.ToArray(), fullscreen=TheForestOfLove.UI.WindowController.IsFullscreen,
+            stretch=TheForestOfLove.UI.WindowController.EnableFullscreenStretch, scaleIndex=TheForestOfLove.UI.WindowController.WindowScalingIndex,
             typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping()};
         var typewriter=FindObjectOfType<TheForestOfLove.CustomTypewriterEffectTextMeshPro>();
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;

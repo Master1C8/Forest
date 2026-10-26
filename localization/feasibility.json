@@ -8,8 +8,8 @@
   "overall": "needs-review",
   "massTranslationAllowed": false,
   "build": {
-    "path": "localization/probes/ru-20261026-10/build.json",
-    "sha256": "c0c4d8d8a1c891e6da4463294308319ed50457c098d3683980898eda1cb72456"
+    "path": "localization/probes/ru-20261026-12/build.json",
+    "sha256": "92e5aedbff16504825963a9521c1454476c1e7c8becb22ce51c926c43dcf578e"
   },
   "rows": [
     {
@@ -33,11 +33,11 @@
     {
       "id": "ru-menu-settings-hud-item-quest",
       "requirement": "Real small/narrow UI paths, font roles, dynamic values and transitions",
-      "static": "passed for 3 traced settings label groups/18 TMP occurrences only: five no-op/readback checks; level1 only /m_text changed; other menu/HUD/item/quest source paths still unverified",
-      "runtime": "partial: candidate11 fullscreen OptionsMenu loads 6 Fullscreen and 6 Stretch synthetic copies without reported overflow. Capture guard failed on hidden Scale; no windowed Scale/NFD or Back transition. Original failure/cleanup retained.",
-      "visual": "pending: one exact fullscreen settings original, 0 reviewed",
-      "limitation": "Stretch and Scale are mutually exclusive in this desktop consumer. Scale value is an Image[] slot. Two visible label samples cannot accept all settings, HUD/item/quest or control transitions.",
-      "evidence": "localization/probes/ru-20261026-11/settings-diagnosis.json"
+      "static": "passed candidate12: 5 no-op/readback checks; 18 sample text fields plus 8 experimental child RectTransforms; four other resources byte-identical to candidate11. Geometry hypothesis is unproven.",
+      "runtime": "passed for bounded settings route: Stretch toggle/restore, actual Fullscreen -> windowed -> fullscreen, actual Back -> main menu. Fullscreen 1440x900 / windowed 960x540 captures and cleanup verified. All 5 opaque Off layers per visible family share local glyph metrics; runtime alignment is Center despite split serialized Top fields. Scale Image index 1 selects 2x from 8 slots.",
+      "visual": "candidate11 failed 1/1 independently (Off contour overprinting); candidate12 exact 2-original set pending 0/2. No visual repair credited.",
+      "limitation": "Experimental geometry is not a proven cause/fix. Legacy alignment migration code untraced; no candidate11 glyph baseline. Scale-up/down, other 7 active values, other UI/HUD/item/quest paths, final corpus/fonts remain unverified.",
+      "evidence": "localization/probes/ru-20261026-12/runtime-diagnosis.json"
     },
     {
       "id": "ru-baked-textures",
@@ -56,7 +56,7 @@
       "limitation": "Ordinary Cyrillic fallback success does not accept the fictional mapping"
     }
   ],
-  "nextAction": "Review the exact one-original candidate11 fullscreen settings packet in a fresh visual-only phase. Then import results and use source-backed reciprocal visibility for windowed Scale/NFD and control transitions; complete remaining renderer/source/special-scene gates before ordinary translation.",
+  "nextAction": "Independently review the exact two-original candidate12 settings packet in a fresh visual-only phase, then import actual findings in work. Experimental glow geometry has no proven cause/visual repair; actual runtime alignment is Center despite split serialized Top fields. Complete remaining UI/item/quest, textures/fictional-font and source/special-scene gates before ordinary translation.",
   "nativeReview": {
     "path": "localization/probes/ru-20261026-10/native-review.json",
     "sha256": "82370c0241cf437cfff2cf64d3338225772c9551181e716768c6b9f02e89d736",
@@ -76,15 +76,32 @@
     "status": "failed; independent review of both originals imported; glyph failures remain historical and are not superseded by static/runtime checks"
   },
   "settingsNativeReview": {
-    "path": "localization/probes/ru-20261026-11/native-review.json",
-    "sha256": "ea394f40fdd445fb4567fc927cc8b7caf7da86dc5572e40aea3ee46f2e9ef49d",
-    "total": 1,
+    "path": "localization/probes/ru-20261026-12/native-review.json",
+    "sha256": "7bc33ce58a8c076ed938681c20620d4b411be80cfdc5a42df7b76fe59b61eafa",
+    "total": 2,
     "reviewed": 0,
     "passed": 0,
     "failed": 0,
-    "pending": 1,
+    "pending": 2,
+    "packet": "localization/probes/ru-20261026-12/native-packet-01.json",
+    "packetSha256": "b22f15f550ccdb591d7216eaf7932c7adcf0c83baac74db06cf8a995f96bf644",
+    "automationStatus": "passed actual Stretch/Fullscreen/Back and reciprocal visibility; scale-up/down and 7 other active slots untested",
+    "reviewer": "not-run",
+    "imagesOpenedInThisWorkContext": 0
+  },
+  "priorFailedSettingsNativeReview": {
+    "path": "localization/probes/ru-20261026-11/native-review.json",
+    "sha256": "2802187bf1e9dd622af816173971570c4b8d5cce7a90996dcfeae01792df91d8",
+    "total": 1,
+    "reviewed": 1,
+    "passed": 0,
+    "failed": 1,
+    "pending": 0,
     "packet": "localization/probes/ru-20261026-11/native-packet-01.json",
-    "automationStatus": "failed guard; review only the two actual visible label samples",
-    "reviewer": "not-run"
+    "result": "localization/probes/ru-20261026-11/native-result-01.json",
+    "resultSha256": "a1bfe4fcd604dc7e4f9a87272b9f43cbaec472d515863cf7a2a8677482426b31",
+    "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0006; imported once in text-only phase 0007",
+    "automationStatus": "failed old simultaneous-label guard; preserve independently observed Off overprinting",
+    "checker": "exit 1 as expected: actual visual defect; layout/glyph findings are the same single value defect"
   }
 }

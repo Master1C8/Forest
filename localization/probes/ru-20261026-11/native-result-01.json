@@ -1,0 +1,44 @@
+{
+  "packetSha256": "a17b3a18d941439dc9306ee6dad1fb55d30e5629f7a6e7f1f7d2f657699fe956",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-settings-fullscreen.png",
+      "sha256": "92c6f94c340b8a1e2bae20ce30de510a87ec4b5c71c38235f8389bcc7bd2f2c4",
+      "width": 1440,
+      "height": 900,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0006-visual-review; session 01a17651-531c-7820-9924-2ed83417b7d7; actual CLI model/provider/reasoning flags verified before image input",
+      "reviewedAt": "2026-10-26T03:49:27.522111+00:00",
+      "observations": "Inspected the complete 1440x900 original at original resolution. Fullscreen sample reads Ёж Йй 123: and Stretch sample reads Ёж Latin!:; Ё dots and both Й/й breves are visible above their own letters, with no missing glyphs or cut marks. Cyrillic, Latin and digits have a coherent white face, black outline, size and baseline in these two labels. Both label strings fit, and the Fullscreen On value is clear. The Stretch Off value has visibly superposed horizontally displaced white/black letter contours, especially at the O/left edge and f strokes; it is crowded and does not have the clean single face/glow registration of On. Music, Effects, sliders, Back, native logo and bottom-left v0.45.1 remain readable and within the frame; no external notification, annotation, rich-text literal or added locale label is visible. Letterboxing is unobstructed. This is supplied-expected-text review, not blind. Only the two shown samples are assessed: Scale/raw NFD, windowed state, dynamic changes and Back transition are absent/unverified. The failed automation is not credited as passed.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Stretch row, Off value, approximately x824–896 y724–765",
+          "observed": "The value has overlapping horizontally displaced glyph contours; the left/O area and following f strokes visibly overprint instead of forming one clean Off word. The adjacent On value does not show this doubled registration.",
+          "expected": "One clearly readable Off value, with all retained face/glow components registered coherently and no superposed displaced letter faces.",
+          "nextAction": "In a text-only work phase, inspect the actual Stretch value hierarchy/state and component text/font/layout bindings, distinguish native styling from stale or displaced visible copies, repair the responsible mechanism if confirmed, then capture a new original with source-backed fullscreen/windowed guards and independently review the affected row."
+        },
+        {
+          "check": "glyphs",
+          "severity": "major",
+          "region": "Stretch row, Off value, approximately x824–896 y724–765",
+          "observed": "Multiple visible face/outline contours crowd the O and f glyphs, unlike the coherent contours of the synthetic labels and On above.",
+          "expected": "Coherent face/outline/glow registration with distinct readable letter shapes.",
+          "nextAction": "Trace this same overprinting defect through the retained value components; do not retouch the screenshot or credit this value as accepted. Preserve this failure and review new pixels after any repair."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "failed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

@@ -124,7 +124,38 @@ follow those states rather than require all labels at once. Scale values are eig
 Image slots selected by `UpdateWindowScaleFactorUI`, not TMP numeric literals.
 The original failed runtime result and restoration are retained; one byte-identical
 native failure capture is pinned for bounded review of the two visible samples only.
-Windowed Scale/NFD, dynamic controls and Back navigation remain unverified.
+Its one original independently failed layout/glyph review in phase 0006: the two
+synthetic labels passed their bounded observations, but the Stretch `Off` value
+showed displaced overlapping contours. Phase 0007 imported that real failure; the
+ledger checker rejects it (1 reviewed, 1 failed). The two check findings describe
+one observed value defect, not two proven mechanisms.
+
+Candidate12 (`localization/probes/ru-20261026-12/`) tests one bounded geometry
+hypothesis and adds actual per-glyph/layout measurements. The two source `Off`
+face/glow groups are unchanged in candidate11. Their black layer has preferred
+fitted height, while four children have fixed height 50. The candidate stretches
+those eight children to the fitted parent, preserving text/colors/material/size
+and native outline offsets. Static no-op/readback checks pass; only 18 sample
+text fields plus these 8 RectTransforms differ in level1, and the other four
+resources are byte-identical to candidate11. This is an experimental candidate,
+not a credited visual repair. The initial inference from serialized split `Top`
+fields was contradicted by actual runtime `Center` alignment (the old
+`m_textAlignment=514` is also present). Always resolve actual alignment before
+claiming a cause from serialized fields. Exact migration code remains untraced.
+
+`tools/probe/capture_settings.py` now follows reciprocal visibility and actual
+Stretch, Fullscreen and Back buttons. Candidate12 passed the complete guarded
+menu route, captured fullscreen 1440×900 and windowed 960×540 originals, and
+stopped/restored the QA copy. Both opaque `Off` layer families have identical
+local glyph origins/metrics at runtime with their retained outline offsets;
+no equivalent candidate11 glyph measurements exist, so this is not a measured
+improvement claim. Windowed index 1 selects exactly the 2x Image from 8 slots.
+Scale up/down input and the other 7 active slots are still untested. Fullscreen
+and Stretch return to initial states; the game normalizes its QA scale index
+from 0 to 1, so no byte-exact QA configuration restoration is claimed. Original
+installed assets/player files remain unchanged. The bridge is removed and the
+task-owned processes are absent. The complete new two-original packet is pending
+fresh independent visual review; all other renderer/source/final-corpus gates remain.
 
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate
