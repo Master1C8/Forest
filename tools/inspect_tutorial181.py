@@ -55,9 +55,17 @@ def main():
         controls[str(pid)] = tree
     assert controls['4387']['button'] == {'m_FileID': 0, 'm_PathID': 4541}
     assert controls['4541']['m_OnClick']['m_PersistentCalls']['m_Calls'] == []
+    script = objects[4387].parse_monobehaviour_head().m_Script.deref().read()
+    identity = dict(assembly=script.m_AssemblyName, namespace=script.m_Namespace,
+                   className=script.m_ClassName)
+    assert identity == dict(assembly='Auto-asmdef-FirstPass.dll',
+        namespace='PixelCrushers.DialogueSystem.Wrappers', className='StandardUIResponseButton')
     inspector = ROOT / 'tools/probe/bin/Debug/net8.0/InspectMethods.dll'
     groups = {
         'ResponseButton': ('Auto-asmdef-FirstPass.dll', 'PixelCrushers.DialogueSystem.StandardUIResponseButton', 'Awake,Start,OnClick,SetCurrentResponse'),
+        'ResponseWrapperFields': ('Auto-asmdef-FirstPass.dll', 'PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton', '--fields'),
+        'ResponseWrapperMethods': ('Auto-asmdef-FirstPass.dll', 'PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton', '--list'),
+        'ResponseWrapperCtor': ('Auto-asmdef-FirstPass.dll', 'PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton', '.ctor'),
         'EventBaseFields': ('UnityEngine.CoreModule.dll', 'UnityEngine.Events.UnityEventBase', '--fields'),
         'InvocationListFields': ('UnityEngine.CoreModule.dll', 'UnityEngine.Events.InvokableCallList', '--fields'),
         'InvocationFields': ('UnityEngine.CoreModule.dll', 'UnityEngine.Events.InvokableCall', '--fields'),
@@ -67,6 +75,17 @@ def main():
         argv = ['dotnet', str(inspector), str(SOURCE / 'Managed' / assembly), type_, methods]
         files[key + '.il'] = subprocess.check_output(argv)
         commands[key + '.il'] = argv
+    assert files['ResponseWrapperFields.il'].decode().splitlines() == [
+        'TYPE PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton BASE PixelCrushers.DialogueSystem.StandardUIResponseButton']
+    assert files['ResponseWrapperMethods.il'].decode().splitlines() == [
+        'System.Void PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton::.ctor()']
+    identity.update(controllerPathId=4387, buttonPathId=4541,
+        monoScript=controls['4387']['m_Script'],
+        exactType='PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton',
+        inheritedListenerDeclaringType='PixelCrushers.DialogueSystem.StandardUIResponseButton',
+        ownMethods=['.ctor'], ownFields=[],
+        boundary='Original serialized script and Cecil inheritance; actual runtime identity remains separately observed')
+    files['response-controller-identity.json'] = (json.dumps(identity, indent=2) + '\n').encode()
     plan = dict(conversation=120, selectedEntry=181, successor=182, route=ROUTE,
         sourceTreeSha256=TREE_SHA, entries=entries,
         boundary='Ordinary original181 only; no trigger mutation, alternate159 selection or notebook readiness claim')
@@ -83,7 +102,7 @@ def main():
         files={n: hashlib.sha256(b).hexdigest() for n, b in files.items()},
         imagesOpened=0, gameLaunches=0,
         writeBoundary='Independent file writes; manifest and every declared hash required before reuse'), indent=2) + '\n')
-    print(f'Pinned {len(entries)} original entries, two controls and four listener groups: {out}')
+    print(f'Pinned {len(entries)} original entries, two controls and seven consumer groups: {out}')
 
 
 if __name__ == '__main__':

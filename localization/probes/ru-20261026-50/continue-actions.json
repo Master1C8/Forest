@@ -1,0 +1,644 @@
+[
+  {
+    "action": "continue-bound 120 153",
+    "frame": 577,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 153,
+      "actualConversationId": 120,
+      "actualEntryId": 153
+    },
+    "transport": {
+      "command": "continue-bound 120 153",
+      "acknowledgement": "2026-10-26T19:06:02.5320130Z OK continue-bound 120 153",
+      "transportPid": 63709,
+      "transportExitCode": 0,
+      "submittedAt": 39.476123333,
+      "acknowledgedAt": 39.686970625
+    }
+  },
+  {
+    "action": "response 153 120 154",
+    "frame": 648,
+    "receipt": null,
+    "transport": {
+      "command": "response 153 120 154",
+      "acknowledgement": "2026-10-26T19:06:03.7534200Z OK response 153 120 154",
+      "transportPid": 63718,
+      "transportExitCode": 0,
+      "submittedAt": 40.656071041,
+      "acknowledgedAt": 40.866596375
+    }
+  },
+  {
+    "action": "continue-bound 120 155",
+    "frame": 708,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 155,
+      "actualConversationId": 120,
+      "actualEntryId": 155
+    },
+    "transport": {
+      "command": "continue-bound 120 155",
+      "acknowledgement": "2026-10-26T19:06:04.7955170Z OK continue-bound 120 155",
+      "transportPid": 63731,
+      "transportExitCode": 0,
+      "submittedAt": 41.766426625,
+      "acknowledgedAt": 41.979990166
+    }
+  },
+  {
+    "action": "continue-bound 120 156",
+    "frame": 782,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 156,
+      "actualConversationId": 120,
+      "actualEntryId": 156
+    },
+    "transport": {
+      "command": "continue-bound 120 156",
+      "acknowledgement": "2026-10-26T19:06:06.0400470Z OK continue-bound 120 156",
+      "transportPid": 63742,
+      "transportExitCode": 0,
+      "submittedAt": 42.955491958,
+      "acknowledgedAt": 43.166571291
+    }
+  },
+  {
+    "action": "continue-bound 120 157",
+    "frame": 843,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 157,
+      "actualConversationId": 120,
+      "actualEntryId": 157
+    },
+    "transport": {
+      "command": "continue-bound 120 157",
+      "acknowledgement": "2026-10-26T19:06:07.2950140Z OK continue-bound 120 157",
+      "transportPid": 63755,
+      "transportExitCode": 0,
+      "submittedAt": 44.065078625,
+      "acknowledgedAt": 44.453838375
+    }
+  },
+  {
+    "action": "complete-tutorial158",
+    "frame": 918,
+    "receipt": {
+      "result": "applied",
+      "text": "So tell me. What is it you’re here for?",
+      "sourceText": "[pic=3]So tell me. What is it you’re here for?",
+      "panelPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Subtitle Panel 0",
+      "buttonPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button",
+      "textPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Subtitle Text",
+      "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+      "listenerMethod": "OnFastForward",
+      "listenerTargetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button",
+      "sourceDestinations": "120:159,120:181",
+      "pcDestinations": "120:159,120:181",
+      "choiceMode": "original",
+      "frame": 942,
+      "conversationId": 120,
+      "entryId": 158,
+      "panelInstance": -7838,
+      "buttonInstance": -7904,
+      "textInstance": -7870,
+      "typing": false,
+      "menuPresent": false,
+      "buttonActive": true,
+      "buttonEnabled": true,
+      "buttonInteractable": true,
+      "graphVerified": true
+    },
+    "transport": {
+      "command": "complete-tutorial158",
+      "acknowledgement": "2026-10-26T19:06:08.5640950Z OK complete-tutorial158",
+      "transportPid": 63765,
+      "transportExitCode": 0,
+      "submittedAt": 45.352615583,
+      "acknowledgedAt": 45.639832041
+    }
+  },
+  {
+    "action": "select-tutorial181 997 -56980",
+    "frame": 997,
+    "receipt": {
+      "result": "submitted",
+      "choiceMode": "original",
+      "text": "The love. Definitely the love.",
+      "path": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: The love. Definitely the love.",
+      "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+      "listenerMethod": "OnClick",
+      "listenerTargetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: The love. Definitely the love.",
+      "frame": 1017,
+      "conversationId": 120,
+      "sourceId": 158,
+      "destinationId": 181,
+      "successorId": 182,
+      "buttonInstance": -56980,
+      "controllerInstance": -56984,
+      "typing": false,
+      "graphVerified": true,
+      "listenerVerified": true
+    },
+    "transport": {
+      "command": "select-tutorial181 997 -56980",
+      "acknowledgement": "2026-10-26T19:06:10.0529360Z OK select-tutorial181 997 -56980",
+      "transportPid": 63782,
+      "transportExitCode": 0,
+      "submittedAt": 46.869699416,
+      "acknowledgedAt": 47.159711166
+    }
+  },
+  {
+    "action": "continue-bound 120 182",
+    "frame": 1064,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 182,
+      "actualConversationId": 120,
+      "actualEntryId": 182
+    },
+    "transport": {
+      "command": "continue-bound 120 182",
+      "acknowledgement": "2026-10-26T19:06:11.3131120Z OK continue-bound 120 182",
+      "transportPid": 63792,
+      "transportExitCode": 0,
+      "submittedAt": 48.158002791,
+      "acknowledgedAt": 48.452053583
+    }
+  },
+  {
+    "action": "continue-bound 120 183",
+    "frame": 1141,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 183,
+      "actualConversationId": 120,
+      "actualEntryId": 183
+    },
+    "transport": {
+      "command": "continue-bound 120 183",
+      "acknowledgement": "2026-10-26T19:06:12.7758720Z OK continue-bound 120 183",
+      "transportPid": 63826,
+      "transportExitCode": 0,
+      "submittedAt": 49.558827375,
+      "acknowledgedAt": 49.999803708
+    }
+  },
+  {
+    "action": "continue-bound 120 184",
+    "frame": 1273,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 184,
+      "actualConversationId": 120,
+      "actualEntryId": 184
+    },
+    "transport": {
+      "command": "continue-bound 120 184",
+      "acknowledgement": "2026-10-26T19:06:15.0957440Z OK continue-bound 120 184",
+      "transportPid": 63846,
+      "transportExitCode": 0,
+      "submittedAt": 52.008430416,
+      "acknowledgedAt": 52.237848875
+    }
+  },
+  {
+    "action": "continue-bound 120 185",
+    "frame": 1346,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 185,
+      "actualConversationId": 120,
+      "actualEntryId": 185
+    },
+    "transport": {
+      "command": "continue-bound 120 185",
+      "acknowledgement": "2026-10-26T19:06:16.5451080Z OK continue-bound 120 185",
+      "transportPid": 63862,
+      "transportExitCode": 0,
+      "submittedAt": 53.353175333,
+      "acknowledgedAt": 53.645178833
+    }
+  },
+  {
+    "action": "continue-bound 120 163",
+    "frame": 1468,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 163,
+      "actualConversationId": 120,
+      "actualEntryId": 163
+    },
+    "transport": {
+      "command": "continue-bound 120 163",
+      "acknowledgement": "2026-10-26T19:06:18.6439930Z OK continue-bound 120 163",
+      "transportPid": 63891,
+      "transportExitCode": 0,
+      "submittedAt": 55.438262333,
+      "acknowledgedAt": 55.724571666
+    }
+  },
+  {
+    "action": "continue-bound 120 164",
+    "frame": 1602,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 164,
+      "actualConversationId": 120,
+      "actualEntryId": 164
+    },
+    "transport": {
+      "command": "continue-bound 120 164",
+      "acknowledgement": "2026-10-26T19:06:20.9112240Z OK continue-bound 120 164",
+      "transportPid": 63915,
+      "transportExitCode": 0,
+      "submittedAt": 57.680673333,
+      "acknowledgedAt": 58.073155625
+    }
+  },
+  {
+    "action": "continue-bound 120 165",
+    "frame": 1740,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 165,
+      "actualConversationId": 120,
+      "actualEntryId": 165
+    },
+    "transport": {
+      "command": "continue-bound 120 165",
+      "acknowledgement": "2026-10-26T19:06:23.2262950Z OK continue-bound 120 165",
+      "transportPid": 63937,
+      "transportExitCode": 0,
+      "submittedAt": 60.032116083,
+      "acknowledgedAt": 60.317533208
+    }
+  },
+  {
+    "action": "continue-bound 120 166",
+    "frame": 1874,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 166,
+      "actualConversationId": 120,
+      "actualEntryId": 166
+    },
+    "transport": {
+      "command": "continue-bound 120 166",
+      "acknowledgement": "2026-10-26T19:06:25.5950860Z OK continue-bound 120 166",
+      "transportPid": 63960,
+      "transportExitCode": 0,
+      "submittedAt": 62.411156625,
+      "acknowledgedAt": 62.745286625
+    }
+  },
+  {
+    "action": "continue-bound 120 167",
+    "frame": 2008,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 167,
+      "actualConversationId": 120,
+      "actualEntryId": 167
+    },
+    "transport": {
+      "command": "continue-bound 120 167",
+      "acknowledgement": "2026-10-26T19:06:27.6768800Z OK continue-bound 120 167",
+      "transportPid": 63987,
+      "transportExitCode": 0,
+      "submittedAt": 64.608097666,
+      "acknowledgedAt": 64.8256415
+    }
+  },
+  {
+    "action": "continue-bound 120 168",
+    "frame": 2070,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 168,
+      "actualConversationId": 120,
+      "actualEntryId": 168
+    },
+    "transport": {
+      "command": "continue-bound 120 168",
+      "acknowledgement": "2026-10-26T19:06:28.9596010Z OK continue-bound 120 168",
+      "transportPid": 63997,
+      "transportExitCode": 0,
+      "submittedAt": 65.733401625,
+      "acknowledgedAt": 66.123413083
+    }
+  },
+  {
+    "action": "continue-bound 120 169",
+    "frame": 2159,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 169,
+      "actualConversationId": 120,
+      "actualEntryId": 169
+    },
+    "transport": {
+      "command": "continue-bound 120 169",
+      "acknowledgement": "2026-10-26T19:06:30.4265420Z OK continue-bound 120 169",
+      "transportPid": 64010,
+      "transportExitCode": 0,
+      "submittedAt": 67.21950525,
+      "acknowledgedAt": 67.508798333
+    }
+  },
+  {
+    "action": "continue-bound 120 170",
+    "frame": 2291,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 170,
+      "actualConversationId": 120,
+      "actualEntryId": 170
+    },
+    "transport": {
+      "command": "continue-bound 120 170",
+      "acknowledgement": "2026-10-26T19:06:32.7273610Z OK continue-bound 120 170",
+      "transportPid": 64035,
+      "transportExitCode": 0,
+      "submittedAt": 69.542385458,
+      "acknowledgedAt": 69.835122208
+    }
+  },
+  {
+    "action": "continue-bound 120 171",
+    "frame": 2379,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 171,
+      "actualConversationId": 120,
+      "actualEntryId": 171
+    },
+    "transport": {
+      "command": "continue-bound 120 171",
+      "acknowledgement": "2026-10-26T19:06:34.0056670Z OK continue-bound 120 171",
+      "transportPid": 64046,
+      "transportExitCode": 0,
+      "submittedAt": 70.928606541,
+      "acknowledgedAt": 71.1415145
+    }
+  },
+  {
+    "action": "continue-bound 120 172",
+    "frame": 2503,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 172,
+      "actualConversationId": 120,
+      "actualEntryId": 172
+    },
+    "transport": {
+      "command": "continue-bound 120 172",
+      "acknowledgement": "2026-10-26T19:06:36.3478880Z OK continue-bound 120 172",
+      "transportPid": 64070,
+      "transportExitCode": 0,
+      "submittedAt": 73.175586166,
+      "acknowledgedAt": 73.503440083
+    }
+  },
+  {
+    "action": "continue-bound 120 173",
+    "frame": 2632,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 173,
+      "actualConversationId": 120,
+      "actualEntryId": 173
+    },
+    "transport": {
+      "command": "continue-bound 120 173",
+      "acknowledgement": "2026-10-26T19:06:38.4189140Z OK continue-bound 120 173",
+      "transportPid": 64093,
+      "transportExitCode": 0,
+      "submittedAt": 75.382793333,
+      "acknowledgedAt": 75.594904208
+    }
+  },
+  {
+    "action": "continue-bound 120 174",
+    "frame": 2753,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 174,
+      "actualConversationId": 120,
+      "actualEntryId": 174
+    },
+    "transport": {
+      "command": "continue-bound 120 174",
+      "acknowledgement": "2026-10-26T19:06:40.6862900Z OK continue-bound 120 174",
+      "transportPid": 64113,
+      "transportExitCode": 0,
+      "submittedAt": 77.483739083,
+      "acknowledgedAt": 77.820857166
+    }
+  },
+  {
+    "action": "continue-bound 120 175",
+    "frame": 2881,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 175,
+      "actualConversationId": 120,
+      "actualEntryId": 175
+    },
+    "transport": {
+      "command": "continue-bound 120 175",
+      "acknowledgement": "2026-10-26T19:06:42.7735190Z OK continue-bound 120 175",
+      "transportPid": 64142,
+      "transportExitCode": 0,
+      "submittedAt": 79.702837833,
+      "acknowledgedAt": 79.92215975
+    }
+  },
+  {
+    "action": "continue-bound 120 176",
+    "frame": 2985,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 176,
+      "actualConversationId": 120,
+      "actualEntryId": 176
+    },
+    "transport": {
+      "command": "continue-bound 120 176",
+      "acknowledgement": "2026-10-26T19:06:44.8597320Z OK continue-bound 120 176",
+      "transportPid": 64165,
+      "transportExitCode": 0,
+      "submittedAt": 81.663202958,
+      "acknowledgedAt": 81.953620041
+    }
+  },
+  {
+    "action": "continue-bound 120 177",
+    "frame": 3118,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 177,
+      "actualConversationId": 120,
+      "actualEntryId": 177
+    },
+    "transport": {
+      "command": "continue-bound 120 177",
+      "acknowledgement": "2026-10-26T19:06:46.9307030Z OK continue-bound 120 177",
+      "transportPid": 64183,
+      "transportExitCode": 0,
+      "submittedAt": 83.860750083,
+      "acknowledgedAt": 84.079780666
+    }
+  },
+  {
+    "action": "continue-bound 120 178",
+    "frame": 3179,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 178,
+      "actualConversationId": 120,
+      "actualEntryId": 178
+    },
+    "transport": {
+      "command": "continue-bound 120 178",
+      "acknowledgement": "2026-10-26T19:06:48.3932160Z OK continue-bound 120 178",
+      "transportPid": 64200,
+      "transportExitCode": 0,
+      "submittedAt": 85.179994208,
+      "acknowledgedAt": 85.468806625
+    }
+  },
+  {
+    "action": "continue-bound 120 179",
+    "frame": 3317,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 179,
+      "actualConversationId": 120,
+      "actualEntryId": 179
+    },
+    "transport": {
+      "command": "continue-bound 120 179",
+      "acknowledgement": "2026-10-26T19:06:50.9106190Z OK continue-bound 120 179",
+      "transportPid": 64247,
+      "transportExitCode": 0,
+      "submittedAt": 87.737128791,
+      "acknowledgedAt": 88.028438916
+    }
+  },
+  {
+    "action": "continue-bound 120 180",
+    "frame": 3447,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 180,
+      "actualConversationId": 120,
+      "actualEntryId": 180
+    },
+    "transport": {
+      "command": "continue-bound 120 180",
+      "acknowledgement": "2026-10-26T19:06:53.4430510Z OK continue-bound 120 180",
+      "transportPid": 64267,
+      "transportExitCode": 0,
+      "submittedAt": 90.233551,
+      "acknowledgedAt": 90.5276255
+    }
+  },
+  {
+    "action": "continue-bound 120 186",
+    "frame": 3570,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 186,
+      "actualConversationId": 120,
+      "actualEntryId": 186
+    },
+    "transport": {
+      "command": "continue-bound 120 186",
+      "acknowledgement": "2026-10-26T19:06:55.3986520Z OK continue-bound 120 186",
+      "transportPid": 64285,
+      "transportExitCode": 0,
+      "submittedAt": 92.365935625,
+      "acknowledgedAt": 92.582423166
+    }
+  },
+  {
+    "action": "continue-bound 120 187",
+    "frame": 3631,
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 120,
+      "expectedEntryId": 187,
+      "actualConversationId": 120,
+      "actualEntryId": 187
+    },
+    "transport": {
+      "command": "continue-bound 120 187",
+      "acknowledgement": "2026-10-26T19:06:56.4862320Z OK continue-bound 120 187",
+      "transportPid": 64294,
+      "transportExitCode": 0,
+      "submittedAt": 93.4136185,
+      "acknowledgedAt": 93.630351625
+    }
+  }
+]

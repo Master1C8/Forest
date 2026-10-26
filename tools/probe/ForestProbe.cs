@@ -953,7 +953,9 @@ public sealed class ForestProbe : MonoBehaviour
             }
         const string label="The love. Definitely the love.";
         string path=TutorialTextPanel+"/Response Menu Panel/Viewport/Content/Response: "+label;
-        if(match==null || match.GetType()!=typeof(StandardUIResponseButton) || !match.enabled ||
+        // The original serialized MonoScript is the empty Wrappers subclass.
+        // Keep exact-type admission; its inherited OnClick still declares the base.
+        if(match==null || match.GetType()!=typeof(PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton) || !match.enabled ||
            !match.isVisible || !match.isClickable || match.text!=label || Address(match.transform)!=path ||
            match.target==null || Address(match.target)!=TutorialUI || match.button==null ||
            match.button.transform!=match.transform || !match.button.enabled || !match.button.IsInteractable() ||

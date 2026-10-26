@@ -1,0 +1,165 @@
+{
+  "prefix": {
+    "observedSubtitleEntries": [
+      153,
+      155,
+      156,
+      157,
+      158
+    ],
+    "selectedResponses": [
+      {
+        "source": 153,
+        "sourceFrame": 648,
+        "destination": 154,
+        "successor": 155,
+        "action": "response 153 120 154",
+        "response": [
+          {
+            "path": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: Much better.",
+            "text": "Much better.",
+            "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+            "conversationId": 120,
+            "entryId": 154,
+            "visible": true,
+            "clickable": true
+          }
+        ],
+        "transport": {
+          "command": "response 153 120 154",
+          "acknowledgement": "2026-10-26T19:06:03.7534200Z OK response 153 120 154",
+          "transportPid": 63718,
+          "transportExitCode": 0,
+          "submittedAt": 40.656071041,
+          "acknowledgedAt": 40.866596375
+        }
+      }
+    ],
+    "transitions": [
+      {
+        "source": 153,
+        "selectedResponse": 154,
+        "observed": 155,
+        "frame": 708,
+        "kind": "acknowledged-response"
+      },
+      {
+        "source": 155,
+        "observed": 156,
+        "frame": 782,
+        "kind": "observed-source-link"
+      },
+      {
+        "source": 156,
+        "observed": 157,
+        "frame": 843,
+        "kind": "observed-source-link"
+      },
+      {
+        "source": 157,
+        "observed": 158,
+        "frame": 918,
+        "kind": "observed-source-link"
+      }
+    ],
+    "pendingResponse": null,
+    "completion158": {
+      "sourceFrame": 918,
+      "action": "complete-tutorial158",
+      "transport": {
+        "command": "complete-tutorial158",
+        "acknowledgement": "2026-10-26T19:06:08.5640950Z OK complete-tutorial158",
+        "transportPid": 63765,
+        "transportExitCode": 0,
+        "submittedAt": 45.352615583,
+        "acknowledgedAt": 45.639832041
+      },
+      "native": {
+        "result": "applied",
+        "text": "So tell me. What is it you’re here for?",
+        "sourceText": "[pic=3]So tell me. What is it you’re here for?",
+        "panelPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Subtitle Panel 0",
+        "buttonPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button",
+        "textPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Subtitle Text",
+        "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+        "listenerMethod": "OnFastForward",
+        "listenerTargetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button",
+        "sourceDestinations": "120:159,120:181",
+        "pcDestinations": "120:159,120:181",
+        "choiceMode": "original",
+        "frame": 942,
+        "conversationId": 120,
+        "entryId": 158,
+        "panelInstance": -7838,
+        "buttonInstance": -7904,
+        "textInstance": -7870,
+        "typing": false,
+        "menuPresent": false,
+        "buttonActive": true,
+        "buttonEnabled": true,
+        "buttonInteractable": true,
+        "graphVerified": true
+      }
+    },
+    "boundary": "Selected response destinations are not credited as observed subtitles; ACKs do not renew budgets"
+  },
+  "selection181": {
+    "sourceFrame": 997,
+    "action": "select-tutorial181 997 -56980",
+    "native": {
+      "result": "submitted",
+      "choiceMode": "original",
+      "text": "The love. Definitely the love.",
+      "path": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: The love. Definitely the love.",
+      "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+      "listenerMethod": "OnClick",
+      "listenerTargetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: The love. Definitely the love.",
+      "frame": 1017,
+      "conversationId": 120,
+      "sourceId": 158,
+      "destinationId": 181,
+      "successorId": 182,
+      "buttonInstance": -56980,
+      "controllerInstance": -56984,
+      "typing": false,
+      "graphVerified": true,
+      "listenerVerified": true
+    },
+    "transport": {
+      "command": "select-tutorial181 997 -56980",
+      "acknowledgement": "2026-10-26T19:06:10.0529360Z OK select-tutorial181 997 -56980",
+      "transportPid": 63782,
+      "transportExitCode": 0,
+      "submittedAt": 46.869699416,
+      "acknowledgedAt": 47.159711166
+    }
+  },
+  "observedRouteSubtitles": [
+    182,
+    183,
+    184,
+    185,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    186,
+    187
+  ],
+  "actual182Observed": true,
+  "boundary": "Selection ACK, PC181 and actual182 observation are separate; no initial-spawn/notebook/quest-completion claim"
+}

@@ -1,0 +1,1 @@
+TYPE PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton BASE PixelCrushers.DialogueSystem.StandardUIResponseButton

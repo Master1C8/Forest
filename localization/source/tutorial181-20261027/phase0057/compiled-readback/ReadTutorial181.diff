@@ -1,0 +1,11 @@
+--- diagnostic49
++++ exact-wrapper50
+@@ -93,7 +93,7 @@
+ IL_00e5: brtrue IL_01c7
+ IL_00ea: ldloc.2
+ IL_00eb: callvirt System.Type System.Object::GetType()
+-IL_00f0: ldtoken PixelCrushers.DialogueSystem.StandardUIResponseButton
++IL_00f0: ldtoken PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton
+ IL_00f5: call System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+ IL_00fa: call System.Boolean System.Type::op_Inequality(System.Type,System.Type)
+ IL_00ff: brtrue IL_01c7
