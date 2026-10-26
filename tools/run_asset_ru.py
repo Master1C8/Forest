@@ -117,6 +117,9 @@ def validate_repair_restart(directory, state, receipt_path, snapshot):
     last = state['phases'][-1]
     if state['status'] != 'needs-owner' or last.get('exitCode') != 0 or (last.get('result') or {}).get('outcome') != 'needs-owner':
         raise ValueError('Repair requires a successfully completed source-held turn')
+    thread, usage, errors = cli_events(Path(last['directory']) / 'events.jsonl')
+    if not cli_turn_succeeded(last['exitCode'], usage, errors) or thread != last.get('threadId'):
+        raise ValueError('Source-held turn completion is unverified')
     if receipt.get('kind') != 'source-repair' or receipt.get('heldPhase') != last['number'] or receipt.get('heldThreadId') != last.get('threadId'):
         raise ValueError('Repair identifies a different source-held turn')
     if receipt.get('jobSha256') != digest(directory / 'job.json') or receipt.get('overlaySha256') != snapshot['overlaySha256'] or receipt.get('inputPinsSha256') != digest(directory / 'input-pins.json'):

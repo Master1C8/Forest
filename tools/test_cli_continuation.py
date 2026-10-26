@@ -24,7 +24,11 @@ class ContinuationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary).resolve()
             state = {'status': 'needs-owner', 'phases': [{'number': 23,
-                'threadId': 'source-held', 'exitCode': 0, 'result': {'outcome': 'needs-owner'}}]}
+                'threadId': 'source-held', 'directory': str(directory), 'exitCode': 0,
+                'result': {'outcome': 'needs-owner'}}]}
+            events = directory / 'events.jsonl'
+            events.write_text(json.dumps({'type': 'thread.started', 'thread_id': 'source-held'}) + '\n' +
+                json.dumps({'type': 'turn.completed', 'usage': {'input_tokens': 10, 'output_tokens': 2}}) + '\n')
             write(directory / 'job.json', state)
             write(directory / 'input-pins.json', {})
             brief = directory / 'repair.md'
@@ -40,6 +44,12 @@ class ContinuationTests(unittest.TestCase):
             write(path, receipt)
             self.assertEqual(assets.validate_repair_restart(directory, state, path, snapshot),
                              (receipt, brief.read_text()))
+            original_events = events.read_text()
+            with events.open('a') as stream:
+                stream.write(json.dumps({'type': 'turn.failed', 'error': {'message': 'Unknown outcome'}}) + '\n')
+            with self.assertRaisesRegex(ValueError, 'completion is unverified'):
+                assets.validate_repair_restart(directory, state, path, snapshot)
+            events.write_text(original_events)
             with self.assertRaisesRegex(ValueError, 'checkpoint or pinned inputs changed'):
                 assets.validate_repair_restart(directory, state, path, {'overlaySha256': 'different'})
             with self.assertRaisesRegex(ValueError, 'successfully completed source-held'):
@@ -163,6 +173,12 @@ class ContinuationTests(unittest.TestCase):
             self.assertFalse((run / 'queue.lock').exists())
 
     def test_asset_partial_state_survives_two_automatic_fresh_phases(self):
+        self._exercise_asset_partial_state(repair=False)
+
+    def test_source_repair_assignment_runs_once_then_continues_fresh(self):
+        self._exercise_asset_partial_state(repair=True)
+
+    def _exercise_asset_partial_state(self, repair):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve()
             run = root / 'outputs/asset-job'
@@ -192,6 +208,25 @@ class ContinuationTests(unittest.TestCase):
             (run / 'contract.md').write_text('# Russian asset translation: automatic fresh continuation\n')
             write(run / 'job.json', {'status': 'finished', 'pid': None, 'supervisorPid': None,
                 'measuredUsage': {'input_tokens': 11, 'output_tokens': 2, 'total_tokens': 13}})
+            repair_path = None
+            if repair:
+                old = run / '0001-translation'
+                old.mkdir()
+                (old / 'events.jsonl').write_text(json.dumps({'type': 'thread.started', 'thread_id': 'held'}) + '\n' +
+                    json.dumps({'type': 'turn.completed', 'usage': {'input_tokens': 11, 'output_tokens': 2}}) + '\n')
+                write(run / 'job.json', {'status': 'needs-owner', 'pid': None, 'supervisorPid': None,
+                    'phases': [{'number': 1, 'directory': str(old), 'exitCode': 0, 'threadId': 'held',
+                        'result': {'outcome': 'needs-owner'},
+                        'measuredUsage': {'input_tokens': 11, 'output_tokens': 2, 'total_tokens': 13}}]})
+                assignment = run / 'repair.md'
+                assignment.write_text('UNIQUE_REPAIR_ASSIGNMENT: diagnose the consumer before new wording.')
+                repair_path = run / 'repair-receipt.json'
+                write(repair_path, {'kind': 'source-repair', 'heldPhase': 1, 'heldThreadId': 'held',
+                    'jobSha256': support.digest(run / 'job.json'),
+                    'overlaySha256': support.digest(target_path),
+                    'inputPinsSha256': support.digest(run / 'input-pins.json'),
+                    'repairBrief': str(assignment), 'repairBriefSha256': support.digest(assignment),
+                    'ownerInstruction': 'Repair Russian', 'changedHypothesis': 'Consumer/adapter repair'})
             codex = root / 'fake-codex'
             codex.write_text('Fake request boundary')
             calls = []
@@ -203,6 +238,9 @@ class ContinuationTests(unittest.TestCase):
                     self.phase = Path(command[command.index('--output-last-message') + 1]).parent
                     self.out = kwargs['stdout']
                     calls.append(command)
+                    if repair:
+                        brief_text = (self.phase / 'brief.md').read_text()
+                        assert ('UNIQUE_REPAIR_ASSIGNMENT' in brief_text) == (len(calls) == 1)
 
                 def wait(self):
                     with target_path.open('a') as stream:
@@ -215,7 +253,7 @@ class ContinuationTests(unittest.TestCase):
                     return 0
 
             with patch.object(assets, 'ROOT', root), patch.object(assets.shutil, 'which', return_value=str(codex)), patch.object(assets.subprocess, 'Popen', Child):
-                assets.run(run)
+                assets.run(run, repair_reconciliation=repair_path)
             state = json.loads((run / 'job.json').read_text())
             self.assertEqual(state['status'], 'draft-complete')
             self.assertEqual(len(state['phases']), 3)
