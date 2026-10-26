@@ -53,6 +53,20 @@
       "finding": "Both Off hierarchies serialize split Top fields and legacy m_textAlignment=514, with a fitted black NameGlowLeft and four fixed-height children. Candidate12 runtime resolves all these layers to Center, contradicting a Top-based causal inference. Candidate11 and original traced objects are identical. The experimental stretch changes 8 child RectTransforms and after-run measurements have coherent per-layer font/size/glyph origins within the retained outline offsets; this does not prove visual repair or that candidate11 metrics differed.",
       "runtimeEvidence": "localization/probes/ru-20261026-12/runtime-diagnosis.json",
       "runtimeEvidenceSha256": "6865691e68c5f59e975275b10edf0b8ccab14cd37b1783fa036877460fd965bb"
+    },
+    {
+      "surface": "Inventory item title/description",
+      "consumer": "InventoryCellUiController.OnSelected -> InventoryInfoTicker.OnCellSelected -> UpdateItemInfoText -> UnityEngine.UI.Text",
+      "evidence": "localization/source/inventory-20261026/source-trace.json",
+      "evidenceSha256": "a5a6955d95b309bb816226528c968d11a3e616ac12077e415f4b918303078572",
+      "finding": "All3 sharedassets2 serialized ticker variants traced to6 native Text bindings. Only FixedWidths active in source hierarchy; runtime multiplicity unverified. Item title/description and four empty-cell display literals differ from itemType/grid/quantity/consumed state. Native :369 face shared with accepted nameplate, layout not accepted. InventoryInfoTicker.Update is ret; existing Scroll methods do not prove scrolling."
+    },
+    {
+      "surface": "Quest pane/photo progress counter",
+      "consumer": "QuestLogDetailsPane.UpdateSelectedQuest / MelodyFlipbookQuest",
+      "evidence": "localization/source/inventory-20261026/source-trace.json",
+      "evidenceSha256": "a5a6955d95b309bb816226528c968d11a3e616ac12077e415f4b918303078572",
+      "finding": "Seven native Text bindings use sharedassets0:369. Three String.Contains(\"lost photos\") tests inspect displayed current/1Back/2Back log text before adding photo counts. Preserve comparison until a source-backed adapter is implemented; translating only log text can suppress counts. Compiled visible fragments, actor lookup identities and quest/progress/trigger keys classified separately. Frozen source/special-scene pins unchanged."
     }
   ],
   "regressions": [
@@ -86,6 +100,14 @@
     {
       "id": "settings-top-aligned-fitted-glow",
       "requirement": "Resolve actual TMP alignment/font/size after deserialization before inferring a glow defect from serialized fields: Off has split Top fields but legacy m_textAlignment=514 and runtime Center. Preserve source colors/text/material/size/outline offsets; a geometry candidate and coherent runtime glyph metrics do not establish visual repair. Cover both Fullscreen/Off and FullscreenStretch/Off and independent full-resolution originals. Preserve candidate11 overprinting and record a failed cause hypothesis rather than treating a matching validator as causal proof."
+    },
+    {
+      "id": "inventory-live-variants-and-empty-cell",
+      "requirement": "Do not mistake two inactive serialized alternatives or Driftwood placeholder text for three live item descriptions. Check actual controller/listener multiplicity and selected schema/grid branch. Verify notebook-unlocked/no-event/gameplay guards before opening. Preserve literal source-expected equality in probe insertion; sample strings must not alter item identities/quantity/consumed state."
+    },
+    {
+      "id": "quest-photo-count-display-comparison",
+      "requirement": "In MelodyFlipbookQuest, English lost photos is a String.Contains operand over visible history in three positions. A localized log must retain count on the same semantic rows after a proper consumer adapter; an unrelated history row is a negative control. Actor/quest/trigger lookup names remain exact. Registration alone does not pass source/adaptation/runtime gates."
     }
   ],
   "pending": [

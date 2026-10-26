@@ -12,6 +12,26 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
+Phase0013 traced the inventory selection consumer to all three serialized ticker
+variants (six native Text fields) and the adjacent quest pane (seven fields).
+Only the FixedWidths ticker is active in the original hierarchy. Candidate17 passed
+five resource no-op/readback controls and exact insertion/readback of two synthetic
+empty-cell display literals; the standard hook-only control also passed. The game
+was not launched: ordinary inventory access requires `notebook_unlocked`, a gameplay
+scene and no active event. Original dialogue conversation225/entry188 encodes
+`TRIGGER(notebook_unlocked)`; its dispatch and a safe route from the isolated fresh
+profile remain to be exercised.
+The QA bridge was removed and its original assembly restored. No images were captured
+or opened. See `localization/source/inventory-20261026/source-trace.json` and
+`localization/probes/ru-20261026-17/verification.json`.
+
+The quest consumer has three `Contains("lost photos")` tests over displayed history
+before appending photo counters. This needs a bounded consumer adapter before localized
+logs are integrated. Compiled visible fragments and protected quest/actor/trigger
+identities are recorded in the supplemental source finding; frozen source and special
+scene inputs remain unchanged. Neither this discovery nor the static candidate passes
+runtime, visual, full source, special-scene or editorial acceptance.
+
 The first CLI session ended at the bounded protocol's two-original context limit.
 The owner authorizes sequential technical CLI sessions with clean contexts and a
 parallel asset-translation CLI. The technical lane alone owns Git transactions;

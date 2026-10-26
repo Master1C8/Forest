@@ -22,6 +22,7 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', type=Path)
+    parser.add_argument('--inventory-sample', action='store_true', help='Two synthetic empty-cell display literals only; no inventory identities/state changes')
     args = parser.parse_args()
     run = args.run.resolve()
     assert run.parent == ROOT / 'localization/probes'
@@ -52,7 +53,7 @@ def main():
     subprocess.run(['dotnet', 'build', str(snapshot / 'InjectProbe.csproj'), '--nologo', '--verbosity', 'quiet'], check=True)
     injector = snapshot / 'bin/Debug/net8.0/InjectProbe.dll'
     subprocess.run(['dotnet', str(injector), str(ORIGINAL), str(run / 'ForestProbe.dll'),
-                    str(run / 'Assembly-CSharp.hook.dll')], check=True)
+                    str(run / 'Assembly-CSharp.hook.dll')] + (['--inventory-sample'] if args.inventory_sample else []), check=True)
     shutil.copy2(run / 'ForestProbe.dll', target / 'ForestProbe.dll')
     shutil.copy2(run / 'Assembly-CSharp.hook.dll', target / 'Assembly-CSharp.dll')
     receipt = {'builtAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -62,7 +63,10 @@ def main():
                'bridgeSha256': sha(target / 'ForestProbe.dll'),
                'hookSha256': sha(target / 'Assembly-CSharp.dll'),
                'injectorSha256': sha(injector),
-               'boundary': 'Only MainMenuController.Start hook differs; injector checks all other methods',
+               'boundary': 'Exact instruction readback; MainMenuController.Start hook' +
+                           (' and two InventoryInfoTicker.OnCellSelected empty-cell display literals only' if args.inventory_sample else ' only'),
+               'inventorySample': {'title': 'Ёж Йй 123 — Latin!',
+                                   'description': 'Е\u0308 и\u0306; Ё й. Щъ Ыь Эю Яя; 123 — Latin!'} if args.inventory_sample else None,
                'releaseUse': 'forbidden; inspection bridge only'}
     (run / 'bridge-build.json').write_text(json.dumps(receipt, indent=2) + '\n')
     print('Versioned bridge installed into isolated probe:', run)
