@@ -1,0 +1,238 @@
+{
+  "observedAt": "2026-10-26T13:13:36.661042+00:00",
+  "argv": [
+    "/usr/bin/log",
+    "show",
+    "--start",
+    "2026-10-26 19:43:55",
+    "--end",
+    "2026-10-26 19:47:05",
+    "--style",
+    "compact",
+    "--info",
+    "--predicate",
+    "processIdentifier == 59449 OR ((process == \"kernel\" OR process == \"amfid\" OR process == \"syspolicyd\" OR process == \"oahd\") AND (eventMessage CONTAINS[c] \"59449\" OR eventMessage CONTAINS[c] \"mono-2.0\" OR eventMessage CONTAINS[c] \"Forest of Love\"))"
+  ],
+  "returnCode": 0,
+  "stderr": "",
+  "stdoutBytes": 1046,
+  "stdoutSha256": "42701b724da82242fe870a70a825018b1b66693f25a97fe0670ef21b4e071038",
+  "timezone": "Asia/Ho_Chi_Minh UTC+07; exact39 launch approximately12:44UTC/19:44local",
+  "diagnosticReportFilenameInventories": [
+    {
+      "path": "/Users/antonkrutov/Library/Logs/DiagnosticReports",
+      "totalTopLevelFiles": 71,
+      "listed": [
+        {
+          "name": "dotnet-2026-10-26-184006.ips",
+          "mtimeUTC": "2026-10-26T11:40:07.108378+00:00"
+        },
+        {
+          "name": "browser_crashpad_handler-2026-10-26-170833.ips",
+          "mtimeUTC": "2026-10-26T10:08:33.471206+00:00"
+        },
+        {
+          "name": "test-profile-interpose-2026-10-26-170826.ips",
+          "mtimeUTC": "2026-10-26T10:08:26.081149+00:00"
+        },
+        {
+          "name": "capture-ftl-nominal-2026-10-26-154823.ips",
+          "mtimeUTC": "2026-10-26T08:48:23.077956+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-140313.ips",
+          "mtimeUTC": "2026-10-26T07:03:13.350533+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-140223.ips",
+          "mtimeUTC": "2026-10-26T07:02:23.881073+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-133533.ips",
+          "mtimeUTC": "2026-10-26T06:35:34.623526+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-124941.ips",
+          "mtimeUTC": "2026-10-26T05:49:41.724861+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-122833.ips",
+          "mtimeUTC": "2026-10-26T05:28:33.453697+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-115603.ips",
+          "mtimeUTC": "2026-10-26T04:56:03.771895+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-110008.ips",
+          "mtimeUTC": "2026-10-26T04:00:08.373269+00:00"
+        },
+        {
+          "name": "dotnet-2026-10-26-100348.ips",
+          "mtimeUTC": "2026-10-26T03:03:51.321189+00:00"
+        },
+        {
+          "name": "ExcUserFault_steam_osx-2026-10-26-080945.ips",
+          "mtimeUTC": "2026-10-26T01:09:46.140060+00:00"
+        },
+        {
+          "name": "ExcUserFault_nsattributedstringagent-2026-10-25-111634.ips",
+          "mtimeUTC": "2026-10-25T04:16:34.900863+00:00"
+        },
+        {
+          "name": "ExcUserFault_steam_osx-2026-10-25-081829.ips",
+          "mtimeUTC": "2026-10-25T01:18:30.253799+00:00"
+        },
+        {
+          "name": "browser_crashpad_handler-2026-10-24-195132.ips",
+          "mtimeUTC": "2026-10-24T12:51:32.062766+00:00"
+        },
+        {
+          "name": "browser_crashpad_handler-2026-10-24-195111.000.ips",
+          "mtimeUTC": "2026-10-24T12:51:11.666660+00:00"
+        },
+        {
+          "name": "GalaxyCommunication-2026-10-24-173551.ips",
+          "mtimeUTC": "2026-10-24T10:35:51.539922+00:00"
+        },
+        {
+          "name": "DirectionTests-2026-10-24-160808.ips",
+          "mtimeUTC": "2026-10-24T09:08:09.022417+00:00"
+        },
+        {
+          "name": "ExcUserFault_steam_osx-2026-10-24-154737.ips",
+          "mtimeUTC": "2026-10-24T08:47:37.558535+00:00"
+        },
+        {
+          "name": "ExcUserFault_steam_osx-2026-10-24-150453.ips",
+          "mtimeUTC": "2026-10-24T08:04:53.586532+00:00"
+        },
+        {
+          "name": "DirectionTests-2026-10-24-082931.ips",
+          "mtimeUTC": "2026-10-24T01:29:31.849410+00:00"
+        },
+        {
+          "name": "browser_crashpad_handler-2026-10-24-075013.ips",
+          "mtimeUTC": "2026-10-24T00:50:13.552384+00:00"
+        },
+        {
+          "name": "Police-2026-10-24-074939.ips",
+          "mtimeUTC": "2026-10-24T00:49:52.667567+00:00"
+        },
+        {
+          "name": "browser_crashpad_handler-2026-10-24-000749.ips",
+          "mtimeUTC": "2026-10-23T17:07:49.778883+00:00"
+        }
+      ],
+      "limit": 25
+    },
+    {
+      "path": "/Library/Logs/DiagnosticReports",
+      "totalTopLevelFiles": 139,
+      "listed": [
+        {
+          "name": "SC2_2026-10-26-190731_Antons-MacBook-Air.cpu_resource.diag",
+          "mtimeUTC": "2026-10-26T12:07:43.649255+00:00"
+        },
+        {
+          "name": "Google Chrome_2026-10-26-181237_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T11:25:15.030056+00:00"
+        },
+        {
+          "name": "Python_2026-10-26-174144_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T10:42:01.627009+00:00"
+        },
+        {
+          "name": "FTL_2026-10-26-165222_Antons-MacBook-Air.cpu_resource.diag",
+          "mtimeUTC": "2026-10-26T09:52:29.141642+00:00"
+        },
+        {
+          "name": "WindowServer_2026-10-26-161352_Antons-MacBook-Air.cpu_resource.diag",
+          "mtimeUTC": "2026-10-26T09:14:07.641059+00:00"
+        },
+        {
+          "name": "Python_2026-10-26-155231_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T08:52:37.174228+00:00"
+        },
+        {
+          "name": "ANECompilerService_2026-10-26-154038_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T08:40:40.595035+00:00"
+        },
+        {
+          "name": "ANECompilerService_2026-10-26-153354_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T08:33:56.059141+00:00"
+        },
+        {
+          "name": "ANECompilerService_2026-10-26-153343_Antons-MacBook-Air.cpu_resource.diag",
+          "mtimeUTC": "2026-10-26T08:33:48.725546+00:00"
+        },
+        {
+          "name": "mds_stores_2026-10-26-153310_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T08:33:33.137772+00:00"
+        },
+        {
+          "name": "shutdown_stall_2026-10-26-152835_Antons-MacBook-Air.shutdownStall",
+          "mtimeUTC": "2026-10-26T08:28:36.006003+00:00"
+        },
+        {
+          "name": "mds_stores_2026-10-26-130352_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T06:04:37.107511+00:00"
+        },
+        {
+          "name": "duetexpertd_2026-10-26-124946_Antons-MacBook-Air.cpu_resource.diag",
+          "mtimeUTC": "2026-10-26T05:50:09.828913+00:00"
+        },
+        {
+          "name": "coresymbolicationd_2026-10-26-122850_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T05:29:02.562191+00:00"
+        },
+        {
+          "name": "ANECompilerService_2026-10-26-121724_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T05:18:04.848891+00:00"
+        },
+        {
+          "name": "Google Chrome_2026-10-26-082216_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T04:24:29.324440+00:00"
+        },
+        {
+          "name": "com.apple.Virtualization.VirtualMachine_2026-10-25-120447_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T04:24:29.323209+00:00"
+        },
+        {
+          "name": "ANECompilerService_2026-10-26-020456_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T04:24:29.322036+00:00"
+        },
+        {
+          "name": "shutdown_stall_2026-10-25-133244_Antons-MacBook-Air.shutdownStall",
+          "mtimeUTC": "2026-10-26T04:24:28.990328+00:00"
+        },
+        {
+          "name": "ChatGPT_2026-10-25-135619_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T04:24:27.139422+00:00"
+        },
+        {
+          "name": "talagentd_2026-10-26-082355_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T04:24:27.137867+00:00"
+        },
+        {
+          "name": "Google Chrome Helper (Aperitif)_2026-10-25-161812_Antons-MacBook-Air.diag",
+          "mtimeUTC": "2026-10-26T04:24:27.134295+00:00"
+        },
+        {
+          "name": "ANECompilerService_2026-10-26-020546_Antons-MacBook-Air.cpu_resource.diag",
+          "mtimeUTC": "2026-10-25T19:05:53.474180+00:00"
+        },
+        {
+          "name": "oahd-helper-2026-10-25-070932.ips",
+          "mtimeUTC": "2026-10-25T11:32:19.780068+00:00"
+        },
+        {
+          "name": "oahd-helper-2026-10-25-171112.ips",
+          "mtimeUTC": "2026-10-25T10:11:12.470153+00:00"
+        }
+      ],
+      "limit": 25
+    }
+  ],
+  "interpretation": "ExactPID59449 has routine activation/preferences/font events and a kernel DYLD unnest advisory. No explanatory failure in this bounded predicate/time window. Other Wine PIDs not attributed to this game. No matching newer game crash report identified in bounded top25-per-root filename lists; absence is not proof of no crash."
+}

@@ -8,6 +8,7 @@ import copy
 import subprocess
 import threading
 import time
+import os
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / 'probe'))
 from diagnose_native_input import release_observed, menu_guard, menu_ready, delivered_to_consumer, observe_menu_idle
@@ -18,6 +19,30 @@ import json
 
 class StartupLifetimeObservation(unittest.TestCase):
     """Real child exit codes; fixtures replace only Unity logs/process identities."""
+
+    def test_startup_trace_is_explicit_and_preserves_unrelated_environment(self):
+        # This real non-game child verifies the subprocess environment boundary;
+        # it does not prove that Wine/Unity emits the requested diagnostic logs.
+        with patch.dict(os.environ, {'FOREST_TRACE_CONTROL': 'preserved',
+                                     'MONO_LOG_LEVEL': 'warning', 'WINEDEBUG': '-all',
+                                     'CX_DEBUGMSG': '-all'}):
+            normal = gameplay.launch_options(['/tmp/fixture'])
+            traced = gameplay.launch_options(['/tmp/fixture', '--startup-diagnostics'])
+            self.assertFalse(normal.startup_diagnostics)
+            self.assertIsNone(gameplay.startup_environment(normal.startup_diagnostics))
+            env = gameplay.startup_environment(traced.startup_diagnostics)
+            result = subprocess.run([sys.executable, '-c',
+                'import os,json; print(json.dumps({k:os.environ[k] for k in '
+                '["WINEDEBUG","CX_DEBUGMSG","MONO_LOG_LEVEL","MONO_LOG_MASK","FOREST_TRACE_CONTROL"]}))'],
+                env=env, text=True, capture_output=True, check=True, timeout=15)
+            self.assertEqual(json.loads(result.stdout), dict(gameplay.STARTUP_TRACE_ENV,
+                             FOREST_TRACE_CONTROL='preserved'))
+            self.assertEqual(os.environ['MONO_LOG_LEVEL'], 'warning')
+            self.assertEqual(os.environ['WINEDEBUG'], '-all')
+            self.assertEqual(os.environ['CX_DEBUGMSG'], '-all')
+        with self.assertRaises(SystemExit) as error, patch('sys.stderr'):
+            gameplay.launch_options(['/tmp/fixture', '--unknown-startup-option'])
+        self.assertEqual(error.exception.code, 2)
 
     def test_exited_launcher_without_owned_game_rejects_even_stale_ready(self):
         for code in [0, 7]:

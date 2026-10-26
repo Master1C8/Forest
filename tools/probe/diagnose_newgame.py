@@ -5,9 +5,11 @@ Then follow the source-backed natural doorway corridor with guarded left/down pu
 No screenshots, forced chapter selection, trigger mutation or inventory opening.
 Run a frozen copy in the probe directory; all later-read helpers live there too.
 """
+import argparse
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -19,6 +21,29 @@ SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA = 'The Forest of Love_Data'
 GAME = None
 EXE = None
+
+STARTUP_TRACE_ENV = {
+    'WINEDEBUG': '-all,+timestamp,+pid,+tid,+loaddll,+seh,+process',
+    # CrossOver's Perl wrapper otherwise defaults CX_DEBUGMSG to -all and then
+    # overwrites WINEDEBUG. Setting WINEDEBUG alone does not enable its tracing.
+    'CX_DEBUGMSG': '-all,+timestamp,+pid,+tid,+loaddll,+seh,+process',
+    'MONO_LOG_LEVEL': 'debug',
+    'MONO_LOG_MASK': 'all',
+}
+
+
+def launch_options(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('run', type=Path)
+    parser.add_argument('--startup-diagnostics', action='store_true',
+                        help='Opt-in Wine loader/exception/process and Mono logs; no runtime-policy changes')
+    return parser.parse_args(argv)
+
+
+def startup_environment(enabled):
+    # Preserve normal inheritance exactly unless this new immutable run opts in.
+    # Never persist the inherited environment, which may contain credentials.
+    return dict(os.environ, **STARTUP_TRACE_ENV) if enabled else None
 
 
 def sha(p):
@@ -617,7 +642,8 @@ def natural_doorway_route(loaded):
 
 def main():
     global RUN, GAME, EXE
-    RUN = Path(sys.argv[1]).resolve()
+    options = launch_options(sys.argv[1:])
+    RUN = options.run.resolve()
     GAME = RUN / 'game'
     EXE = GAME / 'The Forest of Love.exe'
     assert RUN.parent == Path('/Users/antonkrutov/Desktop/Forest/localization/probes')
@@ -647,8 +673,11 @@ def main():
     budget = None
     try:
         with (RUN / 'wine.log').open('wb') as log:
-            child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+            child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT,
+                                     start_new_session=True, env=startup_environment(options.startup_diagnostics))
         write('launch.json', {'pid': child.pid, 'command': args,
+                             'startupDiagnostics': options.startup_diagnostics,
+                             'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
                              'scope': 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility'})
