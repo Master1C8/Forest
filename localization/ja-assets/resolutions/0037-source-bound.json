@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "locale": "ja",
+  "phase": "0037-translation",
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai"
+  },
+  "manifestSha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+  "candidatesSha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+  "evidence": {
+    "facts": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/source-facts.json",
+      "sha256": "09ecb2e5f0218bb8e00945f7e4af39321d9ee6d7b60edd6cc9cdf8337f47a3e9"
+    },
+    "topology": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/source-topology.json",
+      "sha256": "97bde6677958d0d93e99877d2bd4d5b433bf43d6f7beca9ec7b7d5b30d0e772a"
+    },
+    "consumers": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/consumer-verification.json",
+      "sha256": "cf579a904b91525b81831db2013c61fc9c00831de011ffd1d4b29320a095bb89"
+    },
+    "originalHolds": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/original-holds.json",
+      "sha256": "5713c4dbadae9fdc8ca5b815935ab49a5647cd2538b42347ad07ba57c8848f1f"
+    },
+    "authoredDisplay": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/authored-display.tsv",
+      "sha256": "405105ddf067d166433dc740961640351ce9427eaa94c29f7bccad8ea98964d2"
+    },
+    "displayDecisions": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/display-decisions.json",
+      "sha256": "ca0c6a7af9ae2be95f8841791bd24840fb5b1e5b5f11b5866d2e58ef43c01553"
+    },
+    "sourceContext": {
+      "path": "outputs/locale-assets-20261026/ja/0037-translation/source-context.json",
+      "sha256": "b80fd585f571bb15d2a71f1333cb9104ee91918cce0943a969552b68b2da106f"
+    }
+  },
+  "records": [
+    {
+      "id": "ds:949:698:Dialogue Text",
+      "sourceSha256": "78156ae1d8131986ff5e30c205cd22735b31cb31413cc29cc2f7a74abc04dd09",
+      "targetSha256": "c53a1cbfd0a177d65fc38b119661260be99e48400aef11a4fd9e8f61320b925e",
+      "pointer": "/conversations/480/dialogueEntries/5/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/480/dialogueEntries/5/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/480/dialogueEntries/5/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*彼はいたずらっぽくラスカルを振り返る。明らかに見せつけている。*",
+      "originalHoldReason": "Source classification: standalone physical-stage direction (*He looks back slyly at Rascal. Definitely putting on a show.*) occupies Dialogue Text. Local dialogue enters this row, but its display versus production role is not established; retain source pending consumer classification. Evidence 0022-translation/source-context.json conversation 949 entry 698.",
+      "originalHoldReasonSha256": "3c653bdbfcde795bd17a57287ae4c828acc892ce1ab4ac06fefcc60a1e6e5ed0",
+      "reason": "Augustus looks back at Rascal slyly and is definitely showing off, after Oliver suggests that explanation at 731. Preserve both assertions, the certainty, third-person narration, two sentences and asterisks. No spoken line is invented."
+    },
+    {
+      "id": "ds:949:712:Dialogue Text",
+      "sourceSha256": "64bd271d0054550d7626cc131a5c46ee51ef60046da430baa9b52983cd3873a9",
+      "targetSha256": "26568bfe5e1df82f1372e48ac09639d5548705f2dcafdc6b434ef0ca8c518905",
+      "pointer": "/conversations/480/dialogueEntries/19/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/480/dialogueEntries/19/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/480/dialogueEntries/19/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*オリバーが彼の口から引き抜くと* あ、ああ…もう少しこの余韻に浸っていたかったのに…",
+      "originalHoldReason": "Source classification: mixed stage direction *As Oliver slips out of his mouth* and spoken reaction in one Dialogue Text field; display/service span contract is not established. Preserve whole source and hold this ID rather than guessing a safe split. Evidence 0022-translation/source-context.json conversation 949 entry 712.",
+      "originalHoldReasonSha256": "fa41b528097df66f7691f28140eee107b11642fe31c656be61159b2720c8377d",
+      "reason": "One complete display field: opening narration followed by Augustus speaking. Oliver withdraws from Augustus's mouth after Oliver announces it at 710; Augustus is disappointed and wanted to enjoy the afterglow longer. Japanese leaves the object of withdrawing implicit as the source does, retains mouth possession, the initial vocal hesitation and the unrealized wish. Keep the narration inside exactly one asterisk pair, then one space and nonempty speech outside it. Do not move speech into narration or discard either part."
+    },
+    {
+      "id": "ds:949:720:Dialogue Text",
+      "sourceSha256": "33a722fed35fcfc99086e9490560bfc0004dc74eb5d11f1892d000cc233976b8",
+      "targetSha256": "49587a2dd41b1f7adcf64e7db0c33f8da8330f988a447f471894fad8e566b51b",
+      "pointer": "/conversations/480/dialogueEntries/27/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/480/dialogueEntries/27/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/480/dialogueEntries/27/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*彼はラスカルにウインクする*",
+      "originalHoldReason": "Source classification: standalone action direction *He gives Rascal a wink* in Dialogue Text, reached by dialogue links; visible narration versus production role remains unclassified. Preserve source. Evidence 0022-translation/source-context.json conversation 949 entry 720.",
+      "originalHoldReasonSha256": "8df550f4cb07185e93b7f84be80a048526411e44c54be8c4dfce0abf7141a52b",
+      "reason": "He is Augustus, whose mouth Oliver describes at 718-719. Augustus winks at Rascal; neither Oliver nor Rascal performs the wink. Preserve third-person action and asterisk delimiters."
+    },
+    {
+      "id": "ds:949:724:Dialogue Text",
+      "sourceSha256": "35424f433cd38d779eb7a6d1604efe46166d8a3b5d4f9995d15dd1923d1a6907",
+      "targetSha256": "0c7a0e6393dccf149495f6927dde8cf8372202a93d3c05aee663f47e0709e2a5",
+      "pointer": "/conversations/480/dialogueEntries/31/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/480/dialogueEntries/31/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/480/dialogueEntries/31/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*突きの合間に、彼はラスカルに素早くうなずく*",
+      "originalHoldReason": "Source classification: standalone physical-stage direction *Between thrusts, he gives Rascal a quick nod* in Dialogue Text, reached by dialogue links; narration/service classification is unresolved. Preserve source. Evidence 0022-translation/source-context.json conversation 949 entry 724.",
+      "originalHoldReasonSha256": "26296e589202daf4d80395f7f1a3903a36fef9315b7e49b98a219c0883217d4e",
+      "reason": "Augustus quickly nods to Rascal between Oliver's thrusts, assenting to the preceding suggestion. The Japanese noun tsuki leaves the thrusting actor implicit; it does not assign thrusting to Augustus. Preserve speed, addressee and timing without converting the nod into speech."
+    },
+    {
+      "id": "ds:949:746:Dialogue Text",
+      "sourceSha256": "d4b2d391e71de40b92c80834e642f48d85c022839146e265e33de74bbd594920",
+      "targetSha256": "77e6b93d15b775624106e8456e8ae38c52b81aacf0a72bab3c2635c0429f8635",
+      "pointer": "/conversations/480/dialogueEntries/53/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/480/dialogueEntries/53/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/480/dialogueEntries/53/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*彼は小さく何度かうなずく*",
+      "originalHoldReason": "Source classification: standalone action direction *He gives a small series of nods* in Dialogue Text, reached by dialogue links; visible narration versus production role is not established. Preserve source. Evidence 0022-translation/source-context.json conversation 949 entry 746.",
+      "originalHoldReasonSha256": "adae5ec99b111e668875cb7326b9ef99e064e4d5d9c9862bebd9bd656d271e5d",
+      "reason": "Augustus responds to Oliver asking whether he is ready at 745. Small refers to the nodding movement and series means several nods. Retain both with chiisaku nandoka; do not add a spoken yes."
+    },
+    {
+      "id": "ds:952:807:Dialogue Text",
+      "sourceSha256": "f51b8ddede977dd7ab0df40bd9197d3f4818df97f9f378ebc557a232366c865f",
+      "targetSha256": "288a21f300274687f81e699bb2676c84bcbd97bf6492b263344217ce4227f53b",
+      "pointer": "/conversations/483/dialogueEntries/61/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/483/dialogueEntries/61/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/483/dialogueEntries/61/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*彼女はラスカルにいたずらっぽくウインクしてから身を引く*",
+      "originalHoldReason": "Third-person performance/stage direction inside dialogue field, display classification unverified; exact source and links in 0023-translation/source-481-484.txt, conversation 952 entry 807.",
+      "originalHoldReasonSha256": "5cef924c1c81926684522d7d3bbe6d79d88a2422e59e0f035fbb7b1261de61cf",
+      "reason": "Penny gives Rascal a sly wink before drawing back. Preserve Penny as actor, Rascal as recipient, the sly manner and wink-before-withdrawal ordering. Mi o hiku expresses pulling back without adding an unspoken anatomical detail."
+    },
+    {
+      "id": "ds:518:1242:Dialogue Text",
+      "sourceSha256": "9241a2671a0a153c291fe9deb9e167c407abd377cac92519a95c577e21893978",
+      "targetSha256": "be603e311777948ab0a280d52e97eb1f393fa36a9c51c9b3378b4b8276ec0c13",
+      "pointer": "/conversations/555/dialogueEntries/21/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/21/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/21/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]*彼女はあなたの方を向き、心のこもったまなざしを送る*",
+      "originalHoldReason": "Portrait-actor blocking direction for mother's look toward player; display versus production direction classification unresolved.",
+      "originalHoldReasonSha256": "f62560c79ce1bedb242d157c43e2bae3fcb6a08018ab91d9155c96baf25e69f9",
+      "reason": "Mabel's mother turns toward the player with a heartfelt look, before her unfamiliar thanks at 1243. Preserve turning and the heartfelt gaze, second-person address, portrait tag and narration delimiters. Do not decode her next utterance or make this a spoken thanks."
+    },
+    {
+      "id": "ds:518:1252:Dialogue Text",
+      "sourceSha256": "e5aa30404a770a8891700c34bf42e1efb6c776d7dd1e1cc561b6cc524d1a2e81",
+      "targetSha256": "93a07b51b0abfc760277d104d4fc8d113697be3b620859e4ad124398c2745b99",
+      "pointer": "/conversations/555/dialogueEntries/31/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/31/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/31/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]*彼女は感謝を込めてうなずく*",
+      "originalHoldReason": "Portrait-actor appreciative nod blocking direction; display versus production direction classification unresolved.",
+      "originalHoldReasonSha256": "ad00a242c738bfdc4236f35767d3d971ae95652ae4d51c959b9d649405a1e6b2",
+      "reason": "Mabel's mother nods appreciatively after Mabel asks about the friend joining. Preserve appreciation and the physical nod, portrait tag and narration. The later explanation excludes mother and Mabel from the sexual participants; add no participation claim here."
+    },
+    {
+      "id": "ds:562:207:Dialogue Text",
+      "sourceSha256": "d0ac5eee165024737752e71ef6409c884fbbc95c802e7e18c5abfd69a9d9e495",
+      "targetSha256": "fd5075d0b211876a4ac6fa914f8128a43ab30dec7ced1abb9fdf577ada744d56",
+      "pointer": "/conversations/591/dialogueEntries/5/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/591/dialogueEntries/5/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/591/dialogueEntries/5/fields/6/value"
+      ],
+      "disposition": "translated-display-candidate",
+      "ordinaryBracketOrdinals": [],
+      "target": "*何かがあなたの脚をかすめる*",
+      "originalHoldReason": "Brushing-leg action direction in narrator Dialogue Text; visible narration versus production direction classification unresolved.",
+      "originalHoldReasonSha256": "1e7d132dae5381d6ef2926db1179095eb977167a6b968560950e6010f7095d64",
+      "reason": "Narrator describes something brushing the player's leg before the fish speaks. Preserve unidentified something and second-person leg possession. Do not name the fish, assign gender, or turn the light contact into a forceful collision."
+    }
+  ],
+  "limits": "Provisional display draft only. No existing target replacement, source/glossary mutation, independent editorial or runtime acceptance."
+}

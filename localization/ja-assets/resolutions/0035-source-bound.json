@@ -1,0 +1,737 @@
+{
+  "schemaVersion": 1,
+  "locale": "ja",
+  "phase": "0035-translation",
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai"
+  },
+  "manifestSha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+  "candidatesSha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+  "evidence": {
+    "facts": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/source-facts.json",
+      "sha256": "78a16b79793ea89a514acde57f72d00bc333322cc7eba61584a6de5f5945f1a0"
+    },
+    "topology": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/source-topology.json",
+      "sha256": "4102251a0efac57d5bcb57fc3be2d111280f8be57a83af140e801334b0280d1d"
+    },
+    "consumers": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/consumer-verification.json",
+      "sha256": "51ccb14f9c9f90e8fe0c3538a5c0eb96ff7c8eb8bc30ce08479fc62919047688"
+    },
+    "originalHolds": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/original-holds.json",
+      "sha256": "1078e3a5d858cc874f1553dc096111ec8fef4f1deba868e4435a12c29a6988cf"
+    },
+    "authoredDisplay": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/authored-display.tsv",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "mouseDecisions": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/mouse-decisions.json",
+      "sha256": "d28f78b06db40d5f1d1c91d4408b3c39d622984adc9345556bfa4336de1472d1"
+    },
+    "sourceContext": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/source-context.json",
+      "sha256": "9402ef072bde305b00c76d6bc601119da913f26c57996b094f6f1fc46cc07243"
+    },
+    "fontSourceMap": {
+      "path": "outputs/locale-assets-20261026/ja/0035-translation/font-source-map.json",
+      "sha256": "a264db6be196365ec8d4d0cecf65960aa49feb489f21845bc74e716c4f26f81c"
+    }
+  },
+  "limits": "Exact source preservation only; no Japanese wording added. No source/glossary change, decoding, source repair or runtime acceptance.",
+  "records": [
+    {
+      "id": "ds:497:905:Dialogue Text",
+      "sourceSha256": "c09ee9d5625470701a35e794f3fca054af7e7933bf48765430cff3b492fcee6f",
+      "pointer": "/conversations/526/dialogueEntries/9/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/526/dialogueEntries/9/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/526/dialogueEntries/9/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]Fʌfi?",
+      "targetSha256": "c09ee9d5625470701a35e794f3fca054af7e7933bf48765430cff3b492fcee6f",
+      "originalHoldReason": "Forest Mouse conlang payload under FONT(mouse) requires shared glyph/codec and reveal-order decision; do not decode or invent Japanese. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "d50e0d521e7ab9862eab761cc30f192af17caaed8887e4ad3a603e8928cb8f71",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:500:903:Dialogue Text",
+      "sourceSha256": "ead088beb8d133fa59d6d94e705ad7242c486543d02316f4fca6ca9230b23f4b",
+      "pointer": "/conversations/529/dialogueEntries/9/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/529/dialogueEntries/9/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/529/dialogueEntries/9/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]BɪteɪFʌfi.",
+      "targetSha256": "ead088beb8d133fa59d6d94e705ad7242c486543d02316f4fca6ca9230b23f4b",
+      "originalHoldReason": "Forest Mouse conlang payload under FONT(mouse) requires shared glyph/codec and reveal-order decision; do not decode or invent Japanese. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "d50e0d521e7ab9862eab761cc30f192af17caaed8887e4ad3a603e8928cb8f71",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:501:903:Dialogue Text",
+      "sourceSha256": "3aeda21e2555dc5bf0ec498bade2cd558b91bc1c13af9648d30c6c5e66c3fa1b",
+      "pointer": "/conversations/530/dialogueEntries/9/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/530/dialogueEntries/9/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/530/dialogueEntries/9/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Mɪtoʊleɪlə!Mɪtoʊleɪlə!",
+      "targetSha256": "3aeda21e2555dc5bf0ec498bade2cd558b91bc1c13af9648d30c6c5e66c3fa1b",
+      "originalHoldReason": "Forest Mouse conlang payload under FONT(mouse) requires shared glyph/codec and reveal-order decision; do not decode or invent Japanese. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "d50e0d521e7ab9862eab761cc30f192af17caaed8887e4ad3a603e8928cb8f71",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:503:903:Dialogue Text",
+      "sourceSha256": "abf17b410a37c28c631707fdfba1b590d5f91e1973e9a127f25a9fec398cc031",
+      "pointer": "/conversations/532/dialogueEntries/9/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/532/dialogueEntries/9/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/532/dialogueEntries/9/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]BɪteɪFʌfi!",
+      "targetSha256": "abf17b410a37c28c631707fdfba1b590d5f91e1973e9a127f25a9fec398cc031",
+      "originalHoldReason": "Forest Mouse conlang payload under FONT(mouse) requires shared glyph/codec and reveal-order decision; do not decode or invent Japanese. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "d50e0d521e7ab9862eab761cc30f192af17caaed8887e4ad3a603e8928cb8f71",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:503:904:Dialogue Text",
+      "sourceSha256": "3dbf2760e8bf74128490f9bad40d49bec11ea87aef42d8dcfb10c0b9b903178d",
+      "pointer": "/conversations/532/dialogueEntries/10/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/532/dialogueEntries/10/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/532/dialogueEntries/10/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]FʌfiSæŋki?",
+      "targetSha256": "3dbf2760e8bf74128490f9bad40d49bec11ea87aef42d8dcfb10c0b9b903178d",
+      "originalHoldReason": "Forest Mouse conlang payload requires shared glyph/codec and reveal-order decision; do not decode or invent Japanese. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "1d4bc2f68abdd669a79676a4f09353833c6cf9c7e33fe58f6e0717e0af76a6f0",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1136:Dialogue Text",
+      "sourceSha256": "30cdeb99ea724e885e221e1d0f0c44e8e2cf0327a5cc8e34e598a8c7f3c31231",
+      "pointer": "/conversations/534/dialogueEntries/35/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/35/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/35/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]LeɪməSkɛrd!<pause>BigStɔrm!<pause>WɛrMeɪbəl!",
+      "targetSha256": "30cdeb99ea724e885e221e1d0f0c44e8e2cf0327a5cc8e34e598a8c7f3c31231",
+      "originalHoldReason": "Forest Mouse conlang payload and pause controls require shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "d8b07fb07892be9c9bc3b982953fd7a7742f41882afa4d18c03c5bc0bbf280fe",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1137:Dialogue Text",
+      "sourceSha256": "405a7b2109ff65db895b254fbbb687cbfb2bc752213b27352503f8fadf8aa47f",
+      "pointer": "/conversations/534/dialogueEntries/36/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/36/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/36/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=6]MeɪbəlFaɪn<pause>MeɪbəlWɪðFrɛnd",
+      "targetSha256": "405a7b2109ff65db895b254fbbb687cbfb2bc752213b27352503f8fadf8aa47f",
+      "originalHoldReason": "Forest Mouse conlang payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "c168d0f2f6a7ea2318dafb01401ae09b1478bb468fd7d029fc6f0f95a3e85cf5",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1141:Dialogue Text",
+      "sourceSha256": "8b45127f61281689f31e204e83ae664742264bb3cb826ff094b23d31d19e601e",
+      "pointer": "/conversations/534/dialogueEntries/40/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/40/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/40/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]FrɛndFrəmFɔrɪst<pause>HɛlpfəlFrɛnd!",
+      "targetSha256": "8b45127f61281689f31e204e83ae664742264bb3cb826ff094b23d31d19e601e",
+      "originalHoldReason": "Forest Mouse conlang payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "c168d0f2f6a7ea2318dafb01401ae09b1478bb468fd7d029fc6f0f95a3e85cf5",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1142:Dialogue Text",
+      "sourceSha256": "fda1aefdee7c71407f1bcd147987b08f8d148d8b0a50da47b3d81c5464fb94e6",
+      "pointer": "/conversations/534/dialogueEntries/41/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/41/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/41/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]Fʌfi!<pause>TuBɪg<pause>TuLɑrdʒ!<pause><br><shake><size=18>KrʌʃɅs!<size=18><shake>",
+      "targetSha256": "fda1aefdee7c71407f1bcd147987b08f8d148d8b0a50da47b3d81c5464fb94e6",
+      "originalHoldReason": "Forest Mouse conlang payload with nested/repeated unclosed shake/size tags requires exact glyph/codec/consumer decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "5b08c6075ed8205495ba951408db828233bbe2519014a9980305ce27f072e19d",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1143:Dialogue Text",
+      "sourceSha256": "dcaa40128ef79cfa3cab7f9812982d1a22b62f8af865b200103fd2465a8825be",
+      "pointer": "/conversations/534/dialogueEntries/42/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/42/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/42/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]NoFʌfi!<pause>\nLeɪməHæzSɛd!",
+      "targetSha256": "dcaa40128ef79cfa3cab7f9812982d1a22b62f8af865b200103fd2465a8825be",
+      "originalHoldReason": "Forest Mouse conlang payload, including NoFʌfi and Leɪmə identity, is not ordinary English; preserve reveal/codec uncertainty. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "0bacd70376874c809830de102a2a08a6ce62778fc8011f80217add0a5af42a6c",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1145:Dialogue Text",
+      "sourceSha256": "e9b789019809c0662fef91ebf3ac899dcd67915a2aa80fa976aef56cc6610d9e",
+      "pointer": "/conversations/534/dialogueEntries/44/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/44/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/44/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=3]<waitfor=0.5>Frɛnd<waitfor=0.5><breath>Gʊd</breath><waitfor=1.0><br>Frɛnd<waitfor=0.5><breath>Kɛrfəl</breath><waitfor=1.0><br><size=18><slow>BigFrɛndzGʊd!</slow></size>",
+      "targetSha256": "e9b789019809c0662fef91ebf3ac899dcd67915a2aa80fa976aef56cc6610d9e",
+      "originalHoldReason": "Forest Mouse conlang payload with emphasis/breath/timing tags requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "9ddd6bd32938adb27a880a7e0536d7d22e4c4636a5349089412402b3f72ab434",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1149:Dialogue Text",
+      "sourceSha256": "351dc4fd8fb0d341c46a9297517cda94d7258b0ca883726f89a4a52e6b4b49ac",
+      "pointer": "/conversations/534/dialogueEntries/48/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/48/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/48/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=7]BigStɔrm?<pause>Waɪ?",
+      "targetSha256": "351dc4fd8fb0d341c46a9297517cda94d7258b0ca883726f89a4a52e6b4b49ac",
+      "originalHoldReason": "Forest Mouse conlang storm question requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "821f992701132205412529fee2904b3ea9e9fc6002996e6215bbf21a1087549b",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1150:Dialogue Text",
+      "sourceSha256": "ca3e9c1ac86511b25f06654ee06ecfae90504203da7107fb51d8c1b24a655f0f",
+      "pointer": "/conversations/534/dialogueEntries/49/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/49/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/49/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]AzFɪrd…<pause>Glowingθɪŋz…<pause>BigStɔrmz…<pause>GroundRʌmbliz…",
+      "targetSha256": "ca3e9c1ac86511b25f06654ee06ecfae90504203da7107fb51d8c1b24a655f0f",
+      "originalHoldReason": "Forest Mouse conlang prophecy payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "346f047a5c96486927e4671f48802da4d0acf4d524bee15f6bee5413932a200a",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1151:Dialogue Text",
+      "sourceSha256": "5a5c5bf50062ddc956e798360a56bc35bd272447124a9fd6fd9d0674201e44ed",
+      "pointer": "/conversations/534/dialogueEntries/50/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/50/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/50/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]<slow>EndTaɪmz…</slow>",
+      "targetSha256": "5a5c5bf50062ddc956e798360a56bc35bd272447124a9fd6fd9d0674201e44ed",
+      "originalHoldReason": "Forest Mouse conlang EndTaɪmz payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "ffc87e06d882dac7ddb87c79b4475724e598e4befc4b88d20f94878eea3f3d9e",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1152:Dialogue Text",
+      "sourceSha256": "205ec2fac964f25bb08427f70836efe079c42a637f2bad7223de3b60bd31fdd3",
+      "pointer": "/conversations/534/dialogueEntries/51/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/51/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/51/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=7]No<pause>No<pause>NɑtEndTaɪmz<pause><br>SʌmθɪŋEls...<pause><slow>SʌmθɪŋEls...</slow>",
+      "targetSha256": "205ec2fac964f25bb08427f70836efe079c42a637f2bad7223de3b60bd31fdd3",
+      "originalHoldReason": "Forest Mouse conlang denial/alternative payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "c3468b4b93d542846021c847c8597927730e8aeec2280275e5c70e964d605642",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1153:Dialogue Text",
+      "sourceSha256": "922fdd71d3c653dca5bc34e0350ca46a9b09637e2259fe63074b40a64934b4cf",
+      "pointer": "/conversations/534/dialogueEntries/52/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/52/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/52/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]EndTaɪmz…<pause>EndTaɪmz…",
+      "targetSha256": "922fdd71d3c653dca5bc34e0350ca46a9b09637e2259fe63074b40a64934b4cf",
+      "originalHoldReason": "Forest Mouse conlang repeated EndTaɪmz payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "3f92765f87b0a79ff5b3cd1d2636f1d9225e5c8c9d04c16e284459bc9c14bcfc",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1154:Dialogue Text",
+      "sourceSha256": "bc71bc1e977ca4199c4300c594fff22c5a7445c2f82afc30ce683446b2fe37cc",
+      "pointer": "/conversations/534/dialogueEntries/53/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/53/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/53/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=3]StrɔŋFɔrFrɛndz<pause>StrɔŋFɔrLid!",
+      "targetSha256": "bc71bc1e977ca4199c4300c594fff22c5a7445c2f82afc30ce683446b2fe37cc",
+      "originalHoldReason": "Forest Mouse conlang leadership payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "1bfc9e72068d7908ed00dcb53245494492e31764e55f8f2fe5e782c2d9d55c5c",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1155:Dialogue Text",
+      "sourceSha256": "4d72b7c034300cf35d221d253a4337f71b06dd497e50a3726f27fcb6dcb66db3",
+      "pointer": "/conversations/534/dialogueEntries/54/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/54/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/54/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]Bʌt",
+      "targetSha256": "4d72b7c034300cf35d221d253a4337f71b06dd497e50a3726f27fcb6dcb66db3",
+      "originalHoldReason": "Forest Mouse conlang Bʌt payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "d7a020ae3c3df30a3bde7c8f15eed1d613c00e637f89c002606029b5b15990b2",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1156:Dialogue Text",
+      "sourceSha256": "cb5de2a8332f28e37d2a40bf84425e171fc776f229eae73e2059614b4032cefe",
+      "pointer": "/conversations/534/dialogueEntries/55/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/55/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/55/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]<shake>EndTaɪmz...<pause>EndTaɪmz...</shake>",
+      "targetSha256": "cb5de2a8332f28e37d2a40bf84425e171fc776f229eae73e2059614b4032cefe",
+      "originalHoldReason": "Forest Mouse conlang EndTaɪmz payload with shake tags requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "0a376a3d58735b18eb381fe10f0549a841f880f4d4165f509e8528e7d0b2ad86",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1160:Dialogue Text",
+      "sourceSha256": "8749ce690a57f62ce1cbf16ad5e8e6f845483784802ce8162e78b4c25650203d",
+      "pointer": "/conversations/534/dialogueEntries/59/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/59/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/59/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]SpɪrɪtsMæd…<pause>Bʌt…<pause>Mɪtozeɪ?",
+      "targetSha256": "8749ce690a57f62ce1cbf16ad5e8e6f845483784802ce8162e78b4c25650203d",
+      "originalHoldReason": "Forest Mouse conlang spirit/ritual payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "ab647b1454493e8746bd2d46725d2be8d786cb28a6e1fdf00feecf1333dde2b6",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1161:Dialogue Text",
+      "sourceSha256": "a5fa7421cce4fbf4f442696cb3cab8ee684d26720369cbf8d89016c814466348",
+      "pointer": "/conversations/534/dialogueEntries/60/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/60/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/60/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]MɪtozeɪHɛlp?",
+      "targetSha256": "a5fa7421cce4fbf4f442696cb3cab8ee684d26720369cbf8d89016c814466348",
+      "originalHoldReason": "Forest Mouse conlang MɪtozeɪHɛlp question requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "da70865f559db3c3622feb47992efeb291dc4afa43ed672481294bebaa00d0b0",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1163:Dialogue Text",
+      "sourceSha256": "d912e0763ecea34dcb4b57f9d1fcb2bf6c2d9c92386f2316665edb4a9c349a56",
+      "pointer": "/conversations/534/dialogueEntries/62/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/62/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/62/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=7]MɪtoʊzeɪNaʊ?<pause>FɔrSeɪfti?",
+      "targetSha256": "d912e0763ecea34dcb4b57f9d1fcb2bf6c2d9c92386f2316665edb4a9c349a56",
+      "originalHoldReason": "Forest Mouse conlang ritual/safety question requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "365c32c5a87b9fd287bab098742fdabbd40068e62080e43412bb28707d4f90b4",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1164:Dialogue Text",
+      "sourceSha256": "33265974332b89829094b8b16a46603cfafaf58e798146977af1c5cd005c57a8",
+      "pointer": "/conversations/534/dialogueEntries/63/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/63/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/63/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]JɛsNaʊ…<pause>Seɪfti…<pause>PlizSpɪrɪts",
+      "targetSha256": "33265974332b89829094b8b16a46603cfafaf58e798146977af1c5cd005c57a8",
+      "originalHoldReason": "Forest Mouse conlang ritual/safety answer requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "a8c8babb9c0a64316f2c6c3ac335877020e8e3f04bb5942950170c4fc1d904d5",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1165:Dialogue Text",
+      "sourceSha256": "5abd8ae192bdd9bf3ef8cb107b720c03465df439e17cf5c82de498f3fe8a6097",
+      "pointer": "/conversations/534/dialogueEntries/64/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/64/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/64/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]]NidꞮnɡridiənt",
+      "targetSha256": "5abd8ae192bdd9bf3ef8cb107b720c03465df439e17cf5c82de498f3fe8a6097",
+      "originalHoldReason": "Forest Mouse conlang ingredient payload contains extra closing bracket after pic token; source/codec classification unresolved. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "9538d86ef84653626985ff9bf135d1bc079c791b66290ee50a91c6b9b65c8c16",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1166:Dialogue Text",
+      "sourceSha256": "f37b21dee16b5396074e0474236f33b716a87ef44952efeba812939198cddcbf",
+      "pointer": "/conversations/534/dialogueEntries/65/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/65/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/65/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]NidHɛlp",
+      "targetSha256": "f37b21dee16b5396074e0474236f33b716a87ef44952efeba812939198cddcbf",
+      "originalHoldReason": "Forest Mouse conlang NidHɛlp payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "7378ed9ff8bddcf406750ded1d395112c8137bc500ec58cfb76c7ff40dbe2edd",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1167:Dialogue Text",
+      "sourceSha256": "4c7d20143337e0e1b34dda1a237b4607af45c08d28428b4c057644a68dd17384",
+      "pointer": "/conversations/534/dialogueEntries/66/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/66/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/66/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]Frʌm…<pause>Frɛnd?",
+      "targetSha256": "4c7d20143337e0e1b34dda1a237b4607af45c08d28428b4c057644a68dd17384",
+      "originalHoldReason": "Forest Mouse conlang friend question requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "785e7240b12d69a10160a3cb2b59792b6e5941929d41a326940c4d821b2283b8",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1216:Dialogue Text",
+      "sourceSha256": "9839b209d3b335874a19161f24acc193e3642e5ab654216db7eaf3a007f614be",
+      "pointer": "/conversations/534/dialogueEntries/115/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/115/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/115/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]OʊkeɪLeɪmə",
+      "targetSha256": "9839b209d3b335874a19161f24acc193e3642e5ab654216db7eaf3a007f614be",
+      "originalHoldReason": "Forest Mouse conlang OʊkeɪLeɪmə payload requires shared glyph/codec and reveal-order decision; no inferred personal-name reveal. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "93c1f56d60dacfcecebcfe47c129fc386ef342374c8f63b11df4018261c07879",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1217:Dialogue Text",
+      "sourceSha256": "e9601dc1408aa8df42af692375ca63a726eb648d1686dab2858b40cce5b902a2",
+      "pointer": "/conversations/534/dialogueEntries/116/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/116/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/116/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=6]FrɛndWɪlHɛlp<pause>WiɡɛtSid<pause>ÐɛnRɪtʃuəl!",
+      "targetSha256": "e9601dc1408aa8df42af692375ca63a726eb648d1686dab2858b40cce5b902a2",
+      "originalHoldReason": "Forest Mouse conlang friend/seed/ritual payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "137cf562562936c1b0158f3b438163b10cb6dd86589ae3bc62fec30a36447175",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1218:Dialogue Text",
+      "sourceSha256": "48841779631c258d9a1b2219467ba59daec4872c39b72936138bffa4d1a66442",
+      "pointer": "/conversations/534/dialogueEntries/117/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/117/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/117/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Oʊkeɪ?",
+      "targetSha256": "48841779631c258d9a1b2219467ba59daec4872c39b72936138bffa4d1a66442",
+      "originalHoldReason": "Forest Mouse conlang Oʊkeɪ question requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "c8d99a8ce5be7d6c009d63d3609d9f1b68c916d1a9d7d5b23e18745a7a82279f",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:505:1220:Dialogue Text",
+      "sourceSha256": "8e65e948f0d29ce58cbdf0b2c6f0f43907531abb6c82c4333a223444a0bec96d",
+      "pointer": "/conversations/534/dialogueEntries/119/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/534/dialogueEntries/119/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/534/dialogueEntries/119/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]KɛrfəlTʃaɪld<pause>SeɪfTʃaɪld<pause>Bɪteɪt",
+      "targetSha256": "8e65e948f0d29ce58cbdf0b2c6f0f43907531abb6c82c4333a223444a0bec96d",
+      "originalHoldReason": "Forest Mouse conlang safety/parting payload requires shared glyph/codec and reveal-order decision. Evidence: phase0026 source-context-526-534.json.",
+      "originalHoldReasonSha256": "10ae97ef1065a9ee9f359a62cdc79ec880f6b86c8c7ceed8a708e9c3132e6fd4",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1238:Dialogue Text",
+      "sourceSha256": "169d06a338dea82ee3c018d54da4ed0d502a210d80482231875c70d48a04abb4",
+      "pointer": "/conversations/555/dialogueEntries/17/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/17/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/17/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]WʌtNuz?WʌtNuz?",
+      "targetSha256": "169d06a338dea82ee3c018d54da4ed0d502a210d80482231875c70d48a04abb4",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1239:Dialogue Text",
+      "sourceSha256": "f06bb0c303fa37431a79e2548dec9c2c9919b0f1898f8fa76d60e365049992f3",
+      "pointer": "/conversations/555/dialogueEntries/18/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/18/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/18/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]FrɛndHɛlpt!",
+      "targetSha256": "f06bb0c303fa37431a79e2548dec9c2c9919b0f1898f8fa76d60e365049992f3",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1240:Dialogue Text",
+      "sourceSha256": "f1014f3f4b264b0b67a0038a1b5370659de4b0d91a1b0739699e933cca58bd49",
+      "pointer": "/conversations/555/dialogueEntries/19/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/19/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/19/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=4]ꞬɑtSid!",
+      "targetSha256": "f1014f3f4b264b0b67a0038a1b5370659de4b0d91a1b0739699e933cca58bd49",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1241:Dialogue Text",
+      "sourceSha256": "3b620353dd2bf677571dca2a435571b898a0b88a41cab7599fada07041ab4b08",
+      "pointer": "/conversations/555/dialogueEntries/20/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/20/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/20/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=5]Truθ?",
+      "targetSha256": "3b620353dd2bf677571dca2a435571b898a0b88a41cab7599fada07041ab4b08",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1243:Dialogue Text",
+      "sourceSha256": "f384284ab27cad3a61d8e297e95a81a43a0c0738764ebe8d4fa0fb603ba720ae",
+      "pointer": "/conversations/555/dialogueEntries/22/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/22/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/22/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Thekko Fluff! Thekko!",
+      "targetSha256": "f384284ab27cad3a61d8e297e95a81a43a0c0738764ebe8d4fa0fb603ba720ae",
+      "originalHoldReason": "Forest Mouse utterance with mixed Fluff term; shared glyph/codec and reveal-order decision pending. Do not invent decoded Japanese.",
+      "originalHoldReasonSha256": "e4b106fe37baeec999fb1713c9be1443ae3b775b46740d8ec087e04c2749e4fe",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1245:Dialogue Text",
+      "sourceSha256": "13e8468cb919a93250ddc713defb717d5f5cda3db8e89bdc446eaa2bc31a1874",
+      "pointer": "/conversations/555/dialogueEntries/24/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/24/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/24/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]WɛnRɪtʃuəl?",
+      "targetSha256": "13e8468cb919a93250ddc713defb717d5f5cda3db8e89bdc446eaa2bc31a1874",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1246:Dialogue Text",
+      "sourceSha256": "749498b2842a3c98c0b0d4bc36309e624e7b9e5073d4a6c9dc760ed2b315a39d",
+      "pointer": "/conversations/555/dialogueEntries/25/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/25/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/25/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=2]Naʊ!",
+      "targetSha256": "749498b2842a3c98c0b0d4bc36309e624e7b9e5073d4a6c9dc760ed2b315a39d",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1251:Dialogue Text",
+      "sourceSha256": "552910486273d2fec7287912dd9f07eac3d001e7f5f759834e4facd804def63d",
+      "pointer": "/conversations/555/dialogueEntries/30/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/30/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/30/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=3]FrɛndDʒɔɪnRɪtʃuəl?",
+      "targetSha256": "552910486273d2fec7287912dd9f07eac3d001e7f5f759834e4facd804def63d",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1253:Dialogue Text",
+      "sourceSha256": "cbafa174bd3f8332d71e5c9be0e459d35b8aa6708c383ed033a2467fd1678c4a",
+      "pointer": "/conversations/555/dialogueEntries/32/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/32/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/32/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Truθ?",
+      "targetSha256": "cbafa174bd3f8332d71e5c9be0e459d35b8aa6708c383ed033a2467fd1678c4a",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:518:1254:Dialogue Text",
+      "sourceSha256": "e80a7907cda6f410499ea865edb9f289ebf2461abe30663e825683758bc3d389",
+      "pointer": "/conversations/555/dialogueEntries/33/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/555/dialogueEntries/33/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/555/dialogueEntries/33/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Truθ!",
+      "targetSha256": "e80a7907cda6f410499ea865edb9f289ebf2461abe30663e825683758bc3d389",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:527:752:Dialogue Text",
+      "sourceSha256": "280eca791871a7b1ec7a4240338e9cdcb34b334574098f0a279e39399e917cae",
+      "pointer": "/conversations/556/dialogueEntries/4/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/556/dialogueEntries/4/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/556/dialogueEntries/4/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Flʌf… Bɪɡ… Bɔlz…",
+      "targetSha256": "280eca791871a7b1ec7a4240338e9cdcb34b334574098f0a279e39399e917cae",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:527:753:Dialogue Text",
+      "sourceSha256": "bb3197014072d1f19d49afbb3e7996331cce655de9eb54377112991476e45681",
+      "pointer": "/conversations/556/dialogueEntries/5/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/556/dialogueEntries/5/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/556/dialogueEntries/5/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]BɪɡFlʌf… BɪɡSɛks…",
+      "targetSha256": "bb3197014072d1f19d49afbb3e7996331cce655de9eb54377112991476e45681",
+      "originalHoldReason": "Forest Mouse encoded payload; shared glyph/codec and reveal-order decision pending. Preserve exact source; do not decode into Japanese.",
+      "originalHoldReasonSha256": "3bc8b9f058a598bbdb906caf5c22a733a4c40351f7a61131412a849b9ab17990",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    },
+    {
+      "id": "ds:527:758:Dialogue Text",
+      "sourceSha256": "6ab0aa745fb67f8622ed493b9f19beaa6f627c40e28ae57c30b6d6e901337329",
+      "pointer": "/conversations/556/dialogueEntries/10/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/556/dialogueEntries/10/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/556/dialogueEntries/10/fields/6/value"
+      ],
+      "disposition": "preserved-constructed-language",
+      "ordinaryBracketOrdinals": [],
+      "target": "[pic=1]Thekko Fluff!",
+      "targetSha256": "6ab0aa745fb67f8622ed493b9f19beaa6f627c40e28ae57c30b6d6e901337329",
+      "originalHoldReason": "Forest Mouse utterance with mixed Fluff term; shared glyph/codec and reveal-order decision pending. Do not invent decoded Japanese.",
+      "originalHoldReasonSha256": "e4b106fe37baeec999fb1713c9be1443ae3b775b46740d8ec087e04c2749e4fe",
+      "reason": "Preserve this exact unfamiliar forest-mouse utterance, including Latin/IPA symbols, spacing, punctuation, portrait, timing/style controls and source anomalies. Approved Japanese glossary tfol-068 prohibits invented translation and early meaning disclosure. Its source scene distinguishes unfamiliar speech from subsequent ordinary-language reactions or explanations. FONT(main) returns are not permission to translate unfamiliar speech. No decoding, transliteration, English repair or new Japanese gloss. Visible constructed-language preservation is separate from Japanese translated wording and technical detachment."
+    }
+  ]
+}
