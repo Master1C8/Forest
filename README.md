@@ -1,38 +1,41 @@
-## Phase0057: exact original wrapper repair and181 route accepted
+## Phase0058: ordinary Bucky input/authority/source route prepared
 
-The first failed181 control operand is resolved: the original serialized controller
-is the empty PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton subclass,
-while the guard required the base type. Admission now requires the exact original
-wrapper; its listener still must be the inherited base OnClick on that same instance.
-All other controls/source/freshness/one-use guards remain. Ten source outputs
-reproduce byte-identically; the prior six are unchanged. Compiled readback changes
-one type token only:41 other top-level methods and14 nested types match the verified
-diagnostic49 assembly.139 focused tests pass; synthetic selection remains rejected.
+The tutorial extractor now has a bounded `--ordinary-bucky` mode. Two fresh
+compiled Cecil extractions reproduce all20 outputs byte-identically:17 original
+consumer groups,18 exact serialized objects and complete original conversation141.
+Original resource hashes and exported objects match; all19 live-lane pins and
+existing bridge/host/transport/selection guards are unchanged. No game launched,
+images opened, predicates evaluated or target text authored in this phase.
 
-New immutable50 passed33 preflight checks/367 frozen files and used the exact QA43
-fixture. Its five resources equal47/49. Real control997 confirmed the wrapper and
-all remaining operands; selection applied once at1017. Actual182 and every original
-subtitle/link through187 were observed, followed by separate no-conversation/event
-cleanup frames3702/3793. Runtime passed98.974s; observer0/launcher0, game numeric exit
-unknown. Restore/Quit ACKed; all15 postrun checks pass, exact processes absent,
-QA DLL/bridge restored, originals/owner files/19 live-lane pins unchanged. No images
-were captured/opened. Consumed50/49/48/47/46/45/44/43 must never be replayed.
+The original Bucky control is exactly InteractionUiController, with an independent
+DialogueInteractionTrigger authority and a shared real collision listener/capsule.
+Its Bucky / `- Untagged -` / empty-arc settings select the inferred Quest route.
+Talk/Quest requires naturally acquired, visible, **locked** shared UI and both
+GameObject authority identities. Gameplay Submit is Rewired2 (Return13 available),
+while menu Submit is18. Existing native transport permits only left/down; right
+and Return remain untested. Cached Talk alone cannot prove141: original dispatch
+prioritizes dates/latest arcs/turn-in/new quests before an unplayed primary quest.
 
-Fresh post187 fields show tutorial quest100, all four prerequisite triggers0,
-notebookLearned=False and225:195 executed=False. Only the first introductory route
-is accepted. The two QA disk files still equal43: no post187 restore checkpoint was
-created. Next: source/control/authority-bound ordinary actor interaction and the first
-prerequisite introduction; reuse existing seven conversation/trigger traces. Never
-force triggers/quest/arc/notebook or evaluate availability just for diagnostics.
-Initial spawn, notebook/inventory, complete source/BGDatabase/special-scene/editorial,
-final fonts/license/resources and delivery remain pending. Accepted10/15/47/48
-visuals are unchanged. All seven asset lanes continue independently/read-only.
+The exact141 plan is loaded primary215 -> original Yes217 -> actual194 -> all
+content194..212. No216 terminates. Marker192 binds intro_from_beaver to212's real
+line-end; observing212/ACK does not establish trigger execution or all four
+prerequisites. The dedicated217 control and native right/Return admission/host
+extension still need implementation, focused positive/rejection checks and compiled
+readback before a new immutable candidate may run. Existing generic/original120
+terminal guards must remain intact.
 
-Evidence: localization/source/tutorial181-20261027/phase0057/ADAPTER.md,
-source-verification.json, compiled-readback/verification.json, loaded-control181.json,
-post181-summary.json, runtime-finding.json; localization/probes/ru-20261026-50/
-{preflight,continue-progression,cleanup,final-verification}.json. Previous phase
-summary: localization/history/phase0056-summary.md. No publication/deployment.
+Accepted50 original181/full route187/two-frame cleanup and10/15/47/48 visuals are
+unchanged. Never replay consumed50/49/48/47/46/45/44/43. QA disk bytes still equal43;
+no post187 restore checkpoint exists. New candidate preparation must retain the
+QA43 Continue/readiness/prefix/181 route and freshly measure post187 state. Initial
+spawn, notebook/inventory, complete source/BGDatabase/special-scene/editorial,
+final font/license/resources and local delivery gates remain pending. All seven
+asset lanes continue independently and remain read-only to this technical lane.
+
+Evidence: `localization/source/tutorial-20261026/phase0058/ADAPTER.md`,
+`interaction-plan.json`, `verification.json`, `original/extraction.json` and
+`reproduce/extraction.json`. Previous summary: `localization/history/phase0057-summary.md`.
+No publication/deployment occurred.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

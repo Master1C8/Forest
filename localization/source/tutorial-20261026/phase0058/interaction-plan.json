@@ -1,0 +1,187 @@
+{
+  "phase": "0058-work",
+  "status": "source-bound-plan; implementation and runtime pending",
+  "game": "The Forest of Love",
+  "version": "0.45",
+  "mode": "original",
+  "source": {
+    "localization/source/tutorial-20261026/phase0058/original/extraction.json": "9af24f8ffb87ee31b01dc1537b6fc05a0be101e3a608fa02c90bfb76d4809a04",
+    "localization/source/tutorial-20261026/phase0058/original/serialized-controls.json": "e435c95279611c7ba2d14483d064bda47afe19ddf91fc2521e41a67059811261",
+    "localization/source/tutorial-20261026/phase0058/original/input-bindings.json": "3936c46ee5fc7a47feae9a7cfb94fb60356ac0e70a24e23d8125584f22970eba",
+    "localization/source/tutorial-20261026/phase0058/original/conversation141.json": "7cd3173110e9498ada7669cb07f1edf6ab949abef76d791c1e07c7e96da0e10b",
+    "localization/probes/ru-20261026-50/post181-tutorial-route.json": "d7297741b45cceb8b07d88054c44e15361c6c220e565cff72ee899a7b7be07cc"
+  },
+  "newCandidate": {
+    "nextUnusedCandidate": 51,
+    "launchesThisPhase": 0,
+    "consumedDoNotReplay": [
+      50,
+      49,
+      48,
+      47,
+      46,
+      45,
+      44,
+      43
+    ],
+    "fixture": "QA43 Continue only under unchanged admission/readiness; disk bytes are NOT a post187 restore point",
+    "prefix": "Original Continue -> source-bound120 prefix ->181 -> actual182 -> every line through187 -> two real cleanup frames, newly observed in the new candidate",
+    "initialSpawn": "unverified; measure separately, never infer from later Player position"
+  },
+  "movement": {
+    "transport": "existing CGEvent.postToPid only, exact QA process/window; extend existing helper after admission guards",
+    "sourceAxes": [
+      0,
+      1
+    ],
+    "proposedDirections": [
+      "right",
+      "down"
+    ],
+    "firstRightPulseMs": 100,
+    "maxPulseMs": 1000,
+    "route": "Use measured post187 positions, initially about Player(6,8) / Bucky(7.8,6.3); short right pulses then down, reading actual progress/touch after each release. Geometry is a guide, not a collision-free-route assertion.",
+    "acceptedSeparateEvidence": [
+      "left",
+      "down"
+    ],
+    "pendingNative": [
+      "right",
+      "Return"
+    ],
+    "guards": [
+      "unique live QA game process/window and VNRevivalQA/ForestRuRendererProbe identity",
+      "gameplay CentralForest; no event/conversation; all original14 and seven prefix/readiness guards preserved",
+      "actual enabled keyboard gameplay map/focus/eligibility, root Player/body/FootSensor topology and no waypoints/transitions",
+      "observe native/Rewired/Unity/InputHelper edge/axes and actual physics displacement",
+      "release to exact task PID; verify all-up/zero axes; recovery only for recorded task DOWN receipt",
+      "finite movement stage budget/pulse count, stop on unchanged displacement or unexpected dialogue/authority; no blind retries"
+    ],
+    "forbidden": [
+      "position/velocity/axis/collider writes",
+      "simulated trigger callback",
+      "TakeControl or authority writes",
+      "global keyboard posting or owner app activation"
+    ]
+  },
+  "interaction": {
+    "actor": "Bucky",
+    "path": "SpawnedContent/Critters/Bucky/Content/BuckyOnNorthShore(Clone)",
+    "types": {
+      "actor": "TheForestOfLove.Gameplay.CritterActor",
+      "controller": "TheForestOfLove.InteractionUiController",
+      "trigger": "TheForestOfLove.Interaction.DialogueInteractionTrigger"
+    },
+    "sourceComponentIds": {
+      "actor": 32067,
+      "controller": 28786,
+      "trigger": 30977,
+      "settings": 34291,
+      "collisionListener": 37348,
+      "triggerCapsule": 12178
+    },
+    "loadedAdmission": [
+      "exact active actor/controller/trigger/settings/shared UI/listener/capsule bindings",
+      "actual Player-touch flags on controller and trigger; natural Scarlett release",
+      "both distinct authorityId stores match their own GameObject IDs; do not compare component IDs",
+      "shared UI visible/locked=True/currentSelectedOption=Talk, cached available Talk and not disallowed",
+      "trigger modeQuest0, triggeredFalse, cooldown0, interactionBlockedFalse, triggerOnCollisionFalse, allowTriggeringWithoutUiFalse",
+      "Player.canInteractTrue; gameplay, no conversation/event; source actorBucky/dialogue- Untagged -/arc empty",
+      "all fields fresh; never invoke availability/CanTrigger/oracle to collect diagnostics"
+    ],
+    "action": {
+      "nativeKey": "Return",
+      "unityKeyCode": 13,
+      "rewiredAction": 2,
+      "menuActionIsDifferent": 18,
+      "oneUse": "single bounded task-key press; ACK/key delivery is not dialogue selection proof"
+    },
+    "dispatch": "Original DialogueInteractionTrigger.Update -> ordinary guards/Fire -> StoryManager.PlayDialogue(Quest, actual settings) -> inferred actor schema. Higher-priority date/latest/turn-in/new-quest paths precede unplayed primary quest selection; do not bypass them.",
+    "postcondition": "Actual narrativeDbName TutorialQuest_BeaverIntroduction, conversation141, arcp1, initial subtitle215; reject any different selection, do not force141"
+  },
+  "dialogue": {
+    "conversation": 141,
+    "dbName": "TutorialQuest_BeaverIntroduction",
+    "arc": "p1",
+    "serializedPrimaryMarker": 218,
+    "actualPrimaryEntry": 215,
+    "firstText": "He… seems to be quitely snoring… Wake him up?",
+    "choices": [
+      {
+        "id": 216,
+        "text": "No",
+        "destination": null
+      },
+      {
+        "id": 217,
+        "text": "Yes",
+        "destination": 194
+      }
+    ],
+    "plannedSelection": 217,
+    "actualSuccessorRequired": 194,
+    "contentRouteAfterSelection": [
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212
+    ],
+    "subtitleCoverage": "217 remains selection-only unless independently observed; ACK cannot supply194 or advance time/coverage",
+    "requiredControls": [
+      "dedicated source-bound141:215 ->217 admission; preserve all original120 terminal/generic response guards",
+      "exact original Wrappers.StandardUIResponseButton with inherited base OnClick target/listener, Button/label/text/path/target/transform/interactability",
+      "both original216/217 actor/conversant/conditions/scripts/sequences/onExecute/outgoing-link equality",
+      "fresh sampled frame/control instance, runtime/persistent listener identity and one-use selection",
+      "actual194 separately, then every expected actor/text/link through212; reject skipped/backtracked/unexpected response or cleanup"
+    ]
+  },
+  "completion": {
+    "marker": 192,
+    "trigger": "intro_from_beaver",
+    "line": 212,
+    "relatedMarkers": {
+      "FINISHSTEP": 225,
+      "FINISHARC(p1)": 235
+    },
+    "require": [
+      "real212 line-end through original loader/arc-trigger/listener",
+      "two distinct no-dialogue/no-event gameplay cleanup frames",
+      "fresh readonly counts/status: intro_from_beaver changes from0, dialogue/primary arc, other3 prerequisite counts and tutorial quest",
+      "observe all four, notebookLearned and225:195 separately; first introduction is not overall completion"
+    ],
+    "forbidden": [
+      "activate named triggers manually",
+      "set quest/dialogue/arc status",
+      "force225 or notebook195",
+      "evaluate availability for diagnostics"
+    ]
+  },
+  "requiredBeforeFreeze": [
+    "implement bounded native right/Return transport and read-only loaded admission; preserve original input focus policy safeguards",
+    "source/control-bound217 selection and actual194..212 host progression; no generic actor/terminal override",
+    "meaningful positive controls plus wrong actor/type/authority/options/mode/stale/listener/link/choice/destination/one-use rejection tests",
+    "compile bridge, inspect actual added IL and compare unchanged original guards/methods; do not treat mocked tests as native proof",
+    "freeze new immutable candidate including every later-loaded helper, source plan, QA fixture and19 live-lane pins; perform normal preflight before any launch"
+  ],
+  "acceptanceLimits": [
+    "no runtime launch or visual input in0058",
+    "source/plan acceptance only; right/Return/touch/141/native choices/trigger completion all unverified",
+    "initial spawn, notebook/inventory, complete source/BGDatabase/special-scene/editorial/final resources/local delivery pending",
+    "all seven asset lanes remain independent/read-only; no publication/deployment"
+  ]
+}
