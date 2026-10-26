@@ -26,6 +26,33 @@ def save(path, data):
     temporary.replace(path)
 
 
+def bind_contract_scope(directory, config):
+    contract = directory / 'contract.md'
+    expected = '# ' + config['language'] + ' asset draft (' + config['locale'] + ')'
+    if contract.read_text().splitlines()[0] != expected:
+        raise ValueError('Cannot bind a mismatched locale contract')
+    data = {'locale': config['locale'], 'assetDirectory': config['assetDirectory'],
+            'jobDirectory': str(directory.resolve()), 'contractSha256': digest(contract)}
+    save(directory / 'contract-scope.json', data)
+    return data
+
+
+def validate_contract_scope(directory, config):
+    if config['locale'] == 'ru':
+        header = (directory / 'contract.md').read_text().splitlines()[0]
+        if header not in ('# Russian asset translation: automatic fresh continuation', '# Russian asset draft (ru)'):
+            raise ValueError('Russian job has a foreign locale contract')
+        return
+    path = directory / 'contract-scope.json'
+    if not path.exists():
+        raise ValueError('Explicit locale contract binding required before a model request')
+    data = json.loads(path.read_text())
+    if data.get('locale') != config['locale'] or data.get('assetDirectory') != config['assetDirectory'] or data.get('jobDirectory') != str(directory.resolve()):
+        raise ValueError('Contract locale/write scope differs from job configuration')
+    if data.get('contractSha256') != digest(directory / 'contract.md'):
+        raise ValueError('Contract changed after locale binding')
+
+
 def validate_capacity_restart(directory, state, receipt_path, snapshot):
     """One explicit reconciled restart, never an automatic failed-request retry."""
     receipt_path = receipt_path.resolve()
@@ -95,6 +122,7 @@ def run(directory, reconciliation=None):
         assert config and all(config.get(k) for k in ('locale', 'language', 'assetDirectory')), 'Prepared locale configuration is required.'
     config = config or {'locale': 'ru', 'language': 'Russian', 'assetDirectory': 'localization/ru-assets'}
     locale, language, asset_directory = (config[k] for k in ('locale', 'language', 'assetDirectory'))
+    validate_contract_scope(directory, config)
     def snapshot_now():
         return asset_snapshot(ROOT, directory, asset_directory=asset_directory, locale=locale)
     for pid in (state.get('supervisorPid'), state.get('pid')):
@@ -174,7 +202,7 @@ def run(directory, reconciliation=None):
                 'Do not edit supervisor.py/supervise.py, cli_job_support.py, contract.md, request.md, input-pins.json, '
                 'job.json, queue.lock or supervisor-owned phase before/after/events files.\n')
             (phase / 'brief.md').write_text(brief)
-            prompt = f'Execute {phase / "brief.md"}. The owner authorizes parallel {language} ({locale}) asset drafting and automatic sequential fresh continuation. Preserve saved translations; no inherited history, nested jobs, Git or shared-file writes.'
+            prompt = f'Execute {phase / "brief.md"}. Target locale is exactly {locale}, language {language}. Write ONLY {ROOT / asset_directory}/ and your own permitted files under {directory}/; every other locale directory is read-only. The owner authorizes parallel {language} ({locale}) asset drafting and automatic sequential fresh continuation. Preserve saved translations; no inherited history, nested jobs, Git or shared-file writes.'
             command = [str(cli), 'exec', '--ignore-user-config', '--model', MODEL,
                 '-c', 'model_provider="openai"', '-c', 'model_reasoning_effort="high"',
                 '-c', 'approval_policy="never"', '--sandbox', 'danger-full-access',

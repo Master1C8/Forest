@@ -20,6 +20,20 @@ def write(path, value):
 
 
 class ContinuationTests(unittest.TestCase):
+    def test_foreign_locale_contract_rejected_before_request(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary).resolve()
+            config = {'locale': 'de', 'language': 'German', 'assetDirectory': 'localization/de-assets'}
+            contract = directory / 'contract.md'
+            contract.write_text('# German asset draft (de)\nGerman lane only\n')
+            assets.bind_contract_scope(directory, config)
+            assets.validate_contract_scope(directory, config)
+            contract.write_text('# Russian asset translation\nRussian lane only\n')
+            with self.assertRaisesRegex(ValueError, 'changed after locale binding'):
+                assets.validate_contract_scope(directory, config)
+            with self.assertRaisesRegex(ValueError, 'mismatched locale contract'):
+                assets.bind_contract_scope(directory, config)
+
     def test_recovered_429_diagnostic_is_not_a_failed_completed_turn(self):
         warning = {'type': 'error', 'message': 'Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)'}
         usage = {'input_tokens': 10, 'output_tokens': 2}
@@ -145,6 +159,7 @@ class ContinuationTests(unittest.TestCase):
             for name in ('continuation.md', 'launch.py', 'contract.md', 'supervise.py'):
                 (run / name).write_text('Saved pre-existing checkpoint')
             shutil.copyfile(TOOLS / 'cli_job_support.py', run / 'cli_job_support.py')
+            (run / 'contract.md').write_text('# Russian asset translation: automatic fresh continuation\n')
             write(run / 'job.json', {'status': 'finished', 'pid': None, 'supervisorPid': None,
                 'measuredUsage': {'input_tokens': 11, 'output_tokens': 2, 'total_tokens': 13}})
             codex = root / 'fake-codex'

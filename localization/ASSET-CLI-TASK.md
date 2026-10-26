@@ -94,3 +94,18 @@ resolution. Unexplained deletion or a mismatching old hash still rejects. Retire
 alone is not new draft coverage. Regression: the unsupported male cousin at
 ds:468:767 moves to an evidenced hold while its original wording survives; the same
 missing ID without that receipt must fail. Self-correction is not independent audit.
+
+Non-Russian configured jobs require a locale/write-scope/contract-hash binding before
+the first model request. Binding verifies the exact locale-specific contract header;
+a copied Russian or different-locale contract must reject before source reads. The
+actual CLI prompt independently states the target and exact writable directories.
+Preserve a non-Russian job's own contract during supervisor upgrades; the Russian
+legacy contract is never a generic replacement. Regression: replacing the German
+contract with the Russian one must fail both binding and subsequent validation.
+
+For a parent-only disjoint supervisor repair, maintain one Git transaction owner.
+A persistent idle codex-code-mode-host child is part of the technical client, not a
+running game/tool action. A bounded handoff may quiesce the verified client, its idle
+host and observer only after event/descendant/index checks; always resume the exact
+same identities in finally. Never pause a native-input helper mid-pulse or another
+job. Preserve any foreign staged work instead of resetting the shared index.
