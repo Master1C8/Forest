@@ -20,6 +20,26 @@ def write(path, value):
 
 
 class ContinuationTests(unittest.TestCase):
+    def test_static_storage_recovery_does_not_invent_runtime_cleanup(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary).resolve(); run=root/'outputs/job'; phase=run/'0001-work';phase.mkdir(parents=True)
+            (phase/'events.jsonl').write_text(json.dumps({'type':'thread.started','thread_id':'interrupted'})+'\n')
+            (phase/'stderr.log').write_text('No space left on device')
+            brief=run/'recovery.md';brief.write_text('Finish existing static source scope')
+            artifact=root/'source.json';artifact.write_text('{}')
+            state={'status':'running','phases':[{'number':1,'directory':str(phase),'kind':'work'}]}
+            write(run/'job.json',state)
+            cleanup=run/'cleanup.json';write(cleanup,{'scope':'static-source-work','gameLaunches':0,'remainingTaskProcessRows':[],'inputPinsUnchanged':True})
+            receipt={'kind':'storage-interruption','failedPhase':1,'failedThreadId':'interrupted','jobSha256':support.digest(run/'job.json'),
+                'nextBrief':str(brief),'nextBriefSha256':support.digest(brief),'ownerInstruction':'Repair and continue both authorized CLI lanes',
+                'artifacts':{'source.json':support.digest(artifact)},'cleanup':str(cleanup.relative_to(root))}
+            path=run/'receipt.json';write(path,receipt)
+            with patch.object(technical,'ROOT',root):
+                self.assertEqual(technical.validate_interruption_restart(run,state,path,brief),receipt)
+                write(cleanup,{'scope':'runtime','gameLaunches':0,'remainingTaskProcessRows':[],'inputPinsUnchanged':True})
+                with self.assertRaisesRegex(AssertionError,'Static interruption scope required'):
+                    technical.validate_interruption_restart(run,state,path,brief)
+
     def test_source_repair_restart_binds_assignment_and_stopped_checkpoint(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary).resolve()

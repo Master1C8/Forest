@@ -4,6 +4,7 @@ import argparse
 import copy
 import hashlib
 import json
+import re
 import shutil
 import struct
 import unicodedata
@@ -17,11 +18,12 @@ from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
+from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser
+parse, variable_cells = load_bg_parser()
 
 PROJECT = Path('/Users/antonkrutov/Desktop/Forest')
-from russian_preview_support import validate_overlay, apply_overlay, clone_file, clone_ignore
+from russian_preview_support import validate_overlay, apply_overlay, clone_file, clone_ignore, CLONE_RECEIPTS, ROOT as INPUT_ROOT
 MENU_ACTUAL = {'Play':'Играть', 'Press any key':'Нажмите любую клавишу', 'Start New Game':'Новая игра', 'Start New Game\n':'Новая игра\n'}
-PRODUCT='ForestRuActual20261027_01'
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA_NAME = 'The Forest of Love_Data'
 BUNDLE = 'StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle'
@@ -54,6 +56,7 @@ def fields_changed(before, after, pointer=''):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--qa-product', required=True, help='Unique isolated QA product identity for this attempt')
     parser.add_argument('--sample-surface', choices=['tutorial', 'new-game', 'menu-settings', 'tutorial-choices'], default='tutorial')
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
     parser.add_argument('--coherent-legacy-face', action='store_true',
@@ -63,6 +66,9 @@ def main():
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Disable legacy baked Images with complete six-layer TMP replacements in OptionsMenu')
     args = parser.parse_args()
+    assert re.fullmatch(r'ForestRuActual[0-9]{8}_[0-9]{2,}', args.qa_product), 'Explicit isolated QA identity required'
+    product = args.qa_product
+    assert shutil.disk_usage(PROJECT).free >= 512 * 1024**2, 'Insufficient disk reserve before preview build'
     assert not args.repair_settings_glow or args.sample_surface == 'menu-settings'
     assert not args.repair_settings_value_images or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
@@ -73,7 +79,7 @@ def main():
     assert PROJECT in out.parents and SOURCE not in out.parents
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
     assert (SOURCE / DATA_NAME / 'Managed/Assembly-CSharp.dll').is_file()
-    expected = json.loads((PROJECT / 'assets/source-v2/source-files.json').read_text())
+    expected = json.loads((INPUT_ROOT / 'assets/source-v2/source-files.json').read_text())
     required = ['globalgamemanagers', 'resources.assets', 'level1', 'sharedassets0.assets', BUNDLE]
     for name in required:
         assert sha(SOURCE / DATA_NAME / name) == expected[name]['sha256'], name
@@ -82,13 +88,17 @@ def main():
     (out/'overlay-validation.json').write_text(json.dumps(validation,ensure_ascii=False,indent=2)+'\n')
     # Preserve the recipe used by this attempt, including partial failures.
     shutil.copy2(Path(__file__), out / 'build_russian_preview.py')
-    shutil.copy2(PROJECT / 'tools/tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
-    shutil.copy2(PROJECT / 'tools/settings_glow.py', out / 'settings_glow.py')
-    shutil.copy2(PROJECT / 'tools/legacy_choice_font.py', out / 'legacy_choice_font.py')
-    for helper in ['russian_preview_support.py', 'extract_assets.py', 'addressables_catalog.py']:
-        shutil.copy2(PROJECT / 'tools' / helper, out / helper)
+    shutil.copy2(Path(__file__).parent / 'tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
+    shutil.copy2(Path(__file__).parent / 'settings_glow.py', out / 'settings_glow.py')
+    shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
+    for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
+        candidate = Path(__file__).parent / helper
+        if helper == 'decode_inventory.py' and not candidate.is_file():
+            candidate = PROJECT / 'localization/source/bgdatabase-20261027/decode_inventory.py'
+        shutil.copy2(candidate, out / helper)
     runtime = out / 'game'
     shutil.copytree(SOURCE, runtime, copy_function=clone_file, ignore=clone_ignore)
+    (out/'clone-receipts.json').write_text(json.dumps(CLONE_RECEIPTS,indent=2)+'\n')
     assert not list(runtime.rglob('tfol.*'))
     target = runtime / DATA_NAME
     generator = TypeTreeGenerator('2020.3.24f1')
@@ -114,7 +124,7 @@ def main():
               'menuSamples': MENU_ACTUAL,
               'scope': 'Actual saved Russian dialogue preview; provisional source/editorial gates OPEN.',
               'overlay': validation,
-              'sourceManifestSha256': sha(PROJECT / 'assets/source-v2/source-files.json'),
+              'sourceManifestSha256': sha(INPUT_ROOT / 'assets/source-v2/source-files.json'),
               'files': []}
     for name in required:
         env = UnityPy.load(str(SOURCE / DATA_NAME / name))
@@ -123,10 +133,11 @@ def main():
         glow_repairs = {}
         image_repairs = {}
         choice_repairs = {}
+        ui_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
-            selected = {1020: objects[1020]}
+            selected = {1020: objects[1020], 320: objects[320]}
             if args.repair_cyrillic_metrics:
                 selected[1017] = objects[1017]
         elif name in ['sharedassets0.assets', BUNDLE]:
@@ -174,6 +185,18 @@ def main():
             if args.repair_settings_value_images:
                 image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
                 selected.update({pid: objects[pid] for pid in image_repairs})
+        if args.coherent_tmp_face and name in ['level1', 'sharedassets0.assets', BUNDLE]:
+            font_id = -1127281652424575413 if name == BUNDLE else 3323
+            if name == 'level1':
+                face_env = UnityPy.load(str(SOURCE / DATA_NAME / 'sharedassets0.assets'))
+                old_face = read_tree(next(o for o in face_env.objects if o.path_id == 3323), generator)['m_FaceInfo']
+            else:
+                old_face = read_tree(objects[font_id], generator)['m_FaceInfo']
+            new_face = copy.deepcopy(tmp_fallback['m_FaceInfo'])
+            new_face['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
+            ui_repairs, ui_receipt = typography_plan(objects, generator, old_face, new_face, font_id, 5 if name == 'level1' else 0)
+            report.setdefault('typographyRepair', {})[name] = ui_receipt
+            selected.update({pid: objects[pid] for pid in ui_repairs})
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
         raw_hashes = {pid: hashlib.sha256(obj.get_raw_data()).hexdigest() for pid, obj in objects.items()}
@@ -199,10 +222,16 @@ def main():
             before = canonical(tree)
             if name == 'globalgamemanagers':
                 tree['companyName'] = 'VNRevivalQA'
-                tree['productName'] = PRODUCT
+                tree['productName'] = product
                 tree['runInBackground'] = True
             elif name == 'resources.assets':
-                if pid == 1020:
+                if pid == 320:
+                    assert tree['m_Name'] == 'bansheegz_database'
+                    data = tree['m_Script'].encode('utf-8', errors='surrogateescape')
+                    data, receipt = project_actor_display(data, parse, variable_cells)
+                    tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
+                    report['actorDisplayProjection'] = receipt
+                elif pid == 1020:
                     assert tree['m_Name'] == 'TMP Settings'
                     assert tree['m_fallbackFontAssets'] == []
                     tree['m_fallbackFontAssets'] = [{'m_FileID': 0, 'm_PathID': 1017}]
@@ -212,6 +241,15 @@ def main():
                     # Keep Latin glyphs in their original font and preserve the
                     # existing glyph/atlas tables of this dynamic fallback.
                     tree['m_FaceInfo']['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
+            elif pid in ui_repairs:
+                tree = copy.deepcopy(ui_repairs[pid])
+                if name == 'level1' and tree.get('m_text') in report['menuSamples']:
+                    tree['m_text'] = report['menuSamples'][tree['m_text']]
+                if name != 'level1' and tree.get('m_GameObject'):
+                    if obj.parse_monobehaviour_head().m_GameObject.deref().read().m_Name == 'Subtitle Text':
+                        tree['m_enableAutoSizing'] = True
+                        tree['m_fontSizeMin'] = min(10.0, tree['m_fontSize'])
+                        tree['m_fontSizeMax'] = tree['m_fontSize']
             elif name == 'level1':
                 if pid in glow_repairs:
                     tree = copy.deepcopy(glow_repairs[pid])
@@ -281,12 +319,12 @@ def main():
                                 'changes': changes})
         (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
         print(name, 'no-op and exact readback passed', flush=True)
-    (target / 'app.info').write_text('VNRevivalQA\n'+PRODUCT)
+    (target / 'app.info').write_text('VNRevivalQA\n'+product)
     report['addressables'] = update_catalog(
         SOURCE / DATA_NAME / 'StreamingAssets/aa/catalog.json',
         target / 'StreamingAssets/aa/catalog.json',
         SOURCE / DATA_NAME / BUNDLE, target / BUNDLE)
-    report['saveIsolation'] = {'companyName': 'VNRevivalQA', 'productName': PRODUCT,
+    report['saveIsolation'] = {'companyName': 'VNRevivalQA', 'productName': product,
                                'originalAppIdentityUnchanged': True, 'copiedPlayerFiles': False}
     (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 

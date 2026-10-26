@@ -66,7 +66,7 @@ def validate_interruption_restart(directory, previous, receipt_path, first_brief
     last = previous['phases'][-1]
     thread, usage, errors = cli_events(Path(last['directory']) / 'events.jsonl')
     assert previous['status'] == 'running' and usage is None and not errors, 'Reconcile recorded completion/failure through its owning path.'
-    assert receipt['kind'] == 'observer-interruption' and receipt['failedPhase'] == last['number'] and receipt['failedThreadId'] == thread, 'Wrong interrupted request.'
+    assert receipt['kind'] in ('observer-interruption', 'storage-interruption') and receipt['failedPhase'] == last['number'] and receipt['failedThreadId'] == thread, 'Wrong interrupted request.'
     assert digest(directory / 'job.json') == receipt['jobSha256'], 'Job changed since reconciliation.'
     assert first_brief == Path(receipt['nextBrief']).resolve() and digest(first_brief) == receipt['nextBriefSha256'], 'Continuation changed since reconciliation.'
     assert directory in first_brief.parents, 'Continuation must belong to this job.'
@@ -76,6 +76,12 @@ def validate_interruption_restart(directory, previous, receipt_path, first_brief
         path = (ROOT / name).resolve()
         assert ROOT.resolve() in path.parents and digest(path) == expected, f'Recovered artifact changed: {name}'
     cleanup = json.loads((ROOT / receipt['cleanup']).read_text())
+    if receipt['kind'] == 'storage-interruption':
+        assert last['kind'] == 'work' and 'No space left on device' in (Path(last['directory']) / 'stderr.log').read_text(), 'Storage failure evidence required'
+        assert cleanup['scope'] == 'static-source-work' and cleanup['gameLaunches'] == 0, 'Static interruption scope required'
+        assert not cleanup['remainingTaskProcessRows'] and cleanup['inputPinsUnchanged'] is True, 'Interrupted source state is unverified'
+        assert shutil.disk_usage(ROOT).free >= 256 * 1024**2, 'Insufficient disk reserve'
+        return receipt
     assert not cleanup['remainingTaskProcessRows'] and all(cleanup.get(k) is True for k in
         ('quitAcknowledged', 'originalAssetsAndPlayerFilesUnchanged', 'inspectionBridgeRemoved', 'inputPinsUnchanged')), 'Interrupted runtime cleanup is unverified.'
     return receipt
@@ -139,7 +145,7 @@ def run(directory, first_brief, resume=False, reconciliation=None, git_coordinat
              'reviewWrapperSource': str(source_wrapper), 'phases': []}
     if resume:
         if capacity_receipt is not None:
-            state['phases'][-1].update(status='interruption-reconciled' if capacity_receipt.get('kind') == 'observer-interruption' else 'capacity-reconciled',
+            state['phases'][-1].update(status='interruption-reconciled' if capacity_receipt.get('kind') in ('observer-interruption', 'storage-interruption') else 'capacity-reconciled',
                 parentReconciliation={'receipt': str(reconciliation.resolve()), 'sha256': digest(reconciliation),
                                       'recoveredArtifacts': capacity_receipt['artifacts']})
         if previous['status'] == 'held-supervisor-error':

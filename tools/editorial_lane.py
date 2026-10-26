@@ -10,7 +10,7 @@ import shutil
 import subprocess
 import sys
 
-from cli_job_support import validate_model, cli_events, cli_turn_succeeded
+from cli_job_support import validate_model, cli_events, cli_turn_succeeded, assert_stopped
 
 MODEL, EFFORT = 'gpt-6.1-sol', 'high'
 VERDICTS = {'pass', 'finding', 'needs-context', 'source-defect', 'technical-preservation'}
@@ -195,13 +195,50 @@ def context(directory, conversation, entry_id):
     print(raw)
 
 
-def run(directory):
+def reconcile_interruption(directory, state, config, receipt_path):
+    receipt_path = receipt_path.resolve()
+    assert directory in receipt_path.parents, 'Reconciliation belongs to another lane'
+    receipt = json.loads(receipt_path.read_text())
+    assert state['status'] in {'running', 'held-supervisor-error'}, 'Only an interrupted supervisor may resume'
+    assert receipt['kind'] == 'storage-interruption' and receipt['jobSha256'] == sha(directory / 'job.json'), 'Interrupted checkpoint changed'
+    last = state['phases'][-1]
+    assert last['status'] != 'batch-reviewed' and receipt['phaseDirectory'] == last['directory'], 'Wrong interrupted phase'
+    assert receipt['eventsSha256'] == sha(Path(last['directory']) / 'events.jsonl'), 'Interrupted request changed'
+    assert receipt['noSurvivingTaskProcesses'] is True and receipt['availableBytes'] >= 256 * 1024**2
+    for pid in [state.get('supervisorPid'), state.get('pid'), last.get('pid')]:
+        assert_stopped(pid, directory)
+    check_pins(config)
+    complete = [p for p in state['phases'] if p['status'] == 'batch-reviewed']
+    assert [p['number'] for p in complete] == list(range(1, len(complete) + 1)), 'Completed prefix is not contiguous'
+    for p, ids in zip(complete, config['batches']):
+        phase = Path(p['directory']); result = json.loads((phase / 'result.json').read_text())
+        assert sha(phase / 'pairs.jsonl') == p['packetSha256']
+        assert sha(phase / 'reviews.jsonl') == result['reviewsSha256']
+        assert {r['id'] for r in rows(phase / 'reviews.jsonl')} == set(ids)
+    assert state['reviewedIds'] == sum(len(config['batches'][i]) for i in range(len(complete)))
+    lock = directory / 'queue.lock'
+    if lock.exists():
+        assert json.loads(lock.read_text())['pid'] == state['supervisorPid'], 'Foreign queue claim'
+        lock.rename(receipt_path.parent / 'prior-queue.lock')
+    thread, usage, errors = cli_events(Path(last['directory']) / 'events.jsonl')
+    last.update(status='interrupted-storage-full', threadId=thread, measuredUsage=usage,
+                errors=errors, requestOutcome='Local processes verified absent; final accounting unknown unless terminal usage survived',
+                reconciliation=str(receipt_path))
+    state.setdefault('resumptions', []).append({'receipt': str(receipt_path), 'sha256': sha(receipt_path)})
+    state.pop('reason', None)
+    return len(complete)
+
+
+def run(directory, reconciliation=None):
     directory = directory.resolve(); config = json.loads((directory / 'config.json').read_text())
     validate_model(config['model'], config['reasoning'], 'openai')
-    state = json.loads((directory / 'job.json').read_text()); assert state['status'] == 'prepared'
+    state = json.loads((directory / 'job.json').read_text())
+    assert state['status'] == 'prepared' or reconciliation is not None, 'Explicit reconciled interruption required'
     registry = json.loads((Path.home() / '.codex/models_cache.json').read_text())
     assert any(m.get('slug') == MODEL for m in registry['models'])
-    check_pins(config); lock = directory / 'queue.lock'
+    check_pins(config)
+    completed = reconcile_interruption(directory, state, config, reconciliation) if reconciliation else 0
+    lock = directory / 'queue.lock'
     with lock.open('x') as stream: json.dump({'pid': os.getpid()}, stream)
     state.update(status='running', supervisorPid=os.getpid(), inheritedHistory=False)
     save(directory / 'job.json', state)
@@ -209,10 +246,16 @@ def run(directory):
     execution_pins = {p: sha(p) for p in [helper, support, directory / 'config.json', directory / 'contract.md']}
     by_id = {r['id']: r for r in rows(directory / 'pairs.jsonl')}
     try:
-        for number, ids in enumerate(config['batches'], 1):
+        for number, ids in enumerate(config['batches'][completed:], completed + 1):
+            assert shutil.disk_usage(config['root']).free >= 256 * 1024**2, 'Insufficient disk reserve before model request'
             check_pins(config)
             assert all(sha(p) == digest for p, digest in execution_pins.items()), 'Frozen execution dependency changed'
-            phase = directory / f'{number:04d}-semantic'; phase.mkdir()
+            phase = directory / f'{number:04d}-semantic'
+            attempt = 1
+            while phase.exists():
+                attempt += 1
+                phase = directory / f'{number:04d}-semantic-attempt-{attempt:02d}'
+            phase.mkdir()
             (phase / 'pairs.jsonl').write_text(''.join(encoded(by_id[i]) + '\n' for i in ids))
             brief = f'''Read {directory / 'contract.md'} and execute this exact {config['language']} ({config['locale']}) preliminary full-family audit batch. Fresh no-history gpt-6.1-sol/high/OpenAI; verify actual argv; NEVER Astra/default/fallback or nested model jobs. Read-only all project/source/locale data. Write only this phase's read receipts, model-authored decisions/findings and result. No Git/index, games, images, translation edits or site/server operations.
 Read the complete compact working glossaries {directory / 'glossary-en.json'} and {directory / ('glossary-' + config['locale'] + '.json')} once, plus the universal audit protocol and the bounded contract. This batch has {len(ids)} exact stable IDs in {phase / 'pairs.jsonl'}; no sampling or guessed pass coverage. Actual source/target fields must all be read once with sufficient actor/addressee/branch/sequence context. Use `python3 -B {helper} read --phase {phase} --start N --count 20` with max_output_tokens at least10000. Output is bounded to8000 UTF8 bytes; follow actual returned next index, never assume20 were returned. For oversized individual units use read-unit with successive start/end parts until length. Do not redirect read output to a file to manufacture receipts. A truncated/unread tool output earns no read credit. The receipts only bind emitted versions; they do not replace your real semantic reading.
@@ -228,7 +271,7 @@ When all assigned decisions are genuinely complete, call `python3 -B {helper} fi
                 '-c', 'approval_policy="never"', '--sandbox', 'danger-full-access', '--disable', 'multi_agent',
                 '--cd', config['root'], '--json', '--output-last-message', str(phase / 'last-message.txt'),
                 'Execute ' + str(phase / 'brief.md') + '. Exact target ' + config['locale'] + '; fresh no-history read-only semantic review.']
-            record = {'number': number, 'kind': 'preliminary-semantic', 'directory': str(phase), 'status': 'running', 'command': command,
+            record = {'number': number, 'attempt': attempt, 'kind': 'preliminary-semantic', 'directory': str(phase), 'status': 'running', 'command': command,
                       'packetSha256': sha(phase / 'pairs.jsonl')}
             state['phases'].append(record)
             with (phase / 'events.jsonl').open('w') as out, (phase / 'stderr.log').open('w') as err:
@@ -254,7 +297,8 @@ When all assigned decisions are genuinely complete, call `python3 -B {helper} fi
             save(directory / 'job.json', state)
         else:
             assert state['reviewedIds'] == config['candidateIds']
-            consolidated = [r for p in state['phases'] for r in rows(Path(p['directory']) / 'reviews.jsonl') if r['verdict'] != 'pass']
+            consolidated = [r for p in state['phases'] if p['status'] == 'batch-reviewed'
+                            for r in rows(Path(p['directory']) / 'reviews.jsonl') if r['verdict'] != 'pass']
             (directory / 'findings.jsonl').write_text(''.join(encoded(r) + '\n' for r in consolidated))
             state.update(status='full-pass-complete-awaiting-adjudication', nextStage='Consolidated source-based adjudication, accepted correction batch, immutable dependency closure, distinct fresh independent diff/delta review; no full-game editorial acceptance.')
     except BaseException as error:
@@ -269,14 +313,14 @@ When all assigned decisions are genuinely complete, call `python3 -B {helper} fi
 def main():
     parser = argparse.ArgumentParser(description=__doc__); sub = parser.add_subparsers(dest='action', required=True)
     p = sub.add_parser('prepare'); p.add_argument('--root', type=Path, required=True); p.add_argument('--job', type=Path, required=True); p.add_argument('--locale', required=True); p.add_argument('--language', required=True)
-    p = sub.add_parser('run'); p.add_argument('--job', type=Path, required=True)
+    p = sub.add_parser('run'); p.add_argument('--job', type=Path, required=True); p.add_argument('--reconcile-interruption', type=Path)
     p = sub.add_parser('read'); p.add_argument('--phase', type=Path, required=True); p.add_argument('--start', type=int, required=True); p.add_argument('--count', type=int, default=20)
     p = sub.add_parser('read-unit'); p.add_argument('--phase', type=Path, required=True); p.add_argument('--id', required=True); p.add_argument('--start', type=int, default=0)
     p = sub.add_parser('finalize'); p.add_argument('--phase', type=Path, required=True)
     p = sub.add_parser('context'); p.add_argument('--job', type=Path, required=True); p.add_argument('--conversation', type=int, required=True); p.add_argument('--entry', type=int, required=True)
     args = parser.parse_args()
     if args.action == 'prepare': print(encoded(prepare(args.root, args.job, args.locale, args.language)))
-    elif args.action == 'run': run(args.job)
+    elif args.action == 'run': run(args.job, args.reconcile_interruption)
     elif args.action == 'read': read_packet(args.phase, args.start, args.count)
     elif args.action == 'read-unit': read_unit(args.phase, args.id, args.start)
     elif args.action == 'finalize': print(encoded({'reviewed': len(finalize(args.phase))}))

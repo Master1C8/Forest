@@ -127,5 +127,47 @@ class EditorialStorage(unittest.TestCase):
                     audit.run(directory)
                 request.assert_not_called()
 
+    def test_storage_resume_keeps_completed_prefix_and_partial_attempt(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary).resolve(); directory,home=self.fixture(root); calls=[]
+            class Child:
+                pid=99999999
+                def __init__(self,command,**kwargs):
+                    self.phase=Path(command[command.index('--output-last-message')+1]).parent
+                    self.out=kwargs['stdout'];calls.append(command)
+                def wait(self):
+                    if len(calls)==2:
+                        (self.phase/'partial-note.txt').write_text('Unfinished evidence stays immutable')
+                        raise OSError('No space left on device')
+                    packet=audit.rows(self.phase/'pairs.jsonl')
+                    with redirect_stdout(io.StringIO()):audit.read_packet(self.phase,0,20)
+                    (self.phase/'decisions.jsonl').write_text(''.join(audit.encoded({'id':r['id'],'verdict':'pass','rationale':'Fake model fixture'})+'\n' for r in packet))
+                    audit.finalize(self.phase)
+                    self.out.write(json.dumps({'type':'thread.started','thread_id':'fixture-'+str(len(calls))})+'\n')
+                    self.out.write(json.dumps({'type':'turn.completed','usage':{'input_tokens':10,'output_tokens':2}})+'\n');self.out.flush();return 0
+            with patch.object(audit.Path,'home',return_value=home),patch.object(audit.shutil,'which',return_value='/fixture/codex'),patch.object(audit.subprocess,'Popen',Child),patch.object(audit,'assert_stopped'):
+                with self.assertRaisesRegex(OSError,'No space'):
+                    audit.run(directory)
+                state=json.loads((directory/'job.json').read_text())
+                first=Path(state['phases'][0]['directory'])/'reviews.jsonl'; prior=audit.sha(first)
+                failed=Path(state['phases'][-1]['directory']); receipt=directory/'storage-receipt.json'
+                value={'kind':'storage-interruption','jobSha256':audit.sha(directory/'job.json'),
+                       'phaseDirectory':str(failed),'eventsSha256':audit.sha(failed/'events.jsonl'),
+                       'noSurvivingTaskProcesses':True,'availableBytes':1024**3}
+                audit.save(receipt,{**value,'jobSha256':'changed'})
+                with self.assertRaisesRegex(AssertionError,'Interrupted checkpoint changed'):
+                    audit.run(directory,receipt)
+                self.assertEqual(len(calls),2)
+                audit.save(receipt,value);audit.run(directory,receipt)
+            state=json.loads((directory/'job.json').read_text())
+            self.assertEqual(state['status'],'full-pass-complete-awaiting-adjudication')
+            self.assertEqual(state['reviewedIds'],2)
+            self.assertEqual(state['measuredUsage']['total_tokens'],24)
+            self.assertEqual(audit.sha(first),prior)
+            self.assertEqual(state['phases'][1]['status'],'interrupted-storage-full')
+            self.assertEqual(state['phases'][2]['attempt'],2)
+            self.assertTrue((failed/'partial-note.txt').exists())
+            self.assertNotEqual(state['phases'][1]['directory'],state['phases'][2]['directory'])
+
 
 if __name__=='__main__':unittest.main()
