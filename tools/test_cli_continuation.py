@@ -227,11 +227,41 @@ class ContinuationTests(unittest.TestCase):
                 write(artifact, {'cleanup': False})
                 with self.assertRaisesRegex(AssertionError, 'Recovered artifact changed'):
                     technical.validate_capacity_restart(directory, state, path, brief)
+
                 write(artifact, {'cleanup': True})
                 records[-1]['message'] = 'Unknown stream outcome'
                 events.write_text(''.join(json.dumps(x) + '\n' for x in records))
                 with self.assertRaisesRegex(AssertionError, 'Unknown request outcome'):
                     technical.validate_capacity_restart(directory, state, path, brief)
+
+    def test_orphaned_running_record_requires_real_cleanup(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            directory = root / 'outputs/technical'
+            phase = directory / '0022-work'
+            phase.mkdir(parents=True)
+            (phase / 'events.jsonl').write_text(json.dumps({'type': 'thread.started', 'thread_id': 'orphaned'}) + '\n')
+            brief = directory / 'reviewed-next.md'
+            brief.write_text('Use repaired snapshot; never relaunch consumed candidate')
+            state = {'status': 'running', 'phases': [{'number': 22, 'directory': str(phase)}]}
+            write(directory / 'job.json', state)
+            cleanup_path = root / 'localization/probe/cleanup.json'
+            cleanup = {'remainingTaskProcessRows': [], 'quitAcknowledged': True,
+                       'originalAssetsAndPlayerFilesUnchanged': True, 'inspectionBridgeRemoved': True, 'inputPinsUnchanged': True}
+            write(cleanup_path, cleanup)
+            receipt = {'kind': 'observer-interruption', 'failedPhase': 22, 'failedThreadId': 'orphaned',
+                'jobSha256': support.digest(directory / 'job.json'), 'nextBrief': str(brief),
+                'nextBriefSha256': support.digest(brief), 'ownerInstruction': 'Repair and continue both authorized CLI lanes',
+                'cleanup': 'localization/probe/cleanup.json', 'artifacts': {'localization/probe/cleanup.json': support.digest(cleanup_path)}}
+            path = directory / 'receipt.json'
+            write(path, receipt)
+            with patch.object(technical, 'ROOT', root):
+                self.assertEqual(technical.validate_interruption_restart(directory, state, path, brief), receipt)
+                write(cleanup_path, {**cleanup, 'inspectionBridgeRemoved': False})
+                receipt['artifacts']['localization/probe/cleanup.json'] = support.digest(cleanup_path)
+                write(path, receipt)
+                with self.assertRaisesRegex(AssertionError, 'runtime cleanup is unverified'):
+                    technical.validate_interruption_restart(directory, state, path, brief)
 
 
 if __name__ == '__main__':

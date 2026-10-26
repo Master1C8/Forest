@@ -77,7 +77,7 @@ class IntroActions(unittest.TestCase):
 
     def test_normal_continue_and_exact_original_response(self):
         s = state()
-        self.assertEqual(intro.intro_action(s, GRAPH), 'continue')
+        self.assertEqual(intro.intro_action(s, GRAPH), 'continue-bound 145 205')
         s['responses'] = [dict(conversationId=145, entryId=206, visible=True,
                                clickable=True, targetPath='Original/ResponseMenu')]
         self.assertEqual(intro.intro_action(s, GRAPH), 'response 205 145 206')
@@ -103,6 +103,19 @@ class IntroActions(unittest.TestCase):
         e['outgoingLinks'].append(copy.copy(e['outgoingLinks'][0]))
         with self.assertRaisesRegex(AssertionError, 'Stop at original branching dialogue'):
             intro.intro_action(state(), graph)
+
+    def test_bound_continue_receipt_distinguishes_dispatch_from_original_progression(self):
+        s = state(259)
+        receipt = dict(expectedConversationId=145, expectedEntryId=259,
+                       actualConversationId=145, actualEntryId=259, active=True, result='applied')
+        self.assertEqual(intro.continue_outcome(s, receipt), 'applied')
+        for actual, active in [(259, False), (260, True)]:
+            stale = dict(receipt, actualEntryId=actual, active=active, result='stale')
+            self.assertEqual(intro.continue_outcome(s, stale), 'stale')
+            with self.assertRaisesRegex(AssertionError, 'Inconsistent game-thread'):
+                intro.continue_outcome(s, dict(stale, result='applied'))
+        with self.assertRaisesRegex(AssertionError, 'does not match submission'):
+            intro.continue_outcome(s, dict(receipt, expectedEntryId=260))
 
     def test_wrapper_waits_and_rejects_each_unexpected_identity(self):
         for entry in [0, 5, 8]:

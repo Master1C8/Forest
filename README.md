@@ -1,3 +1,16 @@
+## Interrupted phase22 recovery
+
+Candidate31 failed before movement: an original timed dialogue ended between its
+external observation and unbound Continue dispatch. Its failed result and successful
+cleanup remain preserved. The canonical bridge now applies Continue only when the
+actual game-thread conversation/entry matches the submitted source binding; otherwise
+it records a stale no-op. Nine intro and three native-input guard tests and compilation
+against150 original references pass. Corrected runtime is still unverified; use a new
+immutable candidate32 and retain real root/doorway, input-release and original story
+guards. Parent recovery independently verified frozen31 resources, original references,
+seven translation input pins and absence of the old game processes. The orphaned model
+turn has no fabricated exit/completion or usage. Translation remains independently owned.
+
 # The Forest of Love: Russian localization work
 
 ## Current Russian localization
@@ -607,3 +620,16 @@ These are technical leads, not evidence that a mod works with this exact build.
 
 The coordinator model was verified from this chat's turn context as GPT-6.1 Sol,
 reasoning high. No Astra model, worker, external translation model or subagent was used.
+
+## Parallel locale draft parameters
+
+The owner authorized six additional CLI lanes: zh, es, es-419, pt-BR, ja and de.
+They reuse the same source family, fixed stages and universal editorial algorithm.
+`tools/run_asset_ru.py` accepts explicit `localeConfig` in each job; it retains its
+Russian legacy default only for existing Russian jobs. New prepared jobs require an
+explicit matching locale/language/assets directory. `tools/locale_corpus.py` is the
+shared deterministic adapter copied to each configured lane; it never authors wording.
+Accepted171-entry glossary snapshots are under localization/glossary/. Real coverage
+is in outputs/locale-assets-20261026/<locale>/progress.json, separate from full-game
+source, renderer, editorial and release acceptance. Technical workers own Git and
+exclude ALL localization/*-assets/ and locale job directories from mutation/staging.

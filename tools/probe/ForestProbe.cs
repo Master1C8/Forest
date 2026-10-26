@@ -46,6 +46,11 @@ public sealed class ForestProbe : MonoBehaviour
         public string scene, company, product, dataPath, persistentDataPath;
         public string[] diagnostics;
     }
+    [Serializable] public sealed class ContinueReceipt {
+        public string result;
+        public bool active;
+        public int expectedConversationId, expectedEntryId, actualConversationId, actualEntryId;
+    }
     private string root;
     private float next;
     private bool? originalIgnoreUnfocused;
@@ -120,6 +125,22 @@ public sealed class ForestProbe : MonoBehaviour
                 var controller=FindObjectOfType<TheForestOfLove.MainMenuController>();
                 if(controller==null)throw new Exception("Main menu controller not active");
                 controller.GetType().GetMethod("FinishShowingMenu",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(controller,null);
+            } else if(text.StartsWith("continue-bound ")) {
+                var parts=text.Substring(15).Split(' ');
+                if(parts.Length!=2)throw new Exception("Expected conversation and source entry");
+                int conversationId=Int32.Parse(parts[0]), entryId=Int32.Parse(parts[1]);
+                var current=DialogueManager.currentConversationState;
+                var entry=current==null || current.subtitle==null?null:current.subtitle.dialogueEntry;
+                var receipt=new ContinueReceipt {active=DialogueManager.isConversationActive,
+                    expectedConversationId=conversationId, expectedEntryId=entryId,
+                    actualConversationId=entry==null?-1:entry.conversationID, actualEntryId=entry==null?-1:entry.id};
+                // Original timed cutscenes can finish between an external dump
+                // and dispatch. A stale command is a recorded no-op, never an
+                // action on the successor conversation or a forced restart.
+                bool matches=receipt.active && receipt.actualConversationId==conversationId && receipt.actualEntryId==entryId;
+                if(matches)TheForestOfLove.CustomTypewriterEffectTextMeshPro.FastForwardTextOrAdvanceDialogue();
+                receipt.result=matches?"applied":"stale";
+                File.WriteAllText(Path.Combine(root,"continue-receipt.json"),JsonUtility.ToJson(receipt,true));
             } else if(text=="continue") {
                 if(!DialogueManager.isConversationActive)throw new Exception("No active conversation");
                 TheForestOfLove.CustomTypewriterEffectTextMeshPro.FastForwardTextOrAdvanceDialogue();
@@ -210,6 +231,16 @@ public sealed class ForestProbe : MonoBehaviour
         var keyboard=Rewired.ReInput.controllers.Keyboard;
         var helper=FindObjectOfType<TheForestOfLove.InputHelper>();
         var player=helper==null?null:ReadField(helper,"player") as Rewired.Player;
+        var actor=FindObjectOfType<TheForestOfLove.Player>();
+        var body=actor==null?null:actor.GetComponent<Rigidbody2D>();
+        bool nativeArrowsUp=valid, asyncArrowsUp=true, rewiredArrowsUp=true, unityArrowsUp=true;
+        foreach(var code in new[]{0x25,0x26,0x27,0x28}) {
+            nativeArrowsUp &= (keys[code]&128)==0;
+            asyncArrowsUp &= (GetAsyncKeyState(code)&0x8000)==0;
+        }
+        foreach(var code in new[]{KeyCode.LeftArrow,KeyCode.UpArrow,KeyCode.RightArrow,KeyCode.DownArrow}) {
+            rewiredArrowsUp &= !keyboard.GetKey(code); unityArrowsUp &= !Input.GetKey(code);
+        }
         // Observe the real producer and public getters. Never feed these values back.
         keyboardSamples.Add("keyboard | time="+Time.realtimeSinceStartup+
             " | winPid="+GetCurrentProcessId()+" | focused="+Application.isFocused+
@@ -220,7 +251,23 @@ public sealed class ForestProbe : MonoBehaviour
             " | keyboardEnabled="+keyboard.enabled+" | unityLeft="+Input.GetKey(KeyCode.LeftArrow)+
             " | player="+(player==null?"null":player.id+":"+player.name)+
             " | actionAxes="+(player==null?"null":Vector(player.GetAxis2D(0,1)))+
-            " | fullAxis="+Vector(TheForestOfLove.InputHelper.FullAxis));
+            " | fullAxis="+Vector(TheForestOfLove.InputHelper.FullAxis)+
+            " | nativeArrowsUp="+nativeArrowsUp+" | asyncArrowsUp="+asyncArrowsUp+
+            " | rewiredArrowsUp="+rewiredArrowsUp+" | unityArrowsUp="+unityArrowsUp+
+            " | scene="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+
+            " | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
+            " | conversation="+DialogueManager.isConversationActive+
+            " | dustin="+TheForestOfLove.Services.SceneManagement.SceneHelper.inDustinMinigame+
+            " | glitch="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGlitchRoom+
+            " | actor="+ObjectAddress(actor)+" | body="+ObjectAddress(body)+
+            " | actorPosition="+(actor==null?"null":Vector(actor.transform.position))+
+            " | bodyPosition="+(body==null?"null":Vector(body.position))+
+            " | bodyVelocity="+(body==null?"null":Vector(body.velocity))+
+            " | movement="+(actor==null?"null":DiagnosticValue(ReadField(actor,"enableMovement")))+
+            " | lanternTransition="+(actor!=null && actor.lanternTransitioning)+
+            " | sweaterTransition="+(actor!=null && actor.sweaterTransitioning)+
+            " | waypoints="+(actor==null || actor.waypointController==null?"absent":actor.waypointController.HasWaypoints.ToString()));
     }
     IEnumerator Capture(string path) {
         yield return new WaitForEndOfFrame();

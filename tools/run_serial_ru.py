@@ -59,6 +59,28 @@ def validate_capacity_restart(directory, previous, receipt_path, first_brief):
     return receipt
 
 
+def validate_interruption_restart(directory, previous, receipt_path, first_brief):
+    receipt_path = receipt_path.resolve()
+    assert directory in receipt_path.parents, 'Receipt belongs to another job.'
+    receipt = json.loads(receipt_path.read_text())
+    last = previous['phases'][-1]
+    thread, usage, errors = cli_events(Path(last['directory']) / 'events.jsonl')
+    assert previous['status'] == 'running' and usage is None and not errors, 'Reconcile recorded completion/failure through its owning path.'
+    assert receipt['kind'] == 'observer-interruption' and receipt['failedPhase'] == last['number'] and receipt['failedThreadId'] == thread, 'Wrong interrupted request.'
+    assert digest(directory / 'job.json') == receipt['jobSha256'], 'Job changed since reconciliation.'
+    assert first_brief == Path(receipt['nextBrief']).resolve() and digest(first_brief) == receipt['nextBriefSha256'], 'Continuation changed since reconciliation.'
+    assert directory in first_brief.parents, 'Continuation must belong to this job.'
+    assert receipt['ownerInstruction'] == 'Repair and continue both authorized CLI lanes', 'Restart authorization missing.'
+    assert receipt['artifacts'], 'Recovered artifact verification is required.'
+    for name, expected in receipt['artifacts'].items():
+        path = (ROOT / name).resolve()
+        assert ROOT.resolve() in path.parents and digest(path) == expected, f'Recovered artifact changed: {name}'
+    cleanup = json.loads((ROOT / receipt['cleanup']).read_text())
+    assert not cleanup['remainingTaskProcessRows'] and all(cleanup.get(k) is True for k in
+        ('quitAcknowledged', 'originalAssetsAndPlayerFilesUnchanged', 'inspectionBridgeRemoved', 'inputPinsUnchanged')), 'Interrupted runtime cleanup is unverified.'
+    return receipt
+
+
 def run(directory, first_brief, resume=False, reconciliation=None):
     directory, first_brief = directory.resolve(), first_brief.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
@@ -66,11 +88,15 @@ def run(directory, first_brief, resume=False, reconciliation=None):
     path = directory / 'job.json'
     previous = json.loads(path.read_text()) if resume else None
     if resume:
-        assert previous['status'] in ('needs-owner', 'held-supervisor-error', 'held-process-failure'), 'Reconcile the previous outcome before resuming.'
+        assert previous['status'] in ('needs-owner', 'held-supervisor-error', 'held-process-failure', 'running'), 'Reconcile the previous outcome before resuming.'
         capacity_receipt = None
         if previous['status'] == 'held-process-failure':
             assert reconciliation is not None, 'Failed request requires explicit capacity reconciliation; no automatic retry.'
             capacity_receipt = validate_capacity_restart(directory, previous, reconciliation, first_brief)
+        elif previous['status'] == 'running':
+            assert reconciliation is not None, 'A running record requires verified interruption reconciliation.'
+            capacity_receipt = validate_interruption_restart(directory, previous, reconciliation, first_brief)
+        if capacity_receipt is not None:
             assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip() == capacity_receipt['head'], 'Canonical HEAD changed after reconciliation.'
         for pid in (previous.get('supervisorPid'), previous['phases'][-1].get('pid')):
             if pid:
@@ -87,6 +113,10 @@ def run(directory, first_brief, resume=False, reconciliation=None):
     registry = json.loads((Path.home() / '.codex/models_cache.json').read_text())
     assert any(x.get('slug') == MODEL for x in registry['models'])
     lock = directory / 'queue.lock'
+    if lock.exists() and resume and previous['status'] == 'running' and capacity_receipt is not None:
+        assert json.loads(lock.read_text()).get('pid') == previous['supervisorPid'], 'Queue claim belongs to another supervisor.'
+        shutil.copyfile(lock, history / 'queue.lock')
+        lock.unlink()
     with lock.open('x') as stream:
         json.dump({'pid': os.getpid(), 'startedAt': now()}, stream)
     codex = Path(shutil.which('codex')).resolve()
@@ -108,7 +138,7 @@ def run(directory, first_brief, resume=False, reconciliation=None):
              'reviewWrapperSource': str(source_wrapper), 'phases': []}
     if resume:
         if capacity_receipt is not None:
-            state['phases'][-1].update(status='capacity-reconciled',
+            state['phases'][-1].update(status='interruption-reconciled' if capacity_receipt.get('kind') == 'observer-interruption' else 'capacity-reconciled',
                 parentReconciliation={'receipt': str(reconciliation.resolve()), 'sha256': digest(reconciliation),
                                       'recoveredArtifacts': capacity_receipt['artifacts']})
         if previous['status'] == 'held-supervisor-error':
@@ -257,6 +287,7 @@ if __name__ == '__main__':
     parser.add_argument('--self-check', action='store_true')
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--reconcile-capacity', type=Path)
+    parser.add_argument('--reconcile-interruption', type=Path)
     args = parser.parse_args()
     if args.self_check:
         validate_model(MODEL, EFFORT, PROVIDER)
@@ -269,4 +300,5 @@ if __name__ == '__main__':
         print('Permitted-model positive control and Astra rejection controls passed without model requests.')
     else:
         assert args.run and args.brief
-        run(args.run.resolve(), args.brief.resolve(), resume=args.resume, reconciliation=args.reconcile_capacity)
+        assert not (args.reconcile_capacity and args.reconcile_interruption), 'Choose the exact reconciliation path.'
+        run(args.run.resolve(), args.brief.resolve(), resume=args.resume, reconciliation=args.reconcile_capacity or args.reconcile_interruption)

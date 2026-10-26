@@ -65,8 +65,14 @@ def cli_events(path):
     return thread, total, errors
 
 
-def asset_snapshot(root, directory):
+def asset_snapshot(root, directory, asset_directory="localization/ru-assets", locale="ru"):
     root, directory = Path(root), Path(directory)
+    if not locale or not asset_directory:
+        raise ValueError('Explicit locale and asset directory are required')
+    asset_root = (root / asset_directory).resolve()
+    if asset_root != (root / 'localization' / (locale + '-assets')).resolve():
+        raise ValueError('Asset directory must match the explicitly selected locale')
+    overlay = asset_root / ('dialogue.' + locale + '.jsonl')
     pins = json.loads((directory / 'input-pins.json').read_text())
     for name, expected in pins.items():
         if digest(name) != expected:
@@ -75,7 +81,7 @@ def asset_snapshot(root, directory):
     by_id = {r['id']: r for r in source}
     if len(by_id) != len(source):
         raise ValueError('Duplicate source IDs')
-    rows = [json.loads(line) for line in (root / 'localization/ru-assets/dialogue.ru.jsonl').read_text().splitlines()]
+    rows = [json.loads(line) for line in overlay.read_text().splitlines()]
     targets = {}
     for row in rows:
         ident = row['id']
@@ -90,14 +96,14 @@ def asset_snapshot(root, directory):
             if hashlib.sha256(row[field].encode()).hexdigest() != row[field + 'Sha256']:
                 raise ValueError(f'Invalid {field} hash: {ident}')
         targets[ident] = row['targetSha256']
-    unresolved = json.loads((root / 'localization/ru-assets/unresolved.json').read_text())
+    unresolved = json.loads((asset_root / 'unresolved.json').read_text())
     held = {r['id'] for r in unresolved}
     if len(held) != len(unresolved) or held - by_id.keys() or held & targets.keys():
         raise ValueError('Invalid held-ID set')
     next_row = next((r for r in source if r['id'] not in targets and r['id'] not in held), None)
     return {'authoredIds': len(targets), 'heldIds': len(held), 'sourceIds': len(source),
             'visitedIds': len(targets) + len(held), 'remainingIds': len(source) - len(targets),
-            'overlaySha256': digest(root / 'localization/ru-assets/dialogue.ru.jsonl'),
+            'overlaySha256': digest(overlay),
             'next': {k: next_row[k] for k in ('id', 'conversation', 'conversationId')} if next_row else None,
             'targetHashes': targets, 'held': sorted(held)}
 

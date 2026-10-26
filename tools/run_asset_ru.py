@@ -57,16 +57,23 @@ def run(directory, reconciliation=None):
     validate_model(MODEL, EFFORT, PROVIDER)
     state_path = directory / 'job.json'
     state = json.loads(state_path.read_text())
-    if state['status'] not in ('finished', 'held-process-or-transport-failure'):
+    if state['status'] not in ('prepared', 'finished', 'held-process-or-transport-failure'):
         raise ValueError('Only a reconciled partial or known capacity-held asset job may continue.')
     if state['status'] == 'held-process-or-transport-failure' and reconciliation is None:
         raise ValueError('Capacity-held restart needs an explicit reconciled receipt; no automatic retry.')
+    config = state.get('localeConfig')
+    if state['status'] == 'prepared':
+        assert config and all(config.get(k) for k in ('locale', 'language', 'assetDirectory')), 'Prepared locale configuration is required.'
+    config = config or {'locale': 'ru', 'language': 'Russian', 'assetDirectory': 'localization/ru-assets'}
+    locale, language, asset_directory = (config[k] for k in ('locale', 'language', 'assetDirectory'))
+    def snapshot_now():
+        return asset_snapshot(ROOT, directory, asset_directory=asset_directory, locale=locale)
     for pid in (state.get('supervisorPid'), state.get('pid')):
         assert_stopped(pid, directory)
     registry = json.loads((Path.home() / '.codex/models_cache.json').read_text())
     if not any(m.get('slug') == MODEL for m in registry['models']):
         raise ValueError('Exact permitted model is unavailable')
-    snapshot = asset_snapshot(ROOT, directory)
+    snapshot = snapshot_now()
     receipt = validate_capacity_restart(directory, state, reconciliation, snapshot) if reconciliation is not None else None
     lock = directory / 'queue.lock'
     with lock.open('x') as stream:
@@ -75,9 +82,10 @@ def run(directory, reconciliation=None):
         history = directory / 'resume-history' / now().replace(':', '-')
         history.mkdir(parents=True)
         for name in ('job.json', 'result.json', 'progress.json', 'continuation.md', 'launch.py'):
-            shutil.copyfile(directory / name, history / name)
+            if (directory / name).exists():
+                shutil.copyfile(directory / name, history / name)
         if not state.get('phases'):
-            state['phases'] = [{**state, 'number': 1, 'kind': 'translation',
+            state['phases'] = [] if state['status'] == 'prepared' else [{**state, 'number': 1, 'kind': 'translation',
                                 'status': 'partial-complete', 'directory': str(directory)}]
         state.setdefault('resumptions', []).append({'resumedAt': now(), 'history': str(history),
             'reason': 'Owner instructed repair both lanes; continue existing saved draft automatically.',
@@ -97,12 +105,12 @@ def run(directory, reconciliation=None):
             for path, expected in pinned.items():
                 if digest(path) != expected:
                     raise ValueError(f'Execution dependency changed: {path}')
-            before = asset_snapshot(ROOT, directory)
+            before = snapshot_now()
             phase = directory / f'{len(state["phases"]) + 1:04d}-translation'
             phase.mkdir()
             save(phase / 'before.json', before)
             brief = (
-                '# Continue the existing Russian asset draft\n\n'
+                f'# Continue the existing {language} asset draft ({locale})\n\n'
                 f'Read {directory / "contract.md"}, the current continuation.md and compact progress.json. '
                 'This is a fresh context with no inherited or resumed model history. Do not read prior CLI histories. '
                 'Exact gpt-6.1-sol/high/OpenAI; verify actual argv before localization inputs; NEVER Astra/fallback. '
@@ -112,7 +120,7 @@ def run(directory, reconciliation=None):
                 f'{before["heldIds"]} held. Next unvisited: {json.dumps(before["next"], ensure_ascii=False)}. '
                 'Reuse every existing valid batch. Load the complete compact approved glossary once and '
                 'translate coherent source conversations with actual conditions, actors and links. '
-                'Author Russian directly, edit immediately and save batches frequently. '
+                f'Author {language} ({locale}) directly, edit immediately and save batches frequently. '
                 'Use existing corpus.py build and applicable poetry validation, never generate wording with scripts.\n\n'
                 'Process a bounded substantive batch (normally 300–600 fields, fewer for long or difficult scenes), '
                 'then finish BEFORE context exhaustion. This is a batch boundary, not stopping the overall assignment: '
@@ -127,7 +135,7 @@ def run(directory, reconciliation=None):
                 'Do not edit supervisor.py/supervise.py, cli_job_support.py, contract.md, request.md, input-pins.json, '
                 'job.json, queue.lock or supervisor-owned phase before/after/events files.\n')
             (phase / 'brief.md').write_text(brief)
-            prompt = f'Execute {phase / "brief.md"}. The owner authorizes parallel Russian asset drafting and automatic sequential fresh continuation. Preserve saved translations; no inherited history, nested jobs, Git or shared-file writes.'
+            prompt = f'Execute {phase / "brief.md"}. The owner authorizes parallel {language} ({locale}) asset drafting and automatic sequential fresh continuation. Preserve saved translations; no inherited history, nested jobs, Git or shared-file writes.'
             command = [str(cli), 'exec', '--ignore-user-config', '--model', MODEL,
                 '-c', 'model_provider="openai"', '-c', 'model_reasoning_effort="high"',
                 '-c', 'approval_policy="never"', '--sandbox', 'danger-full-access',
@@ -155,7 +163,7 @@ def run(directory, reconciliation=None):
             if rc or errors:
                 state.update(status='held-process-or-transport-failure', reason='Reconcile exact request outcome before retry; no automatic failed-request retry.')
                 break
-            after = asset_snapshot(ROOT, directory)
+            after = snapshot_now()
             save(phase / 'after.json', after)
             result_path = phase / 'result.json'
             if not result_path.is_file():

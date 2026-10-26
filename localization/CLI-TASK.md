@@ -150,3 +150,22 @@ exit and incomplete usage; a parent-reviewed commit is not a completed model tur
 Unknown transport outcomes must still hold. Regression: capacity after staging runtime
 evidence must preserve/review/commit that exact index under one coordinator, verify
 cleanup and continue the next phase without rerunning the consumed game candidate.
+An orphaned `running` record is different from capacity failure. After a direct owner
+repair/continue instruction, `--reconcile-interruption` requires both recorded local
+process identities to be absent, a matching old queue claim, a job/HEAD/artifact-bound
+receipt and verified runtime cleanup. Archive the old claim and preserve the unknown
+model-turn outcome; never fabricate an exit code or completion. Continue a reviewed new
+brief with changed code/input, not the consumed runtime. Regression: desktop restart
+leaves both recorded PIDs dead and runtime cleanup complete while job.json says running;
+reconcile that state instead of duplicating a surviving child or claiming it is active.
+
+The owner additionally authorizes six parallel target lanes: zh, es, es-419, pt-BR,
+ja and de. Each has a locale-configured copy of the same deterministic corpus adapter,
+the same pinned source family and its exact accepted glossary snapshot. The Russian
+lane remains separate. ALL localization/*-assets/ directories and
+outputs/locale-assets-20261026/ are read-only to technical workers, including their
+untracked files. Never stage, alter or stop these lanes. Their workers have no Git/index
+permission; technical work remains the sole commit coordinator after parent dispatch.
+Locale glossary snapshots/configurations and shared source inventories are frozen for
+all live lanes. Additional consumer findings use separate supplements. Provisional
+parallel drafting is owner-authorized, not passed renderer/source/editorial acceptance.
