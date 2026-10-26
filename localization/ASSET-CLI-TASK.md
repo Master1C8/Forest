@@ -109,3 +109,17 @@ running game/tool action. A bounded handoff may quiesce the verified client, its
 host and observer only after event/descendant/index checks; always resume the exact
 same identities in finally. Never pause a native-input helper mid-pulse or another
 job. Preserve any foreign staged work instead of resetting the shared index.
+
+A source-held successful turn may resume with `--reconcile-repair` only when an
+owner-authorized, changed technical assignment is bound to its exact job, overlay,
+input pins, held phase/thread and bounded job-owned brief. Keep the old hold/result
+and history. The first fresh phase receives the repair assignment; ordinary fresh
+continuation follows only after verified saved progress. A plain retry of the same
+translation-only brief, a live job, changed checkpoint or mutated repair brief must
+reject before a model request. Repair actual consumer/adapter boundaries within the
+lane's write scope; preserve shared source bytes, prior targets and other locales.
+Source findings produced inside the lane are evidence/proposals for the shared source
+stage, not a separate locale-specific inventory or final source acceptance.
+Regression: Russian23 needs source classification at10453 targets; a bound repair
+assignment can investigate consumers and fix the adapter in24 without rerunning23
+or pretending that the1793 holds are completed translations.

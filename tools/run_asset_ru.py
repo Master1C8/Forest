@@ -108,13 +108,38 @@ def validate_completed_restart(directory, state, receipt_path, snapshot):
     return receipt, result
 
 
-def run(directory, reconciliation=None):
+def validate_repair_restart(directory, state, receipt_path, snapshot):
+    """Bind an owner-authorized changed assignment to a stopped source-held job."""
+    receipt_path = receipt_path.resolve()
+    if directory not in receipt_path.parents:
+        raise ValueError('Repair receipt must belong to this asset job')
+    receipt = json.loads(receipt_path.read_text())
+    last = state['phases'][-1]
+    if state['status'] != 'needs-owner' or last.get('exitCode') != 0 or (last.get('result') or {}).get('outcome') != 'needs-owner':
+        raise ValueError('Repair requires a successfully completed source-held turn')
+    if receipt.get('kind') != 'source-repair' or receipt.get('heldPhase') != last['number'] or receipt.get('heldThreadId') != last.get('threadId'):
+        raise ValueError('Repair identifies a different source-held turn')
+    if receipt.get('jobSha256') != digest(directory / 'job.json') or receipt.get('overlaySha256') != snapshot['overlaySha256'] or receipt.get('inputPinsSha256') != digest(directory / 'input-pins.json'):
+        raise ValueError('Repair checkpoint or pinned inputs changed')
+    brief = Path(receipt['repairBrief']).resolve()
+    if directory not in brief.parents or not 0 < brief.stat().st_size <= 16384 or receipt.get('repairBriefSha256') != digest(brief):
+        raise ValueError('Repair assignment must be bounded, job-owned and unchanged')
+    if not receipt.get('ownerInstruction') or not receipt.get('changedHypothesis'):
+        raise ValueError('Repair requires owner authorization and a changed technical assignment')
+    return receipt, brief.read_text()
+
+
+def run(directory, reconciliation=None, repair_reconciliation=None):
     directory = directory.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
     state_path = directory / 'job.json'
     state = json.loads(state_path.read_text())
-    if state['status'] not in ('prepared', 'finished', 'held-process-or-transport-failure'):
+    if state['status'] not in ('prepared', 'finished', 'held-process-or-transport-failure', 'needs-owner'):
         raise ValueError('Only a reconciled partial or known capacity-held asset job may continue.')
+    if bool(repair_reconciliation) != (state['status'] == 'needs-owner'):
+        raise ValueError('Source-held continuation requires an explicit repair receipt')
+    if repair_reconciliation and reconciliation:
+        raise ValueError('Choose one reconciliation path')
     if state['status'] == 'held-process-or-transport-failure' and reconciliation is None:
         raise ValueError('Capacity-held restart needs an explicit reconciled receipt; no automatic retry.')
     config = state.get('localeConfig')
@@ -132,7 +157,10 @@ def run(directory, reconciliation=None):
         raise ValueError('Exact permitted model is unavailable')
     snapshot = snapshot_now()
     completed_result = None
-    if reconciliation is not None and state['phases'][-1].get('exitCode') == 0:
+    repair_assignment = None
+    if repair_reconciliation is not None:
+        receipt, repair_assignment = validate_repair_restart(directory, state, repair_reconciliation, snapshot)
+    elif reconciliation is not None and state['phases'][-1].get('exitCode') == 0:
         receipt, completed_result = validate_completed_restart(directory, state, reconciliation, snapshot)
     else:
         receipt = validate_capacity_restart(directory, state, reconciliation, snapshot) if reconciliation is not None else None
@@ -154,7 +182,9 @@ def run(directory, reconciliation=None):
         state.setdefault('resumptions', []).append({'resumedAt': now(), 'history': str(history),
             'reason': 'Owner instructed repair both lanes; continue existing saved draft automatically.',
             'capacityReconciliation': {'path': str(reconciliation.resolve()), 'sha256': digest(reconciliation),
-                                       'failedPhase': receipt['failedPhase']} if receipt else None})
+                                       'failedPhase': receipt['failedPhase']} if reconciliation and receipt else None,
+            'sourceRepairReconciliation': {'path': str(repair_reconciliation.resolve()),
+                'sha256': digest(repair_reconciliation), 'heldPhase': receipt['heldPhase']} if repair_reconciliation else None})
         state.update(status='running', supervisorPid=os.getpid(), freshSessionsWithoutInheritedHistory=True,
                      usageScope='measuredUsage sums phases with complete CLI usage; unavailable phases are excluded, not zero. Never add this subtotal to phase totals.')
         state.pop('finishedAt', None)
@@ -202,6 +232,10 @@ def run(directory, reconciliation=None):
                 'Do not edit supervisor.py/supervise.py, cli_job_support.py, contract.md, request.md, input-pins.json, '
                 'job.json, queue.lock or supervisor-owned phase before/after/events files.\n')
             (phase / 'brief.md').write_text(brief)
+            if repair_assignment is not None:
+                brief += '\n\n# Authorized source/adapter repair for this phase\n\n' + repair_assignment
+                (phase / 'brief.md').write_text(brief)
+                repair_assignment = None
             prompt = f'Execute {phase / "brief.md"}. Target locale is exactly {locale}, language {language}. Write ONLY {ROOT / asset_directory}/ and your own permitted files under {directory}/; every other locale directory is read-only. The owner authorizes parallel {language} ({locale}) asset drafting and automatic sequential fresh continuation. Preserve saved translations; no inherited history, nested jobs, Git or shared-file writes.'
             command = [str(cli), 'exec', '--ignore-user-config', '--model', MODEL,
                 '-c', 'model_provider="openai"', '-c', 'model_reasoning_effort="high"',
@@ -269,6 +303,8 @@ if __name__ == '__main__':
     parser.add_argument('--run', required=True, type=Path)
     parser.add_argument('--reconcile-capacity', type=Path)
     parser.add_argument('--reconcile-completed', type=Path)
+    parser.add_argument('--reconcile-repair', type=Path)
     args = parser.parse_args()
     assert not (args.reconcile_capacity and args.reconcile_completed), 'Choose one reconciliation path'
-    run(args.run.resolve(), reconciliation=args.reconcile_capacity or args.reconcile_completed)
+    run(args.run.resolve(), reconciliation=args.reconcile_capacity or args.reconcile_completed,
+        repair_reconciliation=args.reconcile_repair)

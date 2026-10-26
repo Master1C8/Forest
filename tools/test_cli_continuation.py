@@ -20,6 +20,36 @@ def write(path, value):
 
 
 class ContinuationTests(unittest.TestCase):
+    def test_source_repair_restart_binds_assignment_and_stopped_checkpoint(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary).resolve()
+            state = {'status': 'needs-owner', 'phases': [{'number': 23,
+                'threadId': 'source-held', 'exitCode': 0, 'result': {'outcome': 'needs-owner'}}]}
+            write(directory / 'job.json', state)
+            write(directory / 'input-pins.json', {})
+            brief = directory / 'repair.md'
+            brief.write_text('Trace actual display consumers and repair the adapter; preserve saved targets.')
+            snapshot = {'overlaySha256': 'saved-overlay'}
+            receipt = {'kind': 'source-repair', 'heldPhase': 23, 'heldThreadId': 'source-held',
+                'jobSha256': support.digest(directory / 'job.json'),
+                'inputPinsSha256': support.digest(directory / 'input-pins.json'),
+                'overlaySha256': 'saved-overlay', 'repairBrief': str(brief),
+                'repairBriefSha256': support.digest(brief), 'ownerInstruction': 'Repair Russian',
+                'changedHypothesis': 'Technical consumer/adapter work replaces unchanged translation retries'}
+            path = directory / 'receipt.json'
+            write(path, receipt)
+            self.assertEqual(assets.validate_repair_restart(directory, state, path, snapshot),
+                             (receipt, brief.read_text()))
+            with self.assertRaisesRegex(ValueError, 'checkpoint or pinned inputs changed'):
+                assets.validate_repair_restart(directory, state, path, {'overlaySha256': 'different'})
+            with self.assertRaisesRegex(ValueError, 'successfully completed source-held'):
+                assets.validate_repair_restart(directory, {**state, 'status': 'running'}, path, snapshot)
+            brief.write_text('Unreviewed changed assignment')
+            with self.assertRaisesRegex(ValueError, 'assignment must be bounded'):
+                assets.validate_repair_restart(directory, state, path, snapshot)
+            with self.assertRaisesRegex(ValueError, 'explicit repair receipt'):
+                assets.run(directory)
+
     def test_foreign_locale_contract_rejected_before_request(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary).resolve()
