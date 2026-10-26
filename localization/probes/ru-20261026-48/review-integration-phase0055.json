@@ -1,0 +1,38 @@
+{
+  "phase": "0055-work",
+  "kind": "exact-independent-review-integration",
+  "candidate": 48,
+  "importCount": 1,
+  "helperApply": {
+    "exitCode": 0,
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pending": 0
+  },
+  "helperCheck": {
+    "exitCode": 0,
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pending": 0
+  },
+  "files": {
+    "localization/probes/ru-20261026-48/native-manifest.json": "6b9f99feb5e2913f4fed2214f70e2da843ebe0b1492aa6a3587c7191bc5a0512",
+    "localization/probes/ru-20261026-48/native-packet-01.json": "b855182a56b03bdbe2051be693859ef1c3931cf9ac10ab709f0e1f5f30c53720",
+    "localization/probes/ru-20261026-48/native-result-01.json": "d718c79bd096daf4bf366699795d8b6a3b021d458f0a58d4c6d30a3df81f1e07",
+    "localization/probes/ru-20261026-48/native-review.json": "e2247dd1ef535505597a667996216e308b504ecbe3c3d80e0e6b84a783064231",
+    "localization/probes/ru-20261026-48/final-verification.json": "93c9824e138f16434094ff7ba57832851b3bc7c67573750f6c697d2def19d2ee"
+  },
+  "provenanceFilesVerified": 19,
+  "currentRecipeEqualsCapturedSnapshot": {
+    "tools/probe/ForestProbe.cs": "51141124d955d8e50685e64f1ffbc7692508563509547d62340dfe42870f081b",
+    "tools/probe/command.py": "fa24daef57164f63e7a3831bb823057f7b0a13e607be7b54422ece10153446a8",
+    "tools/probe/diagnose_newgame.py": "506e55ce35676ae053d601efd722475fba5d85e18493737ce36bbdeefe9cef13"
+  },
+  "reviewer": "Independent fresh visual reviewer, ru-serial phase0054; gpt-6.1-sol/high/OpenAI (actual codex exec launch arguments verified); no capture/authoring role",
+  "reviewedAt": "2026-10-27T01:25:45.903042+07:00",
+  "imagesOpenedByImporter": 0,
+  "runtimeReplayed": false,
+  "acceptance": "Only pinned1440x900 unselected synthetic Cyrillic choices; glyph placement/layout/content/contamination passed. Not authored corpus, terminal selection, initial spawn, inventory, full renderer/source/editorial/resource/delivery acceptance."
+}

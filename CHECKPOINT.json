@@ -152,7 +152,7 @@
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
   },
-  "updatedAt": "2026-10-26T18:21:15.584639+00:00",
+  "updatedAt": "2026-10-26T18:28:02.424983+00:00",
   "processBinding": {
     "guide": "README.md",
     "references": {
@@ -164,7 +164,7 @@
       "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
       "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
     },
-    "projectGuideSha256": "e9323ca955c4c7e0b4aa48093384ddaf10ebcb84d70cb0298eb9036d4b3b22c1"
+    "projectGuideSha256": "b4bcb1dcfcad3a7c014f6bc1f65ea3291d697776508b484c851e9813545067b4"
   },
   "currentStage": "probe",
   "probe": "localization/probes/ru-20261026-15/build.json",
@@ -187,16 +187,16 @@
       "totalVisibleIds": null,
       "glossary": "passed",
       "editorial": "not-run; independent fresh reviewers now authorized sequentially",
-      "fonts": "needs-review:48 pointer repair actually loads MatchupPro_TFOL/dynamic Liberation Sans on both labels; six individual glyph checks true; native placement/readability review pending.10 unchanged; final corpus/fonts/license pending.",
+      "fonts": "Scoped48 pass: both synthetic native choice labels independently readable with attached raw marks; dynamic Liberation Sans.10 unchanged; final corpus/fonts/license pending.",
       "textures": "not-run",
       "build": "not-run for localization; synthetic probe passed static build/readback",
       "runtime": "Scoped pass48: original QA43 Continue/source producer ->153/155/156/157/158; sole154 selected/ACK-bound only; guarded158 completion and actual unselected159/181 frames1036/1085.15 postrun checks. No initial spawn/inventory/notebook/broad acceptance.",
-      "visual": "candidate10 dialogue/nameplate 2/2 accepted; candidate11 settings failed; candidate12 fullscreen failed/windowed passed; candidate15 exact two settings originals 2/2 passed after independent phase0010 and helper import/check in phase0011. Other states/surfaces unaccepted. Candidate47 original English choice-menu1/1 independently passed phase0051, helper imported/checked phase0052; target choice visual acceptance was not implied by47. Candidate48 synthetic menu pending one original in native-packet-01.json; zero images opened in phase0053.",
+      "visual": "candidate10 dialogue/nameplate 2/2 accepted; candidate11 settings failed; candidate12 fullscreen failed/windowed passed; candidate15 exact two settings originals 2/2 passed after independent phase0010 and helper import/check in phase0011. Other states/surfaces unaccepted. Candidate47 original English choice-menu1/1 independently passed phase0051, helper imported/checked phase0052; target choice visual acceptance was not implied by47. Candidate48 exact synthetic choice-menu independently passed1/1 phase0054; immutable result applied once/checked with native manifest phase0055. No broad renderer/corpus acceptance.",
       "screenshot-upload": "not-applicable; not requested",
       "screenshot-review": "not-applicable; not requested",
       "release": "not-run; publication excluded",
-      "blocker": "No owner/transport blocker. Await exact one-original independent visual review before glyph/layout acceptance; broad gates remain pending.",
-      "nextAction": "Independently review exactly candidate48 native-packet-01.json (one untouched original) in a fresh visual-review phase; write actual result and short handoff, then finish. Next text-only work imports/checks that result once and follows any defect. Never replay consumed48/47/46/45/44/43. Initial spawn, notebook225:195/inventory, full source/special-scene/editorial/final resource/delivery gates remain pending.",
+      "blocker": "No owner/transport blocker; initial spawn, inventory/notebook and full source/special-scene/resource gates pending.",
+      "nextAction": "Trace source-backed notebook225 eligibility and ordinary interaction path after tutorial; preserve initial-spawn uncertainty and strict story/control guards. Never replay consumed48/47/46/45/44/43 or reopen accepted10/15/47/48 originals. All seven asset lanes remain authorized/read-only.",
       "draftedCandidateIds": 7965,
       "draftSourceFamilyUnits": 12246,
       "draftProgress": "outputs/ru-assets-parallel-20261026/progress.json"
@@ -331,10 +331,10 @@
     "nestedModelJobs": false,
     "agentsLaunched": false,
     "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
-    "activePhase": "outputs/ru-serial-20261026/0053-work",
-    "phaseResult": "Explicit exact synthetic choice guards;128 tests;32 preflight359 frozen files;48 consumed once/50.632s scoped runtime pass; both loaded dynamic faces and six individual glyph checks true, unselected1036/1085 pair; one original captured,15 cleanup checks pass; no images opened.",
-    "modelVerification": "localization/probes/ru-20261026-48/execution-model.json",
-    "usageAccounting": "Parent serial runner owns measured phase0053 telemetry; no agents/nested model calls. Asset-lane usage excluded."
+    "activePhase": "outputs/ru-serial-20261026/0055-work",
+    "phaseResult": "Exact48 independent1/1 result applied once/checked; zero images opened or game launches; source notebook eligibility investigation next.",
+    "modelVerification": "localization/source/notebook-eligibility-20261027/execution-model.json",
+    "usageAccounting": "Parent serial runner owns measured phase0055 telemetry; no agents/nested model calls. All asset-lane usage excluded."
   },
   "sourceCandidates": {
     "path": "localization/source/dialogue-manifest.json",
@@ -349,7 +349,7 @@
   },
   "feasibility": {
     "path": "localization/feasibility.json",
-    "sha256": "cb1b1c09f0f6fc1f55874dd57dc83d5a956ab2b7e6f35e2192c2319c7cda9fde",
+    "sha256": "1ced618a50e1b7560cce5be2de751bcdf4a9120664c1add81624d77196019a3d",
     "status": "needs-review",
     "massTranslationAllowed": false
   },
@@ -789,7 +789,25 @@
       "nativeManifest": "localization/probes/ru-20261026-48/native-manifest.json",
       "nativeReview": "localization/probes/ru-20261026-48/native-review.json",
       "packet": "localization/probes/ru-20261026-48/native-packet-01.json",
-      "finalVerification": "localization/probes/ru-20261026-48/final-verification.json"
+      "finalVerification": "localization/probes/ru-20261026-48/final-verification.json",
+      "independentNativeReview": {
+        "path": "localization/probes/ru-20261026-48/native-review.json",
+        "sha256": "e2247dd1ef535505597a667996216e308b504ecbe3c3d80e0e6b84a783064231",
+        "manifest": "localization/probes/ru-20261026-48/native-manifest.json",
+        "packet": "localization/probes/ru-20261026-48/native-packet-01.json",
+        "packetSha256": "b855182a56b03bdbe2051be693859ef1c3931cf9ac10ab709f0e1f5f30c53720",
+        "result": "localization/probes/ru-20261026-48/native-result-01.json",
+        "resultSha256": "d718c79bd096daf4bf366699795d8b6a3b021d458f0a58d4c6d30a3df81f1e07",
+        "total": 1,
+        "reviewed": 1,
+        "passed": 1,
+        "failed": 0,
+        "pending": 0,
+        "reviewer": "Independent fresh visual reviewer, ru-serial phase0054; gpt-6.1-sol/high/OpenAI (actual codex exec launch arguments verified); no capture/authoring role",
+        "import": "Exact immutable result applied once and helper checked with native manifest in text-only phase0055",
+        "acceptanceBoundary": "Only pinned1440x900 unselected synthetic Cyrillic choices; glyph placement/layout/content/contamination passed. Not authored corpus, terminal selection, initial spawn, inventory, full renderer/source/editorial/resource/delivery acceptance.",
+        "imagesOpenedInThisWorkContext": 0
+      }
     }
   },
   "independentReview": {
@@ -802,7 +820,7 @@
     "localizationInstaller": null,
     "technicalArchive": "dist/forest-ru-technical-checkpoint-20261026.zip",
     "canonicalBranch": "main",
-    "gitIntegration": "Phase0050 technical completion guard/source evidence and exact one-use47 results coordinated on canonical main; exact commit in phase result. Full localization remains incomplete.",
+    "gitIntegration": "Candidate48 independent visual evidence integrated on canonical main in phase0055; exact commit in phase result. Full localization incomplete.",
     "push": "unavailable: no configured remote; no repository/remote created",
     "publication": "not-authorized; no glossary/game/mod publication or deployment",
     "platformLimit": "Windows build exercised through CrossOver; native Windows and native macOS not verified"
@@ -948,8 +966,8 @@
     "build": "localization/probes/ru-20261026-48/build.json",
     "verification": "localization/probes/ru-20261026-48/preflight.json",
     "resourceReadback": "localization/probes/ru-20261026-48/choice-resource-readback.json",
-    "runtime": "passed scoped48 synthetic choices; independent visual pending",
-    "nextRuntimeRecipe": "Independently review exactly candidate48 native-packet-01.json (one untouched original) in a fresh visual-review phase; write actual result and short handoff, then finish. Next text-only work imports/checks that result once and follows any defect. Never replay consumed48/47/46/45/44/43. Initial spawn, notebook225:195/inventory, full source/special-scene/editorial/final resource/delivery gates remain pending.",
+    "runtime": "passed scoped48 synthetic choice runtime and independently reviewed one original",
+    "nextRuntimeRecipe": "Trace source-backed notebook225 eligibility and ordinary interaction path after tutorial; preserve initial-spawn uncertainty and strict story/control guards. Never replay consumed48/47/46/45/44/43 or reopen accepted10/15/47/48 originals. All seven asset lanes remain authorized/read-only.",
     "sourceFinding": "localization/source/legacy-choice-20261027/ADAPTER.md",
     "consumed": true,
     "candidate": 48
@@ -1019,5 +1037,23 @@
     "nativePacket": "localization/probes/ru-20261026-47/native-packet-01.json",
     "nativeResult": "localization/probes/ru-20261026-47/native-result-01.json",
     "nativeVisualAcceptance": "passed-scoped-original-English1/1; phase0051 independent reviewer; phase0052 helper apply/check exact manifest/provenance; Russian labels untested"
+  },
+  "syntheticChoicesNativeVisualReview": {
+    "path": "localization/probes/ru-20261026-48/native-review.json",
+    "sha256": "e2247dd1ef535505597a667996216e308b504ecbe3c3d80e0e6b84a783064231",
+    "manifest": "localization/probes/ru-20261026-48/native-manifest.json",
+    "packet": "localization/probes/ru-20261026-48/native-packet-01.json",
+    "packetSha256": "b855182a56b03bdbe2051be693859ef1c3931cf9ac10ab709f0e1f5f30c53720",
+    "result": "localization/probes/ru-20261026-48/native-result-01.json",
+    "resultSha256": "d718c79bd096daf4bf366699795d8b6a3b021d458f0a58d4c6d30a3df81f1e07",
+    "total": 1,
+    "reviewed": 1,
+    "passed": 1,
+    "failed": 0,
+    "pending": 0,
+    "reviewer": "Independent fresh visual reviewer, ru-serial phase0054; gpt-6.1-sol/high/OpenAI (actual codex exec launch arguments verified); no capture/authoring role",
+    "import": "Exact immutable result applied once and helper checked with native manifest in text-only phase0055",
+    "acceptanceBoundary": "Only pinned1440x900 unselected synthetic Cyrillic choices; glyph placement/layout/content/contamination passed. Not authored corpus, terminal selection, initial spawn, inventory, full renderer/source/editorial/resource/delivery acceptance.",
+    "imagesOpenedInThisWorkContext": 0
   }
 }
