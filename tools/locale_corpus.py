@@ -28,28 +28,70 @@ for s in MAN['sources']:
     raw=(ROOT/s['tree']).read_bytes(); assert sha(raw)==s['treeSha256']
     TREES.append(json.loads(raw))
 assert TREES[0]['conversations']==TREES[1]['conversations']
-def controls(text):
-    # Balanced bracket scan preserves nested Lua array operands as one exact token.
-    found=[]; i=0
+def scan(text, display_ordinals=()):
+    """Expose only evidenced ordinary bracket spans; keep controls exact."""
+    assert all(type(n) is int and n>=0 for n in display_ordinals), 'Invalid display ordinal'
+    assert len(set(display_ordinals))==len(display_ordinals), 'Duplicate display ordinal'
+    found=[]; visible=[]; seen=set(); ordinal=0; i=0
     while i<len(text):
         if text[i]=='[':
-            start=i; depth=1; i+=1; quote=None
+            start=i; depth=1; i+=1; quote=None; lua=text.startswith('[lua(',start)
             while i<len(text) and depth:
                 c=text[i]
                 if quote:
-                    if c==quote and text[i-1]!='\\': quote=None
-                elif c in '\"\'': quote=c
+                    if c=='\\': i+=2; continue
+                    if c==quote: quote=None
+                elif lua and c in '\"\'': quote=c
                 elif c=='[': depth+=1
                 elif c==']': depth-=1
                 i+=1
             assert depth==0, 'Unbalanced bracket'
-            found.append(text[start:i])
+            token=text[start:i]
+            if ordinal in display_ordinals:
+                assert not re.match(r'^\[(?:lua\(|var=|autocase=|pic[ac]?=|position(?:=|\s)|pos=|panel=|/?em\d|a\]|f\]|auto\]|nosubtitle\]|input)',token,re.I), 'Display span became engine control'
+                nested, prose=scan(token[1:-1])
+                found.extend(['[',*nested,']']); visible.append(prose); seen.add(ordinal)
+            else: found.append(token)
+            ordinal+=1
         elif text[i]=='<' and re.match(r'</?[A-Za-z][^>]*>',text[i:]):
             end=text.index('>',i)+1; found.append(text[i:end]); i=end
         elif text[i]=='{' and '}' in text[i:]:
             end=text.index('}',i)+1; found.append(text[i:end]); i=end
-        else: i+=1
-    return found
+        elif text[i]==']': found.append(']'); i+=1
+        elif text[i:i+1]=='\\' and text[i+1:i+2] in ('.',',','^','<','>'):
+            found.append(text[i:i+2]); i+=2
+        else: visible.append(text[i]); i+=1
+    assert seen==set(display_ordinals), 'Missing approved display bracket'
+    return found,''.join(visible)
+
+def controls(text, display_ordinals=()):
+    return scan(text,display_ordinals)[0]
+
+def load_display_approvals():
+    path=HERE/'display-approvals.json'
+    if not path.exists(): return {}
+    data=json.loads(path.read_text())
+    assert data['schemaVersion']==1 and data['locale']==LOCALE, 'Display approval locale mismatch'
+    source_path=ROOT/'localization/source/dialogue-candidates.jsonl'
+    assert data['sourceInventorySha256']==sha(source_path.read_bytes()), 'Display inventory mismatch'
+    approved={}; evidence_cache={}
+    for record in data['records']:
+        ident=record['id']; assert ident in BYID and ident not in approved, 'Display ID mismatch/duplicate'
+        row=BYID[ident]
+        assert record['sourceSha256']==sha(row['source'].encode()), 'Display source mismatch'
+        assert record['pointer']==row['pointer'] and record['occurrences']==row['occurrences'], 'Display occurrence mismatch'
+        assert record['reason'].strip() and record['consumerEvidence'], 'Display approval lacks evidence'
+        for binding in record['consumerEvidence']:
+            evidence=(ROOT/binding['path']).resolve()
+            assert evidence.is_relative_to(ROOT.resolve()), 'Display evidence outside project'
+            if evidence not in evidence_cache: evidence_cache[evidence]=sha(evidence.read_bytes())
+            assert evidence_cache[evidence]==binding['sha256'], 'Display evidence mismatch'
+        ordinals=tuple(record['ordinaryBracketOrdinals']); assert ordinals, 'Empty display approval'
+        scan(row['source'],ordinals)
+        approved[ident]=ordinals
+    return approved
+
+DISPLAY_APPROVALS=load_display_approvals()
 def show(start,count):
     for ci,c in enumerate(TREES[0]['conversations'][start:start+count],start):
         print('\nCONV',ci,c['id'],c['fields'][0]['value'])
@@ -83,14 +125,16 @@ def build():
             prefix=re.match(r'^(?:\[pic[ac]?=[0-9A-Za-z_]+\])*',r['source']).group()
             target=prefix+text
             if r['source'].endswith('\r') and not target.endswith('\r'): target+='\r'
-            visible_source=re.sub(r'\[[^\]]*\]|<[^>]*>','',r['source'])
+            ordinals=DISPLAY_APPROVALS.get(ident,())
+            source_controls,visible_source=scan(r['source'],ordinals)
+            target_controls,visible_target=scan(target,ordinals)
             punctuation_only=not re.search(r'[^\W\d_]',visible_source)
             assert target.strip(), ident+' empty target'
             assert target!=r['source'] or punctuation_only or unchanged_reasons.get(ident), ident+' unchanged visible text requires an individual reason'
-            assert controls(r['source'])==controls(target), (ident,controls(r['source']),controls(target))
+            assert source_controls==target_controls, (ident,'protected controls mismatch',source_controls,target_controls)
             for separator in ('\n','\r','|'):
                 assert r['source'].count(separator)==target.count(separator),(ident,'line separator mismatch',repr(separator))
-            assert re.findall(r'\d+',re.sub(r'\[[^\]]*\]|<[^>]*>','',r['source']))==re.findall(r'\d+',re.sub(r'\[[^\]]*\]|<[^>]*>','',target)), ident+' number mismatch'
+            assert re.findall(r'\d+',visible_source)==re.findall(r'\d+',visible_target), ident+' number mismatch'
             for tree in TREES:
                 value=tree
                 for k in r['pointer'].strip('/').split('/'): value=value[int(k)] if isinstance(value,list) else value[k]
@@ -113,7 +157,9 @@ def build():
     progress['authoredSourceWhitespaceWords']=sum(len(r['source'].split()) for r in ordered)
     progress['translatedWordingIds']=sum('unchangedReason' not in r for r in ordered)
     progress['reviewedUnchangedPunctuationIds']=sum('unchangedReason' in r for r in ordered)
-    progress['syntaxValidation']['exactProtectedTokens']=sum(len(controls(r['source'])) for r in ordered)
+    progress['syntaxValidation']['exactProtectedTokens']=sum(len(controls(r['source'],DISPLAY_APPROVALS.get(r['id'],()))) for r in ordered)
+    progress['syntaxValidation']['controls']='Exact opaque controls; ordinary bracket prose only under source/evidence/occurrence-bound display-approvals.json, retaining delimiters and nested controls'
+    progress['syntaxValidation']['displayApprovalsSha256']=sha((HERE/'display-approvals.json').read_bytes()) if DISPLAY_APPROVALS else None
     progress['syntaxValidation']['lineSeparators']='Exact counts of LF, CR and pipe separators'
     progress['processBinding']='README.md fixed translate-edit stage; existing CHECKPOINT.json remains owned by renderer lane'
     dump(OUT/'progress.json',progress)
@@ -121,7 +167,7 @@ def build():
     dump(OUT/'result.json',{'outcome':'in-progress; corpus incomplete','authoredIds':len(ordered),'editedIds':len(ordered),'translatedWordingIds':progress['translatedWordingIds'],'reviewedUnchangedPunctuationIds':progress['reviewedUnchangedPunctuationIds'],'sourceFamilyCounts':progress['sourceFamily'],'heldIds':len(held),'remainingUnauthoredIds':progress['remainingUnauthoredIds'],'outputs':artifacts,'syntaxValidation':progress['syntaxValidation'],'remainingGates':progress['acceptance'],'continuation':'Resume first unauthored stable ID from continuation.md; do not rerun accepted drafts.','usage':progress['usage']})
     assert pins()==PINS
     nextrow=next((r for r in ROWS if r['id'] not in targets and r['id'] not in held),None)
-    (OUT/'continuation.md').write_text('Resume the existing translate-edit stage. Read contract.md and input-pins.json; verify actual model argv before localization inputs. No agents, model jobs or Git writes. Existing TSV batches contain direct authored Russian wording and build into dialogue.ru.jsonl with corpus.py build. Reuse edited batches without taste rewrites.\n\nNext unauthored ID: '+(nextrow['id']+'; scene '+nextrow['conversation'] if nextrow else 'none')+'\n\nAuthored/edited: '+str(len(ordered))+'/'+str(len(ROWS))+'. Explicit holds: '+str(len(held))+'. All acceptance gates remain as recorded in progress.json.\n')
+    (OUT/'continuation.md').write_text('Resume the existing '+LOCALE+' translate-edit stage. Read contract.md and input-pins.json; verify actual model argv before localization inputs. No agents, model jobs or Git writes. Existing TSV batches contain directly authored '+LOCALE+' wording and build into '+OVERLAY+' with corpus.py build. Reuse edited batches without taste rewrites.\n\nNext unauthored ID: '+(nextrow['id']+'; scene '+nextrow['conversation'] if nextrow else 'none')+'\n\nAuthored/edited: '+str(len(ordered))+'/'+str(len(ROWS))+'. Explicit holds: '+str(len(held))+'. All acceptance gates remain as recorded in progress.json.\n')
     print(json.dumps({'authoredEdited':len(ordered),'held':len(held),'processedConversations':len(complete),'next':nextrow['id'] if nextrow else None,'sha256':sha(data)}))
 if sys.argv[1]=='show':show(int(sys.argv[2]),int(sys.argv[3]))
 elif sys.argv[1]=='build':build()

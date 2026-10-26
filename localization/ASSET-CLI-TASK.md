@@ -133,3 +133,18 @@ engine tags are control syntax: ordinary square-bracketed narration can carry vi
 words. Regression: the flower text at131:153/540:232 must not be rejected merely
 because it is bracketed; changing a real `[pic]`, variable or nested Lua operand
 must still reject. Runtime reachability and complete source acceptance remain separate.
+
+The shared future-lane template `tools/locale_corpus.py` supports optional
+`display-approvals.json` (schemaVersion1, exact locale, sourceInventorySha256,
+records with id/sourceSha256/pointer/occurrences/ordinaryBracketOrdinals/reason/
+consumerEvidence[path,sha256]). Approval exposes only the named ordinary outer
+bracket spans; their delimiters, nested controls and typewriter escapes remain exact.
+Wrong source, occurrence, locale or evidence rejects before derived files change.
+The fixture regression exercises six explicit locales and actual copied-template
+builds, then approved narration, changed nested Lua/engine tags/numbers and damaged
+evidence. It replaces consumer evidence with fixtures and proves no runtime semantics.
+Do not overwrite live or completed lane helpers with the template: existing custom
+display/hold-resolution manifests must be reconciled/migrated first. Active jobs use
+their own frozen helper copies; this template is for future initialization/migration.
+Continuation text must derive its language and overlay filename from locale config,
+never repeat a historical Russian-language filename or language claim.
