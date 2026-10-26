@@ -1,0 +1,44 @@
+{
+  "status": "failed",
+  "verifiedAt": "2026-10-26T15:38:54.334415+00:00",
+  "checks": {
+    "frozenDependenciesUnchanged": true,
+    "originalManagedReferencesUnchanged": true,
+    "originalOtherGameFilesUnchanged": true,
+    "resourcePairsUnchanged": true,
+    "inputPinsUnchanged": true,
+    "ownerPlayerFilesUnchanged": true,
+    "originalQAAssemblyRestored": false,
+    "inspectionBridgeRemoved": false,
+    "exactTaskProcessesAbsent": false,
+    "originalCatalogUnchanged": true,
+    "originalAppIdentityUnchanged": true,
+    "externalStartupDependenciesUnchanged": true,
+    "exactObserverAndWrapperAbsent": true,
+    "actualObserverExitRetained": true,
+    "qaPersistenceEmpty": true
+  },
+  "frozenDependencies": 387,
+  "unchangedFrozenHashes": 385,
+  "expectedCleanupExceptions": [
+    "game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+    "game/The Forest of Love_Data/Managed/ForestProbe.dll"
+  ],
+  "frozenMismatches": [],
+  "originalManagedReferences": 150,
+  "originalOtherGameFiles": 262,
+  "resourcePairs": 5,
+  "inputPins": 19,
+  "remainingTaskProcesses": [
+    "18494     1 Mon Oct 26 22:31:36 2026     /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-42/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-42/player.log",
+    "18547     1 Mon Oct 26 22:31:43 2026     Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-42\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-42/player.log",
+    "18553     1 Mon Oct 26 22:31:44 2026     Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-42\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+  ],
+  "qaPersistentDirectory": "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/users/crossover/AppData/LocalLow/VNRevivalQA/ForestRuRendererProbe",
+  "qaGeneratedFiles": {
+    "The Forest of Love_Data/tfol.settings": "bb1f58245773215b69261bb68d3526aedc97aa782c682ea11ccd8dd4f50abacb"
+  },
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "scope": "No runtime/renderer/editorial acceptance implied by cleanup/hash verification"
+}

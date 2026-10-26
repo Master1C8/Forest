@@ -19,7 +19,7 @@
     "coordinator": "gpt-6.1-sol",
     "reasoning": "high",
     "provider": "openai",
-    "verification": "Actual phase0041 PID14512 gpt-6.1-sol/high/OpenAI argv; localization/probes/ru-20261026-42/execution-model.json",
+    "verification": "Actual phase0042 PID17572 gpt-6.1-sol/high/OpenAI argv; localization/probes/ru-20261026-42/phase0042-model.json",
     "workers": []
   },
   "sourceManifest": "assets/source-v2/source-files.json",
@@ -63,7 +63,7 @@
   "publication": "not-run",
   "gameWrites": false,
   "remainingMetadataFailures": 1351,
-  "nextAction": "Execute immutable42 once only after passed frozen preflight, with retained exact observer exit and startup diagnostics; preserve first unknown-command hold and original-policy guards. No replay41/40/39/38 or focus workaround.",
+  "nextAction": "Reconcile consumed42 exact successful Continue214 ACK/applied receipt/transport exit0 and repair canonical command completion-vs-deadline accounting without budget extension. Preserve original hold/live QA until known-clear cleanup is evidenced; no replay42/41/40/39/38 or new game/candidate. No images or focus workaround.",
   "validation": {
     "status": "passed",
     "boundary": "pinned installed bytes -> object/typetree/text/PNG export",
@@ -152,7 +152,7 @@
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
   },
-  "updatedAt": "2026-10-26T15:24:30.824591+00:00",
+  "updatedAt": "2026-10-26T15:42:35.094744+00:00",
   "processBinding": {
     "guide": "README.md",
     "references": {
@@ -164,7 +164,7 @@
       "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
       "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
     },
-    "projectGuideSha256": "3f88c5b95c23947d3f44c378b4dc7243d1614e2a7e4aae213068d9722b90ba4f"
+    "projectGuideSha256": "004a5d7467ad0ee9bfaa253eb4cefe97749a05b3f2ddbe0e58dd6fca8389ee67"
   },
   "currentStage": "probe",
   "probe": "localization/probes/ru-20261026-15/build.json",
@@ -331,10 +331,10 @@
     "nestedModelJobs": false,
     "agentsLaunched": false,
     "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
-    "activePhase": "outputs/ru-serial-20261026/0041-work",
-    "phaseResult": "Prepared exactly one immutable42 with corrected lifetime observer and verified reused passive binaries/resources; zero launches/images. Full dependency/original/input preflight and fresh95-tree resource readback; native runtime remains pending.",
-    "modelVerification": "localization/probes/ru-20261026-42/execution-model.json",
-    "usageAccounting": "Parent serial runner owns measured phase0041 telemetry; no estimates or subagents. Independent asset lanes excluded."
+    "activePhase": "outputs/ru-serial-20261026/0042-work",
+    "phaseResult": "Executed42 once; retained game presence and completed Continue214 ACK/receipt/transport0 despite observer deadline hold. Observer exit1, live exact QA game preserved, cleanup failed; all387 frozen files/originals/19pins unchanged; zero images.",
+    "modelVerification": "localization/probes/ru-20261026-42/phase0042-model.json",
+    "usageAccounting": "Parent serial runner owns measured phase0042 telemetry; no estimates or subagents. Independent asset lanes excluded."
   },
   "sourceCandidates": {
     "path": "localization/source/dialogue-manifest.json",
@@ -702,9 +702,20 @@
       "frozenManifest": "localization/probes/ru-20261026-42/frozen-files.json",
       "consumed41Binding": "localization/probes/ru-20261026-42/consumed41-binding.json",
       "cleanup": "localization/probes/ru-20261026-42/cleanup-plan.md",
-      "status": "prepared-not-launched; static checks only, native lifetime/route unverified",
-      "gameLaunches": 0,
+      "status": "consumed-once; runtime failed, exact live QA remains under recorded hold",
+      "gameLaunches": 1,
       "imagesOpened": 0
+    },
+    "processLifetime42": {
+      "diagnosis": "localization/probes/ru-20261026-42/runtime-diagnosis.json",
+      "snapshotManifest": "localization/probes/ru-20261026-42/phase0042-snapshot/snapshot-manifest.json",
+      "runtime": "localization/probes/ru-20261026-42/runtime-result.json",
+      "observerExit": "localization/probes/ru-20261026-42/observer-exit.json",
+      "lifetime": "localization/probes/ru-20261026-42/phase0042-snapshot/process-lifetime.jsonl",
+      "cleanup": "localization/probes/ru-20261026-42/cleanup.json",
+      "verification": "localization/probes/ru-20261026-42/final-verification.json",
+      "processReconciliation": "localization/probes/ru-20261026-42/process-reconciliation.json",
+      "acceptance": "Failed runtime: READY53.396s,42 real original-policy menu idle frames;38 intro observations through145:214/3 responses. Continue214 has exact ACK/applied receipt/transport exit0 but observer deadline-first loop retains hold. Observer1, live launcher18494/game18547/crash18553; no further command/signal/cleanup across hold. All387 frozen/original150+262/19pins protected;12 postrun checks pass and3 cleanup checks fail. No terminal pair, movement, images or broader acceptance."
     }
   },
   "independentReview": {
@@ -717,7 +728,7 @@
     "localizationInstaller": null,
     "technicalArchive": "dist/forest-ru-technical-checkpoint-20261026.zip",
     "canonicalBranch": "main",
-    "gitIntegration": "Phase0041 immutable42 preparation, dependency/source/binary/resource checks and checkpoint integrated by sole technical coordinator on main; exact commit in phase result. Full localization remains incomplete.",
+    "gitIntegration": "Phase0042 exact consumed42 runtime diagnosis/protected evidence and checkpoint integrated by sole technical coordinator on main; exact commit in phase result. Live QA cleanup/full localization remain incomplete.",
     "push": "unavailable: no configured remote; no repository/remote created",
     "publication": "not-authorized; no glossary/game/mod publication or deployment",
     "platformLimit": "Windows build exercised through CrossOver; native Windows and native macOS not verified"
@@ -860,19 +871,19 @@
     }
   },
   "preparedProbe": {
-    "build": "localization/probes/ru-20261026-41/build.json",
-    "verification": "localization/probes/ru-20261026-41/preflight.json",
-    "runtime": "needs-review:41 consumed once;READY35.166s and25 original-policy menu idle frames passed. Actual23 focus records/9 native brackets locate transient Unity/Rewired mismatch at ChapterSelect frame287, convergedFalse18.77ms later in same frame. Failed missing dump-intro acknowledgement after7 IntroForest/bootstrap observations; game/crash absent at finally, observer exit1 retained, game numeric exit/cause unknown. Pending command preserved, no retry/145 dialogue/loaded sample/input. Isolated restore and all15 postrun checks passed (19pins/430 frozen with2 DLL exceptions). Accepted40 intro retained; natural route/full localization pending.",
+    "build": "localization/probes/ru-20261026-42/build.json",
+    "verification": "localization/probes/ru-20261026-42/preflight.json",
+    "runtime": "failed: consumed42 once, completed Continue214 transport accounting defect; live QA preserved under historical hold. See runtime-diagnosis; no terminal/route/renderer acceptance.",
     "sourceFinding": "localization/source/focus-transition-20261026/source-trace.json",
-    "runtimeCandidate": "localization/probes/ru-20261026-41/runtime-diagnosis.json",
-    "nextRuntimeRecipe": "Prepare one fresh immutable42 with corrected command/lifetime observer, unchanged passive bridge and original resource/input/focus policy. Zero game launches in preparation; freeze every later-read dependency, preserve19 live-lane pins and all14 guards. Hypothesis: retain command/launcher/game lifetime across intro and distinguish native Quit/process loss from ACK failure. Never replay41/40/39/38 or resubmit pending41 command. No images, focus activation/policy trial, protected/live-lane writes or competing translation.",
-    "nextStaticDiagnostics": "localization/source/process-lifetime-20261026/verification.json",
-    "preparation": "localization/probes/ru-20261026-41/preparation.json",
-    "frozenManifest": "localization/probes/ru-20261026-41/frozen-files.json",
-    "resourceReadback": "localization/probes/ru-20261026-41/resource-readback.json",
-    "passiveCompiledPins": "localization/probes/ru-20261026-41/toolchain-pins.json",
+    "runtimeCandidate": "localization/probes/ru-20261026-42/runtime-diagnosis.json",
+    "nextRuntimeRecipe": "Reconcile consumed42 exact successful Continue214 ACK/applied receipt/transport exit0 and repair canonical command completion-vs-deadline accounting without budget extension. Preserve original hold/live QA until known-clear cleanup is evidenced; no replay42/41/40/39/38 or new game/candidate. No images or focus workaround.",
+    "nextStaticDiagnostics": "localization/probes/ru-20261026-42/runtime-diagnosis.json",
+    "preparation": "localization/probes/ru-20261026-42/preparation.json",
+    "frozenManifest": "localization/probes/ru-20261026-42/frozen-files.json",
+    "resourceReadback": "localization/probes/ru-20261026-42/resource-readback.json",
+    "passiveCompiledPins": "localization/probes/ru-20261026-42/toolchain-pins.json",
     "consumed": true,
-    "postrunVerification": "localization/probes/ru-20261026-41/final-verification.json"
+    "postrunVerification": "localization/probes/ru-20261026-42/final-verification.json"
   },
   "parallelLocaleDrafts": {
     "locales": [

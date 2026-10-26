@@ -1,0 +1,153 @@
+{
+  "phase": "0042-work",
+  "candidate": "ru-20261026-42",
+  "launches": 1,
+  "canonicalHeadAtLaunch": "72944da0d352d20c43d8dd2cce9bc5791aa66d34",
+  "scope": "One frozen original-policy lifetime execution; text only; no images",
+  "status": "runtime-failed-live-QA-held",
+  "startupSeconds": 53.396,
+  "actualOriginalMenuIdleFrames": 42,
+  "introObservations": 38,
+  "lastObserved": {
+    "scene": "BunnyHouse",
+    "conversationId": 145,
+    "entryId": 214,
+    "frame": 1799,
+    "budget": {
+      "stage": "dialogue",
+      "elapsed": 278.539,
+      "stageElapsed": 237.658,
+      "idle": 3.179,
+      "hardLimit": 360,
+      "stageLimits": {
+        "bootstrap": [
+          120,
+          60
+        ],
+        "dialogue": [
+          240,
+          30
+        ],
+        "cleanup": [
+          60,
+          15
+        ]
+      },
+      "actualTerminalFrames": []
+    }
+  },
+  "responsesAcknowledged": 3,
+  "failure": {
+    "result": "failed",
+    "error": "TimeoutError('Command deadline; outcome unknown, reconcile before resubmitting: continue-bound 145 214')",
+    "durationSeconds": 382.584,
+    "imagesCaptured": 0,
+    "imagesOpened": 0,
+    "scope": "Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry",
+    "inventoryRuntime": "not-run",
+    "visual": "not-run"
+  },
+  "exactLastCommand": {
+    "value": "continue-bound 145 214",
+    "ack": "2026-10-26T15:37:24.4754160Z OK continue-bound 145 214",
+    "receipt": {
+      "result": "applied",
+      "active": true,
+      "expectedConversationId": 145,
+      "expectedEntryId": 214,
+      "actualConversationId": 145,
+      "actualEntryId": 214
+    },
+    "lifetime": [
+      {
+        "utc": "2026-10-26T15:37:22.953300+00:00",
+        "monotonic": 347.998563125,
+        "boundary": "before-command",
+        "command": "continue-bound 145 214",
+        "launcherPid": 18494,
+        "launcherExitCode": null,
+        "gameExitCode": null,
+        "pendingCommand": false,
+        "unresolvedCommand": null
+      },
+      {
+        "utc": "2026-10-26T15:37:24.164773+00:00",
+        "monotonic": 349.210004166,
+        "boundary": "await-ack",
+        "command": "continue-bound 145 214",
+        "launcherPid": 18494,
+        "launcherExitCode": null,
+        "gameExitCode": null,
+        "pendingCommand": true,
+        "unresolvedCommand": "continue-bound 145 214",
+        "transportPid": 19865,
+        "pendingCommandSha256": "3f414c91d040bc9903453b4e8126449d80a9bf6dad08b87feb104eb9a89f8a9f"
+      },
+      {
+        "utc": "2026-10-26T15:37:25.321607+00:00",
+        "monotonic": 350.366813416,
+        "boundary": "await-ack",
+        "command": "continue-bound 145 214",
+        "launcherPid": 18494,
+        "launcherExitCode": null,
+        "gameExitCode": null,
+        "pendingCommand": false,
+        "unresolvedCommand": "continue-bound 145 214",
+        "transportPid": 19865
+      },
+      {
+        "utc": "2026-10-26T15:37:25.588338+00:00",
+        "monotonic": 350.633535291,
+        "boundary": "transport-reaped",
+        "command": "continue-bound 145 214",
+        "launcherPid": 18494,
+        "launcherExitCode": null,
+        "gameExitCode": null,
+        "pendingCommand": false,
+        "unresolvedCommand": "continue-bound 145 214",
+        "transportPid": 19865,
+        "transportExitCode": 0,
+        "transportStoppedByObserver": false
+      }
+    ],
+    "pendingFileAtReconciliation": false,
+    "transportExitCode": 0,
+    "transportStoppedByObserver": false
+  },
+  "firstDivergingBoundary": "Observer deadline/transport completion accounting: the deadline branch raises before consuming a helper result which is later retained as exit0. The exact game log ACK and bound applied Continue receipt are present; COMMAND_HOLD remains in the failed observer receipt.",
+  "supportedFinding": "This run retained real game presence through the failure and after30s cleanup wait. It does not reproduce candidate41 disappearance. The actual Continue214 acknowledgement/application is evidenced; a post-Continue scene/entry observation was not submitted and its next state remains unverified.",
+  "unresolved": "Historical observer hold is preserved. No ad hoc restore/Quit or forced termination was attempted. Exact QA launcher/game/crash helper remain live; hook/inspection bridge remain in isolated copy. No source/renderer/route acceptance.",
+  "sourceBoundary": {
+    "path": "tools/probe/diagnose_newgame.py",
+    "function": "command",
+    "finding": "After communicate(timeout<=.25) times out, observe_lifetime performs ps/poll/file bookkeeping. The next iteration tests remaining<=0 before checking a transport that may already have completed. finally poll records exit0 without reading stdout or clearing hold. A code repair must preserve the absolute deadline, no wait extension, game-presence guards and all unknown-command holds."
+  },
+  "nextRepairRegression": "A matching positive control has exact acknowledged helper exit0 while bookkeeping crosses the deadline; consume its already-completed result without another request/wait. Negative control leaves transport running or missing/wrong ACK: retain hold, reap only exact transport, forbid restore/Quit/new submissions. The normal budget check must still stop story progression at expiry.",
+  "validation": {
+    "preflightChecks": 33,
+    "postrunPassedChecks": 12,
+    "postrunFailedChecks": [
+      "originalQAAssemblyRestored",
+      "inspectionBridgeRemoved",
+      "exactTaskProcessesAbsent"
+    ],
+    "all387FrozenBytesStillUnchanged": true,
+    "originalManaged": 150,
+    "originalOtherGameFiles": 262,
+    "liveLanePins": 19,
+    "qaPersistenceEmpty": true,
+    "ownerFilesUnchanged": true,
+    "qaGeneratedSettingsPreserved": true
+  },
+  "snapshot": "phase0042-snapshot/snapshot-manifest.json",
+  "processReconciliation": "process-reconciliation.json",
+  "observerExit": 1,
+  "launcherExitCode": null,
+  "gameExitCode": null,
+  "newGameAfterFailure": false,
+  "furtherGameCommands": 0,
+  "imagesOpened": 0,
+  "imagesCaptured": 0,
+  "acceptance": "Accepted10/15 visuals,29/36 menu,33 scopedLEFT and40 intro retained. Natural CentralForest/tutorial120:158 choices159/181, notebook225:195, inventory, complete source/special-scene/renderer/editorial/final delivery remain pending.",
+  "transportCompletionTiming": "The helper is exit0 at the final transport-reaped poll. Its exact exit time relative to the absolute deadline was not sampled; no claim that helper completion preceded that deadline. The game ACK was logged before the final reaped sample. The dialogue budget was exceeded independently, so receipt reconciliation cannot make story progression or this runtime pass."
+}
