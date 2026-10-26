@@ -1,0 +1,72 @@
+{
+  "verifiedAt": "2026-10-26T15:51:59.307122+00:00",
+  "phase": "0043-work",
+  "decision": "Exact completed Continue214 request reconciled for cleanup only; no resubmission or story progression",
+  "ack": "2026-10-26T15:37:24.4754160Z OK continue-bound 145 214",
+  "receipt": {
+    "result": "applied",
+    "active": true,
+    "expectedConversationId": 145,
+    "expectedEntryId": 214,
+    "actualConversationId": 145,
+    "actualEntryId": 214
+  },
+  "exactProcesses": {
+    "18488": [],
+    "18490": [],
+    "18494": [
+      "18494     1 Mon Oct 26 22:31:36 2026     /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-42/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-42/player.log"
+    ],
+    "18547": [
+      "18547     1 Mon Oct 26 22:31:43 2026     Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-42\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-42/player.log"
+    ],
+    "18553": [
+      "18553     1 Mon Oct 26 22:31:44 2026     Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-42\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+    ],
+    "19865": []
+  },
+  "transportExitCode": 0,
+  "transportStoppedByObserver": false,
+  "historicalObserverExit": 1,
+  "historicalHold": "continue-bound 145 214",
+  "historicalFailurePreserved": true,
+  "helperExitTimeRelativeToDeadline": "unknown",
+  "dialogueBudget": {
+    "stage": "dialogue",
+    "elapsed": 281.645,
+    "stageElapsed": 240.764,
+    "idle": 6.285,
+    "hardLimit": 360,
+    "stageLimits": {
+      "bootstrap": [
+        120,
+        60
+      ],
+      "dialogue": [
+        240,
+        30
+      ],
+      "cleanup": [
+        60,
+        15
+      ]
+    },
+    "actualTerminalFrames": [],
+    "error": "TimeoutError('Command deadline; outcome unknown, reconcile before resubmitting: continue-bound 145 214')"
+  },
+  "pendingCommand": false,
+  "hashes": {
+    "localization/probes/ru-20261026-42/phase0042-snapshot/snapshot-manifest.json": "2fab3474e7c73604f4a6571b7551d39263a0269a945b6ceafa5cda755f49ce62",
+    "localization/probes/ru-20261026-42/phase0042-snapshot/process-lifetime.jsonl": "3535756592d6181a619e0a9c3c2be5a8b3c306e3f93b5791802ee201c26e9765",
+    "localization/probes/ru-20261026-42/actions.log": "d53c186d7654b05428f500ea9ea3e44664e1d440a66cbe203bbeffc97542386c",
+    "localization/probes/ru-20261026-42/continue-receipt.json": "55c442edec177547f34d3113de669a1123ff19776df5ec58e94084087b937df6",
+    "localization/probes/ru-20261026-42/observer-exit.json": "7b2e5220491e99f5146eb4cdcd16e3f47f0b2638c18bbba443644d867ccd1130",
+    "localization/probes/ru-20261026-42/cleanup.json": "4337b67ea9633ec52b4c57a4b77b4ecc9295fc31049d061210e4190b8c0cd145",
+    "localization/probes/ru-20261026-42/final-verification.json": "5c8f8aa942d5cdaede5049ab3030fd5f2daf5ca40c5d4f223c1002bc334922ec"
+  },
+  "allowedNextCommands": [
+    "restore-input-policy",
+    "quit"
+  ],
+  "forbidden": "Story/dump/input/focus/new/replay commands; force termination; DLL writes while task processes live"
+}

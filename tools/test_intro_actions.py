@@ -169,9 +169,12 @@ class IntroObservation(unittest.TestCase):
              patch.object(intro.subprocess, 'Popen') as sender:
             sender.return_value.returncode = 0
             sender.return_value.poll.return_value = 0
-            sender.return_value.communicate.return_value = ('fixture OK', '')
+            def completed(*args, **kwargs):
+                sender.call_args.kwargs['stdout'].write('fixture OK dump-intro\n')
+            sender.return_value.communicate.side_effect = completed
             intro.command('dump-intro', deadline=103)
             self.assertEqual(sender.return_value.communicate.call_args.kwargs['timeout'], .25)
+            sender.return_value.poll.side_effect = [None, 0]
             sender.return_value.communicate.side_effect = subprocess.TimeoutExpired('fixture', .25)
             with patch.object(intro.time, 'monotonic', side_effect=[100, 100, 102.9, 103]):
                 with self.assertRaisesRegex(TimeoutError, 'outcome unknown'):

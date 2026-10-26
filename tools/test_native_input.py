@@ -273,6 +273,108 @@ class CommandLifetimeObservation(unittest.TestCase):
             self.assertEqual(events[-1]['realGameRows'], [])
             self.assertEqual(events[-1]['transportExitCode'], 0)
 
+    def crossed_deadline(self, outcome):
+        """Real child completion during bookkeeping; only Wine/clock are fixtures."""
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            command = 'continue-bound 145 214'
+            if outcome not in ['ack', 'running']:
+                # The matching control uses the real command.py. These children
+                # deliberately violate its exit/ACK contract after the same wait.
+                text = {'nonzero': 'fixture OK '+command,
+                        'wrong': 'fixture OK '+command+'0',
+                        'missing': ''}[outcome]
+                (run/'command.py').write_text(
+                    'import pathlib,sys,time\n'
+                    'p=pathlib.Path(sys.argv[1])\n'
+                    '(p/"command.txt").write_text(sys.argv[2]+"\\n")\n'
+                    'while not (p/"release").exists(): time.sleep(.01)\n'
+                    '(p/"command.txt").unlink()\n'
+                    f'print({text!r},flush=True)\n'
+                    f'raise SystemExit({7 if outcome == "nonzero" else 0})\n')
+            clock, children, samples = [100], [], []
+            real_popen = subprocess.Popen
+            def launch(*args, **kwargs):
+                child = real_popen(*args, **kwargs)
+                children.append(child)
+                return child
+            def rows():
+                samples.append(clock[0])
+                if len(samples) == 2:  # observe_lifetime after timed wait
+                    self.assertIsNone(children[0].poll())
+                    self.assertEqual((run/'command.txt').read_text(), command+'\n')
+                    if outcome == 'ack':
+                        (run/'command.txt').unlink()
+                        (run/'actions.log').write_text('fixture OK '+command+'\n')
+                    elif outcome != 'running':
+                        (run/'release').touch()
+                    if outcome != 'running':
+                        self.assertEqual(children[0].wait(timeout=5), 7 if outcome == 'nonzero' else 0)
+                    clock[0] = 104  # expensive bookkeeping crosses deadline103
+                return [self.game_row]
+            budget = gameplay.IntroObservationBudget(-140)
+            budget.stage, budget.stage_started, budget.progress_at = 'dialogue', -137, 100
+            self.assertEqual(budget.deadline, 103)
+            budget.check(100)
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=None))), \
+                 patch.object(gameplay, 'processes', side_effect=rows), \
+                 patch.object(gameplay, 'time', Mock(monotonic=lambda: clock[0])), \
+                 patch.object(gameplay.subprocess, 'Popen', side_effect=launch):
+                if outcome == 'ack':
+                    gameplay.command(command, deadline=budget.deadline)
+                    self.assertIsNone(gameplay.COMMAND_HOLD)
+                    # Completion accounting cannot extend stage or idle limits,
+                    # nor authorize another story request after expiry.
+                    with self.assertRaisesRegex(AssertionError, 'stage hard limit exhausted: dialogue'):
+                        budget.check(clock[0])
+                    with self.assertRaisesRegex(AssertionError, 'before command submission'):
+                        gameplay.command('dump-intro', deadline=budget.deadline)
+                else:
+                    if outcome == 'running':
+                        with self.assertRaisesRegex(TimeoutError, 'Command deadline; outcome unknown'):
+                            gameplay.command(command, deadline=budget.deadline)
+                    elif outcome == 'nonzero':
+                        with self.assertRaisesRegex(AssertionError, 'Nonzero transport exit; outcome unknown'):
+                            gameplay.command(command, deadline=budget.deadline)
+                        self.assertEqual(children[0].returncode, 7)
+                    else:
+                        with self.assertRaisesRegex(AssertionError, 'Missing exact transport acknowledgement'):
+                            gameplay.command(command, deadline=budget.deadline)
+                    self.assertEqual(gameplay.COMMAND_HOLD, command)
+                    for forbidden in ['restore-input-policy', 'quit', command]:
+                        # No deadline passed here: the unresolved hold itself
+                        # must reject, rather than an unrelated expired guard.
+                        with self.assertRaisesRegex(AssertionError, 'Unresolved command hold'):
+                            gameplay.command(forbidden)
+                self.assertEqual(len(children), 1)
+            events = [json.loads(x) for x in (run/'process-lifetime.jsonl').read_text().splitlines()]
+            self.assertIn('await-ack', [e['boundary'] for e in events])
+            returned = [e for e in events if e['boundary']=='transport-returned']
+            self.assertEqual(len(returned), 0 if outcome == 'running' else 1)
+            if returned:
+                self.assertTrue(returned[0]['completedResultCollectedAtExpiredBoundary'])
+            self.assertEqual(events[-1]['transportStoppedByObserver'], outcome == 'running')
+            self.assertEqual(events[-1]['transportPid'], children[0].pid)
+            self.assertIsNotNone(children[0].returncode)
+            with self.assertRaises(ProcessLookupError):
+                os.kill(children[0].pid, 0)
+
+    def test_completed_real_exact_ack_crossing_deadline_is_consumed_without_budget_extension(self):
+        self.crossed_deadline('ack')
+
+    def test_running_transport_at_expired_boundary_keeps_hold_and_reaps_only_exact_child(self):
+        self.crossed_deadline('running')
+
+    def test_completed_nonzero_at_expired_boundary_keeps_hold(self):
+        self.crossed_deadline('nonzero')
+
+    def test_completed_wrong_ack_at_expired_boundary_keeps_hold(self):
+        self.crossed_deadline('wrong')
+
+    def test_completed_missing_ack_at_expired_boundary_keeps_hold(self):
+        self.crossed_deadline('missing')
+
 
 class PassiveFocusObservation(unittest.TestCase):
     """Scalar fixtures replace Unity callbacks. Real helpers/IL are checked separately."""

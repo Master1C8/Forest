@@ -1,43 +1,47 @@
-## Phase0042: candidate42 consumed; completed transport lost at deadline boundary
+## Phase0043: deadline accounting repaired; consumed42 cleaned up normally
 
-Frozen42 launched once at canonical HEAD72944da with the corrected lifetime observer.
-READY took53.396s;42 actual original-policy menu idle frames passed. The original
-source-bound intro produced38 observations through BunnyHouse145:214 and three
-acknowledged source-successor responses. No terminal pair, loaded movement or images
-were reached. Game PID18547 remained alive throughout all retained command samples.
+The canonical command observer now captures the exact helper's output in temporary
+files. If process/file bookkeeping crosses the absolute deadline, it polls the exact
+child and consumes an already completed result without another wait or submission.
+Exit0, an exact first-line command ACK and unique real game presence (except Quit)
+are required before clearing the hold. Running/nonzero/missing/wrong-ACK outcomes
+retain the hold and reject restore/Quit/replay; only the exact transport is reaped.
+The original IntroObservationBudget, main loop and all source/input/route guards are
+unchanged. Completing a transport never extends the story budget.
 
-The observer returned1 after its dialogue deadline interrupted the wait for
-`continue-bound 145 214`. The exact command has one original OK line, an applied
-145:214 game-thread receipt and transport exit0 without observer termination.
-The next loop tested the expired deadline before consuming that completed result;
-its historical COMMAND_HOLD remains in cleanup.json. This is a concrete observer
-completion/deadline accounting defect, not reproduced native game disappearance.
-The exact helper-exit instant relative to the deadline was not sampled. The dialogue
-budget independently expired; reconciling this ACK does not pass the run or authorize
-more story progression. Post-Continue scene/entry and full intro completion remain
-unobserved.
+All68 focused tests pass, including a real command.py/ACK/exit0 positive control
+which completes while bookkeeping crosses the deadline. Its stage budget still
+rejects further story work. Matching running, exit7, absent ACK and overlapping
+wrong ACK controls exercise their intended rejection boundaries. Wine/Unity identities
+and the clock are fixtures; these tests establish transport handling, not native
+progression or renderer acceptance. The initial test invocation had one nonexistent
+class-name error; the complete corrected suite and final hashes are recorded.
 
-The observer and wrapper ended. Exact launcher18494/game18547/crash18553 remain
-live; no subsequent game command, policy restore, Quit, process signal or DLL cleanup
-was attempted across the recorded hold. Postrun verification honestly fails the three
-cleanup checks while passing twelve protection/evidence checks. All387 frozen files
-are still byte-identical, including the installed QA bridge/hook; original150 managed
-and262 other files, five resource pairs,19 live-lane inputs and owner saves are intact.
-QA-generated settings are preserved and QA persistence remains empty. The bridge
-must be removed only after exact process absence is verified; it is never deliverable.
+A separate hash/process-bound reconciliation confirmed consumed42's single exact
+Continue145:214 ACK, applied receipt and retained transport19865 exit0. Its actual
+exit instant relative to the old deadline remains unknown. No story action was
+replayed. The normal no-op restore-input-policy and Quit each received a new exact
+ACK and helper exit0. All exact QA launcher/game/crash processes disappeared before
+the original QA assembly was restored and ForestProbe.dll removed. Numeric launcher
+and game exit codes remain unknown. The original observer exit1, failed cleanup,
+failed final-verification and all37 immutable snapshot files remain intact.
 
-See `localization/probes/ru-20261026-42/runtime-diagnosis.json`, exact process
-reconciliation, failed final-verification and the37-file immutable phase0042 snapshot.
-Live logs outside the snapshot may continue growing; snapshot bytes have a declared
-cutoff. Next: reconcile this exact completed transport and repair the canonical observer
-without extending budgets or weakening unknown-command holds. No candidate42 replay,
-new game/candidate, focus workaround or forced progression is authorized by this handoff.
-Preserve the live run and original receipts until an evidenced known-clear cleanup path
-is established. Accepted10/15 visuals,29/36 menu,33 scopedLEFT and40 intro remain
-reusable; natural CentralForest/tutorial/notebook/inventory and complete source,
-special-scene/renderer/editorial/final delivery remain pending. All seven parallel
-asset lanes remain authorized and untouched. Previous summary:
-`localization/history/phase0041-summary.md`.
+The separately named phase0043 final verification passes all15 checks:385 frozen
+files unchanged with the2 intended DLL cleanup exceptions, original150 managed and
+262 other files,5 resource pairs,19 live-lane pins and owner saves unchanged.
+QA-generated tfol.settings is preserved; QA persistence is empty. Zero new game
+launches, prepared candidates, story commands or images occurred in this phase.
+
+Evidence: `localization/source/process-lifetime-20261026/command-deadline-repair.json`
+and `phase0043-tests.json`; consumed42's separate `phase0043-command-reconciliation.json`,
+`phase0043-cleanup.json` and `phase0043-final-verification.json`. Candidate42 remains
+a failed consumed runtime through BunnyHouse145:214; no post-Continue state or terminal
+pair was observed. Accepted10/15 visuals,29/36 menu,33 scopedLEFT and40 intro remain
+reusable. Natural CentralForest/tutorial/notebook/inventory and complete source,
+special-scene/renderer/editorial/final delivery remain pending. All7 authorized asset
+lanes continue untouched. Next: bounded static attribution of consumed42 observation
+overhead, before another runtime investment; preserve hard/idle budgets and all guards.
+Previous summary: `localization/history/phase0042-summary.md`.
 
 # The Forest of Love: Russian localization work
 

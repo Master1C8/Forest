@@ -14,6 +14,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from datetime import datetime, timezone
 
@@ -147,43 +148,61 @@ def command(value, deadline=None):
     assert not (RUN / 'command.txt').exists(), 'Reconcile the pending command instead of submitting another'
     assert time.monotonic() < expires, 'Observation budget exhausted before command submission'
     COMMAND_HOLD = value
-    sender = subprocess.Popen([sys.executable, str(RUN / 'command.py'), str(RUN), value],
-                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    stopped = False
-    try:
-        while True:
-            remaining = expires - time.monotonic()
-            if remaining <= 0:
-                raise TimeoutError('Command deadline; outcome unknown, reconcile before resubmitting: ' + value)
-            try:
-                stdout, stderr = sender.communicate(timeout=min(.25, remaining))
-                break
-            except subprocess.TimeoutExpired:
-                state = observe_lifetime('await-ack', value, transportPid=sender.pid)
-                # Quit can legitimately remove its game before the helper reads
-                # the final ACK. Every other action must retain a unique game.
-                assert value == 'quit' or len(state['realGameRows']) == 1, \
-                    'Real task game absent or ambiguous while awaiting acknowledgement; outcome unknown, no replay: ' + value
-        state = observe_lifetime('transport-returned', value, transportPid=sender.pid,
-                                 transportExitCode=sender.returncode,
-                                 transportStdout=stdout[-500:], transportStderr=stderr[-500:])
-        assert sender.returncode == 0, (value, stdout[-500:], stderr[-500:])
-        COMMAND_HOLD = None
-        assert value == 'quit' or len(state['realGameRows']) == 1, \
-            'Command acknowledged but real task game absent or ambiguous after receipt: ' + value
-    finally:
-        # Only this ordinary file-transport child is stopped, never the game,
-        # launcher, observer, other lane or a process selected by name.
-        if sender.poll() is None:
-            stopped = True
-            sender.terminate()
-            try:
-                sender.communicate(timeout=2)
-            except subprocess.TimeoutExpired:
-                sender.kill()
-                sender.communicate(timeout=2)
-        observe_lifetime('transport-reaped', value, transportPid=sender.pid,
-                         transportExitCode=sender.returncode, transportStoppedByObserver=stopped)
+    # File captures let an already exited child be consumed without waiting on
+    # pipe EOF or losing stdout accumulated by an earlier communicate timeout.
+    with tempfile.TemporaryFile(mode='w+t') as output, tempfile.TemporaryFile(mode='w+t') as errors:
+        sender = subprocess.Popen([sys.executable, str(RUN / 'command.py'), str(RUN), value],
+                                  stdout=output, stderr=errors, text=True)
+        stopped = False
+        completed_at_expired_boundary = False
+        try:
+            while True:
+                remaining = expires - time.monotonic()
+                if remaining <= 0:
+                    # Bookkeeping after a timed wait can cross the deadline
+                    # while this exact child finishes. Poll only: no extra wait,
+                    # submission or renewal of the independent story budget.
+                    if sender.poll() is None:
+                        raise TimeoutError('Command deadline; outcome unknown, reconcile before resubmitting: ' + value)
+                    completed_at_expired_boundary = True
+                    break
+                try:
+                    sender.communicate(timeout=min(.25, remaining))
+                    break
+                except subprocess.TimeoutExpired:
+                    state = observe_lifetime('await-ack', value, transportPid=sender.pid)
+                    # Quit can legitimately remove its game before the helper reads
+                    # the final ACK. Every other action must retain a unique game.
+                    assert value == 'quit' or len(state['realGameRows']) == 1, \
+                        'Real task game absent or ambiguous while awaiting acknowledgement; outcome unknown, no replay: ' + value
+            output.seek(0)
+            errors.seek(0)
+            stdout, stderr = output.read(), errors.read()
+            state = observe_lifetime('transport-returned', value, transportPid=sender.pid,
+                                     transportExitCode=sender.returncode,
+                                     completedResultCollectedAtExpiredBoundary=completed_at_expired_boundary,
+                                     transportStdout=stdout[-500:], transportStderr=stderr[-500:])
+            assert sender.returncode == 0, \
+                'Nonzero transport exit; outcome unknown, reconcile before resubmitting: ' + repr((value, sender.returncode, stdout[-500:], stderr[-500:]))
+            lines = stdout.splitlines()
+            assert lines and lines[0].partition(' OK ')[0] and lines[0].partition(' OK ')[2] == value, \
+                'Missing exact transport acknowledgement; outcome unknown, reconcile before resubmitting: ' + value
+            assert value == 'quit' or len(state['realGameRows']) == 1, \
+                'Command acknowledged but real task game absent or ambiguous after receipt: ' + value
+            COMMAND_HOLD = None
+        finally:
+            # Only this ordinary file-transport child is stopped, never the game,
+            # launcher, observer, other lane or a process selected by name.
+            if sender.poll() is None:
+                stopped = True
+                sender.terminate()
+                try:
+                    sender.communicate(timeout=2)
+                except subprocess.TimeoutExpired:
+                    sender.kill()
+                    sender.communicate(timeout=2)
+            observe_lifetime('transport-reaped', value, transportPid=sender.pid,
+                             transportExitCode=sender.returncode, transportStoppedByObserver=stopped)
 
 
 def focus_trace_latest(trace):
