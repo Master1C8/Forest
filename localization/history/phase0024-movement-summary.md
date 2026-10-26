@@ -26,4 +26,3 @@ bounded guarded natural doorway route before one new candidate34. Preserve actua
 focus, original input maps/callbacks, Player/story/doorway guards and real release.
 Source/special-scene, broad renderer, tutorial, notebook/inventory, editorial and
 final delivery gates remain pending. Accepted10/15 exact visual pairs remain valid.
-
