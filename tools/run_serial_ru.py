@@ -10,6 +10,8 @@ import shutil
 import subprocess
 import sys
 
+from cli_job_support import evidence_files, cli_events
+
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 MODEL, EFFORT, PROVIDER = 'gpt-6.1-sol', 'high', 'openai'
 
@@ -38,19 +40,22 @@ def atomic_json(path, value):
 
 
 def run(directory, first_brief, resume=False):
+    directory, first_brief = directory.resolve(), first_brief.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
     assert directory.is_dir()
     path = directory / 'job.json'
     previous = json.loads(path.read_text()) if resume else None
     if resume:
-        assert previous['status'] == 'needs-owner', 'Only reconciled needs-owner jobs may resume.'
+        assert previous['status'] in ('needs-owner', 'held-supervisor-error'), 'Reconcile the previous outcome before resuming.'
         for pid in (previous.get('supervisorPid'), previous['phases'][-1].get('pid')):
             if pid:
                 row = subprocess.run(['ps', '-p', str(pid), '-o', 'command='], text=True, capture_output=True)
                 assert not (row.returncode == 0 and str(directory) in row.stdout), 'Recorded technical process still alive.'
         history = directory / 'resume-history' / now().replace(':', '-')
         history.mkdir(parents=True)
-        for name in ('job.json', 'contract.md', 'run_review.py'):
+        for name in ('job.json', 'contract.md', 'run_review.py', 'supervise.py', 'cli_job_support.py'):
+            if not (directory / name).exists():
+                continue
             shutil.copyfile(directory / name, history / name)
     else:
         assert not path.exists()
@@ -68,6 +73,8 @@ def run(directory, first_brief, resume=False):
     wrapper = directory / 'run_review.py'
     shutil.copyfile(source_wrapper, wrapper)
     wrapper_hash = digest(wrapper)
+    support = directory / 'cli_job_support.py'
+    support_hash = digest(support)
     state = previous or {'schemaVersion': 1, 'task': 'The Forest of Love 0.45 Russian localization',
              'status': 'running', 'startedAt': now(), 'supervisorPid': os.getpid(),
              'model': MODEL, 'reasoning': EFFORT, 'provider': PROVIDER,
@@ -75,6 +82,16 @@ def run(directory, first_brief, resume=False):
              'contractSha256': contract_hash, 'reviewWrapperSha256': wrapper_hash,
              'reviewWrapperSource': str(source_wrapper), 'phases': []}
     if resume:
+        if previous['status'] == 'held-supervisor-error':
+            last = state['phases'][-1]
+            assert last.get('exitCode') == 0 and last.get('result', {}).get('outcome') == 'continue', 'Unresolved worker failure cannot be replayed.'
+            phase = Path(last['directory']).resolve()
+            result = last['result']
+            substantive, auxiliary = evidence_files(ROOT, directory, result['evidence'])
+            next_path = Path(result['nextBrief']).resolve()
+            assert phase in next_path.parents and next_path.is_file()
+            assert first_brief.resolve() == next_path, 'Resume the recorded continuation; do not rerun completed work.'
+            last.update(status='phase-complete', evidenceFingerprints=sorted(substantive), auxiliaryEvidence=sorted(auxiliary), resultReconciledAt=now())
         state.setdefault('resumptions', []).append({
             'resumedAt': now(), 'previousStatus': state['status'], 'previousReason': state.get('reason'),
             'history': str(history), 'brief': str(first_brief),
@@ -86,11 +103,15 @@ def run(directory, first_brief, resume=False):
         state.pop('reason', None)
     atomic_json(path, state)
     brief, kind, seen = first_brief, 'work', set()
+    if resume:
+        kind = state['phases'][-1].get('result', {}).get('nextKind', 'work')
+        for old in state['phases']:
+            seen.update(tuple(x) for x in old.get('evidenceFingerprints', []))
     try:
         while True:
             validate_model(MODEL, EFFORT, PROVIDER)
             assert digest(codex) == codex_hash, 'CLI binary changed; reconcile before another phase.'
-            assert digest(contract) == contract_hash and digest(wrapper) == wrapper_hash
+            assert digest(contract) == contract_hash and digest(wrapper) == wrapper_hash and digest(support) == support_hash
             assert brief.is_file() and 0 < brief.stat().st_size <= 16384
             phase = directory / f'{len(state["phases"])+1:04d}-{kind}'
             phase.mkdir()
@@ -144,7 +165,7 @@ def run(directory, first_brief, resume=False):
             usage = []
             transport_errors = []
             if events.exists():
-                for line in events.open():
+                for line in events.read_text().splitlines():
                     try:
                         item = json.loads(line)
                     except json.JSONDecodeError:
@@ -179,12 +200,8 @@ def run(directory, first_brief, resume=False):
                     assert checkpoint.get('delivery', {}).get('localizationComplete') is True, 'Completion conflicts with canonical checkpoint.'
                 state.update(status=result['outcome'], reason=result['summary'])
                 break
-            current = set()
-            for name in result['evidence']:
-                evidence = (ROOT / name).resolve()
-                assert ROOT in evidence.parents and directory not in evidence.parents
-                assert evidence.is_file()
-                current.add((str(evidence), digest(evidence)))
+            current, auxiliary = evidence_files(ROOT, directory, result['evidence'])
+            record.update(evidenceFingerprints=sorted(current), auxiliaryEvidence=sorted(auxiliary))
             assert current - seen, 'No new substantive evidence; hold instead of launching an unchanged loop.'
             seen.update(current)
             next_brief = Path(result['nextBrief']).resolve()
@@ -196,7 +213,7 @@ def run(directory, first_brief, resume=False):
         state['finishedAt'] = now()
         atomic_json(path, state)
     except BaseException as error:
-        state.update(status='held-supervisor-error', reason=str(error), finishedAt=now())
+        state.update(status='held-supervisor-error', reason=f'{type(error).__name__}: {error}', finishedAt=now())
         atomic_json(path, state)
         raise
     finally:

@@ -131,3 +131,15 @@ Concurrency regression: when the authorized asset CLI is alive in the same check
 continue technical work with one Git owner and disjoint file scopes. Its existence is
 not a needs-owner blocker. Never resolve this by stopping translation or staging its
 live files. New phases must retain this rule in their briefs.
+
+Continuation evidence: include substantive canonical project artifacts in `evidence`.
+Reports under this technical job's own `outputs/` directory may accompany them as
+auxiliary evidence; they never substitute for real artifact/verified-knowledge progress.
+Regression: a result with five real probe/source files plus its own integration receipt
+must continue, while a receipt-only result must hold. On a reconciled supervisor error
+after an exit-zero `continue` result, validate the existing artifacts and next brief,
+then proceed to the next phase without rerunning the completed model request.
+
+The asset lane uses `localization/ASSET-CLI-TASK.md` and a supervisor that starts fresh
+bounded continuation phases automatically. A partial draft or completed technical phase
+is not complete localization. Neither lane may rewrite the other's running dependencies.
