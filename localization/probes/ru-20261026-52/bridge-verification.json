@@ -1,0 +1,42 @@
+{
+  "status": "passed-static-only",
+  "modes": {
+    "original": {
+      "methods": 87,
+      "allExact": true,
+      "baselineSha256": "1214ab7b4929193bd399f65156cd1378dac560e7cb3798b6ce0b65feee1d911f",
+      "candidateSha256": "b38e8b64e052e760cd8f2a398f04485479021a0539031f7b1e536102e5b2e410",
+      "ilSha256": "95d748d9dcc87e1ce17ad824d63734598c73e7f40114ffcf9676dbcdb5bf59d9"
+    },
+    "synthetic": {
+      "methods": 87,
+      "allExact": true,
+      "baselineSha256": "b0367aa709d698c5dd235cba7718ccd01955e40d5082d214299e054286351eec",
+      "candidateSha256": "6afa073f2485795e2333c746654be742845d814c354b7b6a8f1e52825e93f585",
+      "ilSha256": "8cccdbe483aa0ee22e80856eca979080741ab39a466bdb038e5549d0fe5b9880"
+    }
+  },
+  "sourceSha256": "8af66feb248bb73423e120877cf1709dadb1865f611cc0a5843cc320e95ad771",
+  "allBodiesExactPhase0063": true,
+  "phase0063ComparisonSha256": "941d3bdfa002294ad0b528efb262a9f7076bfcb34ca5e1d90be38036efaa86b2",
+  "inspectorSha256": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05",
+  "defaultNewBranchUnchanged": true,
+  "ContinueObservationBudgetExact": true,
+  "original14GuardsExact": [
+    "intro_action",
+    "continue_outcome",
+    "original_keyboard_guard",
+    "original_menu_ready",
+    "intro_complete",
+    "IntroObservationBudget",
+    "loaded_travel",
+    "movement_ready",
+    "keyboard_idle",
+    "keyboard_gameplay_guard",
+    "gameplay_identity_guard",
+    "route_pulse_plan",
+    "route_sample_guard",
+    "natural_doorway_route"
+  ],
+  "boundary": "Both fresh compiled modes every method exactly equals verified0063 IL; hook injector independently verifies original bodies/branches/locals/handlers. No runtime proof."
+}

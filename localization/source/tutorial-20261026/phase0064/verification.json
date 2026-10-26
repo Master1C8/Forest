@@ -1,0 +1,44 @@
+{
+  "status": "passed-preparation-preservation; runtime-failed-received-Quit-AppleEvent",
+  "candidate": "localization/probes/ru-20261026-52",
+  "model": {
+    "pid": 77006,
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "verified": "Actual current launch argv --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" --disable multi_agent",
+    "agents": 0,
+    "nestedModelJobs": 0,
+    "usage": "Parent measures actual telemetry; worker unknown"
+  },
+  "preflight": {
+    "first": "failed-stale-guide-pin-only",
+    "finalChecksPassed": 37,
+    "frozenDependencies": 381
+  },
+  "compiledMethodsPerMode": 87,
+  "compiledModesExactPhase0063": true,
+  "reusedFocusedTests": 133,
+  "gameLaunches": 1,
+  "nativeInputEvents": 0,
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "postrunChecksPassed": 15,
+  "preservationChecksPassed": 8,
+  "gameExitCode": null,
+  "sourceRendererEditorialAccepted": false,
+  "evidence": {
+    "ADAPTER.md": "d640bab3f210183539639391c66fe61b530028c439d85472026b9f862eab874b",
+    "prepare52.py": "81c6e1988a23ee43f070eca46961ac73bd2567e42a96da9b9d2cab8d6a51dcbd",
+    "verify-bridge52.py": "f2870cba2244f089ecf0696613e365a517827522427ce39eb1276a0950c7f476",
+    "prerequisites.json": "afc230f1b2c80e39e6bf7a311ce147b2c1c0652eb8bfe01a7c3368676bd9478a",
+    "process-binding-reconciliation.json": "64550e06a1d2d7e1d1b89f17f584a6f3d7f41cc92f0c33ebeec9817160c32376",
+    "preflight.failed-binding.json": "30fc0c0716fb3fb5189509df9ac1e3cf39a65c78a216f60d0d4842fa261566b0",
+    "preservation.json": "92f6a632fa45e5a21dcb0ab042960501e0708bb9e01f0d5a2673398d77c27407",
+    "candidate52-native-pid.txt": "e17632e71daeb41fcc250023b41d77b5e6c8c8de209af17647fc78d4e399f2ad",
+    "candidate52-native-quit.txt": "0ed29edfe0eaab69529a41db1933f19aed388eece125d0a4cc4caf16e09a625c",
+    "execution-model.json": "bf844b6d5177f5e63a53d60f88b32e34d3bc8fbbf8fa7710d1c5b7db81655135"
+  },
+  "runtimeDiagnosisSha256": "55fbc3a220d9bb40bf1c4b59838e73795f40ac098dede8b83bcf8751d0c3a49c",
+  "usage": "Unknown in worker; parent measures actual request telemetry"
+}

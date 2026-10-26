@@ -1,0 +1,120 @@
+{
+  "result": "runtime-failed-Quit-AppleEvent-before-dialogue; preservation-passed",
+  "candidate": "ru-20261026-52",
+  "gameLaunches": 1,
+  "readinessSeconds": 33.168,
+  "runtimeSeconds": 39.075,
+  "preflightChecksPassed": 37,
+  "frozenDependencies": 381,
+  "compiledModes": {
+    "original": {
+      "methods": 87,
+      "allExactPhase0063": true
+    },
+    "synthetic": {
+      "methods": 87,
+      "allExactPhase0063": true
+    }
+  },
+  "focusedTests": 133,
+  "testsDisposition": "Reused unchanged0063 results only after all10 recorded source hashes matched; tests replace Unity/native/source producers",
+  "nativeGamePid": 77552,
+  "nativeGameBirth": "Tue Oct 27 03:48:33 2026",
+  "windowsPid": 204,
+  "launcherPid": 77513,
+  "launcherReturnCode": 0,
+  "observerPid": 77511,
+  "observerReturnCode": 1,
+  "wrapperPid": 77510,
+  "numericGameExitCode": null,
+  "continueAckUtc": "2026-10-26T20:49:06.3721540Z",
+  "nativeQuitReceivedLocal": "2026-10-27 03:49:06.551+07:00",
+  "nativeTerminationApprovedLocal": "2026-10-27 03:49:06.567+07:00",
+  "nativeQuitDescription": "RECEIVED:(aevt,quit) target=Dock; receiver log also identifies com.apple.dock sending entitlement identity; upstream action unknown",
+  "lifecycle": {
+    "rows": 35,
+    "first": {
+      "sequence": 0,
+      "frame": 7,
+      "winPid": 204,
+      "realtime": 17.040424346923828,
+      "utc": "2026-10-26T20:49:00.4141560Z",
+      "kind": "awake",
+      "scene": "StartMenu",
+      "command": ""
+    },
+    "last": {
+      "sequence": 34,
+      "frame": 331,
+      "winPid": 204,
+      "realtime": 22.9996337890625,
+      "utc": "2026-10-26T20:49:06.3730450Z",
+      "kind": "command-ack",
+      "scene": "StartMenu",
+      "command": "menu PlayMenu OnClickContinue"
+    },
+    "kindCounts": {
+      "awake": 1,
+      "command-ack": 14,
+      "command-read": 14,
+      "heartbeat": 6
+    },
+    "noQuitOrDestroyRowsObserved": true,
+    "missingRowsMeaning": "Unknown; no proof of absent callbacks/crash/IO outcome"
+  },
+  "firstNumericAbsence": {
+    "status": "absent",
+    "identity": {
+      "pid": 77552,
+      "birth": "Tue Oct 27 03:48:33 2026",
+      "argvRow": "77552     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-52/player.log",
+      "boundUtc": "2026-10-26T20:49:01.415331+00:00"
+    },
+    "sample": {
+      "status": "absent",
+      "startedUtc": "2026-10-26T20:49:06.872651+00:00",
+      "completedUtc": "2026-10-26T20:49:06.876382+00:00"
+    },
+    "argvStillMatches": false,
+    "gameExitCode": null
+  },
+  "unknownCommand": {
+    "command": "dump-save-continuation",
+    "sha256": "c37bb7fc2cf30d209f2142977c8a69db9af24ce95fff4a342f3ca79bf4e77cbb",
+    "acknowledged": false,
+    "replayed": false
+  },
+  "firstDialogueObserved": false,
+  "nativeInputEvents": 0,
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "postrunChecksPassed": 15,
+  "evidence": {
+    "preflight.json": "df9e96b33aea05d835162e1fc8d235a26fa744a6bb978e54ab458983080f2574",
+    "bridge-build.json": "a844c0e5c1107a409db766d8763637f09e321178b5d2c9a51128a76c98e4c83a",
+    "bridge-verification.json": "f365f9498b215396f3e750419f422e81aa993649ed0356acfc88ae7aa69153bb",
+    "guard-verification.json": "505864aa26f1ebbf472a62a7160d15e7c78f350a9e5e6f7ab0a515c837e793f2",
+    "frozen-files.json": "cfd6eca79dbfe18fe9508f68ad583730553d1e38d168fa994e824de006097908",
+    "toolchain-pins.json": "77d1ff1ea132c4d2a9559cd09db50666c26645725ff4710a72ac3635f39b782f",
+    "execution-model.json": "70dc37a8dcb6d1cd68b8f69806daab2cd61c15ac19c2e8f66b46fb83a8e89c10",
+    "wrapper-launch.json": "269b10ffe546a6f1f2d08c35c48ab0e9a887aa824809e1980c52d33376a81599",
+    "observer-child.json": "ca2798169f9a48b36b814e5734dc73dd299aea9e53c768c540d6a8ce5d1a7ecc",
+    "launch.json": "65be980d57db805d846589991dd8a69c32d2016fef0134239115c65fdc135666",
+    "startup-observation.json": "9875a3a521e216559b20ac9788267fc028a0649c3b15eee9d7b5e08bd82de838",
+    "original-menu-readiness.json": "f3a7394ed1fe3c2a9a3f3150114f885fb415f2e2ac494ab47520262168460777",
+    "actions.log": "80dc93aff7c07befec17f5807a792964f7449a73d163c873ba6b4aebeee2d930",
+    "lifecycle.jsonl": "d63c7af1716776a6f62d22a459115270b46f3e4ff1a7c8fb174b140efdbdb71a",
+    "process-lifetime.jsonl": "0d4190f6798f6b63582d50d0f73e92a3976964a5936ccf1fef31992b7f449ce0",
+    "command.txt": "c37bb7fc2cf30d209f2142977c8a69db9af24ce95fff4a342f3ca79bf4e77cbb",
+    "save-continuation.json": "72e376c8be48e6bb46a96aac4d9f46db43fad3812fb459e882dee4e033d0f0bf",
+    "intro-observation-budget.json": "f5261cd4cd0ef0067cc7029aec0c8b950f5a6152e879e8924abdf11dde51d2e6",
+    "observer-exit.json": "16c765a3ad917d23a880b2f343bd341a3c737df9ae299e0d6766cc0f30740b57",
+    "runtime-result.json": "37d10034554a4d7239709d5521d88e64b221b270a5066f2ad2622fa9d0b28f55",
+    "cleanup.json": "c0f3858123b20fda764aa2b10b27eb3ce9be4a451aed6bb8a68465d222e0d6c3",
+    "final-verification.json": "84651a7ee5c4aa7b23625fc0cfb63f40bdf600d9c75a1c7fa8295fad0ea9115e",
+    "observer.stderr": "fcc6a2dc6f791fce6412517394fb2281e9322870ae04cfdbdb7ee60dab2a85cb",
+    "player.log": "6fbd53fcce45cd4303e6609384022268e0f02093e7d56d974076628cf3339758",
+    "wine.log": "24273faca2225bbbddba2b28d6870e0755536f6063140f868b9d41456c14852a"
+  },
+  "boundary": "Real native Quit reception and separate argv/PID disappearance; no numerical game exit, crash/OOM/owner-action/source-exception conclusion, and no181/Bucky/loaded-marker acceptance"
+}

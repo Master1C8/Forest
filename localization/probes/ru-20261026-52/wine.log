@@ -1,0 +1,1651 @@
+msync: bootstrapped mach port on wine-114951-msync.
+msync: up and running.
+44385.623:0020:0024:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\wineboot.exe" image L"C:\\windows\\system32\\wineboot.exe" cmdline L"\"C:\\windows\\system32\\wineboot.exe\" --init" parent 0x0 machine 0
+44385.624:0020:0024:trace:process:send_to_cx_loader wineserversocket 7 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug "WINEDEBUG=-all,+timestamp,+pid,+tid,+loaddll,+seh,+process"
+44385.624:0020:0024:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44386.142:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2063903d8,0x00000008,0x0)
+44386.142:0028:002c:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44386.152:0020:0024:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\wineboot.exe" pid 0028 tid 002c handles 0x14/0x18
+44386.157:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44386.157:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\wineboot.exe" at 0000000140000000: builtin
+44386.157:0028:002c:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44386.164:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44386.164:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44386.176:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44386.180:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44386.180:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44386.180:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44386.182:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ws2_32.dll" at 00006FFFFF9C0000: builtin
+44386.182:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44386.182:0028:002c:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44386.187:0028:002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44386.187:0028:002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 000000000003E0D0 17)
+44386.190:0028:002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44386.190:0028:002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 000000000003E130 17)
+44386.299:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44386.316:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31ee38,0x00000008,0x0)
+44386.360:0028:002c:trace:process:CreateProcessInternalW app L"C:\\windows\\system32\\services.exe" cmdline (null)
+44386.361:0028:002c:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\services.exe" image L"C:\\windows\\system32\\services.exe" cmdline L"\"C:\\windows\\system32\\services.exe\"" parent 0x0 machine 0
+44386.362:0028:002c:trace:process:send_to_cx_loader wineserversocket 14 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug "WINEDEBUG=-all,+timestamp,+pid,+tid,+loaddll,+seh,+process"
+44386.362:0028:002c:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44386.391:0030:0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff20629d3d8,0x00000008,0x0)
+44386.391:0030:0034:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44386.398:0028:002c:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\services.exe" pid 0030 tid 0034 handles 0x3c/0x40
+44386.398:0028:002c:trace:process:CreateProcessInternalW started process pid 0030 tid 0034
+44386.402:0030:0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44386.402:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\services.exe" at 0000000140000000: builtin
+44386.402:0030:0034:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44386.406:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44386.406:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44386.409:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44386.410:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44386.410:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44386.410:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44386.414:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44386.414:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44386.416:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\setupapi.dll" at 00006FFFFF870000: builtin
+44386.418:0030:0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\userenv.dll" at 00006FFFFF850000: builtin
+44386.418:0030:0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44386.418:0030:0034:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44386.422:0030:0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44386.422:0030:0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 000000000003B370 17)
+44386.424:0030:0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44386.424:0030:0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 000000000003B400 17)
+44386.431:0030:0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44386.433:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000000000 0)
+44386.433:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000800060 43)
+44386.433:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" 0000000000000000 0)
+44386.433:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" 000000000003F740 65)
+44386.433:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000000000 0)
+44386.433:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000800120 43)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\Microsoft.Net\\Framework\\v3.0\\wpf\\presentationfontcache.exe" 0000000000000000 0)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\Microsoft.Net\\Framework\\v3.0\\wpf\\presentationfontcache.exe" 0000000000800CA0 70)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\http.sys" 0000000000000000 0)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\http.sys" 0000000000800180 37)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000000000 0)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 00000000008001E0 43)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000000000 0)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000800240 41)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\msiexec.exe /V" 0000000000000000 0)
+44386.434:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\msiexec.exe /V" 0000000000801100 35)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000000000 0)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 00000000008002A0 37)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000000000 0)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000800300 41)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\plugplay.exe" 0000000000000000 0)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\plugplay.exe" 0000000000801A10 33)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\rpcss.exe" 0000000000000000 0)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\rpcss.exe" 0000000000801B50 30)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000000000 0)
+44386.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 00000000008003C0 43)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000000000 0)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k netsvcs" 0000000000800420 43)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\spoolsv.exe" 0000000000000000 0)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\spoolsv.exe" 0000000000804760 32)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"\"C:\\Program Files (x86)\\Common Files\\Steam\\steamservice.exe\" /RunAsService" 0000000000000000 0)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"\"C:\\Program Files (x86)\\Common Files\\Steam\\steamservice.exe\" /RunAsService" 000000000003C720 75)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k imgsvc" 0000000000000000 0)
+44386.436:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k imgsvc" 00000000008004E0 42)
+44386.437:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\termsv.exe" 0000000000000000 0)
+44386.437:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\termsv.exe" 0000000000804800 31)
+44386.437:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000000000 0)
+44386.437:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000800540 40)
+44386.437:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 0000000000000000 0)
+44386.437:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 00000000008005A0 40)
+44386.438:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winehid.sys" 0000000000000000 0)
+44386.438:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winehid.sys" 0000000000800600 40)
+44386.438:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winmgmt.exe" 0000000000000000 0)
+44386.438:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winmgmt.exe" 0000000000804850 32)
+44386.438:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\wuauserv.exe" 0000000000000000 0)
+44386.438:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\wuauserv.exe" 00000000008048A0 33)
+44386.442:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000000000 0)
+44386.442:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000800660 41)
+44386.444:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 0000000000000000 0)
+44386.444:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 00000000008048F0 35)
+44386.444:0030:0034:trace:process:GetEnvironmentVariableW (L"SystemRoot" 000000000030F320 32767)
+44386.444:0030:0034:trace:process:GetEnvironmentVariableW (L"SystemDrive" 000000000030F320 32767)
+44386.445:0030:0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x30ef68,0x00000008,0x0)
+44386.446:0030:0034:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 00000000007C3AA0 257)
+44386.447:0030:0034:trace:process:GetEnvironmentVariableW (L"WINEBOOTSTRAPMODE" 000000000031F410 16)
+44386.447:0030:0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\winedevice.exe"
+44386.447:0030:0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winedevice.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44386.449:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" image L"C:\\windows\\system32\\winedevice.exe" cmdline L"C:\\windows\\system32\\winedevice.exe" parent 0x0 machine 0
+44386.450:0030:0034:trace:process:send_to_cx_loader wineserversocket 11 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug (null)
+44386.450:0030:0034:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44386.477:003c:0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff20638a3d8,0x00000008,0x0)
+44386.477:003c:0040:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44386.484:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" pid 003c tid 0040 handles 0xe8/0xec
+44386.484:0030:0034:trace:process:CreateProcessInternalW started process pid 003c tid 0040
+44386.488:003c:0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44386.488:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winedevice.exe" at 0000000140000000: builtin
+44386.488:003c:0040:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44386.492:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44386.492:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44386.495:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44386.496:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44386.496:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44386.496:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44386.499:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44386.499:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ntoskrnl.exe" at 00006FFFFF7D0000: builtin
+44386.499:003c:0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44386.500:003c:0040:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44386.503:003c:0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44386.503:003c:0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 00000000000380D0 17)
+44386.506:003c:0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44386.506:003c:0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000038100 17)
+44386.512:003c:0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44386.514:003c:0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44386.527:003c:0050:trace:process:NtQueryInformationProcess (0x48,0x00000000,0x3d468,0x00000030,0x0)
+44386.527:003c:0050:trace:process:NtQueryInformationProcess (0x48,0x0000001a,0xd1f648,0x00000008,0x0)
+44386.530:003c:004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000000000 0)
+44386.530:003c:004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000A220D0 41)
+44386.531:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\mountmgr.sys" at 00006FFFFF7A0000: builtin
+44386.656:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\setupapi.dll" at 00006FFFFF870000: builtin
+44386.660:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\plugplay.exe" 0000000000000000 0)
+44386.660:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\plugplay.exe" 00000000008048F0 33)
+44386.660:0030:0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\plugplay.exe"
+44386.660:0030:0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\plugplay.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44386.661:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\plugplay.exe" image L"C:\\windows\\system32\\plugplay.exe" cmdline L"C:\\windows\\system32\\plugplay.exe" parent 0x0 machine 0
+44386.661:0030:0034:trace:process:send_to_cx_loader wineserversocket 21 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug (null)
+44386.661:0030:0034:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44386.687:0060:0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2065403d8,0x00000008,0x0)
+44386.687:0060:0064:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44386.695:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\plugplay.exe" pid 0060 tid 0064 handles 0x104/0x108
+44386.695:0030:0034:trace:process:CreateProcessInternalW started process pid 0060 tid 0064
+44386.699:0060:0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44386.699:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\plugplay.exe" at 0000000140000000: builtin
+44386.699:0060:0064:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44386.703:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44386.703:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44386.706:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44386.707:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44386.707:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44386.707:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44386.708:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44386.708:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44386.714:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44386.715:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44386.715:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 00006FFFFF5D0000: builtin
+44386.715:0060:0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44386.715:0060:0064:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44386.719:0060:0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44386.719:0060:0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 00000000000344B0 17)
+44386.721:0060:0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44386.721:0060:0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000034510 17)
+44387.305:0060:0064:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44387.305:0060:0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44387.313:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" 0000000000000000 0)
+44387.313:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" 000000000081A4E0 65)
+44387.313:0030:0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted"
+44387.313:0030:0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\svchost.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44387.314:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\svchost.exe" image L"C:\\windows\\system32\\svchost.exe" cmdline L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" parent 0x0 machine 0
+44387.315:0030:0034:trace:process:send_to_cx_loader wineserversocket 25 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug (null)
+44387.315:0030:0034:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44387.341:0078:007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2065403d8,0x00000008,0x0)
+44387.341:0078:007c:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44387.348:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\svchost.exe" pid 0078 tid 007c handles 0x120/0x124
+44387.348:0030:0034:trace:process:CreateProcessInternalW started process pid 0078 tid 007c
+44387.352:0078:007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44387.352:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\svchost.exe" at 0000000140000000: builtin
+44387.352:0078:007c:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44387.356:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44387.356:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44387.359:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44387.360:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44387.360:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44387.360:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44387.360:0078:007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44387.361:0078:007c:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44387.364:0078:007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44387.364:0078:007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000037C10 17)
+44387.366:0078:007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44387.366:0078:007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000037C40 17)
+44387.373:0078:007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44387.375:0078:007c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\wevtsvc.dll" 0000000000000000 0)
+44387.375:0078:007c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\wevtsvc.dll" 000000000003BA80 32)
+44387.376:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\wevtsvc.dll" at 00006FFFFF4A0000: builtin
+44387.377:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44387.377:0078:007c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44387.384:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000000000 0)
+44387.384:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000800660 41)
+44387.386:003c:004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000000000 0)
+44387.386:003c:004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000A221F0 41)
+44387.387:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\nsiproxy.sys" at 00006FFFFF480000: builtin
+44387.507:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000000000 0)
+44387.507:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000800660 37)
+44387.509:003c:004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000000000 0)
+44387.509:003c:004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000A222B0 37)
+44387.515:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\dnsapi.dll" at 00006FFFFF3E0000: builtin
+44387.516:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\nsi.dll" at 00006FFFFF3C0000: builtin
+44387.516:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ws2_32.dll" at 00006FFFFF9C0000: builtin
+44387.516:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\iphlpapi.dll" at 00006FFFFF410000: builtin
+44387.516:003c:004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\ndis.sys" at 00006FFFFF450000: builtin
+44387.640:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 0000000000000000 0)
+44387.640:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 0000000000800660 40)
+44387.641:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 0000000000000000 0)
+44387.641:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 0000000000804A30 35)
+44387.641:0030:0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\winedevice.exe"
+44387.641:0030:0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winedevice.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44387.641:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" image L"C:\\windows\\system32\\winedevice.exe" cmdline L"C:\\windows\\system32\\winedevice.exe" parent 0x0 machine 0
+44387.642:0030:0034:trace:process:send_to_cx_loader wineserversocket 29 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug (null)
+44387.642:0030:0034:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44387.667:0090:0094:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff20655f3d8,0x00000008,0x0)
+44387.667:0090:0094:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44387.674:0030:0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" pid 0090 tid 0094 handles 0x140/0x144
+44387.674:0030:0034:trace:process:CreateProcessInternalW started process pid 0090 tid 0094
+44387.678:0090:0094:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44387.678:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winedevice.exe" at 0000000140000000: builtin
+44387.678:0090:0094:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44387.682:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44387.682:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44387.685:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44387.686:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44387.686:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44387.686:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44387.687:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44387.687:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ntoskrnl.exe" at 00006FFFFF7D0000: builtin
+44387.687:0090:0094:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44387.687:0090:0094:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44387.691:0090:0094:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44387.691:0090:0094:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 00000000000380D0 17)
+44387.693:0090:0094:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44387.693:0090:0094:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000038100 17)
+44387.700:0090:0094:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44387.701:0090:0094:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44387.709:0090:00a0:trace:process:NtQueryInformationProcess (0x48,0x00000000,0xa264a8,0x00000030,0x0)
+44387.709:0090:00a0:trace:process:NtQueryInformationProcess (0x48,0x0000001a,0xd1f648,0x00000008,0x0)
+44387.712:0090:009c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 0000000000000000 0)
+44387.712:0090:009c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 000000000003F460 40)
+44387.715:0090:009c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\hidparse.sys" at 00006FFFFF370000: builtin
+44387.715:0090:009c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\winebus.sys" at 00006FFFFF3A0000: builtin
+44387.837:0090:009c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\setupapi.dll" at 00006FFFFF870000: builtin
+44387.846:0090:00a4:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winehid.sys" 0000000000000000 0)
+44387.846:0090:00a4:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winehid.sys" 0000000000A29BA0 40)
+44387.850:0090:00a4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44387.850:0090:00a4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44387.850:0090:00a4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 00006FFFFF5D0000: builtin
+44387.850:0090:00a4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\hidclass.sys" at 00006FFFFF330000: builtin
+44387.850:0090:00a4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\winehid.sys" at 00006FFFFF350000: builtin
+44388.305:0090:00a4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44388.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000000000 0)
+44388.435:0030:0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000800660 40)
+44388.440:0090:009c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000000000 0)
+44388.440:0090:009c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 000000000003F6A0 40)
+44388.441:0090:009c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\winebth.sys" at 00006FFFFF300000: builtin
+44388.571:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44388.571:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 00006FFFFF5D0000: builtin
+44388.571:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44388.574:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 00006FFFFE930000: builtin
+44388.574:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 00006FFFFE960000: builtin
+44388.574:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shell32.dll" at 00006FFFFE9C0000: builtin
+44388.671:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44388.672:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e8fc,0x00000004,0x0)
+44388.672:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e8fc,0x00000004,0x0)
+44388.678:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44388.678:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44388.678:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 00006FFFFE7F0000: builtin
+44388.680:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 00006FFFFE7C0000: builtin
+44388.680:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 00006FFFFE860000: builtin
+44388.680:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e8fc,0x00000004,0x0)
+44388.680:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e8fc,0x00000004,0x0)
+44388.681:0028:002c:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 000000000031F6E0 260)
+44388.681:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e8fc,0x00000004,0x0)
+44388.681:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e8fc,0x00000004,0x0)
+44388.744:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\mpr.dll" at 00006FFFFE700000: builtin
+44388.745:0028:002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\wininet.dll" at 00006FFFFE730000: builtin
+44388.745:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31dc5c,0x00000004,0x0)
+44388.745:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31dc5c,0x00000004,0x0)
+44388.745:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31dc5c,0x00000004,0x0)
+44388.745:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31dc5c,0x00000004,0x0)
+44388.746:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31dc5c,0x00000004,0x0)
+44388.746:0028:002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31dc5c,0x00000004,0x0)
+44388.749:0020:0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2063743d8,0x00000008,0x0)
+44388.749:0020:0024:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44388.761:0020:0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44388.761:0020:0024:trace:loaddll:build_module Loaded L"Z:\\Applications\\CrossOver.app\\Contents\\SharedSupport\\CrossOver\\lib\\wine\\x86_64-windows\\winewrapper.exe" at 0000000140000000: builtin
+44388.761:0020:0024:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44388.765:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44388.765:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44388.771:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44388.772:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44388.772:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44388.772:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44388.775:0020:0024:trace:loaddll:build_module Loaded L"Z:\\Applications\\CrossOver.app\\Contents\\SharedSupport\\CrossOver\\lib\\wine\\x86_64-windows\\cryptbase.dll" at 00006FFFFF900000: builtin
+44388.775:0020:0024:trace:loaddll:build_module Loaded L"Z:\\Applications\\CrossOver.app\\Contents\\SharedSupport\\CrossOver\\lib\\wine\\x86_64-windows\\bcrypt.dll" at 00006FFFFF1E0000: builtin
+44388.776:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44388.776:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44388.776:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 00006FFFFF5D0000: builtin
+44388.776:0020:0024:trace:loaddll:build_module Loaded L"Z:\\Applications\\CrossOver.app\\Contents\\SharedSupport\\CrossOver\\lib\\wine\\x86_64-windows\\crypt32.dll" at 00006FFFFF210000: builtin
+44388.780:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 00006FFFFE810000: builtin
+44388.780:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 00006FFFFE840000: builtin
+44388.780:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shell32.dll" at 00006FFFFE8A0000: builtin
+44388.780:0020:0024:trace:loaddll:build_module Loaded L"Z:\\Applications\\CrossOver.app\\Contents\\SharedSupport\\CrossOver\\lib\\wine\\x86_64-windows\\winelib.dll" at 00006FFFFE7F0000: builtin
+44388.780:0020:0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44388.781:0020:0024:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44388.785:0020:0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44388.785:0020:0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 00000000000375C0 17)
+44388.787:0020:0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44388.787:0020:0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000037620 17)
+44389.009:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44389.230:0020:0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44389.249:0020:0024:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\rsaenh.dll" 0000000000000000 0)
+44389.249:0020:0024:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\rsaenh.dll" 00000000007BB180 31)
+44389.252:0020:0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rsaenh.dll" at 00006FFFFE790000: builtin
+44389.256:0020:0024:trace:loaddll:free_modref Unloaded module L"C:\\windows\\system32\\rsaenh.dll" : builtin
+44389.262:0020:0024:trace:process:CreateProcessInternalW app (null) cmdline L"\"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe\" -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-52/player.log"
+44389.262:0020:0024:trace:process:find_exe_file looking for L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe" in L"Z:\\Applications\\CrossOver.app\\Contents\\SharedSupport\\CrossOver\\lib\\wine\\x86_64-windows;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44389.264:0020:0024:trace:process:NtCreateUserProcess L"\\??\\Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe" image L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe" cmdline L"\"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe\" -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-52/player.log" parent 0x0 machine 0
+44389.265:0020:0024:trace:process:send_to_cx_loader wineserversocket 13 stdin_fd 15 stdout_fd 16 unixdir (null) winedebug "WINEDEBUG=-all,+timestamp,+pid,+tid,+loaddll,+seh,+process"
+44389.265:0020:0024:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44389.292:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2061e93d8,0x00000008,0x0)
+44389.292:00cc:00d0:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44389.300:0020:0024:trace:process:NtCreateUserProcess L"\\??\\Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe" pid 00cc tid 00d0 handles 0x70/0x74
+44389.301:0020:0024:trace:process:CreateProcessInternalW started process pid 00cc tid 00d0
+44389.305:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x10fa30,0x00000040,0x0)
+44389.305:00cc:00d0:trace:loaddll:build_module Loaded L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\The Forest of Love.exe" at 0000000140000000: native
+44389.422:00cc:00d0:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44389.429:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44389.429:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44389.445:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44389.446:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44389.446:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44389.446:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44389.446:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44389.446:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44389.446:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\USER32.dll" at 00006FFFFF5D0000: builtin
+44389.448:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\VERSION.dll" at 00006FFFFCBE0000: builtin
+44389.450:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44389.450:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44389.450:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 00006FFFFCAA0000: builtin
+44389.450:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 00006FFFFCA70000: builtin
+44389.450:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 00006FFFFCB10000: builtin
+44389.451:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 00006FFFFE810000: builtin
+44389.451:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\SHLWAPI.dll" at 00006FFFFE840000: builtin
+44389.451:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\SETUPAPI.dll" at 00006FFFFF870000: builtin
+44389.454:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\SHELL32.dll" at 00006FFFFE8A0000: builtin
+44389.457:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\OPENGL32.dll" at 000000007BED0000: builtin
+44389.461:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msacm32.dll" at 00006FFFFC970000: builtin
+44389.461:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\WINMM.dll" at 00006FFFFC9A0000: builtin
+44389.461:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\OLEAUT32.dll" at 00006FFFFC880000: builtin
+44389.461:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\IMM32.dll" at 00006FFFFF4C0000: builtin
+44389.465:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ws2_32.dll" at 00006FFFFF9C0000: builtin
+44389.465:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\jsproxy.dll" at 00006FFFFC7F0000: builtin
+44389.465:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\WINHTTP.dll" at 00006FFFFC820000: builtin
+44389.466:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\bcrypt.dll" at 00006FFFFF1E0000: builtin
+44389.467:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\HID.DLL" at 00006FFFFC7D0000: builtin
+44389.468:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\CRYPT32.dll" at 00006FFFFF210000: builtin
+44389.468:00cc:00d0:trace:loaddll:build_module Loaded L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityPlayer.dll" at 00006FFFFCC00000: native
+44389.468:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x10f558,0x00000008,0x0)
+44389.469:00cc:00d0:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000010F310 85)
+44389.473:00cc:00d0:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44389.473:00cc:00d0:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 000000000014EDB0 17)
+44389.475:00cc:00d0:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44389.475:00cc:00d0:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 000000000014EE10 17)
+44389.755:00cc:00d0:trace:process:GetEnvironmentVariableW (L"oanocache" 0000000000000000 0)
+44389.777:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x10f9b0,0x00000008,0x0)
+44389.784:00cc:00d0:trace:process:InitializeProcThreadAttributeList (0000000000000000 1 0 00000000000FFC00)
+44389.784:00cc:00d0:trace:process:InitializeProcThreadAttributeList (0000000010000450 1 0 00000000000FFC00)
+44389.784:00cc:00d0:trace:process:UpdateProcThreadAttribute (0000000010000450 0 00020002 00000000000FFC08 8 0000000000000000 0000000000000000)
+44389.784:00cc:00d0:trace:process:CreateProcessInternalW app (null) cmdline L"\"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe\" --attach 204 549064704"
+44389.784:00cc:00d0:trace:process:find_exe_file looking for L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" in L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44389.787:00cc:00d0:trace:process:CreateProcessInternalW PROC_THREAD_ATTRIBUTE_HANDLE_LIST handle count 1.
+44389.787:00cc:00d0:trace:process:NtCreateUserProcess L"\\??\\Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" image L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" cmdline L"\"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe\" --attach 204 549064704" parent 0x0 machine 0
+44389.787:00cc:00d0:trace:process:send_to_cx_loader wineserversocket 12 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug "WINEDEBUG=-all,+timestamp,+pid,+tid,+loaddll,+seh,+process"
+44389.787:00cc:00d0:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44389.816:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2062eb3d8,0x00000008,0x0)
+44389.816:00d8:00dc:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44389.824:00cc:00d0:trace:process:NtCreateUserProcess L"\\??\\Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" pid 00d8 tid 00dc handles 0xc4/0xc8
+44389.825:00cc:00d0:trace:process:CreateProcessInternalW started process pid 00d8 tid 00dc
+44389.825:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xffbec,0x00000004,0x0)
+44389.827:00cc:00d0:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\explorer.exe" image L"C:\\windows\\system32\\explorer.exe" cmdline L"\"C:\\windows\\system32\\explorer.exe\" /desktop" parent 0x0 machine 0
+44389.828:00cc:00d0:trace:process:send_to_cx_loader wineserversocket 12 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug "WINEDEBUG=-all,+timestamp,+pid,+tid,+loaddll,+seh,+process"
+44389.828:00cc:00d0:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44389.829:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x10fa30,0x00000040,0x0)
+44389.829:00d8:00dc:trace:loaddll:build_module Loaded L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" at 0000000140000000: native
+44389.829:00d8:00dc:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44389.835:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44389.835:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44389.843:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44389.843:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44389.844:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44389.844:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44389.844:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44389.844:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44389.844:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\USER32.dll" at 00006FFFFF5D0000: builtin
+44389.848:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\dbghelp.dll" at 00006FFFFC730000: builtin
+44389.851:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 00006FFFFE810000: builtin
+44389.851:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 00006FFFFE840000: builtin
+44389.851:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\SHELL32.dll" at 00006FFFFE8A0000: builtin
+44389.853:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44389.853:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44389.853:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 00006FFFFCAA0000: builtin
+44389.854:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 00006FFFFCA70000: builtin
+44389.854:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 00006FFFFCB10000: builtin
+44389.854:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\PSAPI.DLL" at 00006FFFFC710000: builtin
+44389.855:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\mpr.dll" at 00006FFFFC650000: builtin
+44389.856:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ws2_32.dll" at 00006FFFFF9C0000: builtin
+44389.856:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\WININET.dll" at 00006FFFFC680000: builtin
+44389.856:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\VERSION.dll" at 00006FFFFCBE0000: builtin
+44389.856:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x10f558,0x00000008,0x0)
+44389.857:00d8:00dc:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000010F310 85)
+44389.860:00d8:00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44389.860:00d8:00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 000000000014E000 17)
+44389.863:00d8:00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44389.863:00d8:00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 000000000014E060 17)
+44389.865:00e0:00e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2063dd3d8,0x00000008,0x0)
+44389.865:00e0:00e4:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44389.867:00cc:00d0:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\explorer.exe" pid 00e0 tid 00e4 handles 0xc8/0xcc
+44389.871:00e0:00e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44389.871:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\explorer.exe" at 0000000140000000: builtin
+44389.871:00e0:00e4:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44389.875:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44389.875:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44389.881:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44389.882:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44389.882:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44389.882:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44389.883:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44389.883:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 00006FFFFF5D0000: builtin
+44389.883:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44389.884:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44389.885:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44389.885:00e0:00e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44389.885:00e0:00e4:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44389.889:00e0:00e4:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44389.889:00e0:00e4:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 00000000000370E0 17)
+44389.891:00e0:00e4:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44389.891:00e0:00e4:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000037140 17)
+44389.969:00d8:00dc:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44389.972:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44389.972:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44389.973:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44389.973:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44389.973:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44389.973:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44389.973:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x10f9b0,0x00000008,0x0)
+44389.975:00d8:00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10feec,0x00000004,0x0)
+44389.996:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44389.996:00e0:00e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44390.000:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winemac.drv" at 00006FFFFC630000: builtin
+44390.744:00e0:00e4:trace:process:GetEnvironmentVariableW (L"CX_HIDE_BUILTIN_VERSION_RESOURCES" 000000000031E87C 2)
+44390.747:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\uxtheme.dll" at 00006FFFFC5E0000: builtin
+44390.922:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 00006FFFFE810000: builtin
+44390.922:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 00006FFFFE840000: builtin
+44390.922:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shell32.dll" at 00006FFFFE8A0000: builtin
+44390.937:00e0:00e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e81c,0x00000004,0x0)
+44390.937:00e0:00e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x31e81c,0x00000004,0x0)
+44390.938:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 00006FFFFCAA0000: builtin
+44390.938:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 00006FFFFCA70000: builtin
+44390.938:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 00006FFFFCB10000: builtin
+44390.945:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\oleaut32.dll" at 00006FFFFC880000: builtin
+44390.945:00e0:00e4:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\actxprxy.dll" at 00006FFFFC580000: builtin
+44390.945:00e0:00e4:trace:process:GetEnvironmentVariableW (L"oanocache" 0000000000000000 0)
+44390.948:00e0:00e4:trace:seh:dispatch_exception code=6ba (RPC_S_SERVER_UNAVAILABLE) flags=0 addr=00006FFFFFC1D8B7
+44390.948:00e0:00e4:trace:seh:dispatch_exception rip=00006fffffc1d8b7 rsp=000000000031d690 rbp=0000000000000000 eflags=00000206
+44390.948:00e0:00e4:trace:seh:dispatch_exception rax=000000000031d6b0 rbx=000000000031e530 rcx=000000000031d6b0 rdx=0000000000000000
+44390.948:00e0:00e4:trace:seh:dispatch_exception rsi=0000000000000064 rdi=0000000000839df0  r8=0000000000000000  r9=0000000000000000
+44390.948:00e0:00e4:trace:seh:dispatch_exception r10=0000000000839f30 r11=0000000000a00000 r12=000000000031d838 r13=0000000000000005
+44390.948:00e0:00e4:trace:seh:dispatch_exception r14=00006fffff96e160 r15=000000000031d840 mxcsr=00001f80 cs=002b ss=0023
+44390.948:00e0:00e4:trace:seh:call_seh_handlers calling TEB handler 00006FFFFF957710 (rec=000000000031D6B0 frame=000000000031D8C0 context=000000000031D1B0 dispatch=000000000031CA70) sp=31e240
+44390.948:00e0:00e4:trace:seh:call_seh_handlers TEB handler at 00006FFFFF957710 returned 1
+44390.948:00e0:00e4:trace:seh:call_seh_handlers calling TEB handler 00006FFFFCAB6310 (rec=000000000031D6B0 frame=000000000031EDB0 context=000000000031D1B0 dispatch=000000000031CA70) sp=31ef00
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx code=6ba flags=2 end_frame=000000000031EDB0 target_ip=00006FFFFCAA4E3A
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx rip=00006ffffff766b2 rsp=000000000031bd80 rbp=000000000031d8c0 eflags=00000202
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx rax=000000007ffc0000 rbx=000000000031d6b0 rcx=000000000031c440 rdx=00006ffffcaa4e3a
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx rsi=000000000031d6b0 rdi=000000000031c440  r8=000000000031d6b0  r9=00006ffffcac6280
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx r10=00000001000ffb40 r11=0000000000000002 r12=000000000031edb0 r13=000000000031bee0
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx r14=00006ffffffb38c0 r15=0000000000000000 mxcsr=00001f80 cs=002b ss=0023
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx calling TEB handler 00006FFFFF957710 (rec=000000000031D6B0, frame=000000000031D8C0 context=000000000031C440, dispatch=000000000031BDF0)
+44390.948:00e0:00e4:trace:seh:RtlUnwindEx handler at 00006FFFFF957710 returned 1
+44390.948:00e0:00e4:trace:seh:RtlRestoreContext returning to 00006FFFFCAA4E3A stack 000000000031ED60
+44390.952:0030:0048:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\rpcss.exe" 0000000000000000 0)
+44390.952:0030:0048:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\rpcss.exe" 000000000082CBD0 30)
+44390.952:0030:0048:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\rpcss.exe"
+44390.952:0030:0048:trace:process:find_exe_file looking for L"C:\\windows\\system32\\rpcss.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44390.953:0030:0048:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\rpcss.exe" image L"C:\\windows\\system32\\rpcss.exe" cmdline L"C:\\windows\\system32\\rpcss.exe" parent 0x0 machine 0
+44390.954:0030:0048:trace:process:send_to_cx_loader wineserversocket 41 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug (null)
+44390.954:0030:0048:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44390.981:00fc:0100:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2064153d8,0x00000008,0x0)
+44390.981:00fc:0100:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44390.989:0030:0048:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\rpcss.exe" pid 00fc tid 0100 handles 0x160/0x164
+44390.989:0030:0048:trace:process:CreateProcessInternalW started process pid 00fc tid 0100
+44390.993:00fc:0100:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x31fa30,0x00000040,0x0)
+44390.993:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcss.exe" at 0000000140000000: builtin
+44390.993:00fc:0100:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44390.997:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44390.997:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44390.999:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44391.000:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44391.000:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44391.000:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44391.002:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44391.002:00fc:0100:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44391.002:00fc:0100:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x31f558,0x00000008,0x0)
+44391.003:00fc:0100:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000031F310 85)
+44391.007:00fc:0100:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44391.007:00fc:0100:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 00000000000380A0 17)
+44391.010:00fc:0100:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44391.010:00fc:0100:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 00000000000380D0 17)
+44391.018:00fc:0100:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x31f9b0,0x00000008,0x0)
+44391.035:00cc:00d0:trace:loaddll:build_module Loaded L"c:\\windows\\system32\\winemac.drv" at 00006FFFFC630000: builtin
+44391.116:00cc:00d0:trace:process:GetEnvironmentVariableW (L"CX_HIDE_BUILTIN_VERSION_RESOURCES" 00000000000FF37C 2)
+44391.118:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\uxtheme.dll" at 00006FFFFC5E0000: builtin
+44391.156:00cc:00d0:trace:process:GetEnvironmentVariableW (L"TMP" 00000000000FF630 260)
+44391.159:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\PSAPI.DLL" at 00006FFFFC710000: builtin
+44391.159:00cc:00d0:trace:loaddll:build_module Loaded L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\MonoBleedingEdge\\EmbedRuntime\\mono-2.0-bdwgc.dll" at 00006FFFFBE00000: native
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_CFG_DIR" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_DEBUG" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_VERBOSE_HWCAP" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_CONSERVATIVE_HWCAP" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_VERBOSE_HWCAP" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_CONSERVATIVE_HWCAP" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_EXTERNAL_ENCODINGS" 00000000002D15C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"DUMP_CROSS_OFFSETS" 00000000002D1AD0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_DEBUG" 00000000002D20C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_VERBOSE_HWCAP" 00000000002D20C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_CONSERVATIVE_HWCAP" 00000000002D20C0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_LLDB" 00000000002D3ED0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"UNITY_MIXED_CALLSTACK" 00000000002D3ED0 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_LASTAOT" 00000000002D7440 1024)
+44391.160:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xff71c,0x00000004,0x0)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_GC_DEBUG" 00000000002D8450 1024)
+44391.160:00cc:00d0:trace:process:GetEnvironmentVariableW (L"GC_DONT_GC" 00000000002D8450 1024)
+44391.169:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_GC_PARAMS" 00000000002D8450 1024)
+44391.169:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_SLEEP_ABORT_LIMIT" 00000000002D8A40 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_ENABLE_COOP" 00000000002D8A40 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_ENABLE_COOP" 00000000002D8A40 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_ENABLE_BLOCKING_TRANSITION" 00000000002D8A40 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_DEBUG_ASSEMBLY_UNLOAD" 00000000002D9CD0 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_GAC_PREFIX" 00000000002D9CD0 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_LOG_MASK" 00000000002E3BD0 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_LOG_LEVEL" 00000000002E3BD0 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_LOG_HEADER" 00000000002E3BD0 1024)
+44391.172:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_LOG_DEST" 00000000002E3BD0 1024)
+44391.177:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xff36c,0x00000004,0x0)
+44391.177:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xff36c,0x00000004,0x0)
+44391.177:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xff36c,0x00000004,0x0)
+44391.177:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xff36c,0x00000004,0x0)
+44391.182:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed0c,0x00000004,0x0)
+44391.182:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed0c,0x00000004,0x0)
+44391.182:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_COM" 00000000003264D0 1024)
+44391.192:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_DISABLE_WCF_HACK" 000000000032DD60 1024)
+44391.197:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_VERBOSE_METHOD" 000000000035DA70 1024)
+44391.197:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_INLINELIMIT" 000000000035EA70 1024)
+44391.197:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_INLINE_CALLED_METHOD_NAME_LIMIT" 000000000035EA70 1024)
+44391.197:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_INLINE_CALLER_METHOD_NAME_LIMIT" 000000000035EA70 1024)
+44391.234:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_CONFIG" 0000000061969940 1024)
+44391.234:00cc:0124:trace:seh:dispatch_exception code=406d1388 (EXCEPTION_WINE_NAME_THREAD) flags=0 addr=00006FFFFFC1D8B7
+44391.234:00cc:0124:trace:seh:dispatch_exception  info[0]=0000000000001000
+44391.234:00cc:0124:trace:seh:dispatch_exception  info[1]=0000000061960D70
+44391.234:00cc:0124:trace:seh:dispatch_exception  info[2]=0000000000000124
+44391.234:00cc:0124:trace:seh:dispatch_exception rip=00006fffffc1d8b7 rsp=000000006195fc60 rbp=0000000061402f90 eflags=00000206
+44391.234:00cc:0124:trace:seh:dispatch_exception rax=000000006195fcb0 rbx=0000000061960d70 rcx=000000006195fc80 rdx=0000000000000000
+44391.234:00cc:0124:trace:seh:dispatch_exception rsi=0000000000000124 rdi=00000000613f9d10  r8=0000000000000124  r9=000000006195fd60
+44391.234:00cc:0124:trace:seh:dispatch_exception r10=0000000000000001 r11=0000000061960d78 r12=0000000000000000 r13=0000000000000000
+44391.234:00cc:0124:trace:seh:dispatch_exception r14=000000006195fdf0 r15=0000000000000000 mxcsr=00001fa0 cs=002b ss=0023
+44391.234:00cc:0124:trace:seh:call_vectored_handlers calling handler at 00006FFFFC1048E0 code=406d1388 flags=0
+44391.234:00cc:0124:trace:seh:call_vectored_handlers handler at 00006FFFFC1048E0 returned 0
+44391.234:00cc:0124:trace:seh:call_seh_handlers calling handler 00006FFFFC11B804 (rec=000000006195FC80, frame=6195fd30 context=000000006195F780, dispatch=000000006195F040)
+44391.235:00cc:0124:trace:seh:RtlUnwindEx code=406d1388 flags=2 end_frame=000000006195FD30 target_ip=00006FFFFBE22405
+44391.235:00cc:0124:trace:seh:RtlUnwindEx  info[0]=0000000000001000
+44391.235:00cc:0124:trace:seh:RtlUnwindEx  info[1]=0000000061960d70
+44391.235:00cc:0124:trace:seh:RtlUnwindEx  info[2]=0000000000000124
+44391.235:00cc:0124:trace:seh:RtlUnwindEx rip=00006ffffff766b2 rsp=000000006195e8a0 rbp=0000000000000000 eflags=00000206
+44391.235:00cc:0124:trace:seh:RtlUnwindEx rax=000000007ffb0000 rbx=000000006195fc80 rcx=000000006195f170 rdx=00006ffffbe22405
+44391.235:00cc:0124:trace:seh:RtlUnwindEx rsi=0000000000000000 rdi=000000006195f170  r8=000000006195fc80  r9=00000000406d1388
+44391.235:00cc:0124:trace:seh:RtlUnwindEx r10=00000001201ffac0 r11=0000000000000001 r12=000000006195fd30 r13=000000006195ea00
+44391.235:00cc:0124:trace:seh:RtlUnwindEx r14=000000006195f040 r15=0000000000022403 mxcsr=00001fa0 cs=002b ss=0023
+44391.235:00cc:0124:trace:seh:RtlRestoreContext returning to 00006FFFFBE22405 stack 000000006195FD30
+44391.251:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000003,0xff910,0x00000060,0x0)
+44391.259:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\dnsapi.dll" at 00006FFFFF3E0000: builtin
+44391.260:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\nsi.dll" at 00006FFFFF3C0000: builtin
+44391.260:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\iphlpapi.dll" at 00006FFFFF410000: builtin
+44391.384:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\d3d11.dll" at 00006FFFFBDD0000: builtin
+44391.385:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\dxgi.dll" at 00006FFFFADA0000: builtin
+44397.541:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\winsxs\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.2600.2982_none_deadbeef\\comctl32.dll" at 00006FFFFAB70000: builtin
+44397.541:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\compstui.dll" at 00006FFFFACD0000: builtin
+44397.541:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winspool.drv" at 00006FFFFAD00000: builtin
+44397.541:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\wbem\\wbemprox.dll" at 00006FFFFAD50000: builtin
+44397.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000003,0xff880,0x00000060,0x0)
+44397.889:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\mmdevapi.dll" at 00006FFFFAB30000: builtin
+44397.892:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winecoreaudio.drv" at 00006FFFFAB10000: builtin
+44398.463:00cc:00d0:trace:process:GetEnvironmentVariableW (L"CX_HIDE_BUILTIN_VERSION_RESOURCES" 00000000000FE71C 2)
+44398.473:00cc:019c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\avrt.dll" at 00006FFFFAAF0000: builtin
+44398.473:00cc:019c:trace:loaddll:free_modref Unloaded module L"C:\\windows\\system32\\avrt.dll" : builtin
+44398.486:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.486:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.486:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.486:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.487:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.488:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.489:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.490:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.490:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.490:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.490:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.491:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.492:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.492:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.492:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.492:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.493:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.494:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.495:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.496:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.497:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.498:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.499:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.500:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.501:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.501:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.501:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.501:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.504:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.505:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.505:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.505:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.505:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.506:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.507:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.508:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.509:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.510:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.510:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.510:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.510:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.511:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.512:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.513:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.514:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.514:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.514:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.514:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.516:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.517:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.518:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.519:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.520:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.521:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.522:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.522:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.522:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.522:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.523:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed5c,0x00000004,0x0)
+44398.526:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc81c,0x00000004,0x0)
+44398.526:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc81c,0x00000004,0x0)
+44398.526:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc81c,0x00000004,0x0)
+44398.526:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc81c,0x00000004,0x0)
+44398.527:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc1bc,0x00000004,0x0)
+44398.527:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc1bc,0x00000004,0x0)
+44398.562:00cc:00d0:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 00000000644D8660, 8192, 00000000000FB488, 0)
+44398.705:00cc:00d0:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 000000006482A5D0, 8192, 00000000000FB488, 0)
+44398.711:00cc:00d0:trace:process:GetEnvironmentVariableW (L"MONO_DUMP_HANDLES_ON_ERROR_TOO_MANY_OPEN_FILES" 000000006450BFA0 1024)
+44398.765:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.765:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.765:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.765:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.771:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.771:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.771:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.771:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.775:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.775:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.775:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.775:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.779:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe61c,0x00000004,0x0)
+44398.779:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe61c,0x00000004,0x0)
+44398.779:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe61c,0x00000004,0x0)
+44398.779:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe61c,0x00000004,0x0)
+44398.780:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfdfbc,0x00000004,0x0)
+44398.780:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfdfbc,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe54c,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe54c,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe54c,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe54c,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.792:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.795:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.795:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.795:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.795:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe6cc,0x00000004,0x0)
+44398.810:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.810:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.810:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.810:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.812:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.812:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.812:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.812:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.814:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.815:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.815:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.815:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.815:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.816:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.817:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.817:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.817:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.817:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.818:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.819:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.819:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.819:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.819:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.820:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.821:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.822:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.822:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.822:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.822:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.823:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.824:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.825:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.825:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.825:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.825:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.826:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.827:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.827:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.827:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.827:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.828:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.828:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.828:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.828:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.829:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.829:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.829:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.829:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.830:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.830:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.830:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.830:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.831:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.831:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.831:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.831:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.833:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.834:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.834:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.834:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.834:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.835:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.835:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.835:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.835:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.836:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.836:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.836:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.836:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.837:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.838:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.838:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.838:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.838:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.839:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.840:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.841:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.842:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.842:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.842:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.842:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.843:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.844:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.844:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.844:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.844:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.845:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.845:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.845:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.845:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.846:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.847:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.848:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.849:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.849:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.849:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.849:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.850:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.851:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.851:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.851:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.851:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.852:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.853:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.853:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.853:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.853:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.855:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfed6c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfea0c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe99c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe99c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe99c,0x00000004,0x0)
+44398.881:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe99c,0x00000004,0x0)
+44398.888:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe68c,0x00000004,0x0)
+44398.888:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe68c,0x00000004,0x0)
+44398.888:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe68c,0x00000004,0x0)
+44398.888:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe68c,0x00000004,0x0)
+44398.889:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe02c,0x00000004,0x0)
+44398.889:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe02c,0x00000004,0x0)
+44398.975:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe9dc,0x00000004,0x0)
+44398.975:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe9dc,0x00000004,0x0)
+44398.975:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe9dc,0x00000004,0x0)
+44398.975:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe9dc,0x00000004,0x0)
+44399.171:0090:00a0:trace:process:NtQueryInformationProcess (0x14c,0x00000000,0xa26288,0x00000030,0x0)
+44399.171:0090:00a0:trace:process:NtQueryInformationProcess (0x14c,0x0000001a,0xd1f5e8,0x00000008,0x0)
+44399.174:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\xinput1_3.dll" at 00006FFFFAAE0000: builtin
+44406.095:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.095:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.095:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.095:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.102:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd8dc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd8dc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd8dc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd8dc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.105:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdddbc,0x00000004,0x0)
+44406.114:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.114:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.114:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.114:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.115:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd59c,0x00000004,0x0)
+44406.115:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd59c,0x00000004,0x0)
+44406.119:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.119:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.119:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.119:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.120:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd59c,0x00000004,0x0)
+44406.120:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd59c,0x00000004,0x0)
+44406.121:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.121:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.121:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.121:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddbfc,0x00000004,0x0)
+44406.123:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd59c,0x00000004,0x0)
+44406.123:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdd59c,0x00000004,0x0)
+44406.145:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddcac,0x00000004,0x0)
+44406.145:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddcac,0x00000004,0x0)
+44406.145:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddcac,0x00000004,0x0)
+44406.145:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bddcac,0x00000004,0x0)
+44406.945:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdb35c,0x00000004,0x0)
+44406.945:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdb35c,0x00000004,0x0)
+44406.945:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdb35c,0x00000004,0x0)
+44406.945:00cc:01b8:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x67bdb35c,0x00000004,0x0)
+44406.955:00cc:01b8:trace:process:GetEnvironmentVariableW (L"MONO_DISABLE_MANAGED_COLLATION" 000000006783D690 1024)
+44406.965:00cc:01b8:trace:process:GetEnvironmentVariableW (L"MONO_COLLATION_QUICK_CHECK_DISABLED" 000000006788EBF0 1024)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.905:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.912:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.912:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.912:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.912:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44407.925:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfe5ac,0x00000004,0x0)
+44408.025:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfa88c,0x00000004,0x0)
+44408.025:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfa88c,0x00000004,0x0)
+44408.418:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000003,0xfcd10,0x00000060,0x0)
+44408.419:00cc:00d0:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 0000000000000000 0)
+44408.419:00cc:00d0:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 000000006D19AFF0 10)
+44408.419:00cc:00d0:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 0000000000000000 0)
+44408.419:00cc:00d0:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 000000006D19AFF0 10)
+44408.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.515:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.558:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9cec,0x00000004,0x0)
+44408.558:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9cec,0x00000004,0x0)
+44408.558:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9cec,0x00000004,0x0)
+44408.558:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9cec,0x00000004,0x0)
+44408.558:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9cec,0x00000004,0x0)
+44408.558:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9cec,0x00000004,0x0)
+44408.569:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9c2c,0x00000004,0x0)
+44408.569:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9c2c,0x00000004,0x0)
+44408.569:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9c2c,0x00000004,0x0)
+44408.569:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9c2c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf931c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf931c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf931c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf931c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.571:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf927c,0x00000004,0x0)
+44408.581:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9d1c,0x00000004,0x0)
+44408.581:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9d1c,0x00000004,0x0)
+44408.581:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9d1c,0x00000004,0x0)
+44408.581:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9d1c,0x00000004,0x0)
+44408.605:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a9c,0x00000004,0x0)
+44408.605:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a9c,0x00000004,0x0)
+44408.605:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a9c,0x00000004,0x0)
+44408.605:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a9c,0x00000004,0x0)
+44408.611:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf999c,0x00000004,0x0)
+44408.611:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf999c,0x00000004,0x0)
+44408.611:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf999c,0x00000004,0x0)
+44408.611:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf999c,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9adc,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9adc,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9adc,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9adc,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9adc,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9adc,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a8c,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a8c,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a8c,0x00000004,0x0)
+44408.615:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf9a8c,0x00000004,0x0)
+44408.625:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99bc,0x00000004,0x0)
+44408.625:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99bc,0x00000004,0x0)
+44408.625:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99bc,0x00000004,0x0)
+44408.625:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99bc,0x00000004,0x0)
+44408.634:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.634:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.634:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.634:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.635:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.635:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.635:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.635:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf8d7c,0x00000004,0x0)
+44408.637:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf97dc,0x00000004,0x0)
+44408.637:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf97dc,0x00000004,0x0)
+44408.637:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf97dc,0x00000004,0x0)
+44408.637:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf97dc,0x00000004,0x0)
+44408.655:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf963c,0x00000004,0x0)
+44408.655:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf963c,0x00000004,0x0)
+44408.655:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf963c,0x00000004,0x0)
+44408.655:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf963c,0x00000004,0x0)
+44408.655:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf963c,0x00000004,0x0)
+44408.663:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cfgmgr32.dll" at 00006FFFFAA60000: builtin
+44408.663:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\bluetoothapis.dll" at 00006FFFFAA90000: builtin
+44408.663:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\bthprops.cpl" at 00006FFFFAAC0000: builtin
+44408.663:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf963c,0x00000004,0x0)
+44408.663:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf953c,0x00000004,0x0)
+44408.663:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf953c,0x00000004,0x0)
+44408.663:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf953c,0x00000004,0x0)
+44408.663:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf953c,0x00000004,0x0)
+44408.665:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.665:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.665:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.665:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.665:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.665:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf96ac,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.672:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.677:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.682:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.682:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.682:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.682:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ec,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf93ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf92ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf92ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf92ac,0x00000004,0x0)
+44408.686:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf92ac,0x00000004,0x0)
+44408.707:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\xinput1_4.dll" at 00006FFFFAA30000: builtin
+44408.707:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf80ac,0x00000004,0x0)
+44408.707:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf80ac,0x00000004,0x0)
+44408.707:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf80ac,0x00000004,0x0)
+44408.707:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf80ac,0x00000004,0x0)
+44408.707:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf80ac,0x00000004,0x0)
+44408.707:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf80ac,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.712:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.716:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\xinput1_2.dll" at 00006FFFFAA00000: builtin
+44408.716:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.716:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.716:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.716:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.716:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.716:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.718:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\xinput1_1.dll" at 00006FFFFA9D0000: builtin
+44408.718:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.718:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.718:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.718:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.718:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.718:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.720:00cc:00d0:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\xinput9_1_0.dll" at 00006FFFFA9B0000: builtin
+44408.720:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.720:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.720:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.720:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.720:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44408.720:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xf99fc,0x00000004,0x0)
+44413.552:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfae8c,0x00000004,0x0)
+44413.552:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfae8c,0x00000004,0x0)
+44413.552:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfae8c,0x00000004,0x0)
+44413.552:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfae8c,0x00000004,0x0)
+44414.478:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbd4c,0x00000004,0x0)
+44414.478:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbd4c,0x00000004,0x0)
+44414.478:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbd4c,0x00000004,0x0)
+44414.478:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbd4c,0x00000004,0x0)
+44414.481:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbe1c,0x00000004,0x0)
+44414.481:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbe1c,0x00000004,0x0)
+44414.481:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbe1c,0x00000004,0x0)
+44414.481:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfbe1c,0x00000004,0x0)
+44415.411:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf6c,0x00000004,0x0)
+44415.411:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf6c,0x00000004,0x0)
+44415.411:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf6c,0x00000004,0x0)
+44415.411:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf6c,0x00000004,0x0)
+44415.411:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf6c,0x00000004,0x0)
+44415.411:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf6c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.414:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaf9c,0x00000004,0x0)
+44415.417:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaeec,0x00000004,0x0)
+44415.417:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaeec,0x00000004,0x0)
+44415.417:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaeec,0x00000004,0x0)
+44415.417:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfaeec,0x00000004,0x0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.551:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.555:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BC5CD0, 8192, 000000007548C048, 0)
+44415.556:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.556:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.556:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.556:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.561:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.566:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BD06D0, 8192, 000000007548C088, 0)
+44415.566:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.566:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.566:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.566:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.571:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.571:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.571:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.571:00cc:01e4:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7548bfcc,0x00000004,0x0)
+44415.571:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BCA0D0, 8192, 000000007548C088, 0)
+44415.571:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BD4AD0, 8192, 000000007548C048, 0)
+44415.571:00cc:01e4:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000075BD4AD0, 8192, 000000007548C048, 0)
+44416.407:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfca3c,0x00000004,0x0)
+44416.407:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfca3c,0x00000004,0x0)
+44416.407:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfca3c,0x00000004,0x0)
+44416.407:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfca3c,0x00000004,0x0)
+44416.409:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc3dc,0x00000004,0x0)
+44416.409:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc3dc,0x00000004,0x0)
+44416.415:00cc:00d0:trace:seh:EnumProcessModulesEx (FFFFFFFFFFFFFFFF, 0000000077A65120, 8192, 00000000000FB108, 0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44416.612:00cc:00d0:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0xfc49c,0x00000004,0x0)
+44422.739:0020:0024:trace:process:NtQueryInformationProcess (0x70,0x00000000,0x31f460,0x00000030,0x0)
+44422.739:00d8:00dc:trace:process:NtQueryInformationProcess (0x6c,0x00000000,0x10fbf0,0x00000030,0x0)
+44422.750:00d8:00dc:trace:process:CreateProcessInternalW app (null) cmdline L"\"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe\" \"204\" \"549064704\" "
+44422.750:00d8:00dc:trace:process:find_exe_file looking for L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" in L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+44422.757:00d8:00dc:trace:process:NtCreateUserProcess L"\\??\\Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" image L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" cmdline L"\"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe\" \"204\" \"549064704\" " parent 0x0 machine 0
+44422.758:00d8:00dc:trace:process:send_to_cx_loader wineserversocket 9 stdin_fd -1 stdout_fd -1 unixdir (null) winedebug "WINEDEBUG=-all,+timestamp,+pid,+tid,+loaddll,+seh,+process"
+44422.758:00d8:00dc:trace:process:send_to_cx_loader CX_ALT_LOADER_SOCKET is not set; nothing to do
+44422.801:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ff2062343d8,0x00000008,0x0)
+44422.801:01e8:01ec:trace:process:set_graphics_backend using d3dmetal as the graphics backend
+44422.811:00d8:00dc:trace:process:NtCreateUserProcess L"\\??\\Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" pid 01e8 tid 01ec handles 0x74/0x78
+44422.811:00d8:00dc:trace:process:CreateProcessInternalW started process pid 01e8 tid 01ec
+44422.816:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x10fa30,0x00000040,0x0)
+44422.816:01e8:01ec:trace:loaddll:build_module Loaded L"Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-52\\game\\UnityCrashHandler64.exe" at 0000000140000000: native
+44422.816:01e8:01ec:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 00006FFFFFF40000: builtin
+44422.823:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 00006FFFFFC10000: builtin
+44422.823:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 00006FFFFFEC0000: builtin
+44422.831:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 00006FFFFFB10000: builtin
+44422.832:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 00006FFFFFA00000: builtin
+44422.832:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 00006FFFFFAE0000: builtin
+44422.832:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 00006FFFFFBC0000: builtin
+44422.833:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 00006FFFFF4F0000: builtin
+44422.833:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 00006FFFFF540000: builtin
+44422.833:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\USER32.dll" at 00006FFFFF5D0000: builtin
+44422.836:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\dbghelp.dll" at 00006FFFFF260000: builtin
+44422.839:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 00006FFFFE810000: builtin
+44422.839:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 00006FFFFE840000: builtin
+44422.839:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\SHELL32.dll" at 00006FFFFE8A0000: builtin
+44422.842:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 00006FFFFF900000: builtin
+44422.842:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 00006FFFFF920000: builtin
+44422.842:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 00006FFFFCAA0000: builtin
+44422.842:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 00006FFFFCA70000: builtin
+44422.842:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 00006FFFFCB10000: builtin
+44422.843:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\PSAPI.DLL" at 00006FFFFF240000: builtin
+44422.845:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\mpr.dll" at 00006FFFFF210000: builtin
+44422.846:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ws2_32.dll" at 00006FFFFF9C0000: builtin
+44422.846:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\WININET.dll" at 00006FFFFE780000: builtin
+44422.847:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\VERSION.dll" at 00006FFFFF1F0000: builtin
+44422.847:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x10f558,0x00000008,0x0)
+44422.848:01e8:01ec:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 000000000010F310 85)
+44422.851:01e8:01ec:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 0000000000000000 0)
+44422.851:01e8:01ec:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4464" 000000000014DFF0 17)
+44422.855:01e8:01ec:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 0000000000000000 0)
+44422.855:01e8:01ec:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-4465" 000000000014E050 17)
+44423.003:01e8:01ec:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 00006FFFFF4C0000: builtin
+44423.007:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44423.007:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44423.008:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44423.008:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44423.008:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44423.008:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10e95c,0x00000004,0x0)
+44423.008:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x10f9b0,0x00000008,0x0)
+44423.010:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10feec,0x00000004,0x0)
+44423.010:01e8:01ec:trace:process:GetEnvironmentVariableW (L"TMP" 000000000010F600 260)
+44423.014:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10f05c,0x00000004,0x0)
+44423.014:01e8:01ec:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x10f05c,0x00000004,0x0)

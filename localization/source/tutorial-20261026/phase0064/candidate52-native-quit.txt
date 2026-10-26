@@ -1,0 +1,18 @@
+Timestamp               Ty Process[PID:TID]
+2026-10-27 03:49:06.550 I  wineloader[77552:12d5d9] [com.apple.appleevents:main]  eEntitlements, token 628/1521, designatedCodeReq = { "kTCCCodeIdentityAuditToken"=$F5010000F501000014000000F50100001400000074020000B3860100F1050000, "kTCCCodeIdentityAuthority"="kTCCCodeIdentityDesignatedRequirementAuthority", "kTCCCodeIdentityCanSendToAnyTarget"=true, "kTCCCodeIdentityCSFlags"=637631233, "kTCCCodeIdentityDesignatedRequirementData"=$FADE0C000000002C0000000100000006000000020000000E636F6D2E6170706C652E646F636B000000000003, "kTCCCodeIdentityExecutableURL"="file:///System/Library/CoreServices/Dock.app/Contents/MacOS/Dock", "kTCCCodeIdentityIdentifier"="com.apple.dock", "kTCCCodeIdentityIdentifierType"=0, "kTCCCodeIdentityPlatformType"=1, "kTCCCodeIdentityPromptPolicy"=3, "kTCCCodeIdentitySDKVersion"=1769472, "kTCCCodeIdentityTeamID"="" }
+2026-10-27 03:49:06.551 I  wineloader[77552:12d4f3] [com.apple.appleevents:receive] RECEIVED:(aevt,quit) {aevt,quit target=Dock  returnID=-4988}...
+2026-10-27 03:49:06.552 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] Handling Quit AppleEvent
+2026-10-27 03:49:06.552 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] -[NSApplication _setShouldRestoreStateOnNextLaunch:] shouldRestore=0
+2026-10-27 03:49:06.552 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] Checking whether app should terminate
+2026-10-27 03:49:06.553 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] Asking app delegate whether applicationShouldTerminate:
+2026-10-27 03:49:06.553 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] applicationShouldTerminate: NSTerminateLater
+2026-10-27 03:49:06.566 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] replyToApplicationShouldTerminate:YES
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] App termination approved
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] -[NSApplication _unsetShouldRestoreStateOnNextLaunch]
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] -[NSApplication _setShouldRestoreStateOnNextLaunch:] shouldRestore=0
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] terminate:
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:AutomaticTermination] void _NSDisableAutomaticTerminationAndLog(NSString *) Terminating
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:StateRestoration] -[NSApplication _pushPersistentStateTerminationGeneration] sPersistentStateTerminateStackHeight -> 1
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] Attempting sudden termination (1st attempt)
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] Termination commencing
+2026-10-27 03:49:06.567 Df wineloader[77552:12d4f3] [com.apple.AppKit:Application] Attempting sudden termination (2nd attempt)
