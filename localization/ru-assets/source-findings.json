@@ -1,0 +1,225 @@
+[
+  {
+    "id": "lanora-name-and-title",
+    "sourceIds": [
+      "ds:274:143:Dialogue Text",
+      "ds:274:157:Dialogue Text",
+      "ds:294:180:Dialogue Text"
+    ],
+    "finding": "Lanora / Shrine Maiden is not among the 171 pinned glossary terms. The source explicitly calls Lanora a young woman, permitting female agreement without inference.",
+    "provisionalTerms": {
+      "Lanora": "Ланора",
+      "Shrine Maiden": "дева святилища"
+    },
+    "status": "needs terminology review before integration; protected glossary unchanged"
+  },
+  {
+    "id": "vslice-bear-actor-reuse",
+    "sourceIds": [
+      "ds:76:99:Dialogue Text",
+      "ds:77:99:Dialogue Text",
+      "ds:68:110:Dialogue Text"
+    ],
+    "finding": "Actor 4 is reused for a female bear in older vslice scenes: big girl, she/her explicitly occur. Actor ID alone cannot identify this speaker with male Bear 1 from the glossary. Follow the source-backed local feminine agreement without inventing a name. Current staging fields and runtime identity remain source acceptance questions.",
+    "status": "needs source identity/binding review before integration"
+  },
+  {
+    "id": "additional-display-terms",
+    "sourceIds": [
+      "ds:185:178:Dialogue Text",
+      "ds:186:179:Dialogue Text",
+      "ds:196:147:Dialogue Text"
+    ],
+    "provisionalTerms": {
+      "Clam Coin": "Ракушкойн",
+      "Finley the Fantastic": "Финли Великолепный"
+    },
+    "status": "provisional display terminology outside protected glossary; review before integration"
+  },
+  {
+    "id": "aubergine-the-wicked-provisional-name",
+    "sourceIds": [
+      "ds:936:843:Dialogue Text",
+      "ds:936:845:Dialogue Text",
+      "ds:936:853:Dialogue Text",
+      "ds:936:854:Dialogue Text"
+    ],
+    "finding": "Aubergine The Wicked is not among the 171 pinned glossary terms. The scene explicitly uses she and Scarlett plays this witch; feminine agreement is source-backed. Provisional Russian name retains a transliteration; the aubergine/eggplant association remains a terminology/wordplay review question before integration. No protected glossary changes.",
+    "provisionalTerms": {
+      "Aubergine The Wicked": "Злая Обержин",
+      "Aubergine": "Обержин"
+    },
+    "status": "needs terminology/wordplay review before integration; protected glossary unchanged"
+  },
+  {
+    "id": "critter-cum-spa-provisional-display-name",
+    "sourceIds": [
+      "ds:957:464:Dialogue Text",
+      "ds:957:465:Dialogue Text",
+      "ds:957:466:Dialogue Text",
+      "ds:956:436:Dialogue Text"
+    ],
+    "finding": "The spa business name and Donkey Sauce euphemism are outside the pinned glossary. Direct provisional Russian wording preserves the semen-based business description and coarse naming joke; no protected glossary changes. The adjacent horse-mouth/donkey correction at 956:444 retains the species joke.",
+    "provisionalTerms": {
+      "Critter Cum Spa": "Спа на звериной конче",
+      "Donkey Sauce": "ослиный соус"
+    },
+    "status": "needs terminology/wordplay review before integration"
+  },
+  {
+    "id": "glitch-terminal-command-exact-display",
+    "sourceIds": [
+      "ds:466:760:Dialogue Text",
+      "ds:466:821:Dialogue Text"
+    ],
+    "finding": "Both source fields display [pic=10]inventory.Add(ItemNumber.621), a literal executable instruction for the player to enter. They are held instead of translated or counted as Russian wording. Preserve the full command exactly; current prose-only build gate requires a justified exact-display/nonprose adapter before accepting these targets. No command was executed.",
+    "status": "needs source classification and exact-display build support before integration"
+  },
+  {
+    "id": "glitch-rascal-address-and-identity",
+    "sourceIds": [
+      "ds:466:751:Dialogue Text",
+      "ds:466:758:Dialogue Text",
+      "ds:466:788:Dialogue Text",
+      "ds:466:789:Dialogue Text",
+      "ds:476:835:Dialogue Text"
+    ],
+    "finding": "Glitch actor 29 is distinct from player and bug-report Rascal; the pinned glossary has no distinct entry for it. Newly drafted wording avoids assigning global gender from its name or actor number. The explicit source address Yes ma’am! is retained locally as Есть, мэм! at 476:835; that one address is not treated as a resolved global pronoun rule.",
+    "status": "needs source character/address review before integration; protected glossary unchanged"
+  },
+  {
+    "id": "flight-fred-local-reference",
+    "sourceIds": [
+      "ds:459:724:Dialogue Text",
+      "ds:459:725:Dialogue Text"
+    ],
+    "finding": "Fred is outside the pinned glossary. Source directly says he was a good bun, permitting the local male rabbit wording; provisional Russian name Фред. No broader identity is inferred.",
+    "status": "needs terminology/source roster review before integration; protected glossary unchanged"
+  },
+  {
+    "id": "maverick-cousin-ungrounded-gender",
+    "sourceIds": [
+      "ds:468:767:Dialogue Text",
+      "ds:481:749:Dialogue Text"
+    ],
+    "finding": "Resolved from complete pinned scene: 468:767 links directly to 468:768, whose Now he walks all funny explicitly establishes the cousin as male. Both cousin fields now use двоюродный брат; the old isolation-based no-gender finding is superseded by this directly examined evidence. No glossary edit.",
+    "correctionEvidence": "outputs/ru-assets-parallel-20261026/0017-translation/cousin-correction.json",
+    "status": "Resolved for provisional drafting in batch 0095; original retirement receipt retained unchanged; independent audit pending",
+    "previousFinding": "Cousin gender unestablished: English cousin at 468:767 and 481:749 gives no male/female evidence; prior brother wording was unsupported. Requires faithful neutral kinship formulation/source decision.",
+    "previousStatus": "Both linked fields held; original previous target preserved in correction evidence; protected glossary unchanged",
+    "resolutionEvidence": "outputs/ru-assets-parallel-20261026/0022-translation/special-scene-notes.json",
+    "evidenceIds": [
+      "ds:468:767:Dialogue Text",
+      "ds:468:768:Dialogue Text",
+      "ds:481:749:Dialogue Text"
+    ]
+  },
+  {
+    "id": "coyote-stretch-wordplay-provisional",
+    "sourceIds": [
+      "ds:488:769:Dialogue Text",
+      "ds:488:770:Dialogue Text",
+      "ds:488:771:Dialogue Text",
+      "ds:488:772:Dialogue Text",
+      "ds:488:773:Dialogue Text"
+    ],
+    "finding": "Storm-to-sex segue followed by stretch double entendre; provisional Russian group uses «Как-то натянуто вышло» / emphasized «НАТЯНУТО» and retains subsequent denial about the segue and promise to share details. No branch/markup changes. Group needs special-scene/editorial acceptance before integration.",
+    "authoredBatch": "localization/ru-assets/batches/0075.tsv",
+    "status": "provisional direct-authored adaptation; special-scene and runtime gates pending"
+  },
+  {
+    "id": "fireflies-cum-and-go-adaptation-hold",
+    "sourceIds": [
+      "ds:492:848:Dialogue Text"
+    ],
+    "finding": "cum and go overlays free entry/exit with orgasm, followed by Pun intended. Retain the complete lid-holes/choice/pun contract in a future Russian solution; field held rather than dropping a reading.",
+    "evidence": "outputs/ru-assets-parallel-20261026/0018-translation/special-scene-notes.json",
+    "status": "needs special-scene adaptation; source and glossary unchanged"
+  },
+  {
+    "id": "mice-ritual-go-out-with-bang-provisional",
+    "sourceIds": [
+      "ds:505:1187:Dialogue Text",
+      "ds:505:1195:Dialogue Text"
+    ],
+    "finding": "Direct-authored provisional Russian кончить с размахом retains life-ending and sexual-climax readings in both callback fields. Wave markup emphasizes the double-meaning verb. Full special-scene/editorial acceptance remains pending.",
+    "evidence": "outputs/ru-assets-parallel-20261026/0018-translation/special-scene-notes.json",
+    "authoredBatch": "localization/ru-assets/batches/0079.tsv",
+    "status": "provisional adaptation; no independent or runtime acceptance"
+  },
+  {
+    "id": "mice-language-consumer-classification-phase18",
+    "sourceIds": [
+      "ds:497:905:Dialogue Text",
+      "ds:500:903:Dialogue Text",
+      "ds:501:903:Dialogue Text",
+      "ds:503:903:Dialogue Text",
+      "ds:503:904:Dialogue Text",
+      "ds:505:1136:Dialogue Text",
+      "ds:505:1137:Dialogue Text",
+      "ds:505:1141:Dialogue Text",
+      "ds:505:1142:Dialogue Text",
+      "ds:505:1143:Dialogue Text",
+      "ds:505:1145:Dialogue Text",
+      "ds:505:1149:Dialogue Text",
+      "ds:505:1150:Dialogue Text",
+      "ds:505:1151:Dialogue Text",
+      "ds:505:1152:Dialogue Text",
+      "ds:505:1153:Dialogue Text",
+      "ds:505:1154:Dialogue Text",
+      "ds:505:1155:Dialogue Text",
+      "ds:505:1156:Dialogue Text",
+      "ds:505:1160:Dialogue Text",
+      "ds:505:1161:Dialogue Text",
+      "ds:505:1163:Dialogue Text",
+      "ds:505:1164:Dialogue Text",
+      "ds:505:1165:Dialogue Text",
+      "ds:505:1166:Dialogue Text",
+      "ds:505:1167:Dialogue Text",
+      "ds:505:1216:Dialogue Text",
+      "ds:505:1217:Dialogue Text",
+      "ds:505:1218:Dialogue Text",
+      "ds:505:1220:Dialogue Text"
+    ],
+    "finding": "IPA-like constructed speech is distinct from English display text in the actual FONT(mouse)/FONT(main) link trees. Preserve its language/reveal state and controls until classified; ordinary English glosses and reactions are translated separately. No protected glossary edits.",
+    "evidence": "outputs/ru-assets-parallel-20261026/0018-translation/held-ids.json",
+    "status": "explicit source holds; renderer/source acceptance pending"
+  },
+  {
+    "id": "fen-movie-actor19-binding",
+    "sourceIds": [
+      "ds:524:874:Dialogue Text",
+      "ds:524:895:Dialogue Text",
+      "ds:524:896:Dialogue Text"
+    ],
+    "finding": "Movie dialogue actor 19 is Rascal here: the direction names Rascal riding; Fen addresses Rascal by name and actor 19 responds. Apply resolved male Rascal agreement only from this local context, never from actor ID alone.",
+    "evidence": "outputs/ru-assets-parallel-20261026/0019-translation/special-scene-notes.json",
+    "status": "source identity/binding review remains pending; no protected glossary changes"
+  },
+  {
+    "id": "lyllith-volkyn-fictional-book-provisional-names",
+    "sourceIds": [
+      "ds:592:752:Dialogue Text",
+      "ds:592:775:Dialogue Text",
+      "ds:592:776:Dialogue Text"
+    ],
+    "finding": "Fictional book characters remain outside the 171 pinned glossary terms. Source explicitly establishes Lyllith as female/she/her and Volkyn as male/he/him. Provisional Cyrillic names retained; dependent 593 title/sexual callbacks now drafted as a complete group with гроза/грёза and кончится/кончит. No glossary approval or final special-scene gate claimed.",
+    "provisionalTerms": {
+      "Lyllith": "Лиллит",
+      "Volkyn": "Волкин"
+    },
+    "status": "needs terminology review before integration; source-backed agreement; protected glossary unchanged",
+    "evidence": "outputs/ru-assets-parallel-20261026/0021-translation/special-scene-notes.json",
+    "previousFinding": "Fictional book characters are outside the 171 pinned glossary terms. Source explicitly establishes Lyllith as female/she/her and Volkyn as male/he/him. Direct Cyrillic transliterations are provisional; no protected glossary changes or inferred identity. The dependent title/slayer-layer wordplay in conversation 593 remains unvisited and must be handled as a complete group.",
+    "dependentGroupEvidence": "outputs/ru-assets-parallel-20261026/0022-translation/special-scene-notes.json"
+  },
+  {
+    "id": "book-club-mother-shouting-markup",
+    "sourceIds": [
+      "ds:587:778:Dialogue Text"
+    ],
+    "finding": "Original has two opening <size=18> tags. Exact anomalous source tags retained; no silent repair.",
+    "status": "needs consumer/source review before integration",
+    "evidence": "outputs/ru-assets-parallel-20261026/0021-translation/special-scene-notes.json"
+  }
+]

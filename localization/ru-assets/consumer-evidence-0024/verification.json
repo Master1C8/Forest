@@ -1,0 +1,106 @@
+{
+  "status": "static read-only method inspection; no game launch",
+  "inputHashes": {
+    "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+    "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+    "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll": "60ad076b7949def6bc5ac568376e7ac01c42c40f3b62f48f5bf90833a919f847",
+    "/Users/antonkrutov/Desktop/Forest/tools/probe/InspectMethods.cs": "4d58dc8207f1cda1e56f0f77cd1202cbdfc968f0cbb2e55154d5a14efda892c6"
+  },
+  "commands": {
+    "UITools": {
+      "argv": [
+        "dotnet",
+        "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+        "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+        "PixelCrushers.DialogueSystem.UITools",
+        "GetUIFormattedText"
+      ],
+      "exitCode": 0
+    },
+    "UITextField": {
+      "argv": [
+        "dotnet",
+        "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+        "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+        "PixelCrushers.UITextField",
+        "set_text"
+      ],
+      "exitCode": 0
+    },
+    "TypewriterUtility": {
+      "argv": [
+        "dotnet",
+        "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+        "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+        "PixelCrushers.DialogueSystem.TypewriterUtility",
+        "StartTyping"
+      ],
+      "exitCode": 0
+    },
+    "EntryAccessors": {
+      "argv": [
+        "dotnet",
+        "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+        "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+        "PixelCrushers.DialogueSystem.DialogueEntry",
+        "get_ActorID,get_ConversantID,GetCurrentSequenceField"
+      ],
+      "exitCode": 0
+    },
+    "CharacterInfo": {
+      "argv": [
+        "dotnet",
+        "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+        "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+        "PixelCrushers.DialogueSystem.ConversationModel",
+        "GetCharacterInfo,GetActorName"
+      ],
+      "exitCode": 0
+    },
+    "LineCallback": {
+      "argv": [
+        "dotnet",
+        "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+        "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+        "TheForestOfLove.Narrative.DialogueService",
+        "OnConversationLine_Handler"
+      ],
+      "exitCode": 0
+    }
+  },
+  "artifacts": {
+    "localization/ru-assets/consumer-evidence-0024/ActorTracking.il": "3df9373b3c1f61e44e5dc13434bd6831ebe8939147a7e3a8be705b289028f1f1",
+    "localization/ru-assets/consumer-evidence-0024/ArcEntryReferences.il": "3ad742b0b97bc334f27a3fd146637fb6841e4d606982243115402ccca68744e6",
+    "localization/ru-assets/consumer-evidence-0024/ArcFields.il": "4e907214260908a83d4e7679efcedb76c18ca705901fa519899107014f7cca3d",
+    "localization/ru-assets/consumer-evidence-0024/Assembly-CSharp.dll.line-references.il": "41a6e3bd49438b0b2014751bd888ec7ae7d450521bbdba2eeae98d320f523855",
+    "localization/ru-assets/consumer-evidence-0024/Assembly-CSharp.dll.text-references.il": "87034deccd95e9527a006c0e6602bbf063e4440a08dfea765dad239d53b8878d",
+    "localization/ru-assets/consumer-evidence-0024/Auto-asmdef-FirstPass.dll.line-references.il": "f2613a75d588a3c93edbd1bb60a183d0a13497aa6f404de774c5f9a75dfcb403",
+    "localization/ru-assets/consumer-evidence-0024/Auto-asmdef-FirstPass.dll.text-references.il": "f08ada399fabe335417144b11c894c27f50f471fdb6eeb1e29b43e0ebdcacdc2",
+    "localization/ru-assets/consumer-evidence-0024/BuildDynamicConversation.il": "ada150f7a1b4ef53e08738a9695eb3c3e178fa9d1ce6198c62218b4d73a0edfd",
+    "localization/ru-assets/consumer-evidence-0024/CharacterInfo.il": "0fb4fd5b07dadff8710811896371c81817e5ca0f8a709b126f30fd588a979b6b",
+    "localization/ru-assets/consumer-evidence-0024/ConversationController.il": "90fc3ab3f089b7d29ab330bca7b587b611ce5daf8d643c4fb22dc67497db2186",
+    "localization/ru-assets/consumer-evidence-0024/CustomPortraits.il": "0787b98674702e65d50fd5608befa4a5573457dfec3a27e7ec391b2f9d32eccf",
+    "localization/ru-assets/consumer-evidence-0024/EntryAccessors.il": "b07eade99740ecfc742806145a97e5a3bb6e0751845e033f88e1a43c68a8ac94",
+    "localization/ru-assets/consumer-evidence-0024/GeneralStoryUI.il": "cd26e79e05adca0a87e71b4599086e1adfaac7d0b47f45d469bf22b7862c091b",
+    "localization/ru-assets/consumer-evidence-0024/GenerateDialogueEntity.il": "e601193db70c24a0be34bbcd44f65374b8e09cb3a5ef1f64c1e1747b3c5f09e4",
+    "localization/ru-assets/consumer-evidence-0024/GenerateDialogues.il": "27e4a2820b991a0ee219e1f1bf35f68dd48a75b610764cbe28331733d14358f3",
+    "localization/ru-assets/consumer-evidence-0024/GlitchStory.il": "6442afef1e26f53d2fa667c868b4f8f3ef2cdbcb2831ca4ccca1dd91a52d1992",
+    "localization/ru-assets/consumer-evidence-0024/LegacyTypewriter.il": "489b9f0ef3498b464d3c48df4776b72cb1bb9eae9b041474a52f65db1fc3240c",
+    "localization/ru-assets/consumer-evidence-0024/LineCallback.il": "81fbf3a9439bccb153586337391604f41aeb5a613afe5eaf7dc310ffc2a3a7de",
+    "localization/ru-assets/consumer-evidence-0024/LoaderRecursion.il": "b6ac1f755541a2a57cabeb176185dba5aaa3c32dedd2942d1335663ee781e738",
+    "localization/ru-assets/consumer-evidence-0024/NarratorLayout.il": "5c88ba74f79e741fcc20c9573981f5dbbb53fc73cef099ac5bd540ddfe941720",
+    "localization/ru-assets/consumer-evidence-0024/PlayDialogue.il": "d8f036ade7a175b3426cdfa8fca22b15e6d19b2871de90d39607ce7397453af2",
+    "localization/ru-assets/consumer-evidence-0024/TmpTypewriter.il": "f8ab82efe2f5d1714bd08525cccd0382f7da6dbd20ac488dc88298f08597cc2c",
+    "localization/ru-assets/consumer-evidence-0024/TypewriterUtility.il": "773359ea9a87d3b6edda887c1180a9b055b08e9eaf4fa90e38d19a3f75826d7f",
+    "localization/ru-assets/consumer-evidence-0024/UITextField.il": "ceb4b6e67b950e43652716eb11bd2fc68430bd133bffeba9473b6465757a880a",
+    "localization/ru-assets/consumer-evidence-0024/UITools.il": "b14f721694fede616f6a5b97ec2445c098196e49eef675e646b6421d39423d21"
+  },
+  "additionalInspection": "Static typewriter tokenization, group state controller and all operand references to onDialogueLineBegin_AnyTextLine / OnPrepareConversationLine in both pinned assemblies. Scanner source/project retained in this directory.",
+  "recipeHashes": {
+    "localization/ru-assets/consumer-evidence-0024/ConsumerReferences.cs": "10270aa82bfe133bd56e59acd0a9af17e5a301ebb5c82576edf0193145a8b5b7",
+    "localization/ru-assets/consumer-evidence-0024/ConsumerReferences.initial.cs": "f2e90c7b6c0a7fd84f8adf5aadc7d1ac2576457d81090f4053a0abd1dd059b77",
+    "localization/ru-assets/consumer-evidence-0024/ConsumerReferences.csproj": "0ce0e9a4ad539dc2e48b1039c3665def5c20b33ae57792fda4738e2ccf27f836",
+    "localization/ru-assets/trace_held_source.py": "58dc9e4c4b15e34420e92b9bd663629450c2630fab786c769a31c08e33cf4ef8"
+  },
+  "limits": "Static original-assembly evidence only. No game launch. No shared source acceptance. Initial operand-only scanner recipe retained separately; line-references includes matching receiver method names."
+}
