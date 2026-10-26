@@ -1,34 +1,38 @@
-## Phase0035: diagnostic startup and original intro accepted; loaded focus rejects input
+## Phase0036: focus producers traced; passive diagnostic build verified
 
-Immutable candidate40 ran once with opt-in Wine/Mono tracing. Native loader paths identify
-its exact UnityPlayer and Mono files; READY arrived in39.25s. All24 actual original-policy
-menu idle frames passed. The repaired compact observer followed49 source content nodes
-and10 original response buttons, then accepted two distinct advancing terminal frames
-6970/7046: original end trigger1, no intro controller, one active original bed. This proves
-these runtime boundaries on40; it does not establish a restorable story checkpoint.
+Static original IL establishes the standalone chain: Unity's real manager focus
+callback updates the Rewired callback cache, focus watcher and change dispatch.
+The standalone watcher does not poll Application.isFocused; Unity's getter is a
+native InternalCall. The previously unnamed other watcher tracks runInBackground.
+This identifies the observation boundaries; the cause of40's loaded focus loss
+remains unknown. Native engine focus behavior and callback ordering are unverified.
 
-The first loaded BunnyHouse observation and43 passive input frames show actual Unity
-focus=False, Rewired focus watcher=False, original filter=True and both original input
-eligibility predicates=False. All eight keys/axes were idle. The existing first focus
-guard stopped before a second loaded sample or any native DOWN. No LEFT/DOWN, policy
-trial, focus activation, CentralForest entry or image occurred. The observed cause of
-rejected input is original unfocused eligibility; why focus changed after menu is unknown.
-A new successful startup cannot retrospectively diagnose39's earlier native exit.
+The existing bridge now records its own Unity focus/pause callbacks, the Unity
+focusChanged event and bounded LateUpdate states, with actual frame/clocks/scene
+and original Unity/Rewired eligibility. Records remain in memory until an acknowledged
+snapshot (or terminal limit), avoiding concurrent heartbeat truncation. The native
+helper's passive observe mode returns only task-window/frontmost PID scalars and
+keeps unavailable/ambiguous identity explicit. No focus, policy, input, scene or story
+workaround was added. Existing route and first-failure guards remain unchanged.
+An ordinary --retain-exit wrapper now waits for the exact observer child and retains
+its measured OS status; missing status remains unknown.
 
-Normal policy restore/no-op and Quit were acknowledged. Original QA assembly restored,
-bridge removed, exact recorded observer/launcher/game/crash-helper PIDs absent, QA
-persistence empty. All150 original managed references,262 other files,5 resource pairs,
-19 live-lane pins and378 frozen dependencies (2 intended DLL cleanup exceptions) match.
-One QA-only tfol.settings is retained; owner player files remain unchanged. All48 focused
-tests passed. No numeric detached-observer exit was retained; failed runtime JSON and
-traceback are preserved without inventing an exit code.
+C# compiled against all150 pinned original managed references; passive IL and Swift
+SIL readback passed. Swift compiled and performed one actual no-game/no-window scalar
+observation. All55 focused tests passed; these exercise non-game child/transport,
+fixture boundaries and the retained actual40 focus rejection. Unity callback tracing,
+serialization and real task-window identity still need runtime verification. All14
+existing guard bodies,29 consumed40 evidence files and19 live-lane input pins match.
+No game was launched; candidate41 is not prepared. No image was opened/captured and no asset lane was modified.
 
-Next: static tracing of original focus producers and a bounded passive focus/window
-observation repair in the existing harness; no blind retry or replay40. Keep source,
-special-scene, editorial, full renderer and final delivery gates pending. Asset lanes
-remain owner-authorized/read-only to this lane. Evidence:
-`localization/probes/ru-20261026-40/runtime-diagnosis.json` and `final-verification.json`.
-Previous summary: `localization/history/phase0033-summary.md`.
+Next: prepare one new immutable41 carrying these exact passive diagnostics, with no
+launch in that preparation phase. The changed hypothesis is the first divergence of
+native task-window identity, Unity callbacks/getter and Rewired cache/watcher from
+menu through loaded gameplay. Preserve40/39/38 as consumed, all original policies,
+accepted10/15 visuals and other valid runtime evidence. Source/special-scene,
+editorial, full renderer and final delivery remain pending. Primary evidence:
+`localization/source/focus-transition-20261026/{source-trace,static-build,verification}.json`.
+Previous runtime summary: `localization/history/phase0035-summary.md`.
 
 # The Forest of Love: Russian localization work
 

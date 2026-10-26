@@ -54,6 +54,13 @@ public sealed class ForestProbe : MonoBehaviour
         public bool active;
         public int expectedConversationId, expectedEntryId, actualConversationId, actualEntryId;
     }
+    [Serializable] public sealed class FocusTrace {
+        public string[] records; public bool limited;
+    }
+    private readonly List<string> focusRecords=new List<string>();
+    private string lastFocusState;
+    private float nextFocusRecord, focusStarted;
+    private bool focusLimited;
     private string root;
     private float next;
     private bool? originalIgnoreUnfocused;
@@ -76,6 +83,9 @@ public sealed class ForestProbe : MonoBehaviour
     void Awake() {
         Debug.Log("FOREST_STARTUP AWAKE_ENTER");
         root = Path.GetFullPath(Path.Combine(Application.dataPath,"../.."));
+        focusStarted=Time.realtimeSinceStartup;
+        Application.focusChanged+=ObserveUnityFocusEvent;
+        ObserveFocus("awake","unknown");
         Debug.Log("FOREST_PROBE_READY " + root + " SAVES " + Application.persistentDataPath);
     }
     static string Address(Transform t) {
@@ -88,7 +98,8 @@ public sealed class ForestProbe : MonoBehaviour
         if(!File.Exists(command)) return;
         var text=File.ReadAllText(command).Trim();File.Delete(command);
         try {
-            if(text=="dump") Dump();
+            if(text=="dump-focus") ObserveFocus("snapshot","unknown");
+            else if(text=="dump") Dump();
             else if(text=="dump-intro") DumpIntro();
             else if(text=="dump-notebook") {
                 var state=new NotebookRouteState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
@@ -233,7 +244,42 @@ public sealed class ForestProbe : MonoBehaviour
             throw new Exception("Original input focus policy not restored");
         originalIgnoreUnfocused=null;
     }
-    void OnDestroy() { RestoreInputPolicy(); }
+    void OnDestroy() {
+        Application.focusChanged-=ObserveUnityFocusEvent;
+        RestoreInputPolicy();
+    }
+    // These handlers receive real engine/library events. They never call the
+    // original callbacks, write watchers, or change window/input eligibility.
+    void OnApplicationFocus(bool value) { ObserveFocus("mono-focus",value.ToString()); }
+    void OnApplicationPause(bool value) { ObserveFocus("mono-pause",value.ToString()); }
+    void ObserveUnityFocusEvent(bool value) { ObserveFocus("unity-event",value.ToString()); }
+    void ObserveFocus(string kind,string callbackValue) {
+        if(root==null || focusLimited)return;
+        var state=" | focused="+Application.isFocused+
+            " | runInBackground="+Application.runInBackground+
+            " | scene="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        try {
+            var flags=BindingFlags.Static|BindingFlags.NonPublic;
+            state+=" | rewiredCallbackCache="+typeof(Rewired.ReInput).GetField("cbmmwJPDGUhXqzzdtJQPbNHADIB",flags).GetValue(null);
+            state+=Rewired.ReInput.isReady?" | ignoreUnfocused="+Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus+KeyboardEligibility():" | rewiredReady=False";
+            state+=" | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+                " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
+                " | conversation="+DialogueManager.isConversationActive;
+        } catch(Exception ex) { state+=" | errorType="+ex.GetType().Name; }
+        bool limit=focusRecords.Count>=1023 || Time.realtimeSinceStartup-focusStarted>=420f;
+        if(kind=="late" && state==lastFocusState && Time.realtimeSinceStartup<nextFocusRecord && !limit)return;
+        focusLimited=limit;
+        lastFocusState=state; nextFocusRecord=Time.realtimeSinceStartup+1f;
+        focusRecords.Add("focus | sequence="+focusRecords.Count+" | kind="+(limit?"limit":kind)+
+            " | callbackValue="+callbackValue+" | frame="+Time.frameCount+
+            " | realtime="+Time.realtimeSinceStartup+" | scaledTime="+Time.time+
+            " | timeScale="+Time.timeScale+" | utc="+DateTime.UtcNow.ToString("O")+
+            " | winPid="+GetCurrentProcessId()+state);
+        // Event/heartbeat records stay in memory until an acknowledged snapshot.
+        // LateUpdate must not truncate this file while the host reads that snapshot.
+        if(kind=="snapshot" || limit)File.WriteAllText(Path.Combine(root,"focus-trace.json"),JsonUtility.ToJson(
+            new FocusTrace{records=focusRecords.ToArray(),limited=focusLimited},true));
+    }
     // Exact shipped getters/fields are pinned in native-focus-20261026. These
     // predicates only read the real eligibility state; never write focus/watchers.
     static string KeyboardEligibility() {
@@ -286,6 +332,7 @@ public sealed class ForestProbe : MonoBehaviour
             (matches.Count==0?"absent":"ambiguous");
     }
     void LateUpdate() {
+        ObserveFocus("late","unknown");
         if(!samplingKeyboard)return;
         if(keyboardSamples.Count>=1200){samplingKeyboard=false;throw new Exception("Keyboard sample exceeded bound");}
         var keys=new byte[256]; var valid=GetKeyboardState(keys);
@@ -313,7 +360,8 @@ public sealed class ForestProbe : MonoBehaviour
             if(i<4) { nativeArrowsUp &= !n; asyncArrowsUp &= !a; rewiredArrowsUp &= !r; unityArrowsUp &= !u; }
         }
         // Observe the real producer and public getters. Never feed these values back.
-        keyboardSamples.Add("keyboard | time="+Time.realtimeSinceStartup+
+        keyboardSamples.Add("keyboard | frame="+Time.frameCount+" | scaledTime="+Time.time+
+            " | timeScale="+Time.timeScale+" | time="+Time.realtimeSinceStartup+
             " | winPid="+GetCurrentProcessId()+" | focused="+Application.isFocused+
             " | ignoreUnfocused="+Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus+
             KeyboardEligibility()+

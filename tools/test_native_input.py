@@ -100,6 +100,115 @@ class StartupLifetimeObservation(unittest.TestCase):
                 self.assertFalse(receipt['readyMarker'])
 
 
+class PassiveFocusObservation(unittest.TestCase):
+    """Scalar fixtures replace Unity callbacks. Real helpers/IL are checked separately."""
+
+    def trace(self, focus='False'):
+        row = dict(sequence='0', kind='snapshot', callbackValue='unknown', frame='7046',
+            realtime='148.02', scaledTime='123.37', timeScale='1', utc='2026-10-26T00:00:00Z',
+            winPid='32', scene='BunnyHouse', focused=focus, runInBackground='True',
+            rewiredReady='True', rewiredCallbackCache=focus, rewiredFocusWatcher=focus,
+            rewiredOtherWatcher='True', rewiredGlobalEnabled='True', rewiredFilter='True', ignoreUnfocused='True',
+            rewiredInputAllowed=focus, rewiredKeyboardAllowed=focus, nativeKeyboard='True',
+            unityInput='False', gameplay='True', anyEvent='False', conversation='False')
+        return dict(records=['focus | '+' | '.join(k+'='+v for k,v in row.items())], limited=False)
+
+    def test_unfocused_observation_is_valid_but_actual40_movement_still_rejects(self):
+        for focus in ['True','False']:
+            self.assertEqual(gameplay.focus_trace_latest(self.trace(focus))['focused'], focus)
+        root = Path(__file__).resolve().parents[1]
+        loaded = gameplay.loaded_travel(json.loads((root /
+            'localization/probes/ru-20261026-40/loaded-travel-1.json').read_text()))
+        with self.assertRaisesRegex(AssertionError, 'requires real Unity focus; no task DOWN'):
+            gameplay.movement_ready(loaded)
+
+    def test_actual_event_before_snapshot_is_retained_in_trace_order(self):
+        trace=self.trace()
+        trace['records'][0]=trace['records'][0].replace('kind=snapshot','kind=mono-focus')
+        trace['records'].append(trace['records'][0].replace('sequence=0','sequence=1').replace('kind=mono-focus','kind=snapshot'))
+        self.assertEqual(gameplay.focus_trace_latest(trace)['kind'],'snapshot')
+        self.assertIn('kind=mono-focus',trace['records'][0])
+
+    def test_limits_missing_transport_errors_and_regressed_frames_hold(self):
+        original = self.trace()
+        gameplay.focus_trace_latest(original)
+        cases = [dict(original, limited=True), dict(original, records=[]),
+                 dict(original, records=[original['records'][0]+' | errorType=MissingFieldException']),
+                 dict(original, records=[original['records'][0].replace('kind=snapshot','kind=late')]),
+                 dict(original, records=[original['records'][0].replace('realtime=148.02','realtime=nan')]),
+                 dict(original, records=[original['records'][0].replace('rewiredFocusWatcher=False','rewiredFocusWatcher=unknown')]),
+                 dict(original, records=original['records']+[
+                     original['records'][0].replace('sequence=0','sequence=1').replace('frame=7046','frame=7045')])]
+        for trace in cases:
+            with self.subTest(trace=trace), self.assertRaises(AssertionError):
+                gameplay.focus_trace_latest(trace)
+
+    def test_passive_observation_brackets_and_retains_unknown_native_window(self):
+        # Command is a fixture for game-thread transport; helper is a fixture for
+        # CGWindowList/NSWorkspace. Neither proves real callback ordering.
+        for status in ['unique','unavailable-or-ambiguous']:
+            with self.subTest(status=status), tempfile.TemporaryDirectory() as directory:
+                run = Path(directory)
+                (run/'focus-trace.json').write_text(json.dumps(self.trace()))
+                native = dict(mode='observe',status=status,unixTime=100.,frontmostPid=99,
+                              candidateCount=2,windowCount=0)
+                if status == 'unique':
+                    native.update(pid=123,windowID=456,windowCount=1,onScreen=True)
+                result = subprocess.CompletedProcess([],0,json.dumps(native),'')
+                with patch.object(gameplay,'RUN',run), patch.object(gameplay,'command') as command, patch.object(gameplay.subprocess,'run',return_value=result) as helper:
+                    gameplay.observe_focus_boundary('loaded-1',force=True)
+                    command.assert_called_once_with('dump-focus')
+                    self.assertEqual(helper.call_args.args[0], [str(run/'target_keyboard'),str(run),'observe'])
+                    gameplay.observe_focus_boundary('intro')
+                    self.assertEqual(helper.call_count,1)  # one-second throttle
+                row = json.loads((run/'focus-observations.json').read_text())[0]
+                self.assertLessEqual(row['hostBefore'],row['hostAfter'])
+                self.assertEqual(row['native'],native)
+                self.assertEqual(row['bridge']['focused'],'False')
+
+    def test_failed_passive_helper_is_retained_without_retry_or_input(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run=Path(directory)
+            (run/'focus-trace.json').write_text(json.dumps(self.trace()))
+            result=subprocess.CompletedProcess([],9,'','fixture failed')
+            with patch.object(gameplay,'RUN',run), patch.object(gameplay,'command') as command, patch.object(gameplay.subprocess,'run',return_value=result) as helper:
+                with self.assertRaisesRegex(AssertionError,'Passive native observation failed'):
+                    gameplay.observe_focus_boundary('loaded-1',force=True)
+                command.assert_called_once_with('dump-focus')
+                self.assertEqual(helper.call_count,1)
+            row=json.loads((run/'focus-observations.json').read_text())[0]
+            self.assertEqual(row['helperExitCode'],9)
+            self.assertIsNone(row['native'])
+
+    def test_malformed_successful_helper_is_preserved_and_holds(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run=Path(directory)
+            (run/'focus-trace.json').write_text(json.dumps(self.trace()))
+            result=subprocess.CompletedProcess([],0,'{invalid scalar fixture','')
+            with patch.object(gameplay,'RUN',run), patch.object(gameplay,'command') as command, patch.object(gameplay.subprocess,'run',return_value=result) as helper:
+                with self.assertRaisesRegex(AssertionError,'Malformed passive native JSON'):
+                    gameplay.observe_focus_boundary('loaded-1',force=True)
+                command.assert_called_once_with('dump-focus')
+                self.assertEqual(helper.call_count,1)
+            row=json.loads((run/'focus-observations.json').read_text())[0]
+            self.assertEqual(row['helperStdout'],result.stdout)
+            self.assertEqual(row['helperExitCode'],0)
+            self.assertIsNone(row['native'])
+
+    def test_wrapper_retains_real_success_and_failure_exit_without_a_game(self):
+        for code in [0,7]:
+            with self.subTest(code=code), tempfile.TemporaryDirectory() as directory:
+                run=Path(directory)
+                self.assertEqual(gameplay.retain_observer_exit(run,[sys.executable,'-c',
+                    'print("fixture child"); raise SystemExit(%d)' % code]),code)
+                receipt=json.loads((run/'observer-exit.json').read_text())
+                self.assertEqual(receipt['returnCode'],code)
+                self.assertGreater(receipt['observerPid'],0)
+                self.assertIn('fixture child',(run/'observer.stdout').read_text())
+                with self.assertRaisesRegex(AssertionError,'Existing observer status'):
+                    gameplay.retain_observer_exit(run,[sys.executable,'-c','raise SystemExit(0)'])
+
+
 class NativeReleaseObservation(unittest.TestCase):
     def eligibility_fixture(self):
         """Explicit mock of newly observed fields; never historical runtime acceptance."""
@@ -366,6 +475,7 @@ class NativeReleaseObservation(unittest.TestCase):
 
                 with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'command', command), \
                      patch.object(gameplay, 'keyboard_samples', return_value=[idle, idle]), \
+                     patch.object(gameplay, 'observe_focus_boundary') as focus_observer, \
                      patch.object(gameplay.time, 'sleep'):
                     if second_axis == '0,0,0':
                         self.assertEqual(len(gameplay.observe_loaded_travel()), 2)
@@ -373,6 +483,9 @@ class NativeReleaseObservation(unittest.TestCase):
                         with self.assertRaisesRegex(AssertionError, 'guarded idle gameplay'):
                             gameplay.observe_loaded_travel()
                         self.assertFalse((run / 'loaded-geometry.json').exists())
+                # This test replaces passive focus/native acquisition explicitly;
+                # separate tests exercise that transport and the actual40 rejection.
+                self.assertEqual(focus_observer.call_count, 2 if second_axis == '0,0,0' else 1)
                 self.assertEqual(json.loads((run / 'loaded-travel-2.json').read_text()), second)
                 self.assertEqual(calls.count('sample-keyboard-start'), 1)
                 self.assertEqual(calls[-1], 'sample-keyboard-stop')

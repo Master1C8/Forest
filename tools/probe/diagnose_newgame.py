@@ -35,6 +35,7 @@ STARTUP_TRACE_ENV = {
 def launch_options(argv):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', type=Path)
+    parser.add_argument('--retain-exit', action='store_true', help='Ordinary task-owned parent waits for observer and retains its actual exit code')
     parser.add_argument('--startup-diagnostics', action='store_true',
                         help='Opt-in Wine loader/exception/process and Mono logs; no runtime-policy changes')
     return parser.parse_args(argv)
@@ -100,6 +101,56 @@ def command(value, deadline=None):
     result = subprocess.run([sys.executable, str(RUN / 'command.py'), str(RUN), value],
                             capture_output=True, text=True, timeout=timeout)
     assert result.returncode == 0, (value, result.stdout[-500:], result.stderr[-500:])
+
+
+def focus_trace_latest(trace):
+    """Validate scalar transport only; unfocused states are valid observations."""
+    assert trace.get('limited') is False, 'Passive focus trace limit reached; hold actions'
+    records = trace.get('records')
+    assert isinstance(records, list) and 0 < len(records) <= 1024, 'Missing/bounded focus serialization'
+    rows = [diagnostic_fields([row], 'focus') for row in records]
+    assert [int(r['sequence']) for r in rows] == list(range(len(rows))), 'Focus trace sequence changed'
+    assert all(int(a['frame']) <= int(b['frame']) and float(a['realtime']) <= float(b['realtime'])
+               for a,b in zip(rows, rows[1:])), 'Focus frame/clock regressed'
+    latest = rows[-1]
+    assert any(r['kind'] == 'snapshot' for r in rows) and 'errorType' not in latest, 'No fresh successful focus snapshot'
+    # A real callback/scene change can append after command acknowledgement.
+    # Keep that newer actual state; do not demand a quiet frame or replay a dump.
+    assert all(math.isfinite(float(latest[k])) and float(latest[k]) >= 0 for k in ['frame','realtime','scaledTime','timeScale']), 'Invalid actual focus clocks'
+    assert latest.get('scene') and int(latest['winPid']) > 0, 'Missing focus scene/process identity'
+    assert all(latest.get(k) in ['True','False'] for k in ['focused','runInBackground','rewiredReady','rewiredCallbackCache']), 'Missing actual focus state'
+    if latest['rewiredReady'] == 'True':
+        assert all(latest.get(k) in ['True','False'] for k in ['rewiredFocusWatcher',
+            'rewiredOtherWatcher','rewiredGlobalEnabled','rewiredFilter','ignoreUnfocused','rewiredInputAllowed',
+            'rewiredKeyboardAllowed','nativeKeyboard','unityInput','gameplay','anyEvent','conversation']), 'Missing focus eligibility state'
+    return latest
+
+
+def observe_focus_boundary(label, force=False):
+    # Native and game-thread times are bracketed, never called simultaneous.
+    path = RUN / 'focus-observations.json'
+    rows = json.loads(path.read_text()) if path.exists() else []
+    if rows and not force and time.time() - rows[-1]['hostAfter'] < 1:
+        return
+    assert len(rows) < 512, 'Passive native focus observation bound; hold actions'
+    before = time.time()
+    command('dump-focus')
+    trace = focus_trace_latest(json.loads((RUN / 'focus-trace.json').read_text()))
+    result = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'observe'],
+                            capture_output=True, text=True, timeout=10)
+    try:
+        native = json.loads(result.stdout) if result.returncode == 0 else None
+    except (ValueError, TypeError):
+        native = None
+    rows.append(dict(label=label, hostBefore=before, hostAfter=time.time(), bridge=trace,
+        native=native, helperExitCode=result.returncode, helperStdout=result.stdout, helperStderr=result.stderr))
+    write('focus-observations.json', rows)
+    assert result.returncode == 0, 'Passive native observation failed; no replay or fallback'
+    assert isinstance(native, dict), 'Malformed passive native JSON; hold actions'
+    assert native['mode'] == 'observe' and native['status'] in ['unique','unavailable-or-ambiguous'], 'Unknown passive native response'
+    assert isinstance(native['frontmostPid'], int) and math.isfinite(native['unixTime']), 'Missing native focus identity/time'
+    if native['status'] == 'unique':
+        assert native['pid'] > 0 and native['windowID'] > 0 and native['windowCount'] == 1, 'Invalid unique task window'
 
 
 def decode_state(state):
@@ -407,6 +458,7 @@ def observe_loaded_travel():
             shutil.copy2(RUN / 'travel-route.json', RUN / ('loaded-travel-%d.json' % (index + 1)))
             rows = keyboard_samples()
             current = loaded_travel(json.loads((RUN / 'travel-route.json').read_text()))
+            observe_focus_boundary('loaded-%d' % (index + 1), force=True)
             movement_ready(current)
             assert len(rows) >= 2 and all(keyboard_idle(r) for r in rows), 'Non-idle input during loaded observations; no DOWN'
             for row in rows:
@@ -683,6 +735,7 @@ def main():
                              'scope': 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility'})
         wait_for_ready(child)
         (RUN / 'actions.log').touch(exist_ok=True)
+        observe_focus_boundary('ready', force=True)
         command('show-menu')
         command('dump')
         state = read_state()
@@ -690,6 +743,7 @@ def main():
         assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
         shutil.copy2(RUN / 'state.json', RUN / 'main-menu.json')
         observe_original_menu()
+        observe_focus_boundary('menu-before-New', force=True)
         command('dump-notebook')
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'main-menu-notebook.json')
         command('dump-tutorial')
@@ -726,6 +780,7 @@ def main():
             assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
             assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
             guards, action, terminal_pair = budget.observe(time.monotonic(), state, graph, seen_dialogue)
+            observe_focus_boundary('intro')
             key = (state['scene'], state['conversationActive'], state['conversationId'], state['entryId'])
             observations.append({'elapsed': round(time.monotonic() - started, 3),
                                  'scene': key[0], 'conversationActive': key[1],
@@ -836,5 +891,27 @@ def main():
     assert success and clean, error
 
 
+def retain_observer_exit(run, child_argv):
+    """Do not infer a dead detached observer's status; wait for our actual child."""
+    path = run / 'observer-exit.json'
+    assert not path.exists(), 'Existing observer status; reconcile before submission'
+    with (run / 'observer.stdout').open('xb') as stdout, (run / 'observer.stderr').open('xb') as stderr:
+        child = subprocess.Popen(child_argv, stdout=stdout, stderr=stderr)
+        (run / 'observer-child.json').write_text(json.dumps(dict(observerPid=child.pid,
+            wrapperPid=os.getpid(), argv=child_argv, returnCode=None), indent=2)+'\n')
+        code = child.wait()
+    path.write_text(json.dumps(dict(observerPid=child.pid, returnCode=code,
+        waitStatusSource='subprocess.Popen.wait on exact task-owned child',
+        boundary='OS observer status only; runtime-result/cleanup define game acceptance'), indent=2)+'\n')
+    return code
+
+
 if __name__ == '__main__':
+    options = launch_options(sys.argv[1:])
+    if options.retain_exit:
+        run = options.run.resolve()
+        assert Path(__file__).resolve().parent == run, 'Supervise only the immutable task snapshot'
+        code = retain_observer_exit(run, [sys.executable, str(Path(__file__).resolve())] +
+                                    [x for x in sys.argv[1:] if x != '--retain-exit'])
+        sys.exit(code if code >= 0 else 128-code)
     main()

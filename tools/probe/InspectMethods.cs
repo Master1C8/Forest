@@ -29,13 +29,14 @@ if (args[1] == "--find-native") {
             Console.WriteLine(method.FullName + " | " + method.PInvokeInfo.Module.Name + "!" + method.PInvokeInfo.EntryPoint);
     return;
 }
-if (args[1] == "--find-literal" || args[1] == "--find-calls" || args[1] == "--find-call-fragment") {
+if (args[1] == "--find-literal" || args[1] == "--find-calls" || args[1] == "--find-call-fragment" || args[1] == "--find-field-fragment") {
     foreach (var method in types.SelectMany(t => t.Methods))
         if (method.HasBody)
             foreach (var instruction in method.Body.Instructions)
                 if ((args[1] == "--find-literal" && instruction.OpCode == Mono.Cecil.Cil.OpCodes.Ldstr && (string)instruction.Operand == args[2]) ||
                     (args[1] == "--find-calls" && instruction.Operand is MethodReference called && called.FullName == args[2]) ||
-                    (args[1] == "--find-call-fragment" && instruction.Operand is MethodReference fragment && fragment.FullName.Contains(args[2], StringComparison.Ordinal)))
+                    (args[1] == "--find-call-fragment" && instruction.Operand is MethodReference fragment && fragment.FullName.Contains(args[2], StringComparison.Ordinal)) ||
+                    (args[1] == "--find-field-fragment" && instruction.Operand is FieldReference field && field.FullName.Contains(args[2], StringComparison.Ordinal)))
                     Console.WriteLine(method.FullName + " | " + instruction);
     return;
 }
@@ -54,7 +55,8 @@ var names = args[2].Split(',').ToHashSet();
 if (names.Any(n => !type.Methods.Any(m => m.Name == n))) throw new ArgumentException("Unknown method");
 Console.WriteLine("TYPE " + type.FullName);
 foreach (var method in type.Methods.Where(m => names.Contains(m.Name))) {
-    Console.WriteLine("METHOD " + method.FullName);
+    Console.WriteLine("METHOD " + method.FullName + " | attributes=" + method.Attributes + " | impl=" + method.ImplAttributes);
+    foreach (var attribute in method.CustomAttributes) Console.WriteLine("ATTRIBUTE " + attribute.AttributeType.FullName);
     if (method.HasBody)
         foreach (var instruction in method.Body.Instructions)
             Console.WriteLine(instruction);

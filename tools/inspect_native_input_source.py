@@ -19,7 +19,9 @@ def main():
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--focus-only', action='store_true', help='Read-only supplemental watcher/eligibility bindings; preserve original extraction')
     parser.add_argument('--gameplay-eligibility', action='store_true', help='Read-only original player map getters for strict gameplay eligibility')
+    parser.add_argument('--focus-transition', action='store_true', help='Trace original focus initialization/callback/update producers; no runtime')
     args = parser.parse_args()
+    assert sum([args.focus_only, args.gameplay_eligibility, args.focus_transition]) <= 1
     out = args.output.resolve()
     assert ROOT in out.parents and not out.exists()
     refs = json.loads((ROOT / 'localization/probes/ru-20261026-25/bridge-build.json').read_text())['originalManagedReferences']
@@ -55,6 +57,32 @@ def main():
             'MapGetters': ('Rewired_Core.dll', 'Rewired.ControllerMap', 'get_sourceMapId,get_categoryId,get_layoutId,get_enabled,get_AllMaps'),
             'BindingGetters': ('Rewired_Core.dll', 'Rewired.ActionElementMap', 'get_actionId,get_elementType,get_axisRange,get_invert,get_axisContribution,get_modifierKey1,get_modifierKey2,get_modifierKey3,get_keyCode,get_enabled'),
         }
+    if args.focus_transition:
+        watcher = 'Rewired.ReInput/UYDcZIUFzwNkgKFpAvKGoMimqAT'
+        groups = {
+            'ManagerFocusCallback': ('Rewired_Core.dll', 'Rewired.InputManager_Base', 'OnApplicationFocus,Update,FixedUpdate,LateUpdate,DoUpdate'),
+            'FocusCallback': ('Rewired_Core.dll', 'Rewired.ReInput', 'bznJUoHKVApHghlqpCKYJLbDytar,rRujWYRgwEnOOYvDVNSFbReupcp,ZKumZMMwjLdcKigSxyxILFzYDuE,add_ApplicationFocusChangedEvent,remove_ApplicationFocusChangedEvent'),
+            'FocusInitialization': ('Rewired_Core.dll', 'Rewired.ReInput', 'nKQbCtkHPOPnqlOqEQhEesshditg'),
+            'WatcherInitializationUpdate': ('Rewired_Core.dll', watcher, '.ctor,jSmUMfkZCZCZfiMnleEGJnwKIqT,wweiCHaRbiDSHRzxofNoPRkDurZ,kokFAeEvpzjEkqzOXVfsybUZexs'),
+            'WatcherSetUpdateEvent': ('Rewired_Core.dll', 'Rewired.Utils.Classes.Utility.ValueWatcher`1', '.ctor,Set,Update,TriggerEvent,get_value'),
+            'FocusFieldReferences': ('Rewired_Core.dll', '--find-field-fragment', '::QBAmVSgbZBPmppTHWYNgMiDCmXg'),
+            'ManagerInitializeCall': ('Rewired_Core.dll', '--find-call-fragment', 'Rewired.ReInput::nKQbCtkHPOPnqlOqEQhEesshditg'),
+            'FocusCacheDefaults': ('Rewired_Core.dll', 'Rewired.ReInput', '.cctor'),
+            'FocusCacheReferences': ('Rewired_Core.dll', '--find-field-fragment', '::cbmmwJPDGUhXqzzdtJQPbNHADIB'),
+            'FocusListenerAndReset': ('Rewired_Core.dll', 'Rewired.ReInput', 'NavijpmlHmAjhDisfzPPUTADGLlI,MkbhfLFUcsGsRzkXpoCFDbyKRux,OCqSJvbpclWclSkjYkLsBbHdJUx'),
+            'ReInputUpdate': ('Rewired_Core.dll', 'Rewired.ReInput', 'HXpJWkBpkWGHVPusKmSTbEJtFhLg,nlCAvFCuyFlAIRnTmvLKpOsouZf,jSmUMfkZCZCZfiMnleEGJnwKIqT'),
+            'OriginalFocusEligibility': ('Rewired_Core.dll', 'Rewired.ReInput', 'get_applicationIsFocused,get_applicationRunInBackground,get_inputAllowed,IsInputAllowed'),
+            'RewiredUnityFocusConsumers': ('Rewired_Core.dll', '--find-call-fragment', 'UnityEngine.Application::get_isFocused'),
+            'GameUnityFocusConsumers': ('Assembly-CSharp.dll', '--find-call-fragment', 'UnityEngine.Application::get_isFocused'),
+            'UnityFocusNativeBoundary': ('UnityEngine.CoreModule.dll', 'UnityEngine.Application', 'get_isFocused,InvokeFocusChanged,add_focusChanged,remove_focusChanged'),
+        }
+    # Compile from current sources before every extraction. A cached DLL is never authority.
+    project = ROOT / 'tools/probe/InspectMethods.csproj'
+    source = ROOT / 'tools/probe/InspectMethods.cs'
+    source_pins = {str(p.relative_to(ROOT)): sha(p) for p in [source, project]}
+    build_argv = ['dotnet', 'build', str(project), '--no-restore', '--nologo', '--verbosity', 'quiet']
+    build = subprocess.run(build_argv, check=True, capture_output=True, text=True)
+    assert all(sha(ROOT / p) == h for p,h in source_pins.items()), 'Inspector source changed during build'
     commands, files = {}, {}
     for name, (assembly, typename, methods) in groups.items():
         assert sha(MANAGED / assembly) == refs[assembly]
@@ -67,7 +95,8 @@ def main():
     (out / 'extraction.json').write_text(json.dumps({
         'assemblies': {assembly: refs[assembly] for assembly, _, _ in groups.values()},
         'recipeSha256': sha(Path(__file__)), 'inspectorSha256': sha(inspector),
-        'inspectorSourceSha256': sha(ROOT / 'tools/probe/InspectMethods.cs'), 'commands': commands,
+        'inspectorSourceSha256': sha(source), 'inspectorBuild': {'argv': build_argv, 'exitCode': build.returncode,
+            'stdout': build.stdout, 'stderr': build.stderr, 'sourcePins': source_pins}, 'commands': commands,
         'files': {name: hashlib.sha256(payload).hexdigest() for name, payload in files.items()},
         'boundary': 'Original shipped assemblies, read-only source; no native input or runtime acceptance',
     }, indent=2) + '\n')
