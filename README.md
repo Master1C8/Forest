@@ -1,42 +1,74 @@
-## Phase0068: Quest progress source and lost-photo counter dependency
+## Current October27 owner-authorized work
 
-The original BGDatabase QuestProgressLogText now has a bounded119-row/6-column
-source supplement, with five related columns across38 Quest rows. All904 cell
-states match source:757 stored spans re-encode exactly and147 absent states stay
-absent.195 display-candidate states contain177 nonempty phrases;709 other states
-are protected. All149 relations resolve and13 generated sheet/column IDs match.
-Original TextAsset/DLL/resource hashes, seven native Text output hashes and all19
-frozen input pins pass. Fresh decode and all eight readback files reproduce exactly.
+Six preliminary complete dialogue-family semantic passes run independently for ru,
+zh,es,es-419,pt-BR,de. The owner explicitly permits this reading before complete-game
+source acceptance, with preliminary status and possible repeat after input changes.
+Each pins12246 candidates and both source copies, glossary/manual versions and target
+hashes; reviewers are read-only and record individual model-authored decisions. The
+runner's emitted-read receipts/counts are storage evidence, not semantic proof. Full
+source/image/special-scene/glossary/independent-diff/resource/runtime acceptance stays
+open. See `localization/EDITORIAL-CLI-TASK.md` and `outputs/editorial-20261027/`.
 
-The generated getters -> loader callbacks -> unlock/root/history selection ->
-native details pane are bound. All119 priorities are0 and all replacement links
-are absent. Priority-only sorting does not establish chronological or row order.
-119 log occurrences have113 distinct strings; equal wording keeps separate IDs.
-The three case-sensitive lost-photos comparisons affect exactly one original row,
-MelodyFlipbookQuest_2. The counter counts nine protected flags and appends ({0}/{1})
-in current/1Back/2Back after completion shifting. A bounded identity-based adapter
-requirement and dependency group are recorded; implementation/runtime remain pending.
+An actual Russian preview was built from the saved overlay and launched once in
+`localization/previews/ru-20261027-01/game/`, with isolated QA identity and unmodified
+original install/saves. The original native warning frame has English content and
+line overlap. A separately reviewed native dialogue-choice frame confirms readable
+Russian text and both choices with glyph/layout checks passed. Content remains
+needs-review because the actor label is Latin Scarlett. Input progression is not
+verified; the continuation sent no keys/clicks and stopped when the window identity
+changed. The two original processes survived; no GUI automation remains. Do not relaunch,
+modify its loaded resources or treat static overlay readback as rendered proof.
+Evidence is in `outputs/ru-preview-20261027/attempt-051408/`.
 
-The30 stored initial-unlock relations have no direct getter consumer in the original
-Assembly-CSharp call search. This does not prove the field unused. Other Quest
-controls, special pane overrides and additional log text consumers remain pending.
-The selected pane's75 literal occurrences distinguish22 display fragments,3 display
-comparisons,2 punctuation controls and48 identity occurrences. No target text,
-resource reinsertion, runtime/visual or full source acceptance is credited.
+Parent is the sole Git/index/HEAD coordinator during this parallel period. Source69's
+verified supplement and prior disjoint parent commits are reconciled; historical
+ownership receipts are preserved. Static technical continuation uses the explicit
+`--git-coordinator parent` option and has no Git or live-preview interaction rights.
+Japanese and all locale assets remain independent/read-only to technical workers.
 
-Next: trace QuestLog.OnQuestLogUpdated and Storm's exact log-text mutation/callback,
-bind their row/literal dependencies, then reconcile initial-unlock/event consumers.
-Use a new supplement; do not change current evidence or frozen lane inputs. All
-seven authorized draft lanes remain independent/read-only. Accepted10/15/47/48
-visuals and50 route stay unchanged;53 is consumed, no54 or unchanged runtime retry.
-Full source/special-scene/renderer/editorial, initial spawn/other3 intros/notebook/
-Bucky, final fonts/licenses/resources and local delivery remain pending.
+## Phase0069: Quest notifications and initial unlock consumers
 
-Evidence: `localization/source/bgdatabase-20261027/quest-progress/ADAPTER.md`,
-`source-trace.json`, `decoded.json`, `readback/verification.json`,
-`readback/counter-dependency.json`, `reproducibility.json`. No game launches,
-images, agents, nested model jobs, publication or deployment. Worker usage unknown;
-parent measures actual telemetry. Prior summary: `localization/history/phase0067-summary.md`.
+A separate original-source supplement resolves27 exact consumer IL selections.
+Storm handler/callback read log text into notification locals; the only text-field
+write in original Assembly-CSharp is the loader.13 notification and14 pane lookups
+resolve to13 distinct log rows.98 selected cell states retain stable selectors,
+values/spans/relations;46 additional compiled occurrences distinguish9 display
+fragments and37 protected operands. Four concrete dependency groups bind ordering,
+conditions, anomalies and future checks without changing frozen lane inputs.
+
+Notifications enqueue fresh two-string nodes: Greetings permits0..4 independent
+matches, Storm0..5, generic output1. Queue caps/deduplication are absent; FIFO/timer
+conditions and original8 old/8 new native Text descendants are pinned. Equal rows,
+white/shadow label variants and repeated events do not collapse authored identity.
+Special pane behavior includes Afterstorm's all-complete More critters . join,
+Storm's differing ==7/>=7 checks, dormant completion literal and prefix-only case.
+These original anomalies remain unchanged; no target wording/adapter is accepted.
+
+Initial unlocking has a concrete partial trace: StartQuest opens runtime list[0]
+with its event suppressed, and AdventureModePlaceholder opens list[0] separately.
+Neither reads the30 declared initial relations in28 Quest rows. No original
+Assembly-CSharp started-event listener or exact column-literal use was found.
+Reflection/other mechanisms and the exact first row under priority-only sorting
+remain unverified. Do not substitute declared links, row order or a stable sort.
+
+Original TextAsset/resource/DLL hashes, all19 frozen pins,74 InventoryItem and46
+Quest evidence hashes,904 typed cell states and65 notification hierarchy hashes
+pass. All seven freshly generated readback files reproduce byte-for-byte. These
+checks establish static source/consumer bindings, not resource reinsertion,
+editorial, renderer/runtime or complete shared-source acceptance.
+
+Next: decode the remaining seven Quest columns and their actual availability/
+loader consumers in a new supplement. Seven provisional draft lanes remain
+independent/read-only. Accepted10/15/47/48 visuals and50 route stay unchanged;53 is
+consumed/no54 or unchanged runtime retry. Initial spawn/other3 intros/notebook/Bucky,
+full special-scene/source/editorial and final fonts/licenses/resources/local delivery
+remain pending. No game launches, images, agents, nested jobs or publication.
+
+Evidence: `localization/source/bgdatabase-20261027/quest-consumers/ADAPTER.md`,
+`source-trace.json`, `dependency-groups.json`, `readback/verification.json`,
+`reproducibility.json`. Worker usage unknown; parent measures actual telemetry.
+Previous current summary is archived byte-for-byte in
+`localization/history/phase0068-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

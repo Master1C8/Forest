@@ -115,6 +115,12 @@ class ContinuationTests(unittest.TestCase):
                 support.evidence_files(root, run, ['../escape.json'])
 
     def test_resume_reconciles_completed_result_without_rerunning_it(self):
+        self._exercise_technical_resume('technical')
+
+    def test_parent_git_owner_remains_explicit_across_fresh_technical_phases(self):
+        self._exercise_technical_resume('parent')
+
+    def _exercise_technical_resume(self, coordinator):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve()
             run = root / 'outputs/job'
@@ -135,6 +141,7 @@ class ContinuationTests(unittest.TestCase):
                     'result': {'outcome': 'continue', 'evidence': ['localization/probe.json',
                         'outputs/job/0001-work/integration.json'], 'nextBrief': str(first), 'nextKind': 'work'}}]})
             calls = []
+            commands = []
 
             class Child:
                 pid = 99999999
@@ -143,6 +150,7 @@ class ContinuationTests(unittest.TestCase):
                     self.phase = Path(command[command.index('--output-last-message') + 1]).parent
                     self.out = kwargs['stdout']
                     calls.append(self.phase.name)
+                    commands.append(command)
 
                 def wait(self):
                     self.returncode = 0
@@ -162,9 +170,14 @@ class ContinuationTests(unittest.TestCase):
                     return 0
 
             with patch.object(technical, 'ROOT', root), patch.object(technical.shutil, 'which', return_value=str(codex)), patch.object(technical.subprocess, 'Popen', Child):
-                technical.run(run, first, resume=True)
+                technical.run(run, first, resume=True, git_coordinator=coordinator)
             state = json.loads((run / 'job.json').read_text())
             self.assertEqual(calls, ['0002-work', '0003-work'])
+            self.assertEqual(state['gitOwner'], coordinator)
+            if coordinator == 'parent':
+                self.assertTrue(all('Parent alone owns Git/index/HEAD' in command[-1] for command in commands))
+                self.assertTrue(all('Technical lane alone owns Git commits' not in command[-1] for command in commands))
+                self.assertTrue(all('you own canonical edits/index' not in command[-1] for command in commands))
             self.assertEqual(state['phases'][0]['status'], 'phase-complete')
             self.assertEqual(state['phases'][1]['status'], 'phase-complete')
             self.assertEqual(len(state['phases'][1]['auxiliaryEvidence']), 1)

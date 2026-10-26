@@ -19,14 +19,21 @@ retroactively relabel the prior author's self-review as independent.
 
 Game checkout: `/Users/antonkrutov/Desktop/Forest`, canonical `main`. Initial accepted
 technical work is at commits 303a697 and 89898ca. The parent may prepare the current
-handoff before dispatch; the active technical worker then has exclusive Git transaction
-ownership (stage -> full staged-diff inspection -> commit -> committed-tree verification).
+handoff before dispatch. The runner declares exactly one Git coordinator using
+`--git-coordinator technical|parent` (technical is the historical default). Under
+technical ownership the worker alone performs stage -> full staged-diff inspection
+-> commit -> committed-tree verification. Under parent ownership the worker has NO
+Git/index/branch mutations; it writes only authorized technical files and verified
+handoffs, and the parent alone integrates them. The explicit dispatch selection governs
+older role wording. An expected disjoint parent commit is not a new ownership blocker
+for a worker with no Git permission.
 The asset worker is prohibited from all Git/index/branch mutations and writes only
 `localization/ru-assets/` and `outputs/ru-assets-parallel-20261026/`. These directories
 are READ-ONLY to the technical worker: do not stage, commit, modify, remove or stop them.
 Never use `git add .`, `git add -A`, `git commit -a`, reset/stash or broad cleanup.
 Inspect the full index before staging and committing; preserve unrelated changes.
-The parent monitors after dispatch. No concurrent technical commits are permitted. No configured remote exists: do not
+Only the declared coordinator commits; every other writer remains index-read-only.
+No concurrent commits are permitted. No configured remote exists: do not
 invent one, create a repository or stop ordinary local work solely for that reason.
 Preserve the unrelated Helltaker ZIP and all existing valid evidence.
 
@@ -122,8 +129,10 @@ universal full semantic / independent diff / dependency delta protocol; do not c
 competing target overlays while the asset lane is working.
 Use the fixed shared stage gates. Final fonts precede final texture production. Build,
 resource readback, runtime/visual acceptance and canonical integration remain separate.
-Commit verified phase work on main with exclusive index ownership; preserve unrelated
-changes. Keep exact measured usage and provenance; cached input and reasoning are subsets.
+Under technical Git ownership commit verified phase work on main with exclusive index
+ownership; under parent ownership provide exact versioned evidence for parent integration
+and continue independent authorized technical work. Preserve unrelated changes. Keep
+exact measured usage and provenance; cached input and reasoning are subsets.
 Only report `complete` when the requested local localization is actually accepted and
 its deliverable exists; source counts, a successful build or an evidence ZIP do not suffice.
 
@@ -165,7 +174,19 @@ the same pinned source family and its exact accepted glossary snapshot. The Russ
 lane remains separate. ALL localization/*-assets/ directories and
 outputs/locale-assets-20261026/ are read-only to technical workers, including their
 untracked files. Never stage, alter or stop these lanes. Their workers have no Git/index
-permission; technical work remains the sole commit coordinator after parent dispatch.
+permission; only the dispatch-declared Git coordinator may commit.
 Locale glossary snapshots/configurations and shared source inventories are frozen for
 all live lanes. Additional consumer findings use separate supplements. Provisional
 parallel drafting is owner-authorized, not passed renderer/source/editorial acceptance.
+
+Current October27 dispatch additionally authorizes six preliminary full dialogue-family
+audits under the owner's explicit incomplete-inventory exception. They are read-only to
+locale/source data and have no Git/GUI permissions. Japanese continues independently.
+The separate actual Russian preview owns its one isolated running GUI instance; static
+technical phases must not automate, stop or relaunch it. Parent is the Git coordinator
+for this parallel period and acknowledges accepted disjoint commits ecb36e8 and9ad8820.
+The phase69 source finding and prior ownership hold remain historical evidence; use
+the new parent reconciliation and current HEAD, never reset/amend/rewrite either commit.
+Regression: a parent-coordinated resumed technical lane crosses two fresh phases while
+all real prompts and state retain no-Git worker ownership, without asking the owner to
+acknowledge an already reconciled disjoint parent commit again.

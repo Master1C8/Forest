@@ -81,9 +81,10 @@ def validate_interruption_restart(directory, previous, receipt_path, first_brief
     return receipt
 
 
-def run(directory, first_brief, resume=False, reconciliation=None):
+def run(directory, first_brief, resume=False, reconciliation=None, git_coordinator='technical'):
     directory, first_brief = directory.resolve(), first_brief.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
+    assert git_coordinator in ('technical', 'parent'), 'Explicit Git coordinator required'
     assert directory.is_dir()
     path = directory / 'job.json'
     previous = json.loads(path.read_text()) if resume else None
@@ -157,9 +158,10 @@ def run(directory, first_brief, resume=False, reconciliation=None):
             'authorization': 'Owner explicitly instructed resume technical CLI with parallel translation allowed; do not stop translation.'})
         state.update(status='running', supervisorPid=os.getpid(), contractSha256=contract_hash,
                      reviewWrapperSha256=wrapper_hash, reviewWrapperSource=str(source_wrapper),
-                     concurrentAssetLane='outputs/ru-assets-parallel-20261026', gitOwner='technical lane only')
+                     concurrentAssetLane='outputs/ru-assets-parallel-20261026')
         state.pop('finishedAt', None)
         state.pop('reason', None)
+    state['gitOwner'] = git_coordinator
     atomic_json(path, state)
     brief, kind, seen = first_brief, 'work', set()
     if resume:
@@ -176,12 +178,17 @@ def run(directory, first_brief, resume=False, reconciliation=None):
             phase.mkdir()
             shutil.copyfile(brief, phase / 'brief.md')
             result_path = phase / 'result.json'
+            git_rule = ('Parent alone owns Git/index/HEAD for this dispatch; NO Git/index/branch mutations by this worker.'
+                        if git_coordinator == 'parent' else 'Technical lane alone owns Git commits;')
+            editing_role = ('You own only the authorized technical file edits; parent integrates verified artifacts. Parent commits are expected, not an index-ownership blocker for this no-Git worker.'
+                            if git_coordinator == 'parent' else 'The parent only monitors and accounts; you own canonical edits/index in this phase.')
             prompt = (
                 f'Continue the owner-authorized serial Russian localization. Read {contract}, '
                 f'then the bounded assignment {phase / "brief.md"}. This is a fresh context; '
                 'do not load parent/previous CLI conversation history. One active technical CLI in this lane; '
                 'the owner explicitly allows the parallel asset-translation CLI; never stop it or block on its existence. '
-                'Technical lane alone owns Git commits; never stage or modify localization/ru-assets/ or its job directory. '
+                f'{git_rule} '
+                'Never stage or modify localization/ru-assets/ or its job directory. '
                 'Do not spawn agents or nested model/CLI jobs. The selected model is explicitly '
                 'gpt-6.1-sol/high/OpenAI; NEVER Astra or fallback. '
                 f'This phase kind is {kind}. '
@@ -194,7 +201,7 @@ def run(directory, first_brief, resume=False, reconciliation=None):
                 'independent reviewer contexts are already authorized; do not stop for the '
                 'former single-session restriction. Preserve real source/renderer/editorial gates. '
                 'Make substantive progress; do not repeat unchanged status or add a framework. '
-                'The parent only monitors and accounts; you own canonical edits/index in this phase. '
+                f'{editing_role} '
                 'Do not modify the serial runner, its frozen contract/wrapper, sibling phases, '
                 'or operational job/log files. You may write your own result/next brief and '
                 'the project files within this assignment. No site publication/deployment.'
@@ -288,6 +295,7 @@ if __name__ == '__main__':
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--reconcile-capacity', type=Path)
     parser.add_argument('--reconcile-interruption', type=Path)
+    parser.add_argument('--git-coordinator', choices=('technical', 'parent'), default='technical')
     args = parser.parse_args()
     if args.self_check:
         validate_model(MODEL, EFFORT, PROVIDER)
@@ -301,4 +309,6 @@ if __name__ == '__main__':
     else:
         assert args.run and args.brief
         assert not (args.reconcile_capacity and args.reconcile_interruption), 'Choose the exact reconciliation path.'
-        run(args.run.resolve(), args.brief.resolve(), resume=args.resume, reconciliation=args.reconcile_capacity or args.reconcile_interruption)
+        run(args.run.resolve(), args.brief.resolve(), resume=args.resume,
+            reconciliation=args.reconcile_capacity or args.reconcile_interruption,
+            git_coordinator=args.git_coordinator)

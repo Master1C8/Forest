@@ -1,0 +1,2 @@
+System.Void TheForestOfLove.Narrative.NarrativeActions::StartQuest(System.String) | IL_0006: call System.Void TheForestOfLove.Narrative.NarrativeActions::StartQuest(TheForestOfLove.Narrative.Quest)
+System.Void TheForestOfLove.Narrative.DialogueTriggers.DialogueTriggerStartQuest::OnExecute() | IL_0006: call System.Void TheForestOfLove.Narrative.NarrativeActions::StartQuest(TheForestOfLove.Narrative.Quest)
