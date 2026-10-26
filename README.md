@@ -1,41 +1,36 @@
-## Phase0061: finite Bucky gameplay host integrated
+## Phase0062: candidate51 frozen; native termination before dialogue
 
-The existing QA43 Continue host now optionally continues after its original source
-prefix,181/actual182/full187 and two real cleanup frames. `--bucky141` requires
-original `--tutorial181`/Continue; the default New route and all14 original guards
-remain exact. The movement stage is capped at120 seconds/40 measured100ms pulses,
-with20 seconds without verified progress; Submit has its own15-second cap.
+Candidate51 passed37 preflight checks with362 immutable dependencies, exact QA43
+fixture and all19 live input pins. Five resources and all six recipes equal the
+accepted47/50 bytes;95-tree readback is retained. Both freshly compiled bridge
+modes have all83 method bodies exactly equal verified0061. Swift compiles; the
+unchanged129 focused test results are hash-bound and reused. No agents or nested
+model jobs; actual CLI selects gpt-6.1-sol/high/OpenAI.
 
-Each right/down pulse and the single100ms Return binds the inspected native PID
-and window. Original focus/map/key guards, matching-frame native/Rewired/Unity/
-InputHelper ingress, directional displacement and two all-up/zero-axis samples
-are required. Scarlett must release naturally; both distinct Bucky GameObject
-stores, cached Talk, locked UI and real root contact must pass the existing guard.
-The bridge collects authority, contact and motion rows in one frame-bound dump.
-Unknown native/file outcomes stop new actions; recovery needs this exact task's
-DOWN receipt and an exited native helper. No physics, authority or story writes.
+The one-use run acknowledges original Continue and reaches CentralForest/frame384
+with no Player/conversation. The next dump-intro loses the exact game argv and
+has no ACK. Exact75065 AppKit logs request termination and approve it; initiator
+and cause remain unknown. Observer exit1, launcher later exit0, game exit unknown.
+No first subtitle,181 choice, native event, Bucky dispatch, image or marker consumer
+was produced. The unknown command remains intact; no replay or later game command.
 
-The host connects the exact217 selection receipt to actual194 and every source
-line through212, then requires the original212 event, two real cleanup frames and
-fresh count/status/notebook evidence. ACKs add no coverage or progress time.
-129 focused tests pass, including a mocked whole-host QA43-to212 path and failure
-cases. Mocks replace Unity/native producers. Both bridge modes and Swift compile;
-Cecil retains77 exact and4 compiler-ordinal-only bodies per mode. Only Update's
-Bucky reader changes; one passive reader is added.59 existing host definitions,
-ContinueObservationBudget and default New are exact.19 pins, originals150/262,
-owner saves, QA43 disk bytes and empty QA persistence are verified unchanged.
+All15 postrun checks pass: task processes absent, QA assembly restored/bridge
+removed, originals150/262, five resource pairs,19 pins, owner saves and all other
+frozen dependencies unchanged; QA persistence empty. Runtime acceptance remains
+failed. Accepted10/15/47/48 visuals and50 original181 route remain unchanged.
 
-Next freeze NEW immutable51 from this verified implementation, including every
-later-loaded helper/source/config, normal preflight, QA43 fixture and19 lane pins.
-No51 exists and no game/native event/image was used in0061. Do not reimplement the
-host or replay consumed50/49/48/47/46/45/44/43. QA43 disk is not a post187 checkpoint.
-Evidence: `localization/source/tutorial-20261026/phase0061/ADAPTER.md`,
-`verification.json`, `tests.json` and `compiled-readback/comparison.json`.
-Prior summary: `localization/history/phase0060-summary.md`.
-Native right/Return, loaded141/212 behavior, initial spawn/notebook/inventory,
-complete source/BGDatabase/special-scene/editorial, final fonts/resources and local
-delivery remain pending. All seven asset lanes continue independently/read-only;
-technical lane alone owns Git/index. No publication or deployment.
+Next diagnose this actual termination boundary. A justified new run needs changed
+passive quit/identity diagnostics and a NEW frozen candidate; never replay51..43
+or relax source/control/input/deadline guards. Bucky native/loaded-marker,
+initial spawn/notebook/inventory, complete source/BGDatabase/special-scene,
+editorial/final resources/local delivery remain unaccepted. All seven authorized
+asset lanes remain independent/read-only; technical lane alone owns Git/index.
+No publication, deployment or server lifecycle action.
+
+Evidence: `localization/source/tutorial-20261026/phase0062/ADAPTER.md`,
+`verification.json`; `localization/probes/ru-20261026-51/runtime-diagnosis.json`,
+`preflight.json`, `bridge-verification.json`, `final-verification.json`.
+Prior summary: `localization/history/phase0061-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

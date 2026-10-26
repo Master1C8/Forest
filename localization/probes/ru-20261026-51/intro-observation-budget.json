@@ -1,0 +1,23 @@
+{
+  "stage": "bootstrap",
+  "elapsed": 8.702,
+  "stageElapsed": 8.702,
+  "idle": 3.431,
+  "hardLimit": 360,
+  "stageLimits": {
+    "bootstrap": [
+      120,
+      60
+    ],
+    "dialogue": [
+      240,
+      30
+    ],
+    "cleanup": [
+      60,
+      15
+    ]
+  },
+  "actualTerminalFrames": [],
+  "error": "AssertionError('Real task game absent or ambiguous while awaiting acknowledgement; outcome unknown, no replay: dump-intro')"
+}
