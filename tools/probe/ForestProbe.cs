@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -47,6 +48,12 @@ public sealed class ForestProbe : MonoBehaviour
     }
     private string root;
     private float next;
+    private bool? originalIgnoreUnfocused;
+    private bool samplingKeyboard;
+    private readonly List<string> keyboardSamples=new List<string>();
+    [DllImport("user32.dll")] static extern bool GetKeyboardState([Out] byte[] keys);
+    [DllImport("user32.dll")] static extern short GetAsyncKeyState(int key);
+    [DllImport("kernel32.dll")] static extern uint GetCurrentProcessId();
     public static void Install() {
         if (Application.companyName != "VNRevivalQA" || Application.productName != "ForestRuRendererProbe")
             throw new InvalidOperationException("QA bridge requires the isolated player identity.");
@@ -86,7 +93,29 @@ public sealed class ForestProbe : MonoBehaviour
                     persistentDataPath=Application.persistentDataPath,diagnostics=TravelRouteDiagnostics()};
                 File.WriteAllText(Path.Combine(root,"travel-route.json"),JsonUtility.ToJson(state,true));
             }
-            else if(text=="quit") Application.Quit();
+            else if(text=="qa-background-input") {
+                if(originalIgnoreUnfocused.HasValue || !Rewired.ReInput.isReady)
+                    throw new Exception("Background policy already changed or input not ready");
+                originalIgnoreUnfocused=Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus;
+                Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus=false;
+                if(Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus)
+                    throw new Exception("Public Rewired background policy did not apply");
+            }
+            else if(text=="restore-input-policy") RestoreInputPolicy();
+            else if(text=="sample-keyboard-start") {
+                if(samplingKeyboard)throw new Exception("Keyboard sample already active");
+                keyboardSamples.Clear(); samplingKeyboard=true;
+            }
+            else if(text=="sample-keyboard-stop") {
+                if(!samplingKeyboard)throw new Exception("No active keyboard sample");
+                samplingKeyboard=false;
+                File.WriteAllLines(Path.Combine(root,"keyboard-samples.txt"),keyboardSamples.ToArray());
+            }
+            else if(text=="sample-keyboard-snapshot") {
+                if(!samplingKeyboard)throw new Exception("No active keyboard sample");
+                File.WriteAllLines(Path.Combine(root,"keyboard-samples.txt"),keyboardSamples.ToArray());
+            }
+            else if(text=="quit") { RestoreInputPolicy(); Application.Quit(); }
             else if(text=="show-menu") {
                 var controller=FindObjectOfType<TheForestOfLove.MainMenuController>();
                 if(controller==null)throw new Exception("Main menu controller not active");
@@ -164,6 +193,34 @@ public sealed class ForestProbe : MonoBehaviour
             File.AppendAllText(Path.Combine(root,"actions.log"),DateTime.UtcNow.ToString("O")+" FAIL "+text+" "+ex+"\n");
             Debug.LogException(ex);
         }
+    }
+    void RestoreInputPolicy() {
+        if(!originalIgnoreUnfocused.HasValue)return;
+        var expected=originalIgnoreUnfocused.Value;
+        Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus=expected;
+        if(Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus!=expected)
+            throw new Exception("Original input focus policy not restored");
+        originalIgnoreUnfocused=null;
+    }
+    void OnDestroy() { RestoreInputPolicy(); }
+    void LateUpdate() {
+        if(!samplingKeyboard)return;
+        if(keyboardSamples.Count>=1200){samplingKeyboard=false;throw new Exception("Keyboard sample exceeded bound");}
+        var keys=new byte[256]; var valid=GetKeyboardState(keys);
+        var keyboard=Rewired.ReInput.controllers.Keyboard;
+        var helper=FindObjectOfType<TheForestOfLove.InputHelper>();
+        var player=helper==null?null:ReadField(helper,"player") as Rewired.Player;
+        // Observe the real producer and public getters. Never feed these values back.
+        keyboardSamples.Add("keyboard | time="+Time.realtimeSinceStartup+
+            " | winPid="+GetCurrentProcessId()+" | focused="+Application.isFocused+
+            " | ignoreUnfocused="+Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus+
+            " | nativeValid="+valid+" | nativeLeft="+((keys[0x25]&128)!=0)+
+            " | asyncLeft="+((GetAsyncKeyState(0x25)&0x8000)!=0)+
+            " | rewiredLeft="+keyboard.GetKey(KeyCode.LeftArrow)+
+            " | keyboardEnabled="+keyboard.enabled+" | unityLeft="+Input.GetKey(KeyCode.LeftArrow)+
+            " | player="+(player==null?"null":player.id+":"+player.name)+
+            " | actionAxes="+(player==null?"null":Vector(player.GetAxis2D(0,1)))+
+            " | fullAxis="+Vector(TheForestOfLove.InputHelper.FullAxis));
     }
     IEnumerator Capture(string path) {
         yield return new WaitForEndOfFrame();

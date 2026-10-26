@@ -15,12 +15,20 @@ if (args[1] == "--types") {
         Console.WriteLine(item.FullName);
     return;
 }
-if (args[1] == "--find-literal" || args[1] == "--find-calls") {
+if (args[1] == "--find-native") {
+    foreach (var method in types.SelectMany(t => t.Methods))
+        if (method.HasPInvokeInfo && (method.Name.Contains(args[2], StringComparison.OrdinalIgnoreCase) ||
+            method.PInvokeInfo.EntryPoint.Contains(args[2], StringComparison.OrdinalIgnoreCase)))
+            Console.WriteLine(method.FullName + " | " + method.PInvokeInfo.Module.Name + "!" + method.PInvokeInfo.EntryPoint);
+    return;
+}
+if (args[1] == "--find-literal" || args[1] == "--find-calls" || args[1] == "--find-call-fragment") {
     foreach (var method in types.SelectMany(t => t.Methods))
         if (method.HasBody)
             foreach (var instruction in method.Body.Instructions)
                 if ((args[1] == "--find-literal" && instruction.OpCode == Mono.Cecil.Cil.OpCodes.Ldstr && (string)instruction.Operand == args[2]) ||
-                    (args[1] == "--find-calls" && instruction.Operand is MethodReference called && called.FullName == args[2]))
+                    (args[1] == "--find-calls" && instruction.Operand is MethodReference called && called.FullName == args[2]) ||
+                    (args[1] == "--find-call-fragment" && instruction.Operand is MethodReference fragment && fragment.FullName.Contains(args[2], StringComparison.Ordinal)))
                     Console.WriteLine(method.FullName + " | " + instruction);
     return;
 }

@@ -1,0 +1,95 @@
+{
+  "assemblies": {
+    "Rewired_Core.dll": "591d0f9429e66821a4edea6d0c09acc0d78da6512e717b5652c4572f52e2d0bf",
+    "Rewired_Windows.dll": "a9cc6d11a33a14915b6e4f2522c225b75a9befb274b177f72d87c8b389fe2b1c",
+    "Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf"
+  },
+  "recipeSha256": "d9e35f5d59abe030f2345a282d029ddfdcba79fa3bbf2e64c06f369e8bfe4290",
+  "inspectorSha256": "c84afadd36fe116196dbab4072c3184a7c2b3a870985925227eb63b3bc92f21e",
+  "inspectorSourceSha256": "4c3f8ed500e00286e934839f4ed7272b61f479b054abc2ff5383319ab5eb3eda",
+  "commands": {
+    "BackgroundPolicy": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput/ConfigHelper",
+      "set_ignoreInputWhenAppNotInFocus,get_ignoreInputWhenAppNotInFocus"
+    ],
+    "NativeKeyboardUpdate": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Windows.dll",
+      "aUzJnDdLagLcYhSjJnsRTHTqyRC",
+      "ZXuGbUVrsKcbexFubWFQFBrecCK"
+    ],
+    "NativeKeyboardEvents": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Windows.dll",
+      "aUzJnDdLagLcYhSjJnsRTHTqyRC",
+      "pmEkkkanGSbOAFLCwZTkNgBKQei"
+    ],
+    "NativeKeyboardConstructor": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Windows.dll",
+      "aUzJnDdLagLcYhSjJnsRTHTqyRC",
+      ".ctor,get_inputSource"
+    ],
+    "KeyboardPublicRead": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.Keyboard",
+      "GetKey"
+    ],
+    "OriginalKeyboardAxes": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InputHelper",
+      "UpdateAxisInputFromKeyboard"
+    ],
+    "PolicyFollowup": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "IsInputAllowed,qlBFRJWraZKrzfOnAGXcGDaGoOh"
+    ],
+    "PolicyAllowed": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "get_inputAllowed,sXSmojTfsGWqzEIEtxKcdoWFQcy"
+    ],
+    "NativeKeyboardStateAPI": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Windows.dll",
+      "--find-native",
+      "GetKeyboardState"
+    ],
+    "NativeAsyncKeyAPI": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Windows.dll",
+      "--find-native",
+      "GetAsyncKeyState"
+    ]
+  },
+  "files": {
+    "BackgroundPolicy.il": "4e9c64bbe9f1570cca9cc4fde6f997c4a5c64352f91fd03c1198b059994ccf7f",
+    "NativeKeyboardUpdate.il": "a42d48b132283e2eab4ae9d5481c79aebfce7531ee0f6ba4179d5ffc9251364f",
+    "NativeKeyboardEvents.il": "7ab4d361f9b33c0b4f7a6ec3a2f5ff67729fbc9d995381a8594be5920582f7a2",
+    "NativeKeyboardConstructor.il": "7272e7d2209d4ef1f6bf0778ecdbacf5fd67307f17160b7cfa5ef1019eddbb28",
+    "KeyboardPublicRead.il": "e221f3eee956b24f48934abeecc1e35d118e7ed525ddbfb8dc005e86361b6549",
+    "OriginalKeyboardAxes.il": "d02dab2fa7446229cf32f3eac0beec07e0ce32228c431fa6196f170e52eff3ea",
+    "PolicyFollowup.il": "08ed9d375dc1e49477fcbdf89cc2e4bca13a3e71340bbb0219f3de2cb26b91b3",
+    "PolicyAllowed.il": "a95b884c35d6323eec14350269198ffd4383ad88abe585ff027356b4fe2b33f1",
+    "NativeKeyboardStateAPI.il": "265d4aaa07707731d115044ebc2a15a652d8de48c8f5968087bb9da6f48e2d5d",
+    "NativeAsyncKeyAPI.il": "8d1e1f7caccaeab7c17427a84d83a1c723d485ab7661099299f350c5af8d07a6"
+  },
+  "boundary": "Original shipped assemblies, read-only source; no native input or runtime acceptance"
+}

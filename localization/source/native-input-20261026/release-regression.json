@@ -1,0 +1,16 @@
+{
+  "cases": [
+    "All up without a down cannot prove pulse delivery",
+    "Final async-down is not release (actual27 failure)",
+    "One up sample is insufficient",
+    "Observed down followed by two all-up samples passes",
+    "Rewired still down rejects despite other up states"
+  ],
+  "result": "passed5/5",
+  "boundary": "Pure observation predicate only; no native event delivery or runtime acceptance",
+  "command": "python3 tools/test_native_input.py",
+  "testRecipeSha256": "33bd6b0ed11ebe622c822819b559d06dacaa2f12456f0c76257c0e81a90826bd",
+  "runnerSha256": "e80c00926f996db1f4098eaf43aa0b969261cb659a29b0ac788dab96e3ddc778",
+  "neighboringIntroGuards": "python3 tools/test_intro_actions.py:7 tests passed; source-bound intro guards unchanged",
+  "separateSourceReview": "Per-trial release state reset before every down submission; not credited as runtime-tested second-trial recovery."
+}

@@ -12,35 +12,49 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
-Phase0018 pinned the actual BunnyHouse doorway and traced the original input
-production before any new replay. `tools/inspect_travel_source.py` reproduces 11
-consumer groups, native `level3` geometry and the original Rewired configuration in
-`localization/source/travel-20261026/`. BuildSettings identifies BunnyHouse as level3;
-level2 is BeaverHouse and also has a door to CentralForest. The BunnyHouse door is
-`RootActivator/Root/Environment/Doorways/DoorwayToCentralForest`, at (2.424, 0.183),
-with an enabled 2.16×0.22 box trigger, disabled circle collider and zero travel delay.
-These are original serialized facts; loaded collider state and travel remain untested.
+Phase0019 pinned ten original native keyboard/policy groups with
+`tools/inspect_native_input_source.py` in `localization/source/native-input-20261026/`.
+The shipped Rewired producer reads `user32.GetKeyboardState`, consumes original key
+transitions and consults `IsInputAllowed`; the public background-input setter updates
+the filter without rewriting focus watchers. Disabling that filter does not guarantee
+native delivery. Original InputHelper consumes the real player's `GetAxis2D(0,1)`.
 
-The original joystick's `Awake()` unconditionally destroys its game object. Its mouse
-path polls Unity input; `MouseDown()` alone merely sets an area flag. The existing
-Rewired custom controller obtains axes from original callbacks, so feeding controller
-values or enabling a replacement joystick would bypass that input producer. Original
-Windows configuration uses native keyboard input and ignores unfocused input. Player
-`runInBackground` alone does not establish Rewired input eligibility. No background
-native input transport is verified; do not repeat the intro until this boundary has
-a concrete safe input plan. Investigate a documented public Rewired background-input
-policy in the isolated QA copy and a target-specific native input transport; keep any
-focus-policy delta explicit as a harness dependency. Preserve original callbacks,
-movement/doorway guards, the owner installation and saves.
+Candidate26 reached the isolated main menu and ran `dump-travel`: actual player
+`0:Player1`, native keyboard enabled, Unity fallback disabled, no joystick. Its strict
+process selector safely rejected the CrossOver wrapper plus child before any keys.
+The canonical native helper now joins exact executable-path matches against the sole
+native game-window owner. Candidate27 selected actual macOS PID32696/window8407
+(Wine PID32), with another app frontmost and Unity reporting focused=True. One600ms
+process-targeted left pulse returned;21 real frame samples saw one final async-down,
+zero `GetKeyboardState` down, zero Rewired/Unity key-down and only zero axes. Release
+was unobserved when sampling ended. No second policy trial, New or intro was submitted.
+Both runs quit, restored the original QA assembly, removed the bridge, preserved their
+frozen dependencies, original resources/player files and all seven asset input pins.
+The helper posted its deferred up edge; actual key-release delivery in27 remains
+unverified and must not be inferred from quit or successful posting.
 
-The new read-only `dump-travel` bridge command compiles against all unchanged original
-managed references. It records actual focus/Rewired configuration/player identity,
-movement/transition/waypoint state, door identity and player/door collider geometry.
-It changes no input, focus, control visibility, transform, story state or event.
-Compilation proves API compatibility only: this command has not run in Unity.
-No game launch, image opening or accepted-surface recapture occurred in phase0018;
-all seven asset-lane input pins remain unchanged. The next technical phase must
-resolve the native focus/input transport boundary before another dependency replay.
+The repaired canonical menu runner continuously snapshots real input, records native
+post-edge timestamps, requires down then two released observations within a bound,
+and has exact-target up-only failure recovery before independent quit/restore.
+Five positive/negative controls exercise this observation predicate, including27's
+last-sample-down failure. Candidate29 is newly prepared with exact25 resources and
+the exact28 compiled bridge/helper and the per-trial release-flag reset. It is frozen
+but **not launched**. Candidate28 is preserved and superseded before launch.
+Candidate29’s `preparation.json` and `frozen-files.json` bind the next menu-only test. Do not rerun26/27 or replay the intro
+until the native/release boundary is resolved; unchanged status is not progress.
+No images were captured/opened and no accepted10/15 surface was recaptured.
+
+Phase0018's original geometry/input evidence remains unchanged in
+`localization/source/travel-20261026/`. BunnyHouse is BuildSettings level3, not level2
+BeaverHouse (both have a CentralForest door). Its real door is
+`RootActivator/Root/Environment/Doorways/DoorwayToCentralForest`, at(2.424,0.183),
+with enabled2.16×0.22 box trigger, disabled circle and zero travel delay. Loaded
+collider/travel acceptance is still untested. Original joystick Awake destroys it;
+replacing it or feeding its custom-controller callbacks bypasses the producer.
+`dump-travel` now has actual menu runtime evidence, but Player physics, real doorway
+collision, tutorial, notebook and inventory remain unverified. Keep any later QA-only
+focus-policy change explicit as a replaced harness dependency; preserve actual focus,
+original callbacks, Player/doorway/story guards, owner installation and saves.
 
 Phase0017 traced the original tutorial route and repaired an early-stop defect in
 `tools/probe/diagnose_newgame.py`. Candidate24 reached final145:249 and two free-event
