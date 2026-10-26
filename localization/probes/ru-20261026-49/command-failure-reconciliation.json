@@ -1,0 +1,15 @@
+{
+  "status": "explicit-native-failure-reconciled",
+  "failedCommand": "dump-intro",
+  "actionLogSha256": "84746af191ac739fce9f7c162e6f165b2d15d4e4b74339dd191030ad894c983d",
+  "verifiedTaskProcesses": [
+    "58733     1 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/player.log",
+    "58762     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-49\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/player.log",
+    "58764     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-49\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+  ],
+  "sourceBoundary": "ReadTutorial181 first control guard threw during read-only DumpIntro before File.WriteAllText(intro-state). No select command or selection receipt exists; last successful action complete-tutorial158 is retained.",
+  "observerExit": 1,
+  "pendingCommandAbsent": true,
+  "selectionNotSubmitted": true,
+  "recovery": "Only normal restore-input-policy and quit through existing frozen bridge, then process/hash restoration checks. No replay, diagnostic resubmission or another candidate launch."
+}

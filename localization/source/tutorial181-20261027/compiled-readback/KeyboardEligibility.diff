@@ -1,0 +1,21 @@
+--- 
++++ 
+@@ -1,5 +1,5 @@
+ System.String ForestProbe::KeyboardEligibility() | attributes=Private, Static, HideBySig | impl=IL
+-IL_0000: newobj System.Void ForestProbe/<>c__DisplayClass31_0::.ctor()
++IL_0000: newobj System.Void ForestProbe/<>c__DisplayClass33_0::.ctor()
+ IL_0005: stloc.0
+ IL_0006: nop
+ IL_0007: ldtoken Rewired.ReInput
+@@ -14,9 +14,9 @@
+ IL_001d: callvirt System.Reflection.FieldInfo System.Type::GetField(System.String,System.Reflection.BindingFlags)
+ IL_0022: ldnull
+ IL_0023: callvirt System.Object System.Reflection.FieldInfo::GetValue(System.Object)
+-IL_0028: stfld System.Object ForestProbe/<>c__DisplayClass31_0::watchers
++IL_0028: stfld System.Object ForestProbe/<>c__DisplayClass33_0::watchers
+ IL_002d: ldloc.0
+-IL_002e: ldftn System.Object ForestProbe/<>c__DisplayClass31_0::<KeyboardEligibility>b__0(System.String)
++IL_002e: ldftn System.Object ForestProbe/<>c__DisplayClass33_0::<KeyboardEligibility>b__0(System.String)
+ IL_0034: newobj System.Void System.Func`2<System.String,System.Object>::.ctor(System.Object,System.IntPtr)
+ IL_0039: stloc.3
+ IL_003a: ldc.i4.s 18

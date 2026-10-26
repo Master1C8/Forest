@@ -46,8 +46,11 @@ def launch_options(argv):
                         help='Admit only the frozen QA43 fixture and use original Continue; never fall back to New')
     parser.add_argument('--tutorial-choice-mode', choices=['original', 'synthetic'], default='original',
                         help='Explicit two-value synthetic choice admission; requires Continue and matching compiled bridge/resources')
+    parser.add_argument('--tutorial181', action='store_true',
+                        help='Exact original181 selection and source route through187/cleanup; no menu capture')
     args = parser.parse_args(argv)
     assert args.tutorial_choice_mode == 'original' or args.continue_fixture, 'Synthetic choices require exact QA43 Continue'
+    assert not args.tutorial181 or (args.continue_fixture and args.tutorial_choice_mode == 'original'), 'Tutorial181 requires original QA43 Continue'
     return args
 
 
@@ -1106,6 +1109,134 @@ class TutorialTransitions:
         self.completion = dict(sourceFrame=state['frame'],action=action,transport=transport,native=receipt)
 
 
+TUTORIAL181_ROUTE = [181, 182, 183, 184, 185, *range(163, 181), 186, 187]
+
+
+def tutorial181_plan_guard(plan):
+    assert (plan['conversation'], plan['selectedEntry'], plan['successor'], plan['route']) == (120, 181, 182, TUTORIAL181_ROUTE), 'Tutorial181 source route differs'
+    assert plan['sourceTreeSha256'] == '41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b', 'Tutorial181 original source pin differs'
+    entries = {e['id']: e for e in plan['entries']}
+    assert len(entries) == len(plan['entries']) and set(entries) == {158, 159, *TUTORIAL181_ROUTE}, 'Tutorial181 source IDs differ'
+    for eid in TUTORIAL181_ROUTE:
+        e = entries[eid]
+        assert (e['actor'], e['conversant']) == (('1', '2') if eid == 181 else ('2', '1')), 'Tutorial181 source actors differ'
+        assert e['isGroup'] == 0 and all(e[k] == '' for k in ['menuText', 'sequence', 'responseMenuSequence', 'conditions', 'script']), 'Tutorial181 source controls differ'
+        assert e['onExecute']['m_PersistentCalls']['m_Calls'] == [], 'Tutorial181 source callback differs'
+        target = TUTORIAL181_ROUTE[TUTORIAL181_ROUTE.index(eid)+1] if eid != 187 else None
+        expected = [] if target is None else [dict(originConversationID=120, originDialogueID=eid,
+            destinationConversationID=120, destinationDialogueID=target, isConnector=0, priority=2)]
+        assert e['outgoingLinks'] == expected, 'Tutorial181 source link differs'
+    assert entries[181]['text'] == 'The love. Definitely the love.' and entries[182]['text'] == '[pic=2]Hahaha!', 'Tutorial181 exact branch text differs'
+    canonical = json.dumps(plan, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()
+    assert hashlib.sha256(canonical).hexdigest() == '509dc77480f5594a95b6c5ef60b9b3658ff196c4b8777165e549e1e914787130', 'Tutorial181 complete original plan pin differs'
+    return entries
+
+
+def tutorial181_selection_guard(state, prefix, choice_mode='original'):
+    assert choice_mode == 'original', 'Tutorial181 requires original mode'
+    assert tutorial_action(state, prefix, choice_mode) == 'target-settled', 'Tutorial181 requires exact ready menu'
+    row = json.loads(state.get('tutorial181Record') or '{}')
+    assert row.get('status') != 'rejected', 'Tutorial181 native admission rejected: ' + str(row.get('error')) + '; control=' + str(state.get('tutorial181ControlRecord'))
+    text = 'The love. Definitely the love.'
+    path = TUTORIAL_TEXT_PANEL + '/Response Menu Panel/Viewport/Content/Response: ' + text
+    assert (row.get('frame'), row.get('conversationId'), row.get('sourceId'), row.get('destinationId'), row.get('successorId')) == (state['frame'], 120, 158, 181, 182), 'Stale/wrong Tutorial181 native source'
+    assert (row['choiceMode'], row['text'], row['path'], row['targetPath'], row['listenerMethod'], row['listenerTargetPath']) == ('original', text, path, TUTORIAL_UI, 'OnClick', path), 'Tutorial181 native control/listener differs'
+    assert row['typing'] is False and row['graphVerified'] is True and row['listenerVerified'] is True, 'Tutorial181 native graph/listener unverified'
+    assert all(type(row[k]) is int and row[k] != 0 for k in ['buttonInstance', 'controllerInstance']), 'Tutorial181 native identity missing'
+    return row
+
+
+class Tutorial181Transitions:
+    """One exact branch admission; its ACK never proves the actual182 successor."""
+    def __init__(self, prefix, plan, choice_mode='original'):
+        assert choice_mode == 'original', 'Tutorial181 requires original mode'
+        self.prefix = prefix
+        self.entries = tutorial181_plan_guard(plan)
+        self.prefix_tracker = TutorialTransitions(prefix, choice_mode)
+        self.selection = None
+        self.previous = self.observed_frame = self.observed_at = None
+        self.route_observed = []
+        self.cleanup_started = False
+
+    def action(self, state):
+        if self.selection is None:
+            action = tutorial_action(state, self.prefix)
+            if action == 'target-settled':
+                row = tutorial181_selection_guard(state, self.prefix)
+                return 'select-tutorial181 %s %s' % (row['frame'], row['buttonInstance'])
+            return action
+        if not state['conversationActive']:
+            assert self.previous == 187, 'Tutorial181 conversation ended before187'
+            assert not state['responses'] and not state['typing'], 'Tutorial181 cleanup has active text/menu'
+            return 'route-ended'
+        assert (state['conversationId'], state['narrativeDbName'], state['narrativeArcName'] or '') == (120, 'TutorialQuest_IntroFromBunny', ''), 'Tutorial181 narrative binding differs'
+        eid = state['entryId']
+        assert eid in TUTORIAL181_ROUTE, 'Tutorial181 left exact source route'
+        text = self.entries[eid]['text']
+        if text.startswith('[pic='):
+            text = text.split(']', 1)[1]
+        assert state['conversationState'] == text, 'Tutorial181 subtitle differs from exact source'
+        assert not state['responses'], 'Tutorial181 unexpected response menu'
+        # PC181 may appear before182, but an ACK or PC observation cannot replace182.
+        return None if state['typing'] or eid == 181 else 'continue-bound 120 ' + str(eid)
+
+    def observe(self, state, now):
+        self.action(state)
+        if self.selection is None:
+            self.prefix_tracker.observe(state, now)
+        elif state['conversationActive']:
+            eid = state['entryId']
+            if self.previous == 158:
+                assert eid in [181, 182], 'Tutorial181 actual successor must be182'
+            elif eid != self.previous:
+                assert eid == TUTORIAL181_ROUTE[TUTORIAL181_ROUTE.index(self.previous)+1], 'Tutorial181 source transition skipped/backtracked'
+            if eid not in self.route_observed:
+                self.route_observed.append(eid)
+        self.previous = state['entryId'] if state['conversationActive'] else self.previous
+        self.observed_frame, self.observed_at = state['frame'], now
+
+    def acknowledge_selection(self, state, action, transport, receipt):
+        assert self.selection is None, 'Tutorial181 already selected; no replay'
+        expected = tutorial181_selection_guard(state, self.prefix)
+        assert (state['entryId'], state['frame']) == (self.previous, self.observed_frame), 'Stale Tutorial181 host observation'
+        assert action == 'select-tutorial181 %s %s' % (state['frame'], expected['buttonInstance']), 'Tutorial181 action binding differs'
+        assert transport.get('command') == action and transport.get('transportExitCode') == 0 and transport.get('acknowledgement', '').partition(' OK ')[2] == action, 'Missing exact Tutorial181 selection ACK'
+        assert self.observed_at <= transport['submittedAt'] <= transport['acknowledgedAt'], 'Stale Tutorial181 selection ACK'
+        assert receipt['result'] == 'submitted' and 0 <= receipt['frame']-state['frame'] <= 120, 'Stale Tutorial181 native receipt'
+        assert all(receipt[k] == v for k, v in expected.items() if k not in ['frame', 'result']), 'Tutorial181 native receipt binding differs'
+        self.selection = dict(sourceFrame=state['frame'], action=action, native=receipt, transport=transport)
+
+    def receipt(self):
+        return dict(prefix=self.prefix_tracker.receipt(), selection181=self.selection,
+            observedRouteSubtitles=self.route_observed, actual182Observed=182 in self.route_observed,
+            boundary='Selection ACK, PC181 and actual182 observation are separate; no initial-spawn/notebook/quest-completion claim')
+
+
+def observe_tutorial181(budget, tracker, now, state, saved):
+    budget.check(now)
+    assert continue_diagnostic_ready(state), 'Tutorial181 dependencies not ready'
+    assert state['frame'] > budget.frame and state['realtime'] > budget.realtime, 'Tutorial181 requires a new real frame'
+    assert all(math.isfinite(state[k]) and state[k] >= 0 for k in ['realtime', 'scaledTime', 'timeScale']), 'Invalid original Unity clocks'
+    assert state['scene'] in ['StartMenu', 'SoftResetLoadingScene', 'ChapterSelect', 'CentralForest'], 'Unexpected Tutorial181 scene'
+    action = tracker.action(state)
+    tracker.observe(state, now)
+    budget.frame, budget.realtime = state['frame'], state['realtime']
+    if action is not None and budget.stage == 'bootstrap':
+        budget.stage, budget.stage_started, budget.progress_at = 'dialogue', now, now
+    if action == 'route-ended' and budget.stage != 'cleanup':
+        assert 182 in tracker.route_observed, 'Tutorial181 missing actual182'
+        budget.stage, budget.stage_started, budget.progress_at = 'cleanup', now, now
+    milestone = ('entry', state['conversationId'], state['entryId']) if state['conversationActive'] else ('scene', state['scene'])
+    if milestone not in budget.milestones:
+        budget.milestones.add(milestone)
+        budget.progress_at = now
+    terminal = (action == 'route-ended' and saved['scene'] == state['scene'] == 'CentralForest' and
+        saved['gameplay'] and not saved['anyEvent'] and not saved['conversation'] and saved['playerPresent'] and
+        not state['narrativeDbName'] and not state['narrativeArcName'])
+    budget.terminal_frames = budget.terminal_frames + [state['frame']] if terminal else []
+    return (None if action == 'route-ended' else action), len(budget.terminal_frames) >= 2
+
+
 def continue_diagnostic_ready(state):
     """Read-only producer contract; never infer readiness from default story fields."""
     assert type(state['diagnosticsReady']) is bool, 'Invalid diagnostic readiness flag'
@@ -1164,7 +1295,7 @@ class ContinueObservationBudget(IntroObservationBudget):
         return action, len(self.terminal_frames) >= 2
 
 
-def continue_from_fixture(menu, fixture, budget, choice_mode='original'):
+def continue_from_fixture(menu, fixture, budget, choice_mode='original', continue181=False):
     continue_menu_guard(menu)
     command('dump-save-continuation', deadline=budget.deadline)
     loaded = json.loads((RUN / 'save-continuation.json').read_text())
@@ -1176,7 +1307,9 @@ def continue_from_fixture(menu, fixture, budget, choice_mode='original'):
     observations, actions = [], []
     first_player = None
     saw_controller = False
-    transitions = TutorialTransitions(prefix, choice_mode)
+    transitions = (Tutorial181Transitions(prefix, json.loads((RUN / 'tutorial181-plan.json').read_text()), choice_mode)
+                   if continue181 else TutorialTransitions(prefix, choice_mode))
+    prefix_transitions = transitions.prefix_tracker if continue181 else transitions
     last_action, repeats = None, 0
     while True:
         budget.check(time.monotonic())
@@ -1202,10 +1335,13 @@ def continue_from_fixture(menu, fixture, budget, choice_mode='original'):
             time.sleep(min(1, max(0, budget.deadline-time.monotonic())))
             continue
         # Reject an unrelated jump before it can credit a budget milestone.
-        transitions.observe(state, time.monotonic())
+        if continue181:
+            action, terminal_pair = observe_tutorial181(budget, transitions, time.monotonic(), state, saved)
+        else:
+            transitions.observe(state, time.monotonic())
+            action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix, choice_mode)
         write('continue-transitions.json', transitions.receipt())
-        action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix, choice_mode)
-        if action == 'complete-tutorial158' and transitions.completion is not None:
+        if action == 'complete-tutorial158' and prefix_transitions.completion is not None:
             action = None  # Wait under unchanged caps; never replay acknowledged completion.
         if saved['scene'] == 'CentralForest' and saved['playerPresent']:
             assert saved['gameplay'] and saved['playerPath'] == 'SpawnedContent/Player/Content/Player(Clone)' and saved['playerInstance'] != 0, 'Restored root Player identity differs'
@@ -1219,6 +1355,19 @@ def continue_from_fixture(menu, fixture, budget, choice_mode='original'):
         write('intro-observation-budget.json', budget.receipt(time.monotonic()))
         if terminal_pair:
             assert first_player is not None and saw_controller, 'Missing original Player/tutorial controller observation'
+            if continue181:
+                command('dump-tutorial', deadline=budget.deadline)
+                shutil.copy2(RUN / 'tutorial-route.json', RUN / 'post181-tutorial-route.json')
+                command('dump-notebook', deadline=budget.deadline)
+                shutil.copy2(RUN / 'notebook-route.json', RUN / 'post181-notebook-route.json')
+                write('continue-progression.json', dict(result='ordinary181-route-cleanup',
+                    tutorialChoiceMode=choice_mode, actualTerminalFrames=budget.terminal_frames,
+                    choicesSubmitted=1, initialSpawnPositionVerified=False,
+                    firstObservedPositionMatchesFixture=first_player['matchesFixturePosition'],
+                    observationBudget=budget.receipt(time.monotonic()),
+                    subtitleAndResponseEvidence=transitions.receipt(),
+                    boundary='Actual182/route187 and conversation/event cleanup only; four tutorial triggers, notebook and inventory remain unverified'))
+                break
             write('continue-progression.json', dict(result='target-settled', conversationId=120, entryId=158,
                 tutorialChoiceMode=choice_mode, actualTerminalFrames=budget.terminal_frames, choicesSubmitted=0, initialSpawnPositionVerified=False,
                 firstObservedPositionMatchesFixture=first_player['matchesFixturePosition'],
@@ -1251,12 +1400,16 @@ def continue_from_fixture(menu, fixture, budget, choice_mode='original'):
             receipt = json.loads((RUN / 'continue-receipt.json').read_text()) if action.startswith('continue-bound ') else None
             if action == 'complete-tutorial158':
                 receipt = json.loads((RUN / 'completion158-receipt.json').read_text())
-                transitions.acknowledge_completion(state, action, transport, receipt)
+                prefix_transitions.acknowledge_completion(state, action, transport, receipt)
+                write('continue-transitions.json', transitions.receipt())
+            elif action.startswith('select-tutorial181 '):
+                receipt = json.loads((RUN / 'selection181-receipt.json').read_text())
+                transitions.acknowledge_selection(state, action, transport, receipt)
                 write('continue-transitions.json', transitions.receipt())
             elif receipt is not None:
                 continue_outcome(state, receipt)
             else:
-                transitions.acknowledge_response(state, action, transport)
+                prefix_transitions.acknowledge_response(state, action, transport)
                 write('continue-transitions.json', transitions.receipt())
             actions.append(dict(action=action, frame=state['frame'], receipt=receipt, transport=transport))
             write('continue-actions.json', actions)
@@ -1275,6 +1428,8 @@ def main():
     assert not (RUN / 'launch.json').exists() and not processes(), 'Reconcile any previous launch'
     fixture = admit_session(GAME, RUN, options.continue_fixture)
     admit_choice_mode(RUN, options.tutorial_choice_mode)
+    if options.tutorial181:
+        tutorial181_plan_guard(json.loads((RUN / 'tutorial181-plan.json').read_text()))
     report = json.loads((RUN / 'build.json').read_text())
     assert len(report['files']) == 5 and report['saveIsolation']['companyName'] == 'VNRevivalQA'
     for row in report['files']:
@@ -1306,10 +1461,11 @@ def main():
                              'launchedAt': datetime.now(timezone.utc).isoformat(),
                              'startupDiagnostics': options.startup_diagnostics,
                              'tutorialChoiceMode': options.tutorial_choice_mode,
+                             'tutorial181': options.tutorial181,
                              'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
-                             'scope': ('Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility')})
+                             'scope': ('Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility')})
         wait_for_ready(child)
         (RUN / 'actions.log').touch(exist_ok=True)
         observe_focus_boundary('ready', force=True)
@@ -1334,7 +1490,7 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'play-menu-notebook.json')
         if options.continue_fixture:
             budget = ContinueObservationBudget(time.monotonic())
-            continue_from_fixture(state, fixture, budget, options.tutorial_choice_mode)
+            continue_from_fixture(state, fixture, budget, options.tutorial_choice_mode, options.tutorial181)
         else:
             assert 'Canvas/PlayMenu/Controls/New' in state['buttons']
             assert not any('/Continue' in b for b in state['buttons']), 'Do not overwrite an existing QA session'
@@ -1472,7 +1628,7 @@ def main():
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
                                       'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': len(list(RUN.glob('ru-*.png'))),
-                                      'imagesOpened': 0, 'tutorialChoiceMode': options.tutorial_choice_mode, 'scope': ('Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
+                                      'imagesOpened': 0, 'tutorialChoiceMode': options.tutorial_choice_mode, 'tutorial181': options.tutorial181, 'scope': ('Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 

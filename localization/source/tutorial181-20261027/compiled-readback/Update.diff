@@ -1,0 +1,2241 @@
+--- 
++++ 
+@@ -7,7 +7,7 @@
+ IL_000e: stloc.2
+ IL_000f: ldloc.2
+ IL_0010: brfalse.s IL_0017
+-IL_0012: br IL_0f57
++IL_0012: br IL_105c
+ IL_0017: ldarg.0
+ IL_0018: call System.Single UnityEngine.Time::get_realtimeSinceStartup()
+ IL_001d: ldc.r4 0.2
+@@ -25,7 +25,7 @@
+ IL_0042: stloc.3
+ IL_0043: ldloc.3
+ IL_0044: brfalse.s IL_004b
+-IL_0046: br IL_0f57
++IL_0046: br IL_105c
+ IL_004b: ldloc.0
+ IL_004c: call System.String System.IO.File::ReadAllText(System.String)
+ IL_0051: callvirt System.String System.String::Trim()
+@@ -45,7 +45,7 @@
+ IL_0076: ldstr "unknown"
+ IL_007b: call System.Void ForestProbe::ObserveFocus(System.String,System.String)
+ IL_0080: nop
+-IL_0081: br IL_0ea9
++IL_0081: br IL_0fae
+ IL_0086: ldloc.1
+ IL_0087: ldstr "dump"
+ IL_008c: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -55,7 +55,7 @@
+ IL_0097: ldarg.0
+ IL_0098: call System.Void ForestProbe::Dump()
+ IL_009d: nop
+-IL_009e: br IL_0ea9
++IL_009e: br IL_0fae
+ IL_00a3: ldloc.1
+ IL_00a4: ldstr "dump-save-continuation"
+ IL_00a9: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -65,7 +65,7 @@
+ IL_00b4: ldarg.0
+ IL_00b5: call System.Void ForestProbe::DumpSaveContinuation()
+ IL_00ba: nop
+-IL_00bb: br IL_0ea9
++IL_00bb: br IL_0fae
+ IL_00c0: ldloc.1
+ IL_00c1: ldstr "dump-intro"
+ IL_00c6: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -75,7 +75,7 @@
+ IL_00d1: ldarg.0
+ IL_00d2: call System.Void ForestProbe::DumpIntro()
+ IL_00d7: nop
+-IL_00d8: br IL_0ea9
++IL_00d8: br IL_0fae
+ IL_00dd: ldloc.1
+ IL_00de: ldstr "dump-notebook"
+ IL_00e3: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -117,7 +117,7 @@
+ IL_015a: call System.Void System.IO.File::WriteAllText(System.String,System.String)
+ IL_015f: nop
+ IL_0160: nop
+-IL_0161: br IL_0ea9
++IL_0161: br IL_0fae
+ IL_0166: ldloc.1
+ IL_0167: ldstr "dump-tutorial"
+ IL_016c: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -159,7 +159,7 @@
+ IL_01e3: call System.Void System.IO.File::WriteAllText(System.String,System.String)
+ IL_01e8: nop
+ IL_01e9: nop
+-IL_01ea: br IL_0ea9
++IL_01ea: br IL_0fae
+ IL_01ef: ldloc.1
+ IL_01f0: ldstr "dump-travel"
+ IL_01f5: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -201,7 +201,7 @@
+ IL_026c: call System.Void System.IO.File::WriteAllText(System.String,System.String)
+ IL_0271: nop
+ IL_0272: nop
+-IL_0273: br IL_0ea9
++IL_0273: br IL_0fae
+ IL_0278: ldloc.1
+ IL_0279: ldstr "qa-background-input"
+ IL_027e: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -242,7 +242,7 @@
+ IL_02e9: newobj System.Void System.Exception::.ctor(System.String)
+ IL_02ee: throw
+ IL_02ef: nop
+-IL_02f0: br IL_0ea9
++IL_02f0: br IL_0fae
+ IL_02f5: ldloc.1
+ IL_02f6: ldstr "restore-input-policy"
+ IL_02fb: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -252,7 +252,7 @@
+ IL_0306: ldarg.0
+ IL_0307: call System.Void ForestProbe::RestoreInputPolicy()
+ IL_030c: nop
+-IL_030d: br IL_0ea9
++IL_030d: br IL_0fae
+ IL_0312: ldloc.1
+ IL_0313: ldstr "sample-keyboard-start"
+ IL_0318: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -276,7 +276,7 @@
+ IL_0348: ldc.i4.1
+ IL_0349: stfld System.Boolean ForestProbe::samplingKeyboard
+ IL_034e: nop
+-IL_034f: br IL_0ea9
++IL_034f: br IL_0fae
+ IL_0354: ldloc.1
+ IL_0355: ldstr "sample-keyboard-stop"
+ IL_035a: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -307,7 +307,7 @@
+ IL_03a2: call System.Void System.IO.File::WriteAllLines(System.String,System.String[])
+ IL_03a7: nop
+ IL_03a8: nop
+-IL_03a9: br IL_0ea9
++IL_03a9: br IL_0fae
+ IL_03ae: ldloc.1
+ IL_03af: ldstr "sample-keyboard-snapshot"
+ IL_03b4: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -335,7 +335,7 @@
+ IL_03f5: call System.Void System.IO.File::WriteAllLines(System.String,System.String[])
+ IL_03fa: nop
+ IL_03fb: nop
+-IL_03fc: br IL_0ea9
++IL_03fc: br IL_0fae
+ IL_0401: ldloc.1
+ IL_0402: ldstr "quit"
+ IL_0407: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -349,7 +349,7 @@
+ IL_041a: call System.Void UnityEngine.Application::Quit()
+ IL_041f: nop
+ IL_0420: nop
+-IL_0421: br IL_0ea9
++IL_0421: br IL_0fae
+ IL_0426: ldloc.1
+ IL_0427: ldstr "show-menu"
+ IL_042c: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -378,7 +378,7 @@
+ IL_046e: callvirt System.Object System.Reflection.MethodBase::Invoke(System.Object,System.Object[])
+ IL_0473: pop
+ IL_0474: nop
+-IL_0475: br IL_0ea9
++IL_0475: br IL_0fae
+ IL_047a: ldloc.1
+ IL_047b: ldstr "complete-tutorial158"
+ IL_0480: call System.Boolean System.String::op_Equality(System.String,System.String)
+@@ -438,1003 +438,1104 @@
+ IL_0520: call System.Void System.IO.File::WriteAllText(System.String,System.String)
+ IL_0525: nop
+ IL_0526: nop
+-IL_0527: br IL_0ea9
++IL_0527: br IL_0fae
+ IL_052c: ldloc.1
+-IL_052d: ldstr "continue-bound "
++IL_052d: ldstr "select-tutorial181 "
+ IL_0532: callvirt System.Boolean System.String::StartsWith(System.String)
+ IL_0537: stloc.s V_35
+ IL_0539: ldloc.s V_35
+-IL_053b: brfalse IL_068b
++IL_053b: brfalse IL_0631
+ IL_0540: nop
+-IL_0541: ldloc.1
+-IL_0542: ldc.i4.s 15
+-IL_0544: callvirt System.String System.String::Substring(System.Int32)
+-IL_0549: ldc.i4.1
+-IL_054a: newarr System.Char
+-IL_054f: dup
+-IL_0550: ldc.i4.0
+-IL_0551: ldc.i4.s 32
+-IL_0553: stelem.i2
+-IL_0554: callvirt System.String[] System.String::Split(System.Char[])
+-IL_0559: stloc.s V_36
+-IL_055b: ldloc.s V_36
+-IL_055d: ldlen
+-IL_055e: conv.i4
+-IL_055f: ldc.i4.2
+-IL_0560: ceq
+-IL_0562: ldc.i4.0
+-IL_0563: ceq
+-IL_0565: stloc.s V_43
+-IL_0567: ldloc.s V_43
+-IL_0569: brfalse.s IL_0576
+-IL_056b: ldstr "Expected conversation and source entry"
+-IL_0570: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0575: throw
+-IL_0576: ldloc.s V_36
+-IL_0578: ldc.i4.0
+-IL_0579: ldelem.ref
+-IL_057a: call System.Int32 System.Int32::Parse(System.String)
+-IL_057f: stloc.s V_37
+-IL_0581: ldloc.s V_36
+-IL_0583: ldc.i4.1
+-IL_0584: ldelem.ref
+-IL_0585: call System.Int32 System.Int32::Parse(System.String)
+-IL_058a: stloc.s V_38
+-IL_058c: ldloc.s V_37
+-IL_058e: ldc.i4.s 120
+-IL_0590: bne.un.s IL_059d
+-IL_0592: ldloc.s V_38
+-IL_0594: ldc.i4 158
+-IL_0599: ceq
+-IL_059b: br.s IL_059e
+-IL_059d: ldc.i4.0
+-IL_059e: stloc.s V_44
+-IL_05a0: ldloc.s V_44
+-IL_05a2: brfalse.s IL_05af
+-IL_05a4: ldstr "Tutorial158 requires guarded completion"
+-IL_05a9: newobj System.Void System.Exception::.ctor(System.String)
+-IL_05ae: throw
+-IL_05af: call PixelCrushers.DialogueSystem.ConversationState PixelCrushers.DialogueSystem.DialogueManager::get_currentConversationState()
+-IL_05b4: stloc.s V_39
+-IL_05b6: ldloc.s V_39
+-IL_05b8: brfalse.s IL_05d1
+-IL_05ba: ldloc.s V_39
+-IL_05bc: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
+-IL_05c1: brfalse.s IL_05d1
+-IL_05c3: ldloc.s V_39
+-IL_05c5: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
+-IL_05ca: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
+-IL_05cf: br.s IL_05d2
+-IL_05d1: ldnull
+-IL_05d2: stloc.s V_40
+-IL_05d4: newobj System.Void ForestProbe/ContinueReceipt::.ctor()
+-IL_05d9: dup
+-IL_05da: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
+-IL_05df: stfld System.Boolean ForestProbe/ContinueReceipt::active
+-IL_05e4: dup
+-IL_05e5: ldloc.s V_37
+-IL_05e7: stfld System.Int32 ForestProbe/ContinueReceipt::expectedConversationId
+-IL_05ec: dup
+-IL_05ed: ldloc.s V_38
+-IL_05ef: stfld System.Int32 ForestProbe/ContinueReceipt::expectedEntryId
+-IL_05f4: dup
+-IL_05f5: ldloc.s V_40
+-IL_05f7: brfalse.s IL_0602
+-IL_05f9: ldloc.s V_40
+-IL_05fb: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::conversationID
+-IL_0600: br.s IL_0603
+-IL_0602: ldc.i4.m1
+-IL_0603: stfld System.Int32 ForestProbe/ContinueReceipt::actualConversationId
+-IL_0608: dup
+-IL_0609: ldloc.s V_40
+-IL_060b: brfalse.s IL_0616
+-IL_060d: ldloc.s V_40
+-IL_060f: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::id
+-IL_0614: br.s IL_0617
+-IL_0616: ldc.i4.m1
+-IL_0617: stfld System.Int32 ForestProbe/ContinueReceipt::actualEntryId
+-IL_061c: stloc.s V_41
+-IL_061e: ldloc.s V_41
+-IL_0620: ldfld System.Boolean ForestProbe/ContinueReceipt::active
+-IL_0625: brfalse.s IL_063f
+-IL_0627: ldloc.s V_41
+-IL_0629: ldfld System.Int32 ForestProbe/ContinueReceipt::actualConversationId
+-IL_062e: ldloc.s V_37
+-IL_0630: bne.un.s IL_063f
+-IL_0632: ldloc.s V_41
+-IL_0634: ldfld System.Int32 ForestProbe/ContinueReceipt::actualEntryId
+-IL_0639: ldloc.s V_38
+-IL_063b: ceq
+-IL_063d: br.s IL_0640
+-IL_063f: ldc.i4.0
+-IL_0640: stloc.s V_42
+-IL_0642: ldloc.s V_42
+-IL_0644: stloc.s V_45
+-IL_0646: ldloc.s V_45
+-IL_0648: brfalse.s IL_0650
+-IL_064a: call System.Void TheForestOfLove.CustomTypewriterEffectTextMeshPro::FastForwardTextOrAdvanceDialogue()
+-IL_064f: nop
+-IL_0650: ldloc.s V_41
+-IL_0652: ldloc.s V_42
+-IL_0654: brtrue.s IL_065d
+-IL_0656: ldstr "stale"
+-IL_065b: br.s IL_0662
+-IL_065d: ldstr "applied"
+-IL_0662: stfld System.String ForestProbe/ContinueReceipt::result
+-IL_0667: ldarg.0
+-IL_0668: ldfld System.String ForestProbe::root
+-IL_066d: ldstr "continue-receipt.json"
+-IL_0672: call System.String System.IO.Path::Combine(System.String,System.String)
+-IL_0677: ldloc.s V_41
+-IL_0679: ldc.i4.1
+-IL_067a: call System.String UnityEngine.JsonUtility::ToJson(System.Object,System.Boolean)
+-IL_067f: call System.Void System.IO.File::WriteAllText(System.String,System.String)
+-IL_0684: nop
+-IL_0685: nop
+-IL_0686: br IL_0ea9
+-IL_068b: ldloc.1
+-IL_068c: ldstr "continue"
+-IL_0691: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0696: stloc.s V_46
+-IL_0698: ldloc.s V_46
+-IL_069a: brfalse.s IL_06c2
+-IL_069c: nop
+-IL_069d: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
++IL_0541: ldarg.0
++IL_0542: ldfld System.Boolean ForestProbe::tutorial181Selected
++IL_0547: stloc.s V_41
++IL_0549: ldloc.s V_41
++IL_054b: brfalse.s IL_0558
++IL_054d: ldstr "Tutorial181 already selected; no replay"
++IL_0552: newobj System.Void System.Exception::.ctor(System.String)
++IL_0557: throw
++IL_0558: ldloc.1
++IL_0559: ldc.i4.s 19
++IL_055b: callvirt System.String System.String::Substring(System.Int32)
++IL_0560: ldc.i4.1
++IL_0561: newarr System.Char
++IL_0566: dup
++IL_0567: ldc.i4.0
++IL_0568: ldc.i4.s 32
++IL_056a: stelem.i2
++IL_056b: callvirt System.String[] System.String::Split(System.Char[])
++IL_0570: stloc.s V_36
++IL_0572: ldloc.s V_36
++IL_0574: ldlen
++IL_0575: conv.i4
++IL_0576: ldc.i4.2
++IL_0577: ceq
++IL_0579: ldc.i4.0
++IL_057a: ceq
++IL_057c: stloc.s V_42
++IL_057e: ldloc.s V_42
++IL_0580: brfalse.s IL_058d
++IL_0582: ldstr "Expected observed frame and original button identity"
++IL_0587: newobj System.Void System.Exception::.ctor(System.String)
++IL_058c: throw
++IL_058d: ldloc.s V_36
++IL_058f: ldc.i4.0
++IL_0590: ldelem.ref
++IL_0591: call System.Int32 System.Int32::Parse(System.String)
++IL_0596: stloc.s V_37
++IL_0598: ldloc.s V_36
++IL_059a: ldc.i4.1
++IL_059b: ldelem.ref
++IL_059c: call System.Int32 System.Int32::Parse(System.String)
++IL_05a1: stloc.s V_38
++IL_05a3: ldarg.0
++IL_05a4: ldloca.s V_39
++IL_05a6: call ForestProbe/Tutorial181Selection ForestProbe::ReadTutorial181(UnityEngine.UI.Button&)
++IL_05ab: stloc.s V_40
++IL_05ad: ldloc.s V_37
++IL_05af: ldc.i4.0
++IL_05b0: ble.s IL_05db
++IL_05b2: ldloc.s V_37
++IL_05b4: ldloc.s V_40
++IL_05b6: ldfld System.Int32 ForestProbe/Tutorial181Selection::frame
++IL_05bb: bgt.s IL_05db
++IL_05bd: ldloc.s V_40
++IL_05bf: ldfld System.Int32 ForestProbe/Tutorial181Selection::frame
++IL_05c4: ldloc.s V_37
++IL_05c6: sub
++IL_05c7: ldc.i4.s 120
++IL_05c9: bgt.s IL_05db
++IL_05cb: ldloc.s V_40
++IL_05cd: ldfld System.Int32 ForestProbe/Tutorial181Selection::buttonInstance
++IL_05d2: ldloc.s V_38
++IL_05d4: ceq
++IL_05d6: ldc.i4.0
++IL_05d7: ceq
++IL_05d9: br.s IL_05dc
++IL_05db: ldc.i4.1
++IL_05dc: stloc.s V_43
++IL_05de: ldloc.s V_43
++IL_05e0: brfalse.s IL_05ed
++IL_05e2: ldstr "Stale Tutorial181 menu/control"
++IL_05e7: newobj System.Void System.Exception::.ctor(System.String)
++IL_05ec: throw
++IL_05ed: ldarg.0
++IL_05ee: ldc.i4.1
++IL_05ef: stfld System.Boolean ForestProbe::tutorial181Selected
++IL_05f4: ldloc.s V_40
++IL_05f6: ldstr "submitted"
++IL_05fb: stfld System.String ForestProbe/Tutorial181Selection::result
++IL_0600: ldarg.0
++IL_0601: ldfld System.String ForestProbe::root
++IL_0606: ldstr "selection181-receipt.json"
++IL_060b: call System.String System.IO.Path::Combine(System.String,System.String)
++IL_0610: ldloc.s V_40
++IL_0612: ldc.i4.1
++IL_0613: call System.String UnityEngine.JsonUtility::ToJson(System.Object,System.Boolean)
++IL_0618: call System.Void System.IO.File::WriteAllText(System.String,System.String)
++IL_061d: nop
++IL_061e: ldloc.s V_39
++IL_0620: callvirt UnityEngine.UI.Button/ButtonClickedEvent UnityEngine.UI.Button::get_onClick()
++IL_0625: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()
++IL_062a: nop
++IL_062b: nop
++IL_062c: br IL_0fae
++IL_0631: ldloc.1
++IL_0632: ldstr "continue-bound "
++IL_0637: callvirt System.Boolean System.String::StartsWith(System.String)
++IL_063c: stloc.s V_44
++IL_063e: ldloc.s V_44
++IL_0640: brfalse IL_0790
++IL_0645: nop
++IL_0646: ldloc.1
++IL_0647: ldc.i4.s 15
++IL_0649: callvirt System.String System.String::Substring(System.Int32)
++IL_064e: ldc.i4.1
++IL_064f: newarr System.Char
++IL_0654: dup
++IL_0655: ldc.i4.0
++IL_0656: ldc.i4.s 32
++IL_0658: stelem.i2
++IL_0659: callvirt System.String[] System.String::Split(System.Char[])
++IL_065e: stloc.s V_45
++IL_0660: ldloc.s V_45
++IL_0662: ldlen
++IL_0663: conv.i4
++IL_0664: ldc.i4.2
++IL_0665: ceq
++IL_0667: ldc.i4.0
++IL_0668: ceq
++IL_066a: stloc.s V_52
++IL_066c: ldloc.s V_52
++IL_066e: brfalse.s IL_067b
++IL_0670: ldstr "Expected conversation and source entry"
++IL_0675: newobj System.Void System.Exception::.ctor(System.String)
++IL_067a: throw
++IL_067b: ldloc.s V_45
++IL_067d: ldc.i4.0
++IL_067e: ldelem.ref
++IL_067f: call System.Int32 System.Int32::Parse(System.String)
++IL_0684: stloc.s V_46
++IL_0686: ldloc.s V_45
++IL_0688: ldc.i4.1
++IL_0689: ldelem.ref
++IL_068a: call System.Int32 System.Int32::Parse(System.String)
++IL_068f: stloc.s V_47
++IL_0691: ldloc.s V_46
++IL_0693: ldc.i4.s 120
++IL_0695: bne.un.s IL_06a2
++IL_0697: ldloc.s V_47
++IL_0699: ldc.i4 158
++IL_069e: ceq
++IL_06a0: br.s IL_06a3
+ IL_06a2: ldc.i4.0
+-IL_06a3: ceq
+-IL_06a5: stloc.s V_47
+-IL_06a7: ldloc.s V_47
+-IL_06a9: brfalse.s IL_06b6
+-IL_06ab: ldstr "No active conversation"
+-IL_06b0: newobj System.Void System.Exception::.ctor(System.String)
+-IL_06b5: throw
+-IL_06b6: call System.Void TheForestOfLove.CustomTypewriterEffectTextMeshPro::FastForwardTextOrAdvanceDialogue()
+-IL_06bb: nop
+-IL_06bc: nop
+-IL_06bd: br IL_0ea9
+-IL_06c2: ldloc.1
+-IL_06c3: ldstr "response "
+-IL_06c8: callvirt System.Boolean System.String::StartsWith(System.String)
+-IL_06cd: stloc.s V_48
+-IL_06cf: ldloc.s V_48
+-IL_06d1: brfalse IL_08c5
+-IL_06d6: nop
+-IL_06d7: ldloc.1
+-IL_06d8: ldc.i4.s 9
+-IL_06da: callvirt System.String System.String::Substring(System.Int32)
+-IL_06df: ldc.i4.1
+-IL_06e0: newarr System.Char
+-IL_06e5: dup
+-IL_06e6: ldc.i4.0
+-IL_06e7: ldc.i4.s 32
+-IL_06e9: stelem.i2
+-IL_06ea: callvirt System.String[] System.String::Split(System.Char[])
+-IL_06ef: stloc.s V_49
+-IL_06f1: ldloc.s V_49
+-IL_06f3: ldlen
+-IL_06f4: conv.i4
+-IL_06f5: ldc.i4.3
+-IL_06f6: ceq
+-IL_06f8: ldc.i4.0
+-IL_06f9: ceq
+-IL_06fb: stloc.s V_55
+-IL_06fd: ldloc.s V_55
+-IL_06ff: brfalse.s IL_070c
+-IL_0701: ldstr "Expected source entry, conversation and destination entry"
+-IL_0706: newobj System.Void System.Exception::.ctor(System.String)
+-IL_070b: throw
+-IL_070c: ldloc.s V_49
+-IL_070e: ldc.i4.0
+-IL_070f: ldelem.ref
+-IL_0710: call System.Int32 System.Int32::Parse(System.String)
+-IL_0715: stloc.s V_50
+-IL_0717: ldloc.s V_49
+-IL_0719: ldc.i4.1
+-IL_071a: ldelem.ref
+-IL_071b: call System.Int32 System.Int32::Parse(System.String)
+-IL_0720: stloc.s V_51
+-IL_0722: ldloc.s V_49
+-IL_0724: ldc.i4.2
+-IL_0725: ldelem.ref
+-IL_0726: call System.Int32 System.Int32::Parse(System.String)
+-IL_072b: stloc.s V_52
+-IL_072d: ldloc.s V_51
+-IL_072f: ldc.i4.s 120
+-IL_0731: bne.un.s IL_073e
+-IL_0733: ldloc.s V_50
+-IL_0735: ldc.i4 158
+-IL_073a: ceq
+-IL_073c: br.s IL_073f
+-IL_073e: ldc.i4.0
+-IL_073f: stloc.s V_56
+-IL_0741: ldloc.s V_56
+-IL_0743: brfalse.s IL_0750
+-IL_0745: ldstr "Tutorial159/181 choices forbidden"
+-IL_074a: newobj System.Void System.Exception::.ctor(System.String)
+-IL_074f: throw
+-IL_0750: call PixelCrushers.DialogueSystem.ConversationState PixelCrushers.DialogueSystem.DialogueManager::get_currentConversationState()
+-IL_0755: stloc.s V_53
+-IL_0757: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
+-IL_075c: brfalse.s IL_07a8
+-IL_075e: ldloc.s V_53
+-IL_0760: brfalse.s IL_07a8
+-IL_0762: ldloc.s V_53
+-IL_0764: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
+-IL_0769: brfalse.s IL_07a8
+-IL_076b: ldloc.s V_53
+-IL_076d: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
+-IL_0772: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
+-IL_0777: brfalse.s IL_07a8
+-IL_0779: ldloc.s V_53
+-IL_077b: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
+-IL_0780: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
+-IL_0785: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::conversationID
+-IL_078a: ldloc.s V_51
+-IL_078c: bne.un.s IL_07a8
+-IL_078e: ldloc.s V_53
+-IL_0790: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
+-IL_0795: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
+-IL_079a: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::id
+-IL_079f: ldloc.s V_50
+-IL_07a1: ceq
+-IL_07a3: ldc.i4.0
+-IL_07a4: ceq
+-IL_07a6: br.s IL_07a9
+-IL_07a8: ldc.i4.1
+-IL_07a9: stloc.s V_57
+-IL_07ab: ldloc.s V_57
+-IL_07ad: brfalse.s IL_07ba
+-IL_07af: ldstr "Response source changed"
+-IL_07b4: newobj System.Void System.Exception::.ctor(System.String)
+-IL_07b9: throw
+-IL_07ba: ldnull
+-IL_07bb: stloc.s V_54
+-IL_07bd: nop
+-IL_07be: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<PixelCrushers.DialogueSystem.StandardUIResponseButton>()
+-IL_07c3: stloc.s V_58
+-IL_07c5: ldc.i4.0
+-IL_07c6: stloc.s V_59
+-IL_07c8: br.s IL_0834
+-IL_07ca: ldloc.s V_58
+-IL_07cc: ldloc.s V_59
+-IL_07ce: ldelem.ref
+-IL_07cf: stloc.s V_60
+-IL_07d1: ldloc.s V_60
+-IL_07d3: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_07d8: callvirt UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()
+-IL_07dd: stloc.s V_10
+-IL_07df: ldloca.s V_10
+-IL_07e1: call System.Boolean UnityEngine.SceneManagement.Scene::IsValid()
+-IL_07e6: brfalse.s IL_0808
+-IL_07e8: ldloc.s V_60
+-IL_07ea: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_07ef: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
+-IL_07f4: brfalse.s IL_0808
+-IL_07f6: ldloc.s V_60
+-IL_07f8: callvirt System.Boolean PixelCrushers.DialogueSystem.StandardUIResponseButton::get_isVisible()
+-IL_07fd: brfalse.s IL_0808
+-IL_07ff: ldloc.s V_60
+-IL_0801: callvirt System.Boolean PixelCrushers.DialogueSystem.StandardUIResponseButton::get_isClickable()
+-IL_0806: br.s IL_0809
+-IL_0808: ldc.i4.0
+-IL_0809: stloc.s V_61
+-IL_080b: ldloc.s V_61
+-IL_080d: brfalse.s IL_082e
+-IL_080f: nop
+-IL_0810: ldloc.s V_54
+-IL_0812: ldnull
+-IL_0813: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+-IL_0818: stloc.s V_62
+-IL_081a: ldloc.s V_62
+-IL_081c: brfalse.s IL_0829
+-IL_081e: ldstr "More than one live response; hold for source review"
+-IL_0823: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0828: throw
+-IL_0829: ldloc.s V_60
+-IL_082b: stloc.s V_54
+-IL_082d: nop
+-IL_082e: ldloc.s V_59
+-IL_0830: ldc.i4.1
+-IL_0831: add
+-IL_0832: stloc.s V_59
+-IL_0834: ldloc.s V_59
+-IL_0836: ldloc.s V_58
+-IL_0838: ldlen
+-IL_0839: conv.i4
+-IL_083a: blt.s IL_07ca
+-IL_083c: ldloc.s V_54
+-IL_083e: ldnull
+-IL_083f: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0844: brtrue.s IL_089b
+-IL_0846: ldloc.s V_54
+-IL_0848: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
+-IL_084d: brfalse.s IL_089b
+-IL_084f: ldloc.s V_54
+-IL_0851: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
+-IL_0856: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Response::destinationEntry
+-IL_085b: brfalse.s IL_089b
+-IL_085d: ldloc.s V_54
+-IL_085f: callvirt UnityEngine.Transform PixelCrushers.DialogueSystem.StandardUIResponseButton::get_target()
+-IL_0864: ldnull
+-IL_0865: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_086a: brtrue.s IL_089b
+-IL_086c: ldloc.s V_54
+-IL_086e: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
+-IL_0873: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Response::destinationEntry
+-IL_0878: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::conversationID
+-IL_087d: ldloc.s V_51
+-IL_087f: bne.un.s IL_089b
+-IL_0881: ldloc.s V_54
+-IL_0883: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
+-IL_0888: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Response::destinationEntry
+-IL_088d: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::id
+-IL_0892: ldloc.s V_52
+-IL_0894: ceq
+-IL_0896: ldc.i4.0
+-IL_0897: ceq
+-IL_0899: br.s IL_089c
+-IL_089b: ldc.i4.1
+-IL_089c: stloc.s V_63
+-IL_089e: ldloc.s V_63
+-IL_08a0: brfalse.s IL_08ad
+-IL_08a2: ldstr "Response does not match source-bound successor"
+-IL_08a7: newobj System.Void System.Exception::.ctor(System.String)
+-IL_08ac: throw
+-IL_08ad: ldloc.s V_54
+-IL_08af: ldfld UnityEngine.UI.Button PixelCrushers.DialogueSystem.StandardUIResponseButton::button
+-IL_08b4: callvirt UnityEngine.UI.Button/ButtonClickedEvent UnityEngine.UI.Button::get_onClick()
+-IL_08b9: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()
+-IL_08be: nop
+-IL_08bf: nop
+-IL_08c0: br IL_0ea9
+-IL_08c5: ldloc.1
+-IL_08c6: ldstr "probe-nameplate"
+-IL_08cb: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_08d0: stloc.s V_64
+-IL_08d2: ldloc.s V_64
+-IL_08d4: brfalse.s IL_0944
+-IL_08d6: nop
+-IL_08d7: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
+-IL_08dc: ldc.i4.0
+-IL_08dd: ceq
+-IL_08df: stloc.s V_66
+-IL_08e1: ldloc.s V_66
+-IL_08e3: brfalse.s IL_08f0
+-IL_08e5: ldstr "No active conversation"
+-IL_08ea: newobj System.Void System.Exception::.ctor(System.String)
+-IL_08ef: throw
+-IL_08f0: call !!0 UnityEngine.Object::FindObjectOfType<TheForestOfLove.DialogueNameplateController>()
+-IL_08f5: stloc.s V_65
+-IL_08f7: ldloc.s V_65
+-IL_08f9: ldnull
+-IL_08fa: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_08ff: stloc.s V_67
+-IL_0901: ldloc.s V_67
+-IL_0903: brfalse.s IL_0910
+-IL_0905: ldstr "No active nameplate controller"
+-IL_090a: newobj System.Void System.Exception::.ctor(System.String)
+-IL_090f: throw
+-IL_0910: ldloc.s V_65
+-IL_0912: ldstr "Ёж Йй 123"
+-IL_0917: callvirt System.Void TheForestOfLove.DialogueNameplateController::SetCustomNameplateUntilCleared(System.String)
+-IL_091c: nop
+-IL_091d: ldloc.s V_65
+-IL_091f: callvirt System.Type System.Object::GetType()
+-IL_0924: ldstr "UpdateNameplate"
+-IL_0929: ldc.i4.s 36
+-IL_092b: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
+-IL_0930: ldloc.s V_65
+-IL_0932: ldc.i4.1
+-IL_0933: newarr System.Object
+-IL_0938: callvirt System.Object System.Reflection.MethodBase::Invoke(System.Object,System.Object[])
+-IL_093d: pop
+-IL_093e: nop
+-IL_093f: br IL_0ea9
+-IL_0944: ldloc.1
+-IL_0945: ldstr "capture "
+-IL_094a: callvirt System.Boolean System.String::StartsWith(System.String)
+-IL_094f: stloc.s V_68
+-IL_0951: ldloc.s V_68
+-IL_0953: brfalse.s IL_09ce
+-IL_0955: nop
+-IL_0956: ldloc.1
+-IL_0957: ldc.i4.8
+-IL_0958: callvirt System.String System.String::Substring(System.Int32)
+-IL_095d: stloc.s V_69
+-IL_095f: ldloc.s V_69
+-IL_0961: call System.String System.IO.Path::GetFileName(System.String)
+-IL_0966: ldloc.s V_69
+-IL_0968: call System.Boolean System.String::op_Inequality(System.String,System.String)
+-IL_096d: brtrue.s IL_0980
+-IL_096f: ldloc.s V_69
+-IL_0971: ldstr ".png"
+-IL_0976: callvirt System.Boolean System.String::EndsWith(System.String)
+-IL_097b: ldc.i4.0
+-IL_097c: ceq
+-IL_097e: br.s IL_0981
+-IL_0980: ldc.i4.1
+-IL_0981: stloc.s V_71
+-IL_0983: ldloc.s V_71
+-IL_0985: brfalse.s IL_0992
+-IL_0987: ldstr "Invalid capture name"
+-IL_098c: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0991: throw
+-IL_0992: ldarg.0
+-IL_0993: ldfld System.String ForestProbe::root
+-IL_0998: ldloc.s V_69
+-IL_099a: call System.String System.IO.Path::Combine(System.String,System.String)
+-IL_099f: stloc.s V_70
+-IL_09a1: ldloc.s V_70
+-IL_09a3: call System.Boolean System.IO.File::Exists(System.String)
+-IL_09a8: stloc.s V_72
+-IL_09aa: ldloc.s V_72
+-IL_09ac: brfalse.s IL_09b9
+-IL_09ae: ldstr "Capture already exists"
+-IL_09b3: newobj System.Void System.Exception::.ctor(System.String)
+-IL_09b8: throw
+-IL_09b9: ldarg.0
+-IL_09ba: ldarg.0
+-IL_09bb: ldloc.s V_70
+-IL_09bd: call System.Collections.IEnumerator ForestProbe::Capture(System.String)
+-IL_09c2: call UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
+-IL_09c7: pop
+-IL_09c8: nop
+-IL_09c9: br IL_0ea9
+-IL_09ce: ldloc.1
+-IL_09cf: ldstr "select "
+-IL_09d4: callvirt System.Boolean System.String::StartsWith(System.String)
+-IL_09d9: stloc.s V_73
+-IL_09db: ldloc.s V_73
+-IL_09dd: brfalse IL_0ac2
+-IL_09e2: nop
+-IL_09e3: ldloc.1
+-IL_09e4: ldc.i4.7
+-IL_09e5: callvirt System.String System.String::Substring(System.Int32)
+-IL_09ea: stloc.s V_74
+-IL_09ec: ldnull
+-IL_09ed: stloc.s V_75
+-IL_09ef: nop
+-IL_09f0: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.UI.Selectable>()
+-IL_09f5: stloc.s V_76
+-IL_09f7: ldc.i4.0
+-IL_09f8: stloc.s V_77
+-IL_09fa: br.s IL_0a72
+-IL_09fc: ldloc.s V_76
+-IL_09fe: ldloc.s V_77
+-IL_0a00: ldelem.ref
+-IL_0a01: stloc.s V_78
+-IL_0a03: ldloc.s V_78
+-IL_0a05: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0a0a: callvirt UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()
+-IL_0a0f: stloc.s V_10
+-IL_0a11: ldloca.s V_10
+-IL_0a13: call System.Boolean UnityEngine.SceneManagement.Scene::IsValid()
+-IL_0a18: brfalse.s IL_0a46
+-IL_0a1a: ldloc.s V_78
+-IL_0a1c: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0a21: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
+-IL_0a26: brfalse.s IL_0a46
+-IL_0a28: ldloc.s V_78
+-IL_0a2a: callvirt System.Boolean UnityEngine.UI.Selectable::IsInteractable()
+-IL_0a2f: brfalse.s IL_0a46
+-IL_0a31: ldloc.s V_78
+-IL_0a33: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()
+-IL_0a38: call System.String ForestProbe::Address(UnityEngine.Transform)
+-IL_0a3d: ldloc.s V_74
+-IL_0a3f: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0a44: br.s IL_0a47
+-IL_0a46: ldc.i4.0
+-IL_0a47: stloc.s V_79
+-IL_0a49: ldloc.s V_79
+-IL_0a4b: brfalse.s IL_0a6c
+-IL_0a4d: nop
+-IL_0a4e: ldloc.s V_75
+-IL_0a50: ldnull
+-IL_0a51: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+-IL_0a56: stloc.s V_80
+-IL_0a58: ldloc.s V_80
+-IL_0a5a: brfalse.s IL_0a67
+-IL_0a5c: ldstr "Duplicate active selectable"
+-IL_0a61: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0a66: throw
+-IL_0a67: ldloc.s V_78
+-IL_0a69: stloc.s V_75
+-IL_0a6b: nop
+-IL_0a6c: ldloc.s V_77
+-IL_0a6e: ldc.i4.1
+-IL_0a6f: add
+-IL_0a70: stloc.s V_77
+-IL_0a72: ldloc.s V_77
+-IL_0a74: ldloc.s V_76
+-IL_0a76: ldlen
+-IL_0a77: conv.i4
+-IL_0a78: blt.s IL_09fc
+-IL_0a7a: ldloc.s V_75
+-IL_0a7c: ldnull
+-IL_0a7d: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0a82: brtrue.s IL_0a91
+-IL_0a84: call UnityEngine.EventSystems.EventSystem UnityEngine.EventSystems.EventSystem::get_current()
+-IL_0a89: ldnull
+-IL_0a8a: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0a8f: br.s IL_0a92
+-IL_0a91: ldc.i4.1
+-IL_0a92: stloc.s V_81
+-IL_0a94: ldloc.s V_81
+-IL_0a96: brfalse.s IL_0aaa
+-IL_0a98: ldstr "No selectable/event system: "
+-IL_0a9d: ldloc.s V_74
+-IL_0a9f: call System.String System.String::Concat(System.String,System.String)
+-IL_0aa4: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0aa9: throw
+-IL_0aaa: call UnityEngine.EventSystems.EventSystem UnityEngine.EventSystems.EventSystem::get_current()
+-IL_0aaf: ldloc.s V_75
+-IL_0ab1: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0ab6: callvirt System.Void UnityEngine.EventSystems.EventSystem::SetSelectedGameObject(UnityEngine.GameObject)
+-IL_0abb: nop
+-IL_0abc: nop
+-IL_0abd: br IL_0ea9
+-IL_0ac2: ldloc.1
+-IL_0ac3: ldstr "move-left"
+-IL_0ac8: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0acd: brtrue.s IL_0adc
+-IL_0acf: ldloc.1
+-IL_0ad0: ldstr "move-right"
+-IL_0ad5: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0ada: br.s IL_0add
+-IL_0adc: ldc.i4.1
+-IL_0add: stloc.s V_82
+-IL_0adf: ldloc.s V_82
+-IL_0ae1: brfalse IL_0b67
+-IL_0ae6: nop
+-IL_0ae7: call UnityEngine.EventSystems.EventSystem UnityEngine.EventSystems.EventSystem::get_current()
+-IL_0aec: stloc.s V_83
+-IL_0aee: ldloc.s V_83
+-IL_0af0: ldnull
+-IL_0af1: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0af6: brtrue.s IL_0b07
+-IL_0af8: ldloc.s V_83
+-IL_0afa: callvirt UnityEngine.GameObject UnityEngine.EventSystems.EventSystem::get_currentSelectedGameObject()
+-IL_0aff: ldnull
+-IL_0b00: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0b05: br.s IL_0b08
+-IL_0b07: ldc.i4.1
+-IL_0b08: stloc.s V_85
+-IL_0b0a: ldloc.s V_85
+-IL_0b0c: brfalse.s IL_0b19
+-IL_0b0e: ldstr "No selected control"
+-IL_0b13: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0b18: throw
+-IL_0b19: ldloc.s V_83
+-IL_0b1b: newobj System.Void UnityEngine.EventSystems.AxisEventData::.ctor(UnityEngine.EventSystems.EventSystem)
+-IL_0b20: dup
+-IL_0b21: ldloc.1
+-IL_0b22: ldstr "move-left"
+-IL_0b27: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0b2c: brtrue.s IL_0b31
+-IL_0b2e: ldc.i4.2
+-IL_0b2f: br.s IL_0b32
+-IL_0b31: ldc.i4.0
+-IL_0b32: callvirt System.Void UnityEngine.EventSystems.AxisEventData::set_moveDir(UnityEngine.EventSystems.MoveDirection)
+-IL_0b37: nop
+-IL_0b38: stloc.s V_84
+-IL_0b3a: ldloc.s V_83
+-IL_0b3c: callvirt UnityEngine.GameObject UnityEngine.EventSystems.EventSystem::get_currentSelectedGameObject()
+-IL_0b41: ldloc.s V_84
+-IL_0b43: call UnityEngine.EventSystems.ExecuteEvents/EventFunction`1<UnityEngine.EventSystems.IMoveHandler> UnityEngine.EventSystems.ExecuteEvents::get_moveHandler()
+-IL_0b48: call System.Boolean UnityEngine.EventSystems.ExecuteEvents::Execute<UnityEngine.EventSystems.IMoveHandler>(UnityEngine.GameObject,UnityEngine.EventSystems.BaseEventData,UnityEngine.EventSystems.ExecuteEvents/EventFunction`1<!!0>)
+-IL_0b4d: ldc.i4.0
+-IL_0b4e: ceq
+-IL_0b50: stloc.s V_86
+-IL_0b52: ldloc.s V_86
+-IL_0b54: brfalse.s IL_0b61
+-IL_0b56: ldstr "No move handler"
+-IL_0b5b: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0b60: throw
+-IL_0b61: nop
+-IL_0b62: br IL_0ea9
+-IL_0b67: ldloc.1
+-IL_0b68: ldstr "click "
+-IL_0b6d: callvirt System.Boolean System.String::StartsWith(System.String)
+-IL_0b72: stloc.s V_87
+-IL_0b74: ldloc.s V_87
+-IL_0b76: brfalse IL_0c2f
+-IL_0b7b: nop
+-IL_0b7c: ldloc.1
+-IL_0b7d: ldc.i4.6
+-IL_0b7e: callvirt System.String System.String::Substring(System.Int32)
+-IL_0b83: stloc.s V_88
+-IL_0b85: ldnull
+-IL_0b86: stloc.s V_89
+-IL_0b88: nop
+-IL_0b89: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.UI.Button>()
+-IL_0b8e: stloc.s V_90
+-IL_0b90: ldc.i4.0
+-IL_0b91: stloc.s V_91
+-IL_0b93: br.s IL_0bf4
+-IL_0b95: ldloc.s V_90
+-IL_0b97: ldloc.s V_91
+-IL_0b99: ldelem.ref
+-IL_0b9a: stloc.s V_92
+-IL_0b9c: ldloc.s V_92
+-IL_0b9e: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0ba3: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
+-IL_0ba8: brfalse.s IL_0bc8
+-IL_0baa: ldloc.s V_92
+-IL_0bac: callvirt System.Boolean UnityEngine.UI.Selectable::get_interactable()
+-IL_0bb1: brfalse.s IL_0bc8
+-IL_0bb3: ldloc.s V_92
+-IL_0bb5: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()
+-IL_0bba: call System.String ForestProbe::Address(UnityEngine.Transform)
+-IL_0bbf: ldloc.s V_88
+-IL_0bc1: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0bc6: br.s IL_0bc9
+-IL_0bc8: ldc.i4.0
+-IL_0bc9: stloc.s V_93
+-IL_0bcb: ldloc.s V_93
+-IL_0bcd: brfalse.s IL_0bee
+-IL_0bcf: nop
+-IL_0bd0: ldloc.s V_89
+-IL_0bd2: ldnull
+-IL_0bd3: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+-IL_0bd8: stloc.s V_94
+-IL_0bda: ldloc.s V_94
+-IL_0bdc: brfalse.s IL_0be9
+-IL_0bde: ldstr "Duplicate active button"
+-IL_0be3: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0be8: throw
+-IL_0be9: ldloc.s V_92
+-IL_0beb: stloc.s V_89
+-IL_0bed: nop
+-IL_0bee: ldloc.s V_91
+-IL_0bf0: ldc.i4.1
+-IL_0bf1: add
+-IL_0bf2: stloc.s V_91
+-IL_0bf4: ldloc.s V_91
+-IL_0bf6: ldloc.s V_90
+-IL_0bf8: ldlen
+-IL_0bf9: conv.i4
+-IL_0bfa: blt.s IL_0b95
+-IL_0bfc: ldloc.s V_89
+-IL_0bfe: ldnull
+-IL_0bff: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0c04: stloc.s V_95
+-IL_0c06: ldloc.s V_95
+-IL_0c08: brfalse.s IL_0c1c
+-IL_0c0a: ldstr "No matching active button: "
+-IL_0c0f: ldloc.s V_88
+-IL_0c11: call System.String System.String::Concat(System.String,System.String)
+-IL_0c16: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0c1b: throw
+-IL_0c1c: ldloc.s V_89
+-IL_0c1e: callvirt UnityEngine.UI.Button/ButtonClickedEvent UnityEngine.UI.Button::get_onClick()
+-IL_0c23: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()
+-IL_0c28: nop
+-IL_0c29: nop
+-IL_0c2a: br IL_0ea9
+-IL_0c2f: ldloc.1
+-IL_0c30: ldstr "menu "
+-IL_0c35: callvirt System.Boolean System.String::StartsWith(System.String)
+-IL_0c3a: stloc.s V_96
+-IL_0c3c: ldloc.s V_96
+-IL_0c3e: brfalse IL_0e9e
+-IL_0c43: nop
+-IL_0c44: ldloc.1
+-IL_0c45: ldc.i4.5
+-IL_0c46: callvirt System.String System.String::Substring(System.Int32)
+-IL_0c4b: ldc.i4.1
+-IL_0c4c: newarr System.Char
+-IL_0c51: dup
++IL_06a3: stloc.s V_53
++IL_06a5: ldloc.s V_53
++IL_06a7: brfalse.s IL_06b4
++IL_06a9: ldstr "Tutorial158 requires guarded completion"
++IL_06ae: newobj System.Void System.Exception::.ctor(System.String)
++IL_06b3: throw
++IL_06b4: call PixelCrushers.DialogueSystem.ConversationState PixelCrushers.DialogueSystem.DialogueManager::get_currentConversationState()
++IL_06b9: stloc.s V_48
++IL_06bb: ldloc.s V_48
++IL_06bd: brfalse.s IL_06d6
++IL_06bf: ldloc.s V_48
++IL_06c1: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
++IL_06c6: brfalse.s IL_06d6
++IL_06c8: ldloc.s V_48
++IL_06ca: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
++IL_06cf: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
++IL_06d4: br.s IL_06d7
++IL_06d6: ldnull
++IL_06d7: stloc.s V_49
++IL_06d9: newobj System.Void ForestProbe/ContinueReceipt::.ctor()
++IL_06de: dup
++IL_06df: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
++IL_06e4: stfld System.Boolean ForestProbe/ContinueReceipt::active
++IL_06e9: dup
++IL_06ea: ldloc.s V_46
++IL_06ec: stfld System.Int32 ForestProbe/ContinueReceipt::expectedConversationId
++IL_06f1: dup
++IL_06f2: ldloc.s V_47
++IL_06f4: stfld System.Int32 ForestProbe/ContinueReceipt::expectedEntryId
++IL_06f9: dup
++IL_06fa: ldloc.s V_49
++IL_06fc: brfalse.s IL_0707
++IL_06fe: ldloc.s V_49
++IL_0700: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::conversationID
++IL_0705: br.s IL_0708
++IL_0707: ldc.i4.m1
++IL_0708: stfld System.Int32 ForestProbe/ContinueReceipt::actualConversationId
++IL_070d: dup
++IL_070e: ldloc.s V_49
++IL_0710: brfalse.s IL_071b
++IL_0712: ldloc.s V_49
++IL_0714: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::id
++IL_0719: br.s IL_071c
++IL_071b: ldc.i4.m1
++IL_071c: stfld System.Int32 ForestProbe/ContinueReceipt::actualEntryId
++IL_0721: stloc.s V_50
++IL_0723: ldloc.s V_50
++IL_0725: ldfld System.Boolean ForestProbe/ContinueReceipt::active
++IL_072a: brfalse.s IL_0744
++IL_072c: ldloc.s V_50
++IL_072e: ldfld System.Int32 ForestProbe/ContinueReceipt::actualConversationId
++IL_0733: ldloc.s V_46
++IL_0735: bne.un.s IL_0744
++IL_0737: ldloc.s V_50
++IL_0739: ldfld System.Int32 ForestProbe/ContinueReceipt::actualEntryId
++IL_073e: ldloc.s V_47
++IL_0740: ceq
++IL_0742: br.s IL_0745
++IL_0744: ldc.i4.0
++IL_0745: stloc.s V_51
++IL_0747: ldloc.s V_51
++IL_0749: stloc.s V_54
++IL_074b: ldloc.s V_54
++IL_074d: brfalse.s IL_0755
++IL_074f: call System.Void TheForestOfLove.CustomTypewriterEffectTextMeshPro::FastForwardTextOrAdvanceDialogue()
++IL_0754: nop
++IL_0755: ldloc.s V_50
++IL_0757: ldloc.s V_51
++IL_0759: brtrue.s IL_0762
++IL_075b: ldstr "stale"
++IL_0760: br.s IL_0767
++IL_0762: ldstr "applied"
++IL_0767: stfld System.String ForestProbe/ContinueReceipt::result
++IL_076c: ldarg.0
++IL_076d: ldfld System.String ForestProbe::root
++IL_0772: ldstr "continue-receipt.json"
++IL_0777: call System.String System.IO.Path::Combine(System.String,System.String)
++IL_077c: ldloc.s V_50
++IL_077e: ldc.i4.1
++IL_077f: call System.String UnityEngine.JsonUtility::ToJson(System.Object,System.Boolean)
++IL_0784: call System.Void System.IO.File::WriteAllText(System.String,System.String)
++IL_0789: nop
++IL_078a: nop
++IL_078b: br IL_0fae
++IL_0790: ldloc.1
++IL_0791: ldstr "continue"
++IL_0796: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_079b: stloc.s V_55
++IL_079d: ldloc.s V_55
++IL_079f: brfalse.s IL_07c7
++IL_07a1: nop
++IL_07a2: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
++IL_07a7: ldc.i4.0
++IL_07a8: ceq
++IL_07aa: stloc.s V_56
++IL_07ac: ldloc.s V_56
++IL_07ae: brfalse.s IL_07bb
++IL_07b0: ldstr "No active conversation"
++IL_07b5: newobj System.Void System.Exception::.ctor(System.String)
++IL_07ba: throw
++IL_07bb: call System.Void TheForestOfLove.CustomTypewriterEffectTextMeshPro::FastForwardTextOrAdvanceDialogue()
++IL_07c0: nop
++IL_07c1: nop
++IL_07c2: br IL_0fae
++IL_07c7: ldloc.1
++IL_07c8: ldstr "response "
++IL_07cd: callvirt System.Boolean System.String::StartsWith(System.String)
++IL_07d2: stloc.s V_57
++IL_07d4: ldloc.s V_57
++IL_07d6: brfalse IL_09ca
++IL_07db: nop
++IL_07dc: ldloc.1
++IL_07dd: ldc.i4.s 9
++IL_07df: callvirt System.String System.String::Substring(System.Int32)
++IL_07e4: ldc.i4.1
++IL_07e5: newarr System.Char
++IL_07ea: dup
++IL_07eb: ldc.i4.0
++IL_07ec: ldc.i4.s 32
++IL_07ee: stelem.i2
++IL_07ef: callvirt System.String[] System.String::Split(System.Char[])
++IL_07f4: stloc.s V_58
++IL_07f6: ldloc.s V_58
++IL_07f8: ldlen
++IL_07f9: conv.i4
++IL_07fa: ldc.i4.3
++IL_07fb: ceq
++IL_07fd: ldc.i4.0
++IL_07fe: ceq
++IL_0800: stloc.s V_64
++IL_0802: ldloc.s V_64
++IL_0804: brfalse.s IL_0811
++IL_0806: ldstr "Expected source entry, conversation and destination entry"
++IL_080b: newobj System.Void System.Exception::.ctor(System.String)
++IL_0810: throw
++IL_0811: ldloc.s V_58
++IL_0813: ldc.i4.0
++IL_0814: ldelem.ref
++IL_0815: call System.Int32 System.Int32::Parse(System.String)
++IL_081a: stloc.s V_59
++IL_081c: ldloc.s V_58
++IL_081e: ldc.i4.1
++IL_081f: ldelem.ref
++IL_0820: call System.Int32 System.Int32::Parse(System.String)
++IL_0825: stloc.s V_60
++IL_0827: ldloc.s V_58
++IL_0829: ldc.i4.2
++IL_082a: ldelem.ref
++IL_082b: call System.Int32 System.Int32::Parse(System.String)
++IL_0830: stloc.s V_61
++IL_0832: ldloc.s V_60
++IL_0834: ldc.i4.s 120
++IL_0836: bne.un.s IL_0843
++IL_0838: ldloc.s V_59
++IL_083a: ldc.i4 158
++IL_083f: ceq
++IL_0841: br.s IL_0844
++IL_0843: ldc.i4.0
++IL_0844: stloc.s V_65
++IL_0846: ldloc.s V_65
++IL_0848: brfalse.s IL_0855
++IL_084a: ldstr "Tutorial159/181 choices forbidden"
++IL_084f: newobj System.Void System.Exception::.ctor(System.String)
++IL_0854: throw
++IL_0855: call PixelCrushers.DialogueSystem.ConversationState PixelCrushers.DialogueSystem.DialogueManager::get_currentConversationState()
++IL_085a: stloc.s V_62
++IL_085c: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
++IL_0861: brfalse.s IL_08ad
++IL_0863: ldloc.s V_62
++IL_0865: brfalse.s IL_08ad
++IL_0867: ldloc.s V_62
++IL_0869: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
++IL_086e: brfalse.s IL_08ad
++IL_0870: ldloc.s V_62
++IL_0872: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
++IL_0877: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
++IL_087c: brfalse.s IL_08ad
++IL_087e: ldloc.s V_62
++IL_0880: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
++IL_0885: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
++IL_088a: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::conversationID
++IL_088f: ldloc.s V_60
++IL_0891: bne.un.s IL_08ad
++IL_0893: ldloc.s V_62
++IL_0895: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationState::subtitle
++IL_089a: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
++IL_089f: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::id
++IL_08a4: ldloc.s V_59
++IL_08a6: ceq
++IL_08a8: ldc.i4.0
++IL_08a9: ceq
++IL_08ab: br.s IL_08ae
++IL_08ad: ldc.i4.1
++IL_08ae: stloc.s V_66
++IL_08b0: ldloc.s V_66
++IL_08b2: brfalse.s IL_08bf
++IL_08b4: ldstr "Response source changed"
++IL_08b9: newobj System.Void System.Exception::.ctor(System.String)
++IL_08be: throw
++IL_08bf: ldnull
++IL_08c0: stloc.s V_63
++IL_08c2: nop
++IL_08c3: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<PixelCrushers.DialogueSystem.StandardUIResponseButton>()
++IL_08c8: stloc.s V_67
++IL_08ca: ldc.i4.0
++IL_08cb: stloc.s V_68
++IL_08cd: br.s IL_0939
++IL_08cf: ldloc.s V_67
++IL_08d1: ldloc.s V_68
++IL_08d3: ldelem.ref
++IL_08d4: stloc.s V_69
++IL_08d6: ldloc.s V_69
++IL_08d8: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_08dd: callvirt UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()
++IL_08e2: stloc.s V_10
++IL_08e4: ldloca.s V_10
++IL_08e6: call System.Boolean UnityEngine.SceneManagement.Scene::IsValid()
++IL_08eb: brfalse.s IL_090d
++IL_08ed: ldloc.s V_69
++IL_08ef: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_08f4: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
++IL_08f9: brfalse.s IL_090d
++IL_08fb: ldloc.s V_69
++IL_08fd: callvirt System.Boolean PixelCrushers.DialogueSystem.StandardUIResponseButton::get_isVisible()
++IL_0902: brfalse.s IL_090d
++IL_0904: ldloc.s V_69
++IL_0906: callvirt System.Boolean PixelCrushers.DialogueSystem.StandardUIResponseButton::get_isClickable()
++IL_090b: br.s IL_090e
++IL_090d: ldc.i4.0
++IL_090e: stloc.s V_70
++IL_0910: ldloc.s V_70
++IL_0912: brfalse.s IL_0933
++IL_0914: nop
++IL_0915: ldloc.s V_63
++IL_0917: ldnull
++IL_0918: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
++IL_091d: stloc.s V_71
++IL_091f: ldloc.s V_71
++IL_0921: brfalse.s IL_092e
++IL_0923: ldstr "More than one live response; hold for source review"
++IL_0928: newobj System.Void System.Exception::.ctor(System.String)
++IL_092d: throw
++IL_092e: ldloc.s V_69
++IL_0930: stloc.s V_63
++IL_0932: nop
++IL_0933: ldloc.s V_68
++IL_0935: ldc.i4.1
++IL_0936: add
++IL_0937: stloc.s V_68
++IL_0939: ldloc.s V_68
++IL_093b: ldloc.s V_67
++IL_093d: ldlen
++IL_093e: conv.i4
++IL_093f: blt.s IL_08cf
++IL_0941: ldloc.s V_63
++IL_0943: ldnull
++IL_0944: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0949: brtrue.s IL_09a0
++IL_094b: ldloc.s V_63
++IL_094d: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
++IL_0952: brfalse.s IL_09a0
++IL_0954: ldloc.s V_63
++IL_0956: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
++IL_095b: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Response::destinationEntry
++IL_0960: brfalse.s IL_09a0
++IL_0962: ldloc.s V_63
++IL_0964: callvirt UnityEngine.Transform PixelCrushers.DialogueSystem.StandardUIResponseButton::get_target()
++IL_0969: ldnull
++IL_096a: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_096f: brtrue.s IL_09a0
++IL_0971: ldloc.s V_63
++IL_0973: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
++IL_0978: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Response::destinationEntry
++IL_097d: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::conversationID
++IL_0982: ldloc.s V_60
++IL_0984: bne.un.s IL_09a0
++IL_0986: ldloc.s V_63
++IL_0988: callvirt PixelCrushers.DialogueSystem.Response PixelCrushers.DialogueSystem.StandardUIResponseButton::get_response()
++IL_098d: ldfld PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Response::destinationEntry
++IL_0992: ldfld System.Int32 PixelCrushers.DialogueSystem.DialogueEntry::id
++IL_0997: ldloc.s V_61
++IL_0999: ceq
++IL_099b: ldc.i4.0
++IL_099c: ceq
++IL_099e: br.s IL_09a1
++IL_09a0: ldc.i4.1
++IL_09a1: stloc.s V_72
++IL_09a3: ldloc.s V_72
++IL_09a5: brfalse.s IL_09b2
++IL_09a7: ldstr "Response does not match source-bound successor"
++IL_09ac: newobj System.Void System.Exception::.ctor(System.String)
++IL_09b1: throw
++IL_09b2: ldloc.s V_63
++IL_09b4: ldfld UnityEngine.UI.Button PixelCrushers.DialogueSystem.StandardUIResponseButton::button
++IL_09b9: callvirt UnityEngine.UI.Button/ButtonClickedEvent UnityEngine.UI.Button::get_onClick()
++IL_09be: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()
++IL_09c3: nop
++IL_09c4: nop
++IL_09c5: br IL_0fae
++IL_09ca: ldloc.1
++IL_09cb: ldstr "probe-nameplate"
++IL_09d0: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_09d5: stloc.s V_73
++IL_09d7: ldloc.s V_73
++IL_09d9: brfalse.s IL_0a49
++IL_09db: nop
++IL_09dc: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
++IL_09e1: ldc.i4.0
++IL_09e2: ceq
++IL_09e4: stloc.s V_75
++IL_09e6: ldloc.s V_75
++IL_09e8: brfalse.s IL_09f5
++IL_09ea: ldstr "No active conversation"
++IL_09ef: newobj System.Void System.Exception::.ctor(System.String)
++IL_09f4: throw
++IL_09f5: call !!0 UnityEngine.Object::FindObjectOfType<TheForestOfLove.DialogueNameplateController>()
++IL_09fa: stloc.s V_74
++IL_09fc: ldloc.s V_74
++IL_09fe: ldnull
++IL_09ff: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0a04: stloc.s V_76
++IL_0a06: ldloc.s V_76
++IL_0a08: brfalse.s IL_0a15
++IL_0a0a: ldstr "No active nameplate controller"
++IL_0a0f: newobj System.Void System.Exception::.ctor(System.String)
++IL_0a14: throw
++IL_0a15: ldloc.s V_74
++IL_0a17: ldstr "Ёж Йй 123"
++IL_0a1c: callvirt System.Void TheForestOfLove.DialogueNameplateController::SetCustomNameplateUntilCleared(System.String)
++IL_0a21: nop
++IL_0a22: ldloc.s V_74
++IL_0a24: callvirt System.Type System.Object::GetType()
++IL_0a29: ldstr "UpdateNameplate"
++IL_0a2e: ldc.i4.s 36
++IL_0a30: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String,System.Reflection.BindingFlags)
++IL_0a35: ldloc.s V_74
++IL_0a37: ldc.i4.1
++IL_0a38: newarr System.Object
++IL_0a3d: callvirt System.Object System.Reflection.MethodBase::Invoke(System.Object,System.Object[])
++IL_0a42: pop
++IL_0a43: nop
++IL_0a44: br IL_0fae
++IL_0a49: ldloc.1
++IL_0a4a: ldstr "capture "
++IL_0a4f: callvirt System.Boolean System.String::StartsWith(System.String)
++IL_0a54: stloc.s V_77
++IL_0a56: ldloc.s V_77
++IL_0a58: brfalse.s IL_0ad3
++IL_0a5a: nop
++IL_0a5b: ldloc.1
++IL_0a5c: ldc.i4.8
++IL_0a5d: callvirt System.String System.String::Substring(System.Int32)
++IL_0a62: stloc.s V_78
++IL_0a64: ldloc.s V_78
++IL_0a66: call System.String System.IO.Path::GetFileName(System.String)
++IL_0a6b: ldloc.s V_78
++IL_0a6d: call System.Boolean System.String::op_Inequality(System.String,System.String)
++IL_0a72: brtrue.s IL_0a85
++IL_0a74: ldloc.s V_78
++IL_0a76: ldstr ".png"
++IL_0a7b: callvirt System.Boolean System.String::EndsWith(System.String)
++IL_0a80: ldc.i4.0
++IL_0a81: ceq
++IL_0a83: br.s IL_0a86
++IL_0a85: ldc.i4.1
++IL_0a86: stloc.s V_80
++IL_0a88: ldloc.s V_80
++IL_0a8a: brfalse.s IL_0a97
++IL_0a8c: ldstr "Invalid capture name"
++IL_0a91: newobj System.Void System.Exception::.ctor(System.String)
++IL_0a96: throw
++IL_0a97: ldarg.0
++IL_0a98: ldfld System.String ForestProbe::root
++IL_0a9d: ldloc.s V_78
++IL_0a9f: call System.String System.IO.Path::Combine(System.String,System.String)
++IL_0aa4: stloc.s V_79
++IL_0aa6: ldloc.s V_79
++IL_0aa8: call System.Boolean System.IO.File::Exists(System.String)
++IL_0aad: stloc.s V_81
++IL_0aaf: ldloc.s V_81
++IL_0ab1: brfalse.s IL_0abe
++IL_0ab3: ldstr "Capture already exists"
++IL_0ab8: newobj System.Void System.Exception::.ctor(System.String)
++IL_0abd: throw
++IL_0abe: ldarg.0
++IL_0abf: ldarg.0
++IL_0ac0: ldloc.s V_79
++IL_0ac2: call System.Collections.IEnumerator ForestProbe::Capture(System.String)
++IL_0ac7: call UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
++IL_0acc: pop
++IL_0acd: nop
++IL_0ace: br IL_0fae
++IL_0ad3: ldloc.1
++IL_0ad4: ldstr "select "
++IL_0ad9: callvirt System.Boolean System.String::StartsWith(System.String)
++IL_0ade: stloc.s V_82
++IL_0ae0: ldloc.s V_82
++IL_0ae2: brfalse IL_0bc7
++IL_0ae7: nop
++IL_0ae8: ldloc.1
++IL_0ae9: ldc.i4.7
++IL_0aea: callvirt System.String System.String::Substring(System.Int32)
++IL_0aef: stloc.s V_83
++IL_0af1: ldnull
++IL_0af2: stloc.s V_84
++IL_0af4: nop
++IL_0af5: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.UI.Selectable>()
++IL_0afa: stloc.s V_85
++IL_0afc: ldc.i4.0
++IL_0afd: stloc.s V_86
++IL_0aff: br.s IL_0b77
++IL_0b01: ldloc.s V_85
++IL_0b03: ldloc.s V_86
++IL_0b05: ldelem.ref
++IL_0b06: stloc.s V_87
++IL_0b08: ldloc.s V_87
++IL_0b0a: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0b0f: callvirt UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()
++IL_0b14: stloc.s V_10
++IL_0b16: ldloca.s V_10
++IL_0b18: call System.Boolean UnityEngine.SceneManagement.Scene::IsValid()
++IL_0b1d: brfalse.s IL_0b4b
++IL_0b1f: ldloc.s V_87
++IL_0b21: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0b26: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
++IL_0b2b: brfalse.s IL_0b4b
++IL_0b2d: ldloc.s V_87
++IL_0b2f: callvirt System.Boolean UnityEngine.UI.Selectable::IsInteractable()
++IL_0b34: brfalse.s IL_0b4b
++IL_0b36: ldloc.s V_87
++IL_0b38: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()
++IL_0b3d: call System.String ForestProbe::Address(UnityEngine.Transform)
++IL_0b42: ldloc.s V_83
++IL_0b44: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0b49: br.s IL_0b4c
++IL_0b4b: ldc.i4.0
++IL_0b4c: stloc.s V_88
++IL_0b4e: ldloc.s V_88
++IL_0b50: brfalse.s IL_0b71
++IL_0b52: nop
++IL_0b53: ldloc.s V_84
++IL_0b55: ldnull
++IL_0b56: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
++IL_0b5b: stloc.s V_89
++IL_0b5d: ldloc.s V_89
++IL_0b5f: brfalse.s IL_0b6c
++IL_0b61: ldstr "Duplicate active selectable"
++IL_0b66: newobj System.Void System.Exception::.ctor(System.String)
++IL_0b6b: throw
++IL_0b6c: ldloc.s V_87
++IL_0b6e: stloc.s V_84
++IL_0b70: nop
++IL_0b71: ldloc.s V_86
++IL_0b73: ldc.i4.1
++IL_0b74: add
++IL_0b75: stloc.s V_86
++IL_0b77: ldloc.s V_86
++IL_0b79: ldloc.s V_85
++IL_0b7b: ldlen
++IL_0b7c: conv.i4
++IL_0b7d: blt.s IL_0b01
++IL_0b7f: ldloc.s V_84
++IL_0b81: ldnull
++IL_0b82: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0b87: brtrue.s IL_0b96
++IL_0b89: call UnityEngine.EventSystems.EventSystem UnityEngine.EventSystems.EventSystem::get_current()
++IL_0b8e: ldnull
++IL_0b8f: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0b94: br.s IL_0b97
++IL_0b96: ldc.i4.1
++IL_0b97: stloc.s V_90
++IL_0b99: ldloc.s V_90
++IL_0b9b: brfalse.s IL_0baf
++IL_0b9d: ldstr "No selectable/event system: "
++IL_0ba2: ldloc.s V_83
++IL_0ba4: call System.String System.String::Concat(System.String,System.String)
++IL_0ba9: newobj System.Void System.Exception::.ctor(System.String)
++IL_0bae: throw
++IL_0baf: call UnityEngine.EventSystems.EventSystem UnityEngine.EventSystems.EventSystem::get_current()
++IL_0bb4: ldloc.s V_84
++IL_0bb6: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0bbb: callvirt System.Void UnityEngine.EventSystems.EventSystem::SetSelectedGameObject(UnityEngine.GameObject)
++IL_0bc0: nop
++IL_0bc1: nop
++IL_0bc2: br IL_0fae
++IL_0bc7: ldloc.1
++IL_0bc8: ldstr "move-left"
++IL_0bcd: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0bd2: brtrue.s IL_0be1
++IL_0bd4: ldloc.1
++IL_0bd5: ldstr "move-right"
++IL_0bda: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0bdf: br.s IL_0be2
++IL_0be1: ldc.i4.1
++IL_0be2: stloc.s V_91
++IL_0be4: ldloc.s V_91
++IL_0be6: brfalse IL_0c6c
++IL_0beb: nop
++IL_0bec: call UnityEngine.EventSystems.EventSystem UnityEngine.EventSystems.EventSystem::get_current()
++IL_0bf1: stloc.s V_92
++IL_0bf3: ldloc.s V_92
++IL_0bf5: ldnull
++IL_0bf6: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0bfb: brtrue.s IL_0c0c
++IL_0bfd: ldloc.s V_92
++IL_0bff: callvirt UnityEngine.GameObject UnityEngine.EventSystems.EventSystem::get_currentSelectedGameObject()
++IL_0c04: ldnull
++IL_0c05: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0c0a: br.s IL_0c0d
++IL_0c0c: ldc.i4.1
++IL_0c0d: stloc.s V_94
++IL_0c0f: ldloc.s V_94
++IL_0c11: brfalse.s IL_0c1e
++IL_0c13: ldstr "No selected control"
++IL_0c18: newobj System.Void System.Exception::.ctor(System.String)
++IL_0c1d: throw
++IL_0c1e: ldloc.s V_92
++IL_0c20: newobj System.Void UnityEngine.EventSystems.AxisEventData::.ctor(UnityEngine.EventSystems.EventSystem)
++IL_0c25: dup
++IL_0c26: ldloc.1
++IL_0c27: ldstr "move-left"
++IL_0c2c: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0c31: brtrue.s IL_0c36
++IL_0c33: ldc.i4.2
++IL_0c34: br.s IL_0c37
++IL_0c36: ldc.i4.0
++IL_0c37: callvirt System.Void UnityEngine.EventSystems.AxisEventData::set_moveDir(UnityEngine.EventSystems.MoveDirection)
++IL_0c3c: nop
++IL_0c3d: stloc.s V_93
++IL_0c3f: ldloc.s V_92
++IL_0c41: callvirt UnityEngine.GameObject UnityEngine.EventSystems.EventSystem::get_currentSelectedGameObject()
++IL_0c46: ldloc.s V_93
++IL_0c48: call UnityEngine.EventSystems.ExecuteEvents/EventFunction`1<UnityEngine.EventSystems.IMoveHandler> UnityEngine.EventSystems.ExecuteEvents::get_moveHandler()
++IL_0c4d: call System.Boolean UnityEngine.EventSystems.ExecuteEvents::Execute<UnityEngine.EventSystems.IMoveHandler>(UnityEngine.GameObject,UnityEngine.EventSystems.BaseEventData,UnityEngine.EventSystems.ExecuteEvents/EventFunction`1<!!0>)
+ IL_0c52: ldc.i4.0
+-IL_0c53: ldc.i4.s 32
+-IL_0c55: stelem.i2
+-IL_0c56: callvirt System.String[] System.String::Split(System.Char[])
+-IL_0c5b: stloc.s V_97
+-IL_0c5d: ldloc.s V_97
+-IL_0c5f: ldlen
+-IL_0c60: conv.i4
+-IL_0c61: ldc.i4.2
+-IL_0c62: bne.un.s IL_0c84
+-IL_0c64: ldloc.s V_97
+-IL_0c66: ldc.i4.0
+-IL_0c67: ldelem.ref
+-IL_0c68: ldstr "PlayMenu"
+-IL_0c6d: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0c72: brfalse.s IL_0c84
+-IL_0c74: ldloc.s V_97
+-IL_0c76: ldc.i4.1
+-IL_0c77: ldelem.ref
+-IL_0c78: ldstr "OnClickContinue"
+-IL_0c7d: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0c82: br.s IL_0c85
+-IL_0c84: ldc.i4.0
+-IL_0c85: stloc.s V_98
+-IL_0c87: ldloc.s V_97
+-IL_0c89: ldlen
+-IL_0c8a: conv.i4
+-IL_0c8b: ldc.i4.2
+-IL_0c8c: bne.un.s IL_0cf7
+-IL_0c8e: ldloc.s V_97
+-IL_0c90: ldc.i4.0
+-IL_0c91: ldelem.ref
+-IL_0c92: ldstr "StartScreenMainMenu"
+-IL_0c97: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0c9c: brtrue.s IL_0cbe
+-IL_0c9e: ldloc.s V_97
+-IL_0ca0: ldc.i4.0
+-IL_0ca1: ldelem.ref
+-IL_0ca2: ldstr "PlayMenu"
+-IL_0ca7: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0cac: brtrue.s IL_0cbe
+-IL_0cae: ldloc.s V_97
+-IL_0cb0: ldc.i4.0
+-IL_0cb1: ldelem.ref
+-IL_0cb2: ldstr "OptionsMenu"
+-IL_0cb7: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0cbc: brfalse.s IL_0cf7
+-IL_0cbe: ldloc.s V_97
+-IL_0cc0: ldc.i4.1
+-IL_0cc1: ldelem.ref
+-IL_0cc2: ldstr "OnClickStart"
+-IL_0cc7: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0ccc: brtrue.s IL_0cee
+-IL_0cce: ldloc.s V_97
+-IL_0cd0: ldc.i4.1
+-IL_0cd1: ldelem.ref
+-IL_0cd2: ldstr "OnClickOptions"
+-IL_0cd7: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0cdc: brtrue.s IL_0cee
+-IL_0cde: ldloc.s V_97
+-IL_0ce0: ldc.i4.1
+-IL_0ce1: ldelem.ref
+-IL_0ce2: ldstr "OnClickBack"
+-IL_0ce7: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0cec: br.s IL_0cef
+-IL_0cee: ldc.i4.1
+-IL_0cef: ldloc.s V_98
+-IL_0cf1: or
+-IL_0cf2: ldc.i4.0
+-IL_0cf3: ceq
+-IL_0cf5: br.s IL_0cf8
+-IL_0cf7: ldc.i4.1
+-IL_0cf8: stloc.s V_100
+-IL_0cfa: ldloc.s V_100
+-IL_0cfc: brfalse.s IL_0d09
+-IL_0cfe: ldstr "Unsupported menu command"
+-IL_0d03: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0d08: throw
+-IL_0d09: ldloc.s V_98
+-IL_0d0b: stloc.s V_101
+-IL_0d0d: ldloc.s V_101
+-IL_0d0f: brfalse IL_0def
+-IL_0d14: nop
+-IL_0d15: call System.Boolean TheForestOfLove.Services.Persistence.SaveManager::get_HasSavedPlaySession()
+-IL_0d1a: brfalse.s IL_0d4b
+-IL_0d1c: call UnityEngine.SceneManagement.Scene UnityEngine.SceneManagement.SceneManager::GetActiveScene()
+-IL_0d21: stloc.s V_10
+-IL_0d23: ldloca.s V_10
+-IL_0d25: call System.String UnityEngine.SceneManagement.Scene::get_name()
+-IL_0d2a: ldstr "StartMenu"
+-IL_0d2f: call System.Boolean System.String::op_Inequality(System.String,System.String)
+-IL_0d34: brtrue.s IL_0d4b
+-IL_0d36: ldsfld System.Boolean Globals::isChapterSelect
+-IL_0d3b: brtrue.s IL_0d4b
+-IL_0d3d: ldsfld System.Boolean Globals::isCheatCode
+-IL_0d42: brtrue.s IL_0d4b
+-IL_0d44: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
+-IL_0d49: br.s IL_0d4c
+-IL_0d4b: ldc.i4.1
+-IL_0d4c: stloc.s V_103
+-IL_0d4e: ldloc.s V_103
+-IL_0d50: brfalse.s IL_0d5d
+-IL_0d52: ldstr "Original saved Continue state unavailable"
+-IL_0d57: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0d5c: throw
+-IL_0d5d: ldc.i4.0
+-IL_0d5e: stloc.s V_102
+-IL_0d60: nop
+-IL_0d61: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.UI.Button>()
+-IL_0d66: stloc.s V_104
+-IL_0d68: ldc.i4.0
+-IL_0d69: stloc.s V_105
+-IL_0d6b: br.s IL_0dcd
+-IL_0d6d: ldloc.s V_104
+-IL_0d6f: ldloc.s V_105
+-IL_0d71: ldelem.ref
+-IL_0d72: stloc.s V_106
+-IL_0d74: ldloc.s V_106
+-IL_0d76: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0d7b: callvirt UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()
+-IL_0d80: stloc.s V_10
+-IL_0d82: ldloca.s V_10
+-IL_0d84: call System.Boolean UnityEngine.SceneManagement.Scene::IsValid()
+-IL_0d89: brfalse.s IL_0dba
+-IL_0d8b: ldloc.s V_106
+-IL_0d8d: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0d92: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
+-IL_0d97: brfalse.s IL_0dba
+-IL_0d99: ldloc.s V_106
+-IL_0d9b: callvirt System.Boolean UnityEngine.UI.Selectable::get_interactable()
+-IL_0da0: brfalse.s IL_0dba
+-IL_0da2: ldloc.s V_106
+-IL_0da4: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()
+-IL_0da9: call System.String ForestProbe::Address(UnityEngine.Transform)
+-IL_0dae: ldstr "Canvas/PlayMenu/Controls/Continue"
+-IL_0db3: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0db8: br.s IL_0dbb
+-IL_0dba: ldc.i4.0
+-IL_0dbb: stloc.s V_107
+-IL_0dbd: ldloc.s V_107
+-IL_0dbf: brfalse.s IL_0dc7
+-IL_0dc1: ldloc.s V_102
+-IL_0dc3: ldc.i4.1
+-IL_0dc4: add
+-IL_0dc5: stloc.s V_102
+-IL_0dc7: ldloc.s V_105
+-IL_0dc9: ldc.i4.1
+-IL_0dca: add
+-IL_0dcb: stloc.s V_105
+-IL_0dcd: ldloc.s V_105
+-IL_0dcf: ldloc.s V_104
+-IL_0dd1: ldlen
+-IL_0dd2: conv.i4
+-IL_0dd3: blt.s IL_0d6d
+-IL_0dd5: ldloc.s V_102
+-IL_0dd7: ldc.i4.1
+-IL_0dd8: ceq
+-IL_0dda: ldc.i4.0
+-IL_0ddb: ceq
+-IL_0ddd: stloc.s V_108
+-IL_0ddf: ldloc.s V_108
+-IL_0de1: brfalse.s IL_0dee
+-IL_0de3: ldstr "Exact original Continue control unavailable"
+-IL_0de8: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0ded: throw
+-IL_0dee: nop
+-IL_0def: ldnull
+-IL_0df0: stloc.s V_99
+-IL_0df2: nop
+-IL_0df3: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.MonoBehaviour>()
+-IL_0df8: stloc.s V_109
+-IL_0dfa: ldc.i4.0
+-IL_0dfb: stloc.s V_110
+-IL_0dfd: br.s IL_0e61
++IL_0c53: ceq
++IL_0c55: stloc.s V_95
++IL_0c57: ldloc.s V_95
++IL_0c59: brfalse.s IL_0c66
++IL_0c5b: ldstr "No move handler"
++IL_0c60: newobj System.Void System.Exception::.ctor(System.String)
++IL_0c65: throw
++IL_0c66: nop
++IL_0c67: br IL_0fae
++IL_0c6c: ldloc.1
++IL_0c6d: ldstr "click "
++IL_0c72: callvirt System.Boolean System.String::StartsWith(System.String)
++IL_0c77: stloc.s V_96
++IL_0c79: ldloc.s V_96
++IL_0c7b: brfalse IL_0d34
++IL_0c80: nop
++IL_0c81: ldloc.1
++IL_0c82: ldc.i4.6
++IL_0c83: callvirt System.String System.String::Substring(System.Int32)
++IL_0c88: stloc.s V_97
++IL_0c8a: ldnull
++IL_0c8b: stloc.s V_98
++IL_0c8d: nop
++IL_0c8e: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.UI.Button>()
++IL_0c93: stloc.s V_99
++IL_0c95: ldc.i4.0
++IL_0c96: stloc.s V_100
++IL_0c98: br.s IL_0cf9
++IL_0c9a: ldloc.s V_99
++IL_0c9c: ldloc.s V_100
++IL_0c9e: ldelem.ref
++IL_0c9f: stloc.s V_101
++IL_0ca1: ldloc.s V_101
++IL_0ca3: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0ca8: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
++IL_0cad: brfalse.s IL_0ccd
++IL_0caf: ldloc.s V_101
++IL_0cb1: callvirt System.Boolean UnityEngine.UI.Selectable::get_interactable()
++IL_0cb6: brfalse.s IL_0ccd
++IL_0cb8: ldloc.s V_101
++IL_0cba: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()
++IL_0cbf: call System.String ForestProbe::Address(UnityEngine.Transform)
++IL_0cc4: ldloc.s V_97
++IL_0cc6: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0ccb: br.s IL_0cce
++IL_0ccd: ldc.i4.0
++IL_0cce: stloc.s V_102
++IL_0cd0: ldloc.s V_102
++IL_0cd2: brfalse.s IL_0cf3
++IL_0cd4: nop
++IL_0cd5: ldloc.s V_98
++IL_0cd7: ldnull
++IL_0cd8: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
++IL_0cdd: stloc.s V_103
++IL_0cdf: ldloc.s V_103
++IL_0ce1: brfalse.s IL_0cee
++IL_0ce3: ldstr "Duplicate active button"
++IL_0ce8: newobj System.Void System.Exception::.ctor(System.String)
++IL_0ced: throw
++IL_0cee: ldloc.s V_101
++IL_0cf0: stloc.s V_98
++IL_0cf2: nop
++IL_0cf3: ldloc.s V_100
++IL_0cf5: ldc.i4.1
++IL_0cf6: add
++IL_0cf7: stloc.s V_100
++IL_0cf9: ldloc.s V_100
++IL_0cfb: ldloc.s V_99
++IL_0cfd: ldlen
++IL_0cfe: conv.i4
++IL_0cff: blt.s IL_0c9a
++IL_0d01: ldloc.s V_98
++IL_0d03: ldnull
++IL_0d04: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0d09: stloc.s V_104
++IL_0d0b: ldloc.s V_104
++IL_0d0d: brfalse.s IL_0d21
++IL_0d0f: ldstr "No matching active button: "
++IL_0d14: ldloc.s V_97
++IL_0d16: call System.String System.String::Concat(System.String,System.String)
++IL_0d1b: newobj System.Void System.Exception::.ctor(System.String)
++IL_0d20: throw
++IL_0d21: ldloc.s V_98
++IL_0d23: callvirt UnityEngine.UI.Button/ButtonClickedEvent UnityEngine.UI.Button::get_onClick()
++IL_0d28: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()
++IL_0d2d: nop
++IL_0d2e: nop
++IL_0d2f: br IL_0fae
++IL_0d34: ldloc.1
++IL_0d35: ldstr "menu "
++IL_0d3a: callvirt System.Boolean System.String::StartsWith(System.String)
++IL_0d3f: stloc.s V_105
++IL_0d41: ldloc.s V_105
++IL_0d43: brfalse IL_0fa3
++IL_0d48: nop
++IL_0d49: ldloc.1
++IL_0d4a: ldc.i4.5
++IL_0d4b: callvirt System.String System.String::Substring(System.Int32)
++IL_0d50: ldc.i4.1
++IL_0d51: newarr System.Char
++IL_0d56: dup
++IL_0d57: ldc.i4.0
++IL_0d58: ldc.i4.s 32
++IL_0d5a: stelem.i2
++IL_0d5b: callvirt System.String[] System.String::Split(System.Char[])
++IL_0d60: stloc.s V_106
++IL_0d62: ldloc.s V_106
++IL_0d64: ldlen
++IL_0d65: conv.i4
++IL_0d66: ldc.i4.2
++IL_0d67: bne.un.s IL_0d89
++IL_0d69: ldloc.s V_106
++IL_0d6b: ldc.i4.0
++IL_0d6c: ldelem.ref
++IL_0d6d: ldstr "PlayMenu"
++IL_0d72: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0d77: brfalse.s IL_0d89
++IL_0d79: ldloc.s V_106
++IL_0d7b: ldc.i4.1
++IL_0d7c: ldelem.ref
++IL_0d7d: ldstr "OnClickContinue"
++IL_0d82: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0d87: br.s IL_0d8a
++IL_0d89: ldc.i4.0
++IL_0d8a: stloc.s V_107
++IL_0d8c: ldloc.s V_106
++IL_0d8e: ldlen
++IL_0d8f: conv.i4
++IL_0d90: ldc.i4.2
++IL_0d91: bne.un.s IL_0dfc
++IL_0d93: ldloc.s V_106
++IL_0d95: ldc.i4.0
++IL_0d96: ldelem.ref
++IL_0d97: ldstr "StartScreenMainMenu"
++IL_0d9c: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0da1: brtrue.s IL_0dc3
++IL_0da3: ldloc.s V_106
++IL_0da5: ldc.i4.0
++IL_0da6: ldelem.ref
++IL_0da7: ldstr "PlayMenu"
++IL_0dac: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0db1: brtrue.s IL_0dc3
++IL_0db3: ldloc.s V_106
++IL_0db5: ldc.i4.0
++IL_0db6: ldelem.ref
++IL_0db7: ldstr "OptionsMenu"
++IL_0dbc: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0dc1: brfalse.s IL_0dfc
++IL_0dc3: ldloc.s V_106
++IL_0dc5: ldc.i4.1
++IL_0dc6: ldelem.ref
++IL_0dc7: ldstr "OnClickStart"
++IL_0dcc: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0dd1: brtrue.s IL_0df3
++IL_0dd3: ldloc.s V_106
++IL_0dd5: ldc.i4.1
++IL_0dd6: ldelem.ref
++IL_0dd7: ldstr "OnClickOptions"
++IL_0ddc: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0de1: brtrue.s IL_0df3
++IL_0de3: ldloc.s V_106
++IL_0de5: ldc.i4.1
++IL_0de6: ldelem.ref
++IL_0de7: ldstr "OnClickBack"
++IL_0dec: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0df1: br.s IL_0df4
++IL_0df3: ldc.i4.1
++IL_0df4: ldloc.s V_107
++IL_0df6: or
++IL_0df7: ldc.i4.0
++IL_0df8: ceq
++IL_0dfa: br.s IL_0dfd
++IL_0dfc: ldc.i4.1
++IL_0dfd: stloc.s V_109
+ IL_0dff: ldloc.s V_109
+-IL_0e01: ldloc.s V_110
+-IL_0e03: ldelem.ref
+-IL_0e04: stloc.s V_111
+-IL_0e06: ldloc.s V_111
+-IL_0e08: ldnull
+-IL_0e09: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+-IL_0e0e: brfalse.s IL_0e35
+-IL_0e10: ldloc.s V_111
+-IL_0e12: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+-IL_0e17: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
+-IL_0e1c: brfalse.s IL_0e35
+-IL_0e1e: ldloc.s V_111
+-IL_0e20: callvirt System.Type System.Object::GetType()
+-IL_0e25: callvirt System.String System.Reflection.MemberInfo::get_Name()
+-IL_0e2a: ldloc.s V_97
+-IL_0e2c: ldc.i4.0
+-IL_0e2d: ldelem.ref
+-IL_0e2e: call System.Boolean System.String::op_Equality(System.String,System.String)
+-IL_0e33: br.s IL_0e36
+-IL_0e35: ldc.i4.0
+-IL_0e36: stloc.s V_112
+-IL_0e38: ldloc.s V_112
+-IL_0e3a: brfalse.s IL_0e5b
+-IL_0e3c: nop
+-IL_0e3d: ldloc.s V_99
+-IL_0e3f: ldnull
+-IL_0e40: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+-IL_0e45: stloc.s V_113
+-IL_0e47: ldloc.s V_113
+-IL_0e49: brfalse.s IL_0e56
+-IL_0e4b: ldstr "Duplicate active menu"
+-IL_0e50: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0e55: throw
+-IL_0e56: ldloc.s V_111
+-IL_0e58: stloc.s V_99
+-IL_0e5a: nop
+-IL_0e5b: ldloc.s V_110
+-IL_0e5d: ldc.i4.1
+-IL_0e5e: add
+-IL_0e5f: stloc.s V_110
+-IL_0e61: ldloc.s V_110
+-IL_0e63: ldloc.s V_109
+-IL_0e65: ldlen
+-IL_0e66: conv.i4
+-IL_0e67: blt.s IL_0dff
+-IL_0e69: ldloc.s V_99
+-IL_0e6b: ldnull
+-IL_0e6c: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+-IL_0e71: stloc.s V_114
+-IL_0e73: ldloc.s V_114
+-IL_0e75: brfalse.s IL_0e82
+-IL_0e77: ldstr "Menu not active"
+-IL_0e7c: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0e81: throw
+-IL_0e82: ldloc.s V_99
+-IL_0e84: callvirt System.Type System.Object::GetType()
+-IL_0e89: ldloc.s V_97
+-IL_0e8b: ldc.i4.1
+-IL_0e8c: ldelem.ref
+-IL_0e8d: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String)
+-IL_0e92: ldloc.s V_99
+-IL_0e94: ldnull
+-IL_0e95: callvirt System.Object System.Reflection.MethodBase::Invoke(System.Object,System.Object[])
+-IL_0e9a: pop
+-IL_0e9b: nop
+-IL_0e9c: br.s IL_0ea9
+-IL_0e9e: ldstr "Unsupported command"
+-IL_0ea3: newobj System.Void System.Exception::.ctor(System.String)
+-IL_0ea8: throw
+-IL_0ea9: ldarg.0
+-IL_0eaa: ldfld System.String ForestProbe::root
+-IL_0eaf: ldstr "actions.log"
+-IL_0eb4: call System.String System.IO.Path::Combine(System.String,System.String)
+-IL_0eb9: call System.DateTime System.DateTime::get_UtcNow()
+-IL_0ebe: stloc.s V_115
+-IL_0ec0: ldloca.s V_115
+-IL_0ec2: ldstr "O"
+-IL_0ec7: call System.String System.DateTime::ToString(System.String)
+-IL_0ecc: ldstr " OK "
+-IL_0ed1: ldloc.1
+-IL_0ed2: ldstr "
++IL_0e01: brfalse.s IL_0e0e
++IL_0e03: ldstr "Unsupported menu command"
++IL_0e08: newobj System.Void System.Exception::.ctor(System.String)
++IL_0e0d: throw
++IL_0e0e: ldloc.s V_107
++IL_0e10: stloc.s V_110
++IL_0e12: ldloc.s V_110
++IL_0e14: brfalse IL_0ef4
++IL_0e19: nop
++IL_0e1a: call System.Boolean TheForestOfLove.Services.Persistence.SaveManager::get_HasSavedPlaySession()
++IL_0e1f: brfalse.s IL_0e50
++IL_0e21: call UnityEngine.SceneManagement.Scene UnityEngine.SceneManagement.SceneManager::GetActiveScene()
++IL_0e26: stloc.s V_10
++IL_0e28: ldloca.s V_10
++IL_0e2a: call System.String UnityEngine.SceneManagement.Scene::get_name()
++IL_0e2f: ldstr "StartMenu"
++IL_0e34: call System.Boolean System.String::op_Inequality(System.String,System.String)
++IL_0e39: brtrue.s IL_0e50
++IL_0e3b: ldsfld System.Boolean Globals::isChapterSelect
++IL_0e40: brtrue.s IL_0e50
++IL_0e42: ldsfld System.Boolean Globals::isCheatCode
++IL_0e47: brtrue.s IL_0e50
++IL_0e49: call System.Boolean PixelCrushers.DialogueSystem.DialogueManager::get_isConversationActive()
++IL_0e4e: br.s IL_0e51
++IL_0e50: ldc.i4.1
++IL_0e51: stloc.s V_112
++IL_0e53: ldloc.s V_112
++IL_0e55: brfalse.s IL_0e62
++IL_0e57: ldstr "Original saved Continue state unavailable"
++IL_0e5c: newobj System.Void System.Exception::.ctor(System.String)
++IL_0e61: throw
++IL_0e62: ldc.i4.0
++IL_0e63: stloc.s V_111
++IL_0e65: nop
++IL_0e66: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.UI.Button>()
++IL_0e6b: stloc.s V_113
++IL_0e6d: ldc.i4.0
++IL_0e6e: stloc.s V_114
++IL_0e70: br.s IL_0ed2
++IL_0e72: ldloc.s V_113
++IL_0e74: ldloc.s V_114
++IL_0e76: ldelem.ref
++IL_0e77: stloc.s V_115
++IL_0e79: ldloc.s V_115
++IL_0e7b: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0e80: callvirt UnityEngine.SceneManagement.Scene UnityEngine.GameObject::get_scene()
++IL_0e85: stloc.s V_10
++IL_0e87: ldloca.s V_10
++IL_0e89: call System.Boolean UnityEngine.SceneManagement.Scene::IsValid()
++IL_0e8e: brfalse.s IL_0ebf
++IL_0e90: ldloc.s V_115
++IL_0e92: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0e97: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
++IL_0e9c: brfalse.s IL_0ebf
++IL_0e9e: ldloc.s V_115
++IL_0ea0: callvirt System.Boolean UnityEngine.UI.Selectable::get_interactable()
++IL_0ea5: brfalse.s IL_0ebf
++IL_0ea7: ldloc.s V_115
++IL_0ea9: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()
++IL_0eae: call System.String ForestProbe::Address(UnityEngine.Transform)
++IL_0eb3: ldstr "Canvas/PlayMenu/Controls/Continue"
++IL_0eb8: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0ebd: br.s IL_0ec0
++IL_0ebf: ldc.i4.0
++IL_0ec0: stloc.s V_116
++IL_0ec2: ldloc.s V_116
++IL_0ec4: brfalse.s IL_0ecc
++IL_0ec6: ldloc.s V_111
++IL_0ec8: ldc.i4.1
++IL_0ec9: add
++IL_0eca: stloc.s V_111
++IL_0ecc: ldloc.s V_114
++IL_0ece: ldc.i4.1
++IL_0ecf: add
++IL_0ed0: stloc.s V_114
++IL_0ed2: ldloc.s V_114
++IL_0ed4: ldloc.s V_113
++IL_0ed6: ldlen
++IL_0ed7: conv.i4
++IL_0ed8: blt.s IL_0e72
++IL_0eda: ldloc.s V_111
++IL_0edc: ldc.i4.1
++IL_0edd: ceq
++IL_0edf: ldc.i4.0
++IL_0ee0: ceq
++IL_0ee2: stloc.s V_117
++IL_0ee4: ldloc.s V_117
++IL_0ee6: brfalse.s IL_0ef3
++IL_0ee8: ldstr "Exact original Continue control unavailable"
++IL_0eed: newobj System.Void System.Exception::.ctor(System.String)
++IL_0ef2: throw
++IL_0ef3: nop
++IL_0ef4: ldnull
++IL_0ef5: stloc.s V_108
++IL_0ef7: nop
++IL_0ef8: call !!0[] UnityEngine.Resources::FindObjectsOfTypeAll<UnityEngine.MonoBehaviour>()
++IL_0efd: stloc.s V_118
++IL_0eff: ldc.i4.0
++IL_0f00: stloc.s V_119
++IL_0f02: br.s IL_0f66
++IL_0f04: ldloc.s V_118
++IL_0f06: ldloc.s V_119
++IL_0f08: ldelem.ref
++IL_0f09: stloc.s V_120
++IL_0f0b: ldloc.s V_120
++IL_0f0d: ldnull
++IL_0f0e: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
++IL_0f13: brfalse.s IL_0f3a
++IL_0f15: ldloc.s V_120
++IL_0f17: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()
++IL_0f1c: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
++IL_0f21: brfalse.s IL_0f3a
++IL_0f23: ldloc.s V_120
++IL_0f25: callvirt System.Type System.Object::GetType()
++IL_0f2a: callvirt System.String System.Reflection.MemberInfo::get_Name()
++IL_0f2f: ldloc.s V_106
++IL_0f31: ldc.i4.0
++IL_0f32: ldelem.ref
++IL_0f33: call System.Boolean System.String::op_Equality(System.String,System.String)
++IL_0f38: br.s IL_0f3b
++IL_0f3a: ldc.i4.0
++IL_0f3b: stloc.s V_121
++IL_0f3d: ldloc.s V_121
++IL_0f3f: brfalse.s IL_0f60
++IL_0f41: nop
++IL_0f42: ldloc.s V_108
++IL_0f44: ldnull
++IL_0f45: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
++IL_0f4a: stloc.s V_122
++IL_0f4c: ldloc.s V_122
++IL_0f4e: brfalse.s IL_0f5b
++IL_0f50: ldstr "Duplicate active menu"
++IL_0f55: newobj System.Void System.Exception::.ctor(System.String)
++IL_0f5a: throw
++IL_0f5b: ldloc.s V_120
++IL_0f5d: stloc.s V_108
++IL_0f5f: nop
++IL_0f60: ldloc.s V_119
++IL_0f62: ldc.i4.1
++IL_0f63: add
++IL_0f64: stloc.s V_119
++IL_0f66: ldloc.s V_119
++IL_0f68: ldloc.s V_118
++IL_0f6a: ldlen
++IL_0f6b: conv.i4
++IL_0f6c: blt.s IL_0f04
++IL_0f6e: ldloc.s V_108
++IL_0f70: ldnull
++IL_0f71: call System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
++IL_0f76: stloc.s V_123
++IL_0f78: ldloc.s V_123
++IL_0f7a: brfalse.s IL_0f87
++IL_0f7c: ldstr "Menu not active"
++IL_0f81: newobj System.Void System.Exception::.ctor(System.String)
++IL_0f86: throw
++IL_0f87: ldloc.s V_108
++IL_0f89: callvirt System.Type System.Object::GetType()
++IL_0f8e: ldloc.s V_106
++IL_0f90: ldc.i4.1
++IL_0f91: ldelem.ref
++IL_0f92: callvirt System.Reflection.MethodInfo System.Type::GetMethod(System.String)
++IL_0f97: ldloc.s V_108
++IL_0f99: ldnull
++IL_0f9a: callvirt System.Object System.Reflection.MethodBase::Invoke(System.Object,System.Object[])
++IL_0f9f: pop
++IL_0fa0: nop
++IL_0fa1: br.s IL_0fae
++IL_0fa3: ldstr "Unsupported command"
++IL_0fa8: newobj System.Void System.Exception::.ctor(System.String)
++IL_0fad: throw
++IL_0fae: ldarg.0
++IL_0faf: ldfld System.String ForestProbe::root
++IL_0fb4: ldstr "actions.log"
++IL_0fb9: call System.String System.IO.Path::Combine(System.String,System.String)
++IL_0fbe: call System.DateTime System.DateTime::get_UtcNow()
++IL_0fc3: stloc.s V_124
++IL_0fc5: ldloca.s V_124
++IL_0fc7: ldstr "O"
++IL_0fcc: call System.String System.DateTime::ToString(System.String)
++IL_0fd1: ldstr " OK "
++IL_0fd6: ldloc.1
++IL_0fd7: ldstr "
+ "
+-IL_0ed7: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
+-IL_0edc: call System.Void System.IO.File::AppendAllText(System.String,System.String)
+-IL_0ee1: nop
+-IL_0ee2: nop
+-IL_0ee3: leave.s IL_0f57
+-IL_0ee5: stloc.s V_116
+-IL_0ee7: nop
+-IL_0ee8: ldarg.0
+-IL_0ee9: ldfld System.String ForestProbe::root
+-IL_0eee: ldstr "actions.log"
+-IL_0ef3: call System.String System.IO.Path::Combine(System.String,System.String)
+-IL_0ef8: ldc.i4.6
+-IL_0ef9: newarr System.String
+-IL_0efe: dup
+-IL_0eff: ldc.i4.0
+-IL_0f00: call System.DateTime System.DateTime::get_UtcNow()
+-IL_0f05: stloc.s V_115
+-IL_0f07: ldloca.s V_115
+-IL_0f09: ldstr "O"
+-IL_0f0e: call System.String System.DateTime::ToString(System.String)
+-IL_0f13: stelem.ref
+-IL_0f14: dup
+-IL_0f15: ldc.i4.1
+-IL_0f16: ldstr " FAIL "
+-IL_0f1b: stelem.ref
+-IL_0f1c: dup
+-IL_0f1d: ldc.i4.2
+-IL_0f1e: ldloc.1
+-IL_0f1f: stelem.ref
+-IL_0f20: dup
+-IL_0f21: ldc.i4.3
+-IL_0f22: ldstr " "
+-IL_0f27: stelem.ref
+-IL_0f28: dup
+-IL_0f29: ldc.i4.4
+-IL_0f2a: ldloc.s V_116
+-IL_0f2c: dup
+-IL_0f2d: brtrue.s IL_0f33
+-IL_0f2f: pop
+-IL_0f30: ldnull
+-IL_0f31: br.s IL_0f38
+-IL_0f33: callvirt System.String System.Object::ToString()
+-IL_0f38: stelem.ref
+-IL_0f39: dup
+-IL_0f3a: ldc.i4.5
+-IL_0f3b: ldstr "
++IL_0fdc: call System.String System.String::Concat(System.String,System.String,System.String,System.String)
++IL_0fe1: call System.Void System.IO.File::AppendAllText(System.String,System.String)
++IL_0fe6: nop
++IL_0fe7: nop
++IL_0fe8: leave.s IL_105c
++IL_0fea: stloc.s V_125
++IL_0fec: nop
++IL_0fed: ldarg.0
++IL_0fee: ldfld System.String ForestProbe::root
++IL_0ff3: ldstr "actions.log"
++IL_0ff8: call System.String System.IO.Path::Combine(System.String,System.String)
++IL_0ffd: ldc.i4.6
++IL_0ffe: newarr System.String
++IL_1003: dup
++IL_1004: ldc.i4.0
++IL_1005: call System.DateTime System.DateTime::get_UtcNow()
++IL_100a: stloc.s V_124
++IL_100c: ldloca.s V_124
++IL_100e: ldstr "O"
++IL_1013: call System.String System.DateTime::ToString(System.String)
++IL_1018: stelem.ref
++IL_1019: dup
++IL_101a: ldc.i4.1
++IL_101b: ldstr " FAIL "
++IL_1020: stelem.ref
++IL_1021: dup
++IL_1022: ldc.i4.2
++IL_1023: ldloc.1
++IL_1024: stelem.ref
++IL_1025: dup
++IL_1026: ldc.i4.3
++IL_1027: ldstr " "
++IL_102c: stelem.ref
++IL_102d: dup
++IL_102e: ldc.i4.4
++IL_102f: ldloc.s V_125
++IL_1031: dup
++IL_1032: brtrue.s IL_1038
++IL_1034: pop
++IL_1035: ldnull
++IL_1036: br.s IL_103d
++IL_1038: callvirt System.String System.Object::ToString()
++IL_103d: stelem.ref
++IL_103e: dup
++IL_103f: ldc.i4.5
++IL_1040: ldstr "
+ "
+-IL_0f40: stelem.ref
+-IL_0f41: call System.String System.String::Concat(System.String[])
+-IL_0f46: call System.Void System.IO.File::AppendAllText(System.String,System.String)
+-IL_0f4b: nop
+-IL_0f4c: ldloc.s V_116
+-IL_0f4e: call System.Void UnityEngine.Debug::LogException(System.Exception)
+-IL_0f53: nop
+-IL_0f54: nop
+-IL_0f55: leave.s IL_0f57
+-IL_0f57: ret
++IL_1045: stelem.ref
++IL_1046: call System.String System.String::Concat(System.String[])
++IL_104b: call System.Void System.IO.File::AppendAllText(System.String,System.String)
++IL_1050: nop
++IL_1051: ldloc.s V_125
++IL_1053: call System.Void UnityEngine.Debug::LogException(System.Exception)
++IL_1058: nop
++IL_1059: nop
++IL_105a: leave.s IL_105c
++IL_105c: ret

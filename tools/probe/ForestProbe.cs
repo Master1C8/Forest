@@ -48,6 +48,8 @@ public sealed class ForestProbe : MonoBehaviour
         public int dataServiceInstance;
         public string[] notReady;
         public string tutorialCompletionRecord;
+        public string tutorial181Record;
+        public string tutorial181ControlRecord;
     }
     [Serializable] public sealed class TutorialCompletion {
         public string result, text, sourceText, panelPath, buttonPath, textPath, targetPath;
@@ -56,6 +58,20 @@ public sealed class ForestProbe : MonoBehaviour
         public bool typing, menuPresent, buttonActive, buttonEnabled, buttonInteractable, graphVerified;
     }
     private bool tutorial158Completed;
+    private bool tutorial181Selected;
+    [Serializable] public sealed class Tutorial181Rejection {
+        public string status="rejected", error;
+    }
+    [Serializable] public sealed class Tutorial181Control {
+        public int matches, buttonInstance, controllerInstance, persistentListenerCount;
+        public string controllerType, text, path, targetPath, buttonPath;
+        public bool controllerEnabled, visible, clickable, buttonEnabled, buttonInteractable, sameTransform;
+    }
+    [Serializable] public sealed class Tutorial181Selection {
+        public string result, choiceMode, text, path, targetPath, listenerMethod, listenerTargetPath;
+        public int frame, conversationId, sourceId, destinationId, successorId, buttonInstance, controllerInstance;
+        public bool typing, graphVerified, listenerVerified;
+    }
     [Serializable] public sealed class NotebookRouteState {
         public string scene, company, product, dataPath, persistentDataPath;
         public string[] diagnostics;
@@ -169,6 +185,20 @@ public sealed class ForestProbe : MonoBehaviour
                 if(!completion.menuPresent)button.onClick.Invoke();
                 tutorial158Completed=true;
                 File.WriteAllText(Path.Combine(root,"completion158-receipt.json"),JsonUtility.ToJson(completion,true));
+            } else if(text.StartsWith("select-tutorial181 ")) {
+                if(tutorial181Selected)throw new Exception("Tutorial181 already selected; no replay");
+                var parts=text.Substring(19).Split(' ');
+                if(parts.Length!=2)throw new Exception("Expected observed frame and original button identity");
+                int observedFrame=Int32.Parse(parts[0]), buttonId=Int32.Parse(parts[1]);
+                Button button;
+                var selection=ReadTutorial181(out button);
+                if(observedFrame<=0 || observedFrame>selection.frame || selection.frame-observedFrame>120 ||
+                   selection.buttonInstance!=buttonId)throw new Exception("Stale Tutorial181 menu/control");
+                // Consume before invocation: an exception/unknown outcome never authorizes replay.
+                tutorial181Selected=true;
+                selection.result="submitted";
+                File.WriteAllText(Path.Combine(root,"selection181-receipt.json"),JsonUtility.ToJson(selection,true));
+                button.onClick.Invoke();
             } else if(text.StartsWith("continue-bound ")) {
                 var parts=text.Substring(15).Split(' ');
                 if(parts.Length!=2)throw new Exception("Expected conversation and source entry");
@@ -867,7 +897,84 @@ public sealed class ForestProbe : MonoBehaviour
         if(state.conversationActive && state.conversationId==120 && state.entryId==158) {
             Button button;
             state.tutorialCompletionRecord=JsonUtility.ToJson(ReadTutorialCompletion(out button));
+            if(TutorialChoiceMode=="original" && !state.typing && ReadResponses().Count==2) {
+                // Optional selection admission must not discard the established
+                // read-only menu snapshot. Selection still independently fails closed.
+                state.tutorial181ControlRecord=JsonUtility.ToJson(ReadTutorial181Control());
+                try { state.tutorial181Record=JsonUtility.ToJson(ReadTutorial181(out button)); }
+                catch(Exception ex) { state.tutorial181Record=JsonUtility.ToJson(new Tutorial181Rejection{error=ex.Message}); }
+            }
         }
+    }
+    Tutorial181Control ReadTutorial181Control() {
+        var result=new Tutorial181Control{persistentListenerCount=-1};
+        foreach(var candidate in Resources.FindObjectsOfTypeAll<StandardUIResponseButton>())
+            if(candidate.gameObject.scene.IsValid() && candidate.gameObject.activeInHierarchy && candidate.response!=null &&
+               candidate.response.destinationEntry!=null && candidate.response.destinationEntry.id==181) {
+                result.matches++;
+                result.controllerType=candidate.GetType().FullName;result.controllerEnabled=candidate.enabled;
+                result.controllerInstance=candidate.GetInstanceID();result.text=candidate.text;
+                result.path=Address(candidate.transform);result.targetPath=candidate.target==null?"":Address(candidate.target);
+                result.visible=candidate.isVisible;result.clickable=candidate.isClickable;
+                var button=candidate.button;
+                if(button!=null) {
+                    result.buttonInstance=button.GetInstanceID();result.buttonPath=Address(button.transform);
+                    result.buttonEnabled=button.enabled;result.buttonInteractable=button.IsInteractable();
+                    result.sameTransform=button.transform==candidate.transform;
+                    result.persistentListenerCount=button.onClick.GetPersistentEventCount();
+                }
+            }
+        return result;
+    }
+    static void Tutorial181Entry(DialogueEntry entry, int id, string text, int actor, int conversant, int successor) {
+        if(entry==null || entry.conversationID!=120 || entry.id!=id || entry.DialogueText!=text ||
+           entry.ActorID!=actor || entry.ConversantID!=conversant || entry.isGroup ||
+           !String.IsNullOrEmpty(entry.conditionsString) || !String.IsNullOrEmpty(entry.userScript) ||
+           !String.IsNullOrEmpty(entry.MenuText) || !String.IsNullOrEmpty(entry.Sequence) ||
+           !String.IsNullOrEmpty(entry.ResponseMenuSequence) ||
+           (entry.onExecute!=null && entry.onExecute.GetPersistentEventCount()!=0) ||
+           entry.outgoingLinks==null || entry.outgoingLinks.Count!=1)
+            throw new Exception("Tutorial181 exact destination source differs");
+        var link=entry.outgoingLinks[0];
+        if(link.originConversationID!=120 || link.originDialogueID!=id || link.destinationConversationID!=120 ||
+           link.destinationDialogueID!=successor || link.isConnector || (int)link.priority!=2)
+            throw new Exception("Tutorial181 exact destination link differs");
+    }
+    Tutorial181Selection ReadTutorial181(out Button button) {
+        if(TutorialChoiceMode!="original")throw new Exception("Tutorial181 requires original mode");
+        Button unused;
+        var completion=ReadTutorialCompletion(out unused);
+        if(completion.typing || !completion.menuPresent)throw new Exception("Tutorial181 requires fresh non-typing menu");
+        StandardUIResponseButton match=null;
+        foreach(var candidate in Resources.FindObjectsOfTypeAll<StandardUIResponseButton>())
+            if(candidate.gameObject.scene.IsValid() && candidate.gameObject.activeInHierarchy && candidate.response!=null &&
+               candidate.response.destinationEntry!=null && candidate.response.destinationEntry.id==181) {
+                if(match!=null)throw new Exception("Ambiguous Tutorial181 button");match=candidate;
+            }
+        const string label="The love. Definitely the love.";
+        string path=TutorialTextPanel+"/Response Menu Panel/Viewport/Content/Response: "+label;
+        if(match==null || match.GetType()!=typeof(StandardUIResponseButton) || !match.enabled ||
+           !match.isVisible || !match.isClickable || match.text!=label || Address(match.transform)!=path ||
+           match.target==null || Address(match.target)!=TutorialUI || match.button==null ||
+           match.button.transform!=match.transform || !match.button.enabled || !match.button.IsInteractable() ||
+           match.button.onClick.GetPersistentEventCount()!=0)
+            throw new Exception("Tutorial181 original response control differs");
+        Tutorial181Entry(match.response.destinationEntry,181,label,1,2,182);
+        Tutorial181Entry(DialogueManager.masterDatabase.GetDialogueEntry(120,182),182,"[pic=2]Hahaha!",2,1,183);
+        // Original StandardUIResponseButton.Start installs one runtime OnClick
+        // delegate. Read the real invocation list without preparing/replacing it.
+        var calls=typeof(UnityEngine.Events.UnityEventBase).GetField("m_Calls",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(match.button.onClick);
+        var runtime=ReadField(calls,"m_RuntimeCalls") as IList;
+        if(runtime==null || runtime.Count!=1)throw new Exception("Tutorial181 runtime listener count differs");
+        var callback=ReadField(runtime[0],"Delegate") as Delegate;
+        if(callback==null || callback.GetInvocationList().Length!=1 || !System.Object.ReferenceEquals(callback.Target,match) ||
+           callback.Method.Name!="OnClick" || callback.Method.DeclaringType!=typeof(StandardUIResponseButton))
+            throw new Exception("Tutorial181 runtime listener target differs");
+        button=match.button;
+        return new Tutorial181Selection{choiceMode=TutorialChoiceMode,frame=Time.frameCount,conversationId=120,
+            sourceId=158,destinationId=181,successorId=182,text=label,path=path,targetPath=TutorialUI,
+            listenerMethod="OnClick",listenerTargetPath=path,buttonInstance=button.GetInstanceID(),
+            controllerInstance=match.GetInstanceID(),typing=false,graphVerified=true,listenerVerified=true};
     }
     void ReadConversation(State state) {
         state.conversationActive=DialogueManager.isConversationActive;

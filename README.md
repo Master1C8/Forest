@@ -1,37 +1,38 @@
-## Phase0055: independent synthetic-choice visual evidence accepted
+## Phase0056: original181 plan and a recovered native control failure
 
-The exact candidate48 native1440×900 choice-menu original independently passed
-layout, glyphs, content and contamination review in fresh phase0054. Both synthetic
-labels, raw diaeresis/breve, mixed Latin/digits/punctuation and original English
-subtitle/nameplate were readable without clipping or overlap. Text-only phase0055
-imported the immutable result once with the native manifest; helper check passed1/1.
-All19 provenance hashes and current bridge/host snapshots match. No images were
-opened and no game was replayed. This accepts only that synthetic unselected menu;
-authored corpus, other layouts and full renderer/source acceptance remain pending.
+The original120:181 route now has a separate source/control-bound command and host
+plan. Fresh readback preserves27 original entries/two UI controls/four listener
+consumer groups; all six outputs reproduced byte-identically. Original response
+Start installs a runtime OnClick listener, which is checked before actual selection.
+Default New,14 original guards, seven prefix/readiness guards, synthetic selection
+prohibition and original budgets remain unchanged. Selection ACK is separate from
+actual182 and the route through187/cleanup.139 final focused tests pass; mocked host
+progression is not Unity acceptance.
 
-The new bounded notebook source trace pins16 original consumer groups,102 loaded
-condition fields and seven complete conversations; a fresh extraction is byte-identical.
-Conversation225 is Quest type200 and uses Quest interaction0; Gossip2 already requires
-an acquired notebook. Its loaded necessary prerequisites are completed tutorial200,
-active Main Act 1 and inactive Instanced Event. FullAvailability uses non-short-circuit
-IL `and`; diagnostic calls may still evaluate later chance rules after an earlier
-failure. The captured notebook chance0 is an early pass. This is source knowledge,
-not post-tutorial availability or inventory acceptance. The existing four-trigger
-completion rule is reused unchanged.
+One new immutable49 passed33 preflight checks/385 frozen dependencies. Its five
+resources equal47 exactly. Actual guarded Continue158 applied once at941, then the
+new optional selection-control guard rejected dump-intro before181 was selected.
+The exact failed operand was not emitted;182 and187/cleanup remain unverified.
+The definite native FAIL was reconciled before ordinary Restore/Quit. Both ACKed,
+all15 postrun checks pass, exact processes are absent, QA DLL/bridge restored,
+originals/owner files/19 lane pins unchanged. Failed runtime/observer1 receipts remain.
+No images were captured/opened, and consumed49 must never be replayed.
 
-Next: prepare a separately guarded original120:181 selection and ordinary route
-through187 on a new candidate, then prove cleanup and read tutorial/actor state.
-No terminal override, source225 jump or trigger/quest mutation. Initial spawn,
-inventory, complete source/special-scene/editorial, final font/license/resource
-and local delivery remain pending. Accepted10/15/47 visuals are reused unchanged.
-All seven authorized parallel asset lanes remain independent/read-only to technical
-work. No game ran or image was opened in0055. No publication/deployment.
+The canonical diagnostic now preserves the established menu dump and records actual
+control operands plus explicit admission rejection. Actual selection guards remain
+unchanged: four compiled command/selection/completion bodies equal49. No runtime has
+used this diagnostic repair. Next: freeze a new50 with the changed diagnostic and
+measure the actual failing operand; bind any repair to its original loaded consumer.
+Do not relax guards, select alternate159 or jump to225. Initial spawn, four tutorial
+triggers/notebook/inventory, complete source/special-scene/editorial/final resources
+and delivery remain pending. Accepted10/15/47/48 visuals are reused unchanged.
+All seven authorized asset lanes remain independent/read-only. No publication/deployment.
 
-Evidence: `localization/probes/ru-20261026-48/{native-result-01,native-review,
-review-integration-phase0055}.json`; `localization/source/notebook-eligibility-20261027/
-{ADAPTER.md,source-trace.json,original/extraction.json}` and
-`tools/inspect_notebook_eligibility.py`. Prior summary:
-`localization/history/phase0053-summary.md`.
+Evidence: `localization/source/tutorial181-20261027/{ADAPTER.md,source-trace.json,
+runtime-finding.json,original/extraction.json,diagnostic-repair/verification.json}`;
+`localization/probes/ru-20261026-49/{preflight,command-failure-reconciliation,
+recovery-completion,final-verification}.json`. Prior summary:
+`localization/history/phase0055-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

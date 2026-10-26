@@ -1,0 +1,99 @@
+{
+  "status": "passed-static-only",
+  "baselineSha256": "868fb47aa33671d389f8e584f968d83152299e8b4ac28879b0f7e6c4a408578b",
+  "compiledSha256": "17eeeefae39301806728388bdac88f6eafe1e8a44ff2cac65e3472c5f55251a0",
+  "sourceSha256": "f56370eca8899540f1f68155a7155f86054101a4bb77f623fd7da058c6e48851",
+  "exactTopLevelMethods": [
+    "System.Boolean ForestProbe::GetKeyboardState(System.Byte[])",
+    "System.Int16 ForestProbe::GetAsyncKeyState(System.Int32)",
+    "System.UInt32 ForestProbe::GetCurrentProcessId()",
+    "System.Void ForestProbe::Install()",
+    "System.Void ForestProbe::Awake()",
+    "System.String ForestProbe::Address(UnityEngine.Transform)",
+    "System.Void ForestProbe::RestoreInputPolicy()",
+    "System.Void ForestProbe::OnDestroy()",
+    "System.Void ForestProbe::OnApplicationFocus(System.Boolean)",
+    "System.Void ForestProbe::OnApplicationPause(System.Boolean)",
+    "System.Void ForestProbe::ObserveUnityFocusEvent(System.Boolean)",
+    "System.Void ForestProbe::ObserveFocus(System.String,System.String)",
+    "System.String ForestProbe::KeyboardMaps(Rewired.Player)",
+    "System.String ForestProbe::NaturalDoorTransition()",
+    "System.Void ForestProbe::LateUpdate()",
+    "System.String ForestProbe::DiagnosticValue(System.Object)",
+    "System.Object ForestProbe::ReadField(System.Object,System.String)",
+    "System.String ForestProbe::ObjectAddress(System.Object)",
+    "System.String ForestProbe::ListValues(System.Collections.IEnumerable)",
+    "System.String ForestProbe::Vector(UnityEngine.Vector3)",
+    "System.Void ForestProbe::TravelColliders(System.Collections.Generic.List`1<System.String>,UnityEngine.Component)",
+    "System.String[] ForestProbe::TravelRouteDiagnostics()",
+    "System.String[] ForestProbe::IntroCleanupDiagnostics()",
+    "System.String[] ForestProbe::TutorialRouteDiagnostics()",
+    "System.Void ForestProbe::NotebookConditionFields(System.Collections.Generic.List`1<System.String>,System.Object,System.String,System.Int32)",
+    "System.String[] ForestProbe::NotebookRouteDiagnostics()",
+    "System.Collections.Generic.List`1<ForestProbe/ResponseRow> ForestProbe::ReadResponses()",
+    "System.String ForestProbe::TutorialChoiceText(System.Int32)",
+    "ForestProbe/TutorialCompletion ForestProbe::ReadTutorialCompletion(UnityEngine.UI.Button&)",
+    "System.Void ForestProbe::ReadConversation(ForestProbe/State)",
+    "System.String[] ForestProbe::ContinuationReadiness(System.Boolean&,System.Boolean&,System.Int32&)",
+    "System.Void ForestProbe::DumpSaveContinuation()",
+    "System.Void ForestProbe::.ctor()"
+  ],
+  "renumberOnlyTopLevelMethods": [
+    "System.String ForestProbe::KeyboardEligibility()",
+    "System.Collections.IEnumerator ForestProbe::Capture(System.String)",
+    "System.Void ForestProbe::DumpIntro()",
+    "System.Void ForestProbe::Dump()"
+  ],
+  "changedMethods": [
+    "System.Void ForestProbe::Update()",
+    "System.Void ForestProbe::ReadTutorialCompletionRecord(ForestProbe/State)"
+  ],
+  "newMethods": [
+    "System.Void ForestProbe::Tutorial181Entry(PixelCrushers.DialogueSystem.DialogueEntry,System.Int32,System.String,System.Int32,System.Int32,System.Int32)",
+    "ForestProbe/Tutorial181Selection ForestProbe::ReadTutorial181(UnityEngine.UI.Button&)"
+  ],
+  "declaredRenames": {
+    "ForestProbe/<Capture>d__35": "ForestProbe/<Capture>d__37",
+    "ForestProbe/<>c__DisplayClass31_0": "ForestProbe/<>c__DisplayClass33_0",
+    "<>9__56_0": "<>9__60_0",
+    "<DumpIntro>b__56_0": "<DumpIntro>b__60_0",
+    "<>9__57_0": "<>9__61_0",
+    "<Dump>b__57_0": "<Dump>b__61_0"
+  },
+  "verifiedFullGeneratedClosures": {
+    "iterator": {
+      "oldType": "ForestProbe/<Capture>d__35",
+      "newType": "ForestProbe/<Capture>d__37",
+      "fullMethodsAndFieldsEqualAfterDeclaredRenames": true
+    },
+    "keyboard": {
+      "oldType": "ForestProbe/<>c__DisplayClass31_0",
+      "newType": "ForestProbe/<>c__DisplayClass33_0",
+      "fullMethodsAndFieldsEqualAfterDeclaredRenames": true
+    },
+    "converters": {
+      "oldType": "ForestProbe/<>c",
+      "newType": "ForestProbe/<>c",
+      "fullMethodsAndFieldsEqualAfterDeclaredRenames": true
+    }
+  },
+  "files": {
+    "candidate.il": "eb67ee93024887ea26099d26718dffbdcdec533566e49f336dc0995d70023ff4",
+    "iterator-candidate.il": "5723f5f443da88fede7178cfea571fb1f4694b1dcb14eda42c75ee2b9848caa3",
+    "keyboard-baseline.il": "9d4412156049214e3fe91b8e659eb2c9dc858500c905cf03523ca0e1cfdcfc59",
+    "Update.diff": "215c9d3267b7d330e6ab9c1194ad8d2460dbdddb96f81ed22439b72fa1bfe638",
+    "ReadTutorialCompletionRecord.diff": "2577450e40eb483057c9e99e18654e36a99f39043926872ffb0b7031e1cbd65a",
+    "KeyboardEligibility.diff": "ba8d4f17f1ca6ed3a7eaaa91571412d6828dd8ec394cf36c8bef4569ff3c36af",
+    "converters-candidate.il": "bea2385db3b5f41c21baf36bf55e6ee88779f3aa55bc0ca0a45702bef60d6641",
+    "DumpIntro.diff": "27222c3eada1ec34a96a9f3c2aa334ba41b32cf5d9208a99f0d2957b85a3c77e",
+    "Capture.diff": "7bc8c265945083aa5b03e48d9790b7588972fa57124bb1ab821d80539d09600d",
+    "iterator-baseline.il": "e0f2a419f7046ab5f717c3e6294a9847224b6135bd1bc5e53fb9e06e748752d4",
+    "keyboard-candidate.il": "8399ec03447cfbafaf3f65903e206608800e297bc6faf47dc4c04a245e84772a",
+    "converters-baseline.il": "04ef370d5de0f17ca4b1e48c0ca8f043070aa89eda2e1d9c6a8443ee917dbc2a",
+    "Dump.diff": "e66d3e4088ec8521711f031e7122b92faccb2a68d2afd0d43541283b363e1015",
+    "baseline.il": "2bfab91e4a85e7621818e42cf31cdd89430ad3d91ef4fc0d049d5e25de2f72e4"
+  },
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "boundary": "Original-mode48 ->49 exact IL; runtime/visual acceptance remain separate"
+}

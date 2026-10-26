@@ -1,0 +1,48 @@
+2026-10-26T18:50:35.8075100Z OK dump-focus
+2026-10-26T18:50:36.6485710Z OK show-menu
+2026-10-26T18:50:36.8933050Z OK dump
+2026-10-26T18:50:37.2346360Z OK sample-keyboard-start
+2026-10-26T18:50:37.4541850Z OK sample-keyboard-snapshot
+2026-10-26T18:50:37.6690850Z OK sample-keyboard-stop
+2026-10-26T18:50:37.8843760Z OK dump-focus
+2026-10-26T18:50:38.3212640Z OK dump-notebook
+2026-10-26T18:50:38.7194430Z OK dump-tutorial
+2026-10-26T18:50:38.9149040Z OK menu StartScreenMainMenu OnClickStart
+2026-10-26T18:50:39.1357590Z OK dump
+2026-10-26T18:50:39.5227360Z OK dump-notebook
+2026-10-26T18:50:39.7500470Z OK dump-save-continuation
+2026-10-26T18:50:39.9437270Z OK menu PlayMenu OnClickContinue
+2026-10-26T18:50:40.3557700Z OK dump-save-continuation
+2026-10-26T18:50:40.5578230Z OK dump-intro
+2026-10-26T18:50:43.7562590Z OK dump-save-continuation
+2026-10-26T18:50:44.6239940Z OK dump-intro
+2026-10-26T18:50:47.6181600Z OK dump-save-continuation
+2026-10-26T18:50:47.8792650Z OK dump-intro
+2026-10-26T18:50:49.1594290Z OK dump-save-continuation
+2026-10-26T18:50:49.5599150Z OK dump-intro
+2026-10-26T18:50:50.9570100Z OK dump-save-continuation
+2026-10-26T18:50:51.1438550Z OK dump-intro
+2026-10-26T18:50:51.5917160Z OK continue-bound 120 153
+2026-10-26T18:50:52.1915170Z OK dump-save-continuation
+2026-10-26T18:50:52.6131180Z OK dump-intro
+2026-10-26T18:50:53.0304520Z OK response 153 120 154
+2026-10-26T18:50:53.6574660Z OK dump-save-continuation
+2026-10-26T18:50:54.0610020Z OK dump-intro
+2026-10-26T18:50:54.2531230Z OK continue-bound 120 155
+2026-10-26T18:50:54.9073690Z OK dump-save-continuation
+2026-10-26T18:50:55.0929500Z OK dump-intro
+2026-10-26T18:50:55.3025580Z OK continue-bound 120 156
+2026-10-26T18:50:55.9563950Z OK dump-save-continuation
+2026-10-26T18:50:56.3607240Z OK dump-intro
+2026-10-26T18:50:56.7685970Z OK continue-bound 120 157
+2026-10-26T18:50:57.4109930Z OK dump-save-continuation
+2026-10-26T18:50:57.8351240Z OK dump-intro
+2026-10-26T18:50:58.2323820Z OK complete-tutorial158
+2026-10-26T18:50:58.8730250Z OK dump-save-continuation
+2026-10-26T18:50:59.0855890Z FAIL dump-intro System.Exception: Tutorial181 original response control differs
+  at ForestProbe.ReadTutorial181 (UnityEngine.UI.Button& button) [0x001ce] in <328a760008d64cd0af1070d8dbb8a653>:0 
+  at ForestProbe.ReadTutorialCompletionRecord (ForestProbe+State state) [0x00058] in <328a760008d64cd0af1070d8dbb8a653>:0 
+  at ForestProbe.DumpIntro () [0x001d0] in <328a760008d64cd0af1070d8dbb8a653>:0 
+  at ForestProbe.Update () [0x000d1] in <328a760008d64cd0af1070d8dbb8a653>:0 
+2026-10-26T18:52:46.8090450Z OK restore-input-policy
+2026-10-26T18:52:47.0273770Z OK quit

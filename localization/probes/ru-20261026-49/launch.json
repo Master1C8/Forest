@@ -1,0 +1,39 @@
+{
+  "pid": 58733,
+  "command": [
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin/wine",
+    "--bottle",
+    "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam",
+    "--no-update",
+    "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/game/The Forest of Love.exe",
+    "-screen-fullscreen",
+    "0",
+    "-screen-width",
+    "1280",
+    "-screen-height",
+    "720",
+    "-logFile",
+    "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/player.log"
+  ],
+  "canonicalHeadAtLaunch": "2fe0e3fcc8e233e6db94420aa0b0c9267285a2f3",
+  "launchedAt": "2026-10-26T18:50:13.595839+00:00",
+  "startupDiagnostics": true,
+  "tutorialChoiceMode": "original",
+  "tutorial181": true,
+  "environmentOverrides": {
+    "WINEDEBUG": "-all,+timestamp,+pid,+tid,+loaddll,+seh,+process",
+    "CX_DEBUGMSG": "-all,+timestamp,+pid,+tid,+loaddll,+seh,+process",
+    "MONO_LOG_LEVEL": "debug",
+    "MONO_LOG_MASK": "all"
+  },
+  "snapshots": {
+    "diagnose_newgame.py": "f2f99efc9654f8974b8e1854b596cb3afe4b09889113e4bf41d7d2cf19306650",
+    "command.py": "fa24daef57164f63e7a3831bb823057f7b0a13e607be7b54422ece10153446a8",
+    "build.json": "776b2cf1d90851e6e829779b53c05cb96bae61723fdfa063a58870e198f2cb68",
+    "bridge-build.json": "4e93c44383f6ce2084fa485a9425be8f8ca2bd98b19bd3ef1baaa8f314781444",
+    "input-pins.json": "3b00ba515d203c80eb6505326a3df9f352abef59511ef23cd6cf1b8d397267d4",
+    "intro-graph.json": "7882039707d3824f448b425570649a444de4a718b5cdbed30599dd3c6b818457",
+    "frozen-files.json": "51a6e0c950e95413b7d99d5fc56c22c9f9a639c13b92298c23553200a5b4167e"
+  },
+  "scope": "Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture"
+}

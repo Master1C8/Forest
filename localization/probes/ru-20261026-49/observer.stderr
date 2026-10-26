@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/diagnose_newgame.py", line 1658, in <module>
+    main()
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/diagnose_newgame.py", line 1632, in main
+    assert success and clean, error
+AssertionError: AssertionError('Nonzero transport exit; outcome unknown, reconcile before resubmitting: (\'dump-intro\', 1, \'\', \'Traceback (most recent call last):\\n  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-49/command.py", line 38, in <module>\\n    assert receipt and (\\\' OK \\\' + args.command) in receipt, receipt or \\\'Timeout; outcome unknown, reconcile before resubmitting.\\\'\\nAssertionError: 2026-10-26T18:50:59.0855890Z FAIL dump-intro System.Exception: Tutorial181 original response control differs\\n\')')

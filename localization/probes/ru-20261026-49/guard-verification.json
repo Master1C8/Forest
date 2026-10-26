@@ -1,0 +1,31 @@
+{
+  "status": "passed-static-only",
+  "all14OriginalGuards": [
+    "intro_action",
+    "continue_outcome",
+    "original_keyboard_guard",
+    "original_menu_ready",
+    "intro_complete",
+    "IntroObservationBudget",
+    "loaded_travel",
+    "movement_ready",
+    "keyboard_idle",
+    "keyboard_gameplay_guard",
+    "gameplay_identity_guard",
+    "route_pulse_plan",
+    "route_sample_guard",
+    "natural_doorway_route"
+  ],
+  "additionalUnchangedGuards": [
+    "tutorial_action",
+    "tutorial_completion_guard",
+    "TutorialTransitions",
+    "ContinueObservationBudget",
+    "continue_diagnostic_ready",
+    "admit_session",
+    "loaded_fixture_guard"
+  ],
+  "defaultNewBranchUnchanged": true,
+  "sourceSha256": "f2f99efc9654f8974b8e1854b596cb3afe4b09889113e4bf41d7d2cf19306650",
+  "boundary": "AST equality of existing guard bodies; separate opt-in181 path, no Unity runtime claim"
+}
