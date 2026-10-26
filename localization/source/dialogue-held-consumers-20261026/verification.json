@@ -1,0 +1,79 @@
+{
+  "status": "bounded-static-consumer-evidence; not complete source or runtime acceptance",
+  "inputs": {
+    "/Users/antonkrutov/Desktop/Forest/tools/inspect_dialogue_consumers.py": "8fe3f8a323ab3f59dd03f834520d4112302222b409aa61a5a86a88abf59f2597",
+    "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll": "60ad076b7949def6bc5ac568376e7ac01c42c40f3b62f48f5bf90833a919f847",
+    "/Users/antonkrutov/Desktop/Forest/tools/probe/InspectMethods.cs": "4d58dc8207f1cda1e56f0f77cd1202cbdfc968f0cbb2e55154d5a14efda892c6",
+    "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+    "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+    "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+    "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf"
+  },
+  "commands": {
+    "DialogueEntry.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.DialogueEntry",
+      "GetCurrentDialogueTextField,get_currentDialogueText,get_subtitleText,get_responseButtonText,get_currentSequence"
+    ],
+    "ConversationModel.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.ConversationModel",
+      "GetState,EvaluateLinksAtPriority,GetLinkText,CheckSequenceField"
+    ],
+    "ConversationView.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.ConversationView",
+      "StartSubtitle,ShouldShowSubtitle,GetDefaultSequence,PreprocessSequence,StartResponses"
+    ],
+    "FormattedText.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.FormattedText",
+      "Parse,ReplaceLuaTags,ReplaceVarTags,ReplaceAutocaseTags,ExtractVariableInputPrompt,ExtractPositionTag,ExtractPanelNumberTag,ExtractPicTag,ExtractEmphasisTags,ReplaceEmphasisTagsWithRichText"
+    ],
+    "SubtitlePanel.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.StandardUISubtitlePanel",
+      "SetContent,SetFormattedText"
+    ],
+    "DialogueService.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueService",
+      "Handler_OnConversationLineBegin,HandleDialogueLineTriggering,HandleDialogueLineActor"
+    ],
+    "Nameplate.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.DialogueNameplateController",
+      "OnConversationLine_Handler,SetFontToMouse"
+    ]
+  },
+  "findings": [
+    "DialogueEntry.subtitleText uses current Dialogue Text if nonempty, otherwise Menu Text. Response buttons use Menu Text first, then Dialogue Text.",
+    "The subtitle visibility consumer checks noSubtitle, exact None()/None();/Continue()/Continue(); sequences, speaker type and display settings. Colon endings and uppercase alone are not exclusion rules.",
+    "Actual conversation state/links, effective sequences and game callbacks must be traced for each held occurrence before asserting visibility or nonvisibility.",
+    "FormattedText.Parse recognizes concrete tag families and does not treat every square-bracketed phrase as an opaque command. Ordinary bracketed narration requires display-span validation."
+  ],
+  "limits": "No candidate ID removed, target changed, symbol decoded, source disposition accepted or model semantic audit credited. No game launch.",
+  "artifacts": {
+    "DialogueEntry.il": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0",
+    "ConversationModel.il": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d",
+    "ConversationView.il": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70",
+    "FormattedText.il": "3af545d0ed6a49c1cf8c4ff5c96945deaaa140f0f825cca73725144b1dd5fed7",
+    "SubtitlePanel.il": "716fd2b8f8c715b54c3eff2c365af6ea52f79b99eaf611ebfe0ab06397be043c",
+    "DialogueService.il": "192a38cf26ee150407e6e42c323ed7c1c91cf690dd6f942af8f326d6e33f0ab9",
+    "Nameplate.il": "b4b247ff01f3f76329b7d359d309eae05d07e09ec523456751287f6f5b7e51f6"
+  }
+}

@@ -123,3 +123,13 @@ stage, not a separate locale-specific inventory or final source acceptance.
 Regression: Russian23 needs source classification at10453 targets; a bound repair
 assignment can investigate consumers and fix the adapter in24 without rerunning23
 or pretending that the1793 holds are completed translations.
+
+Classify held fields through the original consumer, effective sequence, conditions
+and source occurrence. Colon endings, uppercase wording and editor-like phrasing are
+not proof of a service field. `tools/inspect_dialogue_consumers.py` preserves bounded
+original IL evidence in a new immutable source directory. The dialogue getter and
+subtitle/response visibility path must be considered together. Likewise only actual
+engine tags are control syntax: ordinary square-bracketed narration can carry visible
+words. Regression: the flower text at131:153/540:232 must not be rejected merely
+because it is bracketed; changing a real `[pic]`, variable or nested Lua operand
+must still reject. Runtime reachability and complete source acceptance remain separate.
