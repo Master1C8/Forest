@@ -17,6 +17,7 @@ public sealed class ForestProbe : MonoBehaviour
     }
     [Serializable] public sealed class State {
         public string scene, dataPath, persistentDataPath, company, product, conversationState;
+        public string narrativeDbName, narrativeArcName;
         public bool conversationActive;
         public bool typing;
         public string visibleTypewriterText;
@@ -131,6 +132,32 @@ public sealed class ForestProbe : MonoBehaviour
     }
     // Read original state only. In particular, never unlock chapters/triggers,
     // select a private destination index, or open MasterLog from this diagnostic.
+    static string DiagnosticValue(object value) {
+        if(value==null)return "null";
+        var type=value.GetType();
+        if(type.IsPrimitive || type.IsEnum || value is string)return value.ToString();
+        var dbName=type.GetField("dbName",BindingFlags.Instance|BindingFlags.Public);
+        return type.Name+(dbName==null?"":"("+dbName.GetValue(value)+")");
+    }
+    static void NotebookConditionFields(List<string> rows, object condition, string prefix, int depth) {
+        if(condition==null)return;
+        foreach(var field in condition.GetType().GetFields(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic)) {
+            var value=field.GetValue(condition); var values=value as IEnumerable;
+            var key=prefix+field.Name;
+            if(values!=null && !(value is string)) {
+                var items=new List<string>();
+                foreach(var item in values) {
+                    if(items.Count>=64)throw new Exception("Unexpected notebook condition size");
+                    items.Add(DiagnosticValue(item));
+                }
+                rows.Add("notebookCondition | field="+key+" | values="+String.Join(",",items.ToArray()));
+            } else {
+                rows.Add("notebookCondition | field="+key+" | value="+DiagnosticValue(value));
+                if(depth>0 && value!=null && value.GetType().Namespace=="TheForestOfLove.Narrative.DialoguePreconditions")
+                    NotebookConditionFields(rows,value,key+".",depth-1);
+            }
+        }
+    }
     string[] NotebookRouteDiagnostics() {
         var rows=new List<string>();
         rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
@@ -144,6 +171,25 @@ public sealed class ForestProbe : MonoBehaviour
                 rows.Add("masterLog | path="+Address(log.transform)+" | active="+log.gameObject.activeInHierarchy+
                     " | open="+panel.isOpen+" | page="+log.currentPage);
             }
+        foreach(var ui in Resources.FindObjectsOfTypeAll<TheForestOfLove.ChapterSelectUI>())
+            if(ui.gameObject.scene.IsValid()) {
+                var flags=BindingFlags.Instance|BindingFlags.NonPublic|BindingFlags.Public;
+                var type=ui.GetType();
+                var cg=(CanvasGroup)type.GetField("gossipUICanvasGroup",flags).GetValue(ui);
+                rows.Add("chapterUi | path="+Address(ui.transform)+" | active="+ui.gameObject.activeInHierarchy+
+                    " | visible="+TheForestOfLove.ChapterSelectUI.visible+" | locked="+ui.LockInteractions+
+                    " | alpha="+(cg==null?"null":cg.alpha.ToString())+
+                    " | selectedLabel="+type.GetField("itemLabelSelectedIndex",flags).GetValue(ui)+
+                    " | selectedItem="+type.GetField("gossipItemSelectedIndex",flags).GetValue(ui)+
+                    " | waitingForSubmitClear="+type.GetField("waitingForSubmitButtonToClear",flags).GetValue(ui));
+                foreach(var item in (IEnumerable)type.GetField("gossipItems",flags).GetValue(ui)) {
+                    var t=item.GetType();
+                    rows.Add("chapterUiItem | chapter="+t.GetField("unlockStopPoint",flags).GetValue(item)+
+                        " | text="+t.GetField("displayText",flags).GetValue(item)+
+                        " | scene="+t.GetField("respawnInScene",flags).GetValue(item)+
+                        " | spawn="+t.GetField("namedSpawnPoint",flags).GetValue(item));
+                }
+            }
         foreach(var chapter in TheForestOfLove.Services.Persistence.DataService.GetChapterRecords()) {
             var triggers=new List<string>();
             foreach(var trigger in chapter.unlockTriggers)triggers.Add(trigger.name);
@@ -154,6 +200,14 @@ public sealed class ForestProbe : MonoBehaviour
         foreach(var chapter in TheForestOfLove.Services.Persistence.DataService.GetGlobalChapterRecords())
             rows.Add("globalChapter | id="+(int)chapter.unlockStopPoint+" | unlocked="+chapter.IsUnlocked);
         var dialogue=TheForestOfLove.Services.Persistence.DataService.GetDialogueByPluginDbId(225);
+        if(dialogue!=null) {
+            rows.Add("notebookDialogue | dbName="+dialogue.dbName+" | actor="+DiagnosticValue(dialogue.primaryActor)+
+                " | quest="+DiagnosticValue(dialogue.quest)+" | status="+dialogue.status);
+            foreach(var condition in dialogue.preconditions) {
+                // Read fields only: evaluating IsSatisfied can consume random chance.
+                NotebookConditionFields(rows,condition,condition.GetType().Name+".",1);
+            }
+        }
         if(dialogue!=null)foreach(var trigger in dialogue.arcTriggers) {
             var named=trigger as TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger;
             if(named!=null && named.triggerPluginDbName=="notebook_unlocked")
@@ -247,6 +301,8 @@ public sealed class ForestProbe : MonoBehaviour
                     " | worldBottomLeft="+corners[0].ToString("R")+" | worldTopRight="+corners[2].ToString("R"));
             }
         var state=new State{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            narrativeDbName=TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName,
+            narrativeArcName=TheForestOfLove.Narrative.DialogueService.CurrentArcName,
             dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
             company=Application.companyName,product=Application.productName,width=Screen.width,height=Screen.height,
             texts=texts.ToArray(),buttons=buttons.ToArray(),components=components.ToArray(),

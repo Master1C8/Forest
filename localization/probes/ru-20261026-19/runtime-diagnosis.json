@@ -1,0 +1,30 @@
+{
+  "scope": "Original New transition and first gameplay diagnostics only; intro not completed",
+  "actualModel": "gpt-6.1-sol/high/OpenAI; PID21919 arguments verified",
+  "scene": "IntroForest",
+  "dialogueActive": false,
+  "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=True | notebookLearned=False",
+  "liveTickers": [
+    "ticker | instance=-15258 | path=LevelSingletons/LevelSingletons(Clone)/MasterLog/Inventory/Canvas/Inventory UI/ItemInfoMultilineFixedWidths | activeSelf=True | activeInHierarchy=True | enabled=True | isActiveAndEnabled=True",
+    "ticker | instance=-15154 | path=LevelSingletons/LevelSingletons(Clone)/MasterLog/Inventory/Canvas/Inventory UI/ItemInfoMultilineAutoAdjust | activeSelf=False | activeInHierarchy=False | enabled=True | isActiveAndEnabled=False",
+    "ticker | instance=-15050 | path=LevelSingletons/LevelSingletons(Clone)/MasterLog/Inventory/Canvas/Inventory UI/ItemInfoTicker | activeSelf=False | activeInHierarchy=False | enabled=True | isActiveAndEnabled=False"
+  ],
+  "masterLog": "masterLog | path=LevelSingletons/LevelSingletons(Clone)/MasterLog | active=True | open=False | page=Inventory",
+  "finding": "Active hierarchy/behaviour and exposed Button entries exist behind a closed MasterLog. They do not establish visible panel/allowed opening or empty-cell selection; current labels are serialized Driftwood placeholders. No synthetic inventory target appeared.",
+  "next": "Follow natural IntroForest waypoints, original145 named arcs and IntroBunnyHouseCutscene to no-event state before actor eligibility. Stable scene alone is insufficient.",
+  "cleanup": "Normal quit; task game/wrapper/crash-helper PIDs22364/22368/22370 separately confirmed absent. Original5 resource hashes and assembly unchanged,7pins unchanged; bridge removed. Original DATA/tfol.settings also matches source manifest SHA05bbfe…13b after run; initial runner did not include nested settings in before map. New recipe scans all owner tfol files recursively.",
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "inventoryRuntime": "not reached; diagnostics only",
+  "visual": "not-run",
+  "evidence": {
+    "newgame-state.json": "440cbc9ad42d23e333823bef74e324e3619ac7ac5f048acddc898ad3558d6b4a",
+    "newgame-notebook.json": "ad3972e94995631fec7c5698c84a501bea78096348c26d2f3007ae3a9b6d82c2",
+    "newgame-observations.json": "3d2c71f0244f434e0656bbd0d9857405bf326d1741082074085888b7ed43635a",
+    "runtime-result.json": "7c0a5cddc59ce161637756879f731e70396cb81573578e0bbc55ad585d7fd744",
+    "cleanup.json": "0d6a78e0cb62182dabd607dbbe212a0c8e4a7220202238c7f20a3601eb6e7aba",
+    "launch.json": "cdffe0713b73eedc2dfdec9d8bbdffa486e275db580bcf0f5d4b673f17aceeff",
+    "reuse-binding.json": "8a7549acdbdcb43ed73de00a4b726b9c6595345175c2d412f3ac0e85384963f1",
+    "bridge-build.json": "912338b55d9afdbb58fdde428e87aa25f77891d0a7fddeb65591e716278a5099"
+  }
+}

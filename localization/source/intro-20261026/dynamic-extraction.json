@@ -1,0 +1,24 @@
+{
+  "assemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "commands": {
+    "DynamicConversation.il": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueService",
+      "PlayDialogue,BuildDynamicConversation,Handler_OnLinkedConversationStart,get_CurrentDialogueDbName,get_CurrentArcName"
+    ],
+    "QuestConversation.il": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.QuestConversationHelper",
+      "StartConversation,StartConversation_Internal"
+    ]
+  },
+  "files": {
+    "DynamicConversation.il": "1e3ecc78080a05623f08b5ed55735b3dd79c3503de1b4fd7735fb880719d3159",
+    "QuestConversation.il": "95f8e8cbe19f2e122b308cd8eead624134ae9161e5935252f9653a23277ce18d",
+    "dynamic-wrapper.json": "5419ff50c30c9d1358a57a483aefa731c75019bbd2cae3848b82da92ca41046d"
+  }
+}

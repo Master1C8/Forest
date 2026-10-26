@@ -1,0 +1,59 @@
+{
+  "scope": "Supplemental original new-game and actor-interaction consumers; no frozen inventory edits",
+  "assemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "recipeSha256": "9ae97e58fac46b44f7d07a5c9ff8e269872b5081e0798c1348930f797a7949f7",
+  "inspectorSourceSha256": "ef5d47883961a46c21db09f3053d2290febf40542110685f695af511c6c6e351",
+  "commands": {
+    "NewGame.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.MainMenuController",
+      "PlayMenuStart,StartNewGame,LoadOverworld,DeleteLocalSavestate,DeleteGlobalSavestate"
+    ],
+    "ChapterInitial.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.ChapterSelectUI",
+      "FilterAvailableChapters,RefreshChapters,Start,Show,Update"
+    ],
+    "ActorOracle.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ActorDialogueOracle",
+      "IsAvailableSingleDialogue,IsAvailableSingleDialogueWithUnplayedPrimaryArcs,GetSingleDialogue,IsUnplayedPrimaryQuestDialogue,IsAvailableGossip,IsAvailableUnplayedGossip"
+    ],
+    "InteractionTrigger.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Interaction.DialogueInteractionTrigger",
+      "CanTrigger,TryActivateTrigger,OnTriggerEnter2D"
+    ],
+    "InteractionUi.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InteractionUiController",
+      "CanShow,OnInterationOptionSelected,UpdateAvailableOptions"
+    ],
+    "StorySelection.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.StoryManager",
+      "ChooseTargetStepAndArc,IsInferredSchema"
+    ]
+  },
+  "files": {
+    "NewGame.il": "534a573e4e9cd61da13793e6704d999743b0d77e2246f9b24e024f99f4635d1a",
+    "ChapterInitial.il": "7bb4c65e67fc11ba55957b01b35ba0a376848be7ecca393cbfbef056e83b5689",
+    "ActorOracle.il": "18f2c841fc8824e5fdcb34d2b73441dd70b1df171c1668795768211558c2dfdd",
+    "InteractionTrigger.il": "c87bdadb77bc9a132af17e94bebe2c8ff1ebcd6cdc163fad07aeb2c9a2e5d40d",
+    "InteractionUi.il": "f99b461cd9c020b251ad97004c04464d7bf2c947d71b5bd93ea5a6f765ad5d2a",
+    "StorySelection.il": "43d73683bd06414caa8ff6ffb0d4940e56b8c13cc44d4262514c7ee88a05cc0f"
+  },
+  "runtime": "not established by source extraction"
+}
