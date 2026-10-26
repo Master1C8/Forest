@@ -1,0 +1,147 @@
+{
+  "status": "passed-static-mocked-host-only",
+  "verifiedAt": "2026-10-26T20:16:04.625587+00:00",
+  "baselineHead": "7b63275213e9be9ea91b29bb7dc4ecc035d66441",
+  "model": {
+    "pid": 72746,
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "verified": "ps actual launch arguments; --ignore-user-config --disable multi_agent"
+  },
+  "checks": {
+    "frozen19Unchanged": true,
+    "original150ManagedUnchanged": true,
+    "originalOther262FilesUnchanged": true,
+    "ownerSavesUnchanged": true,
+    "qaDiskStillFixture43": true,
+    "qaPersistenceEmpty": true,
+    "noTaskOwnedGameHelper": true,
+    "noCandidate51Created": true,
+    "snapshotsMatchWorking": true,
+    "originalAndSyntheticCompiled": true,
+    "swiftCompiled": true,
+    "focused129Tests": true,
+    "testsBoundToCurrentSources": true,
+    "compiledReadbackVerified": true,
+    "previous59HostDefinitionsExact": true,
+    "ContinueObservationBudgetExact": true,
+    "original14GuardsExact": true,
+    "defaultNewBranchExact": true,
+    "oldBridgeCommandsRetained": true
+  },
+  "testTotal": 129,
+  "tests": {
+    "bucky_host": {
+      "exitCode": 0,
+      "tests": 11
+    },
+    "bucky141": {
+      "exitCode": 0,
+      "tests": 12
+    },
+    "bucky_interaction": {
+      "exitCode": 0,
+      "tests": 7
+    },
+    "native_input": {
+      "exitCode": 0,
+      "tests": 52
+    },
+    "save_continue": {
+      "exitCode": 0,
+      "tests": 36
+    },
+    "tutorial181": {
+      "exitCode": 0,
+      "tests": 11
+    }
+  },
+  "compiledModes": [
+    "original",
+    "synthetic"
+  ],
+  "compiledBodiesPerMode": {
+    "original": {
+      "exact": 77,
+      "compilerOrdinalOnly": 4,
+      "changed": 1,
+      "added": 1
+    },
+    "synthetic": {
+      "exact": 77,
+      "compilerOrdinalOnly": 4,
+      "changed": 1,
+      "added": 1
+    }
+  },
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "imagesCaptured": 0,
+  "nativeEventsPosted": 0,
+  "predicatesExecuted": 0,
+  "newCandidateCreated": false,
+  "completedBoundary": "Whole existing QA43 host -> original181/full187/two-frame cleanup -> finite measured right/down approach/single Return -> exact217/actual194..212/real212 event/two cleanup frames/completion, verified with mocked producers; combined original authority/motion reader compiled/read back",
+  "pending": [
+    "new immutable51 freeze/preflight and one-use runtime",
+    "native right/Return/ordinary Bucky141/212/control/trigger production",
+    "raw loaded arc-trigger/marker consumer inspection",
+    "initial spawn/notebook/inventory/complete source/BGDatabase/special-scene/editorial/final resources/local delivery"
+  ],
+  "accounting": {
+    "workerRequestTelemetry": "Unknown in worker; parent serial runner owns actual phase request usage. No agents or nested model jobs.",
+    "input": null,
+    "cachedInput": null,
+    "output": null,
+    "reasoning": null,
+    "total": null
+  },
+  "evidence": {
+    "localization/source/tutorial-20261026/phase0061/ADAPTER.md": "792e059fb0c3e0143c26e2b9510d251088d63dd5415b098eef193eb480804300",
+    "localization/source/tutorial-20261026/phase0061/ForestProbe.after.original.dll": "4fb8fec65811ca7958641a6e268a161a1c88b8a0f178d82140d926ddcbd706d2",
+    "localization/source/tutorial-20261026/phase0061/ForestProbe.after.synthetic.dll": "914bddf3c14c82b642a356d2f670e9295b9fca1b977efc40840ff9749fa7403b",
+    "localization/source/tutorial-20261026/phase0061/ForestProbe.before.original.dll": "425a324fb7728c5ec00413b18b92d98e901a6bbeb46d0ffbd01932b5e8029392",
+    "localization/source/tutorial-20261026/phase0061/ForestProbe.before.synthetic.dll": "1b96b04bbaf7baab8847d020d5f529c96bfc95f6a6fdb232fb2daad35232f385",
+    "localization/source/tutorial-20261026/phase0061/ForestProbe.cs": "79148c8f875368eb034ae8aafb49e409ab68b68ebd67192c2fd9082854a43b08",
+    "localization/source/tutorial-20261026/phase0061/ForestProbe.cs.before": "18f2b1b3eb41d343454fec99a4310da6aa800a97344b029cf678fa92465edba9",
+    "localization/source/tutorial-20261026/phase0061/baseline.json": "c138f7efdea7e6cb970704abb22827f78ee1ca29a9bbbbd0dd6343e790312a8e",
+    "localization/source/tutorial-20261026/phase0061/bucky141-tests.txt": "2e3d3f264eb8e14eb3c019527c478905b5f225abee6093d460602da0bfc0f477",
+    "localization/source/tutorial-20261026/phase0061/bucky_host-tests.txt": "5ead52aff458978cc7e327672f7684a25e46801f37af32ba347c5c24a0487377",
+    "localization/source/tutorial-20261026/phase0061/bucky_interaction-tests.txt": "33acb5e6dd2b4fec3493f074d5ac5d1e33d485e06d6a7494cec4b2d218148789",
+    "localization/source/tutorial-20261026/phase0061/compile.json": "d9472c07ce5e8357c93e621e0ac6aea7cb3b9e8212b5e89477fcdc93728b6ea6",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/comparison.json": "7c54f032aa3bd53ee816a749f73e83b5a752bcb5ba2a6a43987907e1459ca589",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-15e266ceb36dc875.after.il": "f1c2c4f3eacd4fd4049f65708a63d3b241942471227ca9cb4bc7d00cfc53f71c",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-15e266ceb36dc875.before.il": "9621d45cb2249d99668495c928ae2043728a5c982014d3a0f0f5cb4720152afc",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-6671936d00b08092.after.il": "f9c7a29912d0f934c597107dc21e20a912ecb4b30bc93e20c4fb44adc7b95245",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-6671936d00b08092.before.il": "d2177f81156cf147ce2e63d6e90bfe4a6d2b67631791fb512a91a805fb7338a6",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-764737db15e03c9d.after.il": "ae7232ec64453f5f40c8c6033c991a23309ff9b1c3de4b204036c12a90bc1068",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-764737db15e03c9d.before.il": "635e28eac9f2c48805d283fdaf06170c4cd9e4a4f940167dd7a35e9f304fca38",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-BuckyApproachDiagnostics.il": "3f12c277cb62cbe7efcb5ab8704ac0ada5bdab3f055100b6a1840271240ddebe",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-b3632d68af71e4e4.after.il": "34e06e70b12e62a6674c3063d4b60e08e7a4c3e66a0cfcbfd84378c8c88c0fa4",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-b3632d68af71e4e4.before.il": "8e8f5bcd2bc3e471b4545afa1bcaf1fab2d0b284d614f2162ed5923712a89b5e",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-c4ebf4e1d057c3e7.after.il": "155fbbd72ac9c0a2a907b4ace0d3680cd433e17caaf9fcfb15551931c6257164",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/original-c4ebf4e1d057c3e7.before.il": "7a58be82fdea572386c7981e9959cd6fbccc278d324a106985d5fd570e92f3e1",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-15e266ceb36dc875.after.il": "f1c2c4f3eacd4fd4049f65708a63d3b241942471227ca9cb4bc7d00cfc53f71c",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-15e266ceb36dc875.before.il": "9621d45cb2249d99668495c928ae2043728a5c982014d3a0f0f5cb4720152afc",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-6671936d00b08092.after.il": "f9c7a29912d0f934c597107dc21e20a912ecb4b30bc93e20c4fb44adc7b95245",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-6671936d00b08092.before.il": "d2177f81156cf147ce2e63d6e90bfe4a6d2b67631791fb512a91a805fb7338a6",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-764737db15e03c9d.after.il": "ae7232ec64453f5f40c8c6033c991a23309ff9b1c3de4b204036c12a90bc1068",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-764737db15e03c9d.before.il": "635e28eac9f2c48805d283fdaf06170c4cd9e4a4f940167dd7a35e9f304fca38",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-BuckyApproachDiagnostics.il": "3f12c277cb62cbe7efcb5ab8704ac0ada5bdab3f055100b6a1840271240ddebe",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-b3632d68af71e4e4.after.il": "34e06e70b12e62a6674c3063d4b60e08e7a4c3e66a0cfcbfd84378c8c88c0fa4",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-b3632d68af71e4e4.before.il": "8e8f5bcd2bc3e471b4545afa1bcaf1fab2d0b284d614f2162ed5923712a89b5e",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-c4ebf4e1d057c3e7.after.il": "150f9d047dcf726eec9cbbfbd5fd11f42b0d22d4d62a9cc4b75f788cd80eb5c4",
+    "localization/source/tutorial-20261026/phase0061/compiled-readback/synthetic-c4ebf4e1d057c3e7.before.il": "f2fdfd13ec66045133beac0ffb62817ace54e9653c5f69b33772fe6e1242d49a",
+    "localization/source/tutorial-20261026/phase0061/diagnose_newgame.py": "cf5b6444dc8abadd6d3460b804b607d761b3c644da5594cf175abf31c8157d7e",
+    "localization/source/tutorial-20261026/phase0061/diagnose_newgame.py.before": "057d0a439bb852f649628871ec004527e7441fd12188da418be14824e4fd1231",
+    "localization/source/tutorial-20261026/phase0061/native_input-tests.txt": "cf051216b0dbac118d2fd8068e1962d01620c76e1e59a7e4a7222d4ca95c84f9",
+    "localization/source/tutorial-20261026/phase0061/preservation.json": "dc87653793ed0840b0689403166781c0d28024d7fe0f0599c55ae559e4cc1713",
+    "localization/source/tutorial-20261026/phase0061/save_continue-tests.txt": "aecd4e17719cb659edbb89f61bf95ee8ed2af64ea75e18b85ec4931017f9e022",
+    "localization/source/tutorial-20261026/phase0061/target_keyboard": "0d1aa670eb8acb9360e3ae89123414a258c85b2f0776f2f4b6a74acb49d1c581",
+    "localization/source/tutorial-20261026/phase0061/target_keyboard.swift": "09ef8b13c33b4010a6939597b80c137951a8cee728d059ab1454ce6c107e9875",
+    "localization/source/tutorial-20261026/phase0061/target_keyboard.swift.before": "a5ac8eac117359c425a6896437b745f33b950453c6fc0aa671b85b2f6b0bf838",
+    "localization/source/tutorial-20261026/phase0061/tests.json": "4f33d67b9e17a8ce55c2ddeffd649767aa4fbcfcb12fd91383da947cb75fc58d",
+    "localization/source/tutorial-20261026/phase0061/tutorial181-tests.txt": "cf5abfd792226205c342adb54fceb5faa5a4fe99bf0d51b1327fe6ad1c25a1e0",
+    "localization/source/tutorial-20261026/phase0061/verify-compiled.py": "9d9a1633fdfec528d0f51f56a0a4dbe15459c39a02367ecca71868eb13720e98"
+  }
+}

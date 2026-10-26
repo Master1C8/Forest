@@ -48,9 +48,12 @@ def launch_options(argv):
                         help='Explicit two-value synthetic choice admission; requires Continue and matching compiled bridge/resources')
     parser.add_argument('--tutorial181', action='store_true',
                         help='Exact original181 selection and source route through187/cleanup; no menu capture')
+    parser.add_argument('--bucky141', action='store_true',
+                        help='After the full original181 route, measured native approach/Submit and exact141; no capture')
     args = parser.parse_args(argv)
     assert args.tutorial_choice_mode == 'original' or args.continue_fixture, 'Synthetic choices require exact QA43 Continue'
     assert not args.tutorial181 or (args.continue_fixture and args.tutorial_choice_mode == 'original'), 'Tutorial181 requires original QA43 Continue'
+    assert not args.bucky141 or args.tutorial181, 'Bucky141 requires the full original181 route'
     return args
 
 
@@ -1515,6 +1518,307 @@ class Bucky141Transitions:
             boundary='Pure host admission, pending real Unity/native execution. Selection/actual194/real212 end/two cleanup frames/counts are separate. Bucky alone is not all-four/notebook acceptance.')
 
 
+BUCKY_SCARLETT = 'SpawnedContent/Critters/Scarlett/Content/ScarlettByBunnyHouse(Clone)'
+
+
+class BuckyActionBudget:
+    """Separate from ContinueObservationBudget: ACKs and polling buy no time."""
+    def __init__(self, name, started, seconds):
+        assert name in ['bucky-movement', 'bucky-submit'] and math.isfinite(started)
+        self.name, self.started, self.deadline = name, started, started + seconds
+        self.progress_at = started
+
+    def check(self, now):
+        assert math.isfinite(now) and self.started <= now <= self.deadline, self.name + ' fixed deadline exceeded'
+        assert now - self.progress_at <= 20, self.name + ' unchanged progress timeout'
+
+
+def bucky_vector(value):
+    result = list(map(float, value.split(',')))
+    assert len(result) == 3 and all(math.isfinite(x) for x in result), 'Bucky invalid position'
+    return result
+
+
+def bucky_fresh(sample, state):
+    qa_identity(sample); qa_identity(state)
+    assert sample['scene'] == state['scene'] == 'CentralForest', 'Bucky scene changed'
+    assert all(sample[k] == state[k] for k in ['dataPath', 'persistentDataPath']), 'Bucky process identity changed'
+    assert type(sample['frame']) is type(state['frame']) is int and 0 < sample['frame'] <= state['frame'] <= sample['frame']+120, 'Bucky stale sample frame'
+    assert all(math.isfinite(x) and x >= 0 for x in [sample['realtime'], state['realtime']]) and 0 <= state['realtime']-sample['realtime'] <= 2, 'Bucky stale sample time'
+
+
+def bucky_approach_guard(packet, previous=None):
+    """Read actual original fields before contact; never fabricate admission rows."""
+    sample, state = (packet[k] for k in ['interaction', 'state'])
+    bucky_fresh(sample, state)
+    assert sample['choiceMode'] == 'original' and continue_diagnostic_ready(state), 'Bucky approach original dependencies differ'
+    assert state['conversationActive'] is False and not state['responses'] and not state['narrativeDbName'] and not state['narrativeArcName'], 'Bucky approach unexpected story/menu'
+    rows = sample['diagnostics']
+    result = {key: diagnostic_fields(rows, 'bucky'+key.title()) for key in [
+        'guards', 'actor', 'controller', 'trigger', 'settings', 'ui', 'bindings', 'collision', 'player']}
+    assert result['guards'] == dict(gameplay='True', anyEvent='False', conversation='False'), 'Bucky approach unexpected event'
+    for key, typename, path in [('actor','Gameplay.CritterActor',BUCKY_ACTOR),
+            ('controller','InteractionUiController',BUCKY_ACTOR+'/Interaction/InteractionUiController'),
+            ('trigger','Interaction.DialogueInteractionTrigger',BUCKY_ACTOR+'/Interaction/DialogueTrigger'),
+            ('player','Player',BUCKY_PLAYER)]:
+        r=result[key]
+        assert (r['path'],r['type'],r['active'],r['enabled']) == (path,'TheForestOfLove.'+typename,'True','True') and int(r['id']) != 0, 'Bucky approach component changed'
+    assert result['actor']['dbName'] == 'Bucky' and all(v == 'True' for v in result['bindings'].values()) and len(result['bindings']) == 7, 'Bucky approach actor/bindings changed'
+    assert tuple(result['settings'][k] for k in ['actor','dialogue','arc']) == ('Bucky','- Untagged -',''), 'Bucky approach inferred settings changed'
+    assert all(result['trigger'].get(k) == v for k,v in dict(mode='0',triggered='False',cooldown='0',blocked='False',onCollision='False',withoutUi='False',namedTrigger='',maxTimes='0').items()), 'Bucky approach trigger changed'
+    assert all(result['player'].get(k) == v for k,v in dict(canInteract='True',bodyType='Dynamic',bodySimulated='True',rootColliderEnabled='True',rootIsTrigger='False',rootTag='Player',velocity='0,0,0').items()), 'Bucky approach Player not idle'
+    motion=diagnostic_fields(rows,'buckyMotion')
+    assert all(motion.get(k)==v for k,v in dict(movement='True',lanternTransition='False',sweaterTransition='False',swim='null',waypoints='False').items()), 'Bucky original movement readiness changed'
+    assert all(all(abs(a-b)<.0001 for a,b in zip(bucky_vector(motion[k]),[1.2,1.2,0])) for k in ['speed','currentSpeed']), 'Bucky walking speed changed'
+    assert result['collision']['ignoredPair'] == 'False' and result['collision']['colliderEnabled'] == result['collision']['isTrigger'] == 'True', 'Bucky approach collider changed'
+    parsed = [(r.split(' | ')[0], dict(p.split('=',1) for p in r.split(' | ')[1:])) for r in sample['diagnostics']]
+    interactions = [r for kind,r in parsed if kind == 'interaction' and r['active'] == 'True']
+    triggers = [r for kind,r in parsed if kind == 'interactionTrigger' and r['active'] == 'True']
+    assert len({r['id'] for r in interactions}) == len(interactions), 'Bucky duplicate interaction IDs'
+    by_id = {r['id']:r for r in interactions}
+    assert all(r['owner'] in by_id for r in triggers if r['authority']=='True'), 'Bucky authority owner missing'
+    for kind, owners in [('controller',[r for r in interactions if r['authority']=='True']),
+            ('trigger',[by_id[r['owner']] for r in triggers if r['authority']=='True'])]:
+        assert len(owners) <= 1 and all(r['path'] in [p+'/Interaction/InteractionUiController' for p in [BUCKY_SCARLETT,BUCKY_ACTOR]] for r in owners), 'Bucky unexpected authority: '+kind
+        actual = int(result[kind]['authorityId'])
+        if not owners:assert actual == 0, 'Bucky unexplained authority store'
+        elif owners[0]['actor'] == 'Bucky':assert actual == int(result[kind]['gameObject']) != 0, 'Bucky authority store disagrees'
+        else:assert actual != 0 and actual != int(result[kind]['gameObject']), 'Scarlett authority store disagrees'
+    scarlett = [r for r in interactions if r['path'] == BUCKY_SCARLETT+'/Interaction/InteractionUiController']
+    assert len(scarlett) == 1, 'Scarlett interaction missing/ambiguous'
+    scarlett_triggers = [r for r in triggers if r['owner'] == scarlett[0]['id']]
+    assert len(scarlett_triggers) == 1, 'Scarlett trigger missing/ambiguous'
+    result['scarlettReleased'] = all(r[k] == 'False' for r,k in [(scarlett[0],'authority'),(scarlett[0],'playerTouching'),(scarlett_triggers[0],'authority'),(scarlett_triggers[0],'touching')])
+    result['position'] = bucky_vector(result['player']['position'])
+    result['target'] = bucky_vector(result['actor']['position'])
+    if previous is not None:
+        old=previous['interaction']
+        assert all(old[k]==sample[k] for k in ['dataPath','persistentDataPath']), 'Bucky approach process changed'
+        assert sample['frame'] > old['frame'] and sample['realtime'] > old['realtime'], 'Bucky unchanged observation'
+        for key in ['actor','controller','trigger','player','collision','ui']:
+            a=diagnostic_fields(old['diagnostics'],'bucky'+key.title())
+            assert all(a[k]==result[key][k] for k in ['id','path']), 'Bucky loaded identity changed'
+    return result
+
+
+def bucky_contact_ready(result):
+    return (result['controller']['touching'] == result['trigger']['touching'] == result['collision']['rootTouch'] == 'True' and
+        all(int(result[k]['authorityId']) == int(result[k]['gameObject']) != 0 for k in ['controller','trigger']))
+
+
+def bucky_pulse_plan(result, pulses):
+    assert pulses < 40, 'Bucky movement pulse limit; no blind continuation'
+    x,y,_=result['position']; tx,ty,_=result['target']
+    assert 5.8 <= x <= 8.1 and 6.1 <= y <= 8.5 and abs(tx-7.8)<.15 and abs(ty-6.3)<.15, 'Outside bounded Bucky approach'
+    # Only 100ms pulses; measured progress decides every subsequent action.
+    # This is a bounded approach hypothesis, never a collision-free assertion.
+    if x < tx-.08:return 'right',100
+    assert abs(x-tx) <= .20 and y > ty+.10, 'Bucky contact absent at route endpoint; no corrective guess'
+    return 'down',100
+
+
+def observe_bucky_approach(budget, label):
+    budget.check(time.monotonic())
+    packet={}
+    for action,filename,key in [('dump-bucky','bucky-interaction.json','interaction'),
+            ('dump-intro','intro-state.json','state')]:
+        command(action,deadline=budget.deadline)
+        packet[key]=json.loads((RUN/filename).read_text())
+    packet['state']=decode_state(packet['state'])
+    write(label+'-observation.json',packet)
+    budget.check(time.monotonic())
+    return packet
+
+
+def bucky_keyboard_guard(row, result, action, dispatch=False):
+    bucky_submit_map_guard(row)
+    assert row['actor'] == BUCKY_PLAYER+'#'+result['player']['id'] and row['body'] == BUCKY_PLAYER+'#'+result['player']['body'], 'Bucky input Player/body identity changed'
+    expected=dict(scene='CentralForest',gameplay='True',dustin='False',glitch='False',nativeValid='True',lanternTransition='False',sweaterTransition='False',waypoints='False')
+    if not dispatch:expected.update(anyEvent='False',conversation='False',movement='True')
+    assert all(row.get(k)==v for k,v in expected.items()), 'Bucky input gameplay guards changed'
+    key,axis={'right':('RightArrow','1,0,0'),'down':('DownArrow','0,-1,0'),'return':('Return','0,0,0')}[action]
+    for layer in ['native','async','rewired','unity']:
+        assert set(filter(None,row[layer+'MovementDown'].split(','))) <= ({key} if action!='return' else set()), 'Bucky unexpected movement producer'
+        assert set(filter(None,row[layer+'SubmitDown'].split(','))) <= ({key} if action=='return' else set()), 'Bucky unexpected Submit producer'
+    assert row['actionAxes'] in ['0,0,0',axis] and row['fullAxis'] in ['0,0,0',axis], 'Bucky unexpected axes'
+    if action!='return':assert all(row[k]=='False' for k in ['rewiredAction2Held','rewiredAction2Down','helperSubmitDown','unityReturnDown']), 'Bucky unexpected Submit action'
+
+
+def bucky_input_proof(rows, result, action):
+    assert len(rows)>=2, 'Bucky missing keyboard samples'
+    frames=[int(r['frame']) for r in rows]
+    clocks=[float(r['time']) for r in rows]
+    assert all(b>a for a,b in zip(frames,frames[1:])) and all(math.isfinite(x) for x in clocks) and all(b>a for a,b in zip(clocks,clocks[1:])), 'Bucky stale keyboard samples'
+    for r in rows:bucky_keyboard_guard(r,result,action,dispatch=action=='return')
+    key,axis={'right':('RightArrow','1,0,0'),'down':('DownArrow','0,-1,0'),'return':('Return','0,0,0')}[action]
+    field='SubmitDown' if action=='return' else 'MovementDown'
+    assert all(any(key in r[layer+field].split(',') for r in rows) for layer in ['native','async','rewired','unity']), 'Bucky four-layer ingress missing'
+    def consumer(r):
+        return (all(key in r[layer+field].split(',') for layer in ['native','rewired','unity']) and
+            (r['rewiredAction2Down']==r['helperSubmitDown']==r['unityReturnDown']=='True' if action=='return' else r['actionAxes']==r['fullAxis']==axis))
+    assert any(consumer(r) for r in rows), 'Bucky matching-frame consumer ingress missing'
+    assert all(bucky_input_released(r) for r in rows[-2:]), 'Bucky release/zero axes missing'
+    if action!='return':
+        start,end=(bucky_vector(rows[i]['bodyPosition']) for i in [0,-1])
+        delta=[b-a for a,b in zip(start,end)]; index,sign=(0,1) if action=='right' else (1,-1)
+        assert .02 < sign*delta[index] < .35 and abs(delta[1-index]) < .08 and abs(delta[2]) < .01, 'Bucky unchanged/unexpected displacement; no repeat'
+        assert any(sign*bucky_vector(r['bodyVelocity'])[index] > .01 for r in rows), 'Bucky directional physics ingress missing'
+        return dict(start=start,end=end,displacement=delta)
+    return dict(submitConsumerObserved=True)
+
+
+def bucky_native_pulse(action, ms, result, budget, label):
+    """One exact native task edge. Unknown delivery never authorizes another DOWN."""
+    global COMMAND_HOLD
+    budget.check(time.monotonic())
+    target=subprocess.run([str(RUN/'target_keyboard'),str(RUN),'inspect'],capture_output=True,text=True,timeout=min(10,budget.deadline-time.monotonic()))
+    write(label+'-target.json',dict(exitCode=target.returncode,stdout=target.stdout,stderr=target.stderr))
+    assert target.returncode==0, 'Bucky native target inspection failed'
+    identity=json.loads(target.stdout)
+    assert identity['mode']=='inspect' and identity['windowCount']==1 and identity['accessibilityTrusted'] is True and type(identity['pid']) is int and identity['pid']>0 and type(identity['windowID']) is int and identity['windowID']>0, 'Bucky exact native target unavailable'
+    report=dict(action=action,milliseconds=ms,identity=identity,taskDownReceipt=False,exitCode=None)
+    sampling=posted=released=False
+    native=None
+    try:
+        command('sample-keyboard-start',deadline=budget.deadline);sampling=True
+        time.sleep(.1)
+        before=keyboard_samples_bounded(budget.deadline)
+        assert len(before)>=2 and all(bucky_input_released(r) for r in before), 'Bucky non-idle before DOWN; no owner input release'
+        for row in before:bucky_keyboard_guard(row,result,action)
+        assert 0 <= float(before[-1]['time'])-result['sampleTime'] <= 2 and 0 <= int(before[-1]['frame'])-result['sampleFrame'] <= 120, 'Bucky stale pre-DOWN loaded sample'
+        budget.check(time.monotonic())
+        argv=[str(RUN/'target_keyboard'),str(RUN),action,str(ms),str(identity['pid']),str(identity['windowID'])]
+        write(label+'-pulse.json',report)
+        # Durable files retain partial stdout even if the helper outcome is unknown.
+        # Unlike subprocess.run(timeout=...), never SIGKILL a possibly live DOWN.
+        with (RUN/(label+'-native.stdout')).open('x') as stdout,(RUN/(label+'-native.stderr')).open('x') as stderr:
+            native=subprocess.Popen(argv,stdout=stdout,stderr=stderr,text=True)
+            report['transportPid']=native.pid
+            write(label+'-pulse.json',report)
+            try:native.wait(timeout=min(10,budget.deadline-time.monotonic()))
+            except subprocess.TimeoutExpired:
+                COMMAND_HOLD='native-'+label
+                raise TimeoutError('Bucky native outcome unknown; preserve helper, no replay/recovery until reconciled')
+        output=(RUN/(label+'-native.stdout')).read_text()
+        posted=posted_task_down(output,action,identity)
+        report.update(exitCode=native.returncode,stdout=output,stderr=(RUN/(label+'-native.stderr')).read_text(),taskDownReceipt=posted)
+        write(label+'-pulse.json',report)
+        assert native.returncode==0 and posted, 'Bucky task DOWN transport unknown; no replay'
+        release_deadline=min(budget.deadline,time.monotonic()+5)
+        while True:
+            if time.monotonic()>=release_deadline:break
+            rows=keyboard_samples_bounded(release_deadline)
+            for row in rows:bucky_keyboard_guard(row,result,action,dispatch=action=='return')
+            released=len(rows)>=2 and all(bucky_input_released(r) for r in rows[-2:])
+            if released or time.monotonic()>=release_deadline:break
+            time.sleep(.1)
+        command('sample-keyboard-stop',deadline=budget.deadline);sampling=False
+        shutil.copy2(RUN/'keyboard-samples.txt',RUN/(label+'-samples.txt'))
+        rows=[diagnostic_fields([r],'keyboard') for r in (RUN/(label+'-samples.txt')).read_text().splitlines()]
+        released=len(rows)>=2 and all(bucky_input_released(r) for r in rows[-2:])
+        report['proof']=bucky_input_proof(rows,result,action)
+        report['releaseObserved']=released
+        budget.check(time.monotonic())
+        return report
+    except BaseException as ex:
+        report['error']=repr(ex)
+        raise
+    finally:
+        if native is not None:
+            output=(RUN/(label+'-native.stdout')).read_text()
+            posted=posted_task_down(output,action,identity)
+            report.update(exitCode=native.poll(),stdout=output,stderr=(RUN/(label+'-native.stderr')).read_text(),
+                          taskDownReceipt=posted,unresolvedNative=COMMAND_HOLD)
+        # Release is authorized only by an actual matching task DOWN receipt and
+        # a reaped helper, never intent or a currently held owner key.
+        if posted and not released and COMMAND_HOLD is None and native.poll() is not None:
+            recovery=subprocess.run([str(RUN/'target_keyboard'),str(RUN),'release-'+action,str(identity['pid']),str(identity['windowID'])],capture_output=True,text=True,timeout=10)
+            write(label+'-recovery.json',dict(exitCode=recovery.returncode,stdout=recovery.stdout,stderr=recovery.stderr,taskDownReceipt=report))
+            recovery_deadline=time.monotonic()+3
+            if not sampling:
+                command('sample-keyboard-start',deadline=recovery_deadline);sampling=True
+            time.sleep(.3)
+            recovered=keyboard_samples_bounded(recovery_deadline)
+            report['recoveryReleaseObserved']=len(recovered)>=2 and all(bucky_input_released(r) for r in recovered[-2:])
+        if sampling and COMMAND_HOLD is None:
+            command('sample-keyboard-stop',deadline=time.monotonic()+3)
+            shutil.copy2(RUN/'keyboard-samples.txt',RUN/(label+'-failure-samples.txt'))
+        write(label+'-pulse.json',report)
+
+
+def keyboard_samples_bounded(deadline):
+    command('sample-keyboard-snapshot',deadline=deadline)
+    return [diagnostic_fields([row],'keyboard') for row in (RUN/'keyboard-samples.txt').read_text().splitlines()]
+
+
+def ordinary_bucky141():
+    """Invoked only after this run's original181/full187/two real cleanup frames."""
+    plan=json.loads((RUN/'bucky141-plan.json').read_text());bucky141_plan_guard(plan)
+    movement=BuckyActionBudget('bucky-movement',time.monotonic(),120)
+    previous=None;last_position=None;pulses=[]
+    while True:
+        packet=observe_bucky_approach(movement,'bucky-move-%02d'%len(pulses))
+        result=bucky_approach_guard(packet,previous)
+        if last_position is not None:
+            assert all(abs(a-b)<.03 for a,b in zip(result['position'],last_position)), 'Bucky post-release displacement changed'
+        result.update(sampleFrame=packet['interaction']['frame'],sampleTime=packet['interaction']['realtime'])
+        if bucky_contact_ready(result):
+            assert result['scarlettReleased'], 'Scarlett not naturally released'
+            bucky_interaction_guard(packet['interaction'],packet['state'])
+            break
+        action,ms=bucky_pulse_plan(result,len(pulses))
+        pulse=bucky_native_pulse(action,ms,result,movement,'bucky-move-%02d'%len(pulses))
+        last_position=pulse['proof']['end'];pulses.append(pulse)
+        movement.progress_at=time.monotonic()  # Only verified displacement buys progress time.
+        previous=packet
+        write('bucky-movement.json',dict(pulses=pulses,deadline=movement.deadline))
+    submit=BuckyActionBudget('bucky-submit',time.monotonic(),15)
+    command('dump-bucky-completion',deadline=submit.deadline)
+    baseline=json.loads((RUN/'bucky-completion.json').read_text());write('bucky-pre-submit.json',baseline)
+    packet=observe_bucky_approach(submit,'bucky-pre-submit')
+    result=bucky_approach_guard(packet)
+    assert result['scarlettReleased'], 'Scarlett not naturally released before Submit'
+    bucky_interaction_guard(packet['interaction'],packet['state'])
+    bucky_fresh(baseline,packet['state'])
+    tracker=Bucky141Transitions(plan,baseline,time.monotonic())
+    result.update(sampleFrame=packet['interaction']['frame'],sampleTime=packet['interaction']['realtime'])
+    pulse=bucky_native_pulse('return',100,result,submit,'bucky-submit')
+    write('bucky-submit.json',pulse)
+    actions=[];last_action=None;repeats=0
+    while True:
+        now=time.monotonic();tracker.check(now)
+        if tracker.previous is None:submit.check(now)
+        command('dump-save-continuation',deadline=min(tracker.deadline,submit.deadline) if tracker.previous is None else tracker.deadline)
+        saved=json.loads((RUN/'save-continuation.json').read_text())
+        command('dump-intro',deadline=min(tracker.deadline,submit.deadline) if tracker.previous is None else tracker.deadline)
+        state=decode_state(json.loads((RUN/'intro-state.json').read_text()))
+        bucky_fresh(saved,state)
+        assert continue_diagnostic_ready(saved), 'Bucky saved dependencies disappeared'
+        if tracker.previous is None and not state['conversationActive']:
+            assert saved['gameplay'] and not saved['anyEvent'] and not saved['conversation'] and not state['responses'] and not state['narrativeDbName'], 'Bucky unexpected Submit dispatch'
+            time.sleep(min(.1,max(0,submit.deadline-time.monotonic())))
+            continue
+        action=tracker.observe(state,time.monotonic(),saved)
+        write('bucky-transitions.json',tracker.receipt())
+        if len(tracker.cleanup)>=2:
+            command('dump-bucky-completion',deadline=tracker.deadline)
+            completion=json.loads((RUN/'bucky-completion.json').read_text())
+            write('bucky-completion-result.json',tracker.accept_completion(completion,time.monotonic()))
+            return
+        if action:
+            key=(state['entryId'],action);repeats=repeats+1 if key==last_action else 1;last_action=key
+            assert repeats <= (1 if action.startswith('select-bucky217 ') else 3), 'Bucky acknowledged action did not advance; no replay'
+            transport=command(action,deadline=tracker.deadline)
+            filename='selection217-receipt.json' if action.startswith('select-bucky217 ') else 'continue-receipt.json'
+            receipt=json.loads((RUN/filename).read_text())
+            if action.startswith('select-bucky217 '):tracker.acknowledge_selection(state,action,transport,receipt)
+            else:continue_outcome(state,receipt)
+            actions.append(dict(sourceFrame=state['frame'],action=action,transport=transport,receipt=receipt))
+            write('bucky-actions.json',actions);write('bucky-transitions.json',tracker.receipt())
+        tracker.check(time.monotonic())
+        time.sleep(min(.2,max(0,tracker.deadline-time.monotonic())))
+
+
 def continue_diagnostic_ready(state):
     """Read-only producer contract; never infer readiness from default story fields."""
     assert type(state['diagnosticsReady']) is bool, 'Invalid diagnostic readiness flag'
@@ -1573,7 +1877,8 @@ class ContinueObservationBudget(IntroObservationBudget):
         return action, len(self.terminal_frames) >= 2
 
 
-def continue_from_fixture(menu, fixture, budget, choice_mode='original', continue181=False):
+def continue_from_fixture(menu, fixture, budget, choice_mode='original', continue181=False, continue_bucky=False):
+    assert not continue_bucky or (continue181 and choice_mode == 'original'), 'Bucky requires original181 cleanup'
     continue_menu_guard(menu)
     command('dump-save-continuation', deadline=budget.deadline)
     loaded = json.loads((RUN / 'save-continuation.json').read_text())
@@ -1645,6 +1950,8 @@ def continue_from_fixture(menu, fixture, budget, choice_mode='original', continu
                     observationBudget=budget.receipt(time.monotonic()),
                     subtitleAndResponseEvidence=transitions.receipt(),
                     boundary='Actual182/route187 and conversation/event cleanup only; four tutorial triggers, notebook and inventory remain unverified'))
+                if continue_bucky:
+                    ordinary_bucky141()
                 break
             write('continue-progression.json', dict(result='target-settled', conversationId=120, entryId=158,
                 tutorialChoiceMode=choice_mode, actualTerminalFrames=budget.terminal_frames, choicesSubmitted=0, initialSpawnPositionVerified=False,
@@ -1708,6 +2015,8 @@ def main():
     admit_choice_mode(RUN, options.tutorial_choice_mode)
     if options.tutorial181:
         tutorial181_plan_guard(json.loads((RUN / 'tutorial181-plan.json').read_text()))
+    if options.bucky141:
+        bucky141_plan_guard(json.loads((RUN / 'bucky141-plan.json').read_text()))
     report = json.loads((RUN / 'build.json').read_text())
     assert len(report['files']) == 5 and report['saveIsolation']['companyName'] == 'VNRevivalQA'
     for row in report['files']:
@@ -1740,10 +2049,11 @@ def main():
                              'startupDiagnostics': options.startup_diagnostics,
                              'tutorialChoiceMode': options.tutorial_choice_mode,
                              'tutorial181': options.tutorial181,
+                             'bucky141': options.bucky141,
                              'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
-                             'scope': ('Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility')})
+                             'scope': ('Original QA43 Continue/full181/187 cleanup, finite native right/down/Return, exact Bucky141/212 and completion; no capture' if options.bucky141 else 'Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility')})
         wait_for_ready(child)
         (RUN / 'actions.log').touch(exist_ok=True)
         observe_focus_boundary('ready', force=True)
@@ -1768,7 +2078,7 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'play-menu-notebook.json')
         if options.continue_fixture:
             budget = ContinueObservationBudget(time.monotonic())
-            continue_from_fixture(state, fixture, budget, options.tutorial_choice_mode, options.tutorial181)
+            continue_from_fixture(state, fixture, budget, options.tutorial_choice_mode, options.tutorial181, options.bucky141)
         else:
             assert 'Canvas/PlayMenu/Controls/New' in state['buttons']
             assert not any('/Continue' in b for b in state['buttons']), 'Do not overwrite an existing QA session'
@@ -1906,7 +2216,8 @@ def main():
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
                                       'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': len(list(RUN.glob('ru-*.png'))),
-                                      'imagesOpened': 0, 'tutorialChoiceMode': options.tutorial_choice_mode, 'tutorial181': options.tutorial181, 'scope': ('Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
+                                      'imagesOpened': 0, 'tutorialChoiceMode': options.tutorial_choice_mode, 'tutorial181': options.tutorial181, 'scope': ('Original QA43 Continue/full181/187 cleanup, finite native approach/Submit, exact Bucky141/212 and completion; no capture' if options.bucky141 else 'Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
+                                      'bucky141': options.bucky141, 'buckyScope': 'Ordinary measured native approach/Submit and exact141 route only' if options.bucky141 else 'not-run',
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 

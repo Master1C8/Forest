@@ -178,7 +178,7 @@ public sealed class ForestProbe : MonoBehaviour
                 var state=new BuckyInteractionState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
                     company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
                     persistentDataPath=Application.persistentDataPath,choiceMode=TutorialChoiceMode,
-                    frame=Time.frameCount,realtime=Time.realtimeSinceStartup,diagnostics=BuckyInteractionDiagnostics()};
+                    frame=Time.frameCount,realtime=Time.realtimeSinceStartup,diagnostics=BuckyApproachDiagnostics()};
                 File.WriteAllText(Path.Combine(root,"bucky-interaction.json"),JsonUtility.ToJson(state,true));
             }
             else if(text=="dump-bucky-completion") {
@@ -685,6 +685,21 @@ public sealed class ForestProbe : MonoBehaviour
             " | rootCollider="+rootCollider.GetInstanceID()+" | rootColliderEnabled="+rootCollider.enabled+
             " | rootIsTrigger="+rootCollider.isTrigger+" | rootTag="+rootCollider.gameObject.tag+
             " | position="+Vector(player.transform.position)+" | velocity="+Vector(body.velocity));
+        return rows.ToArray();
+    }
+    string[] BuckyApproachDiagnostics() {
+        // One real frame for both authority stores, Scarlett touch/release and
+        // Bucky anatomy. The old tutorial dump has no frame/time fields.
+        var rows=new List<string>(BuckyInteractionDiagnostics());
+        rows.AddRange(TutorialRouteDiagnostics());
+        var player=TheForestOfLove.Player.current;
+        if(player==null)throw new Exception("Bucky motion Player missing");
+        rows.Add("buckyMotion | movement="+ReadField(player,"enableMovement")+
+            " | lanternTransition="+player.lanternTransitioning+" | sweaterTransition="+player.sweaterTransitioning+
+            " | swim="+ObjectAddress(ReadField(player,"playerSwimTransition"))+
+            " | waypoints="+(player.waypointController==null?"absent":player.waypointController.HasWaypoints.ToString())+
+            " | speed="+Vector((Vector2)ReadField(player,"speed"))+
+            " | currentSpeed="+Vector((Vector2)ReadField(player,"currentSpeed")));
         return rows.ToArray();
     }
     static object ReadField(Type declaringType, object owner, string name) {

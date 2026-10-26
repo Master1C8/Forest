@@ -25,7 +25,10 @@ do {
         run.dropFirst(root.count).hasPrefix("ru-20261026-"), "Only one isolated Forest QA candidate")
     let mode = args[2]
     try require(["inspect", "observe", "left", "down", "right", "return", "release-left", "release-down", "release-right", "release-return"].contains(mode), "Only passive observation, bounded arrows/Return or task-edge release supported")
-    let boundInput = ["right", "return", "release-right", "release-return"].contains(mode)
+    // New Bucky down pulses bind the same inspected PID/window as right/Return.
+    // Retain the accepted doorway lane's four-argument down interface.
+    let boundInput = ["right", "return", "release-right", "release-return"].contains(mode) ||
+        (mode == "down" && args.count == 6) || (mode == "release-down" && args.count == 5)
     if boundInput {
         try require(args.count == (mode.hasPrefix("release-") ? 5 : 6), "Right/Return requires exact inspected PID/window")
     } else if mode == "inspect" {

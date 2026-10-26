@@ -1,0 +1,41 @@
+{
+  "suites": {
+    "bucky_host": {
+      "exitCode": 0,
+      "tests": 11
+    },
+    "bucky141": {
+      "exitCode": 0,
+      "tests": 12
+    },
+    "bucky_interaction": {
+      "exitCode": 0,
+      "tests": 7
+    },
+    "native_input": {
+      "exitCode": 0,
+      "tests": 52
+    },
+    "save_continue": {
+      "exitCode": 0,
+      "tests": 36
+    },
+    "tutorial181": {
+      "exitCode": 0,
+      "tests": 11
+    }
+  },
+  "testsPassed": 129,
+  "sourceHashes": {
+    "tools/test_bucky_host.py": "c5ee70523e74ed68a0cf550a8a895a659215aaa8e7a0e41942a52439bc15697e",
+    "tools/test_bucky141.py": "0916ed9f2d5416e6534b8a5bca4ac1d92eb1eab7d4217780dbd9416c080a5e9b",
+    "tools/test_bucky_interaction.py": "5c2b87e3799be5915517bcd7e6dfb7df83288cbd6acc08e0c6d802b979d62905",
+    "tools/test_native_input.py": "55b2f984f2fca8ddc88c90cde7210fb6ba07be2a60eb364c4eb955bc83baa5b7",
+    "tools/test_save_continue.py": "2b87b1c29e24bd3907911f736424876b04b842a13d9d1c3ccee53a94086b2ea2",
+    "tools/test_tutorial181.py": "9de5357d699993624a46d3b183be404f3cfa941d68e03672ddae5ab88f531796",
+    "tools/probe/diagnose_newgame.py": "cf5b6444dc8abadd6d3460b804b607d761b3c644da5594cf175abf31c8157d7e",
+    "tools/probe/ForestProbe.cs": "79148c8f875368eb034ae8aafb49e409ab68b68ebd67192c2fd9082854a43b08",
+    "tools/probe/target_keyboard.swift": "09ef8b13c33b4010a6939597b80c137951a8cee728d059ab1454ce6c107e9875"
+  },
+  "boundary": "Host/planner/transport fixtures replace Unity/native delivery; no game or native event"
+}
