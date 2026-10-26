@@ -47,7 +47,15 @@ public sealed class ForestProbe : MonoBehaviour
         public bool diagnosticsReady, dataServicePresent, manifestPresent;
         public int dataServiceInstance;
         public string[] notReady;
+        public string tutorialCompletionRecord;
     }
+    [Serializable] public sealed class TutorialCompletion {
+        public string result, text, sourceText, panelPath, buttonPath, textPath, targetPath;
+        public string listenerMethod, listenerTargetPath, sourceDestinations, pcDestinations;
+        public int frame, conversationId, entryId, panelInstance, buttonInstance, textInstance;
+        public bool typing, menuPresent, buttonActive, buttonEnabled, buttonInteractable, graphVerified;
+    }
+    private bool tutorial158Completed;
     [Serializable] public sealed class NotebookRouteState {
         public string scene, company, product, dataPath, persistentDataPath;
         public string[] diagnostics;
@@ -150,10 +158,22 @@ public sealed class ForestProbe : MonoBehaviour
                 var controller=FindObjectOfType<TheForestOfLove.MainMenuController>();
                 if(controller==null)throw new Exception("Main menu controller not active");
                 controller.GetType().GetMethod("FinishShowingMenu",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(controller,null);
+            } else if(text=="complete-tutorial158") {
+                if(tutorial158Completed)throw new Exception("Tutorial158 completion already acknowledged; no replay");
+                Button button;
+                var completion=ReadTutorialCompletion(out button);
+                if(completion.typing)throw new Exception("Tutorial158 still typing; no completion");
+                // A menu can open after the host sample. Never invoke a response
+                // or Continue once the original choices are present.
+                completion.result=completion.menuPresent?"menu-present":"applied";
+                if(!completion.menuPresent)button.onClick.Invoke();
+                tutorial158Completed=true;
+                File.WriteAllText(Path.Combine(root,"completion158-receipt.json"),JsonUtility.ToJson(completion,true));
             } else if(text.StartsWith("continue-bound ")) {
                 var parts=text.Substring(15).Split(' ');
                 if(parts.Length!=2)throw new Exception("Expected conversation and source entry");
                 int conversationId=Int32.Parse(parts[0]), entryId=Int32.Parse(parts[1]);
+                if(conversationId==120 && entryId==158)throw new Exception("Tutorial158 requires guarded completion");
                 var current=DialogueManager.currentConversationState;
                 var entry=current==null || current.subtitle==null?null:current.subtitle.dialogueEntry;
                 var receipt=new ContinueReceipt {active=DialogueManager.isConversationActive,
@@ -174,6 +194,7 @@ public sealed class ForestProbe : MonoBehaviour
                 var parts=text.Substring(9).Split(' ');
                 if(parts.Length!=3)throw new Exception("Expected source entry, conversation and destination entry");
                 int sourceId=Int32.Parse(parts[0]), conversationId=Int32.Parse(parts[1]), entryId=Int32.Parse(parts[2]);
+                if(conversationId==120 && sourceId==158)throw new Exception("Tutorial159/181 choices forbidden");
                 var current=DialogueManager.currentConversationState;
                 if(!DialogueManager.isConversationActive || current==null || current.subtitle==null ||
                    current.subtitle.dialogueEntry==null || current.subtitle.dialogueEntry.conversationID!=conversationId ||
@@ -749,6 +770,90 @@ public sealed class ForestProbe : MonoBehaviour
                     conversationId=b.response.destinationEntry.conversationID,entryId=b.response.destinationEntry.id});
         return responses;
     }
+    const string TutorialUI="Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI";
+    const string TutorialTextPanel=TutorialUI+"/Dialogue Panel/Text Panel";
+    const string Tutorial158Text="So tell me. What is it you’re here for?";
+    TutorialCompletion ReadTutorialCompletion(out Button button) {
+        var current=DialogueManager.currentConversationState;
+        var subtitle=current==null?null:current.subtitle;
+        var entry=subtitle==null?null:subtitle.dialogueEntry;
+        if(!DialogueManager.isConversationActive || entry==null || entry.conversationID!=120 || entry.id!=158 ||
+           TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName!="TutorialQuest_IntroFromBunny" ||
+           !String.IsNullOrEmpty(TheForestOfLove.Narrative.DialogueService.CurrentArcName) ||
+           subtitle.formattedText==null || subtitle.formattedText.text!=Tutorial158Text ||
+           entry.DialogueText!="[pic=3]"+Tutorial158Text || entry.ActorID!=2 || entry.ConversantID!=1 ||
+           !String.IsNullOrEmpty(entry.conditionsString) || !String.IsNullOrEmpty(entry.userScript) ||
+           !String.IsNullOrEmpty(entry.MenuText) || !String.IsNullOrEmpty(entry.Sequence) ||
+           !String.IsNullOrEmpty(entry.ResponseMenuSequence) || (entry.onExecute!=null && entry.onExecute.GetPersistentEventCount()!=0))
+            throw new Exception("Tutorial158 exact source/binding differs");
+        if(entry.outgoingLinks==null || entry.outgoingLinks.Count!=2 || current.hasNPCResponse ||
+           current.pcResponses==null || current.pcResponses.Length!=2)
+            throw new Exception("Tutorial158 source/available destinations differ");
+        var destinations=new HashSet<int>();
+        foreach(var link in entry.outgoingLinks) {
+            if(link.originConversationID!=120 || link.originDialogueID!=158 || link.destinationConversationID!=120 ||
+               (link.destinationDialogueID!=159 && link.destinationDialogueID!=181) || link.isConnector || (int)link.priority!=2 ||
+               !destinations.Add(link.destinationDialogueID))
+                throw new Exception("Tutorial158 source links differ");
+        }
+        destinations.Clear();
+        foreach(var response in current.pcResponses) {
+            var target=response==null?null:response.destinationEntry;
+            var expected=target!=null && target.id==159?"Well… uhh… You see…":"The love. Definitely the love.";
+            if(target==null || target.conversationID!=120 || (target.id!=159 && target.id!=181) ||
+               !destinations.Add(target.id) || target.ActorID!=1 || target.ConversantID!=2 || target.isGroup ||
+               target.DialogueText!=expected || !String.IsNullOrEmpty(target.MenuText) ||
+               !String.IsNullOrEmpty(target.conditionsString) || !String.IsNullOrEmpty(target.userScript) ||
+               !String.IsNullOrEmpty(target.Sequence) || !String.IsNullOrEmpty(target.ResponseMenuSequence) ||
+               (target.onExecute!=null && target.onExecute.GetPersistentEventCount()!=0) ||
+               response.formattedText==null || response.formattedText.text!=expected || response.formattedText.forceAuto)
+                throw new Exception("Tutorial158 PC destination/text/conditions differ");
+        }
+        var rows=ReadResponses();
+        bool menu=rows.Count!=0;
+        if(menu) {
+            destinations.Clear();
+            foreach(var row in rows) {
+                var expected=row.entryId==159?"Well… uhh… You see…":"The love. Definitely the love.";
+                if(rows.Count!=2 || !row.visible || !row.clickable || row.conversationId!=120 ||
+                   (row.entryId!=159 && row.entryId!=181) || !destinations.Add(row.entryId) || row.text!=expected ||
+                   row.targetPath!=TutorialUI || row.path!=TutorialTextPanel+"/Response Menu Panel/Viewport/Content/Response: "+expected)
+                    throw new Exception("Tutorial158 original response controls differ");
+            }
+        }
+        StandardUISubtitlePanel panel=null;
+        foreach(var p in Resources.FindObjectsOfTypeAll<StandardUISubtitlePanel>())
+            if(p.gameObject.scene.IsValid() && Address(p.transform)==TutorialTextPanel+"/Subtitle Panel 0") {
+                if(panel!=null)throw new Exception("Ambiguous Tutorial158 subtitle panel");panel=p;
+            }
+        if(panel==null || panel.continueButton==null || panel.subtitleText==null || panel.subtitleText.textMeshProUGUI==null)
+            throw new Exception("Tutorial158 original subtitle control missing");
+        button=panel.continueButton;
+        var tmp=panel.subtitleText.textMeshProUGUI;
+        var handler=button.GetComponent<TheForestOfLove.TextMeshProUIContinueButtonFastForward>();
+        if(Address(button.transform)!=TutorialTextPanel+"/Continue Button" || Address(tmp.transform)!=TutorialTextPanel+"/Subtitle Text" ||
+           handler==null || !handler.enabled || handler.febucciTypewriterEffect==null || handler.febucciTypewriterEffect.transform!=tmp.transform ||
+           handler.hideContinueButtonOnContinue || !handler.continueSubtitlePanel || !handler.continueAlertPanel ||
+           button.onClick.GetPersistentEventCount()!=1 || button.onClick.GetPersistentTarget(0)!=handler ||
+           button.onClick.GetPersistentMethodName(0)!="OnFastForward")
+            throw new Exception("Tutorial158 original Continue binding differs");
+        if(!menu && (!panel.gameObject.activeInHierarchy || !panel.enabled || panel.currentSubtitle!=subtitle ||
+           !button.gameObject.activeInHierarchy || !button.enabled || !button.IsInteractable()))
+            throw new Exception("Tutorial158 original Continue not active/bound/interactable");
+        return new TutorialCompletion{frame=Time.frameCount,conversationId=120,entryId=158,text=subtitle.formattedText.text,
+            sourceText=entry.DialogueText,panelPath=Address(panel.transform),buttonPath=Address(button.transform),textPath=Address(tmp.transform),
+            targetPath=TutorialUI,listenerMethod="OnFastForward",listenerTargetPath=Address(handler.transform),
+            sourceDestinations="120:159,120:181",pcDestinations="120:159,120:181",graphVerified=true,
+            panelInstance=panel.GetInstanceID(),buttonInstance=button.GetInstanceID(),textInstance=tmp.GetInstanceID(),
+            typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping(),menuPresent=menu,
+            buttonActive=button.gameObject.activeInHierarchy,buttonEnabled=button.enabled,buttonInteractable=button.IsInteractable()};
+    }
+    void ReadTutorialCompletionRecord(State state) {
+        if(state.conversationActive && state.conversationId==120 && state.entryId==158) {
+            Button button;
+            state.tutorialCompletionRecord=JsonUtility.ToJson(ReadTutorialCompletion(out button));
+        }
+    }
     void ReadConversation(State state) {
         state.conversationActive=DialogueManager.isConversationActive;
         // Read scalar state only; never serialize the conversation graph.
@@ -788,6 +893,7 @@ public sealed class ForestProbe : MonoBehaviour
             state.typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping();
             state.introDiagnostics=rows.ToArray();
             ReadConversation(state);
+            ReadTutorialCompletionRecord(state);
         }
         File.WriteAllText(Path.Combine(root,"intro-state.json"),JsonUtility.ToJson(state,true));
     }
@@ -866,6 +972,7 @@ public sealed class ForestProbe : MonoBehaviour
                     " | worldBottomLeft="+corners[0].ToString("R")+" | worldTopRight="+corners[2].ToString("R"));
             }
         var state=new State{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            frame=Time.frameCount,realtime=Time.realtimeSinceStartup,scaledTime=Time.time,timeScale=Time.timeScale,
             narrativeDbName=TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName,
             narrativeArcName=TheForestOfLove.Narrative.DialogueService.CurrentArcName,
             dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
@@ -885,6 +992,7 @@ public sealed class ForestProbe : MonoBehaviour
         var typewriter=FindObjectOfType<TheForestOfLove.CustomTypewriterEffectTextMeshPro>();
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;
         ReadConversation(state);
+        ReadTutorialCompletionRecord(state);
         File.WriteAllText(Path.Combine(root,"state.json"),JsonUtility.ToJson(state,true));
     }
     [Serializable] public sealed class SaveContinuationState {

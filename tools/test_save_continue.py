@@ -29,16 +29,34 @@ def tutorial(entry=153, responses=None):
     text = next(e['text'] for e in PREFIX['entries'] if e['id'] == entry)
     if text.startswith('[pic='):
         text = text.split(']', 1)[1]
-    return dict(conversationActive=True, conversationId=120, entryId=entry,
+    state = dict(conversationActive=True, conversationId=120, entryId=entry,
         narrativeDbName='TutorialQuest_IntroFromBunny', narrativeArcName='',
         conversationState=text, responses=responses or [], typing=False,
         frame=1, realtime=1., scaledTime=1., timeScale=1., scene='CentralForest',
         diagnosticsReady=True, dataServicePresent=True, manifestPresent=True, dataServiceInstance=101, notReady=[])
+    return stamp(state)
+
+
+def stamp(state, **change):
+    state = dict(state, **change)
+    if state['entryId'] == 158:
+        state['tutorialCompletionRecord'] = json.dumps(dict(
+            frame=state['frame'], conversationId=120, entryId=158, text=state['conversationState'],
+            sourceText='[pic=3]So tell me. What is it you’re here for?',
+            panelPath=probe.TUTORIAL_TEXT_PANEL+'/Subtitle Panel 0',buttonPath=probe.TUTORIAL_TEXT_PANEL+'/Continue Button',
+            textPath=probe.TUTORIAL_TEXT_PANEL+'/Subtitle Text',targetPath=probe.TUTORIAL_UI,
+            listenerMethod='OnFastForward',listenerTargetPath=probe.TUTORIAL_TEXT_PANEL+'/Continue Button',
+            sourceDestinations='120:159,120:181',pcDestinations='120:159,120:181',graphVerified=True,
+            panelInstance=10,buttonInstance=20,textInstance=30,typing=state['typing'],menuPresent=bool(state['responses']),
+            buttonActive=True,buttonEnabled=True,buttonInteractable=True))
+    return state
 
 
 def response(entry):
-    return dict(conversationId=120, entryId=entry, path='original-button', targetPath='original-target',
-        visible=True, clickable=True, text=next(e['text'] for e in PREFIX['entries'] if e['id'] == entry))
+    text = next(e['text'] for e in PREFIX['entries'] if e['id'] == entry)
+    return dict(conversationId=120, entryId=entry,
+        path=probe.TUTORIAL_TEXT_PANEL+'/Response Menu Panel/Viewport/Content/Response: '+text,
+        targetPath=probe.TUTORIAL_UI,visible=True,clickable=True,text=text)
 
 
 def ack(action, at=1):
@@ -139,8 +157,8 @@ class SaveContinue(unittest.TestCase):
     def test_two_choices_stop_without_action(self):
         s = tutorial(158, [response(159), response(181)])
         self.assertEqual(probe.tutorial_action(s, PREFIX), 'target-settled')
-        self.assertIsNone(probe.tutorial_action(dict(s, typing=True), PREFIX))
-        self.assertIsNone(probe.tutorial_action(tutorial(158), PREFIX))
+        self.assertIsNone(probe.tutorial_action(stamp(s, typing=True), PREFIX))
+        self.assertEqual(probe.tutorial_action(tutorial(158), PREFIX),'complete-tutorial158')
 
     def test_acknowledged_response_allows_only_destination_or_its_source_successor(self):
         for next_entry in [154, 155]:
@@ -222,11 +240,12 @@ class SaveContinue(unittest.TestCase):
         self.assertEqual(t.responses[0]['response'][0]['text'],'Much better.')
         self.assertEqual(t.transitions,[dict(source=153,selectedResponse=154,observed=155,frame=702,kind='acknowledged-response')])
 
-    def test_phase45_mocked_command_file_sequence_reaches_unselected_terminal_pair(self):
-        # The real45 source153 -> acknowledged response154 -> next observed155.
+    def test_phase46_mocked_command_file_sequence_requires_completion_before_terminal_pair(self):
+        # Real46: source153 -> selected154 -> observed155..158, non-typing/no menu.
         # This exercises host commands/files/guards only, never Unity or real pixels.
         sequence=[dict(tutorial(),typing=True),tutorial(153,[response(154)]),
                   tutorial(155),tutorial(156),tutorial(157),
+                  tutorial(158),tutorial(158),
                   tutorial(158,[response(159),response(181)]),tutorial(158,[response(159),response(181)])]
         with tempfile.TemporaryDirectory() as tmp:
             run=Path(tmp);(run/'tutorial-prefix.json').write_text(json.dumps(PREFIX))
@@ -244,7 +263,7 @@ class SaveContinue(unittest.TestCase):
                         tutorialIntroControllers=1,playerPosition=FIXTURE['playerRespawnData']['lastPosition'])
                     (run/'save-continuation.json').write_text(json.dumps(saved))
                 elif cmd=='dump-intro':
-                    current=dict(sequence[index],frame=570+index*60,realtime=30.+index,
+                    current=stamp(sequence[index],frame=570+index*60,realtime=30.+index,
                         responseRecords=[json.dumps(r) for r in sequence[index]['responses']],
                         responseCount=len(sequence[index]['responses']))
                     index+=1;(run/'intro-state.json').write_text(json.dumps(current))
@@ -252,6 +271,9 @@ class SaveContinue(unittest.TestCase):
                     (run/'continue-receipt.json').write_text(json.dumps(dict(result='applied',active=True,
                         expectedConversationId=120,expectedEntryId=current['entryId'],
                         actualConversationId=120,actualEntryId=current['entryId'])))
+                elif cmd=='complete-tutorial158':
+                    (run/'completion158-receipt.json').write_text(json.dumps(dict(
+                        json.loads(current['tutorialCompletionRecord']),result='applied',frame=current['frame']+1)))
                 elif cmd.startswith('capture '):(run/cmd[8:]).write_bytes(b'mocked file boundary; no image')
                 elif cmd=='dump':(run/'state.json').write_text(json.dumps(current))
                 return ack(cmd)
@@ -265,6 +287,9 @@ class SaveContinue(unittest.TestCase):
             self.assertEqual(evidence['selectedResponses'][0]['destination'],154)
             self.assertEqual(len(result['actualTerminalFrames']),2)
             self.assertEqual(calls.count('response 153 120 154'),1)
+            self.assertEqual(calls.count('complete-tutorial158'),1)
+            self.assertFalse(any(c=='continue-bound 120 158' for c in calls))
+            self.assertEqual(evidence['completion158']['native']['result'],'applied')
             self.assertFalse(any(c.startswith('response 158 ') for c in calls))
             self.assertEqual(result['choicesSubmitted'],0)
 
@@ -275,6 +300,107 @@ class SaveContinue(unittest.TestCase):
             probe.tutorial_action(bad, PREFIX)
         with self.assertRaisesRegex(AssertionError, 'choice set'):
             probe.tutorial_action(tutorial(158, [response(159)]), PREFIX)
+
+    def terminal_observation(self):
+        t=probe.TutorialTransitions(PREFIX)
+        for frame,eid in enumerate(range(153,159),1):
+            s=stamp(tutorial(eid),frame=frame,realtime=float(frame))
+            t.observe(s,float(frame))
+        return t,s
+
+    def test_terminal_original_control_and_source_matching_rejections(self):
+        s=tutorial(158)
+        self.assertEqual(probe.tutorial_action(s,PREFIX),'complete-tutorial158')
+        for key,value,reason in [('frame',0,'Stale/wrong'),('text','other','Stale/wrong'),
+                ('buttonPath','other button','original control'),('panelPath','other panel','original control'),
+                ('textPath','other text','original control'),('listenerMethod','SelectResponse','original control'),
+                ('listenerTargetPath','other target','original control'),('buttonInstance',0,'identity missing'),
+                ('pcDestinations','120:159','native destinations'),('sourceDestinations','120:181','native destinations'),
+                ('graphVerified',False,'native destinations'),('buttonActive',False,'Continue unavailable'),
+                ('buttonEnabled',False,'Continue unavailable'),('buttonInteractable',False,'Continue unavailable'),
+                ('menuPresent',True,'menu disagreement'),('typing',True,'menu disagreement')]:
+            bad=copy.deepcopy(s);row=json.loads(bad['tutorialCompletionRecord']);row[key]=value
+            bad['tutorialCompletionRecord']=json.dumps(row)
+            with self.subTest(key=key),self.assertRaisesRegex(AssertionError,reason):
+                probe.tutorial_action(bad,PREFIX)
+        for key,value,reason in [('conditions','Variable.other','source conditions'),
+                ('text','A different destination','source text/actors'),('actor','2','source text/actors')]:
+            bad=copy.deepcopy(PREFIX);next(e for e in bad['entries'] if e['id']==159)[key]=value
+            with self.subTest(key=key),self.assertRaisesRegex(AssertionError,reason):
+                probe.tutorial_action(s,bad)
+        bad=copy.deepcopy(PREFIX);next(e for e in bad['entries'] if e['id']==158)['outgoingLinks'][0]['originDialogueID']=157
+        with self.assertRaisesRegex(AssertionError,'source destinations'):
+            probe.tutorial_action(s,bad)
+        bad=dict(s);bad.pop('tutorialCompletionRecord')
+        with self.assertRaisesRegex(AssertionError,'Missing native'):
+            probe.tutorial_action(bad,PREFIX)
+
+    def test_terminal_response_controls_are_exact_and_all_must_be_clickable(self):
+        s=tutorial(158,[response(159),response(181)])
+        self.assertEqual(probe.tutorial_action(s,PREFIX),'target-settled')
+        for key,value,reason in [('path','other','binding/text'),('targetPath','other','binding/text'),
+                ('visible',False,'not visible/clickable'),('clickable',False,'not visible/clickable'),
+                ('conversationId',119,'binding/text'),('entryId',159,'choice set')]:
+            bad=copy.deepcopy(s);bad['responses'][1][key]=value
+            with self.subTest(key=key),self.assertRaisesRegex(AssertionError,reason):
+                probe.tutorial_action(bad,PREFIX)
+
+    def test_terminal_completion_applied_and_menu_race_are_acknowledged_without_choice(self):
+        for result in ['applied','menu-present']:
+            t,s=self.terminal_observation();action='complete-tutorial158'
+            receipt=dict(json.loads(s['tutorialCompletionRecord']),result=result,frame=7,menuPresent=result=='menu-present')
+            t.acknowledge_completion(s,action,ack(action,6),receipt)
+            self.assertEqual(t.completion['native']['result'],result)
+            for frame in [8,9]:t.observe(stamp(tutorial(158,[response(159),response(181)]),frame=frame),frame)
+            self.assertEqual(t.observed,[153,154,155,156,157,158])
+            self.assertEqual(t.responses,[])
+            with self.assertRaisesRegex(AssertionError,'already acknowledged'):
+                t.acknowledge_completion(s,action,ack(action,6),receipt)
+
+    def test_terminal_completion_missing_stale_ack_or_receipt_fails_before_credit(self):
+        action='complete-tutorial158'
+        for transport,change,reason in [(None,{},'Missing exact completion'),
+                (dict(ack(action,6),command='continue-bound 120 158'),{},'Missing exact completion'),
+                (dict(ack(action,6),transportExitCode=1),{},'Missing exact completion'),
+                (dict(ack(action,6),acknowledgement='old OK response 158 120 159'),{},'Missing exact completion'),
+                (ack(action,5),{},'Stale completion acknowledgement'),
+                (ack(action,6),{'frame':0},'Stale native completion'),
+                (ack(action,6),{'buttonInstance':99},'Native completion binding'),
+                (ack(action,6),{'text':'wrong'},'Native completion binding'),
+                (ack(action,6),{'pcDestinations':'120:159'},'Native completion binding'),
+                (ack(action,6),{'result':'stale'},'Missing native completion'),
+                (ack(action,6),{'typing':True},'Native completion outcome'),
+                (ack(action,6),{'menuPresent':True},'Native completion outcome'),
+                (ack(action,6),{'buttonEnabled':False},'Native Continue unavailable')]:
+            t,s=self.terminal_observation();receipt=dict(json.loads(s['tutorialCompletionRecord']),result='applied');receipt.update(change)
+            with self.subTest(change=change,transport=transport),self.assertRaisesRegex(AssertionError,reason):
+                t.acknowledge_completion(s,action,transport,receipt)
+            self.assertIsNone(t.completion)
+        t,s=self.terminal_observation()
+        with self.assertRaisesRegex(AssertionError,'Missing native completion receipt'):
+            t.acknowledge_completion(s,action,ack(action,6),None)
+        with self.assertRaisesRegex(AssertionError,'Stale Tutorial158 action'):
+            t.acknowledge_completion(stamp(s,frame=5),action,ack(action,6),{})
+
+    def test_terminal_choices_and_old_generic_continue_cannot_be_completion(self):
+        t,s=self.terminal_observation()
+        for action in ['response 158 120 159','response 158 120 181','continue-bound 120 158']:
+            with self.subTest(action=action),self.assertRaisesRegex(AssertionError,'no terminal choice'):
+                t.acknowledge_completion(s,action,ack(action,6),{})
+        for eid in [159,181]:
+            with self.assertRaisesRegex(AssertionError,'unapproved tutorial choice'):
+                probe.tutorial_action(tutorial(eid),PREFIX)
+
+    def test_completion_ack_and_menu_do_not_renew_idle_or_add_subtitle_ids(self):
+        t,s=self.terminal_observation();b=probe.ContinueObservationBudget(0)
+        b.observe_continue(6,s,PREFIX);before=(b.started,b.stage_started,b.progress_at,b.deadline)
+        receipt=dict(json.loads(s['tutorialCompletionRecord']),result='applied',frame=7)
+        t.acknowledge_completion(s,'complete-tutorial158',ack('complete-tutorial158',20),receipt)
+        self.assertEqual((b.started,b.stage_started,b.progress_at,b.deadline),before)
+        self.assertFalse(b.observe_continue(25,stamp(tutorial(158,[response(159),response(181)]),frame=8,realtime=8.),PREFIX)[1])
+        self.assertEqual((b.started,b.stage_started,b.progress_at,b.deadline),before)
+        self.assertEqual(t.observed,[153,154,155,156,157,158])
+        with self.assertRaisesRegex(AssertionError,'forward progress stalled: dialogue'):b.check(36)
 
     def test_wrapper_is_passive_and_bounded(self):
         s = dict(tutorial(), conversationId=109, entryId=8, conversationState='')
@@ -288,7 +414,7 @@ class SaveContinue(unittest.TestCase):
         self.assertFalse(budget.observe_continue(1, s, PREFIX)[1])
         with self.assertRaisesRegex(AssertionError, 'new real frame'):
             budget.observe_continue(2, s, PREFIX)
-        self.assertTrue(budget.observe_continue(3, dict(s, frame=2, realtime=2.), PREFIX)[1])
+        self.assertTrue(budget.observe_continue(3, stamp(s, frame=2, realtime=2.), PREFIX)[1])
 
     def test_original_limits_and_clock_ticks_do_not_reset_idle(self):
         self.assertEqual(probe.ContinueObservationBudget.HARD_SECONDS, 360)

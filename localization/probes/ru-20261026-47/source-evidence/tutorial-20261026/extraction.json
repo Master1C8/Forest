@@ -1,0 +1,220 @@
+{
+  "assemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "treeSha256": "41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b",
+  "recipeSha256": "6c7b749da94e62ff8a50259b8fcaebf7d3a0de4af0924fa5ef1597f4fcb5ea81",
+  "inspectorSourceSha256": "6add8921409a85d5d3c081a2d6a1f99b61b9aeaf66a59953ab3da52b6b5b62d5",
+  "commands": {
+    "TutorialTriggers.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1",
+      "ExecuteTrigger"
+    ],
+    "TutorialIntroduction.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.TutorialQuestBunnyIntroduction",
+      "Start,RegisterServices,Show_TurnInQuest,Show_NewQuestAvailable,Show_RepromptQuest,Show_ContinueTopic,StartCutsceneConversation,Cleanup"
+    ],
+    "CentralForestSpawn.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Content.CentralForestSpawner",
+      "SpawnObjects"
+    ],
+    "QuestState.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Quest",
+      "get_status,get_isStarted,get_isCompleted,IsAvailableWithTags"
+    ],
+    "DialogueState.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Dialogue",
+      "get_status,get_isStarted,get_isCompleted,get_firstPrimaryArcPlayed,get_allPrimaryArcsPlayed"
+    ],
+    "ArcState.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Arc",
+      "get_status,get_isPlayed,get_isSkipped"
+    ],
+    "QuestHelpers.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.QuestTriggerHelper",
+      "LoadQuestStatus,IsTriggerFired,PlayerFinishedIntroTutorial"
+    ],
+    "DataReads.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Services.Persistence.DataService",
+      "GetQuests,GetQuestByDbName,GetActiveTags,IsTagActive,GetTagByDbName,GetDialogues,GetDialogueByDbName,GetTriggerByName"
+    ],
+    "InteractionAuthority.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InteractionUiController",
+      "get_isAuthority,get_isVisible,CanShow,OnInterationOptionSelected"
+    ],
+    "InteractionUiState.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InteractionUi",
+      "get_visible,get_locked,get_currentSelectedOption"
+    ],
+    "InteractionTriggerState.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Interaction.DialogueInteractionTrigger",
+      "get_IsAuthority,get_interactionMode,get_dialogueDbName,get_arcDbName,CanTrigger,TryActivateTrigger"
+    ],
+    "ActorIdentity.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Gameplay.SpawnableActor",
+      "get_ActorDbName"
+    ],
+    "SettingsIdentity.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.DialogueSettings",
+      "get_ActorDbName,get_DialogueDbName,get_ArcDbName"
+    ],
+    "Narrative-Quest-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Quest",
+      "--fields"
+    ],
+    "Narrative-Tag-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Tag",
+      "--fields"
+    ],
+    "Narrative-Trigger-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Trigger",
+      "--fields"
+    ],
+    "Narrative-Dialogue-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Dialogue",
+      "--fields"
+    ],
+    "Narrative-Arc-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Arc",
+      "--fields"
+    ],
+    "InteractionUiController-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InteractionUiController",
+      "--fields"
+    ],
+    "InteractionUi-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InteractionUi",
+      "--fields"
+    ],
+    "InteractionUiOption-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.InteractionUiOption",
+      "--fields"
+    ],
+    "Interaction-DialogueInteractionTrigger-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Interaction.DialogueInteractionTrigger",
+      "--fields"
+    ],
+    "Gameplay-SpawnableActor-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Gameplay.SpawnableActor",
+      "--fields"
+    ],
+    "DialogueSettings-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.DialogueSettings",
+      "--fields"
+    ],
+    "Player-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Player",
+      "--fields"
+    ],
+    "TutorialQuestBunnyIntroduction-fields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.TutorialQuestBunnyIntroduction",
+      "--fields"
+    ]
+  },
+  "files": {
+    "TutorialTriggers.il": "3cc9f17587f1fb2d18b24d5bfc54fdce7c0e6390fbcfde1b460382c13aa993f3",
+    "TutorialIntroduction.il": "6eec68c86724cdf1e17a40fa041d249ff650e2206d12cf8f927037a8b22b64ed",
+    "CentralForestSpawn.il": "205c1c427f7e05671e8d2b05fc9ae58a1fa63ec7495537d282ce13d86a06c0f6",
+    "QuestState.il": "b71ec83311e4192dfb24b3f140ae2ec4874fa2111c285fcca68242fdefcc1041",
+    "DialogueState.il": "2d34c56efac4e6ef4ec75ca36cf3a561a96b3941ce36b865395be3c6bfcd6a0e",
+    "ArcState.il": "a0f84af1bd05955ff3cca59154afec8509dd01f4f5b3cbb4fc703fdcb75501be",
+    "QuestHelpers.il": "43d45a4d799a5391b081bf774b6c401be7f3f08ce82afbb58cceb3496ac46395",
+    "DataReads.il": "f80ebce9af5e01c086e0af6f7838c68a61ce0aaeb85dde0d13fd4fe0636f492f",
+    "InteractionAuthority.il": "e4e1cddb32ca53a242358c7af21e0d3ddc9d8ed961b01158ac2512c2873c6599",
+    "InteractionUiState.il": "7c047dda47c8955b613ece9472c04e7902b956e921d6132846dccb2ad7885a88",
+    "InteractionTriggerState.il": "95c8e11711e7f2c91ab25bfb780635b31b5c3d2ff02d5bc44a518dd436235240",
+    "ActorIdentity.il": "45b21becdcad3f54ba75864eeef2066eceec716f891d3d9f6dba466321952fb9",
+    "SettingsIdentity.il": "d4451ab2c774b4f0a29d4883ea4490a5400ea1dd898f43687afbb9044ad8c18a",
+    "Narrative-Quest-fields.il": "c6d52aecf30637c8d5a371ab2e2f460421bc8e0b1f9d0b794311fc4609556a42",
+    "Narrative-Tag-fields.il": "1f9534d12c001ca38c56bdc7d77e8e898fa362093aa0734571331444b6e24198",
+    "Narrative-Trigger-fields.il": "28be16b979bf6f5a4c196d000f0907ddf3257198bf2202308c517124bc81f00c",
+    "Narrative-Dialogue-fields.il": "ad37ddb3890f6ad34e17410e939e7be8a1a4f4023130d0a80ed5309344f8a9fd",
+    "Narrative-Arc-fields.il": "4e907214260908a83d4e7679efcedb76c18ca705901fa519899107014f7cca3d",
+    "InteractionUiController-fields.il": "9eb788537335d2c52b6e9d54942f674af998d44826474c68d090e904fad0edba",
+    "InteractionUi-fields.il": "ba8a0f22ab2b7adad1b046d1f8504e6572c7625976870046ae850e419c1a3808",
+    "InteractionUiOption-fields.il": "703f3d676763858eb0f640861b5bae70118dc046697d3faa39663866b421d1e2",
+    "Interaction-DialogueInteractionTrigger-fields.il": "da8f9c059db4845d3c6eafe313435f13140a0842d98a5d225b0421947651f18c",
+    "Gameplay-SpawnableActor-fields.il": "7afad04aae77a22516b94c862364057c42e63215b539e83ba7b461b2591a98a4",
+    "DialogueSettings-fields.il": "f8821078c4ac31fef321c4ccd892d9a7de265ae81fe7e21be109640a5dcf1296",
+    "Player-fields.il": "b4708641242d03c59efef636be922c1547e4b2e3977b38dffa0586f965699862",
+    "TutorialQuestBunnyIntroduction-fields.il": "908f2713a48489f5fe0f1e09c42d27c2a0c89dd34d51ccb0705e01d92db43074",
+    "tutorial-graphs.json": "7fab6f5138b9cedabcb9a0c27078832847ee294f77df5cf74848365adfbe2fdd"
+  },
+  "boundary": "Read-only supplemental evidence; no frozen inventory/glossary change; no runtime evaluation"
+}

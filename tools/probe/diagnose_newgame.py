@@ -885,7 +885,7 @@ def continue_menu_guard(state):
 
 
 def tutorial_action(state, prefix):
-    """Advance only the pinned linear prefix;158 is an unconditional choice stop."""
+    """Finish158 via its exact original control; never select159/181."""
     if not state['conversationActive']:
         return None
     assert state['narrativeDbName'] == 'TutorialQuest_IntroFromBunny' and state['narrativeArcName'] in [None, ''], 'Unexpected restored narrative binding'
@@ -903,12 +903,17 @@ def tutorial_action(state, prefix):
     responses = [r for r in state['responses'] if r['visible'] and r['clickable']]
     links = entry['outgoingLinks']
     if state['entryId'] == 158:
-        if state['typing'] or not responses:
+        tutorial_completion_guard(state, prefix)
+        if state['typing']:
             return None
+        if not state['responses']:
+            return 'complete-tutorial158'
+        assert len(responses) == len(state['responses']), 'Tutorial choice control not visible/clickable'
         assert len(responses) == 2 and {r['entryId'] for r in responses} == {159, 181}, 'Tutorial choice set differs'
         for row in responses:
             target = next(e for e in prefix['entries'] if e['id'] == row['entryId'])
-            assert row['conversationId'] == 120 and row['targetPath'] and row['text'] == target['text'], 'Tutorial choice binding/text differs'
+            assert (row['conversationId'] == 120 and row['targetPath'] == TUTORIAL_UI and row['text'] == target['text']
+                    and row['path'] == TUTORIAL_TEXT_PANEL + '/Response Menu Panel/Viewport/Content/Response: ' + target['text']), 'Tutorial choice binding/text differs'
         return 'target-settled'
     assert len(links) == 1 and links[0]['destinationConversationID'] == 120 and links[0]['destinationDialogueID'] == state['entryId'] + 1, 'Tutorial linear source changed'
     if responses:
@@ -918,6 +923,39 @@ def tutorial_action(state, prefix):
         assert row['conversationId'] == 120 and row['entryId'] == target['id'] and row['text'] == target['text'] and row['targetPath'], 'Tutorial sole response differs'
         return 'response %s 120 %s' % (state['entryId'], target['id'])
     return 'continue-bound 120 ' + str(state['entryId'])
+
+
+TUTORIAL_UI = 'Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI'
+TUTORIAL_TEXT_PANEL = TUTORIAL_UI + '/Dialogue Panel/Text Panel'
+
+
+def tutorial_completion_guard(state, prefix):
+    entries = {e['id']: e for e in prefix['entries']}
+    entry = entries[158]
+    assert len(entry['outgoingLinks']) == 2 and {
+        (r['originConversationID'], r['originDialogueID'], r['destinationConversationID'], r['destinationDialogueID'])
+        for r in entry['outgoingLinks']} == {(120,158,120,159), (120,158,120,181)}, 'Tutorial158 source destinations differ'
+    assert all(r['isConnector'] == 0 and r['priority'] == 2 for r in entry['outgoingLinks']), 'Tutorial158 source link policy differs'
+    for eid, text, actor, conversant in [(158, '[pic=3]So tell me. What is it you’re here for?', '2','1'),
+            (159,'Well… uhh… You see…','1','2'), (181,'The love. Definitely the love.','1','2')]:
+        e = entries[eid]
+        assert (e['text'],e['actor'],e['conversant']) == (text,actor,conversant), 'Tutorial158 source text/actors differ'
+        assert all(e[k] == '' for k in ['menuText','conditions','script','sequence','responseMenuSequence']), 'Tutorial158 source conditions differ'
+        assert e['onExecute']['m_PersistentCalls']['m_Calls'] == [], 'Tutorial158 source callbacks differ'
+    record = state.get('tutorialCompletionRecord')
+    assert isinstance(record, str) and record, 'Missing native Tutorial158 completion evidence'
+    row = json.loads(record)
+    assert (row['frame'],row['conversationId'],row['entryId'],row['text'],row['sourceText']) == (
+        state['frame'],120,158,state['conversationState'],entry['text']), 'Stale/wrong Tutorial158 completion evidence'
+    assert row['typing'] is state['typing'] and row['menuPresent'] is bool(state['responses']), 'Tutorial158 completion/menu disagreement'
+    assert row['graphVerified'] is True and row['sourceDestinations'] == row['pcDestinations'] == '120:159,120:181', 'Tutorial158 native destinations differ'
+    assert (row['panelPath'],row['buttonPath'],row['textPath'],row['targetPath'],row['listenerMethod'],row['listenerTargetPath']) == (
+        TUTORIAL_TEXT_PANEL+'/Subtitle Panel 0',TUTORIAL_TEXT_PANEL+'/Continue Button',TUTORIAL_TEXT_PANEL+'/Subtitle Text',
+        TUTORIAL_UI,'OnFastForward',TUTORIAL_TEXT_PANEL+'/Continue Button'), 'Tutorial158 original control differs'
+    assert all(type(row[k]) is int and row[k] != 0 for k in ['panelInstance','buttonInstance','textInstance']), 'Tutorial158 control identity missing'
+    if not row['menuPresent']:
+        assert all(row[k] is True for k in ['buttonActive','buttonEnabled','buttonInteractable']), 'Tutorial158 Continue unavailable'
+    return row
 
 
 class TutorialTransitions:
@@ -936,6 +974,7 @@ class TutorialTransitions:
         self.observed = []
         self.transitions = []
         self.responses = []
+        self.completion = None
 
     def successor(self, entry):
         links = self.entries[entry]['outgoingLinks']
@@ -990,8 +1029,30 @@ class TutorialTransitions:
 
     def receipt(self):
         return dict(observedSubtitleEntries=list(self.observed), selectedResponses=self.responses,
-                    transitions=self.transitions, pendingResponse=self.pending,
+                    transitions=self.transitions, pendingResponse=self.pending, completion158=self.completion,
                     boundary='Selected response destinations are not credited as observed subtitles; ACKs do not renew budgets')
+
+    def acknowledge_completion(self, state, action, transport, receipt):
+        assert action == 'complete-tutorial158' and tutorial_action(state,self.prefix) == action, 'Only exact158 completion is allowed; no terminal choice'
+        assert self.completion is None, 'Tutorial158 completion already acknowledged; no replay'
+        assert (state['entryId'],state['frame']) == (self.previous,self.observed_frame), 'Stale Tutorial158 action observation'
+        assert isinstance(transport,dict) and transport.get('command') == action and transport.get('transportExitCode') == 0, 'Missing exact completion acknowledgement'
+        line = transport.get('acknowledgement','')
+        assert line.partition(' OK ')[0] and line.partition(' OK ')[2] == action, 'Missing exact completion acknowledgement'
+        assert self.observed_at <= transport['submittedAt'] <= transport['acknowledgedAt'], 'Stale completion acknowledgement'
+        assert isinstance(receipt,dict) and receipt.get('result') in ['applied','menu-present'], 'Missing native completion receipt'
+        expected = tutorial_completion_guard(state,self.prefix)
+        assert receipt['frame'] >= state['frame'], 'Stale native completion receipt'
+        # The native action rereads exact source/control/available responses on the
+        # game thread; a menu appearing after sampling is an acknowledged no-op.
+        for k in ['conversationId','entryId','text','sourceText','graphVerified','sourceDestinations','pcDestinations',
+                  'panelPath','buttonPath','textPath','targetPath','listenerMethod','listenerTargetPath',
+                  'panelInstance','buttonInstance','textInstance']:
+            assert receipt[k] == expected[k], 'Native completion binding differs: ' + k
+        assert receipt['typing'] is False and receipt['menuPresent'] is (receipt['result']=='menu-present'), 'Native completion outcome differs'
+        if receipt['result']=='applied':
+            assert all(receipt[k] is True for k in ['buttonActive','buttonEnabled','buttonInteractable']), 'Native Continue unavailable'
+        self.completion = dict(sourceFrame=state['frame'],action=action,transport=transport,native=receipt)
 
 
 def continue_diagnostic_ready(state):
@@ -1093,6 +1154,8 @@ def continue_from_fixture(menu, fixture, budget):
         transitions.observe(state, time.monotonic())
         write('continue-transitions.json', transitions.receipt())
         action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix)
+        if action == 'complete-tutorial158' and transitions.completion is not None:
+            action = None  # Wait under unchanged caps; never replay acknowledged completion.
         if saved['scene'] == 'CentralForest' and saved['playerPresent']:
             assert saved['gameplay'] and saved['playerPath'] == 'SpawnedContent/Player/Content/Player(Clone)' and saved['playerInstance'] != 0, 'Restored root Player identity differs'
             if first_player is None:
@@ -1129,7 +1192,11 @@ def continue_from_fixture(menu, fixture, budget):
             assert repeats <= (1 if action.startswith('response ') else 3), 'Tutorial action did not advance'
             transport = command(action, deadline=budget.deadline)
             receipt = json.loads((RUN / 'continue-receipt.json').read_text()) if action.startswith('continue-bound ') else None
-            if receipt is not None:
+            if action == 'complete-tutorial158':
+                receipt = json.loads((RUN / 'completion158-receipt.json').read_text())
+                transitions.acknowledge_completion(state, action, transport, receipt)
+                write('continue-transitions.json', transitions.receipt())
+            elif receipt is not None:
                 continue_outcome(state, receipt)
             else:
                 transitions.acknowledge_response(state, action, transport)

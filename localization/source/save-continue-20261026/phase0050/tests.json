@@ -1,0 +1,28 @@
+{
+  "recordedAt": "2026-10-26T17:45:24.525688+00:00",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.test_native_input",
+    "tools.test_intro_actions",
+    "tools.test_save_fixture",
+    "tools.test_save_continue"
+  ],
+  "returnCode": 0,
+  "testsPassed": 115,
+  "output": "...................................................................................................................\n----------------------------------------------------------------------\nRan 115 tests in 3.381s\n\nOK\n",
+  "sourceHashes": {
+    "tools/probe/diagnose_newgame.py": "6cb0097f83cc6b77bb7aa852e8ff708ba6bfa094abf925e36b95cb32a4007898",
+    "tools/probe/save_fixture.py": "de0e2a287e1a13e7a2c19bdf6e9682af8edd8402327e372e2f1c05b853dc68db",
+    "tools/probe/ForestProbe.cs": "2f3c893d0d3929d828a27ae4798a3919704125a9e136c3c32f25e1be2dc60bb9",
+    "tools/test_save_continue.py": "2b87b1c29e24bd3907911f736424876b04b842a13d9d1c3ccee53a94086b2ea2",
+    "tools/test_save_fixture.py": "5bb559cd92607bd5b4c65c3b58d3e60efa6ad57caf314ceed67cc7c3e67a657a",
+    "tools/test_intro_actions.py": "d6275d104843f83316412b98d30fb18248c5c7a451f0da9824b4c55aef5f6a0d",
+    "tools/test_native_input.py": "55b2f984f2fca8ddc88c90cde7210fb6ba07be2a60eb364c4eb955bc83baa5b7",
+    "tools/probe/command.py": "fa24daef57164f63e7a3831bb823057f7b0a13e607be7b54422ece10153446a8",
+    "tools/inspect_tutorial_completion.py": "a322a9d44e51a9a054c038ed3321638614510cc284a52a8abab2d12361078b39"
+  },
+  "boundary": "Host/source guards, original fixture admission and mocked command/file sequence with no-menu158, one completion and two real-frame-shaped pairs. Native guard execution and actual UI remain unverified."
+}

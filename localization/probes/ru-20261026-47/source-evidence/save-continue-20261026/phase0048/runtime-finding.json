@@ -1,0 +1,164 @@
+{
+  "status": "failed-runtime-cleanup-passed; readiness-boundary-observed",
+  "phase": "0048-work",
+  "candidate": 45,
+  "prepared": {
+    "frozenFiles": 458,
+    "preflightChecks": 30,
+    "focusedTests": 102,
+    "gameLaunchesDuringPreparation": 0
+  },
+  "actual": {
+    "gameLaunches": 1,
+    "startupReadySeconds": 22.112,
+    "observations": 8,
+    "loadedMenuFrame": 284,
+    "loadedMenuBindingVerified": true,
+    "notReady": [
+      {
+        "scene": "SoftResetLoadingScene",
+        "frame": 401,
+        "realtime": 23.981380462646484,
+        "dataServicePresent": false,
+        "manifestPresent": false,
+        "dataServiceInstance": 0,
+        "missing": [
+          "DataService._instance"
+        ],
+        "introSkipped": true,
+        "budget": {
+          "stage": "bootstrap",
+          "elapsed": 2.313,
+          "stageElapsed": 2.313,
+          "idle": 1.248,
+          "hardLimit": 360,
+          "stageLimits": {
+            "bootstrap": [
+              120,
+              60
+            ],
+            "dialogue": [
+              240,
+              30
+            ],
+            "cleanup": [
+              60,
+              15
+            ]
+          },
+          "actualTerminalFrames": []
+        }
+      }
+    ],
+    "readyServiceInstances": [
+      -2172,
+      -9204
+    ],
+    "firstPlayer": {
+      "frame": 476,
+      "path": "SpawnedContent/Player/Content/Player(Clone)",
+      "instance": -51598,
+      "position": {
+        "x": 5.960000038146973,
+        "y": 7.949999809265137,
+        "z": 0.0
+      },
+      "fixtureLastPosition": {
+        "x": 5.9639997482299805,
+        "y": 7.952000141143799,
+        "z": 0.0
+      },
+      "matchesFixturePosition": false,
+      "initialSpawnFrameObserved": false
+    },
+    "tutorialControllerObserved": true,
+    "narrativeDbName": "TutorialQuest_IntroFromBunny",
+    "narrativeArcName": "",
+    "firstTutorialFrame": 570,
+    "selectedSourceFrame": 629,
+    "selectedResponse": [
+      {
+        "path": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: Much better.",
+        "text": "Much better.",
+        "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+        "conversationId": 120,
+        "entryId": 154,
+        "visible": true,
+        "clickable": true
+      }
+    ],
+    "acknowledgedActions": [
+      {
+        "action": "continue-bound 120 153",
+        "frame": 570,
+        "receipt": {
+          "result": "applied",
+          "active": true,
+          "expectedConversationId": 120,
+          "expectedEntryId": 153,
+          "actualConversationId": 120,
+          "actualEntryId": 153
+        }
+      },
+      {
+        "action": "response 153 120 154",
+        "frame": 629,
+        "receipt": null
+      }
+    ],
+    "lastObserved": {
+      "frame": 702,
+      "conversationId": 120,
+      "entryId": 155,
+      "text": "That’s great to hear!",
+      "typing": false
+    },
+    "lastActionCandidateSubmitted": false,
+    "choices159181Submitted": 0,
+    "nativeDiagnosticFailures": 0,
+    "imagesCaptured": 0,
+    "imagesOpened": 0
+  },
+  "failure": {
+    "error": "AssertionError('Unexpected tutorial transition')",
+    "boundary": "Host continue_from_fixture compares observed155 with previous_entry153 plus1 even after acknowledged exact response destination154. The native bridge accepted the sole original response154; next real frame shows155 with exact source text.",
+    "source": "Pinned tutorial prefix has153->154->155;154 is Player response Much better. Frozen response handler rechecks active source/destination/unique visible clickable original response before button.onClick.Invoke. Existing New branch tracks the selected destination separately; Continue does not.",
+    "inference": "A PC response can be consumed by the original response flow before the next subtitle sample;154 subtitle itself was not observed. Trace the original consumer and bind acknowledged response destination/successor in the host transition guard; do not allow arbitrary skips or claim154 subtitle coverage.",
+    "noReplay": "45/44/43 consumed; no further runtime in0048"
+  },
+  "cleanup": {
+    "quitAcknowledged": true,
+    "inputPolicyRestoreAcknowledged": true,
+    "unresolvedCommand": null,
+    "observerExitCode": 1,
+    "launcherExitCode": 0,
+    "gameExitCode": null,
+    "remainingTaskProcesses": [],
+    "postrunChecks": 15,
+    "originalManaged": 150,
+    "originalOtherFiles": 262,
+    "resourcePairs": 5,
+    "liveLanePins": 19,
+    "fixtureBytesUnchanged": true
+  },
+  "evidence": {
+    "preflight.json": "ab71ea154ccb4833c4a1729599d1fb570b36904b8d1f029679793323d7d5802f",
+    "bridge-build.json": "82a183c792c222f853c899aa2f6edc892b048e051da3a4d15ac00420089609ce",
+    "continue-menu-loaded.json": "09fcb7bcb677b1542f5542d7ce7c479dc6bd8e79aa1b7d78b9369298a8dc429f",
+    "continue-first-player.json": "8fd9913ff42b25f5d81fa22de498ab63521e3004e30bbdfd321932c395b62248",
+    "continue-observations.json": "93183161cc14c340574bd9c8707d23bac581179861fc02e7ebd4f48e53c9e80e",
+    "continue-actions.json": "bf5651bacb006797a53a6aca49996b0fb81530ee8638562b8529b8cd9018de6c",
+    "runtime-result.json": "7a24021040ab4477b923181a2ef6063859e10d90682fb4a48be0833d6145f9bf",
+    "cleanup.json": "2e50c9f6a2d34bb20c44cb4eb3caf8d0a3306a5b46505e2f3fc405f0c9414740",
+    "final-verification.json": "2f48c2ac756ee6fe020a4532e1b99d8ffad76cdde1ee53e64c77a7b0ac51e399",
+    "observer-exit.json": "183cd07f8c6ab969cd4a34aa1de86c1434f81505b027349c196450b57cafaeaf",
+    "process-lifetime.jsonl": "837a1cced923b8e9c1f0d75b7283a9b1a1c39cb9bf9803c26c89cffab00f770c"
+  },
+  "acceptance": {
+    "readinessNativeTransition": "passed for actual absent singleton401 and subsequent full ready diagnostics",
+    "continuedExecution": "partial through exact153 and155; terminal120:158 unverified",
+    "playerRestore": "not fully verified; first host-observed position differs from fixture, initial spawn frame unobserved",
+    "visual": "not-run; zero images",
+    "localizationComplete": false
+  }
+}
