@@ -111,6 +111,14 @@ class CommandLifetimeObservation(unittest.TestCase):
         self.hold = patch.object(gameplay, 'COMMAND_HOLD', None)
         self.hold.start()
         self.addCleanup(self.hold.stop)
+        # Wine identities are fixtures here. The separate numeric-identity
+        # tests exercise real ps/child lifetimes; do not add ps children to
+        # these tests' exact file-transport child accounting.
+        numeric = patch.object(gameplay, 'numeric_pid_snapshot', return_value=dict(
+            status='present', pid=4350, ppid=1, birth='fixture-birth',
+            state='S', executable='fixture-game', startedUtc='fixture', completedUtc='fixture'))
+        numeric.start()
+        self.addCleanup(numeric.stop)
 
     def transport_fixture(self, directory):
         run = Path(directory) / 'Forest/localization/probes/transport'

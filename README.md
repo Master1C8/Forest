@@ -1,36 +1,39 @@
-## Phase0062: candidate51 frozen; native termination before dialogue
+## Phase0063: received Quit AppleEvent; passive diagnostics verified
 
-Candidate51 passed37 preflight checks with362 immutable dependencies, exact QA43
-fixture and all19 live input pins. Five resources and all six recipes equal the
-accepted47/50 bytes;95-tree readback is retained. Both freshly compiled bridge
-modes have all83 method bodies exactly equal verified0061. Swift compiles; the
-unchanged129 focused test results are hash-bound and reused. No agents or nested
-model jobs; actual CLI selects gpt-6.1-sol/high/OpenAI.
+Candidate51's exact75065 unified log now shows a received `(aevt,quit)` with
+`target=Dock` at03:23:15.148, followed by AppKit handling Quit and approving
+termination at03:23:16.001. The upstream action remains unknown. No crash, OOM,
+owner action, source exception or numeric game exit is inferred. The last save
+ACK falls between the request and approval; the next unknown command stays intact.
 
-The one-use run acknowledges original Continue and reaches CentralForest/frame384
-with no Player/conversation. The next dump-intro loses the exact game argv and
-has no ACK. Exact75065 AppKit logs request termination and approve it; initiator
-and cause remain unknown. Observer exit1, launcher later exit0, game exit unknown.
-No first subtitle,181 choice, native event, Bucky dispatch, image or marker consumer
-was produced. The unknown command remains intact; no replay or later game command.
+The disposable bridge now adds bounded lifecycle/command/heartbeat logging and
+passive recording of Unity quitting/OnApplicationQuit callbacks. The host retains numeric PID/birth
+observations separately from exact argv selection. Numeric presence cannot permit
+a command after argv loss. These diagnostics preserve input, focus, source
+predicates, story and authority state. No game/native event/image occurred here.
 
-All15 postrun checks pass: task processes absent, QA assembly restored/bridge
-removed, originals150/262, five resource pairs,19 pins, owner saves and all other
-frozen dependencies unchanged; QA persistence empty. Runtime acceptance remains
-failed. Accepted10/15/47/48 visuals and50 original181 route remain unchanged.
+Both fresh bridge modes compile against the same150 original references:65 exact
+old bodies,14 compiler-ordinal-only equivalents,4 intended modified bodies and4
+added logger/row helpers per mode. Removing diagnostic insertions recovers all old
+bridge source exactly. All14 original host guards, main/default New and Continue
+budget remain exact.133 focused tests pass; Unity/source/native delivery remain
+unverified by those fixtures.
 
-Next diagnose this actual termination boundary. A justified new run needs changed
-passive quit/identity diagnostics and a NEW frozen candidate; never replay51..43
-or relax source/control/input/deadline guards. Bucky native/loaded-marker,
-initial spawn/notebook/inventory, complete source/BGDatabase/special-scene,
-editorial/final resources/local delivery remain unaccepted. All seven authorized
-asset lanes remain independent/read-only; technical lane alone owns Git/index.
-No publication, deployment or server lifecycle action.
+All11 preservation checks pass:51 frozen358 and pending command, all19 lane pins,
+original262 distinct files INCLUDING150 managed, owner files and QA cleanup remain
+unchanged. Historical “262 other” counts overlap the150 managed subset; never add
+them as412 originals. Accepted10/15/47/48 visuals and50 route remain unchanged.
 
-Evidence: `localization/source/tutorial-20261026/phase0062/ADAPTER.md`,
-`verification.json`; `localization/probes/ru-20261026-51/runtime-diagnosis.json`,
-`preflight.json`, `bridge-verification.json`, `final-verification.json`.
-Prior summary: `localization/history/phase0061-summary.md`.
+Next fully freeze/preflight NEW52 with the changed diagnostics and133-test binding,
+then one authorized runtime may follow.52 is not prepared/run. Never replay51..43.
+All seven asset lanes continue independently/read-only; technical lane alone owns
+Git/index. Complete source/Bucky loaded consumers/initial spawn/notebook/editorial/
+final resources/local delivery remain pending. No publication or deployment.
+
+Evidence: `localization/source/tutorial-20261026/phase0063/ADAPTER.md`,
+`verification.json`, `candidate51-native-quit.txt`, `compiled-readback/comparison.json`,
+`original/extraction.json`, `tests.json`, `preservation.json`.
+Prior summary: `localization/history/phase0062-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

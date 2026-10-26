@@ -117,6 +117,15 @@ public sealed class ForestProbe : MonoBehaviour
     private bool focusLimited;
     private string root;
     private float next;
+    private int lifecycleSequence;
+    private float nextLifecycleRecord;
+    private string lifecycleCommand;
+    [Serializable] public sealed class LifecycleRow {
+        public int sequence, frame;
+        public uint winPid;
+        public float realtime;
+        public string utc, kind, scene, command;
+    }
     private bool? originalIgnoreUnfocused;
     private bool samplingKeyboard;
     private readonly List<string> keyboardSamples=new List<string>();
@@ -139,6 +148,8 @@ public sealed class ForestProbe : MonoBehaviour
         root = Path.GetFullPath(Path.Combine(Application.dataPath,"../.."));
         focusStarted=Time.realtimeSinceStartup;
         Application.focusChanged+=ObserveUnityFocusEvent;
+        Application.quitting+=ObserveUnityQuitting;
+        ObserveLifecycle("awake");
         ObserveFocus("awake","unknown");
         Debug.Log("FOREST_PROBE_READY " + root + " SAVES " + Application.persistentDataPath);
     }
@@ -150,7 +161,10 @@ public sealed class ForestProbe : MonoBehaviour
         next=Time.realtimeSinceStartup+.2f;
         var command=Path.Combine(root,"command.txt");
         if(!File.Exists(command)) return;
-        var text=File.ReadAllText(command).Trim();File.Delete(command);
+        var text=File.ReadAllText(command).Trim();
+        lifecycleCommand=text;
+        ObserveLifecycle("command-read");
+        File.Delete(command);
         try {
             if(text=="dump-focus") ObserveFocus("snapshot","unknown");
             else if(text=="dump") Dump();
@@ -356,11 +370,35 @@ public sealed class ForestProbe : MonoBehaviour
                 match.GetType().GetMethod(parts[1]).Invoke(match,null);
             } else throw new Exception("Unsupported command");
             File.AppendAllText(Path.Combine(root,"actions.log"),DateTime.UtcNow.ToString("O")+" OK "+text+"\n");
+            ObserveLifecycle("command-ack");
         } catch(Exception ex) {
             File.AppendAllText(Path.Combine(root,"actions.log"),DateTime.UtcNow.ToString("O")+" FAIL "+text+" "+ex+"\n");
+            ObserveLifecycle("command-fail");
             Debug.LogException(ex);
+        } finally {
+            lifecycleCommand=null;
         }
     }
+    // Passive, bounded append-only scalars. Never register wantsToQuit (a veto),
+    // call a source predicate/callback, or change focus, input or gameplay state.
+    // Missing rows cannot prove a crash or the absence of an engine callback.
+    void ObserveLifecycle(string kind) {
+        if(root==null || lifecycleSequence>=4096)return;
+        try {
+            var row=new LifecycleRow{sequence=lifecycleSequence++,kind=kind,
+                frame=Time.frameCount,realtime=Time.realtimeSinceStartup,
+                winPid=GetCurrentProcessId(),utc=DateTime.UtcNow.ToString("O"),
+                scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                command=lifecycleCommand};
+            if(lifecycleSequence==4096)row.kind="limit";
+            File.AppendAllText(Path.Combine(root,"lifecycle.jsonl"),JsonUtility.ToJson(row)+"\n");
+        } catch(Exception ex) {
+            lifecycleSequence=4096;
+            Debug.Log("FOREST_LIFECYCLE_IO_FAILED "+ex.GetType().Name);
+        }
+    }
+    void ObserveUnityQuitting() { ObserveLifecycle("unity-quitting-event"); }
+    void OnApplicationQuit() { ObserveLifecycle("mono-quit"); }
     void RestoreInputPolicy() {
         if(!originalIgnoreUnfocused.HasValue)return;
         var expected=originalIgnoreUnfocused.Value;
@@ -370,6 +408,8 @@ public sealed class ForestProbe : MonoBehaviour
         originalIgnoreUnfocused=null;
     }
     void OnDestroy() {
+        ObserveLifecycle("destroy");
+        Application.quitting-=ObserveUnityQuitting;
         Application.focusChanged-=ObserveUnityFocusEvent;
         if(buckyLineEndSource!=null)buckyLineEndSource.RemoveListener(ObserveBucky212End);
         RestoreInputPolicy();
@@ -462,6 +502,10 @@ public sealed class ForestProbe : MonoBehaviour
             (matches.Count==0?"absent":"ambiguous");
     }
     void LateUpdate() {
+        if(Time.realtimeSinceStartup>=nextLifecycleRecord) {
+            nextLifecycleRecord=Time.realtimeSinceStartup+1f;
+            ObserveLifecycle("heartbeat");
+        }
         ObserveFocus("late","unknown");
         if(!samplingKeyboard)return;
         if(keyboardSamples.Count>=1200){samplingKeyboard=false;throw new Exception("Keyboard sample exceeded bound");}

@@ -1,0 +1,67 @@
+{
+  "status": "passed-static-diagnostics-runtime-not-run",
+  "model": {
+    "pid": 75736,
+    "model": "gpt-6.1-sol",
+    "provider": "openai",
+    "reasoning": "high",
+    "verified": "Exact current codex exec argv: --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" --disable multi_agent",
+    "agents": 0,
+    "nestedModelJobs": 0,
+    "usage": "Parent serial runner telemetry; worker counters unknown"
+  },
+  "candidate51Finding": "Exact75065 received (aevt,quit) target=Dock then AppKit handled Quit AppleEvent; upstream action unknown",
+  "candidate51GameExitCode": null,
+  "compiledModes": {
+    "original": {
+      "exact": 65,
+      "compilerOrdinalOnly": 14,
+      "changed": 4,
+      "added": 4
+    },
+    "synthetic": {
+      "exact": 65,
+      "compilerOrdinalOnly": 14,
+      "changed": 4,
+      "added": 4
+    }
+  },
+  "sourceQuitInstructions": 5,
+  "originalGuardsExact": 14,
+  "mainAndContinueBudgetExact": true,
+  "focusedTestsPassed": 133,
+  "preservation": {
+    "all19PinsUnchanged": true,
+    "allCandidate51DiagnosisEvidenceUnchanged": true,
+    "candidate51Frozen358Unchanged": true,
+    "candidate51PendingCommandUnchanged": true,
+    "original262FilesIncluding150ManagedUnchanged": true,
+    "ownerFilesUnchanged": true,
+    "candidate51QAAssemblyRestored": true,
+    "candidate51BridgeAbsent": true,
+    "qaPersistenceEmpty": true,
+    "candidate51ExactPidsAbsent": true,
+    "historical51And0062GitUnchanged": true
+  },
+  "gameLaunches": 0,
+  "nativeEvents": 0,
+  "imagesOpened": 0,
+  "remaining": [
+    "candidate52 full freeze/preflight and one-use runtime",
+    "Bucky native141/217/actual194..212/real212/loaded marker consumers",
+    "initial spawn/other3 introductions/notebook/inventory",
+    "complete source/BGDatabase/special-scene/editorial/final fonts/resources/local delivery"
+  ],
+  "evidence": {
+    "ADAPTER.md": "1e42f57a007b8ce62737fd8950757cd3b5e3347af1dfd1f16b8044824f3b4234",
+    "candidate51-native-quit.txt": "3ac796a91e3e47e204d1803aafe6408d73a5198de3867e4789b4ff5ab1390785",
+    "compiled-readback/comparison.json": "941d3bdfa002294ad0b528efb262a9f7076bfcb34ca5e1d90be38036efaa86b2",
+    "original/extraction.json": "410c05ef2c8191804e84185a0e4d3b0748d986f658e07e6a6126399a1a06501a",
+    "tests.json": "0c99a48e7a702be196044e6087cdbb734df662ce0422e9582a012609569736fe",
+    "preservation.json": "aac0121249f4a7f1f5363e8abe6414a469e5ef7d44f21511115110767e190c19",
+    "execution-model.json": "f15d76e3dd1e8940a5aae7b36cc7b2a13f8a107c456a21fa5be058b09c5cdf63",
+    "verify.py": "095641a57e38b3f50235248b0e9462242c61515a627ce8b6f3122da4b9ccd59a",
+    "verify-preservation.py": "04a64578665b73e77c2eb6e4dd0e3fa737d30aa706392a5b0c390cca80f03b52"
+  },
+  "usage": "Unknown in worker; parent measures actual request telemetry"
+}

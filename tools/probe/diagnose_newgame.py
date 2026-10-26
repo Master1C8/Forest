@@ -25,6 +25,8 @@ GAME = None
 EXE = None
 LAUNCHER = None
 COMMAND_HOLD = None
+NATIVE_IDENTITY_RUN = None
+NATIVE_IDENTITY = None
 
 STARTUP_TRACE_ENV = {
     'WINEDEBUG': '-all,+timestamp,+pid,+tid,+loaddll,+seh,+process',
@@ -92,6 +94,57 @@ def real_game_rows(rows):
     return result
 
 
+def numeric_pid_snapshot(pid):
+    """Read only one previously argv-selected PID; never signal or wait for it.
+
+    lstart has one-second precision. This sequential observation is diagnostic,
+    not an atomic OS identity guarantee or a numeric game exit status.
+    """
+    started = datetime.now(timezone.utc).isoformat()
+    try:
+        result = subprocess.run(['ps', '-p', str(pid), '-o', 'pid=,ppid=,lstart=,stat=,comm='],
+                                capture_output=True, text=True, timeout=2,
+                                env=dict(os.environ, LC_ALL='C'))
+        lines = result.stdout.strip().splitlines()
+        if result.returncode == 1 and not lines:
+            sample = dict(status='absent')
+        elif result.returncode == 0 and len(lines) == 1:
+            parts = lines[0].split(None, 8)
+            assert len(parts) == 9 and int(parts[0]) == pid, 'Malformed exact PID ps sample'
+            sample = dict(status='present', pid=pid, ppid=int(parts[1]),
+                          birth=' '.join(parts[2:7]), state=parts[7], executable=parts[8])
+        else:
+            sample = dict(status='unknown', psExitCode=result.returncode)
+    except (OSError, subprocess.TimeoutExpired, AssertionError, ValueError) as error:
+        sample = dict(status='unknown', errorType=type(error).__name__)
+    return dict(sample, startedUtc=started, completedUtc=datetime.now(timezone.utc).isoformat())
+
+
+def numeric_identity_evidence(rows):
+    """Retain a PID/birth after argv disappears; never authorize a command with it."""
+    global NATIVE_IDENTITY_RUN, NATIVE_IDENTITY
+    if NATIVE_IDENTITY_RUN != RUN:
+        NATIVE_IDENTITY_RUN, NATIVE_IDENTITY = RUN, None
+    exact = real_game_rows(rows)
+    if NATIVE_IDENTITY is None:
+        if len(exact) != 1:
+            return dict(status='unbound', gameExitCode=None)
+        pid = int(exact[0].split()[0])
+        sample = numeric_pid_snapshot(pid)
+        if sample['status'] == 'present':
+            NATIVE_IDENTITY = dict(pid=pid, birth=sample['birth'], argvRow=exact[0],
+                                   boundUtc=sample['completedUtc'])
+        return dict(status='bound' if NATIVE_IDENTITY else 'binding-unavailable',
+                    identity=NATIVE_IDENTITY, sample=sample, gameExitCode=None)
+    sample = numeric_pid_snapshot(NATIVE_IDENTITY['pid'])
+    status = sample['status']
+    if status == 'present':
+        status = 'same-pid-birth-present' if sample['birth'] == NATIVE_IDENTITY['birth'] else 'pid-reused'
+    return dict(status=status, identity=dict(NATIVE_IDENTITY), sample=sample,
+                argvStillMatches=any(int(r.split()[0]) == NATIVE_IDENTITY['pid'] for r in exact),
+                gameExitCode=None)
+
+
 def observe_lifetime(boundary, value=None, process_sample=None, **extra):
     """Retain launcher wait status separately from non-child game presence.
 
@@ -104,6 +157,7 @@ def observe_lifetime(boundary, value=None, process_sample=None, **extra):
         rows = processes()
         sampled = time.monotonic()
         sample = dict(started=began, completed=sampled, reused=False)
+        native_identity = numeric_identity_evidence(rows)
     else:
         # communicate() already reaped this exact successful helper before the
         # transport-returned check. No wait/signal follows it on this path.
@@ -115,13 +169,14 @@ def observe_lifetime(boundary, value=None, process_sample=None, **extra):
         rows = process_sample['ownedProcessRows']
         sample = dict(process_sample['processSample'], reused=True,
                       sourceBoundary='transport-returned', sourceMonotonic=process_sample['monotonic'])
+        native_identity = process_sample['nativeIdentityEvidence']
     pending = RUN / 'command.txt'
     event = dict(utc=datetime.now(timezone.utc).isoformat(), monotonic=time.monotonic(),
                  boundary=boundary, command=value, launcherPid=LAUNCHER.pid,
                  launcherExitCode=LAUNCHER.poll(), gameExitCode=None,
                  ownedProcessRows=rows, realGameRows=real_game_rows(rows),
                  pendingCommand=pending.exists(), unresolvedCommand=COMMAND_HOLD,
-                 processSample=sample, **extra)
+                 processSample=sample, nativeIdentityEvidence=native_identity, **extra)
     try:
         raw = pending.read_bytes()
     except FileNotFoundError:
