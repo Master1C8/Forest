@@ -3,6 +3,8 @@ import copy
 from datetime import datetime
 import importlib.util
 import json
+import subprocess
+import tempfile
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -160,10 +162,21 @@ class IntroObservation(unittest.TestCase):
 
     def test_inflight_command_uses_remaining_deadline_and_never_submits_after_expiry(self):
         with patch.object(intro.time, 'monotonic', return_value=100), \
-             patch.object(intro, 'RUN', Path('/unused')), patch.object(intro.subprocess, 'run') as sender:
+             tempfile.TemporaryDirectory() as directory, \
+             patch.object(intro, 'RUN', Path(directory)), \
+             patch.object(intro, 'COMMAND_HOLD', None), \
+             patch.object(intro, 'observe_lifetime', return_value={'realGameRows':['fixture game']}), \
+             patch.object(intro.subprocess, 'Popen') as sender:
             sender.return_value.returncode = 0
+            sender.return_value.poll.return_value = 0
+            sender.return_value.communicate.return_value = ('fixture OK', '')
             intro.command('dump-intro', deadline=103)
-            self.assertEqual(sender.call_args.kwargs['timeout'], 3)
+            self.assertEqual(sender.return_value.communicate.call_args.kwargs['timeout'], .25)
+            sender.return_value.communicate.side_effect = subprocess.TimeoutExpired('fixture', .25)
+            with patch.object(intro.time, 'monotonic', side_effect=[100, 100, 102.9, 103]):
+                with self.assertRaisesRegex(TimeoutError, 'outcome unknown'):
+                    intro.command('dump-intro', deadline=103)
+            self.assertAlmostEqual(sender.return_value.communicate.call_args.kwargs['timeout'], .1)
             sender.reset_mock()
             with self.assertRaisesRegex(AssertionError, 'before command submission'):
                 intro.command('dump-intro', deadline=100)

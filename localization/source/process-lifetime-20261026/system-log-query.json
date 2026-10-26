@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/usr/bin/log",
+    "show",
+    "--start",
+    "2026-10-26 21:22:33",
+    "--end",
+    "2026-10-26 21:23:48",
+    "--style",
+    "json",
+    "--predicate",
+    "processID == 4350 OR processID == 4355 OR processID == 4149 OR (eventMessage CONTAINS \"4350\" AND (process == \"ReportCrash\" OR process == \"runningboardd\" OR process == \"kernel\"))"
+  ],
+  "returnCode": 0,
+  "stderr": "",
+  "capturedAt": "2026-10-26T14:34:30.903485+00:00",
+  "rows": 458,
+  "bytes": 762494,
+  "sha256": "bc30d672d7d282680fdc443ed23197939181fa878c190323edd667c64a14e312",
+  "scope": "Exact known task PIDs plus task PID4350 references in ReportCrash/runningboardd/kernel;75-second interval. Local static read only."
+}

@@ -1,0 +1,106 @@
+{
+  "phase": "0039-work",
+  "kind": "static-process-lifetime-investigation",
+  "candidate": "consumed-ru-20261026-41",
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "expected": "A unique task-owned real game remains alive until original route completion and acknowledged Quit; every submitted command gets its own OK/FAIL acknowledgement or an explicit unknown-outcome hold.",
+  "observed": "After final successful dump-focus at14:23:26.481585Z, final dump-intro remained in command.txt without any OK/FAIL. Observer later timed out and found game/crash absent. Observer exit1 is separate from unretained launcher/game status.",
+  "newVerifiedKnowledge": [
+    {
+      "utc": "2026-10-26T14:23:27.610391Z",
+      "sourceRow": 426,
+      "pid": 4350,
+      "event": "Handling Quit AppleEvent",
+      "boundary": "Actual task PID Cocoa application event; sender is not recorded."
+    },
+    {
+      "utc": "2026-10-26T14:23:27.612429Z",
+      "sourceRow": 430,
+      "pid": 4350,
+      "event": "applicationShouldTerminate: NSTerminateLater"
+    },
+    {
+      "utc": "2026-10-26T14:23:27.622725Z",
+      "sourceRow": 431,
+      "pid": 4350,
+      "event": "replyToApplicationShouldTerminate:YES"
+    },
+    {
+      "utc": "2026-10-26T14:23:27.622839Z",
+      "sourceRow": 432,
+      "pid": 4350,
+      "event": "App termination approved"
+    },
+    {
+      "utc": "2026-10-26T14:23:27.758757Z",
+      "sourceRow": 445,
+      "reporter": "runningboardd",
+      "event": "[anon<svchost.exe>(501):4350] termination reported by proc_exit",
+      "boundary": "PID4350 is bound to the real game by its original exact path/window4350/1629, Wine PID204, startup receipt and contemporaneous system process image. The generic Wine label does not reidentify it as another game."
+    }
+  ],
+  "conclusion": "Retained native records establish a Quit AppleEvent handling/approved-termination path immediately preceding the exact game PID exit. This materially narrows the disappearance boundary. They do not establish the sender, its intent, a numeric game exit, or the complete native/engine reason. Focus loss and crash-handler startup remain unsupported causal explanations.",
+  "commandTrace": [
+    "command.py asserts no prior pending request, writes command.pending and renames it to command.txt once, then waits up to20 seconds for a new action-log receipt.",
+    "Pinned ForestProbe.Update reads and deletes command.txt BEFORE dispatching DumpIntro and appends OK/FAIL only afterward (bridge lines97\u2013103/233\u2013235).",
+    "Consumed41 retains byte-exact dump-intro newline (sha256e4b9bbc0b4b709437daa9f576f107f353f3a5b5488c6af903c1d998085bcf25d) and no new acknowledgement. Under that pinned single-sender recipe this is evidence the final request was not dequeued; it is not evidence DumpIntro executed or caused termination.",
+    "The observer command transport waited without sampling launcher/game lifetime after startup; finally discarded the launcher handle status. Its20-second unknown command failure obscured the earlier native exit boundary.",
+    "No retry, command deletion, normal Quit acknowledgement, game launch, input or policy mutation was performed in this static phase."
+  ],
+  "boundedCrashSearch": {
+    "interval": "2026-10-26T14:22:33Z\u201314:23:48Z",
+    "taskIdentities": {
+      "macGamePid": 4350,
+      "wineGamePid": 204,
+      "launcherPid": 4149,
+      "initialCrashHandlerPid": 4355
+    },
+    "searchedMetadataRoots": [
+      "~/Library/Logs/DiagnosticReports",
+      "/Library/Logs/DiagnosticReports",
+      "~/Library/Logs/DiagnosticReports/Retired",
+      "Steam/drive_c/users/crossover/AppData/Local/Temp",
+      "Steam/drive_c/users/crossover/Temp (absent)",
+      "Steam/drive_c/windows/temp",
+      "DARWIN_USER_TEMP_DIR top-level Unity/Forest/crash names"
+    ],
+    "result": "No matching task crash report identified in these bounded metadata locations. Other owner report contents were not opened. This is not an exhaustive search of all storage.",
+    "wineEvidence": "Preserved41 wine.log later UnityCrashHandler invocation line1658 is not a fault signature or game exit code.",
+    "systemLog": "system-log.json; query argv/time/PID predicate in system-log-query.json; exact unmodified termination rows with original indexes in termination-events.json",
+    "limits": "Task-PID query also returned runningboard state-capture records containing the target PID; these are raw auxiliary evidence only and were not used to infer other owner activity. No attribution from the earlier Dock CopyMenu assertion."
+  },
+  "repair": {
+    "path": "tools/probe/diagnose_newgame.py",
+    "changes": [
+      "Retain exact LAUNCHER handle and observe its real poll status before/while/after commands and at finally/cleanup; gameExitCode stays null because the game is not the waited child.",
+      "Select real game argv[0] separately from wrapper/crash-helper rows; reject absent or ambiguous real game even if wrappers survive.",
+      "Record UTC/monotonic observations, exact process rows, transport PID/status, pending-command hash and unresolved-command hold in existing candidate output process-lifetime.jsonl.",
+      "Watch the existing pure file-transport subprocess during ACK waits; on dead game/expired budget stop and reap only that exact transport child. Never signal a game/launcher/asset CLI. Preserve unknown command and first-failure hold.",
+      "Persistent unresolved-command hold prevents further submissions or finally cleanup commands even when the bridge already dequeued the command. Successful ACK clears the hold; acknowledged Quit may legitimately remove its process.",
+      "Record actual current canonical Git HEAD and launch UTC in future launch receipts. Preparation HEAD is not substituted."
+    ],
+    "unchanged": "Original14 route/story/input/focus/geometry/sweep guards, compact bridge, file transport and all consumed41 dependencies/evidence. No new framework, renderer change, target overlay or candidate."
+  },
+  "verification": "verification.json; tests.json records actual final focused results and mocked boundaries.",
+  "nextHypothesis": "Prepare one new immutable candidate42 using this corrected observer and the unchanged original-policy bridge/resource recipe. Hypothesis: passively retain exact command/launcher/game lifetime across the original intro, and distinguish native Quit/process loss from ACK failure if termination recurs. No retry41 or focus/policy workaround.",
+  "acceptance": "Static process/command diagnosis only. Source completeness, special scenes, runtime/renderer, editorial and final localization remain pending; accepted10/15 visuals,29/36 menu,33 scopedLEFT and40 intro retained.",
+  "rawBindings": {
+    "system-log.json": "bc30d672d7d282680fdc443ed23197939181fa878c190323edd667c64a14e312",
+    "system-log-query.json": "67c5661c2e1dcea19c87f46e47cc766d46c78709026d4fa00101777a145bcb03",
+    "termination-events.json": "51b8d5e3696e8cdf0040103ff2a3afbba19a7a7b258475f4a348bfb99abeadad"
+  },
+  "consumedInputHashes": {
+    "runtime-diagnosis.json": "8f577f0e7c6fc346d1096e4a35fca386e899b2d9cb798c027c3af4b3b8077c2c",
+    "runtime-result.json": "9fc9c53cfef4379af360d6c8dd43191adc5fdc4c66215edddafd64764114ca95",
+    "process-reconciliation.json": "d3759d8e30cbbcd106744da012fc9f0976a23e0e3a827b5e8699c7c540974bdc",
+    "launch.json": "0dfa84fb74ebae31f21280ac9b9034a938265fb48c76ea6132ec41756a436cf9",
+    "actions.log": "9374374df204574f6430e07023c33a2d2021ed1b1ce39095d594f857d56cfe1e",
+    "command.txt": "e4b9bbc0b4b709437daa9f576f107f353f3a5b5488c6af903c1d998085bcf25d",
+    "diagnose_newgame.py": "bc99b47b5f8710c9ee7f011723f361cb7e95ed43144f2bce1209e5fe64dd467c",
+    "command.py": "fa24daef57164f63e7a3831bb823057f7b0a13e607be7b54422ece10153446a8",
+    "bridge-source/ForestProbe.cs": "0658d2050cc84eb28703240edef859f6748509073f6c1a6f837260ac2e1d16f5",
+    "wine.log": "c4176e12c93e9dbbf178a603321c02828de2e7672c4af5d443634db1384dd729",
+    "player.log": "db0f132ce6d890aefede0be07e49fc90011301a11dff8635353f8317df1ec63c"
+  }
+}

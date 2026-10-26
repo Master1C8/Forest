@@ -1,35 +1,39 @@
-## Phase0038: actual focus ordering captured; candidate41 consumed
+## Phase0039: native Quit event found; command lifetime observer repaired
 
-Exactly one immutable41 diagnostic launch passed26 preflight checks and reached
-READY in35.166s. Actual passive serialization produced23 bridge records and9 native
-brackets;25 original-policy menu idle frames passed. At ChapterSelect frame287,
-Unity focusChanged(False) and the bridge MonoBehaviour focus(False) callback saw the
-Unity getter=False while Rewired cache/watcher/eligibility were stillTrue. An
-acknowledged snapshot18.77ms later in the same frame saw all of themFalse. Later
-saved IntroForest records remained convergedFalse. This observes a transient callback
-ordering window, not persistent stale Rewired state or native-platform causation.
-The exact task PID4350/window1629 remained unique in every native bracket; another
-PID was frontmost even during the all-true menu baseline. Scalar foreground changes
-do not prove owner activity or why Unity focus changed.
+Static investigation of consumed41 found exact PID4350 handling a `Quit AppleEvent`
+at14:23:27.610391 UTC, approving termination, then `proc_exit` at14:23:27.758757.
+The sender and numeric launcher/game exit remain unknown. The earlier Dock menu
+assertion does not identify a sender; focus loss and crash-handler startup do not
+establish causation. The retained final `dump-intro` command and missing receipt do
+not prove that `DumpIntro` ran: the pinned bridge deletes the command before dispatch.
+The raw75-second task-PID query and seven exact termination rows are preserved in
+`localization/source/process-lifetime-20261026/` with query/provenance and diagnosis.
 
-The run failed before any145 dialogue or BunnyHouse loaded sample: the next
-dump-intro lacked acknowledgement and the game/crash processes were already absent
-at observer finally. Observer exit1 was retained by the exact-child wrapper; the
-numeric game exit and disappearance cause remain unknown. The pending command is
-preserved in consumed41 and must never be resubmitted. No Continue/response, native
-input, activation, policy trial or image was submitted. No normal Quit was acknowledged.
-After verified game absence the observer restored the isolated Assembly and removed
-the inspection bridge. All15 postrun checks passed: originals/owner files,19 live-lane
-pins and428 unchanged frozen hashes plus exactly2 intended cleanup DLL exceptions.
+The existing observer now retains its exact launcher handle and records UTC/monotonic
+process/command boundaries before, during and after ACK waits and cleanup. Its real
+game selector excludes Wine wrappers and crash helpers. A disappearing/ambiguous game
+fails at that boundary; only the ordinary file-transport child is reaped. A persistent
+unresolved-command hold prevents further commands even when the bridge has already
+dequeued the unknown action. Successful ACK clears the hold; acknowledged Quit may
+remove the game. Future launch receipts record actual current HEAD and launch UTC.
+Regression: an exited wrapper with a surviving game accepts one real file ACK; a live
+wrapper/crash helper without the real game cannot submit; disappearance during ACK
+wait preserves the command and holds every later submission, including cleanup.
 
-Next: text-only static diagnosis of41's IntroForest process loss and command-ack
-boundary, using exact task-bound evidence. Zero game launches in the next phase;
-no replay41/40/39/38. Preserve accepted10/15 visuals,29/36 menu,33 scopedLEFT and40
-intro. Complete source/special-scene, natural route, renderer, editorial and final
-localization delivery remain pending. Parallel Russian/zh/es/es-419/pt-BR/ja/de asset
-lanes remain authorized and untouched. Primary evidence:
-`localization/probes/ru-20261026-41/{runtime-diagnosis,focus-transition-summary,process-reconciliation,final-verification}.json`.
-Previous static summary: `localization/history/phase0036-summary.md`.
+Focused tests cover real Python child/file transport plus explicitly mocked game
+process rows/bridge producers. They do not prove Wine/Unity behavior. All14 existing
+route/story/input/focus/geometry/sweep guard bodies,38 consumed41 evidence hashes,
+seven immutable binary/source pins and19 live-lane inputs remain unchanged. Zero game
+launches, images or new runtime candidates in this phase. See `tests.json` and
+`verification.json` for exact results and boundaries.
+
+Next: prepare one new immutable42 with this corrected observer and unchanged original
+policy/bridge/resource recipe, freezing every later-read dependency. No launch during
+preparation; never replay41/40/39/38 or resubmit pending41. Accepted10/15 visuals,
+29/36 menu,33 scopedLEFT and40 intro remain reusable. Full source/special-scene,
+natural route, renderer, editorial and final delivery gates remain pending. All seven
+parallel asset lanes remain owner-authorized and untouched. Previous phase summary:
+`localization/history/phase0038-summary.md`.
 
 # The Forest of Love: Russian localization work
 

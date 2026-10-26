@@ -9,6 +9,7 @@ import subprocess
 import threading
 import time
 import os
+import shutil
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / 'probe'))
 from diagnose_native_input import release_observed, menu_guard, menu_ready, delivered_to_consumer, observe_menu_idle
@@ -98,6 +99,179 @@ class StartupLifetimeObservation(unittest.TestCase):
                 self.assertEqual(receipt['result'], 'timeout')
                 self.assertEqual(receipt['ownedProcessRows'], ['fixture exact game'])
                 self.assertFalse(receipt['readyMarker'])
+
+
+class CommandLifetimeObservation(unittest.TestCase):
+    """Real file-transport children; process rows replace Wine/Unity, not native QA."""
+
+    exe = Path('/Users/antonkrutov/Desktop/Forest/localization/probes/fixture/game/The Forest of Love.exe')
+    game_row = '4350 1 Y:\\Desktop\\Forest\\localization\\probes\\fixture\\game\\The Forest of Love.exe -logFile fixture'
+
+    def setUp(self):
+        self.hold = patch.object(gameplay, 'COMMAND_HOLD', None)
+        self.hold.start()
+        self.addCleanup(self.hold.stop)
+
+    def transport_fixture(self, directory):
+        run = Path(directory) / 'Forest/localization/probes/transport'
+        run.mkdir(parents=True)
+        shutil.copyfile(Path(__file__).resolve().parent / 'probe/command.py', run / 'command.py')
+        return run
+
+    def test_exact_game_selector_excludes_wrapper_crash_and_path_prefix(self):
+        rows = [self.game_row, '12 1 '+str(self.exe),
+                '13 1 Z:'+str(self.exe).replace('/', '\\'),
+                '14 1 winewrapper.exe --run -- '+str(self.exe),
+                '15 1 '+str(self.exe.parent / 'UnityCrashHandler64.exe')+' --attach 204 1',
+                '16 1 '+str(self.exe)+'.other', '17 1 python -c '+str(self.exe)]
+        with patch.object(gameplay, 'EXE', self.exe):
+            self.assertEqual(gameplay.real_game_rows(rows), rows[:3])
+
+    def test_consumed41_actual_startup_rows_identify_only_real4350(self):
+        run = Path(__file__).resolve().parents[1] / 'localization/probes/ru-20261026-41'
+        rows = json.loads((run/'startup-observation.json').read_text())['ownedProcessRows']
+        with patch.object(gameplay, 'EXE', run/'game/The Forest of Love.exe'):
+            selected = gameplay.real_game_rows(rows)
+        self.assertEqual(len(selected), 1)
+        self.assertEqual(int(selected[0].split()[0]), 4350)
+
+    def test_dead_game_with_live_wrapper_and_crash_never_submits(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            rows = ['4149 1 winewrapper.exe --run -- '+str(self.exe),
+                    '4355 1 '+str(self.exe.parent / 'UnityCrashHandler64.exe')+' --attach 204 1']
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=None))), \
+                 patch.object(gameplay, 'processes', return_value=rows), \
+                 patch.object(gameplay.subprocess, 'Popen') as sender:
+                with self.assertRaisesRegex(AssertionError, 'before command; no submission'):
+                    gameplay.command('dump-intro')
+                sender.assert_not_called()
+            event = json.loads((run/'process-lifetime.jsonl').read_text())
+            self.assertEqual(event['realGameRows'], [])
+            self.assertIsNone(event['launcherExitCode'])
+            self.assertIsNone(event['gameExitCode'])
+            self.assertFalse((run/'command.txt').exists())
+
+    def test_exited_launcher_with_surviving_game_accepts_one_real_file_ack(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            launcher = subprocess.Popen([sys.executable, '-c', 'raise SystemExit(7)'])
+            self.assertEqual(launcher.wait(timeout=5), 7)
+            received = []
+            def bridge():
+                until = time.monotonic()+5
+                while not (run/'command.txt').exists() and time.monotonic()<until:
+                    time.sleep(.01)
+                if not (run/'command.txt').exists():
+                    return
+                received.append((run/'command.txt').read_text())
+                (run/'command.txt').unlink()
+                (run/'actions.log').write_text('fixture OK restore-input-policy\n')
+            thread = threading.Thread(target=bridge)
+            thread.start()
+            try:
+                with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                     patch.object(gameplay, 'LAUNCHER', launcher), \
+                     patch.object(gameplay, 'processes', return_value=[self.game_row]):
+                    gameplay.command('restore-input-policy')
+            finally:
+                thread.join(timeout=6)
+            self.assertEqual(received, ['restore-input-policy\n'])
+            events = [json.loads(x) for x in (run/'process-lifetime.jsonl').read_text().splitlines()]
+            self.assertTrue(all(e['launcherExitCode']==7 and e['gameExitCode'] is None for e in events))
+            self.assertEqual(events[-1]['transportExitCode'], 0)
+            self.assertFalse(events[-1]['transportStoppedByObserver'])
+
+    def test_game_loss_during_real_file_wait_preserves_unknown_command_and_reaps_only_transport(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            def rows():
+                return [] if (run/'command.txt').exists() else [self.game_row]
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=7))), \
+                 patch.object(gameplay, 'processes', side_effect=rows):
+                began = time.monotonic()
+                with self.assertRaisesRegex(AssertionError, 'while awaiting acknowledgement; outcome unknown'):
+                    gameplay.command('dump-intro')
+                self.assertLess(time.monotonic()-began, 5, 'Must fail before the old20-second ACK timeout')
+                original = (run/'command.txt').read_bytes()
+                with self.assertRaisesRegex(AssertionError, 'Unresolved command hold'):
+                    gameplay.command('dump-intro')
+            self.assertEqual(original, b'dump-intro\n')
+            self.assertEqual((run/'command.txt').read_bytes(), original)
+            self.assertFalse((run/'actions.log').exists())
+            events = [json.loads(x) for x in (run/'process-lifetime.jsonl').read_text().splitlines()]
+            final = next(e for e in events if e['boundary']=='transport-reaped')
+            self.assertTrue(final['transportStoppedByObserver'])
+            self.assertIsNotNone(final['transportExitCode'])
+            self.assertIsNone(final['gameExitCode'])
+            with self.assertRaises(ProcessLookupError):
+                os.kill(final['transportPid'], 0)
+
+    def test_pending_command_holds_even_when_game_is_alive(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            (run/'command.txt').write_text('dump-intro\n')
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=None))), \
+                 patch.object(gameplay, 'processes', return_value=[self.game_row]), \
+                 patch.object(gameplay.subprocess, 'Popen') as sender:
+                with self.assertRaisesRegex(AssertionError, 'Reconcile the pending command'):
+                    gameplay.command('quit')
+                sender.assert_not_called()
+            self.assertEqual((run/'command.txt').read_bytes(), b'dump-intro\n')
+
+    def test_consumed_unacknowledged_command_holds_even_after_game_presence_returns(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            consumed = []
+            def rows():
+                pending = run/'command.txt'
+                if pending.exists():
+                    consumed.append(pending.read_bytes())
+                    pending.unlink()  # Stand-in for bridge dequeue before an ACK.
+                return [] if consumed else [self.game_row]
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=None))), \
+                 patch.object(gameplay, 'processes', side_effect=rows):
+                with self.assertRaisesRegex(AssertionError, 'while awaiting acknowledgement; outcome unknown'):
+                    gameplay.command('dump-intro')
+                self.assertEqual(consumed, [b'dump-intro\n'])
+                self.assertFalse((run/'command.txt').exists())
+                with patch.object(gameplay, 'processes', return_value=[self.game_row]), \
+                     patch.object(gameplay.subprocess, 'Popen') as sender:
+                    with self.assertRaisesRegex(AssertionError, 'Unresolved command hold'):
+                        gameplay.command('quit')
+                    sender.assert_not_called()
+
+    def test_acknowledged_quit_accepts_expected_game_absence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            acknowledged = []
+            def bridge():
+                until = time.monotonic()+5
+                while not (run/'command.txt').exists() and time.monotonic()<until:
+                    time.sleep(.01)
+                if not (run/'command.txt').exists():
+                    return
+                acknowledged.append((run/'command.txt').read_bytes())
+                (run/'command.txt').unlink()
+                (run/'actions.log').write_text('fixture OK quit\n')
+            thread = threading.Thread(target=bridge)
+            thread.start()
+            try:
+                with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                     patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=0))), \
+                     patch.object(gameplay, 'processes', side_effect=lambda: [] if acknowledged else [self.game_row]):
+                    gameplay.command('quit')
+            finally:
+                thread.join(timeout=6)
+            self.assertEqual(acknowledged, [b'quit\n'])
+            self.assertIsNone(gameplay.COMMAND_HOLD)
+            events = [json.loads(x) for x in (run/'process-lifetime.jsonl').read_text().splitlines()]
+            self.assertEqual(events[-1]['realGameRows'], [])
+            self.assertEqual(events[-1]['transportExitCode'], 0)
 
 
 class PassiveFocusObservation(unittest.TestCase):

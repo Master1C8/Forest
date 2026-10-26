@@ -15,12 +15,15 @@ import shutil
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 
 RUN = None
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA = 'The Forest of Love_Data'
 GAME = None
 EXE = None
+LAUNCHER = None
+COMMAND_HOLD = None
 
 STARTUP_TRACE_ENV = {
     'WINEDEBUG': '-all,+timestamp,+pid,+tid,+loaddll,+seh,+process',
@@ -64,6 +67,44 @@ def processes():
             if any(path in line for path in paths)]
 
 
+def real_game_rows(rows):
+    """Match the executable at argv[0], excluding Wine wrappers/crash helpers."""
+    paths = [str(EXE), 'Z:' + str(EXE).replace('/', '\\'),
+             'Y:\\' + str(EXE.relative_to('/Users/antonkrutov')).replace('/', '\\')]
+    result = []
+    for row in rows:
+        parts = row.split(None, 2)
+        if len(parts) == 3 and any(parts[2] == p or parts[2].startswith(p + ' ') for p in paths):
+            result.append(row)
+    return result
+
+
+def observe_lifetime(boundary, value=None, **extra):
+    """Retain launcher wait status separately from non-child game presence.
+
+    A ps sample proves presence/absence at its own time, never a game exit code.
+    No foreground observation, process signal or policy change occurs here.
+    """
+    assert LAUNCHER is not None, 'Missing exact launcher handle; hold commands'
+    rows = processes()
+    pending = RUN / 'command.txt'
+    event = dict(utc=datetime.now(timezone.utc).isoformat(), monotonic=time.monotonic(),
+                 boundary=boundary, command=value, launcherPid=LAUNCHER.pid,
+                 launcherExitCode=LAUNCHER.poll(), gameExitCode=None,
+                 ownedProcessRows=rows, realGameRows=real_game_rows(rows),
+                 pendingCommand=pending.exists(), unresolvedCommand=COMMAND_HOLD, **extra)
+    try:
+        raw = pending.read_bytes()
+    except FileNotFoundError:
+        event['pendingCommand'] = False
+    else:
+        event['pendingCommand'] = True
+        event['pendingCommandSha256'] = hashlib.sha256(raw).hexdigest()
+    with (RUN / 'process-lifetime.jsonl').open('a') as stream:
+        stream.write(json.dumps(event, ensure_ascii=False) + '\n')
+    return event
+
+
 def wait_for_ready(child, timeout=300):
     """Bound startup by both real readiness and the exact owned process lifetime.
 
@@ -96,11 +137,53 @@ def wait_for_ready(child, timeout=300):
 
 
 def command(value, deadline=None):
-    timeout = 25 if deadline is None else min(25, deadline - time.monotonic())
-    assert timeout > 0, 'Observation budget exhausted before command submission'
-    result = subprocess.run([sys.executable, str(RUN / 'command.py'), str(RUN), value],
-                            capture_output=True, text=True, timeout=timeout)
-    assert result.returncode == 0, (value, result.stdout[-500:], result.stderr[-500:])
+    global COMMAND_HOLD
+    now = time.monotonic()
+    expires = now + 25 if deadline is None else min(now + 25, deadline)
+    assert expires > now, 'Observation budget exhausted before command submission'
+    assert COMMAND_HOLD is None, 'Unresolved command hold; reconcile before any further submission: ' + str(COMMAND_HOLD)
+    before = observe_lifetime('before-command', value)
+    assert len(before['realGameRows']) == 1, 'Real task game absent or ambiguous before command; no submission'
+    assert not (RUN / 'command.txt').exists(), 'Reconcile the pending command instead of submitting another'
+    assert time.monotonic() < expires, 'Observation budget exhausted before command submission'
+    COMMAND_HOLD = value
+    sender = subprocess.Popen([sys.executable, str(RUN / 'command.py'), str(RUN), value],
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    stopped = False
+    try:
+        while True:
+            remaining = expires - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError('Command deadline; outcome unknown, reconcile before resubmitting: ' + value)
+            try:
+                stdout, stderr = sender.communicate(timeout=min(.25, remaining))
+                break
+            except subprocess.TimeoutExpired:
+                state = observe_lifetime('await-ack', value, transportPid=sender.pid)
+                # Quit can legitimately remove its game before the helper reads
+                # the final ACK. Every other action must retain a unique game.
+                assert value == 'quit' or len(state['realGameRows']) == 1, \
+                    'Real task game absent or ambiguous while awaiting acknowledgement; outcome unknown, no replay: ' + value
+        state = observe_lifetime('transport-returned', value, transportPid=sender.pid,
+                                 transportExitCode=sender.returncode,
+                                 transportStdout=stdout[-500:], transportStderr=stderr[-500:])
+        assert sender.returncode == 0, (value, stdout[-500:], stderr[-500:])
+        COMMAND_HOLD = None
+        assert value == 'quit' or len(state['realGameRows']) == 1, \
+            'Command acknowledged but real task game absent or ambiguous after receipt: ' + value
+    finally:
+        # Only this ordinary file-transport child is stopped, never the game,
+        # launcher, observer, other lane or a process selected by name.
+        if sender.poll() is None:
+            stopped = True
+            sender.terminate()
+            try:
+                sender.communicate(timeout=2)
+            except subprocess.TimeoutExpired:
+                sender.kill()
+                sender.communicate(timeout=2)
+        observe_lifetime('transport-reaped', value, transportPid=sender.pid,
+                         transportExitCode=sender.returncode, transportStoppedByObserver=stopped)
 
 
 def focus_trace_latest(trace):
@@ -693,7 +776,7 @@ def natural_doorway_route(loaded):
 
 
 def main():
-    global RUN, GAME, EXE
+    global RUN, GAME, EXE, LAUNCHER
     options = launch_options(sys.argv[1:])
     RUN = options.run.resolve()
     GAME = RUN / 'game'
@@ -727,7 +810,10 @@ def main():
         with (RUN / 'wine.log').open('wb') as log:
             child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT,
                                      start_new_session=True, env=startup_environment(options.startup_diagnostics))
+        LAUNCHER = child
         write('launch.json', {'pid': child.pid, 'command': args,
+                             'canonicalHeadAtLaunch': subprocess.check_output(['git', '-C', str(RUN.parents[2]), 'rev-parse', 'HEAD'], text=True).strip(),
+                             'launchedAt': datetime.now(timezone.utc).isoformat(),
                              'startupDiagnostics': options.startup_diagnostics,
                              'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
@@ -855,8 +941,10 @@ def main():
         if budget is not None:
             write('intro-observation-budget.json', dict(budget.receipt(time.monotonic()), error=error))
     finally:
+        if LAUNCHER is not None:
+            observe_lifetime('observer-finally')
         owned = processes()
-        if owned and not (RUN / 'command.txt').exists():
+        if owned and COMMAND_HOLD is None and not (RUN / 'command.txt').exists():
             try:
                 command('restore-input-policy')
             except Exception as ex:
@@ -870,6 +958,8 @@ def main():
         while processes() and time.monotonic() < deadline:
             time.sleep(.5)
         remaining = processes()
+        if LAUNCHER is not None:
+            observe_lifetime('after-cleanup-wait')
         managed = GAME / DATA / 'Managed'
         if not remaining:
             shutil.copy2(SOURCE / DATA / 'Managed/Assembly-CSharp.dll', managed / 'Assembly-CSharp.dll')
@@ -880,7 +970,8 @@ def main():
         restored = sha(managed / 'Assembly-CSharp.dll') == owner[DATA + '/Managed/Assembly-CSharp.dll']
         clean = not remaining and unchanged and pins_ok and restored and not (managed / 'ForestProbe.dll').exists()
         write('cleanup.json', {'verifiedTaskProcessRowsBeforeQuit': owned, 'remainingTaskProcessRows': remaining,
-                               'quitAcknowledged': quit_ok, 'originalAssetsAndPlayerFilesUnchanged': unchanged,
+                               'quitAcknowledged': quit_ok, 'unresolvedCommand': COMMAND_HOLD,
+                               'originalAssetsAndPlayerFilesUnchanged': unchanged,
                                'originalAssemblyRestoredInQACopy': restored, 'inspectionBridgeRemoved': not (managed / 'ForestProbe.dll').exists(),
                                'inputPinsUnchanged': pins_ok, 'candidateAssetHashesUnchanged': all(sha(GAME / DATA / r['path']) == r['probeSha256'] for r in report['files']),
                                'ownerSavePathUsed': False})
