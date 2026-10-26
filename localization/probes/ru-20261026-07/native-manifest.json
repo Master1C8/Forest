@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "kind": "native-screenshots",
+  "scope": "Complete two-frame set for candidate07 ordinary dialogue and repaired native speaker-label role, comparing raw NFD entry197 with canonical NFC entry199. Failure screenshot from restored runtime-attempt-01 is diagnostic only and outside this successful set. Other renderer surfaces remain unverified.",
+  "provenance": {
+    "build": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/build.json",
+      "sha256": "e38c20091b2e7c6ddffc56fc73123a411514c2552959e67bfe5633c2f17f749a"
+    },
+    "bridge": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/bridge-build.json",
+      "sha256": "b7213db8636538f1a747c2f541d1f2078949fe23b1c8064d51c6a84aa681d6e4"
+    },
+    "captureNFD": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/captured-state-197.json",
+      "sha256": "12f175b612fb43f6610fdc0c962769a85946b9497955423baf57a15211926095"
+    },
+    "captureNFC": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/captured-state-199.json",
+      "sha256": "dca81038b0208df69b76a4cccd5005d49826676e615243603e7a21003807c317"
+    },
+    "runtime": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/runtime-result.json",
+      "sha256": "d1d1d23a35d20b3a2c8db99118096def866a481120d78444527550e4975edfdd"
+    },
+    "cleanup": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/cleanup.json",
+      "sha256": "bfb72d978fda111ba292266ebcff2859bbf94c7e33e64452bb2087df91c2f766"
+    },
+    "acceptance": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/acceptance-context.json",
+      "sha256": "3d4180e10ee01c7891e6c97b744067fd66eb771db6958fc81886a48b640461a4"
+    },
+    "validation": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/capture-validation.json",
+      "sha256": "fca4b0b57adbed5a8b497e49acfb317c157f81b43b88096179e73f90534e8d8f"
+    },
+    "fontStatic": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/static-font-result.json",
+      "sha256": "3dce33c4b4cebbeea090a40ae24a72102cec746594615ac0cbd246cfb850dade"
+    },
+    "fontProvenance": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/font-provenance.json",
+      "sha256": "0056a08ca0e237710e56fd5a46b3f947fc2c1e8bd52c5e8d78beff0afcf8d48a"
+    },
+    "unicodeRequirements": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/unicode-requirements.json",
+      "sha256": "5cc738fccc56c2ae432a11f5bf25993ffbd480875c3fc4178938eb8926f48a78"
+    },
+    "captureRecipe": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/capture-once.py",
+      "sha256": "ff5603197f962698c7dc0f4df730c387133b22877988f46f1011dc5a074d3669"
+    },
+    "commandHelper": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/command.py",
+      "sha256": "34ea7e040d5899e43505519bf67a7347389eb7c5591e4483f16e34624b4bd739"
+    },
+    "buildRecipe": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/build_renderer_probe.py",
+      "sha256": "85324450cbbff1c28ef2a21b5ac507dd50d6c5bc36c530c0d3502182fd696592"
+    },
+    "guardCorrection": {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-07/capture-guard-correction.json",
+      "sha256": "c7927fd562740b43658e738bc0052ca73d5ae3586288f7f2bb8e75c8e63c92f2"
+    }
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-renderer-nfd.png",
+      "sha256": "f3c56bc5c0c38528774348b44aa63eb24eac2a5148a3d1d574a4dea6381a6ca2",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "ru-02-renderer-nfc.png",
+      "sha256": "11c3fa564bf722fa5c3da6360d625c446e7a630f9bbca5e7e105069500e1d53e",
+      "width": 1440,
+      "height": 900
+    }
+  ]
+}

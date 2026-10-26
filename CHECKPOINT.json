@@ -13,7 +13,7 @@
     "coordinator": "gpt-6.1-sol",
     "reasoning": "high",
     "provider": "openai",
-    "verification": "Actual fresh CLI session_meta, every observed turn_context and pinned launch arguments; see localization/usage.json",
+    "verification": "Current serial phase actual CLI argv verified as gpt-6.1-sol/high/OpenAI, --ignore-user-config and multi_agent disabled: localization/probes/ru-20261026-07/execution-model.json. Earlier session verification/usage remains in localization/usage.json.",
     "workers": []
   },
   "sourceManifest": "assets/source-v2/source-files.json",
@@ -42,14 +42,14 @@
   },
   "stages": {
     "scope": "passed: 0.45, ru, standard localization, canonical Forest checkout",
-    "probe": "failed: native legacy nameplate cap-height/weight mismatch; decomposed marks uncertain; other required paths unverified",
+    "probe": "failed overall: candidate07 static/runtime passed; coherent legacy face and raw NFD/NFC pair await fresh visual review; prior failed candidate preserved; other required paths unverified",
     "source": "needs-review: exact two-copy dialogue candidates and protected-boundary hashes prepared; full inventory/parser/special-scene closure pending",
     "glossary": "passed: source and ru layers accepted with two complete editorial layers; exact snapshots pinned",
     "translate-edit": "not-run; renderer/source gates prohibit mass work",
     "editorial": "not-run; no game corpus yet; sequential independent review authorized",
-    "resources": "failed bounded font candidate visual check; final corpus/fonts/textures absent",
+    "resources": "needs-review: coherent embedded native face candidate statically verified, two native frames pending; final corpus/fonts/textures absent",
     "package": "not-run for localization; separate technical evidence archive verified",
-    "runtime": "needs-review: synthetic Windows-player-via-CrossOver progression passed, other surfaces unverified",
+    "runtime": "needs-review: candidate07 normal-button progression and restoration passed; visual/other surfaces unaccepted",
     "screenshot-upload": "not-applicable; no game screenshots requested",
     "screenshot-review": "not-applicable; no screenshot upload",
     "delivery": "needs-review: technical checkpoint only; unfinished localization"
@@ -57,7 +57,7 @@
   "publication": "not-run",
   "gameWrites": false,
   "remainingMetadataFailures": 1351,
-  "nextAction": "Repair shared font resources in a text-only work phase; capture/restore, then hand off to one bounded fresh visual-review phase.",
+  "nextAction": "Review the complete pinned two-original candidate07 packet in one fresh authorized visual-review-only phase, write actual results, then finish. A subsequent text-only phase imports results and repairs/continues remaining gates. No ordinary translation yet.",
   "validation": {
     "status": "passed",
     "boundary": "pinned installed bytes -> object/typetree/text/PNG export",
@@ -146,7 +146,7 @@
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
   },
-  "updatedAt": "2026-10-26T02:28:42.570363+00:00",
+  "updatedAt": "2026-10-26T02:52:45.150038+00:00",
   "processBinding": {
     "guide": "README.md",
     "references": {
@@ -158,10 +158,10 @@
       "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
       "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
     },
-    "projectGuideSha256": "2b65a1d9a658e6536f7f8d5eb0d1fd84dc8c01cf70002eb134e9b90308cb58d4"
+    "projectGuideSha256": "0018c0e50a304a4d855e6b8ac13345d53316582aa5afd486c9c236af460c445f"
   },
   "currentStage": "probe",
-  "probe": "localization/probes/ru-20261026-06/build.json",
+  "probe": "localization/probes/ru-20261026-07/build.json",
   "glossary": {
     "source": "localization/glossary/en.json",
     "sourceRawSha256": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
@@ -181,16 +181,16 @@
       "totalVisibleIds": null,
       "glossary": "passed",
       "editorial": "not-run; independent fresh reviewers now authorized sequentially",
-      "fonts": "failed bounded candidate visual check; not final font approval",
+      "fonts": "needs-review: candidate07 coherent embedded native face, exact byte/table readback and loaded face passed; visual pending",
       "textures": "not-run",
       "build": "not-run for localization; synthetic probe passed static build/readback",
-      "runtime": "needs-review; synthetic ordinary-dialogue progression passed",
-      "visual": "failed: one native pilot reviewed, 0 passed / 1 failed / 0 pending",
+      "runtime": "needs-review: candidate07 progression and cleanup passed; other surfaces unverified",
+      "visual": "pending: candidate07 two originals, 0 reviewed; prior candidate06 failed and preserved",
       "screenshot-upload": "not-applicable; not requested",
       "screenshot-review": "not-applicable; not requested",
       "release": "not-run; publication excluded",
-      "blocker": "Known native nameplate cap-height/weight mismatch and uncertain marks; renderer/source acceptance still required. Fresh sequential contexts now authorized.",
-      "nextAction": "Repair shared font resources in a text-only work phase; capture/restore, then hand off to one bounded fresh visual-review phase."
+      "blocker": "New candidate has no visual acceptance; prior native mismatch/NFD uncertainty and other renderer/source gates still block translation.",
+      "nextAction": "Review the complete pinned two-original candidate07 packet in one fresh authorized visual-review-only phase, write actual results, then finish. A subsequent text-only phase imports results and repairs/continues remaining gates. No ordinary translation yet."
     }
   },
   "execution": {
@@ -207,7 +207,11 @@
     "result": "continuation authorized; failed font pilot remains failed until repaired and reviewed",
     "nestedModelJobs": false,
     "agentsLaunched": false,
-    "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed"
+    "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
+    "activePhase": "outputs/ru-serial-20261026/0001-work",
+    "phaseResult": "Static repair, actual native paired capture, progression and cleanup completed; review continuation pending",
+    "modelVerification": "localization/probes/ru-20261026-07/execution-model.json",
+    "usageAccounting": "Parent-owned runner; no forbidden prior history or operational logs loaded by this phase; worker request telemetry unavailable here."
   },
   "sourceCandidates": {
     "path": "localization/source/dialogue-manifest.json",
@@ -222,7 +226,7 @@
   },
   "feasibility": {
     "path": "localization/feasibility.json",
-    "sha256": "e7dec8a51d462bd749bfd62846bff1fc4b0d93b9f8b08bbb5904e356a72445a7",
+    "sha256": "f097eb5145688f6af782d89b07e2371e11c8bdad1293fd8d3f432ff032c8ba79",
     "status": "failed",
     "massTranslationAllowed": false
   },
@@ -235,12 +239,14 @@
     "kind": "technical checkpoint; no localization release"
   },
   "runtimeEvidence": {
-    "current": "localization/probes/ru-20261026-06/runtime-result.json",
-    "cleanup": "localization/probes/ru-20261026-06/cleanup.json",
-    "nativeManifest": "localization/probes/ru-20261026-06/native-manifest.json",
-    "nativeReview": "localization/probes/ru-20261026-06/native-review.json",
+    "current": "localization/probes/ru-20261026-07/runtime-result.json",
+    "cleanup": "localization/probes/ru-20261026-07/cleanup.json",
+    "nativeManifest": "localization/probes/ru-20261026-07/native-manifest.json",
+    "nativeReview": "localization/probes/ru-20261026-07/native-review.json",
     "previousFailure": "localization/probes/ru-20261026-04/runtime-result.json",
-    "partialBuildFailure": "localization/probes/ru-20261026-05/failed-attempt.json"
+    "partialBuildFailure": "localization/probes/ru-20261026-05/failed-attempt.json",
+    "previousCandidate": "localization/probes/ru-20261026-06/runtime-result.json",
+    "captureGuardFailure": "localization/probes/ru-20261026-07/runtime-attempt-01/runtime-result.json"
   },
   "independentReview": {
     "status": "not-run",
@@ -259,15 +265,27 @@
   },
   "checksNote": "Git whitespace checks cover all authored files; raw Windows Unity player logs retain exact CRLF/trailing bytes and are explicitly excluded from that style check.",
   "nativeVisualReview": {
-    "ledger": "localization/probes/ru-20261026-06/native-review.json",
-    "sha256": "5fa24777365831490e2385ae3489ffe4e0cf2b7ba9c0ea89cf39c24be32c978a",
-    "result": "localization/probes/ru-20261026-06/native-result-01.json",
-    "total": 1,
-    "reviewed": 1,
+    "ledger": "localization/probes/ru-20261026-07/native-review.json",
+    "sha256": "5584c83138d7116d24c076b9ee8305d729bea67ef0961332458d260c1487a199",
+    "packet": "localization/probes/ru-20261026-07/native-packet-01.json",
+    "total": 2,
+    "reviewed": 0,
     "passed": 0,
-    "failed": 1,
-    "pending": 0,
-    "independent": false,
-    "contextImageLimitReached": true
+    "failed": 0,
+    "pending": 2,
+    "independent": "not-run; fresh sequential reviewer assigned next",
+    "imagesOpenedInThisWorkContext": 0,
+    "previousFailure": {
+      "ledger": "localization/probes/ru-20261026-06/native-review.json",
+      "sha256": "5fa24777365831490e2385ae3489ffe4e0cf2b7ba9c0ea89cf39c24be32c978a",
+      "result": "localization/probes/ru-20261026-06/native-result-01.json",
+      "total": 1,
+      "reviewed": 1,
+      "passed": 0,
+      "failed": 1,
+      "pending": 0,
+      "independent": false,
+      "contextImageLimitReached": true
+    }
   }
 }

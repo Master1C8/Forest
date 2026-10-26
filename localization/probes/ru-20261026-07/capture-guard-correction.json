@@ -1,0 +1,12 @@
+{
+  "previousAttempt": "runtime-attempt-01",
+  "failureBoundary": "Known scene transition after actual New Game before first dialogue; old whitelist omitted SoftResetLoadingScene",
+  "source": "localization/probes/ru-20261026-03/main-menu-controller.cs",
+  "sourceSha256": "352efae5adf8f4bd2de096c40a11ca423bf68c26ed10a6b88cec636bb15d8f83",
+  "sourceEvidence": "MainMenuController.LoadOverworld calls SceneHelper.LoadSoftResetScene(\"ChapterSelect\"); pinned BuildSettings lists SoftResetLoadingScene.",
+  "repair": "Allow only that source-backed transitional scene; unchanged dialogue/input/overflow/progression assertions. Preserve original attempt receipts and its complete recipe.",
+  "regression": "Existing QA profile -> New Game -> SoftResetLoadingScene -> ChapterSelect -> IntroForest -> BunnyHouse. No Continue action is sent during loading scenes.",
+  "prelaunchReconciliation": "One follow-up read-only process check falsely matched its own shell source; rejected rerun before launch. Replaced with exact absolute executable-path check from the existing capture recipe. No game started or files changed by those rejected checks.",
+  "sameCandidateReused": true,
+  "bridgeReinstalled": "Exact same previously compiled and pinned bridge/hook bytes into verified stopped QA copy"
+}

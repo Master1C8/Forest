@@ -29,7 +29,7 @@ scope and phase-result contract are in `localization/CLI-TASK.md`.
 Rebuild the current bounded candidate into a **new** probe directory with:
 
 ```sh
-.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/ru-next --sample-surface new-game --repair-cyrillic-metrics
+.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/ru-next --sample-surface new-game --repair-cyrillic-metrics --coherent-legacy-face
 python3 tools/probe/prepare_bridge.py localization/probes/ru-next
 ```
 
@@ -39,7 +39,9 @@ runtime command and exact hashes are in the versioned launch/build receipts. Cle
 removes the inspection DLL and restores the original assembly in the stopped QA copy;
 this changes only the inspection hook, not the verified candidate asset files.
 
-Current technical evidence is under `localization/probes/ru-20261026-06/`.
+Prior technical controls and the failed font candidate are under
+`localization/probes/ru-20261026-06/`; the repaired candidate is under
+`localization/probes/ru-20261026-07/`.
 Attempt 04 exercised the real typewriter and normal Continue button through synthetic
 entries 197, 199, 200 and 202 to original entry 203. Combining marks and trailing spaces
 completed; the uncorrected TMP field reported overflow. Attempt 05 stopped on an
@@ -55,6 +57,30 @@ pixel digits. Decomposed-mark placement remains uncertain. The visual ledger rec
 feasibility gate is failed; mass translation remains blocked. This does not imply that
 Russian support is impossible. Further shared-font repair and fresh bounded native
 review are required, alongside the remaining renderer/source gates.
+
+Attempt 07 tests one shared-resource repair: both native primary/fallback Font objects
+in both asset copies use the game's embedded Liberation Sans Regular 2.00.1, while
+retaining object identity, material/texture links and fallback links. Exact reopened
+font-byte/table checks passed; all unselected objects, including the fictional TMP
+mapping, remain unchanged. This deliberately changes the native pixel face to a
+coherent outline face for the bounded candidate; final style/readability acceptance
+still requires native review. `font-provenance.json` pins the embedded SIL OFL 1.1
+metadata; final redistribution must include its full license notice.
+
+Its paired samples test raw NFD `Е\u0308 и\u0306` and canonically equivalent NFC `Ё й`
+without dropping accents or adopting a blanket normalization exemption. Candidate
+source fields and the accepted glossary are NFC, but the complete corpus and dynamic
+input requirements remain unaccepted. The capture recipe guards actual dialogue
+states and normal Continue handling. The first attempt stopped on the omitted
+`SoftResetLoadingScene`; its restored failure is preserved in `runtime-attempt-01/`.
+The corrected guard includes that source-backed New Game loading transition and
+never sends Continue during loading. Keep this transition in future capture recipes.
+The corrected run captured both unchanged 1440×900 native frames, completed normal
+197 → 199 → 200 → 202 → unchanged 203 progression without overflow, and restored/stopped
+the QA copy. Runtime diagnostics confirm the native Text loads Liberation Sans at
+size 14 with Cyrillic/digit coverage. Original installed assets/player files remain
+byte-identical. The complete two-original packet is prepared with zero images reviewed;
+raw NFD mark placement and the repaired nameplate remain pending visual acceptance.
 
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate

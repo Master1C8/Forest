@@ -6,6 +6,7 @@ import hashlib
 import json
 import shutil
 import struct
+import unicodedata
 from pathlib import Path
 
 import UnityPy
@@ -48,7 +49,10 @@ def main():
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--sample-surface', choices=['tutorial', 'new-game'], default='tutorial')
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
+    parser.add_argument('--coherent-legacy-face', action='store_true',
+                        help='Use the bundled Liberation Sans for the entire native nameplate Font role')
     args = parser.parse_args()
+    assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     out = args.output.resolve()
     assert PROJECT in out.parents and SOURCE not in out.parents
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
@@ -70,9 +74,15 @@ def main():
         fonts_env = UnityPy.load(str(SOURCE / DATA_NAME / 'resources.assets'))
         native_fallback = next(o for o in fonts_env.objects if o.path_id == 439).read_typetree()
         assert native_fallback['m_Name'] == 'LiberationSans'
+    entry_ids = [197, 199, 200, 202] if args.sample_surface == 'new-game' else [153, 154, 155, 156]
+    mark_samples = {str(entry_ids[0]): SAMPLE + '\nЕ\u0308 и\u0306'}
+    if args.coherent_legacy_face:
+        mark_samples[str(entry_ids[1])] = SAMPLE + '\n' + unicodedata.normalize('NFC', 'Е\u0308 и\u0306')
     report = {'schemaVersion': 1, 'build': '0.45', 'siteLocale': 'ru',
               'sample': SAMPLE, 'sampleSurface': args.sample_surface, 'runtime': 'not-run', 'visual': 'not-run',
               'cyrillicMetricsRepair': args.repair_cyrillic_metrics,
+              'coherentLegacyFace': args.coherent_legacy_face,
+              'markSamples': mark_samples,
               'scope': 'Synthetic script feasibility only; no translated game corpus.',
               'sourceManifestSha256': sha(PROJECT / 'assets/source-v2/source-files.json'),
               'files': []}
@@ -92,6 +102,9 @@ def main():
             if args.repair_cyrillic_metrics:
                 font_id = 368 if name == 'sharedassets0.assets' else 2133516458142313129
                 selected[font_id] = objects[font_id]
+                if args.coherent_legacy_face:
+                    primary_id = 369 if name == 'sharedassets0.assets' else 525290011395715274
+                    selected[primary_id] = objects[primary_id]
                 subtitle_count = 0
                 for obj in env.objects:
                     if obj.type.name != 'MonoBehaviour':
@@ -153,13 +166,20 @@ def main():
             elif name == 'level1':
                 tree['m_text'] = 'Ёж 123:'
             elif obj.type.name == 'Font':
-                assert tree['m_Name'] == 'MatchupPro 1'
-                # Extend the existing native Font fallback, preserving its
-                # identity and material/texture/object references. Original
-                # MatchupPro_TFOL remains the primary face for supported glyphs.
+                assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
+                # The default repair extends the existing fallback only. The
+                # coherent-face option also replaces the primary's face data,
+                # preserving identity and material/texture/object references.
                 for key in ['m_FontData', 'm_FontNames', 'm_LineSpacing', 'm_FontSize',
                             'm_Ascent', 'm_Descent', 'm_KerningValues', 'm_FontRenderingMode']:
                     tree[key] = copy.deepcopy(native_fallback[key])
+                if args.coherent_legacy_face:
+                    # Both primary/fallback use the same embedded face, not OS font
+                    # substitution. Keep object identity, links and material/texture
+                    # references. Copy every other renderer metric/table together.
+                    preserved = {'m_Name', 'm_DefaultMaterial', 'm_Texture', 'm_FallbackFonts'}
+                    for key in tree.keys() - preserved:
+                        tree[key] = copy.deepcopy(native_fallback[key])
             elif 'm_text' in tree:
                 assert args.repair_cyrillic_metrics
                 tree['m_enableAutoSizing'] = True
@@ -167,7 +187,6 @@ def main():
                 tree['m_fontSizeMax'] = tree['m_fontSize']
             else:
                 title = 'act1/newGame' if args.sample_surface == 'new-game' else 'act1/tutorialQuest/01_introFromBunny'
-                entry_ids = [197, 199, 200, 202] if args.sample_surface == 'new-game' else [153, 154, 155, 156]
                 conversations = [c for c in tree['conversations'] if any(f['title'] == 'Title' and f['value'] == title for f in c['fields'])]
                 assert len(conversations) == 1
                 changed = 0
@@ -175,7 +194,11 @@ def main():
                     for field in entry['fields']:
                         if field['title'] == 'Dialogue Text' and field['value'] and entry['id'] in entry_ids:
                             prefix = field['value'].split(']', 1)[0] + ']' if field['value'].startswith('[pic=') else ''
-                            field['value'] = prefix + SAMPLE + ('  ' if entry['id'] != entry_ids[0] else '\nЕ\u0308 и\u0306')
+                            suffix = '\nЕ\u0308 и\u0306' if entry['id'] == entry_ids[0] else '  '
+                            if args.coherent_legacy_face and entry['id'] == entry_ids[1]:
+                                suffix = '\n' + unicodedata.normalize('NFC', 'Е\u0308 и\u0306')
+                                assert unicodedata.normalize('NFD', suffix) == '\nЕ\u0308 и\u0306'
+                            field['value'] = prefix + SAMPLE + suffix
                             changed += 1
                 assert changed == 4, changed
             paths = fields_changed(before, canonical(tree))

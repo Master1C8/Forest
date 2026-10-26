@@ -109,7 +109,10 @@ public sealed class ForestProbe : MonoBehaviour
             }
         foreach(var t in Resources.FindObjectsOfTypeAll<Text>())
             if(t.gameObject.activeInHierarchy)
-                rendererDiagnostics.Add(Address(t.transform)+" | UnityEngine.UI.Text | "+t.text+" | font="+(t.font==null?"null":t.font.name)+" | size="+t.fontSize);
+                rendererDiagnostics.Add(Address(t.transform)+" | UnityEngine.UI.Text | "+t.text+" | font="+(t.font==null?"null":t.font.name)+" | size="+t.fontSize+
+                    " | style="+t.fontStyle+" | fontNames="+(t.font==null?"null":String.Join(",",t.font.fontNames))+
+                    " | dynamic="+(t.font!=null && t.font.dynamic)+
+                    " | hasCyrillicAndDigits="+(t.font!=null && t.font.HasCharacter('Ё') && t.font.HasCharacter('Й') && t.font.HasCharacter('1')));
         foreach(var b in Resources.FindObjectsOfTypeAll<Button>())
             if(b.gameObject.activeInHierarchy && b.gameObject.scene.IsValid() && b.interactable) buttons.Add(Address(b.transform));
         foreach(var b in Resources.FindObjectsOfTypeAll<MonoBehaviour>())
