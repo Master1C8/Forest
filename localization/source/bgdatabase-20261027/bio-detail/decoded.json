@@ -1,0 +1,2114 @@
+{
+  "schemaVersion": 1,
+  "source": "assets/source-v2/text-assets/90744c19ec-resources.assets-320.bin",
+  "sourceSha256": "41834cda2f3ea6f010234f3ca2332e31b95b990ab38a8940b0d92f000477fda9",
+  "decoderSha256": "737b13b9279a87a9cb77590c191dbaba35f85b17a97de4db4acfce9b3b854997",
+  "sheets": [
+    {
+      "index": 14,
+      "id": "Ak9R6ZDSJEqjTb/VK80o2w",
+      "name": "BioDetail",
+      "type": "BansheeGz.BGDatabase.BGMetaRow, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "configHex": "",
+      "headerBool1": false,
+      "headerString1": null,
+      "headerBool2": true,
+      "headerBool3": false,
+      "headerBool4": false,
+      "comment": null,
+      "rowIds": [
+        "G2Tcw80myECZ6EqyTVR7QQ",
+        "VIDCxbRIGky6vdHJJhLDOQ",
+        "bnx8RXLTcEiLJLEfCONqqg",
+        "+5aF5TVJPUivNprj2NJrpA",
+        "pvrONU3XQ0eSJq8HYuJePw",
+        "vpfTSrZuiU+FPaDjF3ZDGA",
+        "/fmB0kerbUCaweL0itK78Q",
+        "qGAinUwPCkuH2RZXIPlmyg",
+        "ffGT9qrH80uwm/TG0W6Hjw",
+        "NRCUaoZkEk6uxtsG/r97Ug",
+        "fsHIFd+lNkq/qUXZkVNDkA",
+        "7geskDu3+kG7zYxrgG8WIw",
+        "rGPM7f/wOUecKjXwY6E5jg",
+        "QESZPp21u025VBKGuqWEUg",
+        "+SqEuObRk0WkyzRx470tRw",
+        "FIzAwgLDcU29yj1BLAkaMQ",
+        "FH05GZC6aEqPS9t5bZ6gOw",
+        "n1zgi9dto0urfIircCohJg"
+      ],
+      "rowIdsOffset": 326424,
+      "keys": [
+        {
+          "id": "y3uCHNAfaUuzkd80JMrgRQ",
+          "name": "pk_name",
+          "unique": true,
+          "fieldIds": [
+            "BtRcRAUtZUufcNwBmZB/Cw"
+          ]
+        },
+        {
+          "id": "YGADV3FKu0aQY426f3WIAg",
+          "name": "uk_actor_name",
+          "unique": true,
+          "fieldIds": [
+            "K43w8tue7UGihNkp5yIqSA",
+            "BtRcRAUtZUufcNwBmZB/Cw"
+          ]
+        }
+      ],
+      "offset": 326270,
+      "endOffset": 331700,
+      "fields": [
+        {
+          "index": 0,
+          "id": "BtRcRAUtZUufcNwBmZB/Cw",
+          "name": "name",
+          "type": "BansheeGz.BGDatabase.BGFieldEntityName, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": true,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 326716,
+          "valuesOffset": 326883,
+          "valuesBytes": 269,
+          "valuesSha256": "f0375dabbf70efb20f407ca894164b1473b68950efa511a0dbb6ff38822aa1b8"
+        },
+        {
+          "index": 1,
+          "id": "K43w8tue7UGihNkp5yIqSA",
+          "name": "actor",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationSingle, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "01000000e03ab3a37de91f49b14f05ac7f31e760",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": true,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 327152,
+          "valuesOffset": 327344,
+          "valuesBytes": 436,
+          "valuesSha256": "817b216f9e1a5547c32d19de0a0f677775fe8b646c60cb7ead5958208d3803bd",
+          "targetSheetId": "4Dqzo33pH0mxTwWsfzHnYA"
+        },
+        {
+          "index": 2,
+          "id": "V9NgBeSNdkqusAjVSekZaw",
+          "name": "bio_portrait",
+          "type": "BansheeGz.BGDatabase.BGFieldUnitySprite, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "020000007100000042616e73686565477a2e424744617461626173652e424741737365744c6f616465724164647265737361626c65732c20424744617461626173652c2056657273696f6e3d312e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c0000000000000000",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 327780,
+          "valuesOffset": 328085,
+          "valuesBytes": 815,
+          "valuesSha256": "4dcc1dff48077543a3cf04f5c52804a3c9212141c5dde3a7db2b4fc39cc9b05a",
+          "assetConfig": {
+            "version": 2,
+            "loaderType": "BansheeGz.BGDatabase.BGAssetLoaderAddressables, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "loaderConfigHex": "",
+            "locationConstraint": 0
+          }
+        },
+        {
+          "index": 3,
+          "id": "tgl09C21nkGysgphXz/uFw",
+          "name": "nameplate_name_override",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 328900,
+          "valuesOffset": 329082,
+          "valuesBytes": 4,
+          "valuesSha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "index": 4,
+          "id": "gIytpXxhtUuXHYUh41m9Bg",
+          "name": "full_name_override",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 329086,
+          "valuesOffset": 329263,
+          "valuesBytes": 4,
+          "valuesSha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "index": 5,
+          "id": "+AaYkx5fWkKAI48orL49gQ",
+          "name": "line1",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationSingle, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "0100000097bab45a4a80ef4a9970ab0e72173c35",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 329267,
+          "valuesOffset": 329459,
+          "valuesBytes": 412,
+          "valuesSha256": "0a95a28d31c112afe478f6cf066ffd225e710181b66e6f1ed9e01ebd4e8a4d3c",
+          "targetSheetId": "l7q0WkqA70qZcKsOchc8NQ"
+        },
+        {
+          "index": 6,
+          "id": "9+g9947Jwkyp1ToSBzNvYQ",
+          "name": "line2",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationSingle, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "0100000097bab45a4a80ef4a9970ab0e72173c35",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 329871,
+          "valuesOffset": 330063,
+          "valuesBytes": 292,
+          "valuesSha256": "e4c790c35b462bfb10f95163a50a99caee2b410e0026ba8081338d4a478b0e1b",
+          "targetSheetId": "l7q0WkqA70qZcKsOchc8NQ"
+        },
+        {
+          "index": 7,
+          "id": "AsUNjj1lEE22SCfwtZkRqA",
+          "name": "line3",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationSingle, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "0100000097bab45a4a80ef4a9970ab0e72173c35",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 330355,
+          "valuesOffset": 330547,
+          "valuesBytes": 196,
+          "valuesSha256": "936452179a3b67c4679b97bcf8dfe3d6bb06f5fbbe1ea4623f64d95109bdeb90",
+          "targetSheetId": "l7q0WkqA70qZcKsOchc8NQ"
+        },
+        {
+          "index": 8,
+          "id": "ChbMoqscxUaF3OhiMs4CKw",
+          "name": "enable_with_tags",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationMultiple, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "02000000ee7bf649a8bb7b45945ed8118ef0693600",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": true,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 330743,
+          "valuesOffset": 330949,
+          "valuesBytes": 436,
+          "valuesSha256": "99079ff008f0558063c2fa5e444655079d14e4357fffb8119a3318f4b9675919",
+          "targetSheetId": "7nv2Sai7e0WUXtgRjvBpNg",
+          "allowDuplicates": false
+        },
+        {
+          "index": 9,
+          "id": "3LAnjMO940yRXHL8AFxKUA",
+          "name": "is_default",
+          "type": "BansheeGz.BGDatabase.BGFieldBool, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 331385,
+          "valuesOffset": 331552,
+          "valuesBytes": 18,
+          "valuesSha256": "7e8f25f03a09f1b2b1fee2ccc3c1fe5beb0fc389ab67822ec5d18b94c470863b"
+        }
+      ],
+      "rows": [
+        {
+          "index": 0,
+          "id": "G2Tcw80myECZ6EqyTVR7QQ",
+          "cells": {
+            "name": "Augustus",
+            "actor": "K/CwcCBk60qOjUkY292G5Q",
+            "bio_portrait": "Art/Portraits/AugustusPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "Smvu/8k0LEqWf7Xt6Y1iwA",
+            "line2": "zuVhWJ+UPkqUgU5eQAEQVg",
+            "line3": "zDwSb9ifqE6sa7eLffXCtw",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327031,
+              "bytes": 8
+            },
+            "actor": {
+              "offset": 327492,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328225,
+              "bytes": 38
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329599,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330163,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330615,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331097,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331552,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 1,
+          "id": "VIDCxbRIGky6vdHJJhLDOQ",
+          "cells": {
+            "name": "Bucky",
+            "actor": "HTA5Swi2i0KUVLfwrTezRw",
+            "bio_portrait": "Art/Portraits/BuckyPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "q9UPLsPfqkupARqgqHP9sg",
+            "line2": "zuVhWJ+UPkqUgU5eQAEQVg",
+            "line3": "bPDqpLzEqkChPiSUq8hRJA",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327039,
+              "bytes": 5
+            },
+            "actor": {
+              "offset": 327508,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328263,
+              "bytes": 35
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329615,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330179,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330631,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331113,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331553,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 2,
+          "id": "bnx8RXLTcEiLJLEfCONqqg",
+          "cells": {
+            "name": "Charlotte",
+            "actor": "zWG0YHNA20epUemwFV6JYg",
+            "bio_portrait": "Art/Portraits/CharlottePortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "9EM2UXp0k0yHlFLGrjuPKA",
+            "line2": "QwFc65NVAkGQzoo6hiezzQ",
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327044,
+              "bytes": 9
+            },
+            "actor": {
+              "offset": 327524,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328298,
+              "bytes": 39
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329631,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330195,
+              "bytes": 16
+            },
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331129,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331554,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 3,
+          "id": "+5aF5TVJPUivNprj2NJrpA",
+          "cells": {
+            "name": "Claire",
+            "actor": "xpHM87IiHE+uJAZeBoFxZg",
+            "bio_portrait": "Art/Portraits/ClairePortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "tnn6mWQ1zEGnFElj+fdQRQ",
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327053,
+              "bytes": 6
+            },
+            "actor": {
+              "offset": 327540,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328337,
+              "bytes": 36
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329647,
+              "bytes": 16
+            },
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331145,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331555,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 4,
+          "id": "pvrONU3XQ0eSJq8HYuJePw",
+          "cells": {
+            "name": "Dustin",
+            "actor": "nA22i4jXX0eth0ezZPdorw",
+            "bio_portrait": "Art/Portraits/DustinPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "OaZgEd4GA0GJEzYjsfTBPA",
+            "line2": "bhaKdhW3r0m0C38TU+D8Qw",
+            "line3": "GwtyBYBN2kuC5+HBlA8+Qg",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327059,
+              "bytes": 6
+            },
+            "actor": {
+              "offset": 327556,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328373,
+              "bytes": 36
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329663,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330211,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330647,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331161,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331556,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 5,
+          "id": "vpfTSrZuiU+FPaDjF3ZDGA",
+          "cells": {
+            "name": "Finley",
+            "actor": "34d0a03gDUiExkSM4TtQXw",
+            "bio_portrait": "Art/Portraits/FinleyPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "VbHng98/Q0KlGmTfJVks5w",
+            "line2": "kA4IH+moDkGIxL0UoQzR7g",
+            "line3": "W9BarxaWqUqefo9rBF4nrw",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327065,
+              "bytes": 6
+            },
+            "actor": {
+              "offset": 327572,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328409,
+              "bytes": 36
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329679,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330227,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330663,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331177,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331557,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 6,
+          "id": "/fmB0kerbUCaweL0itK78Q",
+          "cells": {
+            "name": "Fish",
+            "actor": "oWYLh+KUzUaBvViNXtSisw",
+            "bio_portrait": "Art/Portraits/FishPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": null,
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327071,
+              "bytes": 4
+            },
+            "actor": {
+              "offset": 327588,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328445,
+              "bytes": 34
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": null,
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331193,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331558,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 7,
+          "id": "qGAinUwPCkuH2RZXIPlmyg",
+          "cells": {
+            "name": "Mabel",
+            "actor": "GnLBegMpOUCJXkdlQIBcPg",
+            "bio_portrait": "Art/Portraits/MabelPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "qhyQ7Ob3kk6wBXpJYELCRQ",
+            "line2": "bhaKdhW3r0m0C38TU+D8Qw",
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327075,
+              "bytes": 5
+            },
+            "actor": {
+              "offset": 327604,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328479,
+              "bytes": 35
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329695,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330243,
+              "bytes": 16
+            },
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331209,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331559,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 8,
+          "id": "ffGT9qrH80uwm/TG0W6Hjw",
+          "cells": {
+            "name": "Maverick",
+            "actor": "eK7DpjEGV0ab3cts9AS5pA",
+            "bio_portrait": "Art/Portraits/MaverickPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "5Vg391Ze/kG/RbRGgO3Bsg",
+            "line2": "bhaKdhW3r0m0C38TU+D8Qw",
+            "line3": "nXUUzRIrf0Cugr+ixQcBCg",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327080,
+              "bytes": 8
+            },
+            "actor": {
+              "offset": 327620,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328514,
+              "bytes": 38
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329711,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330259,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330679,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331225,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331560,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 9,
+          "id": "NRCUaoZkEk6uxtsG/r97Ug",
+          "cells": {
+            "name": "Melody",
+            "actor": "BBbTtc+5w0mShw2qaemscA",
+            "bio_portrait": "Assets/_Game/Art/Portraits/Melody/MelodyPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "VF5E8dp/MkaG/tvt2TCnHw",
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327088,
+              "bytes": 6
+            },
+            "actor": {
+              "offset": 327636,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328552,
+              "bytes": 56
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329727,
+              "bytes": 16
+            },
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331241,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331561,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 10,
+          "id": "fsHIFd+lNkq/qUXZkVNDkA",
+          "cells": {
+            "name": "Oliver",
+            "actor": "hI/Mt3k/LUK2sRgvonfP3w",
+            "bio_portrait": "Art/Portraits/OliverPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "u0/jlE4ZckC9vFbHru/n+g",
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327094,
+              "bytes": 6
+            },
+            "actor": {
+              "offset": 327652,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328608,
+              "bytes": 36
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329743,
+              "bytes": 16
+            },
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331257,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331562,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 11,
+          "id": "7geskDu3+kG7zYxrgG8WIw",
+          "cells": {
+            "name": "Penny",
+            "actor": "tk/+mPxBS0Sb73AlkI9HEw",
+            "bio_portrait": "Art/Portraits/PennyPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "u3Bzsjc41keZE31E0cx00g",
+            "line2": "kA4IH+moDkGIxL0UoQzR7g",
+            "line3": "VG6JvArKAEmZoqHAX17iOA",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327100,
+              "bytes": 5
+            },
+            "actor": {
+              "offset": 327668,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328644,
+              "bytes": 35
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329759,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330275,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330695,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331273,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331563,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 12,
+          "id": "rGPM7f/wOUecKjXwY6E5jg",
+          "cells": {
+            "name": "Peter",
+            "actor": "jVYrMB+EekiidXcpoWUd3Q",
+            "bio_portrait": "Art/Portraits/PeterPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "ym8T72YnSUiOKz39ahdbtg",
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327105,
+              "bytes": 5
+            },
+            "actor": {
+              "offset": 327684,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328679,
+              "bytes": 35
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329775,
+              "bytes": 16
+            },
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331289,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331564,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 13,
+          "id": "QESZPp21u025VBKGuqWEUg",
+          "cells": {
+            "name": "Scarlett",
+            "actor": "A5FQ9EyucE2xuZaKCq62yA",
+            "bio_portrait": "Art/Portraits/ScarlettPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "ym8T72YnSUiOKz39ahdbtg",
+            "line2": "kA4IH+moDkGIxL0UoQzR7g",
+            "line3": "ES5pmOSCcEK9h6TmRkvl+g",
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327110,
+              "bytes": 8
+            },
+            "actor": {
+              "offset": 327700,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328714,
+              "bytes": 38
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329791,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330291,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330711,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331305,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331565,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 14,
+          "id": "+SqEuObRk0WkyzRx470tRw",
+          "cells": {
+            "name": "Violet",
+            "actor": "Zp++jf5lkkeJb14sXsgK7g",
+            "bio_portrait": "Art/Portraits/VioletPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "tnn6mWQ1zEGnFElj+fdQRQ",
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327118,
+              "bytes": 6
+            },
+            "actor": {
+              "offset": 327716,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328752,
+              "bytes": 36
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329807,
+              "bytes": 16
+            },
+            "line2": null,
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331321,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331566,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 15,
+          "id": "FIzAwgLDcU29yj1BLAkaMQ",
+          "cells": {
+            "name": "Charlotte Vslice",
+            "actor": "zWG0YHNA20epUemwFV6JYg",
+            "bio_portrait": null,
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "9EM2UXp0k0yHlFLGrjuPKA",
+            "line2": "QwFc65NVAkGQzoo6hiezzQ",
+            "line3": "9QccMCUv+E6NykZKql905w",
+            "enable_with_tags": [
+              "UJr1oUbYqUSLeRZgPFcfmA"
+            ],
+            "is_default": false
+          },
+          "spans": {
+            "name": {
+              "offset": 327124,
+              "bytes": 16
+            },
+            "actor": {
+              "offset": 327732,
+              "bytes": 16
+            },
+            "bio_portrait": null,
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329823,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330307,
+              "bytes": 16
+            },
+            "line3": {
+              "offset": 330727,
+              "bytes": 16
+            },
+            "enable_with_tags": {
+              "offset": 331337,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331567,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 16,
+          "id": "FH05GZC6aEqPS9t5bZ6gOw",
+          "cells": {
+            "name": "MabelsMom",
+            "actor": "vVvABvKgg0avC1Sts6lDBg",
+            "bio_portrait": "Assets/_Game/Art/Portraits/MabelsMom/MabelsMomPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "qhyQ7Ob3kk6wBXpJYELCRQ",
+            "line2": "zuVhWJ+UPkqUgU5eQAEQVg",
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327140,
+              "bytes": 9
+            },
+            "actor": {
+              "offset": 327748,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328788,
+              "bytes": 62
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329839,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330323,
+              "bytes": 16
+            },
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331353,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331568,
+              "bytes": 1
+            }
+          }
+        },
+        {
+          "index": 17,
+          "id": "n1zgi9dto0urfIircCohJg",
+          "cells": {
+            "name": "Fen",
+            "actor": "qpQvxhkt1kef839FPrzDyQ",
+            "bio_portrait": "Assets/_Game/Art/Portraits/Fen/FenPortrait_Bio.png",
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": "heZp5mj1SkqTBcbSbXAYvg",
+            "line2": "QwFc65NVAkGQzoo6hiezzQ",
+            "line3": null,
+            "enable_with_tags": [
+              "FH0ZFCZuJEOv47qmYPZ8MA"
+            ],
+            "is_default": true
+          },
+          "spans": {
+            "name": {
+              "offset": 327149,
+              "bytes": 3
+            },
+            "actor": {
+              "offset": 327764,
+              "bytes": 16
+            },
+            "bio_portrait": {
+              "offset": 328850,
+              "bytes": 50
+            },
+            "nameplate_name_override": null,
+            "full_name_override": null,
+            "line1": {
+              "offset": 329855,
+              "bytes": 16
+            },
+            "line2": {
+              "offset": 330339,
+              "bytes": 16
+            },
+            "line3": null,
+            "enable_with_tags": {
+              "offset": 331369,
+              "bytes": 16
+            },
+            "is_default": {
+              "offset": 331569,
+              "bytes": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "id": "l7q0WkqA70qZcKsOchc8NQ",
+      "name": "BioKeyword",
+      "type": "BansheeGz.BGDatabase.BGMetaRow, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "configHex": "",
+      "headerBool1": false,
+      "headerString1": null,
+      "headerBool2": true,
+      "headerBool3": false,
+      "headerBool4": false,
+      "comment": null,
+      "rowIds": [
+        "JOyrVrJ9zUGvsOThMUfCgw",
+        "bwOS/IL6JkCTG5niUlbstQ",
+        "TCHxo+at6E2yWKpznFd//Q",
+        "DDcCh6yUC0uSOrL394nVBQ",
+        "Qc2aVvYQWk2EgtD+3cuNng",
+        "DaHOHjfogUuJTCmPsuyOnA",
+        "b7/Zje6/S0aUNXMlfnP4Mg",
+        "RqAq/cS920+4WKPdCG4suA",
+        "xk/umsY9BEK4lptMZZSerg",
+        "b2Z2/qv8MkWe9fog5urkRQ",
+        "+Yz9mulgvEWEBknoewfC+A",
+        "g5tdcmUoykq/kBwLqBGDog",
+        "hFKAi+8+Rk+tJrP5r6nq7Q",
+        "iw+FDhaQWE6esIBcouHy4g",
+        "2bbzXgGSQ0KJ0cwrn5sYlQ",
+        "cpU7HsgR4E608jEFl/ypSA",
+        "TX9mErNGIkG/8DuHOjomPQ",
+        "n1FmjmkTOE+0WJ6SpUnNwQ",
+        "dar2A1cZZk2k/xWPO2bXvw",
+        "imeUle2LOEq7k0wYF/koeA",
+        "Zp4CsgwCt0GsIxMsv4qO5g",
+        "XYYxdu3gu0yTsih9YAhAig",
+        "6YPEquHUH06W6ZWIY+PAZg",
+        "OBbLgiaHbkuMWRIYA/LRvA",
+        "9A7gbhodfkWTSmIibd5C6Q",
+        "tTq6pGb8aUi8pBLWmCId7w",
+        "l6NisbpOG0aKSl0hCQOlbg",
+        "uGFqq9tSAkegug2J0hM08w",
+        "t/wD5dJTDkmUWr169HOw8w",
+        "EbogyQOXO060y5NgGJNfqg",
+        "mayo/4HtWkKNs4zmMCNi6Q",
+        "r38E3jhlvEi69QVfUQmzDA",
+        "fo9v7j7L7kiQF9nRQCplTg",
+        "7hw/xh1OaU+WwdVR9EEarw",
+        "B22a6rR69EWKHdz2brFZ7w",
+        "NkBheuLSZUa19DgmtAY4Fw",
+        "07/jpPqPm0in1DYk2iJ8NA",
+        "IUk2oZxcMkmXGKHqqKPWpA",
+        "VTMNANSbzUmHoqD9Q+IaxQ",
+        "YBnIqZqzmEa/xOXOrqN47Q",
+        "QssS/kadcEuDOKq4c8zGKA",
+        "88mOUAbtjUCvwD9OwjB9sA",
+        "eVRy/qP9hkiTgRYXYJcMgA",
+        "NrHp0Q256EWGBkJXXNhWZQ",
+        "hOHQnEXKN0yq5vxJSFvj8g",
+        "qT1nXTqXxEqeuaLqOsBjrQ",
+        "8U2HcTShqkqgUHziSzl9Lw",
+        "+KzaiaFh+UW967Zsb7P3qg",
+        "BuB+9G5b/06pcO4s0ejN4g",
+        "iDQ4wZBxs0GkdxPiPA48Dw",
+        "0gRuXhT+J0y5HLOoUJkojA",
+        "1QJP4T+ITkelgHr6rgHVVQ",
+        "YQnQEGCbPUKO1I9iC5xRSg",
+        "MFTqaopqlEySJJLXaHU7lw",
+        "BGynTbIYwk6BeayV5mv+tw",
+        "J8di4lQVpEiVCPZeqlc+dw",
+        "risz1852KEGMqM9lJoG5wA",
+        "tYoUr7WJO0W7W/U9K5n6rA",
+        "yyteYhlq9UCBG1/Fk0h6FA",
+        "nXUUzRIrf0Cugr+ixQcBCg",
+        "sug4tOSiwUaylGGz4wUeHQ",
+        "Ds4O0SzbyUuB7K1ga9kjNQ",
+        "fVDCnYTNoUWJCG0km6N1JA",
+        "9t0eGP68i0iDQ727D3hatw",
+        "UPE6t0cYiEmho9vXVepMqA",
+        "W9BarxaWqUqefo9rBF4nrw",
+        "Uh8wV/FQ/kSblFKiP+aKBQ",
+        "F3zaIlZ9BEGJYD3pqE5sFw",
+        "wQ9QrogaYEiw1aCxzOhBJg",
+        "ybzdUtAhlEuUzxB5SUo0cg",
+        "Smvu/8k0LEqWf7Xt6Y1iwA",
+        "q9UPLsPfqkupARqgqHP9sg",
+        "9EM2UXp0k0yHlFLGrjuPKA",
+        "tnn6mWQ1zEGnFElj+fdQRQ",
+        "OaZgEd4GA0GJEzYjsfTBPA",
+        "VbHng98/Q0KlGmTfJVks5w",
+        "qhyQ7Ob3kk6wBXpJYELCRQ",
+        "5Vg391Ze/kG/RbRGgO3Bsg",
+        "u0/jlE4ZckC9vFbHru/n+g",
+        "u3Bzsjc41keZE31E0cx00g",
+        "ym8T72YnSUiOKz39ahdbtg",
+        "zuVhWJ+UPkqUgU5eQAEQVg",
+        "kA4IH+moDkGIxL0UoQzR7g",
+        "QwFc65NVAkGQzoo6hiezzQ",
+        "bhaKdhW3r0m0C38TU+D8Qw",
+        "zDwSb9ifqE6sa7eLffXCtw",
+        "bPDqpLzEqkChPiSUq8hRJA",
+        "9QccMCUv+E6NykZKql905w",
+        "GwtyBYBN2kuC5+HBlA8+Qg",
+        "VG6JvArKAEmZoqHAX17iOA",
+        "ES5pmOSCcEK9h6TmRkvl+g",
+        "VF5E8dp/MkaG/tvt2TCnHw",
+        "sJlgBR3GbU+OTU46GXNWEQ",
+        "heZp5mj1SkqTBcbSbXAYvg",
+        "7xS9KLo8oECThPUfPU7R+A",
+        "8oW2ovVQKkii9LCOUS/rew",
+        "1cPMjpa1I0uT4BiuwYhiDw",
+        "pgomKxBcG0OjhDu+tQzUbw",
+        "/+x5Ro7FK0u53q79uFwn9w",
+        "SysciIrbwkadcf1Xs9YHyw",
+        "trbi/LdmjUeHeikg80Y8jQ",
+        "b1bSSI+STU20HkcF1YVy8Q",
+        "kbYxY/lKvU6PfYXnLl9vsQ",
+        "LzJRgTmQGEKELn3F1Rh9yw",
+        "hTDrqx8xMUCh0QQaVVBfug",
+        "aZIzc4Y7oECpBCd/q1fYiQ",
+        "wAQoQXo7VUORhHicTiNU4g",
+        "0XPaYLSqbkGcD4WBQtyB9g",
+        "1HgERkEo10y3emytvBUq5A",
+        "K1oAcrv6dkaHJQ9viLNWMA",
+        "jAlzSnGRnkm74+iQgn9JJA"
+      ],
+      "rowIdsOffset": 488222,
+      "keys": [
+        {
+          "id": "2yIHeqDWEU+vqM9n6LyF7g",
+          "name": "pk_name",
+          "unique": true,
+          "fieldIds": [
+            "aRx4sXL8k0WHzjzH0C2hxw"
+          ]
+        },
+        {
+          "id": "BB0jRqMG+EioLNrSL36KUw",
+          "name": "uk_plugin_db_trigger_name",
+          "unique": true,
+          "fieldIds": [
+            "ZqhzHDP5UUSN3jtYuLsYOw"
+          ]
+        },
+        {
+          "id": "+RAWjXLwIkGHBRCT5uOqWg",
+          "name": "uk_savekey",
+          "unique": true,
+          "fieldIds": [
+            "Mm+zIlz5iU6w46k0gJZwiA"
+          ]
+        }
+      ],
+      "offset": 488067,
+      "endOffset": 498205,
+      "fields": [
+        {
+          "index": 0,
+          "id": "aRx4sXL8k0WHzjzH0C2hxw",
+          "name": "name",
+          "type": "BansheeGz.BGDatabase.BGFieldEntityName, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": true,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": false,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 490002,
+          "valuesOffset": 490169,
+          "valuesBytes": 1848,
+          "valuesSha256": "5f425563c867b05053183aa70c3dedd1c2c7c5c9251fa3d9008ef4f3b0f5a717"
+        },
+        {
+          "index": 1,
+          "id": "QtfPU7c06U6IYvVCzuqTMg",
+          "name": "bio_text",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": true,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 492017,
+          "valuesOffset": 492184,
+          "valuesBytes": 1859,
+          "valuesSha256": "943e47e5e4b0259c10c40f430f781caeee2c1dcc8d00a240ec8a5428e899f412"
+        },
+        {
+          "index": 2,
+          "id": "Mm+zIlz5iU6w46k0gJZwiA",
+          "name": "savekey",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": true,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 494043,
+          "valuesOffset": 494209,
+          "valuesBytes": 1817,
+          "valuesSha256": "1aef89a092bac6dfb5ef5125c7cda8ce6cd3d1b84c57c8f81cc2bf012cbca24c"
+        },
+        {
+          "index": 3,
+          "id": "ZqhzHDP5UUSN3jtYuLsYOw",
+          "name": "plugin_db_trigger_name",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "configHex": "",
+          "headerBool1": false,
+          "headerString1": null,
+          "headerString2": null,
+          "headerBool2": true,
+          "formatter": null,
+          "editor": null,
+          "comment": null,
+          "offset": 496026,
+          "valuesOffset": 496207,
+          "valuesBytes": 1817,
+          "valuesSha256": "1aef89a092bac6dfb5ef5125c7cda8ce6cd3d1b84c57c8f81cc2bf012cbca24c"
+        }
+      ],
+      "rows": [
+        {
+          "index": 59,
+          "id": "nXUUzRIrf0Cugr+ixQcBCg",
+          "cells": {
+            "name": "Shopkeep",
+            "bio_text": "Shopkeep",
+            "savekey": "shopkeep",
+            "plugin_db_trigger_name": "shopkeep"
+          },
+          "spans": {
+            "name": {
+              "offset": 491563,
+              "bytes": 8
+            },
+            "bio_text": {
+              "offset": 493597,
+              "bytes": 8
+            },
+            "savekey": {
+              "offset": 495575,
+              "bytes": 8
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497573,
+              "bytes": 8
+            }
+          }
+        },
+        {
+          "index": 65,
+          "id": "W9BarxaWqUqefo9rBF4nrw",
+          "cells": {
+            "name": "Artist",
+            "bio_text": "Artist",
+            "savekey": "artist",
+            "plugin_db_trigger_name": "artist"
+          },
+          "spans": {
+            "name": {
+              "offset": 491620,
+              "bytes": 6
+            },
+            "bio_text": {
+              "offset": 493654,
+              "bytes": 6
+            },
+            "savekey": {
+              "offset": 495630,
+              "bytes": 6
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497628,
+              "bytes": 6
+            }
+          }
+        },
+        {
+          "index": 70,
+          "id": "Smvu/8k0LEqWf7Xt6Y1iwA",
+          "cells": {
+            "name": "Alligator",
+            "bio_text": "Alligator",
+            "savekey": "alligator",
+            "plugin_db_trigger_name": "alligator"
+          },
+          "spans": {
+            "name": {
+              "offset": 491660,
+              "bytes": 9
+            },
+            "bio_text": {
+              "offset": 493694,
+              "bytes": 9
+            },
+            "savekey": {
+              "offset": 495670,
+              "bytes": 9
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497668,
+              "bytes": 9
+            }
+          }
+        },
+        {
+          "index": 71,
+          "id": "q9UPLsPfqkupARqgqHP9sg",
+          "cells": {
+            "name": "Beaver",
+            "bio_text": "Beaver",
+            "savekey": "beaver",
+            "plugin_db_trigger_name": "beaver"
+          },
+          "spans": {
+            "name": {
+              "offset": 491669,
+              "bytes": 6
+            },
+            "bio_text": {
+              "offset": 493703,
+              "bytes": 6
+            },
+            "savekey": {
+              "offset": 495679,
+              "bytes": 6
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497677,
+              "bytes": 6
+            }
+          }
+        },
+        {
+          "index": 72,
+          "id": "9EM2UXp0k0yHlFLGrjuPKA",
+          "cells": {
+            "name": "Bear",
+            "bio_text": "Bear",
+            "savekey": "bear",
+            "plugin_db_trigger_name": "bear"
+          },
+          "spans": {
+            "name": {
+              "offset": 491675,
+              "bytes": 4
+            },
+            "bio_text": {
+              "offset": 493709,
+              "bytes": 4
+            },
+            "savekey": {
+              "offset": 495685,
+              "bytes": 4
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497683,
+              "bytes": 4
+            }
+          }
+        },
+        {
+          "index": 73,
+          "id": "tnn6mWQ1zEGnFElj+fdQRQ",
+          "cells": {
+            "name": "Coyote",
+            "bio_text": "Coyote",
+            "savekey": "coyote",
+            "plugin_db_trigger_name": "coyote"
+          },
+          "spans": {
+            "name": {
+              "offset": 491679,
+              "bytes": 6
+            },
+            "bio_text": {
+              "offset": 493713,
+              "bytes": 6
+            },
+            "savekey": {
+              "offset": 495689,
+              "bytes": 6
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497687,
+              "bytes": 6
+            }
+          }
+        },
+        {
+          "index": 74,
+          "id": "OaZgEd4GA0GJEzYjsfTBPA",
+          "cells": {
+            "name": "Squirrel",
+            "bio_text": "Squirrel",
+            "savekey": "squirrel",
+            "plugin_db_trigger_name": "squirrel"
+          },
+          "spans": {
+            "name": {
+              "offset": 491685,
+              "bytes": 8
+            },
+            "bio_text": {
+              "offset": 493719,
+              "bytes": 8
+            },
+            "savekey": {
+              "offset": 495695,
+              "bytes": 8
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497693,
+              "bytes": 8
+            }
+          }
+        },
+        {
+          "index": 75,
+          "id": "VbHng98/Q0KlGmTfJVks5w",
+          "cells": {
+            "name": "Ram",
+            "bio_text": "Ram",
+            "savekey": "ram",
+            "plugin_db_trigger_name": "ram"
+          },
+          "spans": {
+            "name": {
+              "offset": 491693,
+              "bytes": 3
+            },
+            "bio_text": {
+              "offset": 493727,
+              "bytes": 3
+            },
+            "savekey": {
+              "offset": 495703,
+              "bytes": 3
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497701,
+              "bytes": 3
+            }
+          }
+        },
+        {
+          "index": 76,
+          "id": "qhyQ7Ob3kk6wBXpJYELCRQ",
+          "cells": {
+            "name": "Mouse",
+            "bio_text": "Mouse",
+            "savekey": "mouse",
+            "plugin_db_trigger_name": "mouse"
+          },
+          "spans": {
+            "name": {
+              "offset": 491696,
+              "bytes": 5
+            },
+            "bio_text": {
+              "offset": 493730,
+              "bytes": 5
+            },
+            "savekey": {
+              "offset": 495706,
+              "bytes": 5
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497704,
+              "bytes": 5
+            }
+          }
+        },
+        {
+          "index": 77,
+          "id": "5Vg391Ze/kG/RbRGgO3Bsg",
+          "cells": {
+            "name": "Otter",
+            "bio_text": "Otter",
+            "savekey": "otter",
+            "plugin_db_trigger_name": "otter"
+          },
+          "spans": {
+            "name": {
+              "offset": 491701,
+              "bytes": 5
+            },
+            "bio_text": {
+              "offset": 493735,
+              "bytes": 5
+            },
+            "savekey": {
+              "offset": 495711,
+              "bytes": 5
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497709,
+              "bytes": 5
+            }
+          }
+        },
+        {
+          "index": 78,
+          "id": "u0/jlE4ZckC9vFbHru/n+g",
+          "cells": {
+            "name": "Donkey",
+            "bio_text": "Donkey",
+            "savekey": "donkey",
+            "plugin_db_trigger_name": "donkey"
+          },
+          "spans": {
+            "name": {
+              "offset": 491706,
+              "bytes": 6
+            },
+            "bio_text": {
+              "offset": 493740,
+              "bytes": 6
+            },
+            "savekey": {
+              "offset": 495716,
+              "bytes": 6
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497714,
+              "bytes": 6
+            }
+          }
+        },
+        {
+          "index": 79,
+          "id": "u3Bzsjc41keZE31E0cx00g",
+          "cells": {
+            "name": "Peregrine Falcon",
+            "bio_text": "Peregrine Falcon",
+            "savekey": "peregrine_falcon",
+            "plugin_db_trigger_name": "peregrine_falcon"
+          },
+          "spans": {
+            "name": {
+              "offset": 491712,
+              "bytes": 16
+            },
+            "bio_text": {
+              "offset": 493746,
+              "bytes": 16
+            },
+            "savekey": {
+              "offset": 495722,
+              "bytes": 16
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497720,
+              "bytes": 16
+            }
+          }
+        },
+        {
+          "index": 80,
+          "id": "ym8T72YnSUiOKz39ahdbtg",
+          "cells": {
+            "name": "Rabbit",
+            "bio_text": "Rabbit",
+            "savekey": "rabbit",
+            "plugin_db_trigger_name": "rabbit"
+          },
+          "spans": {
+            "name": {
+              "offset": 491728,
+              "bytes": 6
+            },
+            "bio_text": {
+              "offset": 493762,
+              "bytes": 6
+            },
+            "savekey": {
+              "offset": 495738,
+              "bytes": 6
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497736,
+              "bytes": 6
+            }
+          }
+        },
+        {
+          "index": 81,
+          "id": "zuVhWJ+UPkqUgU5eQAEQVg",
+          "cells": {
+            "name": "Elder",
+            "bio_text": "Elder",
+            "savekey": "elder",
+            "plugin_db_trigger_name": "elder"
+          },
+          "spans": {
+            "name": {
+              "offset": 491734,
+              "bytes": 5
+            },
+            "bio_text": {
+              "offset": 493768,
+              "bytes": 5
+            },
+            "savekey": {
+              "offset": 495744,
+              "bytes": 5
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497742,
+              "bytes": 5
+            }
+          }
+        },
+        {
+          "index": 82,
+          "id": "kA4IH+moDkGIxL0UoQzR7g",
+          "cells": {
+            "name": "Middle Aged",
+            "bio_text": "Middle Aged",
+            "savekey": "middle_aged",
+            "plugin_db_trigger_name": "middle_aged"
+          },
+          "spans": {
+            "name": {
+              "offset": 491739,
+              "bytes": 11
+            },
+            "bio_text": {
+              "offset": 493773,
+              "bytes": 11
+            },
+            "savekey": {
+              "offset": 495749,
+              "bytes": 11
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497747,
+              "bytes": 11
+            }
+          }
+        },
+        {
+          "index": 83,
+          "id": "QwFc65NVAkGQzoo6hiezzQ",
+          "cells": {
+            "name": "Adult",
+            "bio_text": "Adult",
+            "savekey": "adult",
+            "plugin_db_trigger_name": "adult"
+          },
+          "spans": {
+            "name": {
+              "offset": 491750,
+              "bytes": 5
+            },
+            "bio_text": {
+              "offset": 493784,
+              "bytes": 5
+            },
+            "savekey": {
+              "offset": 495760,
+              "bytes": 5
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497758,
+              "bytes": 5
+            }
+          }
+        },
+        {
+          "index": 84,
+          "id": "bhaKdhW3r0m0C38TU+D8Qw",
+          "cells": {
+            "name": "Young Adult",
+            "bio_text": "Young Adult",
+            "savekey": "young_adult",
+            "plugin_db_trigger_name": "young_adult"
+          },
+          "spans": {
+            "name": {
+              "offset": 491755,
+              "bytes": 11
+            },
+            "bio_text": {
+              "offset": 493789,
+              "bytes": 11
+            },
+            "savekey": {
+              "offset": 495765,
+              "bytes": 11
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497763,
+              "bytes": 11
+            }
+          }
+        },
+        {
+          "index": 85,
+          "id": "zDwSb9ifqE6sa7eLffXCtw",
+          "cells": {
+            "name": "Historian",
+            "bio_text": "Historian",
+            "savekey": "historian",
+            "plugin_db_trigger_name": "historian"
+          },
+          "spans": {
+            "name": {
+              "offset": 491766,
+              "bytes": 9
+            },
+            "bio_text": {
+              "offset": 493800,
+              "bytes": 9
+            },
+            "savekey": {
+              "offset": 495776,
+              "bytes": 9
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497774,
+              "bytes": 9
+            }
+          }
+        },
+        {
+          "index": 86,
+          "id": "bPDqpLzEqkChPiSUq8hRJA",
+          "cells": {
+            "name": "Woodworker",
+            "bio_text": "Woodworker",
+            "savekey": "woodworker",
+            "plugin_db_trigger_name": "woodworker"
+          },
+          "spans": {
+            "name": {
+              "offset": 491775,
+              "bytes": 10
+            },
+            "bio_text": {
+              "offset": 493809,
+              "bytes": 10
+            },
+            "savekey": {
+              "offset": 495785,
+              "bytes": 10
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497783,
+              "bytes": 10
+            }
+          }
+        },
+        {
+          "index": 87,
+          "id": "9QccMCUv+E6NykZKql905w",
+          "cells": {
+            "name": "Temporary Bodyguard",
+            "bio_text": "Temporary Bodyguard",
+            "savekey": "temporary_bodyguard",
+            "plugin_db_trigger_name": "temporary_bodyguard"
+          },
+          "spans": {
+            "name": {
+              "offset": 491785,
+              "bytes": 19
+            },
+            "bio_text": {
+              "offset": 493819,
+              "bytes": 19
+            },
+            "savekey": {
+              "offset": 495795,
+              "bytes": 19
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497793,
+              "bytes": 19
+            }
+          }
+        },
+        {
+          "index": 88,
+          "id": "GwtyBYBN2kuC5+HBlA8+Qg",
+          "cells": {
+            "name": "Professional Athlete",
+            "bio_text": "Professional Athlete",
+            "savekey": "professional_athlete",
+            "plugin_db_trigger_name": "professional_athlete"
+          },
+          "spans": {
+            "name": {
+              "offset": 491804,
+              "bytes": 20
+            },
+            "bio_text": {
+              "offset": 493838,
+              "bytes": 20
+            },
+            "savekey": {
+              "offset": 495814,
+              "bytes": 20
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497812,
+              "bytes": 20
+            }
+          }
+        },
+        {
+          "index": 89,
+          "id": "VG6JvArKAEmZoqHAX17iOA",
+          "cells": {
+            "name": "Town Aerial Taxi",
+            "bio_text": "Town Aerial Taxi",
+            "savekey": "town_arial_taxi",
+            "plugin_db_trigger_name": "town_arial_taxi"
+          },
+          "spans": {
+            "name": {
+              "offset": 491824,
+              "bytes": 16
+            },
+            "bio_text": {
+              "offset": 493858,
+              "bytes": 16
+            },
+            "savekey": {
+              "offset": 495834,
+              "bytes": 15
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497832,
+              "bytes": 15
+            }
+          }
+        },
+        {
+          "index": 90,
+          "id": "ES5pmOSCcEK9h6TmRkvl+g",
+          "cells": {
+            "name": "Gardener",
+            "bio_text": "Gardener",
+            "savekey": "gardener",
+            "plugin_db_trigger_name": "gardener"
+          },
+          "spans": {
+            "name": {
+              "offset": 491840,
+              "bytes": 8
+            },
+            "bio_text": {
+              "offset": 493874,
+              "bytes": 8
+            },
+            "savekey": {
+              "offset": 495849,
+              "bytes": 8
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497847,
+              "bytes": 8
+            }
+          }
+        },
+        {
+          "index": 91,
+          "id": "VF5E8dp/MkaG/tvt2TCnHw",
+          "cells": {
+            "name": "Arctic Fox",
+            "bio_text": "Arctic Fox",
+            "savekey": "arctic_fox",
+            "plugin_db_trigger_name": "arctic_fox"
+          },
+          "spans": {
+            "name": {
+              "offset": 491848,
+              "bytes": 10
+            },
+            "bio_text": {
+              "offset": 493882,
+              "bytes": 10
+            },
+            "savekey": {
+              "offset": 495857,
+              "bytes": 10
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497855,
+              "bytes": 10
+            }
+          }
+        },
+        {
+          "index": 93,
+          "id": "heZp5mj1SkqTBcbSbXAYvg",
+          "cells": {
+            "name": "Wolf",
+            "bio_text": "Wolf",
+            "savekey": "wolf",
+            "plugin_db_trigger_name": "wolf"
+          },
+          "spans": {
+            "name": {
+              "offset": 491872,
+              "bytes": 4
+            },
+            "bio_text": {
+              "offset": 493895,
+              "bytes": 4
+            },
+            "savekey": {
+              "offset": 495881,
+              "bytes": 4
+            },
+            "plugin_db_trigger_name": {
+              "offset": 497879,
+              "bytes": 4
+            }
+          }
+        }
+      ],
+      "coverage": "Only exact BioDetail line1/line2/line3 target rows; remaining rows opaque"
+    }
+  ],
+  "sourceAcceptance": "needs-review; bounded static BioDetail and referenced BioKeyword supplement",
+  "reinsertion": "not-run",
+  "runtime": "not-run",
+  "visual": "not-run",
+  "editorial": "not-run"
+}

@@ -1,0 +1,3 @@
+TYPE BansheeGz.BGDatabase.BGFieldRelationA`2
+METHOD System.Collections.Generic.List`1<BansheeGz.BGDatabase.BGEntity> BansheeGz.BGDatabase.BGFieldRelationA`2::GetRelatedIn(BansheeGz.BGDatabase.BGId,System.Collections.Generic.List`1<BansheeGz.BGDatabase.BGEntity>) | attributes=Public, Virtual, HideBySig, VtableLayoutMask, Abstract | impl=IL
+METHOD System.Collections.Generic.List`1<BansheeGz.BGDatabase.BGEntity> BansheeGz.BGDatabase.BGFieldRelationA`2::GetRelatedIn(System.Collections.Generic.HashSet`1<BansheeGz.BGDatabase.BGId>,System.Collections.Generic.List`1<BansheeGz.BGDatabase.BGEntity>) | attributes=Public, Virtual, HideBySig, VtableLayoutMask, Abstract | impl=IL

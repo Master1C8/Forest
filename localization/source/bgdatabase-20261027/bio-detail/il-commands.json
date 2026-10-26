@@ -1,0 +1,310 @@
+[
+  {
+    "output": "db-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.BioDetail",
+    "selection": "--list",
+    "sha256": "81df14d60606920c4f0c7d2f14340610b4e9a66df3b2ab20e085e459af20c184"
+  },
+  {
+    "output": "actor-db-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Actor",
+    "selection": "--list",
+    "sha256": "786b5e6eb7e2b552a56f9b191199c8f6509e4f9b9d661303eccbfb799b97854d"
+  },
+  {
+    "output": "bio-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioDetail",
+    "selection": "--list",
+    "sha256": "acd5d20e9117a6527db2365b553680b8553f7ce6b4d679ff647c21b29e8ebab6"
+  },
+  {
+    "output": "dirty-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "Actor::SetDirtyBioData",
+    "sha256": "c50a6d4e910fa6cede6ffde8ba2b4be327a970f655f8a6b9b64ff400613c1443"
+  },
+  {
+    "output": "loader-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "--list",
+    "sha256": "d80ccca62e3cb0fc89845a7c1949912130896b2e779611d78c0fcb4a31ad244d"
+  },
+  {
+    "output": "db-detail.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.BioDetail",
+    "selection": "get_MetaDefault,get__name,get_name,get__actor,get_actor,get__bio_portrait,get_bio_portrait,get__nameplate_name_override,get_nameplate_name_override,get__full_name_override,get_full_name_override,get__line1,get_line1,get__line2,get_line2,get__line3,get_line3,get__enable_with_tags,get_enable_with_tags,get__is_default,get_is_default",
+    "sha256": "31f7fa17c0ccc41330345b4838b5623d40e7561a96a7f1831dc699028f821e0e"
+  },
+  {
+    "output": "db-actor-related.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Actor",
+    "selection": "get_RelatedBioDetailListUsingactorRelation",
+    "sha256": "4fa95d3e82070a8bb33be9fe19138c854754ae378be9a0c3bfd17dee623b327f"
+  },
+  {
+    "output": "actor-selection.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Actor",
+    "selection": "get_CurrentBioDetail,ChooseBioDetail,SetDirtyBioData,Load",
+    "sha256": "e567a55bb90d841e1b460f671ebe354e627200d607cd679810b40daaa60c8f71"
+  },
+  {
+    "output": "dirty-consumer.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ActorTrackingService",
+    "selection": "OnActiveTagsChanged",
+    "sha256": "5520c82e7920716ac503abdd9b3ef26c1a3da14646b49943d11ca5b948806187"
+  },
+  {
+    "output": "bio-values.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioDetail",
+    "selection": "get_bioSpeciesText,get_bioAgeText,get_bioRoleText,get_isBioSpeciesUnlocked,get_isBioAgeUnlocked,get_isBioRoleUnlocked,.ctor",
+    "sha256": "c7836b77fce66dd5a81bbb2e1504036c6418621a1acc95847623542c5623dd6b"
+  },
+  {
+    "output": "dirty-event-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "ActorTrackingService::OnActiveTagsChanged",
+    "sha256": "1b6615597d60803468fb239ee957ea28d279d89b5210423e0116b6ae1df09a36"
+  },
+  {
+    "output": "bio-portrait-callback.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass17_1",
+    "selection": "<GenerateActorBios>b__1",
+    "sha256": "babfe141f5342d3073654cc245a2174a1b7070d91fe33b819f2db07b8b3a5309"
+  },
+  {
+    "output": "db-keyword.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.BioKeyword",
+    "selection": "get_MetaDefault,get__name,get__bio_text,get__savekey,get__plugin_db_trigger_name,get_name,get_bio_text,get_savekey,get_plugin_db_trigger_name",
+    "sha256": "3706c614968ae34c832d813ebfab317bd196a3a482a7a9ae903ed97440685cbe"
+  },
+  {
+    "output": "keyword-loader.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "GenerateBioKeywords",
+    "sha256": "375534aaf438d1717c9061df5aff10927be92a0ba4f78f196664fc6a5290db17"
+  },
+  {
+    "output": "keyword-types.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--types",
+    "selection": "DisplayClass9",
+    "sha256": "70b5d0d2c3d9000aeaed1b0682a2fbd953c27e79afc677efd5496a93b91ad396"
+  },
+  {
+    "output": "relation-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2",
+    "selection": "--list",
+    "sha256": "d3195ce4b4fc43a8b03a0d0d81b53ca177d6d2091ca13f5bfb2aac8d29fc2958"
+  },
+  {
+    "output": "relation-single-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationSingle",
+    "selection": "--list",
+    "sha256": "0313397e7744964340873dff454d772170a27a0af898fc203debd369ad15f296"
+  },
+  {
+    "output": "listeners.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ActorTrackingService",
+    "selection": "AddEventListeners,RemoveEventListeners",
+    "sha256": "dcde835b326fb27244a06c04abd8c658f00b467beda22de024d95d10fea64aea"
+  },
+  {
+    "output": "keyword-callback.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass9_0",
+    "selection": "<GenerateBioKeywords>b__0",
+    "sha256": "3f72fb3828163c8245756fac1ca6a82f0a47cbdb4280450bf007bdbd04166e1f"
+  },
+  {
+    "output": "cache-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "Actor::_currentBioDetail",
+    "sha256": "66f11c7014ce24aaf79bab4144bb7c3288da2dd57ab6fa71210dca40dc15a097"
+  },
+  {
+    "output": "bio-related-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "Actor::bioDetails",
+    "sha256": "affbd0c1f99e1486f2a83f725a25f4e1d18ffce0b1868b1e3515c191bacb3e5a"
+  },
+  {
+    "output": "tag-event-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "ActiveTagsChanged",
+    "sha256": "f1b414a03d038e615563e2b02a78993c4fa1b687685704aca6cd21c9de00f6a9"
+  },
+  {
+    "output": "relation-base.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2",
+    "selection": "GetRelatedIn",
+    "sha256": "401539302d64a53aaa0e4460128d401c4ac2e044d389e6f229e63e30467f6f8e"
+  },
+  {
+    "output": "relation-single.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationSingle",
+    "selection": "GetRelatedIn,BuildReverseCache,<BuildReverseCache>b__14_0,ReverseSetRelated",
+    "sha256": "eab4c8019d6d23d263da71b27f9d3f95ea50e2eca226fc8255f63428217f2462"
+  },
+  {
+    "output": "tag-update.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.NarrativeActions",
+    "selection": "UpdateTags",
+    "sha256": "83ca057690479938bc09007829267a0b1f2a492e502b8b6e594fac94a4215372"
+  },
+  {
+    "output": "relation-fields.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationSingle",
+    "selection": "--fields",
+    "sha256": "3ffba0683f2a7ee2289dc1d5cb4e63f49b02931caebd10cfb5c69848f835be41"
+  },
+  {
+    "output": "reverse-types.il",
+    "assembly": "BGDatabase.dll",
+    "type": "--types",
+    "selection": "ReverseRelationCache",
+    "sha256": "ae339c268d41cc9636339c33283b348f2a825049cdf93ae21df0df985fd08feb"
+  },
+  {
+    "output": "store-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGStoreField`1",
+    "selection": "--list",
+    "sha256": "1472c56f73acc68321f48ce7ef3a39b74fbbbb51c942b98bf8f5fb337b8ac13a"
+  },
+  {
+    "output": "store-fields.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGStoreField`1",
+    "selection": "--fields",
+    "sha256": "1ec3069c2f1c4b9e80a4f544e4825d0bc0d22a2ebb8ab2175bd1858aac9cd9eb"
+  },
+  {
+    "output": "store-enumeration.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGStoreField`1",
+    "selection": "ForEachKeyValue",
+    "sha256": "4073eae13067a341043ebbdc4d74325d028f95f5c2f6bdf01ae17a3873b56ad8"
+  },
+  {
+    "output": "reverse-cache-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCache",
+    "selection": "--list",
+    "sha256": "58c3e0056ba85275efb7cd577f84b6c03d9d78e3495f9f705f110c1df1402e97"
+  },
+  {
+    "output": "reverse-value-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue",
+    "selection": "--list",
+    "sha256": "887e4c90c88f4334de826f655ff7b24f111d09702b110214eda730794c371d9c"
+  },
+  {
+    "output": "reverse-multi-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValueMulti",
+    "selection": "--list",
+    "sha256": "a11d8b347cb6071eeed51ab68e256bf6c512f2c67b2f8fabdd9be95c2da12116"
+  },
+  {
+    "output": "array-store-fields.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGArrayStore`1",
+    "selection": "--fields",
+    "sha256": "77236231730e97d11e810a21b45eda774e673933213a9247041c7e5eed62554c"
+  },
+  {
+    "output": "reverse-cache.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCache",
+    "selection": "Enable,Get,Ensure",
+    "sha256": "9ed2594fa5a451a7548fab41a91828147bcb2470d6b59c139d55679b556626a3"
+  },
+  {
+    "output": "reverse-value.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue",
+    "selection": "get_List,Add,MarkDirty,.ctor",
+    "sha256": "87b2d0ef9cf4e7eb12f200458d5ee6e21f4deb7122caa4873ee700634f182e8b"
+  },
+  {
+    "output": "entity-order.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGEntity",
+    "selection": "CompareTo",
+    "sha256": "2a7a7d2e4fec4ac264e84e53e35f0cdc13fe544b4db89cfb8131f5edb3721a6b"
+  },
+  {
+    "output": "relation-constructors.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2",
+    "selection": ".ctor",
+    "sha256": "18fd78dfc11fe90ff018ac732e6ad2b7feb6cc21345e66aad5ae6a8788d22223"
+  },
+  {
+    "output": "reverse-cache-constructor.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCache",
+    "selection": ".ctor",
+    "sha256": "4ebd57fd97858d6a079b6bd974508ca47091d8a5aa3c1ba44c2467bfa468aab8"
+  },
+  {
+    "output": "relation-single-constructors.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationSingle",
+    "selection": ".ctor",
+    "sha256": "ae14f25d290e6993fa71e9ba5ac7896dd32dfed19a581749f080badbec85a0b3"
+  },
+  {
+    "output": "multiple-getter.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationMultiple",
+    "selection": "get_Item",
+    "sha256": "164bb5dda1580fc402e6c9f620cc85812210a853203c6db430bdad87c5173f67"
+  },
+  {
+    "output": "reverse-cache-fields.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCache",
+    "selection": "--fields",
+    "sha256": "9ced2f8c1fdb5395a3185fdb84bc1406d84edc15358e72d42aa3394c080c05de"
+  },
+  {
+    "output": "manifest-order.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "GenerateManifest",
+    "sha256": "508c01dadb5474d38b654a651836acdf891d72c0f959669966449df84114c55e"
+  },
+  {
+    "output": "keyword-unlock.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioDetail",
+    "selection": "TryUnlockKeyword",
+    "sha256": "c3917fc3c767cdc5e80b08f43e0b38a6dc224206594f0f31bd14b58751e38e32"
+  }
+]

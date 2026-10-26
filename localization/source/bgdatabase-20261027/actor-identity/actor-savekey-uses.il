@@ -1,0 +1,9 @@
+System.Void TheForestOfLove.Services.Persistence.DataService::GenerateManifest() | IL_034e: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Services.Persistence.DataService::RestoreNonlinearContent(TheForestOfLove.Services.Persistence.Savestate) | IL_0078: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Services.Persistence.DataService::RestoreNonlinearContent(TheForestOfLove.Services.Persistence.Savestate) | IL_009b: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Services.Persistence.DataService::SaveActor(TheForestOfLove.Narrative.Actor) | IL_000f: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Services.Persistence.DataService::SaveActor(TheForestOfLove.Narrative.Actor) | IL_0025: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_0032: stfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Narrative.ActorDialogueOracle::.ctor(TheForestOfLove.Narrative.Actor) | IL_004b: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Narrative.ActorTrackingSchema::OnActorSpawn() | IL_007f: ldfld System.String TheForestOfLove.Narrative.Actor::savekey
+System.Void TheForestOfLove.Narrative.ActorTrackingSchema::OnActorNoSpawn() | IL_0083: ldfld System.String TheForestOfLove.Narrative.Actor::savekey

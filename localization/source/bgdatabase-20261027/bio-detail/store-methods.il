@@ -1,0 +1,8 @@
+BansheeGz.BGDatabase.BGLazyLoaderFieldI BansheeGz.BGDatabase.BGStoreField`1::get_Loader()
+System.Void BansheeGz.BGDatabase.BGStoreField`1::set_Loader(BansheeGz.BGDatabase.BGLazyLoaderFieldI)
+T BansheeGz.BGDatabase.BGStoreField`1::get_Item(System.Int32)
+System.Void BansheeGz.BGDatabase.BGStoreField`1::set_Item(System.Int32,T)
+System.Void BansheeGz.BGDatabase.BGStoreField`1::ForEachKey(System.Action`1<System.Int32>)
+System.Void BansheeGz.BGDatabase.BGStoreField`1::ForEachKeyValue(System.Action`2<System.Int32,T>)
+T[] BansheeGz.BGDatabase.BGStoreField`1::CopyRawValues()
+System.Void BansheeGz.BGDatabase.BGStoreField`1::.ctor()

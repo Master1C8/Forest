@@ -1,0 +1,4 @@
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass20_0::<GenerateQuests>b__0(TheForestOfLove.DB.Quest) | IL_0124: ldfld System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.Quest::enableWithTags
+System.Boolean TheForestOfLove.Narrative.Quest::IsAvailableWithTags() | IL_0041: ldfld System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.Quest::enableWithTags
+System.Void TheForestOfLove.Narrative.Quest::.ctor() | IL_0027: stfld System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.Quest::enableWithTags
+System.Void TheForestOfLove.Narrative.StoryManager::ResetQuestsWithTag(System.String) | IL_0022: ldfld System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.Quest::enableWithTags

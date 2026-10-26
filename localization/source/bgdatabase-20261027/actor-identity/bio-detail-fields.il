@@ -1,0 +1,24 @@
+TYPE TheForestOfLove.Narrative.BioDetail BASE System.Object
+FIELD TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.BioDetail::actor
+FIELD System.String TheForestOfLove.Narrative.BioDetail::dbName
+FIELD TheForestOfLove.DB.BioDetail TheForestOfLove.Narrative.BioDetail::dbBioDetail
+FIELD System.String TheForestOfLove.Narrative.BioDetail::overrideNameplateName
+FIELD System.String TheForestOfLove.Narrative.BioDetail::overrideFullName
+FIELD System.Boolean TheForestOfLove.Narrative.BioDetail::isDefault
+FIELD UnityEngine.Sprite TheForestOfLove.Narrative.BioDetail::bioPortrait
+FIELD TheForestOfLove.Utility.GenericAddressableAssetLoader`1<UnityEngine.Sprite> TheForestOfLove.Narrative.BioDetail::bioPortraitAssetLoader
+FIELD System.Collections.Generic.List`1<TheForestOfLove.Narrative.BioKeyword> TheForestOfLove.Narrative.BioDetail::bios
+FIELD System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.BioKeywordData> TheForestOfLove.Narrative.BioDetail::keywordData
+FIELD TheForestOfLove.Narrative.BioKeyword TheForestOfLove.Narrative.BioDetail::bioSpeciesKeyword
+FIELD TheForestOfLove.Narrative.BioKeyword TheForestOfLove.Narrative.BioDetail::bioAgeKeyword
+FIELD TheForestOfLove.Narrative.BioKeyword TheForestOfLove.Narrative.BioDetail::bioRoleKeyword
+FIELD System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.BioDetail::enableWithTags
+PROPERTY System.String TheForestOfLove.Narrative.BioDetail::bioSpeciesText()
+PROPERTY System.Single TheForestOfLove.Narrative.BioDetail::bioSpeciesTimeUnlocked()
+PROPERTY System.Boolean TheForestOfLove.Narrative.BioDetail::isBioSpeciesUnlocked()
+PROPERTY System.String TheForestOfLove.Narrative.BioDetail::bioAgeText()
+PROPERTY System.Single TheForestOfLove.Narrative.BioDetail::bioAgeTimeUnlocked()
+PROPERTY System.Boolean TheForestOfLove.Narrative.BioDetail::isBioAgeUnlocked()
+PROPERTY System.String TheForestOfLove.Narrative.BioDetail::bioRoleText()
+PROPERTY System.Single TheForestOfLove.Narrative.BioDetail::bioRoleTimeUnlocked()
+PROPERTY System.Boolean TheForestOfLove.Narrative.BioDetail::isBioRoleUnlocked()

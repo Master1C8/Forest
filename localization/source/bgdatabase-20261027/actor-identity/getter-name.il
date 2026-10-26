@@ -1,0 +1,5 @@
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest) | IL_0a40: callvirt System.String TheForestOfLove.DB.Actor::get_name()
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest) | IL_0a92: callvirt System.String TheForestOfLove.DB.Actor::get_name()
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest) | IL_0ae4: callvirt System.String TheForestOfLove.DB.Actor::get_name()
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest) | IL_0b36: callvirt System.String TheForestOfLove.DB.Actor::get_name()
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_0078: callvirt System.String TheForestOfLove.DB.Actor::get_nameplate_name()

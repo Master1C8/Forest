@@ -1,0 +1,8 @@
+TheForestOfLove.CharlotteMeetsTheCrittersCutscene
+TheForestOfLove.CritterLog
+TheForestOfLove.CritterLog/NamedResidentStatus
+TheForestOfLove.CritterLog/NamedResident
+TheForestOfLove.CritterLogBioPane
+TheForestOfLove.MapUI/CritterLocation
+TheForestOfLove.DevTools.EnableCritterActorInteractions
+TheForestOfLove.Gameplay.CritterActor

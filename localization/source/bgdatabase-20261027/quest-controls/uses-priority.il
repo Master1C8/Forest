@@ -1,0 +1,7 @@
+System.Int32 TheForestOfLove.QuestLog/<>c::<RefreshQuestLabels>b__40_0(TheForestOfLove.QuestLog/QuestLabel,TheForestOfLove.QuestLog/QuestLabel) | IL_0006: ldflda System.Int32 TheForestOfLove.Narrative.Quest::priority
+System.Int32 TheForestOfLove.QuestLog/<>c::<RefreshQuestLabels>b__40_0(TheForestOfLove.QuestLog/QuestLabel,TheForestOfLove.QuestLog/QuestLabel) | IL_0011: ldfld System.Int32 TheForestOfLove.Narrative.Quest::priority
+System.Int32 TheForestOfLove.QuestLog/<>c::<RefreshQuestLabels>b__40_1(TheForestOfLove.QuestLog/QuestLabel,TheForestOfLove.QuestLog/QuestLabel) | IL_0006: ldflda System.Int32 TheForestOfLove.Narrative.Quest::priority
+System.Int32 TheForestOfLove.QuestLog/<>c::<RefreshQuestLabels>b__40_1(TheForestOfLove.QuestLog/QuestLabel,TheForestOfLove.QuestLog/QuestLabel) | IL_0011: ldfld System.Int32 TheForestOfLove.Narrative.Quest::priority
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass20_0::<GenerateQuests>b__0(TheForestOfLove.DB.Quest) | IL_007e: stfld System.Int32 TheForestOfLove.Narrative.Quest::priority
+System.Int32 TheForestOfLove.Narrative.DialogueSystemLoader/<>c::<GenerateQuests>b__20_1(TheForestOfLove.Narrative.Quest,TheForestOfLove.Narrative.Quest) | IL_0001: ldflda System.Int32 TheForestOfLove.Narrative.Quest::priority
+System.Int32 TheForestOfLove.Narrative.DialogueSystemLoader/<>c::<GenerateQuests>b__20_1(TheForestOfLove.Narrative.Quest,TheForestOfLove.Narrative.Quest) | IL_0007: ldfld System.Int32 TheForestOfLove.Narrative.Quest::priority

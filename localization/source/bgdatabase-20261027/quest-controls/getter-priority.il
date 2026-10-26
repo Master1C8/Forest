@@ -1,0 +1,1 @@
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass20_0::<GenerateQuests>b__0(TheForestOfLove.DB.Quest) | IL_0079: callvirt System.Int32 TheForestOfLove.DB.Quest::get_priority()

@@ -1,0 +1,6 @@
+System.String BansheeGz.BGDatabase.BGAssetLoaderAddressables::get_Name()
+BansheeGz.BGDatabase.BGAssetLoaderAddressables/AddressablesLoader BansheeGz.BGDatabase.BGAssetLoaderAddressables::get_LoaderDelegate()
+T BansheeGz.BGDatabase.BGAssetLoaderAddressables::Load(System.String)
+T[] BansheeGz.BGDatabase.BGAssetLoaderAddressables::LoadAll(System.String)
+System.Void BansheeGz.BGDatabase.BGAssetLoaderAddressables::InitDelegate()
+System.Void BansheeGz.BGDatabase.BGAssetLoaderAddressables::.ctor()

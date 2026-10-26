@@ -1,0 +1,2 @@
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_0007: callvirt System.String TheForestOfLove.DB.Actor::get_plugin_db_name()
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_0039: callvirt System.String TheForestOfLove.DB.Actor::get_plugin_db_name()

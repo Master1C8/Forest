@@ -26,49 +26,48 @@ ownership receipts are preserved. Static technical continuation uses the explici
 `--git-coordinator parent` option and has no Git or live-preview interaction rights.
 Japanese and all locale assets remain independent/read-only to technical workers.
 
-## Phase0069: Quest notifications and initial unlock consumers
+## Phase0072: BioDetail overrides, relation order and keyword slots
 
-A separate original-source supplement resolves27 exact consumer IL selections.
-Storm handler/callback read log text into notification locals; the only text-field
-write in original Assembly-CSharp is the loader.13 notification and14 pane lookups
-resolve to13 distinct log rows.98 selected cell states retain stable selectors,
-values/spans/relations;46 additional compiled occurrences distinguish9 display
-fragments and37 protected operands. Four concrete dependency groups bind ordering,
-conditions, anomalies and future checks without changing frozen lane inputs.
+All original BioDetail18x10 cells and only the25 referenced BioKeyword rows (25x4)
+now have exact typed static readback:280 states,226 stored spans and54 absent
+states.61 display-candidate states include36 absent overrides and25 nonempty
+bio_text values;219 states preserve identity, controls and resource keys.
+All73 relations bind exact Actor/Tag/BioKeyword cells.17 actors have18 details,
+matching the original critter-included actor set;22 actors have no detail.
 
-Notifications enqueue fresh two-string nodes: Greetings permits0..4 independent
-matches, Storm0..5, generic output1. Queue caps/deduplication are absent; FIFO/timer
-conditions and original8 old/8 new native Text descendants are pinned. Equal rows,
-white/shadow label variants and repeated events do not collapse authored identity.
-Special pane behavior includes Afterstorm's all-complete More critters . join,
-Storm's differing ==7/>=7 checks, dormant completion literal and prefix-only case.
-These original anomalies remain unchanged; no target wording/adapter is accepted.
+All original nameplate/full-name overrides are absent. The shipped FullName getter
+still reads overrideNameplateName; preserve that anomaly. The single-Actor reverse
+relation cache sorts by BGEntity.Index, and generated typed copies/loader preserve
+that order. First any-active tag wins before first default/list[0]/null. Charlotte
+has rows2/15; both tags active selects row2 under frozen initial order. Actual tag
+reachability is unverified. Active-tag events clear all actors' bio caches through
+the original listener; runtime lifecycle/event delivery remains untested.
 
-Initial unlocking has a concrete partial trace: StartQuest opens runtime list[0]
-with its event suppressed, and AdventureModePlaceholder opens list[0] separately.
-Neither reads the30 declared initial relations in28 Quest rows. No original
-Assembly-CSharp started-event listener or exact column-literal use was found.
-Reflection/other mechanisms and the exact first row under priority-only sorting
-remain unverified. Do not substitute declared links, row order or a stable sort.
+line1/2/3 bind species/age/role keyword slots. Display uses bio_text; unlock data
+uses original keyword dbName. The critter pane requires Detail/Notes/Kinks and
+attempts the three Detail unlocks for an introduced actor before masked display.
+Keep original keys (including town_arial_taxi), portraits, nulls and reveal timing.
+No source/glossary edits, target overlays, images, game or live-preview actions ran.
 
-Original TextAsset/resource/DLL hashes, all19 frozen pins,74 InventoryItem and46
-Quest evidence hashes,904 typed cell states and65 notification hierarchy hashes
-pass. All seven freshly generated readback files reproduce byte-for-byte. These
-checks establish static source/consumer bindings, not resource reinsertion,
-editorial, renderer/runtime or complete shared-source acceptance.
+Verification passes19 frozen pins,7 helpers,285 prior supplement evidence hashes,
+9 original resource/DLL hashes, original TextAsset/payload,44 exact IL selections,
+16 generated BGIds and both12246-candidate source copies (24492 occurrences).
+Fresh decoding and all8 readback outputs reproduce byte-for-byte. Selected-span
+no-op bytes are exact; reinsertion, semantic acceptance and rendering are unverified.
 
-Next: decode the remaining seven Quest columns and their actual availability/
-loader consumers in a new supplement. Seven provisional draft lanes remain
-independent/read-only. Accepted10/15/47/48 visuals and50 route stay unchanged;53 is
-consumed/no54 or unchanged runtime retry. Initial spawn/other3 intros/notebook/Bucky,
-full special-scene/source/editorial and final fonts/licenses/resources/local delivery
-remain pending. No game launches, images, agents, nested jobs or publication.
+Next: append-only BioKeyword111x4 and bounded trigger/save/unlock consumers, reusing
+these25 exact rows and inspecting the remaining86. BioNote/BioKink, complete source/
+special scenes, final fonts/licenses/resources/runtime/delivery and existing Quest
+uncertainties stay pending. Accepted10/15/47/48 visuals and50 route remain unchanged.
+All parallel lanes and the separate Russian preview remain independent/read-only.
+Parent alone integrates; this worker made zero Git/index/branch mutations.
 
-Evidence: `localization/source/bgdatabase-20261027/quest-consumers/ADAPTER.md`,
-`source-trace.json`, `dependency-groups.json`, `readback/verification.json`,
-`reproducibility.json`. Worker usage unknown; parent measures actual telemetry.
-Previous current summary is archived byte-for-byte in
-`localization/history/phase0068-summary.md`.
+Evidence: `localization/source/bgdatabase-20261027/bio-detail/ADAPTER.md`,
+`source-trace.json`, `decoded.json`, `runtime-context.json`,
+`readback/verification.json`, `readback/dependency-bindings.json`,
+`readback/relations.json`, `readback/selection-scenarios.json`, `reproducibility.json`.
+Previous summary/checkpoint bytes: `localization/history/phase0071-{summary.md,checkpoint.json}`.
+Usage is unknown in worker; parent measures actual telemetry.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 
@@ -552,7 +551,7 @@ remain explicit pending work rather than invented successful gates.
 | --- | --- | --- |
 | `scope` | `CHECKPOINT.json` | Exact 0.45 source, `ru`, standard localization and canonical checkout. |
 | `probe` | `.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/<new-run>` | Five bounded no-op/readback checks, then real synthetic Cyrillic rendering and normal-button progression on each required text path. |
-| `source` | Existing extractor/validator; `tools/prepare_dialogue_source.py`; `special-scenes.json` | Shared complete visible inventory, consumer classification and preserve-exactly manifest; semantic handoff pending. |
+| `source` | Existing extractor/validator; `tools/prepare_dialogue_source.py`; BGDatabase supplements through `actor-identity/verify_actor.py`; `special-scenes.json` | Shared complete visible inventory, consumer classification and preserve-exactly manifest; semantic handoff pending. |
 | `glossary` | `localization/glossary/{en,ru}.json` | Accepted source and Russian layers, 171 IDs, canonical hashes and two review layers. |
 | `translate-edit` | Pending source and probe gates | Direct model translation with immediate editing; every discovered special-scene group settled first. |
 | `editorial` | Universal protocol pinned in checkpoint | One complete semantic audit, reproducible closures, independent diff/delta review and final structural gate. |
