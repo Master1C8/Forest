@@ -1,0 +1,23 @@
+{
+  "stage": "bootstrap",
+  "elapsed": 35.265,
+  "stageElapsed": 35.265,
+  "idle": 28.495,
+  "hardLimit": 360,
+  "stageLimits": {
+    "bootstrap": [
+      120,
+      60
+    ],
+    "dialogue": [
+      240,
+      30
+    ],
+    "cleanup": [
+      60,
+      15
+    ]
+  },
+  "actualTerminalFrames": [],
+  "error": "AssertionError(('dump-intro', '', 'Traceback (most recent call last):\\n  File \"/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-41/command.py\", line 38, in <module>\\n    assert receipt and (\\' OK \\' + args.command) in receipt, receipt or \\'Timeout; outcome unknown, reconcile before resubmitting.\\'\\nAssertionError: Timeout; outcome unknown, reconcile before resubmitting.\\n'))"
+}

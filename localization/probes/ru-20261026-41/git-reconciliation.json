@@ -1,0 +1,37 @@
+{
+  "verifiedAt": "2026-10-26T14:29:31.811180+00:00",
+  "phaseStartHead": "62ecaca00580684adf8be2c12020cf7107afd21a",
+  "headBeforeGitTransaction": "1ba1fb7301e734532e3106d8c27ccdead18c4e4a",
+  "observedCompletedCommit": {
+    "commit": "1ba1fb7301e734532e3106d8c27ccdead18c4e4a",
+    "parent": "62ecaca00580684adf8be2c12020cf7107afd21a",
+    "reflogTime": "2026-10-26T14:22:17+00:00",
+    "changedPaths": 149,
+    "allPaths": "localization/ru-assets/",
+    "technicalFilesChanged": 0
+  },
+  "launchTime": "2026-10-26T14:22:33.164714+00:00",
+  "headAtLaunch": {
+    "reconciled": "1ba1fb7301e734532e3106d8c27ccdead18c4e4a",
+    "source": "Git reflog chronology, not contemporaneous launch receipt; original launcher omitted Git HEAD",
+    "directlyRecorded": false
+  },
+  "indexWasEmpty": true,
+  "initialStageAttempt": "Aborted on HEAD assertion before git add; no index mutation",
+  "activeTechnicalCliPids": [
+    3083
+  ],
+  "activeAssetCliPids": [
+    2309,
+    3273,
+    3432,
+    4161,
+    4412,
+    4874,
+    5412
+  ],
+  "activeGitWriterPids": [],
+  "ownership": "Current explicit phase assignment owns the complete Git transaction. Only current technical CLI is present; all other Forest CLI commands explicitly forbid Git. Completed intervening commit is disjoint protected asset content. Preserve it and use its HEAD as parent; no reset/amend/rewrite or asset staging.",
+  "boundary": "Writer of the completed commit is not identified by Git metadata. Its final tree is preserved. Check full index, exact intended files and unchanged HEAD again immediately before commit.",
+  "regression": "Future launch receipt must record current actual HEAD alongside immutable binary/helper hashes; preparation HEAD alone is not launch provenance."
+}

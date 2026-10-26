@@ -1,0 +1,37 @@
+{
+  "verifiedAt": "2026-10-26T14:26:04.886341+00:00",
+  "knownTaskPids": [
+    4141,
+    4142,
+    4149,
+    4350,
+    4355
+  ],
+  "remainingExactTaskProcesses": [],
+  "observerExit": {
+    "observerPid": 4142,
+    "returnCode": 1,
+    "waitStatusSource": "subprocess.Popen.wait on exact task-owned child",
+    "boundary": "OS observer status only; runtime-result/cleanup define game acceptance"
+  },
+  "gameExitCode": null,
+  "gameExitBoundary": "No retained wait status for CrossOver/game. Process absence and observer exit1 do not establish a numeric game exit.",
+  "pendingCommand": {
+    "value": "dump-intro",
+    "acknowledgement": "unknown: final dump-intro has no OK/FAIL row; left intact in consumed candidate, never resubmitted",
+    "sha256": "e4b9bbc0b4b709437daa9f576f107f353f3a5b5488c6af903c1d998085bcf25d"
+  },
+  "cleanup": {
+    "verifiedTaskProcessRowsBeforeQuit": [],
+    "remainingTaskProcessRows": [],
+    "quitAcknowledged": false,
+    "originalAssetsAndPlayerFilesUnchanged": true,
+    "originalAssemblyRestoredInQACopy": true,
+    "inspectionBridgeRemoved": true,
+    "inputPinsUnchanged": true,
+    "candidateAssetHashesUnchanged": true,
+    "ownerSavePathUsed": false
+  },
+  "postrunVerification": "final-verification.json",
+  "cleanupBoundary": "No task process existed at observer finally; normal Quit was not acknowledged. After game/crash absence observer restored isolated Assembly and removed ForestProbe. No process was terminated by this phase."
+}

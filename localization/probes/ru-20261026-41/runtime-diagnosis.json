@@ -1,0 +1,336 @@
+{
+  "phase": "0038-work",
+  "candidate": "ru-20261026-41",
+  "gameLaunches": 1,
+  "imagesOpened": 0,
+  "imagesCaptured": 0,
+  "preflight": {
+    "result": "passed",
+    "checks": 26,
+    "frozenDependencies": 430,
+    "liveLanePins": 19
+  },
+  "startup": {
+    "result": "ready",
+    "launcherExitCode": null,
+    "elapsedSeconds": 35.166,
+    "readyMarker": true,
+    "ownedProcessRows": [
+      "4149  4142 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-41/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-41/player.log",
+      "4350     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-41\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-41/player.log",
+      "4355     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-41\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+    ],
+    "playerLogBytes": 370588,
+    "playerLogSha256": "8597ab229a61372fa38c455665af2052859c833cfc83bf6745daa514fadee2c7",
+    "pendingCommand": false,
+    "boundary": "Launcher poll plus exact executable-path process scan; no game command or retry"
+  },
+  "originalMenu": {
+    "result": "passed",
+    "actualIdleFrames": 25,
+    "boundary": "Actual original focus/filter/native/Player/maps/eligibility and eight-key/axis idle; no menu pulse or QA policy replacement"
+  },
+  "focusSummary": "focus-transition-summary.json",
+  "progress": {
+    "introObservations": 7,
+    "scenes": [
+      "StartMenu",
+      "ChapterSelect",
+      "IntroForest"
+    ],
+    "sourceDialogueNodes": 0,
+    "sourceResponses": 0,
+    "boundContinueReceipts": 0,
+    "terminalCleanupFrames": [],
+    "loadedTravelSamples": 0,
+    "nativeInputInvocations": 0,
+    "lastIntroObservation": {
+      "elapsed": 52.569,
+      "scene": "IntroForest",
+      "conversationActive": false,
+      "conversationId": 0,
+      "entryId": 0,
+      "typing": false,
+      "narrativeDbName": "",
+      "narrativeArcName": "",
+      "responses": [],
+      "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=True",
+      "frame": 665,
+      "realtime": 35.160362243652344,
+      "scaledTime": 12.17243766784668,
+      "timeScale": 1.0,
+      "cleanupDiagnostics": [
+        "guards | gameplay=True | dustin=False | glitch=False | anyEvent=True",
+        "trigger | name=Cutscene_IntroBunnyHouse | count=absent",
+        "introCleanup | remainingControllers=0 | bedControllers=0 | activeBedControllers=0"
+      ],
+      "budget": {
+        "stage": "bootstrap",
+        "elapsed": 14.026,
+        "stageElapsed": 14.026,
+        "idle": 7.256,
+        "hardLimit": 360,
+        "stageLimits": {
+          "bootstrap": [
+            120,
+            60
+          ],
+          "dialogue": [
+            240,
+            30
+          ],
+          "cleanup": [
+            60,
+            15
+          ]
+        },
+        "actualTerminalFrames": []
+      }
+    }
+  },
+  "failure": {
+    "firstFailingAction": "dump-intro",
+    "boundary": "Command acknowledgement missing after last successful dump-focus; observer stopped at first unknown command",
+    "actualObserverExit": {
+      "observerPid": 4142,
+      "returnCode": 1,
+      "waitStatusSource": "subprocess.Popen.wait on exact task-owned child",
+      "boundary": "OS observer status only; runtime-result/cleanup define game acceptance"
+    },
+    "gameExitCode": null,
+    "gameDisappearedBeforeObserverFinally": true,
+    "pendingCommandPreserved": true,
+    "wineEvidence": [
+      {
+        "line": 389,
+        "text": "21237.476:00cc:00d0:trace:process:CreateProcessInternalW app (null) cmdline L\"\\\"Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-41\\\\game\\\\UnityCrashHandler64.exe\\\" --attach 204 549064704\""
+      },
+      {
+        "line": 1658,
+        "text": "21284.349:00d8:00dc:trace:process:CreateProcessInternalW app (null) cmdline L\"\\\"Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-41\\\\game\\\\UnityCrashHandler64.exe\\\" \\\"204\\\" \\\"549064704\\\" \""
+      }
+    ],
+    "playerLogLastNonempty": [
+      "Total: 325.568500 ms (FindLiveObjects: 1.815000 ms CreateObjectMapping: 1.572600 ms MarkObjects: 321.901400 ms  DeleteObjects: 0.277600 ms)",
+      "Unloading 1 Unused Serialized files (Serialized files now loaded: 2)",
+      "Unloading 10222 unused Assets to reduce memory usage. Loaded Objects now: 40872.",
+      "Total: 291.034300 ms (FindLiveObjects: 1.848800 ms CreateObjectMapping: 1.614100 ms MarkObjects: 284.938900 ms  DeleteObjects: 2.630900 ms)"
+    ],
+    "limits": "Later UnityCrashHandler launch is recorded, but no fatal stack or numeric game exit is retained. Process disappearance root cause unknown; no retry or alternate route."
+  },
+  "cleanupVerification": {
+    "status": "passed",
+    "verifiedAt": "2026-10-26T14:24:08.334836+00:00",
+    "checks": {
+      "frozenDependenciesUnchanged": true,
+      "originalManagedReferencesUnchanged": true,
+      "originalOtherGameFilesUnchanged": true,
+      "resourcePairsUnchanged": true,
+      "inputPinsUnchanged": true,
+      "ownerPlayerFilesUnchanged": true,
+      "originalQAAssemblyRestored": true,
+      "inspectionBridgeRemoved": true,
+      "exactTaskProcessesAbsent": true,
+      "originalCatalogUnchanged": true,
+      "originalAppIdentityUnchanged": true,
+      "externalStartupDependenciesUnchanged": true,
+      "exactObserverAndWrapperAbsent": true,
+      "actualObserverExitRetained": true,
+      "qaPersistenceEmpty": true
+    },
+    "frozenDependencies": 430,
+    "unchangedFrozenHashes": 428,
+    "expectedCleanupExceptions": [
+      "game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "game/The Forest of Love_Data/Managed/ForestProbe.dll"
+    ],
+    "frozenMismatches": [],
+    "originalManagedReferences": 150,
+    "originalOtherGameFiles": 262,
+    "resourcePairs": 5,
+    "inputPins": 19,
+    "remainingTaskProcesses": [],
+    "qaPersistentDirectory": "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/users/crossover/AppData/LocalLow/VNRevivalQA/ForestRuRendererProbe",
+    "qaGeneratedFiles": {
+      "The Forest of Love_Data/tfol.settings": "bb1f58245773215b69261bb68d3526aedc97aa782c682ea11ccd8dd4f50abacb"
+    },
+    "imagesCaptured": 0,
+    "imagesOpened": 0,
+    "scope": "No runtime/renderer/editorial acceptance implied by cleanup/hash verification"
+  },
+  "processReconciliation": "process-reconciliation.json",
+  "acceptance": "Passive focus serialization/callback ordering and25 original-policy menu idle frames verified on41. Overall runtime failed before145 dialogue/BunnyHouse. Preserve accepted10/15 visuals,29/36 menu,33 LEFT and40 intro; no new route/renderer/source/editorial/final-delivery acceptance.",
+  "nextAction": "Text-only static diagnosis of consumed41 IntroForest process loss and command-ack boundary; inspect only task-bound crash/lifetime evidence. Repair existing observer only when supported, with a changed hypothesis; zero game launches in next phase. Never replay41/40/39/38.",
+  "evidence": {
+    "actions.log": {
+      "sha256": "9374374df204574f6430e07023c33a2d2021ed1b1ce39095d594f857d56cfe1e",
+      "bytes": 1235
+    },
+    "cleanup.json": {
+      "sha256": "05b04e706c33356c1c2cd6647d571c70ef5918c4e8f321582893b85d9567c7af",
+      "bytes": 338
+    },
+    "command.txt": {
+      "sha256": "e4b9bbc0b4b709437daa9f576f107f353f3a5b5488c6af903c1d998085bcf25d",
+      "bytes": 11
+    },
+    "execution-model-phase0038.json": {
+      "sha256": "b6fe9ca574a61282bc2e41ba94d3cddbe560400b1872906f30011ae8c83b78b6",
+      "bytes": 2406
+    },
+    "final-verification.json": {
+      "sha256": "a8c9c72945008169e8d4228c6c1b6b1c94f4705875619b55228fcb33d12eef27",
+      "bytes": 1513
+    },
+    "focus-observations.json": {
+      "sha256": "9adb63f9baae85b31dc09fc3675f979eb01db4927ef8b6b84eab647c1b8683b7",
+      "bytes": 13150
+    },
+    "focus-trace.json": {
+      "sha256": "4621671c8fc3f67a7ed5fb28a64140e06e0d8087ec525da94cd668b2fa9a1a6e",
+      "bytes": 13188
+    },
+    "focus-transition-summary.json": {
+      "sha256": "65cf9bb427bb97ac2b32f7fcf08a74fdc18ce401089a374729a52d40db3d26cd",
+      "bytes": 12554
+    },
+    "intro-observation-budget.json": {
+      "sha256": "5c161e8585225950f4ac4f5e8f543135fab7be8d5d00113f6c11244ab48a85f6",
+      "bytes": 718
+    },
+    "intro-state.json": {
+      "sha256": "b1a54e1a69f75a4b5e09f2046c789cce60d88f777f2d9e22fb84097efafcea7a",
+      "bytes": 1477
+    },
+    "keyboard-samples.txt": {
+      "sha256": "eee9f051d40ebf109cfe3b4aab88ec327c9ff5de2003a8c5e739632fd480fc5f",
+      "bytes": 55756
+    },
+    "launch.json": {
+      "sha256": "0dfa84fb74ebae31f21280ac9b9034a938265fb48c76ea6132ec41756a436cf9",
+      "bytes": 1648
+    },
+    "main-menu-notebook.json": {
+      "sha256": "054f8830e39b7c2494bf5e64ecce93be8eab217fbc6167228b609f817342e8c0",
+      "bytes": 18826
+    },
+    "main-menu-tutorial.json": {
+      "sha256": "1db1fd34dc5ab2688bd646304146af67534c15b1dc286cb6bb71e1dd9b4db5ec",
+      "bytes": 2986
+    },
+    "main-menu.json": {
+      "sha256": "bc34ca525a0cb53131ef25fda2eff27a6f73099ad3ac97ff60849805521c41a7",
+      "bytes": 83488
+    },
+    "newgame-observations.json": {
+      "sha256": "dd3b9827ecead0f67cfa8f2811865bc5af710da67d712c3d2e1bef42eee7734a",
+      "bytes": 7669
+    },
+    "notebook-route.json": {
+      "sha256": "054f8830e39b7c2494bf5e64ecce93be8eab217fbc6167228b609f817342e8c0",
+      "bytes": 18826
+    },
+    "observer-child.json": {
+      "sha256": "47d04db7b15dca89e880ec2ea23258ae156877611e128f6a847e4d83d324a8a3",
+      "bytes": 346
+    },
+    "observer-exit.json": {
+      "sha256": "e846a6de66a9d58c0b34583bf2e59e25f8e313fd0843807ffb235d36b950d092",
+      "bytes": 206
+    },
+    "observer.stderr": {
+      "sha256": "eee3bf0b39a35c0e5dcf1eb13d50ad9b3e8fdfede65fa897af286f84bfaa2f21",
+      "bytes": 731
+    },
+    "observer.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "original-before.json": {
+      "sha256": "b6c0fac2bde79991a71d50947f54508ebf5c7792953f62d095dc0c1acfbb55ec",
+      "bytes": 239
+    },
+    "original-menu-idle-samples.txt": {
+      "sha256": "eee9f051d40ebf109cfe3b4aab88ec327c9ff5de2003a8c5e739632fd480fc5f",
+      "bytes": 55756
+    },
+    "original-menu-readiness.json": {
+      "sha256": "0dfdc1fadc00513292434a887468b5f7d39207c0f5c9f17f0a8a37d0974bb672",
+      "bytes": 192
+    },
+    "play-menu-notebook.json": {
+      "sha256": "054f8830e39b7c2494bf5e64ecce93be8eab217fbc6167228b609f817342e8c0",
+      "bytes": 18826
+    },
+    "play-menu.json": {
+      "sha256": "4ae202920dfe3d4ef8a4d50acec22a8940ddb59570792193c36e8a48c806948a",
+      "bytes": 77928
+    },
+    "player.log": {
+      "sha256": "db0f132ce6d890aefede0be07e49fc90011301a11dff8635353f8317df1ec63c",
+      "bytes": 381389
+    },
+    "preflight.json": {
+      "sha256": "cb141d7ccdf0c4fc2a3b67f3fefe1007f4d62fef463837f067d0c24e2a2afcbe",
+      "bytes": 1932
+    },
+    "process-reconciliation.json": {
+      "sha256": "d3759d8e30cbbcd106744da012fc9f0976a23e0e3a827b5e8699c7c540974bdc",
+      "bytes": 1482
+    },
+    "runtime-result.json": {
+      "sha256": "9fc9c53cfef4379af360d6c8dd43191adc5fdc4c66215edddafd64764114ca95",
+      "bytes": 753
+    },
+    "startup-observation.json": {
+      "sha256": "3f10173f62e6a98e07535494686742e6623f50c509e0734bdea1d1fb3bb4b8e5",
+      "bytes": 1129
+    },
+    "state.json": {
+      "sha256": "4ae202920dfe3d4ef8a4d50acec22a8940ddb59570792193c36e8a48c806948a",
+      "bytes": 77928
+    },
+    "tutorial-route.json": {
+      "sha256": "1db1fd34dc5ab2688bd646304146af67534c15b1dc286cb6bb71e1dd9b4db5ec",
+      "bytes": 2986
+    },
+    "wine.log": {
+      "sha256": "c4176e12c93e9dbbf178a603321c02828de2e7672c4af5d443634db1384dd729",
+      "bytes": 203061
+    },
+    "wrapper-launch.json": {
+      "sha256": "5969c879163d99bfb54187b8dc21018a0f607c157077a7fb978eed16015a7f7f",
+      "bytes": 489
+    },
+    "wrapper.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "wrapper.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "git-reconciliation.json": {
+      "sha256": "d8c942439e0346b2f7dce9071dd53c2984e8d4ef0f1b5a973d53b4f979adbdcd",
+      "bytes": 1750
+    }
+  },
+  "binaryPins": {
+    "ForestProbe.dll": "c37da7eba9b1701f53600fd3ee7222ff26c7282e10331eb3bde3443f3b63293b",
+    "Assembly-CSharp.hook.dll": "7b4426bfb85f4d0d2ffb9aa4ba60f55f33ba99d86200aeb45fadc8cd27db798a",
+    "target_keyboard": "397badbc45e57e024200d3640ac3d4787f89aa6b2c1b970259012f6b7d934bcb",
+    "bridge-source/ForestProbe.cs": "0658d2050cc84eb28703240edef859f6748509073f6c1a6f837260ac2e1d16f5",
+    "target_keyboard.swift": "9c80f5e21412d34da5669f3a5c670ca5c7221ef7ea159d22791588cdaa85994e",
+    "diagnose_newgame.py": "bc99b47b5f8710c9ee7f011723f361cb7e95ed43144f2bce1209e5fe64dd467c"
+  },
+  "sourceSupplement": {
+    "path": "localization/source/focus-transition-20261026/source-trace.json",
+    "sha256": "b201c695f3a3315959e9b9b35263a2f94498094b9c2bcc7997f9500ed88d7ac1"
+  },
+  "canonicalHeadAtPhaseStart": "62ecaca00580684adf8be2c12020cf7107afd21a",
+  "launchHeadProvenance": {
+    "reconciled": "1ba1fb7301e734532e3106d8c27ccdead18c4e4a",
+    "receipt": "git-reconciliation.json",
+    "directLaunchHeadMeasurement": false
+  }
+}
