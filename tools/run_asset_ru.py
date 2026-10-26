@@ -10,7 +10,8 @@ import subprocess
 import sys
 
 from cli_job_support import (MODEL, EFFORT, PROVIDER, validate_model, digest,
-                             assert_stopped, cli_events, asset_snapshot, asset_progress)
+                             assert_stopped, cli_events, asset_snapshot, asset_progress,
+                             cli_turn_succeeded, known_capacity_failure)
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 
@@ -32,8 +33,7 @@ def validate_capacity_restart(directory, state, receipt_path, snapshot):
         raise ValueError('Reconciliation receipt must belong to this asset job')
     receipt = json.loads(receipt_path.read_text())
     last = state['phases'][-1]
-    messages = [e.get('message') or (e.get('error') or {}).get('message') for e in last.get('errors', [])]
-    if not messages or any(m != 'Selected model is at capacity. Please try a different model.' for m in messages):
+    if not known_capacity_failure(last.get('errors', [])):
         raise ValueError('Only the exact reconciled capacity failure is eligible; unknown transport outcomes remain held')
     if last.get('exitCode') != 1 or receipt.get('failedPhase') != last['number'] or receipt.get('failedThreadId') != last.get('threadId'):
         raise ValueError('Reconciliation identifies a different failed request')
@@ -50,6 +50,35 @@ def validate_capacity_restart(directory, state, receipt_path, snapshot):
     if receipt.get('ownerInstruction') != 'Repair and continue both authorized CLI lanes':
         raise ValueError('Explicit restart authorization is missing')
     return receipt
+
+
+def validate_completed_restart(directory, state, receipt_path, snapshot):
+    receipt_path = receipt_path.resolve()
+    if directory not in receipt_path.parents:
+        raise ValueError('Reconciliation receipt must belong to this asset job')
+    receipt = json.loads(receipt_path.read_text())
+    last = state['phases'][-1]
+    thread, usage, errors = cli_events(Path(last['directory']) / 'events.jsonl')
+    if not cli_turn_succeeded(last.get('exitCode'), usage, errors):
+        raise ValueError('Successful turn completion is unverified')
+    if receipt.get('kind') != 'completed-turn' or receipt.get('failedPhase') != last['number'] or receipt.get('failedThreadId') != thread:
+        raise ValueError('Reconciliation identifies a different completed turn')
+    if receipt.get('jobSha256') != digest(directory / 'job.json') or receipt.get('overlaySha256') != snapshot['overlaySha256']:
+        raise ValueError('Completed turn artifacts changed since reconciliation')
+    if receipt.get('inputPinsSha256') != digest(directory / 'input-pins.json'):
+        raise ValueError('Pinned input declaration changed')
+    if receipt.get('ownerInstruction') != 'Repair and continue both authorized CLI lanes':
+        raise ValueError('Explicit continuation authorization is missing')
+    before_path = Path(last['directory']) / 'before.json'
+    if receipt.get('beforeSnapshotSha256') != digest(before_path) or not asset_progress(json.loads(before_path.read_text()), snapshot):
+        raise ValueError('Completed turn has no verified saved progress')
+    result_path = Path(last['directory']) / 'result.json'
+    if receipt.get('completedResultSha256') != digest(result_path):
+        raise ValueError('Completed result changed since reconciliation')
+    result = json.loads(result_path.read_text())
+    if result.get('outcome') != 'continue':
+        raise ValueError('Completed turn does not request continuation')
+    return receipt, result
 
 
 def run(directory, reconciliation=None):
@@ -74,7 +103,11 @@ def run(directory, reconciliation=None):
     if not any(m.get('slug') == MODEL for m in registry['models']):
         raise ValueError('Exact permitted model is unavailable')
     snapshot = snapshot_now()
-    receipt = validate_capacity_restart(directory, state, reconciliation, snapshot) if reconciliation is not None else None
+    completed_result = None
+    if reconciliation is not None and state['phases'][-1].get('exitCode') == 0:
+        receipt, completed_result = validate_completed_restart(directory, state, reconciliation, snapshot)
+    else:
+        receipt = validate_capacity_restart(directory, state, reconciliation, snapshot) if reconciliation is not None else None
     lock = directory / 'queue.lock'
     with lock.open('x') as stream:
         json.dump({'pid': os.getpid(), 'startedAt': now()}, stream)
@@ -87,6 +120,9 @@ def run(directory, reconciliation=None):
         if not state.get('phases'):
             state['phases'] = [] if state['status'] == 'prepared' else [{**state, 'number': 1, 'kind': 'translation',
                                 'status': 'partial-complete', 'directory': str(directory)}]
+        if completed_result is not None:
+            state['phases'][-1].update(status='phase-complete', result=completed_result,
+                parentReconciliation={'receipt': str(reconciliation.resolve()), 'sha256': digest(reconciliation)})
         state.setdefault('resumptions', []).append({'resumedAt': now(), 'history': str(history),
             'reason': 'Owner instructed repair both lanes; continue existing saved draft automatically.',
             'capacityReconciliation': {'path': str(reconciliation.resolve()), 'sha256': digest(reconciliation),
@@ -122,6 +158,9 @@ def run(directory, reconciliation=None):
                 'translate coherent source conversations with actual conditions, actors and links. '
                 f'Author {language} ({locale}) directly, edit immediately and save batches frequently. '
                 'Use existing corpus.py build and applicable poetry validation, never generate wording with scripts.\n\n'
+                'Moving a prior unsupported target to a hold requires an immutable source-bound retired-targets.json receipt: '
+                'id, sourceSha256, preserved target and targetSha256, objective reason, own-lane evidence path and evidenceSha256. '
+                'Keep the old text/evidence; an unexplained missing target is never accepted.\n\n'
                 'Process a bounded substantive batch (normally 300–600 fields, fewer for long or difficult scenes), '
                 'then finish BEFORE context exhaustion. This is a batch boundary, not stopping the overall assignment: '
                 'the parent supervisor automatically launches the next fresh phase after verified saved progress. '
@@ -160,7 +199,7 @@ def run(directory, reconciliation=None):
                 ('input_tokens', 'cached_input_tokens', 'output_tokens', 'reasoning_output_tokens', 'total_tokens')}
             state['unavailableUsagePhases'] = [p['number'] for p in state['phases'] if not p.get('measuredUsage')]
             save(state_path, state)
-            if rc or errors:
+            if not cli_turn_succeeded(rc, usage, errors):
                 state.update(status='held-process-or-transport-failure', reason='Reconcile exact request outcome before retry; no automatic failed-request retry.')
                 break
             after = snapshot_now()
@@ -201,5 +240,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', required=True, type=Path)
     parser.add_argument('--reconcile-capacity', type=Path)
+    parser.add_argument('--reconcile-completed', type=Path)
     args = parser.parse_args()
-    run(args.run.resolve(), reconciliation=args.reconcile_capacity)
+    assert not (args.reconcile_capacity and args.reconcile_completed), 'Choose one reconciliation path'
+    run(args.run.resolve(), reconciliation=args.reconcile_capacity or args.reconcile_completed)

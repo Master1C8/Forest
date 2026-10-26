@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import re
 
 MODEL, EFFORT, PROVIDER = 'gpt-6.1-sol', 'high', 'openai'
 
@@ -65,6 +66,19 @@ def cli_events(path):
     return thread, total, errors
 
 
+def cli_turn_succeeded(returncode, usage, errors):
+    return returncode == 0 and usage is not None and not any(e.get('type') == 'turn.failed' for e in errors)
+
+
+def known_capacity_failure(errors):
+    messages = [e.get('message') or (e.get('error') or {}).get('message') for e in errors]
+    capacity = 'Selected model is at capacity. Please try a different model.'
+    return bool(messages) and capacity in messages and all(
+        m == capacity or (isinstance(m, str) and re.fullmatch(
+            r'Reconnecting\.\.\. [1-5]/5 \(exceeded retry limit, last status: 429 Too Many Requests\)', m))
+        for m in messages)
+
+
 def asset_snapshot(root, directory, asset_directory="localization/ru-assets", locale="ru"):
     root, directory = Path(root), Path(directory)
     if not locale or not asset_directory:
@@ -101,15 +115,35 @@ def asset_snapshot(root, directory, asset_directory="localization/ru-assets", lo
     if len(held) != len(unresolved) or held - by_id.keys() or held & targets.keys():
         raise ValueError('Invalid held-ID set')
     next_row = next((r for r in source if r['id'] not in targets and r['id'] not in held), None)
+    retirements = {}
+    retirement_path = asset_root / 'retired-targets.json'
+    if retirement_path.exists():
+        seen_retirements = set()
+        for record in json.loads(retirement_path.read_text()):
+            ident = record['id']
+            key = (ident, record['targetSha256'])
+            if key in seen_retirements or ident not in by_id:
+                raise ValueError('Retired target receipt must be unique and source-bound')
+            seen_retirements.add(key)
+            if hashlib.sha256(by_id[ident]['source'].encode()).hexdigest() != record['sourceSha256']:
+                raise ValueError('Retired target source changed')
+            if not record.get('reason') or hashlib.sha256(record['target'].encode()).hexdigest() != record['targetSha256']:
+                raise ValueError('Retired target wording/reason is not preserved')
+            evidence = (root / record['evidence']).resolve()
+            if not (asset_root in evidence.parents or directory.resolve() in evidence.parents) or digest(evidence) != record['evidenceSha256']:
+                raise ValueError('Retirement evidence must be pinned inside its own lane')
+            if ident in held and ident not in targets:
+                retirements[ident] = record['targetSha256']
     return {'authoredIds': len(targets), 'heldIds': len(held), 'sourceIds': len(source),
             'visitedIds': len(targets) + len(held), 'remainingIds': len(source) - len(targets),
             'overlaySha256': digest(overlay),
             'next': {k: next_row[k] for k in ('id', 'conversation', 'conversationId')} if next_row else None,
-            'targetHashes': targets, 'held': sorted(held)}
+            'targetHashes': targets, 'held': sorted(held), 'retiredTargets': retirements}
 
 
 def asset_progress(before, after):
-    if before['targetHashes'].keys() - after['targetHashes'].keys():
+    lost = before['targetHashes'].keys() - after['targetHashes'].keys()
+    if any(ident not in after.get('held', []) or after.get('retiredTargets', {}).get(ident) != before['targetHashes'][ident] for ident in lost):
         raise ValueError('Continuation lost previously saved translation IDs')
     if before['sourceIds'] != after['sourceIds']:
         raise ValueError('Source inventory changed')

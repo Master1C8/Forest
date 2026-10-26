@@ -20,6 +20,28 @@ def write(path, value):
 
 
 class ContinuationTests(unittest.TestCase):
+    def test_recovered_429_diagnostic_is_not_a_failed_completed_turn(self):
+        warning = {'type': 'error', 'message': 'Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)'}
+        usage = {'input_tokens': 10, 'output_tokens': 2}
+        self.assertTrue(support.cli_turn_succeeded(0, usage, [warning]))
+        self.assertFalse(support.cli_turn_succeeded(1, usage, [warning]))
+        self.assertFalse(support.cli_turn_succeeded(0, None, [warning]))
+        failed = {'type': 'turn.failed', 'error': {'message': 'Selected model is at capacity. Please try a different model.'}}
+        self.assertFalse(support.cli_turn_succeeded(0, usage, [warning, failed]))
+        self.assertTrue(support.known_capacity_failure([warning, failed]))
+        self.assertFalse(support.known_capacity_failure([warning]))
+        self.assertFalse(support.known_capacity_failure([failed, {'type': 'error', 'message': 'Unknown stream outcome'}]))
+
+    def test_saved_wording_may_move_to_an_evidenced_hold_without_silent_loss(self):
+        before = {'sourceIds': 3, 'authoredIds': 2, 'visitedIds': 2, 'targetHashes': {'a': 'old-a', 'b': 'old-b'}}
+        after = {'sourceIds': 3, 'authoredIds': 2, 'visitedIds': 3, 'targetHashes': {'b': 'old-b', 'c': 'new-c'},
+                 'held': ['a'], 'retiredTargets': {'a': 'old-a'}}
+        self.assertTrue(support.asset_progress(before, after))
+        with self.assertRaisesRegex(ValueError, 'lost previously saved'):
+            support.asset_progress(before, {**after, 'retiredTargets': {}})
+        with self.assertRaisesRegex(ValueError, 'lost previously saved'):
+            support.asset_progress(before, {**after, 'retiredTargets': {'a': 'wrong-old-wording'}})
+
     def test_operational_report_is_auxiliary_not_a_progress_substitute(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve()
@@ -141,6 +163,8 @@ class ContinuationTests(unittest.TestCase):
                     with target_path.open('a') as stream:
                         stream.write(json.dumps(target(len(calls))) + '\n')
                     write(self.phase / 'result.json', {'outcome': 'continue' if len(calls) == 1 else 'draft-complete'})
+                    if len(calls) == 1:
+                        self.out.write(json.dumps({'type': 'error', 'message': 'Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)'}) + '\n')
                     self.out.write(json.dumps({'type': 'turn.completed', 'usage': {'input_tokens': 10, 'cached_input_tokens': 4, 'output_tokens': 3}}) + '\n')
                     self.out.flush()
                     return 0

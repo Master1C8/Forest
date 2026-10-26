@@ -78,3 +78,19 @@ finished assignment; continuation must preserve those exact IDs and start at the
 recorded next scene. Two successive saved batches must trigger two distinct fresh
 requests, without inheriting history, duplicating IDs or resetting the authored TSVs.
 No increase in targets/resolved or visited IDs must hold, not create a status loop.
+
+A recovered reconnect diagnostic (including429) is not a failed turn when CLI exit0,
+an actual turn.completed usage receipt, a valid continue result and verified artifact
+growth all agree. Retain diagnostics but continue. A terminal turn.failed or nonzero
+exit still holds. `--reconcile-completed` recovers already completed work mistakenly
+held by older supervisors without rerunning it. Exact capacity failures may include
+the known429 retry diagnostic; unknown transport errors remain ineligible.
+
+An objectively unsupported old target may move to an explicit source hold only with
+`retired-targets.json`: preserve its exact text, target/source hashes, objective reason
+and pinned evidence in its own lane. The snapshot validates every receipt and the
+progress comparison matches the old target hash. Historical receipts survive later
+resolution. Unexplained deletion or a mismatching old hash still rejects. Retirement
+alone is not new draft coverage. Regression: the unsupported male cousin at
+ds:468:767 moves to an evidenced hold while its original wording survives; the same
+missing ID without that receipt must fail. Self-correction is not independent audit.
