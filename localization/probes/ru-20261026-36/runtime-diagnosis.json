@@ -1,0 +1,396 @@
+{
+  "game": "The Forest of Love 0.45",
+  "candidate": "ru-20261026-36",
+  "model": "gpt-6.1-sol/high/OpenAI",
+  "result": "Menu-only QA-policy native/Rewired/action-consumer delivery and actual release observed; original policy restored; clean Quit",
+  "runtime": {
+    "durationSeconds": 106.572,
+    "nativePulses": 1,
+    "qaPolicySetterCalls": 1,
+    "originalPolicyPulses": 0,
+    "imagesCaptured": 0,
+    "imagesOpened": 0
+  },
+  "observations": {
+    "original-policy-idle-samples.txt": {
+      "samples": 2,
+      "firstUnityTime": 55.15668,
+      "lastUnityTime": 55.25129,
+      "minimumGapSeconds": 0.09460999999999586,
+      "medianGapSeconds": 0.09460999999999586,
+      "maximumGapSeconds": 0.09460999999999586,
+      "values": {
+        "focused": {
+          "True": 2
+        },
+        "ignoreUnfocused": {
+          "True": 2
+        },
+        "rewiredReady": {
+          "True": 2
+        },
+        "rewiredGlobalEnabled": {
+          "True": 2
+        },
+        "rewiredFilter": {
+          "True": 2
+        },
+        "rewiredFocusWatcher": {
+          "True": 2
+        },
+        "rewiredOtherWatcher": {
+          "True": 2
+        },
+        "rewiredInputAllowed": {
+          "True": 2
+        },
+        "rewiredKeyboardAllowed": {
+          "True": 2
+        },
+        "nativeKeyboard": {
+          "True": 2
+        },
+        "unityInput": {
+          "False": 2
+        },
+        "nativeLeft": {
+          "False": 2
+        },
+        "asyncLeft": {
+          "False": 2
+        },
+        "rewiredLeft": {
+          "False": 2
+        },
+        "unityLeft": {
+          "False": 2
+        },
+        "actionAxes": {
+          "0,0,0": 2
+        },
+        "fullAxis": {
+          "0,0,0": 2
+        }
+      },
+      "matchingConsumerDownFrames": [],
+      "lastTwoRows": [
+        {
+          "time": "55.15668",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        },
+        {
+          "time": "55.25129",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        }
+      ],
+      "sha256": "9c474e4bfef30d9b868be7964591a9c1549bce41912df2dbcaa0f3b5f9f70038"
+    },
+    "qa-background-policy-idle-samples.txt": {
+      "samples": 15,
+      "firstUnityTime": 56.86752,
+      "lastUnityTime": 57.26917,
+      "minimumGapSeconds": 0.025320000000000675,
+      "medianGapSeconds": 0.028760000000001895,
+      "maximumGapSeconds": 0.031239999999996826,
+      "values": {
+        "focused": {
+          "True": 15
+        },
+        "ignoreUnfocused": {
+          "False": 15
+        },
+        "rewiredReady": {
+          "True": 15
+        },
+        "rewiredGlobalEnabled": {
+          "True": 15
+        },
+        "rewiredFilter": {
+          "False": 15
+        },
+        "rewiredFocusWatcher": {
+          "True": 15
+        },
+        "rewiredOtherWatcher": {
+          "True": 15
+        },
+        "rewiredInputAllowed": {
+          "True": 15
+        },
+        "rewiredKeyboardAllowed": {
+          "True": 15
+        },
+        "nativeKeyboard": {
+          "True": 15
+        },
+        "unityInput": {
+          "False": 15
+        },
+        "nativeLeft": {
+          "False": 15
+        },
+        "asyncLeft": {
+          "False": 15
+        },
+        "rewiredLeft": {
+          "False": 15
+        },
+        "unityLeft": {
+          "False": 15
+        },
+        "actionAxes": {
+          "0,0,0": 15
+        },
+        "fullAxis": {
+          "0,0,0": 15
+        }
+      },
+      "matchingConsumerDownFrames": [],
+      "lastTwoRows": [
+        {
+          "time": "57.24131",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        },
+        {
+          "time": "57.26917",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        }
+      ],
+      "sha256": "34f308996b9d021934fb1321e791ab9301acaadacfacd1bc4fdf110f7828b662"
+    },
+    "qa-background-policy-samples.txt": {
+      "samples": 57,
+      "firstUnityTime": 56.86752,
+      "lastUnityTime": 59.63531,
+      "minimumGapSeconds": 0.025130000000004316,
+      "medianGapSeconds": 0.03363000000000227,
+      "maximumGapSeconds": 0.2964199999999977,
+      "values": {
+        "focused": {
+          "True": 57
+        },
+        "ignoreUnfocused": {
+          "False": 57
+        },
+        "rewiredReady": {
+          "True": 57
+        },
+        "rewiredGlobalEnabled": {
+          "True": 57
+        },
+        "rewiredFilter": {
+          "False": 57
+        },
+        "rewiredFocusWatcher": {
+          "True": 57
+        },
+        "rewiredOtherWatcher": {
+          "True": 57
+        },
+        "rewiredInputAllowed": {
+          "True": 57
+        },
+        "rewiredKeyboardAllowed": {
+          "True": 57
+        },
+        "nativeKeyboard": {
+          "True": 57
+        },
+        "unityInput": {
+          "False": 57
+        },
+        "nativeLeft": {
+          "False": 56,
+          "True": 1
+        },
+        "asyncLeft": {
+          "False": 55,
+          "True": 2
+        },
+        "rewiredLeft": {
+          "False": 56,
+          "True": 1
+        },
+        "unityLeft": {
+          "False": 56,
+          "True": 1
+        },
+        "actionAxes": {
+          "-1,0,0": 1,
+          "0,0,0": 56
+        },
+        "fullAxis": {
+          "-1,0,0": 1,
+          "0,0,0": 56
+        }
+      },
+      "matchingConsumerDownFrames": [
+        {
+          "time": "58.81965",
+          "focused": "True",
+          "ignoreUnfocused": "False",
+          "rewiredReady": "True",
+          "rewiredGlobalEnabled": "True",
+          "rewiredFilter": "False",
+          "rewiredFocusWatcher": "True",
+          "rewiredOtherWatcher": "True",
+          "rewiredInputAllowed": "True",
+          "rewiredKeyboardAllowed": "True",
+          "nativeKeyboard": "True",
+          "unityInput": "False",
+          "nativeLeft": "True",
+          "asyncLeft": "True",
+          "rewiredLeft": "True",
+          "unityLeft": "True",
+          "actionAxes": "-1,0,0",
+          "fullAxis": "-1,0,0"
+        }
+      ],
+      "lastTwoRows": [
+        {
+          "time": "59.59455",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        },
+        {
+          "time": "59.63531",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        }
+      ],
+      "sha256": "076e34608cebcd3fcc28da0b7c330ee263e7a5ef7a5bb7245d41cc5307a3f2ae"
+    },
+    "restored-policy-samples.txt": {
+      "samples": 12,
+      "firstUnityTime": 60.85057,
+      "lastUnityTime": 61.67778,
+      "minimumGapSeconds": 0.050410000000006505,
+      "medianGapSeconds": 0.07238000000000255,
+      "maximumGapSeconds": 0.11632999999999782,
+      "values": {
+        "focused": {
+          "True": 12
+        },
+        "ignoreUnfocused": {
+          "True": 12
+        },
+        "rewiredReady": {
+          "True": 12
+        },
+        "rewiredGlobalEnabled": {
+          "True": 12
+        },
+        "rewiredFilter": {
+          "True": 12
+        },
+        "rewiredFocusWatcher": {
+          "True": 12
+        },
+        "rewiredOtherWatcher": {
+          "True": 12
+        },
+        "rewiredInputAllowed": {
+          "True": 12
+        },
+        "rewiredKeyboardAllowed": {
+          "True": 12
+        },
+        "nativeKeyboard": {
+          "True": 12
+        },
+        "unityInput": {
+          "False": 12
+        },
+        "nativeLeft": {
+          "False": 12
+        },
+        "asyncLeft": {
+          "False": 12
+        },
+        "rewiredLeft": {
+          "False": 12
+        },
+        "unityLeft": {
+          "False": 12
+        },
+        "actionAxes": {
+          "0,0,0": 12
+        },
+        "fullAxis": {
+          "0,0,0": 12
+        }
+      },
+      "matchingConsumerDownFrames": [],
+      "lastTwoRows": [
+        {
+          "time": "61.60215",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        },
+        {
+          "time": "61.67778",
+          "nativeMovementUp": "True",
+          "asyncMovementUp": "True",
+          "rewiredMovementUp": "True",
+          "unityMovementUp": "True",
+          "actionAxes": "0,0,0",
+          "fullAxis": "0,0,0"
+        }
+      ],
+      "sha256": "7deeb3135c1335f0d17fb4ade1127e20305fddfb0698c11e4b755e3c75978b56"
+    }
+  },
+  "acceptance": "Public QA-only ignoreInputWhenAppNotInFocus=False with unchanged actual Unity focus=True: nativeLeft/RewiredLeft/actionAxes/FullAxis match in one real frame.57 actual frames include fully idle release; original-policy readiness has2 actual rows, QA readiness15, restored-policy idle12. Original native producer, actual Player1, maps and consumer retained. Unity is separately observed, not the consumer.",
+  "limitation": "Actual focus=True throughout even though another macOS application was frontmost. No actual focus=False QA delivery, necessity/benefit of filter change, gameplay movement, natural doorway/tutorial, renderer, source completeness, editorial or final delivery acceptance. No unchanged menu retry to force evidence.35 remains separate focus=False original-policy rejection; no retrospective cause attribution to27/32/34.",
+  "sampling": "LateUpdate produced frames only; gap statistics recorded per file. Only one matching native/Rewired/consumer-down frame observed.600ms native post interval is not a frame-cadence or delivery guarantee.",
+  "cleanup": "final-verification.json checks327 frozen dependencies (325 exact plus2 intended DLL restore/removal exceptions),150 original references,5 source/candidate pairs,7 pins, task PIDs absent, empty QA persistence and unchanged original install/player files. Only isolated-copy tfol.settings was naturally generated; hashed/preserved and never copied from original. Prelaunch exclusion passed; postrun settings creation does not violate it.",
+  "next": "No repeat36. Prepare guarded original-policy natural-route candidate only after actual focus/eligibility/idle readiness. Add missing actual eligibility checks to gameplay guards first; no QA-policy replacement of original-policy movement acceptance.",
+  "tests": "25 pass:16 native/transport and9 intro guards. File-producer/mocked tests do not establish replaced Unity/native mechanisms.",
+  "usage": "Parent serial runner accounts request usage; local per-request telemetry unavailable. No agents/nested model jobs; independent asset lanes excluded.",
+  "evidence": {
+    "runtime-result.json": "417e3805b8ee0634cb69bba14319d570243f99c3b5311aa97d880c041f40d08f",
+    "cleanup.json": "3910bdfcabfe78f4e95119db697c06dd5b11c25fa44fc060a9cb2b31cd15f0e0",
+    "execution-model.json": "4d662ee6d766c11d8f03c277ef1a39fbfd644f27815fa8fcd27e9a94053555ff",
+    "preparation.json": "405cbc63f50097207f59a3f0f9cc32a1e0d2f741204c919ddc1207252a85d46b",
+    "final-verification.json": "50e62670ad9ca89f6169684ff3b22aa135c13fba96f06aa188bfa8edfcd55e9e",
+    "input-trials.json": "7c7d63b32996b1b9449eed79906e5a916b8896fd864d30049919103158cea6cf",
+    "qa-left-pulse.json": "abc53fe809c36a76870e03e457913da6866f78fa44851629100ab45b4a6b6e57",
+    "target-inspection.json": "30d37204645efcd3129b80278f76281c51e35a3de1d7c31ed5090feee3d210b6",
+    "frozen-files.json": "1191a114996e416b145ead84129c57be76fb24070fc3e63bfcd632678aba1277",
+    "bridge-build.json": "5fd435bbb863e9de725d166b79f2f383127f8bd29fed36893f38323ab80c99ab",
+    "reuse-binding.json": "dce33b9b41df1c2748ac49231b4114b6283fbf2b4ff2b1790e6938fcbf79cdbb",
+    "actions.log": "de0a5ba6d199cea71755b5c793bf310a356af3139788c04a28ab52274444b7f1"
+  }
+}

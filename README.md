@@ -1,32 +1,33 @@
-## Phase0026: real Rewired eligibility observed; startup/transport guards repaired
+## Phase0027: QA-policy menu delivery and release observed
 
-Immutable35 crossed its180s startup deadline before the bridge became ready. No key
-pulse or QA-policy setter ran. Original failed runtime/cleanup receipts are retained.
-The same live task later reached READY; one read-only original-policy StartMenu frame
-showed real focus=False, global input enabled=True, filter=True, focus watcher=False,
-other watcher=True, and both inputAllowed/IsInputAllowed(Keyboard)=False. All8 keys
-were up and axes zero in that frame. This establishes actual35 rejection, not34's
-internal state or an explanation of32/27. A single frame does not pass idle readiness.
+Immutable36 completed one menu-only trial in106.572s. Original-policy passive
+readiness used2 actual idle frames; QA-policy readiness used15. The public
+ignoreInputWhenAppNotInFocus=False setter changed the real filter and retained
+actual eligibility. One600ms process-targeted LEFT produced57 real frames:
+native/Rewired/Unity down1 each, async down2; one matching frame had original
+player action axes and InputHelper.FullAxis=-1,0,0. All8 keys and axes then released.
+The original policy was restored and12 real idle frames observed before normal Quit.
 
-Late-ready normal Quit was acknowledged; task PIDs are absent, original QA assembly
-restored and bridge removed.150 original DLLs,5 resource pairs,7 input pins and326
-frozen dependencies verified (324 unchanged,2 intended cleanup exceptions). Owner
-files are unchanged and QA persistent storage is empty. No images were opened.
+Actual Unity focus=True throughout, with another macOS app frontmost. This does
+not prove actual unfocused QA delivery or a benefit from changing the filter.
+No original-policy pulse, New/intro, gameplay movement or images ran in this trial.
+35's failed startup and late one-frame focus=False rejection remain separate evidence.
+See localization/probes/ru-20261026-36/runtime-diagnosis.json.
 
-Canonical command transport now waits for a first action log instead of failing before
-submitting cleanup, while preserving unknown pending-command guards. The menu runner
-uses the existing300s startup bound and waits for actual idle frames instead of a fixed
-sleep. It requires real unchanged focus/policy/eligibility, all8 keys up and zero axes
-before a QA-only pulse, then actual native/Rewired/action-axis/FullAxis delivery and
-release. Original unfocused/filter=True DOWN is refused.25 focused tests pass; the
-post35 fixes have not run in Unity. See localization/probes/ru-20261026-35/runtime-diagnosis.json
-and localization/source/native-focus-20261026/source-trace.json.
+Post-run text/hash cleanup verification passed: task PIDs32268/32310/32313 absent,
+327 frozen dependencies (325 exact plus2 intended DLL restore/removal exceptions),
+150 original references,5 source/candidate resource pairs and7 pins unchanged.
+Original install/player files are unchanged, the bridge is removed and QA persistence
+is empty. The isolated game naturally generated its own tfol.settings, hashed and
+preserved; all nested tfol.* were excluded before launch.25 focused tests passed.
 
-Next use a new immutable menu-only candidate for the explicitly labeled QA-background
-policy trial; do not rerun35 or spend another intro. Accepted10/15 visuals,29 menu and33
-scoped original LEFT movement retain their exact limits. Natural doorway/tutorial,
-broad renderer/source/special-scene/editorial and final delivery remain unverified.
-Phase0025's prior current summary is archived in localization/history/.
+Next repair actual eligibility checks in the original-policy gameplay guards, then
+prepare one fresh guarded natural-route candidate with original focus/filter/maps/
+Player/story/door eligibility. Refuse New before real menu readiness and refuse DOWN
+on any failed loaded guard. Do not repeat36 or force focus. The left-then-down route,
+tutorial/notebook/inventory, broad source/renderer/editorial and final delivery remain
+pending. Accepted10/15 visuals,29 menu and33 scoped LEFT evidence retain their limits.
+The prior current summary is archived in localization/history/phase0026-summary.md.
 
 # The Forest of Love: Russian localization work
 

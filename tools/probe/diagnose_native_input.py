@@ -158,7 +158,7 @@ def main():
             if expected_policy == 'True':
                 command('sample-keyboard-stop'); sample_active = False
                 trials.append({'label': label, 'pulseSubmitted': False, 'focus': original_focus,
-                               'samples': len(idle), 'boundary': 'Passive original-policy control only; unfocused original-policy DOWN refused',
+                               'samples': len(idle), 'boundary': 'Passive original-policy control only; no original-policy DOWN submitted for either real focus value',
                                'sampleFile': label + '-idle-samples.txt'})
                 write('input-trials.json', trials)
                 continue

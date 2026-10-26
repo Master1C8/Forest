@@ -1,0 +1,33 @@
+[
+  {
+    "label": "original-policy",
+    "pulseSubmitted": false,
+    "focus": "True",
+    "samples": 2,
+    "boundary": "Passive original-policy control only; unfocused original-policy DOWN refused",
+    "sampleFile": "original-policy-idle-samples.txt"
+  },
+  {
+    "label": "qa-background-policy",
+    "pulseExitCode": 0,
+    "pulseStdout": "{\"accessibilityTrusted\":true,\"boundary\":\"CGEvent.postToPid only; no activation, global event, Win32 PostMessage, controller or axis writes\",\"frontmostPid\":9796,\"matchingProcessRows\":[\"32268 \\/Applications\\/CrossOver.app\\/Contents\\/SharedSupport\\/CrossOver\\/lib\\/wine\\/x86_64-windows\\/winewrapper.exe --run -- \\/Users\\/antonkrutov\\/Desktop\\/Forest\\/localization\\/probes\\/ru-20261026-36\\/game\\/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile \\/Users\\/antonkrutov\\/Desktop\\/Forest\\/localization\\/probes\\/ru-20261026-36\\/player.log \",\"32310 Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-36\\\\game\\\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile \\/Users\\/antonkrutov\\/Desktop\\/Forest\\/localization\\/probes\\/ru-20261026-36\\/player.log \"],\"mode\":\"left\",\"pid\":32310,\"processRow\":\"32310 Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-36\\\\game\\\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile \\/Users\\/antonkrutov\\/Desktop\\/Forest\\/localization\\/probes\\/ru-20261026-36\\/player.log \",\"window\":{\"kCGWindowAlpha\":1,\"kCGWindowBounds\":{\"Height\":900,\"Width\":1440,\"X\":0,\"Y\":0},\"kCGWindowIsOnscreen\":true,\"kCGWindowLayer\":0,\"kCGWindowMemoryUsage\":2432,\"kCGWindowName\":\"ForestRuRendererProbe\",\"kCGWindowNumber\":826,\"kCGWindowOwnerName\":\"The Forest of Love.exe\",\"kCGWindowOwnerPID\":32310,\"kCGWindowSharingState\":1,\"kCGWindowStoreType\":1},\"windowID\":826}\npostLeftDown pid=32310 window=826 unixTime=1793011618.564347\npostLeftUp pid=32310 window=826 unixTime=1793011619.166189\n",
+    "pulseStderr": "",
+    "samples": 57,
+    "nativeDownSamples": 1,
+    "asyncDownSamples": 2,
+    "rewiredDownSamples": 1,
+    "unityDownSamples": 1,
+    "focusValues": [
+      "True"
+    ],
+    "actionAxisValues": [
+      "-1,0,0",
+      "0,0,0"
+    ],
+    "downThenTwoReleasedSamples": true,
+    "allEightKeysAndAxesReleased": true,
+    "deliveredToOriginalConsumer": true,
+    "dependencyReplacement": "Public QA-only ignoreInputWhenAppNotInFocus=False; real focus unchanged; original keyboard/maps/consumer",
+    "sampleFile": "qa-background-policy-samples.txt"
+  }
+]
