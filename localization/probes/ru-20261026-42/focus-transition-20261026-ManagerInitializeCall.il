@@ -1,0 +1,1 @@
+System.Void Rewired.InputManager_Base::Initialize() | IL_023a: call System.Void Rewired.ReInput::nKQbCtkHPOPnqlOqEQhEesshditg(Rewired.InputManager_Base,System.Func`2<Rewired.Data.ConfigVars,System.Object>,Rewired.Data.ConfigVars,Rewired.Data.ControllerDataFiles,Rewired.Data.UserData)

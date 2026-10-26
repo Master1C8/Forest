@@ -1,0 +1,153 @@
+{
+  "assemblies": {
+    "Rewired_Core.dll": "591d0f9429e66821a4edea6d0c09acc0d78da6512e717b5652c4572f52e2d0bf",
+    "Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+    "UnityEngine.CoreModule.dll": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658"
+  },
+  "recipeSha256": "fe88b1de531172eab51427a1d4475e72fedba72e29e293b8a7d459ca1a18aeeb",
+  "inspectorSha256": "20f0eba3d945f9d41497ae7599051dcca05a8cd430191253bdc20e25387bb52a",
+  "inspectorSourceSha256": "df870a479305893c698c66d5852653c4e9ef444fbb772e7cad07020b858a0862",
+  "inspectorBuild": {
+    "argv": [
+      "dotnet",
+      "build",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/InspectMethods.csproj",
+      "--no-restore",
+      "--nologo",
+      "--verbosity",
+      "quiet"
+    ],
+    "exitCode": 0,
+    "stdout": "\n\u0421\u0431\u043e\u0440\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0430.\n    \u041f\u0440\u0435\u0434\u0443\u043f\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u0439: 0\n    \u041e\u0448\u0438\u0431\u043e\u043a: 0\n\n\u041f\u0440\u043e\u0448\u043b\u043e \u0432\u0440\u0435\u043c\u0435\u043d\u0438 00:00:01.93\n",
+    "stderr": "",
+    "sourcePins": {
+      "tools/probe/InspectMethods.cs": "df870a479305893c698c66d5852653c4e9ef444fbb772e7cad07020b858a0862",
+      "tools/probe/InspectMethods.csproj": "e62d340f06aafa0739811a3d5d7716edf8006af4b3ee67b32e765b67049b6b0b"
+    }
+  },
+  "commands": {
+    "ManagerFocusCallback": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.InputManager_Base",
+      "OnApplicationFocus,Update,FixedUpdate,LateUpdate,DoUpdate"
+    ],
+    "FocusCallback": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "bznJUoHKVApHghlqpCKYJLbDytar,rRujWYRgwEnOOYvDVNSFbReupcp,ZKumZMMwjLdcKigSxyxILFzYDuE,add_ApplicationFocusChangedEvent,remove_ApplicationFocusChangedEvent"
+    ],
+    "FocusInitialization": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "nKQbCtkHPOPnqlOqEQhEesshditg"
+    ],
+    "WatcherInitializationUpdate": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput/UYDcZIUFzwNkgKFpAvKGoMimqAT",
+      ".ctor,jSmUMfkZCZCZfiMnleEGJnwKIqT,wweiCHaRbiDSHRzxofNoPRkDurZ,kokFAeEvpzjEkqzOXVfsybUZexs"
+    ],
+    "WatcherSetUpdateEvent": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.Utils.Classes.Utility.ValueWatcher`1",
+      ".ctor,Set,Update,TriggerEvent,get_value"
+    ],
+    "FocusFieldReferences": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "--find-field-fragment",
+      "::QBAmVSgbZBPmppTHWYNgMiDCmXg"
+    ],
+    "ManagerInitializeCall": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "--find-call-fragment",
+      "Rewired.ReInput::nKQbCtkHPOPnqlOqEQhEesshditg"
+    ],
+    "FocusCacheDefaults": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      ".cctor"
+    ],
+    "FocusCacheReferences": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "--find-field-fragment",
+      "::cbmmwJPDGUhXqzzdtJQPbNHADIB"
+    ],
+    "FocusListenerAndReset": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "NavijpmlHmAjhDisfzPPUTADGLlI,MkbhfLFUcsGsRzkXpoCFDbyKRux,OCqSJvbpclWclSkjYkLsBbHdJUx"
+    ],
+    "ReInputUpdate": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "HXpJWkBpkWGHVPusKmSTbEJtFhLg,nlCAvFCuyFlAIRnTmvLKpOsouZf,jSmUMfkZCZCZfiMnleEGJnwKIqT"
+    ],
+    "OriginalFocusEligibility": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "get_applicationIsFocused,get_applicationRunInBackground,get_inputAllowed,IsInputAllowed"
+    ],
+    "RewiredUnityFocusConsumers": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "--find-call-fragment",
+      "UnityEngine.Application::get_isFocused"
+    ],
+    "GameUnityFocusConsumers": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "--find-call-fragment",
+      "UnityEngine.Application::get_isFocused"
+    ],
+    "UnityFocusNativeBoundary": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/UnityEngine.CoreModule.dll",
+      "UnityEngine.Application",
+      "get_isFocused,InvokeFocusChanged,add_focusChanged,remove_focusChanged"
+    ]
+  },
+  "files": {
+    "ManagerFocusCallback.il": "00ae32b27116cbc1385bb87f35fd099cedb1802c96d76880855354417f0aa3a4",
+    "FocusCallback.il": "8305fbb2278a040f53dd9640859c0d310b57764cb9f112a2ac0ce6516c64b01e",
+    "FocusInitialization.il": "3e57924b501952d61a9073da0170e50cb75deb98fac298d094fb2a96ca53de39",
+    "WatcherInitializationUpdate.il": "3fb0b883fd9d27935f478aec78d76906beaf5104afd33e769036538b866c334b",
+    "WatcherSetUpdateEvent.il": "709d87884bc1f5b327899a0bd28d3ced7994b4b5f1c3cf4bed93f98e6e39a031",
+    "FocusFieldReferences.il": "ee91c5f6994fa9abea5de7e88af9747b50a98940c9c656c4c2c5644036bf3cb6",
+    "ManagerInitializeCall.il": "aa8d07b301a36126ac941dcf086d64ad3c2461e74a1264fcfca7db6bc29b39fc",
+    "FocusCacheDefaults.il": "2b9f5b8ff7613b4f07e578ba2817c6898b17684ff0b67c53f208a8ef05d62ca6",
+    "FocusCacheReferences.il": "d02ebc2c6b25ecda8c6ad4b859df2dcafcbcd3da589706347cacb4b12fc43582",
+    "FocusListenerAndReset.il": "0d097e5e137acfdc0b3792983fa9908528aa2bf77562b8bf90144d90d5e8c230",
+    "ReInputUpdate.il": "4ec1ba27264de087d7a7dbd02eba064ce7f18acbfeba6c0cc3199d9a794e3d3f",
+    "OriginalFocusEligibility.il": "41c30790cd64b769e769cb8feacfd238397ec31471f449717e0f0830789c8e9a",
+    "RewiredUnityFocusConsumers.il": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "GameUnityFocusConsumers.il": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "UnityFocusNativeBoundary.il": "4312a2f54168f7fc5134f57eba2d6fa5049ee1c6467f3e16397c2e20ddb83196"
+  },
+  "boundary": "Original shipped assemblies, read-only source; no native input or runtime acceptance"
+}

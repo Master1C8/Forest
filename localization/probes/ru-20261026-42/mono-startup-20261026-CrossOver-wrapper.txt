@@ -1,0 +1,36 @@
+122: my $opt_untrusted;
+123: my $opt_verbose=1 if (CXLog::is_on());
+124: my $opt_cx_log;
+125: my $opt_env=$ENV{CX_ENV};
+126: my $opt_debugmsg=$ENV{CX_DEBUGMSG};
+127: my $opt_dlloverrides;
+128: my $opt_dashdash;
+228:     if (!defined $opt_cx_log)
+229:     {
+230:         $opt_cx_log = "-";
+231:         $opt_debugmsg="-all" if (!defined $opt_debugmsg);
+232:     }
+233:     elsif ($opt_cx_log eq "/dev/null" and !defined $ux_app)
+234:     {
+235:         # No point sending traces to /dev/null
+236:         $opt_debugmsg = "-all";
+237:     }
+238:     else
+239:     {
+240:         my $defaults = "+timestamp,+pid,+seh,+unwind,+process,+module,+loaddll,+threadname";
+241:         $opt_debugmsg = $defaults . "," . $opt_debugmsg if ($opt_debugmsg);
+242:         $opt_debugmsg = $defaults if (!$opt_debugmsg);
+243:     }
+244:
+245:     $ENV{DISPLAY}=$opt_display if (defined $opt_display);
+246:     $ENV{CX_DEBUGMSG}=$opt_debugmsg if (defined $opt_debugmsg);
+705:     delete $ENV{CX_WINDOWS_VERSION};
+706:     $ENV{CX_WINDOWS_VERSION}=$opt_winver if (defined $opt_winver);
+707:     prepend_env_path("PATH", $bin_path);
+708:     prepend_env_path("LD_PRELOAD", $ld_preload) if (defined $ld_preload);
+709:     $ENV{LD_ASSUME_KERNEL}=$ld_assume_kernel if (defined $ld_assume_kernel);
+710:     $ENV{WINESERVER}=cxwhich($bin_path,"wineserver");
+711:     $ENV{WINEDEBUG}=$opt_debugmsg if (defined $opt_debugmsg);
+712:     $ENV{WINEDLLPATH}=$dll_path;
+713:     $ENV{WINELOADER}=cxwhich($bin_path,"wineloader");
+714:     $ENV{WINEWRAPPER}=cxwhich("$ENV{WINEDLLPATH}", "winewrapper.exe", 1);

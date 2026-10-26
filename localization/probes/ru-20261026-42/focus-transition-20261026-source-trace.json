@@ -1,0 +1,74 @@
+{
+  "scope": "New bounded static producer supplement; no source inventory/glossary/live-lane or consumed-candidate modification",
+  "basis": "Exact40 original menu24 idle frames -> loaded BunnyHouse43 passive unfocused input frames, rejected by first movement focus guard. No native DOWN or focus-policy trial.",
+  "producerChain": [
+    {
+      "boundary": "Unity native -> managed",
+      "evidence": "UnityFocusNativeBoundary.il",
+      "finding": "Application.isFocused is InternalCall (FreeFunction attribute), no managed producer body. InvokeFocusChanged(bool) has RequiredByNativeCode and invokes focusChanged subscribers. This does not prove native OS focus behavior or ordering relative to MonoBehaviour callbacks."
+    },
+    {
+      "boundary": "Original manager callback -> ReInput cache",
+      "evidence": "ManagerFocusCallback.il / FocusCallback.il",
+      "finding": "InputManager_Base.OnApplicationFocus(bool) skips duplicate-manager error then calls bznJUoHKVApHghlqpCKYJLbDytar(bool). That method always writes cbmmwJPDGUhXqzzdtJQPbNHADIB; when standalone editorPlatform=None and global enabled, Set(value) updates QBAmVS... focus watcher and standalone branch TriggerEvent dispatches change."
+    },
+    {
+      "boundary": "Initialization",
+      "evidence": "ManagerInitializeCall.il / FocusCacheDefaults.il / FocusInitialization.il / WatcherInitializationUpdate.il",
+      "finding": "Manager.Initialize calls ReInput.nKQ...; static cache defaults true. Watcher constructor creates focus=true with autoTriggerEvent=false and no value delegate; initialization Set(cache) then Use consumes initial change and attaches original listeners. Editor platform alone installs ZKum... delegate for focus polling."
+    },
+    {
+      "boundary": "Standalone per-loop update",
+      "evidence": "ManagerFocusCallback.il / ReInputUpdate.il / WatcherSetUpdateEvent.il",
+      "finding": "DoUpdate -> HXp... -> nlCA... -> watcher collection Update; ValueWatcher.Update returns false for null getValueDelegate. Thus standalone focus callback owns focus changes, rather than Application.isFocused polling. ReInput update triggers deferred watcher events. Constructor assigns other watcher xIMFC... to Application.runInBackground, polled on update; it is not an unexplained second focus watcher."
+    },
+    {
+      "boundary": "Watcher event -> original subscribers",
+      "evidence": "FocusListenerAndReset.il / FocusCallback.il",
+      "finding": "Navijp... subscribes rRuj...(bool) to focus watcher ChangedEvent; rRuj emits internal ReInput.ApplicationFocusChangedEvent only when global enabled. Reset removes listeners, clears watcher collection and resets cache to true. New bridge does not subscribe/invoke that internal event or call original callbacks."
+    },
+    {
+      "boundary": "Actual input eligibility consumer",
+      "evidence": "OriginalFocusEligibility.il / FocusFieldReferences.il",
+      "finding": "get_applicationIsFocused reads watcher when globally enabled; inputAllowed/IsInputAllowed(Keyboard) read actual watcher, original filter and other guarded predicates. Existing KeyboardEligibility reflects the getters/fields only. New observer compares these against actual Application.isFocused and callback cache."
+    }
+  ],
+  "boundedScan": {
+    "Rewired_Core.dll exact Application.get_isFocused references": 0,
+    "Assembly-CSharp.dll exact Application.get_isFocused references": 0,
+    "limit": "Only those two exact assemblies; not an exhaustive native/other-assembly focus audit."
+  },
+  "newPassiveObservation": {
+    "bridge": "Awake snapshot; own real OnApplicationFocus/OnApplicationPause and Application.focusChanged callbacks; LateUpdate change records plus1s heartbeat. Real frame/realtime/scaledTime/timeScale/UTC, scene, native Windows PID and current original Unity/Rewired states. Read-only callback cache; scalar string array;1024 rows/420s hard ceiling records limit and holds future actions. Events accumulate in memory; only acknowledged dump-focus or terminal limit persists the full bounded array. Prevents heartbeat/read truncation races without a new transport.",
+    "native": "New observe mode reads task-executable-bound process/window identities and frontmost PID only. Unique window has PID/windowID/onScreen; unavailable/ambiguous remains explicit, never a focus inference. No activation, input posting, policy or story change.",
+    "observer": "dump-focus acknowledged once; native read and bridge record have host timestamp brackets, not claimed simultaneous. Max512 native observations with1s throttle, plus forced ready/menu/loaded snapshots. Latest real post-ack callback retained. Existing first-failure/unknown-command and all route guards preserved.",
+    "exitStatus": "--retain-exit ordinary parent waits for actual observer child, writes child identity before wait and numeric Popen.wait status after. Missing observer-exit remains unknown, never inferred from process absence."
+  },
+  "changedHypothesis": "Locate the first menu-to-loaded boundary where native task-window/frontmost identity, real Unity focus event/getter, and Rewired callback-cache/watcher cease agreeing. Own callbacks and LateUpdate reveal ordering within observed frames; platform causation is not inferred. Missing callback before bridge installation remains unknown.",
+  "nextExperiment": "Prepare one new immutable41 with exact new bridge/helper/observer inputs; observation is the material change. No runtime was prepared/launched in this static phase. Any later actual run requires preflight in its own authorized brief, no replay40/39/38 and no focus/policy/axis/scene workaround.",
+  "acceptance": "Static managed producer trace and passive diagnostics build only. Runtime Unity callback/serialization/window mapping remains unverified. No native-engine focus root-cause claim; no broad renderer/source/special-scene/editorial/delivery pass.",
+  "files": {
+    "UnityFocusNativeBoundary.il": "4312a2f54168f7fc5134f57eba2d6fa5049ee1c6467f3e16397c2e20ddb83196",
+    "FocusCacheDefaults.il": "2b9f5b8ff7613b4f07e578ba2817c6898b17684ff0b67c53f208a8ef05d62ca6",
+    "BridgePassiveFocus.il": "bf1282f4c4f880648f6fe1f4dded3778b965ad772ffbd4baf29211f9299fe95d",
+    "FocusCacheReferences.il": "d02ebc2c6b25ecda8c6ad4b859df2dcafcbcd3da589706347cacb4b12fc43582",
+    "WatcherInitializationUpdate.il": "3fb0b883fd9d27935f478aec78d76906beaf5104afd33e769036538b866c334b",
+    "static-build.json": "77d1ac3a7b6173d7b0c2105b6519cabe6e10bc2811c5874479f6a092340c2b46",
+    "FocusListenerAndReset.il": "0d097e5e137acfdc0b3792983fa9908528aa2bf77562b8bf90144d90d5e8c230",
+    "OriginalFocusEligibility.il": "41c30790cd64b769e769cb8feacfd238397ec31471f449717e0f0830789c8e9a",
+    "ReInputUpdate.il": "4ec1ba27264de087d7a7dbd02eba064ce7f18acbfeba6c0cc3199d9a794e3d3f",
+    "FocusFieldReferences.il": "ee91c5f6994fa9abea5de7e88af9747b50a98940c9c656c4c2c5644036bf3cb6",
+    "FocusInitialization.il": "3e57924b501952d61a9073da0170e50cb75deb98fac298d094fb2a96ca53de39",
+    "ManagerInitializeCall.il": "aa8d07b301a36126ac941dcf086d64ad3c2461e74a1264fcfca7db6bc29b39fc",
+    "native-static-observation.json": "a5b176fc4826432a40d367aa13a1c2e1621a3617df7dc50030eebd8ccc0e5acb",
+    "GameUnityFocusConsumers.il": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".gitignore": "efd837e45a39e50f2799a67345451c87861d63f224c056fd97fb6737029fd7fd",
+    "RewiredUnityFocusConsumers.il": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "NativePassiveObserve.sil": "a30eebee83f91a05ad6a4e253d1783e99b1a1eaf9a32448f9ec11add50642b3a",
+    "WatcherSetUpdateEvent.il": "709d87884bc1f5b327899a0bd28d3ced7994b4b5f1c3cf4bed93f98e6e39a031",
+    "verification.json": "bb85fed1dccb7fddf63f22e943b6b4dc03c6bbddbb5f565c560d48724183073e",
+    "extraction.json": "1eba65fb08f28d6790c20cb513cb84a1c310f97c64aeed7617f8b2526fb2dd8a",
+    "ManagerFocusCallback.il": "00ae32b27116cbc1385bb87f35fd099cedb1802c96d76880855354417f0aa3a4",
+    "FocusCallback.il": "8305fbb2278a040f53dd9640859c0d310b57764cb9f112a2ac0ce6516c64b01e"
+  }
+}
