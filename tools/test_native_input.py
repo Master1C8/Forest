@@ -17,6 +17,33 @@ import json
 
 
 class NativeReleaseObservation(unittest.TestCase):
+    def eligibility_fixture(self):
+        """Explicit mock of newly observed fields; never historical runtime acceptance."""
+        row = self.menu_fixture(focus='True', policy='True')
+        source = json.loads((Path(__file__).resolve().parents[1] /
+            'localization/source/travel-20261026/input-configuration.json').read_text())
+        maps = []
+        for original in source['keyboardMaps']:
+            bindings = []
+            for b in original['actionElementMaps']:
+                if b['_actionId'] in (0, 1):
+                    bindings.append(dict(action=b['_actionId'], key=b['_keyboardKeyCode'],
+                        type=b['_elementType'], range=b['_axisRange'], pole=b['_axisContribution'],
+                        modifier1=b['_modifierKey1'], modifier2=b['_modifierKey2'], modifier3=b['_modifierKey3'],
+                        invert=bool(b['_invert']), enabled=True))
+            maps.append(dict(source=original['id'], category=original['categoryId'], layout=original['layoutId'],
+                             enabled=True, movement=bindings))
+        row['keyboardMaps'] = json.dumps(dict(maps=maps))
+        return row
+
+    def mock_loaded_eligibility(self, loaded):
+        row = self.eligibility_fixture()
+        for key in ['rewiredReady', 'rewiredGlobalEnabled', 'rewiredFilter', 'rewiredFocusWatcher',
+                    'rewiredOtherWatcher', 'rewiredInputAllowed', 'rewiredKeyboardAllowed', 'keyboardEnabled']:
+            loaded['policy'][key] = row[key]
+        loaded['input']['keyboardMaps'] = row['keyboardMaps']
+        return loaded
+
     def test_actual35_single_passive_frame_is_insufficient_before_any_down(self):
         root = Path(__file__).resolve().parents[1]
         rows = [gameplay.diagnostic_fields([line], 'keyboard') for line in
@@ -143,6 +170,7 @@ class NativeReleaseObservation(unittest.TestCase):
                                   'rewiredArrowsUp', 'unityArrowsUp', 'nativeMovementUp',
                                   'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']}
         row.update({k: '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity']})
+        row.update({layer+'MovementDown': '' for layer in ['native', 'async', 'rewired', 'unity']})
         self.assertTrue(keyboard_idle(row))
         for key in row:
             with self.subTest(key=key):
@@ -157,6 +185,7 @@ class NativeReleaseObservation(unittest.TestCase):
                                   'rewiredArrowsUp', 'unityArrowsUp', 'nativeMovementUp',
                                   'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']}
         row.update({k: '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity']})
+        row.update({layer+'MovementDown': '' for layer in ['native', 'async', 'rewired', 'unity']})
         self.assertTrue(keyboard_idle(row))
         for layer in ['native', 'async', 'rewired', 'unity']:
             with self.subTest(layer=layer):
@@ -171,7 +200,7 @@ class NativeReleaseObservation(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         state = json.loads((root / 'localization/probes/ru-20261026-30/travel-route.json').read_text())
         state['diagnostics'].append('travelPair | playerCollider=-55552 | doorCollider=202506 | ignoredLayers=False | ignoredPair=False | distanceValid=True | overlapped=False | touching=False | distance=1')
-        loaded = loaded_travel(state)
+        loaded = self.mock_loaded_eligibility(loaded_travel(state))
         self.assertEqual(movement_ready(loaded)['ignoredPair'], 'False')
         loaded['pairs'][0]['ignoredPair'] = 'True'
         with self.assertRaisesRegex(AssertionError, 'Root/door pair not ready'):
@@ -180,11 +209,23 @@ class NativeReleaseObservation(unittest.TestCase):
     def test_rejected_second_geometry_keeps_raw_state_and_stops_passive_sampler(self):
         root = Path(__file__).resolve().parents[1]
         state = json.loads((root / 'localization/probes/ru-20261026-32/loaded-travel-1.json').read_text())
+        # Historical32 lacks the new fields: add explicit mocked observations
+        # solely to exercise passive evidence preservation at the second dump.
+        policy = self.eligibility_fixture()
+        for i, line in enumerate(state['diagnostics']):
+            if line.startswith('travelRewired | '):
+                state['diagnostics'][i] += ''.join(' | '+k+'='+policy[k] for k in [
+                    'rewiredReady','rewiredGlobalEnabled','rewiredFilter','rewiredFocusWatcher',
+                    'rewiredOtherWatcher','rewiredInputAllowed','rewiredKeyboardAllowed','keyboardEnabled'])
+            if line.startswith('travelInput | '):
+                state['diagnostics'][i] += ' | keyboardMaps='+policy['keyboardMaps']
         loaded = loaded_travel(state)
         idle = {k: 'True' for k in ['nativeValid', 'nativeArrowsUp', 'asyncArrowsUp',
                                    'rewiredArrowsUp', 'unityArrowsUp', 'nativeMovementUp',
                                    'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']}
         idle.update({k: '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity']})
+        idle.update(self.eligibility_fixture())
+        idle['bodyVelocity'] = '0,0,0'
         idle.update(scene='BunnyHouse', gameplay='True', anyEvent='False', conversation='False',
                     dustin='False', glitch='False', movement='True', lanternTransition='False',
                     sweaterTransition='False', waypoints='False', keyboardEnabled='True', ignoreUnfocused='True', focused='True',
@@ -223,7 +264,9 @@ class NativeReleaseObservation(unittest.TestCase):
     def route_fixture(self):
         root = Path(__file__).resolve().parents[1]
         loaded = loaded_travel(json.loads((root / 'localization/probes/ru-20261026-33/post-movement-travel.json').read_text()))
-        # Mock only the newly added source speed and read-only physics producer.
+        # Mock newly required eligibility/maps as well as speed/physics.33 did
+        # not observe those fields and is not a positive runtime control for them.
+        self.mock_loaded_eligibility(loaded)
         loaded['player'].update(speed='1.2,1.2,0', currentSpeed='1.2,1.2,0')
         root_id = loaded['pairs'][0]['playerCollider']
         loaded['sweeps'] = [dict(direction=d, root=root_id, distance='1.2', count='0', capacity='128') for d in ['left', 'down']]
@@ -260,6 +303,11 @@ class NativeReleaseObservation(unittest.TestCase):
     def test_down_sample_rejects_foreign_producer_axis_or_story_guard(self):
         root = Path(__file__).resolve().parents[1]
         row = gameplay.diagnostic_fields([(root / 'localization/probes/ru-20261026-33/loaded-travel-input-samples.txt').read_text().splitlines()[-1]], 'keyboard')
+        eligibility = self.eligibility_fixture()
+        for key in ['rewiredReady','rewiredGlobalEnabled','rewiredFilter','rewiredFocusWatcher',
+                    'rewiredOtherWatcher','rewiredInputAllowed','rewiredKeyboardAllowed','nativeKeyboard',
+                    'unityInput','player','keyboardMaps']:
+            row[key] = eligibility[key]  # explicit mocked fields absent from33
         loaded = self.route_fixture()
         row.update(actionAxes='0,-1,0', fullAxis='0,-1,0')
         for layer in ['native', 'async', 'rewired', 'unity']:
@@ -272,9 +320,118 @@ class NativeReleaseObservation(unittest.TestCase):
                 gameplay.route_sample_guard([dict(row, **{field:value})], 'down', loaded)
         # A separately observed natural door transition may change story guards;
         # it still cannot authorize an unrelated key or axis.
-        gameplay.route_sample_guard([dict(row, anyEvent='True')], 'down', loaded, transitioning=True)
+        gameplay.route_sample_guard([dict(row, anyEvent='True', routeDoorTransition='True')], 'down', loaded, transitioning=True)
         with self.assertRaisesRegex(AssertionError, 'Unexplained movement producer'):
             gameplay.route_sample_guard([dict(row, nativeMovementDown='D')], 'down', loaded, transitioning=True)
+
+    def test_original_eligibility_each_predicate_and_missing_fields_reject(self):
+        row = self.eligibility_fixture()
+        gameplay.original_keyboard_guard(row)
+        for key in ['focused','ignoreUnfocused','rewiredFilter','rewiredReady','rewiredGlobalEnabled',
+                    'rewiredFocusWatcher','rewiredInputAllowed','rewiredKeyboardAllowed',
+                    'keyboardEnabled','nativeKeyboard','unityInput','player']:
+            for value in [None, 'False' if row[key] == 'True' else 'True']:
+                changed = dict(row)
+                if value is None:
+                    del changed[key]
+                else:
+                    changed[key] = value
+                with self.subTest(key=key,value=value), self.assertRaisesRegex(AssertionError, 'Original keyboard eligibility changed'):
+                    gameplay.original_keyboard_guard(changed)
+        with self.assertRaisesRegex(AssertionError, 'Missing actual Rewired other watcher'):
+            gameplay.original_keyboard_guard(dict(row, rewiredOtherWatcher='unknown'))
+
+    def test_original_map_identity_bindings_flags_and_multiplicity(self):
+        row = self.eligibility_fixture()
+        gameplay.original_keyboard_guard(row)
+        for change, reason in [('disabled','disabled or rebound'),('duplicate','bindings changed'),
+                               ('key','bindings changed'),('modifier','binding flags changed'),
+                               ('identity','map identity changed'),('rebound','disabled or rebound')]:
+            maps = json.loads(row['keyboardMaps'])
+            movement = maps['maps'][0]
+            if change == 'disabled': movement['enabled'] = False
+            elif change == 'duplicate': movement['movement'].append(copy.deepcopy(movement['movement'][0]))
+            elif change == 'key': movement['movement'][0]['key'] = 0
+            elif change == 'modifier': movement['movement'][0]['modifier1'] = 1
+            elif change == 'identity': movement['source'] = 2
+            else: maps['maps'][1]['movement'] = movement['movement']
+            with self.subTest(change=change), self.assertRaisesRegex(AssertionError, reason):
+                gameplay.original_keyboard_guard(dict(row, keyboardMaps=json.dumps(maps)))
+        with self.assertRaisesRegex(AssertionError, 'Missing actual original keyboard maps'):
+            gameplay.original_keyboard_guard(dict(row, keyboardMaps='null'))
+
+    def test_transition_story_changes_never_bypass_eligibility_or_player_identity(self):
+        loaded = self.route_fixture()
+        row = dict(self.eligibility_fixture(), scene='BunnyHouse', anyEvent='True', conversation='True', routeDoorTransition='True',
+                   actor=loaded['player']['path']+'#'+loaded['player']['id'],
+                   body=loaded['body']['path']+'#'+loaded['body']['id'])
+        gameplay.route_sample_guard([row], 'down', loaded, transitioning=True)
+        for direction, transition in [('down','False'), ('left','True')]:
+            with self.subTest(direction=direction), self.assertRaisesRegex(AssertionError, 'Gameplay/input guard changed'):
+                gameplay.route_sample_guard([dict(row, routeDoorTransition=transition)], direction, loaded, transitioning=True)
+        for field, value, reason in [('rewiredInputAllowed','False','eligibility changed'),
+                                     ('rewiredFilter','False','eligibility changed'),
+                                     ('focused','False','eligibility changed'),
+                                     ('nativeValid','False','original keyboard policy'),
+                                     ('actor','other#1','Player sample identity changed')]:
+            with self.subTest(field=field), self.assertRaisesRegex(AssertionError, reason):
+                gameplay.route_sample_guard([dict(row, **{field:value})], 'down', loaded, transitioning=True)
+
+    def test_route_ingress_requires_native_rewired_and_axes_in_same_frame(self):
+        row = dict(self.eligibility_fixture(), nativeMovementDown='DownArrow')
+        consumer = dict(row, nativeMovementDown='', rewiredMovementDown='DownArrow', actionAxes='0,-1,0', fullAxis='0,-1,0')
+        self.assertFalse(gameplay.route_consumer_ingress([row, consumer], 'down'))
+        self.assertTrue(gameplay.route_consumer_ingress([dict(consumer, nativeMovementDown='DownArrow')], 'down'))
+
+    def test_passive_original_menu_gate_stops_and_preserves_rejected_rows(self):
+        for eligible in [True, False]:
+            with self.subTest(eligible=eligible), tempfile.TemporaryDirectory() as directory:
+                run = Path(directory)
+                row = self.eligibility_fixture()
+                if not eligible: row['rewiredInputAllowed'] = 'False'
+                text = '\n'.join(['keyboard | '+' | '.join(k+'='+v for k,v in row.items())]*2)+'\n'
+                def command(value):
+                    if value in ['sample-keyboard-snapshot','sample-keyboard-stop']:
+                        (run/'keyboard-samples.txt').write_text(text)
+                with patch.object(gameplay,'RUN',run), patch.object(gameplay,'command',side_effect=command) as sender:
+                    if eligible:
+                        gameplay.observe_original_menu()
+                        self.assertTrue((run/'original-menu-readiness.json').exists())
+                    else:
+                        with self.assertRaisesRegex(AssertionError,'Original keyboard eligibility changed'):
+                            gameplay.observe_original_menu()
+                        self.assertFalse((run/'original-menu-readiness.json').exists())
+                    self.assertEqual(sender.call_args_list[-1].args, ('sample-keyboard-stop',))
+                    self.assertFalse(any(c.args[0].startswith(('menu ','qa-')) for c in sender.call_args_list))
+                self.assertEqual((run/'original-menu-idle-samples.txt').read_text(), text)
+
+    def test_original_menu_requires_two_complete_real_observations(self):
+        row = self.eligibility_fixture()
+        gameplay.original_menu_ready([row,row])
+        with self.assertRaisesRegex(AssertionError, 'two real original menu idle frames'):
+            gameplay.original_menu_ready([row])
+        with self.assertRaisesRegex(AssertionError, 'Original keyboard eligibility changed'):
+            historical = dict(row)
+            del historical['rewiredReady']
+            gameplay.original_menu_ready([historical,historical])
+
+    def test_route_release_requires_idle_existing_body_or_observed_absence(self):
+        row = dict(self.eligibility_fixture(), body='Player#1', bodyVelocity='0,0,0')
+        self.assertTrue(gameplay.input_released(row))
+        self.assertFalse(gameplay.input_released(dict(row,bodyVelocity='0,-1.2,0')))
+        self.assertFalse(gameplay.input_released(dict(row,bodyVelocity='null')))
+        self.assertTrue(gameplay.input_released(dict(row,body='null',bodyVelocity='null')))
+        self.assertFalse(gameplay.input_released(dict(row,nativeMovementUp='False')))
+
+    def test_process_cleanup_finds_new_exact_task_child_after_old_pids_exit(self):
+        game = Path('/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-37/game')
+        child = '38362 1 Y:'+str(game/'UnityCrashHandler64.exe').replace('/Users/antonkrutov','').replace('/',chr(92))+' 204 549064704'
+        other = child.replace('ru-20261026-37','ru-20261026-36').replace('38362','40000')
+        # A new PID is still owned through the exact frozen executable path.
+        # No actual game/process is started or stopped by this mocked test.
+        with patch.object(gameplay,'GAME',game), patch.object(gameplay,'EXE',game/'The Forest of Love.exe'), \
+             patch.object(gameplay.subprocess,'check_output',return_value=child+'\n'+other+'\n'):
+            self.assertEqual(gameplay.processes(),[child])
 
     def test_recovery_requires_actual_same_target_task_down(self):
         identity = dict(pid=123, windowID=44)

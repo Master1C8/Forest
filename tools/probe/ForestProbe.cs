@@ -244,6 +244,37 @@ public sealed class ForestProbe : MonoBehaviour
             " | nativeKeyboard="+Rewired.ReInput.configuration.nativeKeyboardSupport+
             " | unityInput="+Rewired.ReInput.configuration.alwaysUseUnityInput;
     }
+    // Public read-only map getters are pinned in gameplay-eligibility-20261026.
+    // Observe the real InputHelper player; no map/controller replacement or writes.
+    static string KeyboardMaps(Rewired.Player player) {
+        if(player==null)return "null";
+        // Scalar JSON only: JsonUtility has omitted external nested row arrays
+        // in this shipped Unity player. Every emitted value here is int/bool.
+        var maps=new List<string>();
+        foreach(var map in player.controllers.maps.GetAllMaps(Rewired.ControllerType.Keyboard)) {
+            var bindings=new List<string>();
+            foreach(var binding in map.AllMaps)
+                if(binding.actionId==0 || binding.actionId==1)
+                    bindings.Add("{\"action\":"+binding.actionId+",\"key\":"+(int)binding.keyCode+
+                        ",\"type\":"+(int)binding.elementType+",\"range\":"+(int)binding.axisRange+
+                        ",\"pole\":"+(int)binding.axisContribution+",\"invert\":"+(binding.invert?"true":"false")+
+                        ",\"enabled\":"+(binding.enabled?"true":"false")+",\"modifier1\":"+(int)binding.modifierKey1+
+                        ",\"modifier2\":"+(int)binding.modifierKey2+",\"modifier3\":"+(int)binding.modifierKey3+"}");
+            maps.Add("{\"source\":"+map.sourceMapId+",\"category\":"+map.categoryId+",\"layout\":"+map.layoutId+
+                ",\"enabled\":"+(map.enabled?"true":"false")+",\"movement\":["+String.Join(",",bindings.ToArray())+"]}");
+        }
+        return "{\"maps\":["+String.Join(",",maps.ToArray())+"]}";
+    }
+    static string NaturalDoorTransition() {
+        var matches=new List<TheForestOfLove.Doorway>();
+        foreach(var door in Resources.FindObjectsOfTypeAll<TheForestOfLove.Doorway>())
+            if(door.gameObject.scene.name=="BunnyHouse" &&
+               DiagnosticValue(ReadField(door,"sceneName"))=="CentralForest" &&
+               Address(door.transform).EndsWith("/Doorways/DoorwayToCentralForest",StringComparison.Ordinal))
+                matches.Add(door);
+        return matches.Count==1?DiagnosticValue(ReadField(matches[0],"transitioning")):
+            (matches.Count==0?"absent":"ambiguous");
+    }
     void LateUpdate() {
         if(!samplingKeyboard)return;
         if(keyboardSamples.Count>=1200){samplingKeyboard=false;throw new Exception("Keyboard sample exceeded bound");}
@@ -281,6 +312,7 @@ public sealed class ForestProbe : MonoBehaviour
             " | rewiredLeft="+keyboard.GetKey(KeyCode.LeftArrow)+
             " | keyboardEnabled="+keyboard.enabled+" | unityLeft="+Input.GetKey(KeyCode.LeftArrow)+
             " | player="+(player==null?"null":player.id+":"+player.name)+
+            " | keyboardMaps="+KeyboardMaps(player)+
             " | actionAxes="+(player==null?"null":Vector(player.GetAxis2D(0,1)))+
             " | fullAxis="+Vector(TheForestOfLove.InputHelper.FullAxis)+
             " | nativeArrowsUp="+nativeArrowsUp+" | asyncArrowsUp="+asyncArrowsUp+
@@ -292,6 +324,7 @@ public sealed class ForestProbe : MonoBehaviour
             " | rewiredMovementDown="+String.Join(",",rewiredDown.ToArray())+
             " | unityMovementDown="+String.Join(",",unityDown.ToArray())+
             " | scene="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+
+            " | routeDoorTransition="+NaturalDoorTransition()+
             " | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
             " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
             " | conversation="+DialogueManager.isConversationActive+
@@ -369,8 +402,7 @@ public sealed class ForestProbe : MonoBehaviour
             " | conversation="+DialogueManager.isConversationActive+" | focused="+Application.isFocused+
             " | runInBackground="+Application.runInBackground+" | axis="+Vector(TheForestOfLove.InputHelper.FullAxis));
         if(Rewired.ReInput.isReady)rows.Add("travelRewired | ignoreUnfocused="+Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus+
-            " | nativeKeyboard="+Rewired.ReInput.configuration.nativeKeyboardSupport+
-            " | unityInput="+Rewired.ReInput.configuration.alwaysUseUnityInput);
+            " | keyboardEnabled="+Rewired.ReInput.controllers.Keyboard.enabled+KeyboardEligibility());
         foreach(var player in Resources.FindObjectsOfTypeAll<TheForestOfLove.Player>())
             if(player.gameObject.scene.IsValid()) {
                 var waypoints=player.waypointController;
@@ -445,6 +477,7 @@ public sealed class ForestProbe : MonoBehaviour
                 var inputPlayer=ReadField(helper,"player") as Rewired.Player;
                 rows.Add("travelInput | path="+Address(helper.transform)+" | active="+helper.gameObject.activeInHierarchy+
                     " | enabled="+helper.enabled+" | player="+(inputPlayer==null?"null":inputPlayer.id+":"+inputPlayer.name)+
+                    " | keyboardMaps="+KeyboardMaps(inputPlayer)+
                     " | joystick="+ObjectAddress(ReadField(helper,"theKingOfJoysticks"))+
                     " | customController="+ObjectAddress(ReadField(helper,"kingOfJoysticksRewiredCustomController"))+
                     " | touch="+ObjectAddress(ReadField(helper,"touchInputHelper")));

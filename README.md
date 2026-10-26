@@ -1,3 +1,35 @@
+## Phase0028: strict original eligibility guards; startup37 failed before readiness
+
+The shared gameplay gate now requires actual original Rewired ready/global/filter,
+focus watcher, inputAllowed and IsInputAllowed(Keyboard), native keyboard support,
+Player1 and exact original movement maps/bindings. Travel dumps emit the same
+read-only predicates. Every pulse/release sample retains eligibility and identity
+checks; story changes require a real original DOWN doorway transition. Consumer
+ingress must match native/Rewired/actionAxes/FullAxis in one frame. Release also
+requires zero velocity of an existing root body. No observed values are fed back.
+Source getter/iterator IL is pinned in `localization/source/gameplay-eligibility-20261026/`.
+
+32 focused tests passed before the one immutable37 launch; the bridge compiled
+with exact instruction readback.37 failed its300s readiness deadline before the
+bridge, menu gate, New/intro or any native pulse. Failed runtime/cleanup receipts
+remain intact. The unacknowledged restore-input-policy command is preserved and
+was never replayed. Normal Quit was unavailable. Only exact task game/handler PIDs
+were terminated; a new CrashHandler was discovered by full executable-path
+verification and separately removed. Final verification confirms all task processes
+absent,338 frozen dependencies (336 exact plus2 intended DLL cleanup exceptions),
+150 original references,5 resource pairs,7 pins and owner files unchanged. QA
+persistence is empty and no tfol files were generated. No images were opened/captured.
+
+High workstation load and a timed-out native sample are observations, not a proven
+startup cause. The later33-test run passed31 (including the new late-child regression),
+with2 child-interpreter startup timeouts; this is not a clean rerun. See candidate37
+`runtime-diagnosis.json`, `tests.json` and `final-verification.json`.
+New original eligibility/map/runtime acceptance remains pending.
+Next: trace the pre-MainMenu startup boundary and change the technical hypothesis
+before another candidate. Never relaunch37 or repeat an unchanged menu/intro.
+Accepted10/15/29/33/36 evidence and all source/editorial/final-delivery gates remain
+separate. Authorized Russian and six other asset lanes remain untouched.
+
 ## Phase0027: QA-policy menu delivery and release observed
 
 Immutable36 completed one menu-only trial in106.572s. Original-policy passive

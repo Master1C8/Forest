@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-37/diagnose_newgame.py", line 700, in <module>
+    main()
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-37/diagnose_newgame.py", line 696, in main
+    assert success and clean, error
+AssertionError: AssertionError('Startup marker timeout') input-policy cleanup: TimeoutExpired(['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-37/command.py', '/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-37', 'restore-input-policy'], 25) cleanup: AssertionError(('quit', '', 'Traceback (most recent call last):\n  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-37/command.py", line 16, in <module>\n    assert not pending.exists(), \'Reconcile the pending command instead of overwriting it.\'\nAssertionError: Reconcile the pending command instead of overwriting it.\n'))

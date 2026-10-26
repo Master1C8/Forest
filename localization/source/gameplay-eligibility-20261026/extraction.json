@@ -1,0 +1,69 @@
+{
+  "assemblies": {
+    "Rewired_Core.dll": "591d0f9429e66821a4edea6d0c09acc0d78da6512e717b5652c4572f52e2d0bf"
+  },
+  "recipeSha256": "63e6a747e1b0eefa61765446cea9dd373e0cbb04eb25334d9d1455c02438c01c",
+  "inspectorSha256": "c84afadd36fe116196dbab4072c3184a7c2b3a870985925227eb63b3bc92f21e",
+  "inspectorSourceSha256": "4c3f8ed500e00286e934839f4ed7272b61f479b054abc2ff5383319ab5eb3eda",
+  "commands": {
+    "Eligibility": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ReInput",
+      "get_inputAllowed,IsInputAllowed"
+    ],
+    "WatcherValue": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.Utils.Classes.Utility.ValueWatcher`1",
+      "get_value"
+    ],
+    "KeyboardMaps": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.Player/ControllerHelper/MapHelper",
+      "GetAllMaps"
+    ],
+    "MapGetters": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ControllerMap",
+      "get_sourceMapId,get_categoryId,get_layoutId,get_enabled,get_AllMaps"
+    ],
+    "BindingGetters": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.ActionElementMap",
+      "get_actionId,get_elementType,get_axisRange,get_invert,get_axisContribution,get_modifierKey1,get_modifierKey2,get_modifierKey3,get_keyCode,get_enabled"
+    ],
+    "KeyboardMapIterator": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.Player/ControllerHelper/MapHelper/yvtMLgqhSABcamdBxBRhiFddGugS",
+      "MoveNext"
+    ],
+    "KeyCodeConversion": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Rewired_Core.dll",
+      "Rewired.Keyboard",
+      "KeyboardKeyCodeToKeyCode"
+    ]
+  },
+  "files": {
+    "Eligibility.il": "4966971472bac12cc83bb8be5b109bcb3c45c7b5a06b9231a81981a7e2480574",
+    "WatcherValue.il": "d9c3d2f4ccd1f4ce308df34bfc8ac0353d7e5af1ad0dc87fb175fefc04bcd3fe",
+    "KeyboardMaps.il": "8e6dd534506eac5b4bd08cd807abfd4f49c4e5470c4ba9526576154777320d7a",
+    "MapGetters.il": "2bc50b2ce3441600361d7f80e5fcac79d81aa214f4d8feee7ef9f266c6488976",
+    "BindingGetters.il": "b839f4ee2f94abef55f17d931eb6feab16de254ced2e324a1dcee5f081177982",
+    "KeyboardMapIterator.il": "7d7151eb889daf1c08414d46733f9ecdd9d3b779742b516a6b71ef66d7678c12",
+    "KeyCodeConversion.il": "9c31c1480b57243e7a2da7abf516bd9b034e78522d82d47eada3f557fe70fd11"
+  },
+  "boundary": "Original shipped assemblies, read-only source; no native input or runtime acceptance"
+}

@@ -96,6 +96,66 @@ def diagnostic_fields(rows, prefix):
     return dict(part.split('=', 1) for part in matches[0].split(' | ')[1:])
 
 
+def original_keyboard_guard(row):
+    """Real original eligibility and movement map identity, even during transitions."""
+    expected = dict(focused='True', ignoreUnfocused='True', rewiredFilter='True',
+                    rewiredReady='True', rewiredGlobalEnabled='True', rewiredFocusWatcher='True',
+                    rewiredInputAllowed='True', rewiredKeyboardAllowed='True',
+                    keyboardEnabled='True', nativeKeyboard='True', unityInput='False', player='0:Player1')
+    assert all(row.get(k) == v for k, v in expected.items()), 'Original keyboard eligibility changed: ' + repr({k: row.get(k) for k in expected})
+    assert row.get('rewiredOtherWatcher') in ['True', 'False'], 'Missing actual Rewired other watcher'
+    maps = json.loads(row.get('keyboardMaps', 'null'))
+    assert isinstance(maps, dict) and isinstance(maps.get('maps'), list), 'Missing actual original keyboard maps'
+    maps = maps['maps']
+    assert sorted((m['source'], m['category'], m['layout']) for m in maps) == [(0, 0, 0), (1, 1, 0)], 'Original keyboard map identity changed'
+    assert all(isinstance(m['enabled'], bool) for m in maps), 'Unknown keyboard map enabled state'
+    movement = next(m for m in maps if m['source'] == 0)
+    assert movement['enabled'] is True and all(not m['movement'] for m in maps if m['source'] != 0), 'Original movement map disabled or rebound'
+    # Exact original category0/layout0 action0/1 bindings from the pinned
+    # travel input-configuration.json. Sorted lists retain multiplicity.
+    expected_bindings = sorted((action, key, pole) for action, key, pole in [
+        (0, 97, 1), (0, 100, 0), (0, 276, 1), (0, 275, 0),
+        (1, 119, 0), (1, 115, 1), (1, 273, 0), (1, 274, 1)])
+    bindings = movement['movement']
+    assert sorted((b['action'], b['key'], b['pole']) for b in bindings) == expected_bindings, 'Original movement bindings changed'
+    assert all(b['enabled'] is True and b['invert'] is False and
+               all(b[k] == v for k,v in dict(type=1, range=0, modifier1=0, modifier2=0, modifier3=0).items())
+               for b in bindings), 'Original movement binding flags changed'
+
+
+def original_menu_ready(rows, minimum=2):
+    assert len(rows) >= minimum, 'Need two real original menu idle frames before New'
+    for row in rows:
+        original_keyboard_guard(row)
+        assert all(row.get(k) == v for k,v in dict(scene='StartMenu', gameplay='False',
+            anyEvent='False', conversation='False', actor='null', body='null').items()), 'Original menu state changed; no New'
+        assert all(row.get(layer+'MovementUp') == 'True' and row.get(layer+'MovementDown') == ''
+                   for layer in ['native','async','rewired','unity']), 'Original menu eight-key idle failed; no New'
+        assert row.get('nativeValid') == 'True' and all(row.get(k) == '0,0,0' for k in ['actionAxes','fullAxis']), 'Original menu native/axis idle failed; no New'
+
+
+def observe_original_menu():
+    """One passive original-policy gate before New; preserve rejected real frames."""
+    command('sample-keyboard-start')
+    try:
+        deadline = time.monotonic() + 30
+        while True:
+            rows = keyboard_samples()
+            if rows:
+                original_menu_ready(rows, minimum=1)
+                if len(rows) >= 2:
+                    break
+            assert time.monotonic() < deadline, 'Two actual original menu frames not produced; no New'
+            time.sleep(.25)
+    finally:
+        command('sample-keyboard-stop')
+        shutil.copy2(RUN / 'keyboard-samples.txt', RUN / 'original-menu-idle-samples.txt')
+    rows = [diagnostic_fields([r], 'keyboard') for r in (RUN / 'original-menu-idle-samples.txt').read_text().splitlines()]
+    original_menu_ready(rows)
+    write('original-menu-readiness.json', dict(result='passed', actualIdleFrames=len(rows),
+          boundary='Actual original focus/filter/native/Player/maps/eligibility and eight-key/axis idle; no menu pulse or QA policy replacement'))
+
+
 def intro_complete(state, guards, seen_dialogue, diagnostics):
     """Original final content, end trigger and delayed cleanup must all finish."""
     if state['conversationActive'] or state['scene'] != 'BunnyHouse' or 249 not in seen_dialogue:
@@ -148,7 +208,7 @@ def loaded_travel(state):
     assert pairs, 'Missing actual enabled collider-pair diagnostics'
     assert any(p['playerCollider'] == root['id'] and
                p['doorCollider'] in {c['id'] for c in door_colliders} for p in pairs), 'Missing root Player/door collider pair'
-    return dict(guards=guards, policy=diagnostic_fields(rows, 'travelRewired'), player=player, body=body, door=door,
+    return dict(guards=guards, policy=diagnostic_fields(rows, 'travelRewired'), input=diagnostic_fields(rows, 'travelInput'), player=player, body=body, door=door,
                 bodies=bodies, playerColliders=player_colliders, doorColliders=door_colliders, pairs=pairs,
                 sweeps=[dict(part.split('=', 1) for part in r.split(' | ')[1:]) for r in rows if r.startswith('travelSweep | ')],
                 sweepHits=[dict(part.split('=', 1) for part in r.split(' | ')[1:]) for r in rows if r.startswith('travelSweepHit | ')])
@@ -159,6 +219,8 @@ def movement_ready(loaded):
     player, body, door = (loaded[k] for k in ('player', 'body', 'door'))
     assert loaded['guards'].get('focused') == 'True', 'Original ignore-unfocused policy requires real Unity focus; no task DOWN'
     assert all(loaded['policy'].get(k) == v for k,v in {'ignoreUnfocused':'True', 'nativeKeyboard':'True', 'unityInput':'False'}.items()), 'Original input policy changed; no task DOWN'
+    original_keyboard_guard(dict(loaded['policy'], **loaded['input'], focused=loaded['guards'].get('focused')))
+    assert loaded['input']['active'] == loaded['input']['enabled'] == 'True', 'Original InputHelper inactive'
     assert all(player.get(k) == v for k, v in {
         'movement': 'True', 'lanternTransition': 'False', 'sweaterTransition': 'False',
         'swim': 'null', 'waypoints': 'False'}.items()), 'Original movement guard not ready'
@@ -182,7 +244,8 @@ def keyboard_idle(row):
     return all(row.get(k) == 'True' for k in ['nativeValid', 'nativeArrowsUp', 'asyncArrowsUp',
                                              'rewiredArrowsUp', 'unityArrowsUp', 'nativeMovementUp',
                                              'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']) and all(
-        row.get(k) == '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity'])
+        row.get(k) == '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity']) and all(
+        row.get(layer + 'MovementDown') == '' for layer in ['native', 'async', 'rewired', 'unity'])
 
 
 def keyboard_samples():
@@ -221,11 +284,16 @@ def observe_loaded_travel():
 
 
 def keyboard_gameplay_guard(row, loaded):
+    original_keyboard_guard(row)
     assert all(row.get(k) == v for k, v in {'scene': 'BunnyHouse', 'gameplay': 'True',
         'anyEvent': 'False', 'conversation': 'False', 'dustin': 'False', 'glitch': 'False',
         'movement': 'True', 'lanternTransition': 'False', 'sweaterTransition': 'False',
         'waypoints': 'False', 'nativeValid': 'True', 'keyboardEnabled': 'True',
         'ignoreUnfocused': 'True', 'focused': 'True'}.items()), 'Gameplay/input guard changed; hold further DOWN'
+    gameplay_identity_guard(row, loaded)
+
+
+def gameplay_identity_guard(row, loaded):
     assert row['actor'] == loaded['player']['path'] + '#' + loaded['player']['id'], 'Player sample identity changed'
     assert row['body'] == loaded['body']['path'] + '#' + loaded['body']['id'], 'Root body sample identity changed'
 
@@ -247,7 +315,9 @@ def input_released(row):
     # is still observed independently; BunnyHouse readiness also requires its body.
     return all(row.get(k) == 'True' for k in ['nativeValid', 'nativeMovementUp',
         'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']) and all(
-        row.get(k) == '0,0,0' for k in ['actionAxes', 'fullAxis'])
+        row.get(k) == '0,0,0' for k in ['actionAxes', 'fullAxis']) and (
+        row.get('bodyVelocity') == '0,0,0' or
+        (row.get('body') == 'null' and row.get('bodyVelocity') == 'null'))
 
 
 def route_pulse_plan(loaded, spent):
@@ -288,13 +358,26 @@ def route_sample_guard(rows, direction, loaded, transitioning=False):
     allowed_axis = '-1,0,0' if direction == 'left' else '0,-1,0'
     key = 'LeftArrow' if direction == 'left' else 'DownArrow'
     for row in rows:
+        original_keyboard_guard(row)
         assert all(row.get(k) == v for k,v in {'nativeValid':'True', 'keyboardEnabled':'True', 'ignoreUnfocused':'True'}.items()), 'Unknown or changed original keyboard policy'
         for layer in ['native', 'async', 'rewired', 'unity']:
             assert set(filter(None, row[layer + 'MovementDown'].split(','))) <= {key}, 'Unexplained movement producer; no further DOWN'
         assert row['actionAxes'] in ['0,0,0', allowed_axis] and row['fullAxis'] in ['0,0,0', allowed_axis], 'Unexpected original axis'
         assert row['scene'] in ['BunnyHouse', 'CentralForest'], 'Unexpected scene'
-        if row['scene'] == 'BunnyHouse' and not transitioning:
-            keyboard_gameplay_guard(row, loaded)
+        if row['scene'] == 'BunnyHouse':
+            gameplay_identity_guard(row, loaded)
+        if row['scene'] == 'BunnyHouse':
+            natural_transition = transitioning and direction == 'down' and row.get('routeDoorTransition') == 'True'
+            if not natural_transition:
+                keyboard_gameplay_guard(row, loaded)
+        else:
+            assert transitioning and direction == 'down', 'CentralForest without original DOWN transition'
+
+
+def route_consumer_ingress(rows, direction):
+    key, axis = ('LeftArrow', '-1,0,0') if direction == 'left' else ('DownArrow', '0,-1,0')
+    return any(key in row['nativeMovementDown'].split(',') and key in row['rewiredMovementDown'].split(',')
+               and row['actionAxes'] == row['fullAxis'] == axis for row in rows)
 
 
 def natural_doorway_route(loaded):
@@ -334,7 +417,7 @@ def natural_doorway_route(loaded):
                 # Check producer/axis surprises immediately. Story guards may
                 # be changing through the real doorway; bind that separately
                 # before crediting arrival or submitting another DOWN.
-                route_sample_guard(rows, direction, loaded, transitioning=True)
+                route_sample_guard(rows, direction, loaded, transitioning=direction == 'down')
                 down = all(any(key in r[layer + 'MovementDown'].split(',') for r in rows)
                            for layer in ['native', 'async', 'rewired', 'unity'])
                 released = len(rows) >= 2 and all(input_released(r) for r in rows[-2:])
@@ -349,10 +432,12 @@ def natural_doorway_route(loaded):
             down = all(any(key in r[layer + 'MovementDown'].split(',') for r in rows)
                        for layer in ['native', 'async', 'rewired', 'unity'])
             released = len(rows) >= 2 and all(input_released(r) for r in rows[-2:])
-            report.update(savedSamples=len(rows), deliveryAllFourLayers=down, releaseAndZeroAxesObserved=released)
+            route_sample_guard(rows, direction, loaded, transitioning=direction == 'down')
+            ingress = route_consumer_ingress(rows, direction)
+            report.update(savedSamples=len(rows), deliveryAllFourLayers=down, matchingFrameConsumerIngress=ingress, releaseAndZeroAxesObserved=released)
             write(prefix + '-pulse.json', report)
             assert pulse.returncode == 0 and posted, 'Task DOWN transport not established'
-            assert down and released, 'Native direction delivery/release unknown; stop route'
+            assert down and ingress and released, 'Native direction delivery/consumer ingress/release unknown; stop route'
             command('dump-travel')
             shutil.copy2(RUN / 'travel-route.json', RUN / (prefix + '-travel.json'))
             travel = json.loads((RUN / 'travel-route.json').read_text())
@@ -460,6 +545,7 @@ def main():
         assert state['scene'] == 'StartMenu' and state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
         assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
         shutil.copy2(RUN / 'state.json', RUN / 'main-menu.json')
+        observe_original_menu()
         command('dump-notebook')
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'main-menu-notebook.json')
         command('dump-tutorial')

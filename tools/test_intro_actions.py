@@ -23,6 +23,7 @@ class IntroActions(unittest.TestCase):
         rows = [
             'travelGuards | gameplay=True | anyEvent=False | conversation=False | focused=True | axis=0,0,0',
             'travelRewired | ignoreUnfocused=True | nativeKeyboard=True | unityInput=False',
+            'travelInput | path=Singletons/InputHelper | active=True | enabled=True | player=0:Player1',
             'travelPlayer | id=10 | path=Spawned/Player | active=True | enabled=True',
             'travelBody | id=11 | owner=10 | path=Spawned/Player',
             'travelBody | id=13 | owner=10 | path=Spawned/Player/PlayerFootSensor',

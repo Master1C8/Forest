@@ -18,6 +18,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--focus-only', action='store_true', help='Read-only supplemental watcher/eligibility bindings; preserve original extraction')
+    parser.add_argument('--gameplay-eligibility', action='store_true', help='Read-only original player map getters for strict gameplay eligibility')
     args = parser.parse_args()
     out = args.output.resolve()
     assert ROOT in out.parents and not out.exists()
@@ -42,6 +43,17 @@ def main():
             'FocusWatcherFields': ('Rewired_Core.dll', 'Rewired.ReInput/UYDcZIUFzwNkgKFpAvKGoMimqAT', '--fields'),
             'WatcherValue': ('Rewired_Core.dll', 'Rewired.Utils.Classes.Utility.ValueWatcher`1', 'get_value'),
             'EditorEligibility': ('Rewired_Core.dll', 'Rewired.ReInput', 'get_isEditor,get_isAllowedEditorWindowFocused,get_isUnityEditorFocused,get_isReady'),
+        }
+    if args.gameplay_eligibility:
+        assert not args.focus_only
+        groups = {
+            'Eligibility': ('Rewired_Core.dll', 'Rewired.ReInput', 'get_inputAllowed,IsInputAllowed'),
+            'WatcherValue': ('Rewired_Core.dll', 'Rewired.Utils.Classes.Utility.ValueWatcher`1', 'get_value'),
+            'KeyboardMaps': ('Rewired_Core.dll', 'Rewired.Player/ControllerHelper/MapHelper', 'GetAllMaps'),
+            'KeyboardMapIterator': ('Rewired_Core.dll', 'Rewired.Player/ControllerHelper/MapHelper/yvtMLgqhSABcamdBxBRhiFddGugS', 'MoveNext'),
+            'KeyCodeConversion': ('Rewired_Core.dll', 'Rewired.Keyboard', 'KeyboardKeyCodeToKeyCode'),
+            'MapGetters': ('Rewired_Core.dll', 'Rewired.ControllerMap', 'get_sourceMapId,get_categoryId,get_layoutId,get_enabled,get_AllMaps'),
+            'BindingGetters': ('Rewired_Core.dll', 'Rewired.ActionElementMap', 'get_actionId,get_elementType,get_axisRange,get_invert,get_axisContribution,get_modifierKey1,get_modifierKey2,get_modifierKey3,get_keyCode,get_enabled'),
         }
     commands, files = {}, {}
     for name, (assembly, typename, methods) in groups.items():
