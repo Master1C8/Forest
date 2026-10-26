@@ -1,0 +1,84 @@
+{
+  "originalAssemblies": {
+    "Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+    "Auto-asmdef-FirstPass.dll": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db"
+  },
+  "inspectorSourceSha256": "ef5d47883961a46c21db09f3053d2290febf40542110685f695af511c6c6e351",
+  "commands": {
+    "CustomContinue.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.CustomTypewriterEffectTextMeshPro",
+      "FastForwardTextOrAdvanceDialogue,FastForwardTextOrAdvanceDialogue_Internal"
+    ],
+    "StandardResponse.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.StandardUIResponseButton",
+      "OnClick,get_response,get_isClickable,get_isVisible,get_text"
+    ],
+    "QuestRequirements.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingQuests",
+      "IsConditionSatisfied"
+    ],
+    "TagRequirements.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionPrecedingTags",
+      "IsConditionSatisfied"
+    ],
+    "QuestStatus.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Quest",
+      "get_status,get_isCompleted"
+    ],
+    "FullAvailability.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionFullAvailabilityRule",
+      "IsConditionSatisfied"
+    ],
+    "BunnyStageEnd.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.IntroBunnyHouseCutscene",
+      "EndCutsceneStage"
+    ],
+    "CinematicEnd.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.CutsceneManager",
+      "EndCinematicMode"
+    ],
+    "AnyEventGuard.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Events.GameStateManager",
+      "get_isAnyEventActive"
+    ]
+  },
+  "files": {
+    "CustomContinue.il": "529c5f95dd15b5aef2393f16ccac08a6b2fed9d90df9e44e3ccfa9112f2c3019",
+    "StandardResponse.il": "19d6039267dc974224c71c6870bb4d02e0add8385d1e568970541f6627a628a9",
+    "QuestRequirements.il": "353f36af5712cd1775e4731dd45fbf466859963d5197ee75e71e46f51632cc23",
+    "TagRequirements.il": "f5d6b6cb2651a31e6d467db2ddfee9bce3d45019d71d44cd482a085ef1fcb408",
+    "QuestStatus.il": "7f57b192076e49804f1011b1ea7ece32f7c8833683f696929d7837ce8336c8f5",
+    "FullAvailability.il": "88f7a4376272dbee5cd3db65f7cda9331bbde9bf7a4464d91e017a4946c66ab9",
+    "BunnyStageEnd.il": "b74ef90756fa0e248adb9b25b65016e8a2c0663a2a7551beca09a791df7d8850",
+    "CinematicEnd.il": "d52418172edf0412dffc8ac2b3c5f0bbec83c51365f758c81e0bf6cca2db17ae",
+    "AnyEventGuard.il": "4aa3b580475e856fc3ca17862d9fc055f13fa1c051c046b45ed965fd428d37ac"
+  },
+  "boundary": "Read-only original IL; no copied-source inventory/glossary change, no runtime getter evaluation"
+}

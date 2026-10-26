@@ -12,11 +12,11 @@ import subprocess
 import sys
 import time
 
-RUN = Path(sys.argv[1]).resolve()
+RUN = None
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA = 'The Forest of Love_Data'
-GAME = RUN / 'game'
-EXE = GAME / 'The Forest of Love.exe'
+GAME = None
+EXE = None
 
 
 def sha(p):
@@ -42,7 +42,51 @@ def command(value):
     assert result.returncode == 0, (value, result.stdout[-500:], result.stderr[-500:])
 
 
+def decode_state(state):
+    assert 'responseRecords' in state and 'responseCount' in state, 'Bridge response serialization missing; hold before New'
+    state['responses'] = [json.loads(row) for row in state['responseRecords']]
+    assert len(state['responses']) == state['responseCount'], 'Incomplete bridge response readback'
+    for response in state['responses']:
+        assert {'path', 'text', 'targetPath', 'conversationId', 'entryId', 'visible', 'clickable'} <= response.keys(), 'Incomplete response row'
+    return state
+
+
+def read_state():
+    return decode_state(json.loads((RUN / 'state.json').read_text()))
+
+
+def intro_action(state, graph):
+    """Choose only a source-bound original action; never infer response IDs from labels."""
+    if not state['conversationActive']:
+        return None
+    if state['conversationId'] == graph['wrapper']['conversationId']:
+        assert state['entryId'] in graph['wrapper']['bootstrapEntries'], 'Unexpected wrapper content'
+        assert not state.get('conversationState'), 'Wrapper contains visible dialogue; investigate first'
+        assert state['narrativeDbName'] == graph['wrapper']['narrativeDbName'], 'Wrapper belongs to another story'
+        assert state['narrativeArcName'] in graph['wrapper']['allowedArcs'], 'Unexpected intro arc'
+        return None
+    assert state['conversationId'] == graph['conversationId'], 'Stop at unexpected dialogue'
+    entry = next(e for e in graph['entries'] if e['id'] == state['entryId'])
+    source_text = next(f['value'] for f in entry['fields'] if f['title'] == 'Dialogue Text')
+    if not source_text:
+        return None
+    assert len(entry['outgoingLinks']) <= 1, 'Stop at original branching dialogue'
+    responses = [r for r in state.get('responses', []) if r['visible'] and r['clickable']]
+    if responses:
+        assert len(responses) == 1 and len(entry['outgoingLinks']) == 1, 'Stop at response branch'
+        response, link = responses[0], entry['outgoingLinks'][0]
+        expected = (link['destinationConversationID'], link['destinationDialogueID'])
+        assert (response['conversationId'], response['entryId']) == expected, 'Response differs from source successor'
+        assert expected[0] == graph['conversationId'] and response['targetPath'], 'Unexpected response target'
+        return 'response %s %s %s' % (state['entryId'], *expected)
+    return 'continue'
+
+
 def main():
+    global RUN, GAME, EXE
+    RUN = Path(sys.argv[1]).resolve()
+    GAME = RUN / 'game'
+    EXE = GAME / 'The Forest of Love.exe'
     assert RUN.parent == Path('/Users/antonkrutov/Desktop/Forest/localization/probes')
     assert Path(__file__).resolve().parent == RUN, 'Run the immutable snapshot'
     assert not (RUN / 'launch.json').exists() and not processes(), 'Reconcile any previous launch'
@@ -79,7 +123,7 @@ def main():
         (RUN / 'actions.log').touch(exist_ok=True)
         command('show-menu')
         command('dump')
-        state = json.loads((RUN / 'state.json').read_text())
+        state = read_state()
         assert state['scene'] == 'StartMenu' and state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
         assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
         shutil.copy2(RUN / 'state.json', RUN / 'main-menu.json')
@@ -87,7 +131,7 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'main-menu-notebook.json')
         command('menu StartScreenMainMenu OnClickStart')
         command('dump')
-        state = json.loads((RUN / 'state.json').read_text())
+        state = read_state()
         assert 'PlayMenu Canvas/PlayMenu' in state['components'], 'Original Play menu did not open'
         shutil.copy2(RUN / 'state.json', RUN / 'play-menu.json')
         command('dump-notebook')
@@ -107,9 +151,12 @@ def main():
         seen_dialogue = set()
         previous = None
         observed_transitions = []
+        submitted_responses = []
+        last_action_key = None
+        same_action_count = 0
         while time.monotonic() < scene_deadline:
             command('dump')
-            state = json.loads((RUN / 'state.json').read_text())
+            state = read_state()
             command('dump-notebook')
             notebook = json.loads((RUN / 'notebook-route.json').read_text())
             guards = next(x for x in notebook['diagnostics'] if x.startswith('guards |'))
@@ -117,26 +164,16 @@ def main():
             observations.append({'elapsed': round(time.monotonic() - started, 3),
                                  'scene': key[0], 'conversationActive': key[1],
                                  'conversationId': key[2], 'entryId': key[3], 'typing': state['typing'],
+                                 'narrativeDbName': state['narrativeDbName'], 'narrativeArcName': state['narrativeArcName'],
+                                 'responses': state['responses'],
                                  'guards': guards})
             write('newgame-observations.json', observations)
-            if state['conversationActive'] and state['conversationId'] == 109:
-                assert state['entryId'] in graph['wrapper']['bootstrapEntries'], ('Unexpected wrapper content', key)
-                assert not state.get('conversationState'), 'Wrapper contains visible dialogue; investigate first'
-                assert state['narrativeDbName'] == graph['wrapper']['narrativeDbName'], 'Wrapper belongs to another story'
-                assert state['narrativeArcName'] in graph['wrapper']['allowedArcs'], 'Unexpected intro arc'
-                # Original PlayDialogue fires109 before BuildDynamicConversation
-                # installs the selected arc links. Wait; never Continue on metadata.
+            action = intro_action(state, graph)
+            if state['conversationActive'] and action is None:
+                # Original wrapper/bootstrap and empty metadata must progress themselves.
                 previous = None
                 stable_free = 0
             elif state['conversationActive']:
-                assert state['conversationId'] == 145, ('Stop at unexpected dialogue', key)
-                entry = entries[state['entryId']]
-                assert len(entry['outgoingLinks']) <= 1, 'Stop at original branching dialogue'
-                source_text = next(f['value'] for f in entry['fields'] if f['title'] == 'Dialogue Text')
-                if not source_text:
-                    previous = None
-                    time.sleep(.3)
-                    continue
                 if previous is not None and previous != state['entryId']:
                     links = entries[previous]['outgoingLinks']
                     if links:
@@ -144,9 +181,20 @@ def main():
                     observed_transitions.append([previous, state['entryId']])
                 previous = state['entryId']
                 seen_dialogue.add(state['entryId'])
-                # Original method fast-forwards a typing line, then advances the
-                # completed line on the next guarded iteration. No graph jumps.
-                command('continue')
+                action_key = (key, action)
+                same_action_count = same_action_count + 1 if action_key == last_action_key else 1
+                last_action_key = action_key
+                # At most fast-forward then advance, with one settling observation.
+                # A response submits once. Never repeat an unchanged no-op indefinitely.
+                assert same_action_count <= (1 if action.startswith('response ') else 3), 'Original action did not advance; inspect boundary'
+                command(action)
+                if action.startswith('response '):
+                    destination = int(action.split()[3])
+                    submitted_responses.append({'source': state['entryId'], 'destination': destination,
+                                                'response': state['responses'], 'action': action})
+                    write('intro-responses.json', submitted_responses)
+                    observed_transitions.append([state['entryId'], destination])
+                    previous = destination
                 stable_free = 0
             else:
                 previous = None
@@ -162,7 +210,8 @@ def main():
         write('newgame-state.json', state)
         write('intro-progression.json', {'conversationId': 145, 'seenEntries': sorted(seen_dialogue),
               'observedTransitions': observed_transitions, 'finalScene': state['scene'], 'guards': guards,
-              'inputBoundary': 'Original Continue/FastForwardTextOrAdvanceDialogue on active source-bound145 entries; no OS keyboard/controller delivery or forced story state'})
+              'submittedResponses': submitted_responses,
+              'inputBoundary': 'Original Continue and sole source-bound response Button.onClick on active145 entries; no OS keyboard/controller delivery or forced story state'})
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
         print('Original intro completed in', state['scene'], guards, flush=True)
         success = True

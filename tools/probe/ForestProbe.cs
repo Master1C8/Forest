@@ -15,6 +15,11 @@ public sealed class ForestProbe : MonoBehaviour
     [Serializable] public sealed class TextRow {
         public string path, text, font; public float size; public bool overflow;
     }
+    [Serializable] public sealed class ResponseRow {
+        public string path, text, targetPath;
+        public int conversationId, entryId;
+        public bool visible, clickable;
+    }
     [Serializable] public sealed class State {
         public string scene, dataPath, persistentDataPath, company, product, conversationState;
         public string narrativeDbName, narrativeArcName;
@@ -31,6 +36,10 @@ public sealed class ForestProbe : MonoBehaviour
         public bool canScaleUp, canScaleDown;
         public string selectedControl;
         public string[] scaleEligibility, scaleControlState;
+        // The runtime JsonUtility omits arrays of custom nested row types from
+        // this external bridge DLL. Arrays of strings retain each scalar record.
+        public int responseCount;
+        public string[] responseRecords;
     }
     [Serializable] public sealed class NotebookRouteState {
         public string scene, company, product, dataPath, persistentDataPath;
@@ -73,6 +82,25 @@ public sealed class ForestProbe : MonoBehaviour
             } else if(text=="continue") {
                 if(!DialogueManager.isConversationActive)throw new Exception("No active conversation");
                 TheForestOfLove.CustomTypewriterEffectTextMeshPro.FastForwardTextOrAdvanceDialogue();
+            }
+            else if(text.StartsWith("response ")) {
+                var parts=text.Substring(9).Split(' ');
+                if(parts.Length!=3)throw new Exception("Expected source entry, conversation and destination entry");
+                int sourceId=Int32.Parse(parts[0]), conversationId=Int32.Parse(parts[1]), entryId=Int32.Parse(parts[2]);
+                var current=DialogueManager.currentConversationState;
+                if(!DialogueManager.isConversationActive || current==null || current.subtitle==null ||
+                   current.subtitle.dialogueEntry==null || current.subtitle.dialogueEntry.conversationID!=conversationId ||
+                   current.subtitle.dialogueEntry.id!=sourceId)
+                    throw new Exception("Response source changed");
+                StandardUIResponseButton match=null;
+                foreach(var b in Resources.FindObjectsOfTypeAll<StandardUIResponseButton>())
+                    if(b.gameObject.scene.IsValid() && b.gameObject.activeInHierarchy && b.isVisible && b.isClickable) {
+                        if(match!=null)throw new Exception("More than one live response; hold for source review");match=b;
+                    }
+                if(match==null || match.response==null || match.response.destinationEntry==null || match.target==null ||
+                   match.response.destinationEntry.conversationID!=conversationId || match.response.destinationEntry.id!=entryId)
+                    throw new Exception("Response does not match source-bound successor");
+                match.button.onClick.Invoke();
             }
             else if(text=="probe-nameplate") {
                 if(!DialogueManager.isConversationActive)throw new Exception("No active conversation");
@@ -229,6 +257,12 @@ public sealed class ForestProbe : MonoBehaviour
     }
     void Dump() {
         var texts=new List<TextRow>();var buttons=new List<string>();var components=new List<string>();
+        var responses=new List<ResponseRow>();
+        foreach(var b in Resources.FindObjectsOfTypeAll<StandardUIResponseButton>())
+            if(b.gameObject.scene.IsValid() && b.gameObject.activeInHierarchy && b.response!=null && b.response.destinationEntry!=null)
+                responses.Add(new ResponseRow{path=Address(b.transform),text=b.text,
+                    targetPath=b.target==null?"":Address(b.target),visible=b.isVisible,clickable=b.isClickable,
+                    conversationId=b.response.destinationEntry.conversationID,entryId=b.response.destinationEntry.id});
         var tmpObjects=Resources.FindObjectsOfTypeAll<TMP_Text>();
         var rendererDiagnostics=new List<string>();
         var subtitleGlyphDiagnostics=new List<string>();
@@ -314,6 +348,8 @@ public sealed class ForestProbe : MonoBehaviour
             canScaleUp=TheForestOfLove.UI.WindowController.CanScaleUp(),canScaleDown=TheForestOfLove.UI.WindowController.CanScaleDown(),
             selectedControl=EventSystem.current==null || EventSystem.current.currentSelectedGameObject==null?"":Address(EventSystem.current.currentSelectedGameObject.transform),
             scaleEligibility=scaleEligibility.ToArray(),scaleControlState=scaleControlState.ToArray(),
+            responseCount=responses.Count,
+            responseRecords=responses.ConvertAll(row=>JsonUtility.ToJson(row)).ToArray(),
             typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping()};
         var typewriter=FindObjectOfType<TheForestOfLove.CustomTypewriterEffectTextMeshPro>();
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;

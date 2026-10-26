@@ -1,0 +1,38 @@
+{
+  "result": "failed: KeyError(responses) in first post-New observation; cleanup passed",
+  "firstDivergingBoundary": "Bridge State.responses custom nested row array omitted by runtime JsonUtility; the existing TextRow[] field is also absent. Source compilation/readback did not establish serializer support.",
+  "actualActions": [
+    "2026-10-26T06:15:46.0268810Z OK show-menu",
+    "2026-10-26T06:15:47.6363600Z OK dump",
+    "2026-10-26T06:15:48.0163720Z OK dump-notebook",
+    "2026-10-26T06:15:48.4236250Z OK menu StartScreenMainMenu OnClickStart",
+    "2026-10-26T06:15:48.8542910Z OK dump",
+    "2026-10-26T06:15:49.2866570Z OK dump-notebook",
+    "2026-10-26T06:15:50.2630200Z OK menu PlayMenu OnClickStart",
+    "2026-10-26T06:15:50.5901320Z OK dump",
+    "2026-10-26T06:15:50.9698690Z OK dump-notebook",
+    "2026-10-26T06:15:51.3781450Z OK quit"
+  ],
+  "lastScene": "StartMenu",
+  "sideEffects": "Both original Start and Play New menu methods were acknowledged before the first loop failed. Do not describe22 as a no-launch or no-New attempt.",
+  "repair": "Use responseCount plus string[] responseRecords, each a scalar JSON object. Require presence, count and fields at main-menu readback before New, then on every subsequent dump. Missing fields fail closed.",
+  "regression": "Six selector/transport tests pass; missing array, incorrect count and incomplete scalar row reject with their intended reasons and matching positive controls. These tests replace the producer with Python fixtures, so actual Unity serialization/response delivery still requires23.",
+  "cleanup": {
+    "verifiedTaskProcessRowsBeforeQuit": [
+      "24497 24495 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-22/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-22/player.log",
+      "24500     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-22\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-22/player.log",
+      "24502     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-22\\game\\UnityCrashHandler64.exe --attach 244 549064704"
+    ],
+    "remainingTaskProcessRows": [],
+    "quitAcknowledged": true,
+    "originalAssetsAndPlayerFilesUnchanged": true,
+    "originalAssemblyRestoredInQACopy": true,
+    "inspectionBridgeRemoved": true,
+    "inputPinsUnchanged": true,
+    "candidateAssetHashesUnchanged": true,
+    "ownerSavePathUsed": false
+  },
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "runtime23": "New frozen23 probe, exact same5 resources; no unchanged retry or edits to22 frozen dependencies"
+}

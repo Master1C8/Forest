@@ -12,50 +12,54 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
-Phase0013 traced the three inventory tickers (six native Text fields) and seven
-adjacent quest fields. Phase0014 proved the notebook marker188 binds **225:195**,
-the final line of PRIMARY129 → 191 → 192 → 193 → 194 → 195; marker188 is disconnected
-control metadata. Candidate18 confirmed that loaded binding and the unavailable
-Fast Forward route: all32 global chapters locked, only original New and Back buttons.
+Phase0016 completed the original intro in isolated candidate23 through the real
+Start → Play New menus, natural IntroForest/BunnyHouse cutscenes, 49 observed content
+nodes and ten original response buttons. The empty dynamic wrapper109:0 was observed
+with `NewGame_Intro` / `red_double_take` and received no Continue. The final145:249 was
+seen, followed by two BunnyHouse gameplay observations with no conversation or event.
+This is bounded runtime acceptance, with no images or OS input tested.
 
-Phase0015 followed original New in fresh isolated candidates19 and20, reusing all
-five candidate17 resources byte-for-byte. The game naturally traversed
-StartMenu → SoftResetLoadingScene → ChapterSelect → IntroForest. Candidate19
-verified all three gameplay tickers and their six Text bindings for the first time:
-FixedWidths alone is active, MasterLog is closed, the notebook is unlearned and
-an original cutscene is active. Serialized Driftwood placeholders and active Button
-entries behind that closed panel do not establish visible or permitted inventory.
+Candidate21 found that145:205 needs the sole original response206, rather than the
+subtitle Continue button. Candidate22 then exposed Unity omitting nested custom row
+arrays from the external bridge's JSON. Both failed attempts and cleanup are retained.
+The repaired bridge sends scalar response records in a string array, verifies actual
+response destination/target/visibility, and invokes the original Button.onClick only
+for the sole source-bound successor. The runner checks this transport before New and
+bounds unchanged no-op actions. Six focused tests cover the selector and serialization
+contract; candidate23 separately exercised real Unity production and response delivery.
 
-Candidate20 stopped before any Continue because the first active conversation was
-**109:0**, the original `system/dynamicConversation` wrapper. Source tracing proves
-`DialogueService.PlayDialogue` fires109 before installing the selected arc links.
-The corrected recipe waits on its empty bootstrap nodes0/5/8 with the actual
-`NewGame_Intro` identity and a pinned original named arc, then permits normal Continue
-only on actual145 content. This repair compiles; its runtime remains untested.
-The original IntroForest waypoint/cutscene flow leads to BunnyHouse and another
-original intro stage; neither intro completion nor notebook access has been accepted.
+Canonical `tools/probe/diagnose_newgame.py` also waits on empty145 metadata before the
+visible-content branching guard. Original empty145:188 has six outgoing arc roots and
+must receive no input. This small post-launch correction is unit-tested, with identical
+actions on all104 candidate23 recorded states;188 itself was not observed at runtime.
+Never change a live run's frozen helper chain. Freeze the current runner, command.py,
+intro graph, bridge sources/dependencies and build/pin receipts in a new run before use.
 
-The loaded notebook conversation is `GossipQuest_GetTheNotebook`, primary actor
-`Scarlett`, quest `Act1_GossipQuest`. Its FullAvailabilityRule subcondition types
-were read without evaluating them; concrete nested operands, actor eligibility and
-listener multiplicity remain unverified. The updated read-only bridge prepares that
-next measurement without running random-chance getters or forcing narrative state.
+The original notebook binding remains **225:195**, at the end of PRIMARY129 → 191 →
+192 → 193 → 194 → 195. The loaded `GossipQuest_GetTheNotebook` belongs to actor
+`Scarlett` / quest `Act1_GossipQuest`. Its read-only nested condition fields require,
+under normal rules, completed `Act1_TutorialQuest`, active `Main Act 1` and inactive
+`Instanced Event`. These are necessary conditions, not complete eligibility. Do not
+invoke225 directly, manufacture triggers/quest states or bypass actor/interaction guards.
+The final23 state still has an unlearned notebook and closed MasterLog; inventory has
+not been opened or accepted. Current tutorial state and the ordinary interaction route
+need investigation before a guarded page3/ordinary-empty-cell renderer probe.
 
-Both runs quit normally; their exact game/wrapper/crash-helper processes are absent,
-the bridge is removed, and the original QA assembly is restored. Five candidate and
-five original resource hashes and all seven frozen asset-lane inputs are unchanged.
-Candidate20 also verifies every original `tfol.*` file recursively. Zero images were
-captured or opened. See `localization/source/intro-20261026/source-trace.json` and
-`localization/probes/ru-20261026-20/runtime-diagnosis.json` for the current boundary.
+Candidates21–23 quit with their exact game/wrapper/crash-helper processes absent;
+original QA assemblies were restored and bridges removed. All original resources/player
+files, five candidate hashes and seven frozen asset-lane inputs stayed unchanged.
+Candidate23 contains only generated `tfol.settings`; the mapped QA persistent directory
+was empty. No restorable story checkpoint is established. Preserve these copies and do
+not rerun them. A later normal replay to exercise a new stage is a new dependency run,
+not a repeated acceptance claim. With low disk space, verified APFS clonefile copies
+provide distinct inodes and isolated writes without deleting prior evidence.
 
-Reproduce the13 bounded original consumer groups and source-bound intro graph with
-`python3 tools/inspect_newgame_source.py --output <new-project-evidence-directory>`.
-For the next new runtime copy, freeze the updated `diagnose_newgame.py`, `command.py`,
-current `intro-graph.json`, build/pin receipts and compiled bridge sources before launch.
-Do not rerun or overwrite candidates18–20. `diagnose_notebook.py` remains menu-only;
-`diagnose_newgame.py` targets ordinary intro completion but its corrected109 guard
-and recursive condition fields still require runtime verification. Only after all
-original MasterLog guards pass may the normal page3/ordinary-empty-cell probe proceed.
+See `localization/probes/ru-20261026-23/runtime-diagnosis.json` and
+`localization/source/intro-response-20261026/source-trace.json` for the exact boundary.
+The original13 source groups/intro graph remain reproducible with
+`python3 tools/inspect_newgame_source.py --output <new-project-evidence-directory>`;
+the nine supplemental original consumer groups have exact inspector commands and hashes
+in the new source directory's `extraction.json`. No frozen source/glossary input changed.
 
 The quest consumer has three `Contains("lost photos")` tests over displayed history
 before appending photo counters. This needs a bounded consumer adapter before localized

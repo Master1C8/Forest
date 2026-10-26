@@ -1,0 +1,108 @@
+{
+  "scope": "Original menu New -> natural IntroForest -> BunnyHouse -> original final249 -> two free gameplay observations; no forced flags, events, conversations or destinations",
+  "result": "passed within this bounded runtime scope",
+  "observedContentEntries": 49,
+  "submittedOriginalResponses": 10,
+  "namedArcsObserved": [
+    "bunny_is_concerned",
+    "bunny_says_hello",
+    "red_double_take",
+    "red_feeling_woozy",
+    "red_recognizes_rock",
+    "red_recognizes_tree"
+  ],
+  "wrapperSamples": [
+    {
+      "elapsed": 59.868,
+      "scene": "IntroForest",
+      "conversationActive": true,
+      "conversationId": 109,
+      "entryId": 0,
+      "typing": false,
+      "narrativeDbName": "NewGame_Intro",
+      "narrativeArcName": "red_double_take",
+      "responses": [],
+      "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=True | notebookLearned=False"
+    }
+  ],
+  "wrapperAcceptance": "Observed109:0 for red_double_take waited without Continue;5/8 and other109 arc combinations remain source/test guarded, not observed here.",
+  "finalState": {
+    "scene": "BunnyHouse",
+    "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False | notebookLearned=False",
+    "lastTwoObservations": [
+      {
+        "elapsed": 201.218,
+        "scene": "BunnyHouse",
+        "conversationActive": false,
+        "conversationId": 0,
+        "entryId": 0,
+        "typing": false,
+        "narrativeDbName": "",
+        "narrativeArcName": "",
+        "responses": [],
+        "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False | notebookLearned=False"
+      },
+      {
+        "elapsed": 202.995,
+        "scene": "BunnyHouse",
+        "conversationActive": false,
+        "conversationId": 0,
+        "entryId": 0,
+        "typing": false,
+        "narrativeDbName": "",
+        "narrativeArcName": "",
+        "responses": [],
+        "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False | notebookLearned=False"
+      }
+    ]
+  },
+  "responseBoundary": "Ten original StandardUIResponseButton destinations matched sole original outgoing links. Original Button.onClick submitted each once; no direct dialogue-ID calls.",
+  "cleanup": {
+    "verifiedTaskProcessRowsBeforeQuit": [
+      "25344 25342 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-23/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-23/player.log",
+      "25348     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-23\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-23/player.log",
+      "25350     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-23\\game\\UnityCrashHandler64.exe --attach 1112 549064704"
+    ],
+    "remainingTaskProcessRows": [],
+    "quitAcknowledged": true,
+    "originalAssetsAndPlayerFilesUnchanged": true,
+    "originalAssemblyRestoredInQACopy": true,
+    "inspectionBridgeRemoved": true,
+    "inputPinsUnchanged": true,
+    "candidateAssetHashesUnchanged": true,
+    "ownerSavePathUsed": false
+  },
+  "inputs": {
+    "build.json": "6d3eaf70cfcd7b3a7880314e132cdef2e5d5ef1cbb853b3066e64a75a77e2b8c",
+    "verification.json": "84048d7c041c629c63d5146b3fbeef8c92c0fbace3e4a3888093cb748e05a7ab",
+    "bridge-build.json": "e71a1e0f3faa411ce322d8bee0529dcf8dbbe937ad0ad10f5cf3c35b62eda7cc",
+    "diagnose_newgame.py": "b61fce650f92c03cda3e2f8a04327eac7da576ef31d94253d23703bb0ff178be",
+    "command.py": "34ea7e040d5899e43505519bf67a7347389eb7c5591e4483f16e34624b4bd739",
+    "intro-graph.json": "7882039707d3824f448b425570649a444de4a718b5cdbed30599dd3c6b818457",
+    "input-pins.json": "3b00ba515d203c80eb6505326a3df9f352abef59511ef23cd6cf1b8d397267d4",
+    "intro-progression.json": "0dbc33b558aaad79033c908232426438f9825230e5259fbc08d70a38f7a59db0",
+    "intro-responses.json": "edbe87f487ad71554032f84209a319088eb2b5460f7943bdcce30ab32b9176a5",
+    "newgame-state.json": "071ebf4394a96d4379ab0358a29bf0952828c449905a0809473f73b940d4ed33",
+    "newgame-notebook.json": "3747319819f8ef2b3b1f8dfbd43d44bbd46fd42f2c9e917ce8e737532de0f544"
+  },
+  "canonicalRecipeDelta": {
+    "frozenSha256": "b61fce650f92c03cda3e2f8a04327eac7da576ef31d94253d23703bb0ff178be",
+    "currentSha256": "ec99a3c10fdb8d6674ec2b86386ffd4427b0d56624cc0be186599a24984072d1",
+    "change": "After23 launch, canonical selector moved empty145 metadata wait before visible-content branching guard, including original empty145:188 with6 links. Run23 frozen helpers were never changed.",
+    "allRecordedStatesDecisionParity": true,
+    "recordedStatesCompared": 104,
+    "unobservedMetadata188": "pure guard test passed; runtime not observed"
+  },
+  "continuationState": {
+    "qaFilesInGame": {
+      "game/The Forest of Love_Data/tfol.settings": "5abb9405e2f0a5f0cdc2740e1d9212d0f7880f55f0c4ae180d00d4ae8adc7398"
+    },
+    "qaPersistentDirectory": "C:/users/crossover/AppData/LocalLow/VNRevivalQA/ForestRuRendererProbe; exact mapped directory checked empty",
+    "restorableStoryCheckpoint": "not established; only tfol.settings exists, no QA story save found"
+  },
+  "tests": "6 passed; selector/serialized-record fixtures only. Unity producer and original response consumer separately exercised by this23 run.",
+  "pending": "Act1_TutorialQuest state and legitimate progression, actual actor ownership/controls,225:195 notebook unlock, inventory/quest renderer, all broader source/special-scene/editorial/resource/delivery gates",
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "osInput": "not-run; original game UI consumer invoked through temporary QA bridge"
+}
