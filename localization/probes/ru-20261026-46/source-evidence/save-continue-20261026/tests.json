@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-10-26T16:38:50.117025+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.test_native_input",
+    "tools.test_intro_actions",
+    "tools.test_save_fixture"
+  ],
+  "returnCode": 0,
+  "testsPassed": 79,
+  "unittestReportedSeconds": 3.323,
+  "sourceHashes": {
+    "tools/probe/ForestProbe.cs": "21769e9a8edc43c1003945c0f59f5741b4fa06e65a11ebbbd5f9c7485cfbe5c7",
+    "tools/probe/save_fixture.py": "de0e2a287e1a13e7a2c19bdf6e9682af8edd8402327e372e2f1c05b853dc68db",
+    "tools/test_save_fixture.py": "5bb559cd92607bd5b4c65c3b58d3e60efa6ad57caf314ceed67cc7c3e67a657a",
+    "tools/probe/diagnose_newgame.py": "4758d3a8654df46ceadb65c004bc3643f24ccbf129bef7a574a9320743c82dbf",
+    "tools/test_native_input.py": "55b2f984f2fca8ddc88c90cde7210fb6ba07be2a60eb364c4eb955bc83baa5b7",
+    "tools/test_intro_actions.py": "f44c2e2140560a6fa2c8a1677d6460b50fef16fde6810ca2f362797da3685c89",
+    "tools/probe/command.py": "fa24daef57164f63e7a3831bb823057f7b0a13e607be7b54422ece10153446a8",
+    "tools/attribute_intro_observation.py": "d32168befefc7815c467f80d13f299ec257a87e618a833aba7dc3fa212f9e245"
+  },
+  "boundary": "Existing70 plus9 new exact fixture-admission checks. Real temporary files/hash/path guards; no Unity deserialization/native serialization, restored gameplay or visual acceptance."
+}

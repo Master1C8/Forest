@@ -37,8 +37,13 @@ def tutorial(entry=153, responses=None):
 
 
 def response(entry):
-    return dict(conversationId=120, entryId=entry, targetPath='original-target',
+    return dict(conversationId=120, entryId=entry, path='original-button', targetPath='original-target',
         visible=True, clickable=True, text=next(e['text'] for e in PREFIX['entries'] if e['id'] == entry))
+
+
+def ack(action, at=1):
+    return dict(command=action, acknowledgement='2026-10-27T00:00:00 OK ' + action,
+                transportPid=12345, transportExitCode=0, submittedAt=at, acknowledgedAt=at)
 
 
 class SaveContinue(unittest.TestCase):
@@ -136,6 +141,132 @@ class SaveContinue(unittest.TestCase):
         self.assertEqual(probe.tutorial_action(s, PREFIX), 'target-settled')
         self.assertIsNone(probe.tutorial_action(dict(s, typing=True), PREFIX))
         self.assertIsNone(probe.tutorial_action(tutorial(158), PREFIX))
+
+    def test_acknowledged_response_allows_only_destination_or_its_source_successor(self):
+        for next_entry in [154, 155]:
+            with self.subTest(next_entry=next_entry):
+                t = probe.TutorialTransitions(PREFIX)
+                s = tutorial(153, [response(154)])
+                t.observe(s, 1)
+                t.acknowledge_response(s, 'response 153 120 154', ack('response 153 120 154'))
+                t.observe(dict(tutorial(next_entry), frame=2, realtime=2.), 2)
+                self.assertEqual(t.observed, [153, next_entry])
+                self.assertEqual(t.responses[0]['destination'], 154)
+                self.assertEqual(t.transitions[0]['observed'], next_entry)
+                self.assertIsNone(t.pending)
+
+    def test_unacknowledged_skip_and_unrelated_or_backward_states_rejected(self):
+        for acknowledged, target, reason in [(False,155,'Unexpected tutorial source transition'),
+                (True,156,'Unexpected acknowledged'), (True,153,'Unexpected acknowledged')]:
+            t = probe.TutorialTransitions(PREFIX); s = tutorial(153,[response(154)])
+            t.observe(s,1)
+            if acknowledged:t.acknowledge_response(s,'response 153 120 154',ack('response 153 120 154'))
+            with self.subTest(acknowledged=acknowledged,target=target):
+                with self.assertRaisesRegex(AssertionError,reason):
+                    t.observe(dict(tutorial(target),frame=2,realtime=2.),2)
+        t = probe.TutorialTransitions(PREFIX)
+        t.observe(tutorial(),1);t.observe(dict(tutorial(154),frame=2),2)
+        with self.assertRaisesRegex(AssertionError,'Unexpected tutorial source transition'):
+            t.observe(dict(tutorial(),frame=3),3)
+
+    def test_response_missing_wrong_or_stale_ack_never_authorizes_progress(self):
+        s=tutorial(153,[response(154)]); action='response 153 120 154'
+        for transport, reason in [(None,'Missing exact'),
+                (dict(ack(action),command='response 153 120 155'),'Missing exact'),
+                (dict(ack(action),transportExitCode=1),'Missing exact'),
+                (dict(ack(action),acknowledgement='old OK response 153 120 155'),'Missing exact'),
+                (ack(action,0),'Stale response')]:
+            with self.subTest(transport=transport):
+                t=probe.TutorialTransitions(PREFIX);t.observe(s,1)
+                with self.assertRaisesRegex(AssertionError,reason):t.acknowledge_response(s,action,transport)
+                self.assertIsNone(t.pending)
+                with self.assertRaisesRegex(AssertionError,'Unexpected tutorial source transition'):
+                    t.observe(dict(tutorial(155),frame=2),2)
+        t=probe.TutorialTransitions(PREFIX);t.observe(s,1)
+        with self.assertRaisesRegex(AssertionError,'Stale tutorial action observation'):
+            t.acknowledge_response(dict(s,frame=0),action,ack(action))
+
+    def test_response_guard_rejects_wrong_text_destination_replay_and_terminal_action(self):
+        action='response 153 120 154'; s=tutorial(153,[response(154)])
+        t=probe.TutorialTransitions(PREFIX);t.observe(s,1)
+        for key,value in [('text','wrong'),('entryId',155)]:
+            bad=copy.deepcopy(s);bad['responses'][0][key]=value
+            with self.assertRaisesRegex(AssertionError,'sole response differs'):
+                t.acknowledge_response(bad,action,ack(action))
+        with self.assertRaisesRegex(AssertionError,'Only an exact sole response'):
+            t.acknowledge_response(s,'response 153 120 155',ack('response 153 120 155'))
+        t.acknowledge_response(s,action,ack(action))
+        with self.assertRaisesRegex(AssertionError,'already acknowledged'):
+            t.acknowledge_response(s,action,ack(action))
+        terminal=tutorial(158,[response(159),response(181)])
+        with self.assertRaisesRegex(AssertionError,'stop before choices'):
+            probe.TutorialTransitions(PREFIX).acknowledge_response(terminal,'response 158 120 159',ack('response 158 120 159'))
+
+    def test_response_ack_does_not_renew_budget_or_fabricate_subtitle_coverage(self):
+        b=probe.ContinueObservationBudget(0);t=probe.TutorialTransitions(PREFIX)
+        s=tutorial(153,[response(154)]);t.observe(s,1);b.observe_continue(1,s,PREFIX)
+        t.acknowledge_response(s,'response 153 120 154',ack('response 153 120 154',20))
+        self.assertEqual((b.progress_at,b.deadline,t.observed),(1,31,[153]))
+        with self.assertRaisesRegex(AssertionError,'forward progress stalled: dialogue'):
+            b.check(31)
+
+    def test_exact_consumed45_samples_replay_host_accounting_without_game_relaunch(self):
+        rows=json.loads((ROOT/'localization/probes/ru-20261026-45/continue-observations.json').read_text())
+        states=[r['intro'] for r in rows if r['intro'] and r['intro']['conversationActive']]
+        self.assertEqual([s['frame'] for s in states],[570,629,702])
+        t=probe.TutorialTransitions(PREFIX)
+        t.observe(states[0],1);t.observe(states[1],2)
+        t.acknowledge_response(states[1],'response 153 120 154',ack('response 153 120 154',2))
+        t.observe(states[2],3)
+        self.assertEqual(t.observed,[153,155])
+        self.assertEqual(t.responses[0]['response'][0]['text'],'Much better.')
+        self.assertEqual(t.transitions,[dict(source=153,selectedResponse=154,observed=155,frame=702,kind='acknowledged-response')])
+
+    def test_phase45_mocked_command_file_sequence_reaches_unselected_terminal_pair(self):
+        # The real45 source153 -> acknowledged response154 -> next observed155.
+        # This exercises host commands/files/guards only, never Unity or real pixels.
+        sequence=[dict(tutorial(),typing=True),tutorial(153,[response(154)]),
+                  tutorial(155),tutorial(156),tutorial(157),
+                  tutorial(158,[response(159),response(181)]),tutorial(158,[response(159),response(181)])]
+        with tempfile.TemporaryDirectory() as tmp:
+            run=Path(tmp);(run/'tutorial-prefix.json').write_text(json.dumps(PREFIX))
+            ready=dict(loaded(),diagnosticsReady=True,dataServicePresent=True,manifestPresent=True,
+                       dataServiceInstance=101,notReady=[])
+            menu=dict(ready,components=['PlayMenu Canvas/PlayMenu'],buttons=['Canvas/PlayMenu/Controls/Continue'])
+            calls=[];index=0;current=None
+            def native(cmd,**kwargs):
+                nonlocal index,current
+                calls.append(cmd)
+                if cmd=='dump-save-continuation':
+                    saved=dict(ready)
+                    if len(calls)>2:saved.update(scene='CentralForest',playerPresent=True,gameplay=True,
+                        playerPath='SpawnedContent/Player/Content/Player(Clone)',playerInstance=100,
+                        tutorialIntroControllers=1,playerPosition=FIXTURE['playerRespawnData']['lastPosition'])
+                    (run/'save-continuation.json').write_text(json.dumps(saved))
+                elif cmd=='dump-intro':
+                    current=dict(sequence[index],frame=570+index*60,realtime=30.+index,
+                        responseRecords=[json.dumps(r) for r in sequence[index]['responses']],
+                        responseCount=len(sequence[index]['responses']))
+                    index+=1;(run/'intro-state.json').write_text(json.dumps(current))
+                elif cmd.startswith('continue-bound '):
+                    (run/'continue-receipt.json').write_text(json.dumps(dict(result='applied',active=True,
+                        expectedConversationId=120,expectedEntryId=current['entryId'],
+                        actualConversationId=120,actualEntryId=current['entryId'])))
+                elif cmd.startswith('capture '):(run/cmd[8:]).write_bytes(b'mocked file boundary; no image')
+                elif cmd=='dump':(run/'state.json').write_text(json.dumps(current))
+                return ack(cmd)
+            with patch.object(probe,'RUN',run),patch.object(probe,'command',side_effect=native), \
+                 patch.object(probe,'qa_identity'),patch.object(probe.time,'monotonic',return_value=1), \
+                 patch.object(probe.time,'sleep'):
+                probe.continue_from_fixture(menu,FIXTURE,probe.ContinueObservationBudget(0))
+            result=json.loads((run/'continue-progression.json').read_text())
+            evidence=result['subtitleAndResponseEvidence']
+            self.assertEqual(evidence['observedSubtitleEntries'],[153,155,156,157,158])
+            self.assertEqual(evidence['selectedResponses'][0]['destination'],154)
+            self.assertEqual(len(result['actualTerminalFrames']),2)
+            self.assertEqual(calls.count('response 153 120 154'),1)
+            self.assertFalse(any(c.startswith('response 158 ') for c in calls))
+            self.assertEqual(result['choicesSubmitted'],0)
 
     def test_wrong_choice_text_or_set_rejected(self):
         s = tutorial(158, [response(159), response(181)])

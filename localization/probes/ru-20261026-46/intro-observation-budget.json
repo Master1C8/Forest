@@ -1,0 +1,23 @@
+{
+  "stage": "dialogue",
+  "elapsed": 49.051,
+  "stageElapsed": 36.687,
+  "idle": 30.04,
+  "hardLimit": 360,
+  "stageLimits": {
+    "bootstrap": [
+      120,
+      60
+    ],
+    "dialogue": [
+      240,
+      30
+    ],
+    "cleanup": [
+      60,
+      15
+    ]
+  },
+  "actualTerminalFrames": [],
+  "error": "AssertionError('Observation budget exhausted before command submission')"
+}

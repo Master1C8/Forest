@@ -165,14 +165,17 @@ class IntroObservation(unittest.TestCase):
              tempfile.TemporaryDirectory() as directory, \
              patch.object(intro, 'RUN', Path(directory)), \
              patch.object(intro, 'COMMAND_HOLD', None), \
-             patch.object(intro, 'observe_lifetime', return_value={'realGameRows':['fixture game']}), \
+             patch.object(intro, 'observe_lifetime', return_value={'realGameRows':['fixture game'], 'monotonic':100}), \
              patch.object(intro.subprocess, 'Popen') as sender:
             sender.return_value.returncode = 0
             sender.return_value.poll.return_value = 0
             def completed(*args, **kwargs):
                 sender.call_args.kwargs['stdout'].write('fixture OK dump-intro\n')
             sender.return_value.communicate.side_effect = completed
-            intro.command('dump-intro', deadline=103)
+            receipt = intro.command('dump-intro', deadline=103)
+            self.assertEqual((receipt['command'], receipt['acknowledgement'], receipt['transportExitCode'],
+                              receipt['submittedAt'], receipt['acknowledgedAt']),
+                             ('dump-intro', 'fixture OK dump-intro', 0, 100, 100))
             self.assertEqual(sender.return_value.communicate.call_args.kwargs['timeout'], .25)
             sender.return_value.poll.side_effect = [None, 0]
             sender.return_value.communicate.side_effect = subprocess.TimeoutExpired('fixture', .25)

@@ -226,6 +226,9 @@ def command(value, deadline=None):
             observe_lifetime('transport-reaped', value, transportPid=sender.pid,
                              transportExitCode=sender.returncode, transportStoppedByObserver=stopped,
                              process_sample=completed_sample if not stopped else None)
+    return dict(command=value, acknowledgement=lines[0], transportPid=sender.pid,
+                transportExitCode=sender.returncode, submittedAt=before['monotonic'],
+                acknowledgedAt=state['monotonic'])
 
 
 def focus_trace_latest(trace):
@@ -917,6 +920,80 @@ def tutorial_action(state, prefix):
     return 'continue-bound 120 ' + str(state['entryId'])
 
 
+class TutorialTransitions:
+    """Observed subtitles and acknowledged response selections are separate evidence.
+
+    Original response consumption can pass through a PC destination before another
+    host sample. Only a fresh exact ACK authorizes its one source-linked successor.
+    This bookkeeping never renews a budget or submits/replays an action.
+    """
+    def __init__(self, prefix):
+        self.prefix = prefix
+        self.entries = {e['id']: e for e in prefix['entries']}
+        assert len(self.entries) == len(prefix['entries']), 'Duplicate tutorial source IDs'
+        self.previous = self.observed_frame = self.observed_at = None
+        self.pending = None
+        self.observed = []
+        self.transitions = []
+        self.responses = []
+
+    def successor(self, entry):
+        links = self.entries[entry]['outgoingLinks']
+        assert len(links) == 1, 'Expected sole tutorial source successor'
+        link = links[0]
+        assert (link['originConversationID'], link['originDialogueID'],
+                link['destinationConversationID']) == (self.prefix['conversation'], entry, self.prefix['conversation']), 'Tutorial source link binding differs'
+        target = link['destinationDialogueID']
+        assert target in self.entries and target in range(153, 159), 'Successor leaves approved tutorial prefix'
+        return target
+
+    def observe(self, state, now):
+        tutorial_action(state, self.prefix)  # Exact text, binding, controls and choice stop.
+        if not state['conversationActive'] or state['conversationId'] != self.prefix['conversation']:
+            assert self.previous is None, 'Tutorial left prefix after it started'
+            return
+        entry = state['entryId']
+        if self.previous is None:
+            assert entry == 153, 'Tutorial prefix did not start at153'
+        elif self.pending is not None:
+            selected = self.pending
+            assert entry in [selected['destination'], selected['successor']], 'Unexpected acknowledged tutorial response transition; no replay'
+            self.transitions.append(dict(source=self.previous, selectedResponse=selected['destination'],
+                observed=entry, frame=state['frame'], kind='acknowledged-response'))
+            self.pending = None
+        elif entry != self.previous:
+            assert entry == self.successor(self.previous), 'Unexpected tutorial source transition'
+            self.transitions.append(dict(source=self.previous, observed=entry,
+                                         frame=state['frame'], kind='observed-source-link'))
+        self.previous, self.observed_frame, self.observed_at = entry, state['frame'], now
+        if entry not in self.observed:
+            self.observed.append(entry)
+
+    def acknowledge_response(self, state, action, transport):
+        assert tutorial_action(state, self.prefix) == action and action.startswith('response '), 'Only an exact sole response may authorize a transition; stop before choices'
+        assert self.pending is None, 'Response already acknowledged; no replay'
+        assert (state['entryId'], state['frame']) == (self.previous, self.observed_frame), 'Stale tutorial action observation'
+        assert isinstance(transport, dict) and transport.get('command') == action and transport.get('transportExitCode') == 0, 'Missing exact response acknowledgement'
+        line = transport.get('acknowledgement', '')
+        assert line.partition(' OK ')[0] and line.partition(' OK ')[2] == action, 'Missing exact response acknowledgement'
+        assert self.observed_at <= transport['submittedAt'] <= transport['acknowledgedAt'], 'Stale response acknowledgement'
+        destination = self.successor(state['entryId'])
+        assert action == 'response %s %s %s' % (state['entryId'], self.prefix['conversation'], destination), 'Response action differs from source destination'
+        assert self.entries[destination]['actor'] == '1', 'Response destination is not the source Player entry'
+        record = dict(source=state['entryId'], sourceFrame=state['frame'], destination=destination,
+                      successor=self.successor(destination), action=action,
+                      response=[dict(r) for r in state['responses'] if r['visible'] and r['clickable']],
+                      transport=transport)
+        assert not any(r['source'] == record['source'] for r in self.responses), 'Response already acknowledged; no replay'
+        self.responses.append(record)
+        self.pending = record
+
+    def receipt(self):
+        return dict(observedSubtitleEntries=list(self.observed), selectedResponses=self.responses,
+                    transitions=self.transitions, pendingResponse=self.pending,
+                    boundary='Selected response destinations are not credited as observed subtitles; ACKs do not renew budgets')
+
+
 def continue_diagnostic_ready(state):
     """Read-only producer contract; never infer readiness from default story fields."""
     assert type(state['diagnosticsReady']) is bool, 'Invalid diagnostic readiness flag'
@@ -987,7 +1064,7 @@ def continue_from_fixture(menu, fixture, budget):
     observations, actions = [], []
     first_player = None
     saw_controller = False
-    previous_entry = None
+    transitions = TutorialTransitions(prefix)
     last_action, repeats = None, 0
     while True:
         budget.check(time.monotonic())
@@ -1012,6 +1089,9 @@ def continue_from_fixture(menu, fixture, budget):
             write('intro-observation-budget.json', budget.receipt(time.monotonic()))
             time.sleep(min(1, max(0, budget.deadline-time.monotonic())))
             continue
+        # Reject an unrelated jump before it can credit a budget milestone.
+        transitions.observe(state, time.monotonic())
+        write('continue-transitions.json', transitions.receipt())
         action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix)
         if saved['scene'] == 'CentralForest' and saved['playerPresent']:
             assert saved['gameplay'] and saved['playerPath'] == 'SpawnedContent/Player/Content/Player(Clone)' and saved['playerInstance'] != 0, 'Restored root Player identity differs'
@@ -1023,19 +1103,14 @@ def continue_from_fixture(menu, fixture, budget):
         observations.append(dict(save=saved, intro=state, action=action, budget=budget.receipt(time.monotonic())))
         write('continue-observations.json', observations)
         write('intro-observation-budget.json', budget.receipt(time.monotonic()))
-        if state['conversationActive'] and state['conversationId'] == 120:
-            if previous_entry is not None:
-                assert state['entryId'] in [previous_entry, previous_entry + 1], 'Unexpected tutorial transition'
-            else:
-                assert state['entryId'] == 153, 'Tutorial prefix did not start at153'
-            previous_entry = state['entryId']
         if terminal_pair:
             assert first_player is not None and saw_controller, 'Missing original Player/tutorial controller observation'
             write('continue-progression.json', dict(result='target-settled', conversationId=120, entryId=158,
                 actualTerminalFrames=budget.terminal_frames, choicesSubmitted=0, initialSpawnPositionVerified=False,
                 firstObservedPositionMatchesFixture=first_player['matchesFixturePosition'],
                 positionBoundary='Host observation cannot establish the initial spawn frame; retained separately from normal continuation.',
-                observationBudget=budget.receipt(time.monotonic())))
+                observationBudget=budget.receipt(time.monotonic()),
+                subtitleAndResponseEvidence=transitions.receipt()))
             # Native Unity framebuffer capture, no activation, OS overlay or pixel input.
             command('capture ru-01-tutorial-choice.png', deadline=budget.deadline)
             capture = RUN / 'ru-01-tutorial-choice.png'
@@ -1052,11 +1127,14 @@ def continue_from_fixture(menu, fixture, budget):
             repeats = repeats + 1 if key == last_action else 1
             last_action = key
             assert repeats <= (1 if action.startswith('response ') else 3), 'Tutorial action did not advance'
-            command(action, deadline=budget.deadline)
+            transport = command(action, deadline=budget.deadline)
             receipt = json.loads((RUN / 'continue-receipt.json').read_text()) if action.startswith('continue-bound ') else None
             if receipt is not None:
                 continue_outcome(state, receipt)
-            actions.append(dict(action=action, frame=state['frame'], receipt=receipt))
+            else:
+                transitions.acknowledge_response(state, action, transport)
+                write('continue-transitions.json', transitions.receipt())
+            actions.append(dict(action=action, frame=state['frame'], receipt=receipt, transport=transport))
             write('continue-actions.json', actions)
         budget.check(time.monotonic())
         time.sleep(min(.3 if state['conversationActive'] else 1, max(0, budget.deadline-time.monotonic())))
