@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "phase": 68,
+  "scope": "All119x6 QuestProgressLogText cells and five exact dependent columns across38 Quest rows; native details output and lost-photo counter requirement. Static supplement, not accepted full source.",
+  "source": {
+    "resource": "resources.assets:320",
+    "textAsset": "bansheegz_database",
+    "export": "assets/source-v2/text-assets/90744c19ec-resources.assets-320.bin",
+    "sha256": "41834cda2f3ea6f010234f3ca2332e31b95b990ab38a8940b0d92f000477fda9",
+    "bytes": 506640,
+    "checkedInstalledSources": {
+      "resources.assets": "73eb7d75cb2b76a697a4885c64edbfc6e7115b2306e0769734dddc546e695f0f",
+      "sharedassets2.assets": "aae8566d867b752093391ce1008fbad24292b53e8346c5e1174d69366ae47eb5",
+      "Managed/Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+      "Managed/BGDatabase.dll": "036e91063cd21fea5ba0bc97109ab7a862d042f775323c91732c10e910765daa"
+    },
+    "textAssetRawSha256": "727040d70bcb132094252f3a9d7a37bc427c6f1334de2bef5425ea3f5f3aa9ee"
+  },
+  "priorEnvelope": {
+    "path": "localization/source/bgdatabase-20261027/inventory-decoded.json",
+    "sha256": "843432645d13bf77094e2bb72d784184fca98d9772671f7afe078fbf8ecf94cb",
+    "modified": false
+  },
+  "executionModel": "execution-model.json",
+  "decoded": "decoded.json",
+  "readback": "readback/verification.json",
+  "sheets": [
+    {
+      "name": "Quest",
+      "id": "t0mvbnMW90imSoe6SezMKA",
+      "rowIds": [
+        "rWxnVWdls0CdFeWIdThXsQ",
+        "mDlwk/E5B0eHvBWNwaGgZg",
+        "0qOMTDqiqkqJVmDR8HB+HA",
+        "KZIfRBA7+kyUlASp/p9JGQ",
+        "2ZG6S3ks20WqYNwufDXITg",
+        "a57wzzzMsEyD/6Ib5bPF2Q",
+        "XYi6qn2sRE2eay06g986AQ",
+        "SVgzl31lCkaMODbQfOB4xQ",
+        "dQrKLrlXz0iJYfuyt+sgig",
+        "46HET9opzEyOj6xi1A/o6Q",
+        "VeG7Jp+Enkqql4xiG9fmnw",
+        "fATMvjDsNEyeMSw+fJkyhQ",
+        "grATwZ9+9k+WdWVWpk5tQA",
+        "OyZrCMTBkkmn1Sim+y/0fQ",
+        "D55VRspmN0C3fLfke7VXRQ",
+        "A/XurBTvm0qXGKYRc1oAKQ",
+        "5YyKDBGn30K2pIHSDink/Q",
+        "bTUAvBuxmEyDyOAFIoUDOg",
+        "/Bhx6O2kMUO6XNTk3aageQ",
+        "9YRrco7GI0CH52vEVHCx/g",
+        "5YFxmFxvSEKqkmU4nZAxmw",
+        "7IXtgDOXfkC/00zu7tKmWg",
+        "4yfRvb0kX0CObYa/CC5/Mw",
+        "bzJ4d+NzaEKiTTZesHsT8Q",
+        "OMk+9+BUSE+jffrWmOGAgg",
+        "mcK3QxVagkybG7HLxYPPJQ",
+        "k7McLhqBMESbYs8NcZIjMg",
+        "VvoHrlemV0CD7jP9EWWL7A",
+        "r13MhFdb8Eq4MXQk4Tk8EQ",
+        "sl/yUAqDxkSWLRtNu9jKfg",
+        "lAUIl1AXdUqStAPFu2IdKg",
+        "km8jSPcSNUGKUsYGZFai9w",
+        "Kl+Hs4TbFUGP2YouH0dkag",
+        "LWT0HQloDkqDmSB7wUKyyQ",
+        "D/YT8f4EIkOlS8eKTFAg2A",
+        "5wCghczYkEOkh/OVTkmIBg",
+        "XnvRGornVUuzpGtRAaGycw",
+        "8pIJ4zKdu0qDM08Tlzlqyg"
+      ],
+      "rows": 38,
+      "fields": [
+        {
+          "name": "name",
+          "id": "2YS8+YlXu0ijDwLKyuDiSg",
+          "type": "BansheeGz.BGDatabase.BGFieldEntityName, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 126619,
+          "valuesBytes": 982,
+          "valuesSha256": "67450dd699615aba88884d8619870b5d7e3d7e1f084a1cb358ee072b07c780f2"
+        },
+        {
+          "name": "savekey",
+          "id": "iKbi0xy060GjyqqMLS1Ijw",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 128972,
+          "valuesBytes": 986,
+          "valuesSha256": "4710b935bdc9b99df7ec43369826b0abc3265def2ad6c494fa6a276578916b94"
+        },
+        {
+          "name": "bio_title",
+          "id": "pFHvU0/mGUGVujz+d6ktEA",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 130126,
+          "valuesBytes": 737,
+          "valuesSha256": "b0200f394568dac51b2f6066a6c01d9be17e4dc79fa91cc1a945aedbb75842f2"
+        },
+        {
+          "name": "bio_description",
+          "id": "gt2E0tKZz0yCT5P2xrS3sA",
+          "type": "BansheeGz.BGDatabase.BGFieldText, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 131035,
+          "valuesBytes": 2398,
+          "valuesSha256": "09bdcb49ebc53679e7d91f36de7b64683c74ee5c54180f1e24ce689b9b3b3845"
+        },
+        {
+          "name": "initial_progress_log_unlocks",
+          "id": "UtoBbV651kOkRc3pNYCjmQ",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationMultiple, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 135955,
+          "valuesBytes": 708,
+          "valuesSha256": "ab0c0fa4ff0a3863eb2a27996289fe02604f86569dd312305c6b7d3cac6ad0d1",
+          "targetSheetId": "9yCd/l1J50q4ulgVkTG+qQ"
+        }
+      ],
+      "opaqueFields": [
+        "plugin_db_name_prefix",
+        "bio_hidden",
+        "bio_portrait",
+        "enable_with_tags",
+        "disable_with_tags",
+        "priority",
+        "is_side_quest"
+      ]
+    },
+    {
+      "name": "QuestProgressLogText",
+      "id": "9yCd/l1J50q4ulgVkTG+qQ",
+      "rowIds": [
+        "HlgQqahZ1E2jvww02Qx0Qw",
+        "IfQPjDNe5kiFg4sdp2o7Gw",
+        "4ZomNW7UwkmaZKeJOnzDtQ",
+        "cNV9+obq/ECal43Xctb9bw",
+        "HDUXV1RKs0mOH3Wtkwk1aA",
+        "VQRZ7sUinEend9al7IxIWQ",
+        "5LavVUST4U6R9zCxcnEDnQ",
+        "4W6Aa1I0xE2p9MsRFSyvcw",
+        "/to/fCG4yUeXtiB0P3XWKw",
+        "i9+FUqW5ek+MhYHkHYVoDQ",
+        "fO4RKh2Cyk+VGi2V9yhN5g",
+        "R9/NIf10ZEqyHX6xL5685w",
+        "VFwWI23fXEqtNOITK3lkww",
+        "PUE0zaJax0Sa2J4+BVFUlg",
+        "CR6/c11/4kyph9W1T4iySA",
+        "eqvoNX7toEiuxwVzJcQ5fg",
+        "Kl+Jw42KqkW8BjdD8s+Heg",
+        "h8IrOVHhuU+VyqM4MrfQFQ",
+        "Z53knSjih0KitcevlBQqFA",
+        "u6geh5WHhUGVU3SJC4lYkg",
+        "72kHz56GNUCPmBuF0olH0Q",
+        "+Gbp2j5j90qmMamMuuXp8g",
+        "YDUQqeqXKUSVNno/5REF2w",
+        "pBPMrSsqsUeVGiwZRhSlZg",
+        "Jti6a1/W4UGBYzt/ZTYwAA",
+        "Pc6qgJMK+0681DgVlJf14w",
+        "HR7TyPieaEyedZL26Xulag",
+        "m4pX0N0rj0W74F+jGkbFjg",
+        "/UaPpLFANUeN1GaJdWm/lw",
+        "Kd3r8xwS40aoKMkTyk5s4A",
+        "APSLFQ/yHE2cUe7D9GcboA",
+        "z/YX7P5fhUCfJkFOvxy4/w",
+        "Wc2m/8nCNUyucsMO9nrbAA",
+        "rwoRmQarB06Q31l7FsjnaQ",
+        "KsE3R5LuDkqnr9rme6yQqQ",
+        "9hMGf8McekOsUlJoKaF3lw",
+        "qybV2mFvHUGtfJLr5uLNfQ",
+        "AVX/O54vXUy1Zxdhc0+7Tw",
+        "MBwUFLI+FUqLy1TZBrXq9Q",
+        "XHLHgnoEx0u5e3IJhbu7Og",
+        "bqhRtR6BekKlc/YnXs4L+g",
+        "sLQ4ucHnv0ehJzHUdjsWHA",
+        "1Isaqv+OxU2TyjCMw6N/7g",
+        "3wtK4KL3G0eoMqxSyu1O1Q",
+        "Z6O2rVh7EUOfCup7tiSyMQ",
+        "GqdMDqfktUmilqN3KZ3p0Q",
+        "W6NHRr6AB0KgDbE7GMLh5g",
+        "scZA8bOdcUeOY2S+EBzM9Q",
+        "59OjQQcpUEy/ERC7JZdq+Q",
+        "nAGLaZlsCE+/aFKrkvP2wQ",
+        "41gDj/BHV0u9h7qwQhZ9ww",
+        "ip/SesUeNkiNb6pXl/zgnw",
+        "WY2oomn6FEGCsA3SIIAptw",
+        "DcT/8wqa5EuUobNl6aU+nA",
+        "usd4M24+jEGgI/jrsl6gog",
+        "h8hby0t1hkqOQFdjKGJNlA",
+        "6ZtmEtsQekC8OB7ltUKkHg",
+        "yfZlgKsk4Uy7jCIl309r/Q",
+        "Dt8APtLQsEiNbQbvkJNBxQ",
+        "OlQK/0wVlEKfhanKlVy66Q",
+        "EjTjVwa3UESewhWi5/o1DQ",
+        "Wcak4XkLzE+ezpLQrB9F6w",
+        "TMPKFGHM10G38iXvQupQ9Q",
+        "/77eC6DOzUyqplMrP2KkhQ",
+        "qAWLMTcJ4UKscoiKIbKXfw",
+        "N0IeXhR+6Ummo38lm3jZQA",
+        "+EFVke5hlEuwIfVXeYm/nQ",
+        "kQ/XX9AQZEOx8jCRDUm9eA",
+        "7ihj+fICREWa1i7I1L08Dg",
+        "bsDGsYnCb0+2pJwJOvPdNQ",
+        "InKcBFL6IEGtbgX6UB+OMw",
+        "WWw2z65Je06z5TzoZmYsTQ",
+        "n4F70cAqy0WaQ+psgnzJzA",
+        "/qdOOBiso0+chVcVLnbbug",
+        "X/F66mSFyUW/sJQrYVs4BQ",
+        "BmNxDdl4h0K7PxQUzMtGIQ",
+        "1tfT3vUJeEyJIlYpFaNxew",
+        "qZTuNAXiTEKdonoWWa2GuQ",
+        "nuj0s2PFl0CQZHB137JsNQ",
+        "KF6CGlqEGESsW4BfBMrXDA",
+        "08e+WL9+IUGkvSGPXivQ7w",
+        "3ichF76oU0aH1yFEfoqrTg",
+        "j6pmxQDWYEGPnrQ8zUQW7w",
+        "nhAbl+RYYU66Yfu9HN/BBg",
+        "Xrvv3k8qqUufnZMra7DQmA",
+        "t8/8juJg2kC4Dza43qWFlQ",
+        "jACvQRd7wkOTKIPh1fOcAg",
+        "PHyuauazz0imgFIEoRLpkg",
+        "S4tNm9rV9Uira2BinHjbfQ",
+        "P9Qbt9kpXUyyjxw4qVZ7UA",
+        "VxEKCP7z1kuQW8gjJfNHLQ",
+        "zLG3UCCz50O/Nu9Sg/zWJg",
+        "WVqI5cCbUEqRtHx/nqHB/Q",
+        "g3197LWXhES9UiPj+FHtfA",
+        "7xyBP8PViEO+mt7waVif7Q",
+        "rtNrLS2ig0WB8V5nfdOS5Q",
+        "ECFFoOEsXEG6c3JLYBCZaA",
+        "pNMeXoLVNU6jsS5NH56gMw",
+        "Wpp8CZlQske7Pic59nWorA",
+        "IHw4uDWNEky1YNL7p1rAcg",
+        "4Tt9FbrDfkimGCOHunGc1g",
+        "r2gL6JQhS02s9gIaKOzNZg",
+        "snjnFBJyB0WW44usoi1AHA",
+        "zYyQKk+22k+HDd2YwFMGrQ",
+        "+nANtbabIkO/PYzU0ZI6tg",
+        "/O/1fTbHkkS8a4RihLfBPQ",
+        "43I5lYjB5kSP/akAxvRmZQ",
+        "Ax9E0PF8f0y/YSM9LUTUBA",
+        "FcjF+UO6mkehKYpZzwnLEA",
+        "0CiIuDFwSUeocqpPyzAoiA",
+        "IMIOXeckJkClEDHLyi0Ciw",
+        "NXhE5sU3uEiiRZbdV35jiA",
+        "FowZCg5P50e+PN0EqRPvPw",
+        "xb4HphoMZUObPgjiKwJmPQ",
+        "7YUiFz3u20qFIlQ3REAeUw",
+        "88PvIAB+KES95H5DbaW6Vg",
+        "VUfxgIUdMEGP5Vj3HQpSLA",
+        "jH2Voma0+UW3ZWjlU3KdLQ",
+        "2QfhjHWtj0CjOeAbuJDXAw"
+      ],
+      "rows": 119,
+      "fields": [
+        {
+          "name": "name",
+          "id": "6WThlwK3YUabgUgXMoA8bA",
+          "type": "BansheeGz.BGDatabase.BGFieldEntityName, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 297215,
+          "valuesBytes": 3137,
+          "valuesSha256": "89641c4a88636ae16a311f380c3416ae48505ea3dbb85e0f117641752ce05540"
+        },
+        {
+          "name": "savekey",
+          "id": "wRQAQRIuHkyMzeZUXQZIxQ",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 300518,
+          "valuesBytes": 3137,
+          "valuesSha256": "89641c4a88636ae16a311f380c3416ae48505ea3dbb85e0f117641752ce05540"
+        },
+        {
+          "name": "quest",
+          "id": "9N9nj3gVVEikXI4gV0ST7g",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationSingle, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 303847,
+          "valuesBytes": 2860,
+          "valuesSha256": "9200eea04e54907098368015b8c8198eb64c13cffc33495034994039df0a5eae",
+          "targetSheetId": "t0mvbnMW90imSoe6SezMKA"
+        },
+        {
+          "name": "log_text",
+          "id": "9bk2imQPcUGONvg3gpNiWw",
+          "type": "BansheeGz.BGDatabase.BGFieldString, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 306874,
+          "valuesBytes": 4879,
+          "valuesSha256": "077737288ecdc07076d5b1d0da6cbfec5517310926e9e276b05fcf77244305b6"
+        },
+        {
+          "name": "priority",
+          "id": "vh91yPMZqEmaB0ZGTBXvKQ",
+          "type": "BansheeGz.BGDatabase.BGFieldInt, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 311917,
+          "valuesBytes": 476,
+          "valuesSha256": "d51c15401c9d321e95a53bb9f69ab1546bc108efffeac4cbaa4ead352869d7d6"
+        },
+        {
+          "name": "replace_earlier_log_text",
+          "id": "nv9usP0GJ0GKucZtOWAsxg",
+          "type": "BansheeGz.BGDatabase.BGFieldRelationSingle, BGDatabase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "valuesOffset": 312604,
+          "valuesBytes": 4,
+          "valuesSha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "targetSheetId": "9yCd/l1J50q4ulgVkTG+qQ"
+        }
+      ],
+      "opaqueFields": []
+    }
+  ],
+  "candidateManifest": "readback/visible-fields.jsonl",
+  "preserveExactlyManifest": "readback/preserve-exactly.jsonl",
+  "relations": "readback/relations.json",
+  "multiplicity": "readback/multiplicity.json",
+  "nativeBindings": "readback/native-text-bindings.json",
+  "compiledLiteralManifest": "readback/compiled-literals.json",
+  "sourceToOutput": [
+    {
+      "input": "Original TextAsset",
+      "processing": "BGLoaderForRepoResources -> BGRepoBinaryV5",
+      "output": "Typed DB getters",
+      "evidence": "../source-trace.json; unchanged original source/helper/InventoryItem evidence hashes checked"
+    },
+    {
+      "input": "Quest.bio_title/bio_description",
+      "processing": "GenerateQuests callback",
+      "output": "Narrative.Quest.title/description",
+      "evidence": "quest-callback.il@IL_0045..005c"
+    },
+    {
+      "input": "QuestProgressLogText row",
+      "processing": "GenerateQuestProgressLogText callback resolves Quest and copies name/savekey/log_text/priority",
+      "output": "QuestProgressLogEntry in lists and identity dictionaries",
+      "evidence": "log-callback.il"
+    },
+    {
+      "input": "Optional replace_earlier_log_text",
+      "processing": "Second loader pass binds earlier object reference",
+      "output": "replaceEarlierLog; all119 actual links absent",
+      "evidence": "loader.il@IL_003b..0064 in GenerateQuestProgressLogText"
+    },
+    {
+      "input": "Saved unlock flag/time or Unlock/ResetUnlock",
+      "processing": "IsUnlocked and story-clock state; recursive unlocked roots",
+      "output": "Root/child selection",
+      "evidence": "log-state.il"
+    },
+    {
+      "input": "Quest.progressLogEntries",
+      "processing": "Group by root, lower child priority/latest equal-priority child time; sort roots ascending priority; take last three",
+      "output": "current/1Back/2Back source strings; equal-priority ordering unproven",
+      "evidence": "history.il; history-sort.il; loader-sort.il"
+    },
+    {
+      "input": "Generic history and Quest status",
+      "processing": "Write title/description; status200 shifts histories and inserts compiled completion text",
+      "output": "Native Text current/1Back/2Back with empty/default fallbacks",
+      "evidence": "pane.il@IL_084a..0954"
+    },
+    {
+      "input": "MelodyFlipbookQuest displayed histories",
+      "processing": "Three nonblank Contains(lost photos) checks append formatted exact trigger count",
+      "output": "Source-row-specific counter; translated wording breaks current predicate",
+      "evidence": "pane.il@IL_0959..0a81; photo-count.il"
+    }
+  ],
+  "specialSceneFindings": [
+    {
+      "id": "quest-melody-flipbook-display-comparison",
+      "group": "readback/counter-dependency.json",
+      "source": "scoped-static-finding",
+      "adapter": "required-not-implemented",
+      "localeDecision": "needs-review; no target wording",
+      "runtime": "not-run",
+      "visual": "not-run",
+      "sharedRegistry": "frozen; future coordinated reconciliation required"
+    }
+  ],
+  "actualData": {
+    "nameAndSavekeyValuesUnique": true,
+    "logWordingOccurrences": 119,
+    "distinctLogWording": 113,
+    "allLogPriorities": 0,
+    "absentReplacementLinks": 119,
+    "questRelationEdges": 119,
+    "initialLogRelationEdges": 30,
+    "questRowsWithLogs": 28,
+    "initialListsNonempty": 28
+  },
+  "consumerGaps": [
+    {
+      "id": "initial-log-unlock-consumer",
+      "evidence": [
+        "initial-uses.il",
+        "quest-start.il"
+      ],
+      "finding": "No direct getter calls in original Assembly-CSharp; SetStatusStarted invokes status events without this field.30 stored links do not prove initial unlock behavior.",
+      "status": "needs-review; reflection/other mechanisms untraced"
+    },
+    {
+      "id": "quest-special-pane-overrides",
+      "evidence": [
+        "pane.il",
+        "readback/compiled-literals.json"
+      ],
+      "finding": "Afterstorm/Storm/Greetings bypass generic history, join/replace fragments and load named rows. Complete grouped adaptation/source reconciliation pending.",
+      "status": "needs-review"
+    },
+    {
+      "id": "other-log-output-and-mutation",
+      "evidence": [
+        "log-text-uses.il"
+      ],
+      "finding": "QuestLog.OnQuestLogUpdated and TriggerHandlerAct3.OnCollectedAllTheFlyingPages_StormQuest plus callback also read/write text; full bodies pending.",
+      "status": "needs-review"
+    },
+    {
+      "id": "equal-priority-root-order",
+      "evidence": [
+        "history.il",
+        "history-sort.il",
+        "loader-sort.il"
+      ],
+      "finding": "Only priority participates in root sort; all119 priorities0. Row/index/unlock chronological slot claims are unverified.",
+      "status": "preserve-source-ordering-mechanism; runtime-not-run"
+    },
+    {
+      "id": "nonnull-replacement-graph",
+      "evidence": [
+        "history.il",
+        "log-state.il"
+      ],
+      "finding": "ContainsKey tests candidate whereas Add uses root. Candidate==root for actual absent links. Hypothetical nonnull replacement graphs are untested; do not repair source implicitly.",
+      "status": "dormant-source-finding"
+    }
+  ],
+  "remainingScope": [
+    "Other7 Quest columns and all26 other undecoded BGDatabase sheets",
+    "Complete parser/UI/code/image inventory and shared special-scene reconciliation",
+    "Actual source unlock producers/events/loaded runtime consumers",
+    "Initial spawn, other3 intros, notebook and Bucky",
+    "Full semantic / independent diff / dependency delta acceptance",
+    "Final corpus-bound fonts/licenses then textures/resources; resource reinsertion and local delivery"
+  ],
+  "unchangedAcceptance": "Exact accepted10/15/47/48 visuals and50 route retained;53 consumed/no54/no unchanged runtime retry.",
+  "frozenPinsUnchanged": 19,
+  "sourceAcceptance": "needs-review",
+  "specialSceneAcceptance": "needs-review",
+  "resourceReinsertion": "not-run",
+  "editorial": "not-run",
+  "runtime": "not-run",
+  "visual": "not-run",
+  "translationAuthored": false,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "usage": "Unknown in worker; parent measures telemetry."
+}

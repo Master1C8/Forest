@@ -1,0 +1,198 @@
+[
+  {
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationSingle",
+    "selection": "ToBytes,FromBytes",
+    "output": "inspect-00.il",
+    "sha256": "296082fc09a52602db95a0cb8db70fc3208967af2b41aaeb9b30a5ee6563c610"
+  },
+  {
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2",
+    "selection": "--list",
+    "output": "inspect-01.il",
+    "sha256": "d3195ce4b4fc43a8b03a0d0d81b53ca177d6d2091ca13f5bfb2aac8d29fc2958"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.QuestProgressLogText",
+    "selection": "--list",
+    "output": "inspect-02.il",
+    "sha256": "c96df4abb4d06944bc27b604734c40c447b47ba12379c8856231e140b4f404db"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Quest",
+    "selection": "--list",
+    "output": "inspect-03.il",
+    "sha256": "ce3334968835b4a67c8e6c8fbb9cfbcc61c7ccbc8c627fd1c4656685d0d7ba13"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "--list",
+    "output": "inspect-04.il",
+    "sha256": "d80ccca62e3cb0fc89845a7c1949912130896b2e779611d78c0fcb4a31ad244d"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Quest",
+    "selection": "--list",
+    "output": "inspect-05.il",
+    "sha256": "3639b7eea881edc2d6d69bd0962ec6fd3addd7058ece9ab7eee22899d0d52db4"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.QuestProgressLogEntry",
+    "selection": "--fields",
+    "output": "inspect-06.il",
+    "sha256": "e28b29111cf328d27ab8c042f02c7c9a1268fb4740a97ddec819528de4939d4f"
+  },
+  {
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationA`2",
+    "selection": "ConfigToBytes,ConfigFromBytes",
+    "output": "relation-config.il",
+    "sha256": "fc53bf8a66d26663f7f96bb37607a5b79e8b5cc190115f06dcb0f615461b26ab"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.QuestProgressLogText",
+    "selection": "get_MetaDefault,get_name,get_savekey,get_quest,get_log_text,get_priority,get_replace_earlier_log_text,get__name,get__savekey,get__quest,get__log_text,get__priority,get__replace_earlier_log_text,GetEntity",
+    "output": "db-log.il",
+    "sha256": "86847d5676bc821959fb46882f18ca725e35bd17ad9470207f75d96948afdb2a"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Quest",
+    "selection": "get_MetaDefault,get_name,get_savekey,get_bio_title,get_bio_description,get_initial_progress_log_unlocks,get__name,get__savekey,get__bio_title,get__bio_description,get__initial_progress_log_unlocks",
+    "output": "db-quest.il",
+    "sha256": "137a26274baa97f9c85b2b18ef57ae6cb765baa31be7f596fe2f51b90997c40a"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "GenerateManifest,GenerateQuests,GenerateQuestProgressLogText",
+    "output": "loader.il",
+    "sha256": "200a50681a1b61e97eff1725d9f12765aed194df40c244e91a96f1b665912eec"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Quest",
+    "selection": "--fields",
+    "output": "quest-fields.il",
+    "sha256": "c6d52aecf30637c8d5a371ab2e2f460421bc8e0b1f9d0b794311fc4609556a42"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "QuestProgressLogEntry::replaceEarlierLog",
+    "output": "replacement-uses.il",
+    "sha256": "05bda2f6f6365d1cac49b8c01254711d4c516a7f331f8c16c8e934456e0b4e8b"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "QuestProgressLogEntry::priority",
+    "output": "priority-uses.il",
+    "sha256": "c6ee648d4f523e9ccf0b40af369009e5709b8980c14e3859ad5919f773eed454"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "QuestProgressLogEntry::text",
+    "output": "log-text-uses.il",
+    "sha256": "f891c558fe087b5f173f3015645a052ce1660278610b0f030f55ae4cfd3c00a5"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.QuestProgressLogEntry",
+    "selection": "--list",
+    "output": "log-methods.il",
+    "sha256": "d3269a5a19b41ca58975d4737826cd837ac60ed3417fde7cd658def0e34a9d96"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestLogDetailsPane",
+    "selection": "UpdateSelectedQuest",
+    "output": "pane.il",
+    "sha256": "806ec6d9468e9f1caee3310c1435c20b6634233f9d98fd8e19abadbe7947b5c4"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass20_0",
+    "selection": "<GenerateQuests>b__0",
+    "output": "quest-callback.il",
+    "sha256": "32677ba89227879f1769a3e7c149d5e25f1583a1bca55dce96f87565a6952e87"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass21_0",
+    "selection": "<GenerateQuestProgressLogText>b__0",
+    "output": "log-callback.il",
+    "sha256": "20c283092eccc5b26a047a0abe505f60577b01732930f8361e2f5c9b6a28ec0f"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c",
+    "selection": "<GenerateQuestProgressLogText>b__21_1,<GenerateQuestProgressLogText>b__21_2,<GenerateQuestProgressLogText>b__21_3",
+    "output": "loader-sort.il",
+    "sha256": "dd16f7f8bb346bd47cdfb9798b9e0edc2174ce85ebeb87ba5960dba6550622cc"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.QuestProgressLogEntry",
+    "selection": "Load,Unlock,ResetUnlock,GetRootUnlockedProgressLogRecursive",
+    "output": "log-state.il",
+    "sha256": "d933decadce214b9496c195a7c20033c8b60b98ba59026cc820abd896574a1ee"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestLog",
+    "selection": "GenerateLogTextHistory",
+    "output": "history.il",
+    "sha256": "65806da3b6813baab30a6c9246849ebad020b27a478551856f52a89510fd17bc"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestLog/<>c",
+    "selection": "<GenerateLogTextHistory>b__44_0",
+    "output": "history-sort.il",
+    "sha256": "8e4945660e8b5a7aeb76a4e2ca628f804baaf5b082e9d0bda479c7e52542ca08"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "Quest::get_initial_progress_log_unlocks",
+    "output": "initial-uses.il",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Events.TriggerHandlers.TriggerHandlerSideQuests",
+    "selection": "CountNumberUnlockedMelodyFlipbookPhotos,GetNumberTotalMelodyFlipbookPhotos",
+    "output": "photo-count.il",
+    "sha256": "02dd90a7f2fd50a83d6ebac422b97c6a76a27162bee1c8a0618b629db31fdb55"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Quest",
+    "selection": "SetStatusStarted",
+    "output": "quest-start.il",
+    "sha256": "3bbd40e251e05c8b3da52ca5938cb483a54ccb22c9b0f0384902e30577d1bf4f"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "QuestProgressLogText::get_log_text",
+    "output": "getter-uses.il",
+    "sha256": "910f9f01b085b50382e6f1a3dcf7e654abb1d5e9c9347b12feadc83522be7178"
+  },
+  {
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldRelationMultiple",
+    "selection": "ConfigToBytes,ConfigFromBytes",
+    "output": "multiple-config.il",
+    "sha256": "06228eda0ae9bf4430c225b70b8ed457ee0a6ee5b355e84c2cae6a325391169b"
+  }
+]

@@ -1,0 +1,12 @@
+TYPE TheForestOfLove.Narrative.QuestProgressLogEntry BASE System.Object
+FIELD System.String TheForestOfLove.Narrative.QuestProgressLogEntry::dbName
+FIELD TheForestOfLove.DB.QuestProgressLogText TheForestOfLove.Narrative.QuestProgressLogEntry::dbLog
+FIELD System.String TheForestOfLove.Narrative.QuestProgressLogEntry::savekey
+FIELD TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.QuestProgressLogEntry::quest
+FIELD TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Narrative.QuestProgressLogEntry::replaceEarlierLog
+FIELD System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text
+FIELD System.Int32 TheForestOfLove.Narrative.QuestProgressLogEntry::priority
+FIELD System.Boolean TheForestOfLove.Narrative.QuestProgressLogEntry::<IsUnlocked>k__BackingField
+FIELD System.Single TheForestOfLove.Narrative.QuestProgressLogEntry::<UnlockedGameplayTime>k__BackingField
+PROPERTY System.Boolean TheForestOfLove.Narrative.QuestProgressLogEntry::IsUnlocked()
+PROPERTY System.Single TheForestOfLove.Narrative.QuestProgressLogEntry::UnlockedGameplayTime()

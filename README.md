@@ -1,38 +1,42 @@
-## Phase0067: BGDatabase inventory rows and item-text consumers
+## Phase0068: Quest progress source and lost-photo counter dependency
 
-The original resources.assets:320 BGDatabase now has a bounded semantic decoder for
-its InventoryItem sheet. All506640 original bytes are framed, with29 sheet envelopes;
-48 ordered inventory rows /18 typed columns produce144 authored display candidates
-and720 protected cells. All864 cell states match source,818 stored spans re-encode
-exactly and46 absent cells stay absent. Six generated consumer-ID constants match.
-Identical Package/Jar/Fireflies wording retains separate row IDs. The schema's
-uk_savekey is nonunique despite its name; actual48 key values were checked before maps.
+The original BGDatabase QuestProgressLogText now has a bounded119-row/6-column
+source supplement, with five related columns across38 Quest rows. All904 cell
+states match source:757 stored spans re-encode exactly and147 absent states stay
+absent.195 display-candidate states contain177 nonempty phrases;709 other states
+are protected. All149 relations resolve and13 generated sheet/column IDs match.
+Original TextAsset/DLL/resource hashes, seven native Text output hashes and all19
+frozen input pins pass. Fresh decode and all eight readback files reproduce exactly.
 
-Original loader -> DB getters -> GenerateItems -> inventory ticker/notification
-consumers are pinned, including nested tags/vectors and addressable paths. Thirteen
-compiled literal occurrences distinguish9 visible fragments,3 Animator keys and1
-mixed fictional stack trace. Type400's glitch output deliberately displays random
-slices of that trace; its644 characters and four embedded CR bytes are preserved.
-This is authored game content, not runtime crash evidence. Map input hints, the
-Rosetta glyph dependency and cookie icing wording are recorded as source findings.
+The generated getters -> loader callbacks -> unlock/root/history selection ->
+native details pane are bound. All119 priorities are0 and all replacement links
+are absent. Priority-only sorting does not establish chronological or row order.
+119 log occurrences have113 distinct strings; equal wording keeps separate IDs.
+The three case-sensitive lost-photos comparisons affect exactly one original row,
+MelodyFlipbookQuest_2. The counter counts nine protected flags and appends ({0}/{1})
+in current/1Back/2Back after completion shifting. A bounded identity-based adapter
+requirement and dependency group are recorded; implementation/runtime remain pending.
 
-Exact original Unity TextAsset/hash readback, no-op cell reconstruction and repeated
-extraction pass. No resource was reinserted, translated or run. Other28 BGDatabase
-value/consumer surfaces and complete source/parser/special-scene gates remain pending.
-All19 frozen source/glossary/lane pins remain unchanged; seven asset lanes continue
-independently and read-only to this technical lane. Zero game launches/images/nested model jobs/agents.
+The30 stored initial-unlock relations have no direct getter consumer in the original
+Assembly-CSharp call search. This does not prove the field unused. Other Quest
+controls, special pane overrides and additional log text consumers remain pending.
+The selected pane's75 literal occurrences distinguish22 display fragments,3 display
+comparisons,2 punctuation controls and48 identity occurrences. No target text,
+resource reinsertion, runtime/visual or full source acceptance is credited.
 
-Next: bounded QuestProgressLogText (119 rows,6 columns) and its replacement/history
-consumer, using the known lost-photos comparison finding. Preserve accepted10/15/
-47/48 visuals and50 route.53 stays consumed with no unchanged runtime retry/no54.
-Initial spawn/other3 introductions/notebook/Bucky loaded consumers, editorial/final
-fonts/licenses/resources/local delivery remain pending. No publication/deployment.
+Next: trace QuestLog.OnQuestLogUpdated and Storm's exact log-text mutation/callback,
+bind their row/literal dependencies, then reconcile initial-unlock/event consumers.
+Use a new supplement; do not change current evidence or frozen lane inputs. All
+seven authorized draft lanes remain independent/read-only. Accepted10/15/47/48
+visuals and50 route stay unchanged;53 is consumed, no54 or unchanged runtime retry.
+Full source/special-scene/renderer/editorial, initial spawn/other3 intros/notebook/
+Bucky, final fonts/licenses/resources and local delivery remain pending.
 
-Evidence: `localization/source/bgdatabase-20261027/ADAPTER.md`, `source-trace.json`,
-`inventory-decoded.json`, `compiled-fragments.json`, `readback/verification.json`,
-`reproducibility.json`; bounded `decode_inventory.py`, `collect_il.py`,
-`verify_inventory.py` use the existing exporter and Cecil inspector.
-Prior summary: `localization/history/phase0066-summary.md`.
+Evidence: `localization/source/bgdatabase-20261027/quest-progress/ADAPTER.md`,
+`source-trace.json`, `decoded.json`, `readback/verification.json`,
+`readback/counter-dependency.json`, `reproducibility.json`. No game launches,
+images, agents, nested model jobs, publication or deployment. Worker usage unknown;
+parent measures actual telemetry. Prior summary: `localization/history/phase0067-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

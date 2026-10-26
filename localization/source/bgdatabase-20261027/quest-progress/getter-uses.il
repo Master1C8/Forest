@@ -1,0 +1,1 @@
+System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass21_0::<GenerateQuestProgressLogText>b__0(TheForestOfLove.DB.QuestProgressLogText) | IL_0045: callvirt System.String TheForestOfLove.DB.QuestProgressLogText::get_log_text()
