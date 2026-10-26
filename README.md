@@ -45,7 +45,14 @@ incorrect singleton assumption: the bundle contains 75 subtitle components. Atte
 06 preserves each component's original maximum size, adds bounded auto-sizing,
 calibrates the existing Cyrillic TMP fallback by cap-height ratio, and replaces only
 the existing legacy fallback font's data/metrics using the game's Liberation Sans.
-These are technical candidates, not final corpus-bound font approval.
+These are technical candidates, not final corpus-bound font approval. The native
+attempt-06 frame was fully reviewed: layout/normal progression passed their bounded
+checks, but Cyrillic nameplate cap height/weight mismatched the adjacent original
+pixel digits. Decomposed-mark placement remains uncertain. The visual ledger records
+1 reviewed, 0 passed, 1 failed, 0 pending for this one-frame pilot. The complete shared
+feasibility gate is failed; mass translation remains blocked. This does not imply that
+Russian support is impossible. Further shared-font repair and fresh bounded native
+review are required, alongside the remaining renderer/source gates.
 
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate

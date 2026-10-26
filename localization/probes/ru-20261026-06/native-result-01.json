@@ -1,0 +1,44 @@
+{
+  "packetSha256": "1ef2202b3c3f5aa3361549c8c8158a24fb66b54ad01bead6a48bd1633f7f60fc",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-renderer-probe.png",
+      "sha256": "c1302579ad507921fcb063df33477bf7ac85b30f2b627ab6648888e1a4c70e8c",
+      "width": 1440,
+      "height": 900,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high/OpenAI; author self-review in session 01a175c3-4558-7883-8cb7-fa7f5d678bed; not independent or blind",
+      "reviewedAt": "2026-10-26T02:10:56.576216+00:00",
+      "observations": "Inspected the complete unchanged 1440x900 native frame. The three dialogue lines fit inside the panel and the speaker label fits inside its plate. Standard Cyrillic, Latin!, digits and punctuation are visible, with no tofu, literal tags or external notification. The legacy nameplate has substantially taller/thinner Cyrillic than the small bold pixel digits 123 in the same label. The bottom decomposed-mark row is not confidently readable as correctly positioned marks; do not accept that requirement. Black background and silhouette belong to the early wake-up dialogue, not a benchmark workload.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "major",
+          "region": "Speaker plate, approximately x650–820 / y475–515",
+          "observed": "Cyrillic capitals in Ёж Йй are visibly about 1.5 times the height of the original pixel digits 123 and have a different weight within the same nominal-size label.",
+          "expected": "Compatible fallback cap height, weight and baseline within one legacy nameplate.",
+          "nextAction": "Repair/calibrate the shared native legacy Font fallback; verify the same sample in a fresh authorized bounded context. Do not treat raw glyph presence as font acceptance."
+        },
+        {
+          "check": "glyphs",
+          "severity": "major",
+          "region": "Bottom dialogue row, approximately x710–765 / y680–705",
+          "observed": "Placement of the decomposed diaeresis/breve relative to their base letters cannot be confirmed; marks appear shifted toward the right. This remains visual uncertainty.",
+          "expected": "U+0308 and U+0306 attach visibly to the intended Е and и bases.",
+          "nextAction": "Inspect the unchanged original and a bounded native-size detail in a fresh authorized context, then repair the shared renderer/font mechanism if confirmed."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "failed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

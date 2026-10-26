@@ -5,7 +5,7 @@
   "locales": [
     "ru"
   ],
-  "overall": "needs-review",
+  "overall": "failed",
   "massTranslationAllowed": false,
   "build": {
     "path": "localization/probes/ru-20261026-06/build.json",
@@ -17,7 +17,7 @@
       "requirement": "Cyrillic, marks, Latin/digits/punctuation, wrapping and normal button progression",
       "static": "passed bounded no-op/readback, shared subtitle auto-size, calibrated dynamic fallback",
       "runtime": "passed for synthetic 197 -> 199 -> 200 -> 202 -> unchanged 203; overflow false",
-      "visual": "needs-review; one pending native pilot",
+      "visual": "needs-review: decomposed mark placement cannot be confirmed in the native frame",
       "evidence": "localization/probes/ru-20261026-06/runtime-result.json",
       "limitation": "Not final corpus-bound fonts, blind review or all subtitle layouts"
     },
@@ -26,7 +26,7 @@
       "requirement": "Cyrillic through UnityEngine.UI.Text and its actual nameplate consumer",
       "static": "passed fallback font data/metrics readback; original primary font and reference links preserved",
       "runtime": "passed synthetic nameplate input; visual glyph appearance not implied",
-      "visual": "needs-review; same pending pilot",
+      "visual": "failed: legacy Cyrillic cap height/weight visibly mismatches original pixel digits",
       "evidence": "localization/probes/ru-20261026-06/captured-state.json",
       "limitation": "QA setter exercises consumer; BGDatabase reinsertion/reveal semantics are separate pending source gates"
     },
@@ -55,5 +55,15 @@
       "limitation": "Ordinary Cyrillic fallback success does not accept the fictional mapping"
     }
   ],
-  "nextAction": "Complete the bounded current native packet. Additional required renderer packets need a fresh authorized context; do not launch another task/model job here. Then close the complete shared source and special-scene gates before authoring game translation."
+  "nextAction": "Repair/calibrate the shared legacy fallback and resolve combining-mark placement; verify unchanged sample and remaining renderer surfaces in fresh authorized bounded contexts. No new model job/agent is authorized here. Mass translation remains blocked.",
+  "nativeReview": {
+    "path": "localization/probes/ru-20261026-06/native-review.json",
+    "sha256": "5fa24777365831490e2385ae3489ffe4e0cf2b7ba9c0ea89cf39c24be32c978a",
+    "total": 1,
+    "reviewed": 1,
+    "passed": 0,
+    "failed": 1,
+    "pending": 0,
+    "reviewer": "same-session author self-review; not independent or blind"
+  }
 }
