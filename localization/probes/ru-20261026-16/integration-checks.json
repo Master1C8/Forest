@@ -1,0 +1,20 @@
+{
+  "resumeGuards": [
+    {
+      "status": "running",
+      "expectedRejection": "Only reconciled needs-owner jobs may resume.",
+      "passed": true,
+      "processLookup": "mocked"
+    },
+    {
+      "status": "needs-owner",
+      "expectedRejection": "Recorded technical process still alive.",
+      "passed": true,
+      "processLookup": "mocked"
+    }
+  ],
+  "inputPinsVerified": 7,
+  "bindingVerified": true,
+  "modelSelfCheck": "passed permitted positive and Astra negative controls without model requests",
+  "limitations": "Mocked process lookup tests assertion boundaries only. Initial live guard fixture was invalid because its temp path was absent from real process argv; that attempt reached missing fixture contract, did not submit a job. Successful live resumption is this current phase, not these controls."
+}

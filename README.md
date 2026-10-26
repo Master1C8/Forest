@@ -200,7 +200,8 @@ outline, both synthetic sample sets are readable, and the windowed raw-NFD marks
 above their bases. This accepts only these two synthetic settings states. The verified
 candidate12-to14 delta, retained byte-for-byte in candidate15, is Image 9708 disabled; candidate12's retained
 geometry experiment is not independently credited as a causal repair. Prior failures
-remain intact. Scale up/down and the seven unseen active Scale slots remain untested.
+remain intact. Candidate16 subsequently traces the normal Scale event and display limits below;
+other Scale values remain visually unaccepted.
 
 Phase 0011 found a separate live ru-assets CLI (PID 7943) in this checkout, conflicting
 with its current one-active-CLI instruction. No game was launched, no image opened,
@@ -223,6 +224,20 @@ still-enabled baked Off sprite; TMP-only metric equality must not pass that
 state. Verify actual Image disablement and the neighboring Fullscreen Off,
 then independently inspect fresh originals. Other renderer/source/editorial,
 Scale interaction and final-corpus gates remain unaccepted.
+
+Candidate16 reuses the same five resource hashes and traces Scale through original
+`WindowController` IL and the serialized Select/Move bindings. On the actual 1440×900
+display only 2× (960×540) is eligible: 1× is explicitly disabled, 3× has equal display
+width and fails the strict less-than test, and larger modes exceed the display.
+Normal Move events right/left retain index 1 and the same size; both option arrows
+remain hidden. No successful resize or intermediate handler entry is claimed from
+these no-ops. Arrow callbacks are bound to `EventTrigger.Select`; their `Button.onClick`
+events are empty. Future positive resize checks must observe a real eligible next
+mode and the navigation target. No flags or indices were forced. See
+`localization/probes/ru-20261026-16/runtime-diagnosis.json`. Cleanup verifies all four
+identified task processes absent, the temporary bridge removed, and installed/player
+files unchanged. No new images were captured/opened. Unseen slots and other renderer
+paths stay unaccepted; do not rerun unchanged Scale tests on this display.
 
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate

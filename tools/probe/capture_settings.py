@@ -4,8 +4,9 @@ import datetime, hashlib, json, re, shutil, subprocess, sys, time
 from pathlib import Path
 
 RUN=Path(sys.argv[1]).resolve()
-DIAGNOSTICS_ONLY=len(sys.argv)==3 and sys.argv[2]=='--diagnostics-only'
-assert len(sys.argv)==2 or DIAGNOSTICS_ONLY, 'run [--diagnostics-only]'
+SCALE_TEST=len(sys.argv)==3 and sys.argv[2]=='--scale-test'
+DIAGNOSTICS_ONLY=(len(sys.argv)==3 and sys.argv[2]=='--diagnostics-only') or SCALE_TEST
+assert len(sys.argv)==2 or DIAGNOSTICS_ONLY, 'run [--diagnostics-only|--scale-test]'
 PROJECT=RUN.parents[2]
 SOURCE=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 GAME=RUN/'game'; DATA='The Forest of Love_Data'; EXE=GAME/'The Forest of Love.exe'
@@ -97,6 +98,53 @@ def main():
         assert len(slots)==8, 'Scale Image slot inventory changed'
         active=[row for row in slots if 'activeInHierarchy=True' in row]
         assert len(active)==1 and '/'+str(d['scaleIndex']+1)+'x |' in active[0], 'Scale index/active Image disagree'
+        if SCALE_TEST:
+            base='Canvas/OptionsMenu/Controls/ScaleFactor'
+            initial_index=d['scaleIndex']; transitions=[]; reached={initial_index}
+            eligibility=[]
+            for row in d['scaleEligibility']:
+                m=re.fullmatch(r'(\d+) \| width=(\d+) \| height=(\d+) \| eligible=(True|False)',row)
+                assert m, row
+                i,w,h=map(int,m.group(1,2,3)); eligible=m[4]=='True'
+                assert i==len(eligibility), 'Scale eligibility order changed'
+                expected_eligible=i==1 or (i!=0 and w<d['displayWidth'] and h<d['displayHeight'])
+                assert eligible==expected_eligible, ('Eligibility contradicts source',row,d['displayWidth'],d['displayHeight'])
+                eligibility.append({'index':i,'width':w,'height':h,'eligible':eligible})
+            assert len(eligibility)==8
+            command('select '+base); d=dump()
+            assert d['selectedControl']==base
+            write('scale-selected-state.json',d)
+            for direction,delta,flag in [('right',1,'canScaleUp'),('left',-1,'canScaleDown')]:
+                for step in range(9):
+                    before=d; can=before[flag]; expected_index=before['scaleIndex']+(delta if can else 0)
+                    # Dispatch through normal Move navigation. Source binds the arrow's
+                    # Select event, not Button.onClick. An unchanged final state alone
+                    # does not prove intermediate arrow selection or handler entry.
+                    assert before['selectedControl']==base
+                    command('move-'+direction); d=dump()
+                    assert d['scaleIndex']==expected_index, (direction,before['scaleIndex'],can,d['scaleIndex'])
+                    assert d['selectedControl']==base, 'Normal delayed reselection failed'
+                    assert (d['width'],d['height'])==(eligibility[expected_index]['width'],eligibility[expected_index]['height'])
+                    active=[x for x in d['settingsControlDiagnostics'] if re.search(r'/Multipliers/[1-8]x \|',x) and 'activeInHierarchy=True' in x]
+                    assert len(active)==1 and '/'+str(expected_index+1)+'x |' in active[0]
+                    name='scale-'+direction+'-'+str(step)+'-state.json';write(name,d)
+                    transitions.append({'command':'move-'+direction,'beforeIndex':before['scaleIndex'],'allowed':can,'expectedIndex':expected_index,'actualIndex':d['scaleIndex'],'state':name,'selectedControl':d['selectedControl']})
+                    if expected_index not in reached and len(captures)<2:
+                        name='ru-'+str(len(captures)+1).zfill(2)+'-settings-scale-'+str(expected_index+1)+'x.png'
+                        command('capture '+name);captures.append(name)
+                    reached.add(expected_index)
+                    if not can: break
+                else: raise AssertionError('Scale bound not reached within source slot count')
+            for step in range(8):
+                if d['scaleIndex']==initial_index: break
+                delta=1 if d['scaleIndex']<initial_index else -1
+                assert d['canScaleUp' if delta==1 else 'canScaleDown']
+                previous_index=d['scaleIndex']
+                command('move-right' if delta==1 else 'move-left');d=dump()
+                assert d['scaleIndex']==previous_index+delta, 'Scale restoration made no expected progress'
+            assert d['scaleIndex']==initial_index, 'Scale restoration exceeded source slot bound'
+            write('scale-restored-state.json',d)
+            write('scale-interaction.json',{'display':[d['displayWidth'],d['displayHeight']],'eligibility':eligibility,'transitions':transitions,'reachedIndices':sorted(reached),'initialIndex':initial_index,'restoredIndex':d['scaleIndex'],'inputBoundary':'EventSystem selection then ExecuteEvents.moveHandler; post-state checked against source-backed eligibility. No private flag/index writes. Intermediate navigation target/handler entry and OS keyboard/controller delivery are not measured; no-op alone does not establish a controller rejection.','unreachedIndices':[i for i in range(8) if i not in reached],'visual':'New reachable captured slots pending review; unchanged 2x uses existing candidate15 acceptance, not a new pass.'})
         if not DIAGNOSTICS_ONLY:
             name='ru-02-settings-windowed.png'; command('capture '+name); captures.append(name)
             print('captured',name,flush=True)
@@ -129,6 +177,6 @@ def main():
             (managed/'ForestProbe.dll').unlink(missing_ok=True)
         unchanged=all(sha(SOURCE/DATA/n)==h for n,h in originals.items()) and all(sha(SOURCE/n)==h for n,h in original_extra.items())
         write('cleanup.json',{'date':now(),'verifiedTaskProcessRowsBeforeQuit':owned,'remainingTaskProcessRows':remaining,'taskOwnedProcessesAbsent':not remaining,'quitAcknowledged':quit_ok,'inspectionBridgeRemoved':not (GAME/DATA/'Managed/ForestProbe.dll').exists(),'originalAssemblyRestoredInQACopy':sha(GAME/DATA/'Managed/Assembly-CSharp.dll')==original_extra[DATA+'/Managed/Assembly-CSharp.dll'],'originalAssetsAndPlayerFilesUnchanged':unchanged,'ownerSavePathUsed':False,'persistentDataPath':'C:/users/crossover/AppData/LocalLow/VNRevivalQA/ForestRuRendererProbe','candidateAssetHashesUnchanged':all(sha(GAME/DATA/r['path'])==r['probeSha256'] for r in report['files'])})
-        write('runtime-result.json',{'date':now(),'automatedResult':'passed' if success and not remaining and unchanged else 'failed','error':error,'guardedMenuProgression':seen,'captures':captures,'durationSeconds':round(time.monotonic()-started,3),'buildSha256':sha(RUN/'build.json'),'bridgeBuildSha256':sha(RUN/'bridge-build.json'),'settingsControlsPreserved':'passed for actual Stretch, Fullscreen and Back buttons; Scale slot selection measured, scale-up/down interaction not run' if success else 'unverified','visual':'pending; text-only capture context has opened no image','completeFeasibilityGate':'unaccepted; all other surfaces and final corpus remain unverified'})
+        write('runtime-result.json',{'date':now(),'automatedResult':'passed' if success and not remaining and unchanged else 'failed','error':error,'guardedMenuProgression':seen,'captures':captures,'durationSeconds':round(time.monotonic()-started,3),'buildSha256':sha(RUN/'build.json'),'bridgeBuildSha256':sha(RUN/'bridge-build.json'),'settingsControlsPreserved':('passed Scale normal event path and display bounds; see scale-interaction.json' if SCALE_TEST else 'passed for actual Stretch, Fullscreen and Back buttons; Scale slot selection measured, scale-up/down interaction not run') if success else 'unverified','visual':'pending for new captures; text-only capture context has opened no image','completeFeasibilityGate':'unaccepted; all other surfaces and final corpus remain unverified'})
     assert success and not remaining and unchanged,error
 if __name__=='__main__': main()

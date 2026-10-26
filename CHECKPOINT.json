@@ -146,7 +146,7 @@
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
   },
-  "updatedAt": "2026-10-26T04:57:26.156046+00:00",
+  "updatedAt": "2026-10-26T05:02:33.044061+00:00",
   "processBinding": {
     "guide": "README.md",
     "references": {
@@ -158,7 +158,7 @@
       "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
       "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
     },
-    "projectGuideSha256": "5a0cf6adc103c868d7a6a8105c6a3fd676dfecb5dfccb259fb709d646bb342f9"
+    "projectGuideSha256": "4307f9bde1e8952c114f998b6261ae61ecfe0a4ffe9588d4356734f3d32d3f3b"
   },
   "currentStage": "probe",
   "probe": "localization/probes/ru-20261026-15/build.json",
@@ -184,13 +184,13 @@
       "fonts": "needs-review: candidate10 shared TMP primary/mark-pair resource repair static-passed; 4 canonical Cyrillic pairs only; final corpus not accepted",
       "textures": "not-run",
       "build": "not-run for localization; synthetic probe passed static build/readback",
-      "runtime": "candidate15 actual Stretch/Fullscreen/Back passed, all11 duplicate replacement Images disabled, six active Off TMP layers retained, cleanup passed; other scales/surfaces unverified",
+      "runtime": "candidate15 actual Stretch/Fullscreen/Back passed, all11 duplicate replacement Images disabled, six active Off TMP layers retained, cleanup passed; other scales/surfaces unverified Candidate16 source-backed eligibility and normal-Move no-op outcomes passed on display1440x900 with only2x eligible; cleanup passed. No successful scale change/handler-entry or unseen-slot acceptance.",
       "visual": "candidate10 dialogue/nameplate 2/2 accepted; candidate11 settings failed; candidate12 fullscreen failed/windowed passed; candidate15 exact two settings originals 2/2 passed after independent phase0010 and helper import/check in phase0011. Other states/surfaces unaccepted.",
       "screenshot-upload": "not-applicable; not requested",
       "screenshot-review": "not-applicable; not requested",
       "release": "not-run; publication excluded",
       "blocker": "Remaining menu/UI/item/quest, baked texture and fictional-font paths, complete source/special-scene and editorial gates remain unaccepted.",
-      "nextAction": "Trace normal Scale selection/up/down handlers and display eligibility, then run a bounded isolated test. Reuse accepted candidate10 and candidate15 frames unchanged. Parallel asset translation is authorized and is not a blocker; keep its input pins byte-identical and its writable paths untouched."
+      "nextAction": "Continue source-backed item/inventory or quest UI consumer discovery and a minimal synthetic renderer probe. Scale has only 2x eligible on this display; do not force flags, recapture candidate15, or rerun unchanged Scale checks. Successful resizing/unseen eligible slots require a naturally capable display and remain unverified. Preserve parallel asset drafting and frozen inputs."
     }
   },
   "execution": {
@@ -204,13 +204,13 @@
     "actualModelVerified": true,
     "inheritedHistory": false,
     "exclusiveWriteAndGitOwner": "Current technical phase owns technical edits and complete Git transaction; authorized asset lane writes only its disjoint directories without Git mutations.",
-    "result": "continuation authorized; failed font pilot remains failed until repaired and reviewed",
+    "result": "Technical progress continues with parallel authorized drafting; no full localization delivery or broad feasibility acceptance.",
     "nestedModelJobs": false,
     "agentsLaunched": false,
     "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
     "activePhase": "outputs/ru-serial-20261026/0012-work",
-    "phaseResult": "Phase0011 review evidence rechecked text-only; owner concurrency correction and resume/model controls verified. Scale investigation proceeding.",
-    "modelVerification": "Actual PID16150 argv pins --model gpt-6.1-sol, provider openai, reasoning high; authorized asset PID7943 separately pins same selection.",
+    "phaseResult": "Committed accepted candidate15 review and parent parallel-authorization/resume correction (8e65378). New candidate16 source/serialized-event trace and isolated Scale eligibility/no-op test passed; all four task processes absent, bridge removed, original/player files and seven input pins unchanged. Zero images opened/captured. Other renderer/source/editorial gates remain pending.",
+    "modelVerification": "localization/probes/ru-20261026-16/execution-model.json",
     "usageAccounting": "Parent accounts serial request telemetry; current-phase input/cached-input/output/reasoning counts unavailable. No subagents or nested CLI/model requests launched. Other ru-assets CLI excluded from this phase accounting."
   },
   "sourceCandidates": {
@@ -226,7 +226,7 @@
   },
   "feasibility": {
     "path": "localization/feasibility.json",
-    "sha256": "6ff8136c623cea792b64e9cc0edde99ba33dfe949219b13b54ecf5e277fbabcf",
+    "sha256": "cdac25d56e2f0e4053439bbfc99ca39efaf2e67bffd0b9d1e64c9463cc960db8",
     "status": "needs-review",
     "massTranslationAllowed": false
   },
@@ -305,6 +305,14 @@
         "pending": 0,
         "acceptanceBoundary": "Exact candidate15 synthetic fullscreen/windowed settings frames only; Scale input and seven unseen active slots remain untested; no broad renderer or source acceptance"
       }
+    },
+    "scale": {
+      "diagnosis": "localization/probes/ru-20261026-16/runtime-diagnosis.json",
+      "source": "localization/probes/ru-20261026-16/source-trace.json",
+      "runtime": "localization/probes/ru-20261026-16/runtime-result.json",
+      "cleanup": "localization/probes/ru-20261026-16/cleanup.json",
+      "interaction": "localization/probes/ru-20261026-16/scale-interaction.json",
+      "acceptance": "Actual 1440x900 eligibility and normal Move no-op observations only; positive resize, intermediate handler entry, OS input and other-display visuals unverified."
     }
   },
   "independentReview": {
@@ -317,7 +325,7 @@
     "localizationInstaller": null,
     "technicalArchive": "dist/forest-ru-technical-checkpoint-20261026.zip",
     "canonicalBranch": "main",
-    "gitIntegration": "Verified phase0011 review and parent authorization/resume repair integrated by phase0012 on canonical main; current technical work continues.",
+    "gitIntegration": "Canonical main contains verified phase0011 acceptance and parent authorization repair at 8e65378; phase0012 Scale evidence integrated in the next technical commit.",
     "push": "unavailable: no configured remote; no repository/remote created",
     "publication": "not-authorized; no glossary/game/mod publication or deployment",
     "platformLimit": "Windows build exercised through CrossOver; native Windows and native macOS not verified"

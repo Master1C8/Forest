@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 using PixelCrushers.DialogueSystem;
 
@@ -25,6 +26,10 @@ public sealed class ForestProbe : MonoBehaviour
         public string[] settingsGlyphDiagnostics, settingsLayoutDiagnostics, settingsControlDiagnostics;
         public bool fullscreen, stretch; public int scaleIndex;
         public int width, height; public TextRow[] texts; public string[] buttons, components;
+        public int displayWidth, displayHeight;
+        public bool canScaleUp, canScaleDown;
+        public string selectedControl;
+        public string[] scaleEligibility, scaleControlState;
     }
     private string root;
     private float next;
@@ -70,6 +75,20 @@ public sealed class ForestProbe : MonoBehaviour
                 if(Path.GetFileName(name)!=name || !name.EndsWith(".png")) throw new Exception("Invalid capture name");
                 var path=Path.Combine(root,name);if(File.Exists(path)) throw new Exception("Capture already exists");
                 StartCoroutine(Capture(path));
+            } else if(text.StartsWith("select ")) {
+                var path=text.Substring(7); Selectable match=null;
+                foreach(var s in Resources.FindObjectsOfTypeAll<Selectable>())
+                    if(s.gameObject.scene.IsValid() && s.gameObject.activeInHierarchy && s.IsInteractable() && Address(s.transform)==path) {
+                        if(match!=null)throw new Exception("Duplicate active selectable");match=s;
+                    }
+                if(match==null || EventSystem.current==null)throw new Exception("No selectable/event system: "+path);
+                EventSystem.current.SetSelectedGameObject(match.gameObject);
+            } else if(text=="move-left" || text=="move-right") {
+                var es=EventSystem.current;
+                if(es==null || es.currentSelectedGameObject==null)throw new Exception("No selected control");
+                var data=new AxisEventData(es){moveDir=text=="move-left"?MoveDirection.Left:MoveDirection.Right};
+                if(!ExecuteEvents.Execute(es.currentSelectedGameObject,data,ExecuteEvents.moveHandler))
+                    throw new Exception("No move handler");
             } else if(text.StartsWith("click ")) {
                 var path=text.Substring(6);Button match=null;
                 foreach(var b in Resources.FindObjectsOfTypeAll<Button>())
@@ -108,6 +127,22 @@ public sealed class ForestProbe : MonoBehaviour
         var settingsGlyphDiagnostics=new List<string>();
         var settingsLayoutDiagnostics=new List<string>();
         var settingsControlDiagnostics=new List<string>();
+        var scaleEligibility=new List<string>();var scaleControlState=new List<string>();
+        var wc=FindObjectOfType<TheForestOfLove.UI.WindowController>();
+        if(wc!=null) {
+            var flags=BindingFlags.Instance|BindingFlags.NonPublic|BindingFlags.Public;
+            var slots=(IEnumerable)wc.GetType().GetField("windowSizeSettings",flags).GetValue(wc);
+            int index=0;
+            foreach(var slot in slots) {
+                var t=slot.GetType();
+                scaleEligibility.Add(index+" | width="+t.GetField("targetWidth",flags).GetValue(slot)+
+                    " | height="+t.GetField("targetHeight",flags).GetValue(slot)+
+                    " | eligible="+t.GetField("eligible",flags).GetValue(slot));index++;
+            }
+        }
+        foreach(var cg in Resources.FindObjectsOfTypeAll<CanvasGroup>())
+            if(cg.gameObject.scene.IsValid() && Address(cg.transform).StartsWith("Canvas/OptionsMenu/Controls/ScaleFactor"))
+                scaleControlState.Add(Address(cg.transform)+" | alpha="+cg.alpha+" | interactable="+cg.interactable+" | blocksRaycasts="+cg.blocksRaycasts);
         foreach(var t in tmpObjects)
             if(t.gameObject.activeInHierarchy)
             {
@@ -165,6 +200,10 @@ public sealed class ForestProbe : MonoBehaviour
             settingsGlyphDiagnostics=settingsGlyphDiagnostics.ToArray(), settingsLayoutDiagnostics=settingsLayoutDiagnostics.ToArray(),
             settingsControlDiagnostics=settingsControlDiagnostics.ToArray(), fullscreen=TheForestOfLove.UI.WindowController.IsFullscreen,
             stretch=TheForestOfLove.UI.WindowController.EnableFullscreenStretch, scaleIndex=TheForestOfLove.UI.WindowController.WindowScalingIndex,
+            displayWidth=Screen.currentResolution.width, displayHeight=Screen.currentResolution.height,
+            canScaleUp=TheForestOfLove.UI.WindowController.CanScaleUp(),canScaleDown=TheForestOfLove.UI.WindowController.CanScaleDown(),
+            selectedControl=EventSystem.current==null || EventSystem.current.currentSelectedGameObject==null?"":Address(EventSystem.current.currentSelectedGameObject.transform),
+            scaleEligibility=scaleEligibility.ToArray(),scaleControlState=scaleControlState.ToArray(),
             typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping()};
         var typewriter=FindObjectOfType<TheForestOfLove.CustomTypewriterEffectTextMeshPro>();
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;

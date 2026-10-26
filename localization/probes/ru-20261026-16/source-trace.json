@@ -1,0 +1,24 @@
+{
+  "scope": "Scale control/eligibility only, not full source inventory",
+  "sourceAssembly": "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+  "sourceAssemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "evidence": {
+    "WindowController-scale.il": "6beb15b7c924a13d4c56c014afc19808bfbe256305e0915a16e14034f94bd5b2",
+    "OptionsMenu-scale.il": "a0a42d01b95298fcefa6db14d6a1c72b1ff2a3d96bb4a7012973b8f4cfe73e13",
+    "SelectableUiControl.il": "0b27fcf2c73fd8a12ea1abaf68717f42db822df50767591ece34e479256cf3f2",
+    "scale-bindings.json": "43b43eae6643309575b23ae6d5d6a2a7b1a41813f92c3ea3e2eb442e8e5aa8ba",
+    "trace-scale-bindings.py": "d9efb802b258cf1733c903c6139c2cd33cce459bf0efd23c52a3a17182bfa295"
+  },
+  "eligibility": "Each size initially eligible iff both dimensions strictly less than Screen.currentResolution; index0 is then forced false and index1 true. CanScaleUp/Down inspects immediate neighbor; never assume all eight values reachable.",
+  "input": "Scale base explicit navigation left/right points to SelectLeft/SelectRight; EventTrigger Select (eventID9) on arrows invokes OnClickScaleFactorDown/Up. Arrow Button.onClick is empty. Controller debounces two frames then reselects base.",
+  "findings": [
+    "Static 1x slot is intentionally unreachable, not missing translation coverage.",
+    "Display-equal target width or height is ineligible (strict less-than).",
+    "Testing Button.onClick on an arrow would bypass the actual consumer and give a false no-op."
+  ],
+  "pending": [
+    "Real display/eligibility and normal-event runtime outcome",
+    "Successful size transition if any other size eligible",
+    "Other renderer paths and full source gate"
+  ]
+}
