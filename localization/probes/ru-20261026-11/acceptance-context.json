@@ -1,0 +1,30 @@
+{
+  "game": "The Forest of Love",
+  "version": "0.45",
+  "locale": "ru",
+  "direction": "ltr",
+  "scope": "One native fullscreen OptionsMenu frame with two synthetic serialized label groups; no complete menu/renderer/source acceptance",
+  "image": "ru-01-settings-fullscreen.png",
+  "expectedSamples": [
+    {
+      "region": "Fullscreen label",
+      "text": "Ёж Йй 123:",
+      "copies": 6
+    },
+    {
+      "region": "Stretch label",
+      "text": "Ёж Latin!:",
+      "copies": 6
+    }
+  ],
+  "otherText": "Unchanged English source menu labels, values On/Off, Music/Effects and Back are permitted; this is a synthetic feasibility probe with zero translated game units. Inspect the entire frame for readability, face/glow consistency, marks, mixed Latin/digits, overlap, clipping and contamination. Do not pass unshown Scale or raw decomposed marks.",
+  "runtimeContext": "Fullscreen On, Stretch Off; source-backed Scale control hidden. Original intended automation stopped on a wrong visibility assumption before Back navigation; failure capture was preserved byte-for-byte as this review original. Actual diagnosis and failed result remain pinned.",
+  "style": "Candidate10 coherent shared outline TMP face, retained original UI face/glow objects, font size/layout unmodified. Native game UI chrome/content is permitted; external OS/storefront notifications are not.",
+  "expectedSampleKnowledge": "Supplied, not blind",
+  "limits": [
+    "One exact fullscreen settings state only",
+    "No NFD rendering claim for absent Scale label",
+    "No Back/scale/fullscreen-toggle transition pass",
+    "No general shaping or final corpus acceptance"
+  ]
+}

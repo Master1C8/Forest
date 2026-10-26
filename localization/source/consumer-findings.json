@@ -30,6 +30,20 @@
       "evidence": "localization/source/consumers/FormattedText.cs",
       "finding": "Recognized [pic], [pica], [picc], [var], [lua], [autocase], panel/position/emphasis tags and pipes differ from ordinary bracketed prose. Do not treat every [...] as protected control.",
       "evidenceSha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306"
+    },
+    {
+      "surface": "Three menu/settings label groups",
+      "consumer": "level1 OptionsMenu at Canvas/OptionsMenu; TMPro.TextMeshProUGUI; sharedassets0.assets:3323",
+      "evidence": "localization/source/settings-consumers.json",
+      "finding": "Fullscreen:, Scale: and Stretch: each have 6 TMP text occurrences in face/glow descendants (18 physical occurrences). They are live serialized text consumers, not texture-only. All six copies must be reinserted together; real visibility and small-field legibility still require runtime/visual evidence.",
+      "evidenceSha256": "9de6f5daf56f99126559714afbf2dc337fbd00b11e2ee4df9e769443a9e57d00"
+    },
+    {
+      "surface": "Settings visibility and scale-value rendering",
+      "consumer": "OptionsMenu.ConfigureForEverythingElse / OnClickFullscreen / UpdateWindowScaleFactorUI",
+      "evidence": "localization/probes/ru-20261026-11/settings-diagnosis.json",
+      "evidenceSha256": "9d5b06fb4fa463474ae4a14867453248a8454e04eb63bc15372f226c8d435340",
+      "finding": "Desktop fullscreen shows Stretch and hides Scale; windowed mode reverses them. Scale values select one of eight Image slots, not TMP numeric text. Actual fullscreen runtime loaded 6 Fullscreen and 6 Stretch synthetic copies; the original three-label capture guard failed and remains preserved. Windowed Scale/NFD and Back navigation are not tested."
     }
   ],
   "regressions": [
@@ -51,6 +65,14 @@
     {
       "id": "runtime-resource-enumeration",
       "requirement": "Keep scene validity and prefab/template visibility distinct. The old TMP query excluded all sample rows; unfiltered resource enumeration can include hidden templates and does not prove visible rendering."
+    },
+    {
+      "id": "settings-label-glow-occurrences",
+      "requirement": "All six exact TMP occurrences per label retain identical visible wording. Change only m_text, keep controls/hierarchy/font binding. A template-only enumeration or one changed foreground copy does not accept the six-layer runtime label."
+    },
+    {
+      "id": "settings-reciprocal-visibility-and-image-values",
+      "requirement": "Guard fullscreen vs windowed state explicitly: Stretch active iff fullscreen, Scale active iff windowed. Never require both at once. Cover the 8 scale Image slots as resource dependencies, and verify actual Fullscreen control transitions and Back handler. Preserve the failed candidate11 assumption as regression evidence."
     }
   ],
   "pending": [

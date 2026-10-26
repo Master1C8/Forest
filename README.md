@@ -107,6 +107,25 @@ the readable-atlas prerequisite discovered before launching 09 remain preserved.
 Rebuilds must retain exact float32 scale, readable cleared atlas and smooth bitmap
 mode together; static cmap/readback cannot establish native glyph attachment.
 
+The bounded menu/settings source trace is `localization/source/settings-consumers.json`,
+reproduced with `.venv-assets314/bin/python tools/inspect_menu_source.py --output <new-json>`.
+Fullscreen, Scale and Stretch labels each have six TMP components in their face/glow
+hierarchy, all bound to `sharedassets0.assets:3323`. Reinsertion must preserve every
+physical copy. This is three traced logical groups, not a complete UI inventory.
+`--sample-surface menu-settings` selects distinct synthetic samples for all 18 occurrences
+and changes only their `/m_text` fields. Menu navigation and native visual acceptance
+remain separate from the exact no-op/readback checks.
+Candidate11 statically passed all five resource round trips, then the real OptionsMenu
+loaded the Fullscreen/Stretch samples (six copies each) without reported overflow.
+Its capture guard stopped before Back because it wrongly required Scale simultaneously.
+`OptionsMenu.ConfigureForEverythingElse` and `OnClickFullscreen` prove the reciprocal
+visibility: Stretch in fullscreen, Scale in windowed mode. Future capture guards must
+follow those states rather than require all labels at once. Scale values are eight
+Image slots selected by `UpdateWindowScaleFactorUI`, not TMP numeric literals.
+The original failed runtime result and restoration are retained; one byte-identical
+native failure capture is pinned for bounded review of the two visible samples only.
+Windowed Scale/NFD, dynamic controls and Back navigation remain unverified.
+
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate
 progression evidence because it bypasses that handler. `prepare_bridge.py` compiles

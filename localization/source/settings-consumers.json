@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "scope": "Three settings labels only, not complete UI/source acceptance",
+  "source": {
+    "level1": "5ff0636003eed46615678c124f42320eb9a8c66baa0870ec11c9faa42db78db0",
+    "Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf"
+  },
+  "recipeSha256": "1881366a16c80c9fef480a6d0661c71db3c3fb6b78f4ec33ee17066b8f5ab483",
+  "font": "sharedassets0.assets:3323",
+  "physicalOccurrences": 18,
+  "logicalLabelGroups": 3,
+  "finding": "Each label is six TMP components in one face/glow hierarchy. Preserve all six occurrences and distinct controls; runtime visibility remains a separate gate.",
+  "labels": [
+    {
+      "id": "level1:7862",
+      "field": "/m_text",
+      "original": "Fullscreen:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/Fullscreen/Fullscreen/NameContainer (1)/NameGlowLeft/NameGlowBottom",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "179d0e1a3237f0e010c681adbafc56b20a93514b21d15f10adbece1653c01667"
+    },
+    {
+      "id": "level1:7870",
+      "field": "/m_text",
+      "original": "Stretch:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/FullscreenStretch/FullscreenStretch/NameContainer/NameGlowLeft/Name",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "c8003053e253dacf15517a54fc8aa42d541bcef4e815adc9c55648a0d318fcdb"
+    },
+    {
+      "id": "level1:7877",
+      "field": "/m_text",
+      "original": "Stretch:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/FullscreenStretch/FullscreenStretch/NameContainer",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "ac45066f8faf0f8df620eeeef2afb47daee72aba33f06f3fd718e0b0e5d31540"
+    },
+    {
+      "id": "level1:7878",
+      "field": "/m_text",
+      "original": "Scale:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/ScaleFactor/ScaleFactor/NameContainer",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "bbab9694cf00049db1f46d59a95fd566749411fa59bc6970bf39b205e93c89ab"
+    },
+    {
+      "id": "level1:7884",
+      "field": "/m_text",
+      "original": "Fullscreen:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/Fullscreen/Fullscreen/NameContainer (1)/NameGlowLeft/NameGlowTop",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "e7f3973588ca16f56ac7e992d5005aa5555bee9d39ab760b704c16c554ba3f6a"
+    },
+    {
+      "id": "level1:7887",
+      "field": "/m_text",
+      "original": "Stretch:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/FullscreenStretch/FullscreenStretch/NameContainer/NameGlowLeft",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "62c8d0d3818a6a312cfc7bf3c2c0658d20dec66cd742dad623f099216bf60d2e"
+    },
+    {
+      "id": "level1:7922",
+      "field": "/m_text",
+      "original": "Scale:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/ScaleFactor/ScaleFactor/NameContainer/NameGlowLeft/NameGlowRight",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "464f7b68ad750521cbdb2662a41d415e4dc8e07f5b8708a6c0c799457798f6e5"
+    },
+    {
+      "id": "level1:7925",
+      "field": "/m_text",
+      "original": "Fullscreen:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/Fullscreen/Fullscreen/NameContainer (1)/NameGlowLeft/NameGlowRight",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "c112428d7828b9d03f5587106cd4dcaa94e74fc478973d6abf3cb53599363066"
+    },
+    {
+      "id": "level1:7956",
+      "field": "/m_text",
+      "original": "Scale:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/ScaleFactor/ScaleFactor/NameContainer/NameGlowLeft",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "ad5b1bc79422da384440d9b98b617539985e03a88314cc4e7b540b31e67229aa"
+    },
+    {
+      "id": "level1:7970",
+      "field": "/m_text",
+      "original": "Stretch:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/FullscreenStretch/FullscreenStretch/NameContainer/NameGlowLeft/NameGlowTop",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "f1d52d19205197828b22461018a27b66fbf8c542ef95dff08d2aeb2cc92e73cf"
+    },
+    {
+      "id": "level1:7972",
+      "field": "/m_text",
+      "original": "Fullscreen:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/Fullscreen/Fullscreen/NameContainer (1)/NameGlowLeft",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "fac1b4790b9b2ae49b86aef0f5c1c39ab485ebf4d10a065bc35aeea109e46f6e"
+    },
+    {
+      "id": "level1:7975",
+      "field": "/m_text",
+      "original": "Scale:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/ScaleFactor/ScaleFactor/NameContainer/NameGlowLeft/Name",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "1e7ee227f3eca6456e40155fd228d5ef0747b8b0dcfca6e78b3054484cb67e78"
+    },
+    {
+      "id": "level1:7992",
+      "field": "/m_text",
+      "original": "Stretch:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/FullscreenStretch/FullscreenStretch/NameContainer/NameGlowLeft/NameGlowRight",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "af47799679145423682fa8b7a9e5f5d21b97b185202325d2a04f7e86b8242abf"
+    },
+    {
+      "id": "level1:7996",
+      "field": "/m_text",
+      "original": "Stretch:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/FullscreenStretch/FullscreenStretch/NameContainer/NameGlowLeft/NameGlowBottom",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "875a3a1608fa95f99de05bc39dabd4ab7c055c3d9bce3d57dab5880b8839ab44"
+    },
+    {
+      "id": "level1:8000",
+      "field": "/m_text",
+      "original": "Fullscreen:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/Fullscreen/Fullscreen/NameContainer (1)",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "7101b51bf8839719fc7ba84ac98242d47979931173a8478af18672772b35e701"
+    },
+    {
+      "id": "level1:8014",
+      "field": "/m_text",
+      "original": "Fullscreen:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/Fullscreen/Fullscreen/NameContainer (1)/NameGlowLeft/Name",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "9c092bd71b72de6f29c4df04af801257a3106766c2dfd6428eb7dfbbe3326b42"
+    },
+    {
+      "id": "level1:8019",
+      "field": "/m_text",
+      "original": "Scale:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/ScaleFactor/ScaleFactor/NameContainer/NameGlowLeft/NameGlowTop",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "d474099880f3817e43cd4e78699d8c9b4d266ea6a93ea4e7c24d8867d950332d"
+    },
+    {
+      "id": "level1:8032",
+      "field": "/m_text",
+      "original": "Scale:",
+      "hierarchy": "Canvas/OptionsMenu/Controls/ScaleFactor/ScaleFactor/NameContainer/NameGlowLeft/NameGlowBottom",
+      "fontReference": {
+        "m_FileID": 5,
+        "m_PathID": 3323
+      },
+      "size": 20.0,
+      "autoSize": 0,
+      "rawSha256": "97c7b9f19fa831493af8ec2caeaf38f1c23a3f0c64a8f2eb3e9c1dee41425713"
+    }
+  ],
+  "controllers": [
+    {
+      "id": "level1:8668",
+      "class": "OptionsMenu",
+      "hierarchy": "Canvas/OptionsMenu",
+      "fields": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 817
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2824
+        },
+        "m_Name": "",
+        "firstSelected": {
+          "m_FileID": 0,
+          "m_PathID": 572
+        },
+        "leaveEnabledButInvisibleOnStart": 0,
+        "onOpen": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClose": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "optionsFullscreenControls": {
+          "m_FileID": 0,
+          "m_PathID": 1863
+        },
+        "optionsFullscreenStretchControls": {
+          "m_FileID": 0,
+          "m_PathID": 2185
+        },
+        "optionsScaleFactor": {
+          "m_FileID": 0,
+          "m_PathID": 1991
+        },
+        "optionsScaleFactorMoreOptionsAbove": {
+          "m_FileID": 0,
+          "m_PathID": 7235
+        },
+        "optionsScaleFactorMoreOptionsBelow": {
+          "m_FileID": 0,
+          "m_PathID": 7252
+        },
+        "optionsSpacer": {
+          "m_FileID": 0,
+          "m_PathID": 6546
+        },
+        "optionsFullscreenYes": {
+          "m_FileID": 0,
+          "m_PathID": 312
+        },
+        "optionsFullscreenNo": {
+          "m_FileID": 0,
+          "m_PathID": 1683
+        },
+        "optionsFullscreenStretchYes": {
+          "m_FileID": 0,
+          "m_PathID": 2083
+        },
+        "optionsFullscreenStretchNo": {
+          "m_FileID": 0,
+          "m_PathID": 2032
+        },
+        "optionsScaleFactors": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 9842
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9705
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9782
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9750
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9865
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9989
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9933
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 9892
+          }
+        ],
+        "optionsSoundVolume": {
+          "m_FileID": 0,
+          "m_PathID": 8096
+        },
+        "optionsBackButton": {
+          "m_FileID": 0,
+          "m_PathID": 8468
+        },
+        "optionsControlsButton": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "optionsControlsButtonSelectable": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "optionsDeleteSavegameControl": {
+          "m_FileID": 0,
+          "m_PathID": 402
+        },
+        "enableDebugMode": 0,
+        "onClickBack": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickControls": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickDeleteSavegame": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        }
+      }
+    },
+    {
+      "id": "level1:9222",
+      "class": "StartScreenMainMenu",
+      "hierarchy": "Canvas/MainMenu",
+      "fields": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 1474
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 5830
+        },
+        "m_Name": "",
+        "firstSelected": {
+          "m_FileID": 0,
+          "m_PathID": 468
+        },
+        "leaveEnabledButInvisibleOnStart": 0,
+        "onOpen": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClose": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "startButton": {
+          "m_FileID": 0,
+          "m_PathID": 8409
+        },
+        "continueButton": {
+          "m_FileID": 0,
+          "m_PathID": 9093
+        },
+        "galleryButton": {
+          "m_FileID": 0,
+          "m_PathID": 8598
+        },
+        "optionsButton": {
+          "m_FileID": 0,
+          "m_PathID": 9018
+        },
+        "controlsButton": {
+          "m_FileID": 0,
+          "m_PathID": 8315
+        },
+        "patreonButton": {
+          "m_FileID": 0,
+          "m_PathID": 8228
+        },
+        "webglPatreonButton": {
+          "m_FileID": 0,
+          "m_PathID": 9261
+        },
+        "bugReportButton": {
+          "m_FileID": 0,
+          "m_PathID": 8228
+        },
+        "websiteButton": {
+          "m_FileID": 0,
+          "m_PathID": 8244
+        },
+        "quitButton": {
+          "m_FileID": 0,
+          "m_PathID": 9305
+        },
+        "onClickStart": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickContinue": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickGallery": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickOptions": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickBugReport": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickControls": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickQuit": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickPatreon": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onClickWebsite": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        }
+      }
+    }
+  ],
+  "notEstablished": [
+    "All menu source semantics",
+    "Code-literal consumers",
+    "Runtime visibility",
+    "Complete source denominator"
+  ]
+}

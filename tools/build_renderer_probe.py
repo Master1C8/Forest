@@ -21,6 +21,7 @@ SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA_NAME = 'The Forest of Love_Data'
 BUNDLE = 'StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle'
 SAMPLE = 'Ёж, съешь ещё этих мягких булок. Йй Щщ Ъъ Ыы Ьь Ээ Юю Яя; 123 — Latin!'
+MENU_SAMPLES = {'Fullscreen:': 'Ёж Йй 123:', 'Scale:': 'Е\u0308 и\u0306 12:', 'Stretch:': 'Ёж Latin!:'}
 
 
 def sha(path):
@@ -48,7 +49,7 @@ def fields_changed(before, after, pointer=''):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--sample-surface', choices=['tutorial', 'new-game'], default='tutorial')
+    parser.add_argument('--sample-surface', choices=['tutorial', 'new-game', 'menu-settings'], default='tutorial')
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
@@ -89,6 +90,7 @@ def main():
               'coherentLegacyFace': args.coherent_legacy_face,
               'coherentTmpFace': args.coherent_tmp_face,
               'markSamples': mark_samples,
+              'menuSamples': MENU_SAMPLES if args.sample_surface == 'menu-settings' else {'Fullscreen:': 'Ёж 123:'},
               'scope': 'Synthetic script feasibility only; no translated game corpus.',
               'sourceManifestSha256': sha(PROJECT / 'assets/source-v2/source-files.json'),
               'files': []}
@@ -135,7 +137,7 @@ def main():
                 if script.m_ClassName != 'TextMeshProUGUI':
                     continue
                 tree = read_tree(obj, generator)
-                if tree.get('m_text') == 'Fullscreen:':
+                if tree.get('m_text') in report['menuSamples']:
                     selected[obj.path_id] = obj
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
@@ -176,7 +178,7 @@ def main():
                     # existing glyph/atlas tables of this dynamic fallback.
                     tree['m_FaceInfo']['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
             elif name == 'level1':
-                tree['m_text'] = 'Ёж 123:'
+                tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif obj.type.name == 'Font':
                 assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
                 # The default repair extends the existing fallback only. The
