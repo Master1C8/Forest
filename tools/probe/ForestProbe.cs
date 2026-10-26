@@ -41,6 +41,9 @@ public sealed class ForestProbe : MonoBehaviour
         // this external bridge DLL. Arrays of strings retain each scalar record.
         public int responseCount;
         public string[] responseRecords;
+        public int frame;
+        public float realtime, scaledTime, timeScale;
+        public string[] introDiagnostics;
     }
     [Serializable] public sealed class NotebookRouteState {
         public string scene, company, product, dataPath, persistentDataPath;
@@ -86,6 +89,7 @@ public sealed class ForestProbe : MonoBehaviour
         var text=File.ReadAllText(command).Trim();File.Delete(command);
         try {
             if(text=="dump") Dump();
+            else if(text=="dump-intro") DumpIntro();
             else if(text=="dump-notebook") {
                 var state=new NotebookRouteState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
                     company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
@@ -502,7 +506,7 @@ public sealed class ForestProbe : MonoBehaviour
     // Each getter below has read-only original IL pinned in tutorial-20261026.
     // Never call an oracle, CanTrigger, HasAvailableMessages or IsSatisfied here:
     // those availability paths can evaluate chance and change the later story.
-    string[] TutorialRouteDiagnostics() {
+    string[] IntroCleanupDiagnostics() {
         var rows=new List<string>();
         int introControllers=0,bedControllers=0,activeBedControllers=0;
         foreach(var cutscene in Resources.FindObjectsOfTypeAll<TheForestOfLove.IntroBunnyHouseCutscene>())
@@ -512,6 +516,20 @@ public sealed class ForestProbe : MonoBehaviour
                     " | stage="+ReadField(cutscene,"currentStage")+" | timerSet="+ReadField(cutscene,"timerSet")+
                     " | timerSeconds="+ReadField(cutscene,"timerSecondsRemaining"));
             }
+        var trigger=TheForestOfLove.Services.Persistence.DataService.GetTriggerByName("Cutscene_IntroBunnyHouse");
+        rows.Add("trigger | name=Cutscene_IntroBunnyHouse | count="+(trigger==null?"absent":DiagnosticValue(ReadField(trigger,"<CountActivated>k__BackingField"))));
+        foreach(var controller in Resources.FindObjectsOfTypeAll<TheForestOfLove.InteractionUiController>())
+            if(controller.gameObject.scene.IsValid() &&
+               Address(controller.transform)=="SpawnedContent/Elements/Bed/Content/Bed(Clone)/Interaction/InteractionIconInspect") {
+                bedControllers++;
+                if(controller.gameObject.activeInHierarchy && controller.enabled)activeBedControllers++;
+            }
+        rows.Add("introCleanup | remainingControllers="+introControllers+" | bedControllers="+bedControllers+
+            " | activeBedControllers="+activeBedControllers);
+        return rows.ToArray();
+    }
+    string[] TutorialRouteDiagnostics() {
+        var rows=new List<string>(IntroCleanupDiagnostics());
         rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
             " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
             " | conversation="+DialogueManager.isConversationActive);
@@ -532,7 +550,7 @@ public sealed class ForestProbe : MonoBehaviour
                         " | status="+(int)arc.status+" | entry="+(arc.pluginDbFirstDialogueEntry==null?-1:arc.pluginDbFirstDialogueEntry.id));
             }
         }
-        foreach(var name in new[]{"Cutscene_IntroForest","Cutscene_IntroBunnyHouse","intro_from_beaver","intro_from_mouse","intro_from_otter","give_sugar_to_bunny"}) {
+        foreach(var name in new[]{"Cutscene_IntroForest","intro_from_beaver","intro_from_mouse","intro_from_otter","give_sugar_to_bunny"}) {
             var trigger=TheForestOfLove.Services.Persistence.DataService.GetTriggerByName(name);
             // Read the backing field, including an explicit absent-record result.
             rows.Add("trigger | name="+name+" | count="+(trigger==null?"absent":DiagnosticValue(ReadField(trigger,"<CountActivated>k__BackingField"))));
@@ -544,10 +562,6 @@ public sealed class ForestProbe : MonoBehaviour
                     " | position="+actor.transform.position);
         foreach(var controller in Resources.FindObjectsOfTypeAll<TheForestOfLove.InteractionUiController>())
             if(controller.gameObject.scene.IsValid()) {
-                if(Address(controller.transform)=="SpawnedContent/Elements/Bed/Content/Bed(Clone)/Interaction/InteractionIconInspect") {
-                    bedControllers++;
-                    if(controller.gameObject.activeInHierarchy && controller.enabled)activeBedControllers++;
-                }
                 var actor=ReadField(controller,"character") as TheForestOfLove.Gameplay.SpawnableActor;
                 var trigger=ReadField(controller,"dialogueInteractionTrigger") as TheForestOfLove.Interaction.DialogueInteractionTrigger;
                 rows.Add("interaction | path="+Address(controller.transform)+" | id="+controller.GetInstanceID()+
@@ -572,8 +586,6 @@ public sealed class ForestProbe : MonoBehaviour
                 rows.Add("interactionUi | path="+Address(ui.transform)+" | active="+ui.gameObject.activeInHierarchy+
                     " | visible="+TheForestOfLove.InteractionUi.visible+" | locked="+ui.locked+" | selected="+ui.currentSelectedOption+
                     " | available="+ListValues(ReadField(ui,"availableOptions") as IEnumerable));
-        rows.Add("introCleanup | remainingControllers="+introControllers+" | bedControllers="+bedControllers+
-            " | activeBedControllers="+activeBedControllers);
         return rows.ToArray();
     }
     static void NotebookConditionFields(List<string> rows, object condition, string prefix, int depth) {
@@ -664,14 +676,53 @@ public sealed class ForestProbe : MonoBehaviour
             }
         return rows.ToArray();
     }
-    void Dump() {
-        var texts=new List<TextRow>();var buttons=new List<string>();var components=new List<string>();
+    List<ResponseRow> ReadResponses() {
         var responses=new List<ResponseRow>();
         foreach(var b in Resources.FindObjectsOfTypeAll<StandardUIResponseButton>())
             if(b.gameObject.scene.IsValid() && b.gameObject.activeInHierarchy && b.response!=null && b.response.destinationEntry!=null)
                 responses.Add(new ResponseRow{path=Address(b.transform),text=b.text,
                     targetPath=b.target==null?"":Address(b.target),visible=b.isVisible,clickable=b.isClickable,
                     conversationId=b.response.destinationEntry.conversationID,entryId=b.response.destinationEntry.id});
+        return responses;
+    }
+    void ReadConversation(State state) {
+        state.conversationActive=DialogueManager.isConversationActive;
+        // Read scalar state only; never serialize the conversation graph.
+        if(state.conversationActive && DialogueManager.currentConversationState!=null) {
+            var subtitle=DialogueManager.currentConversationState.subtitle;
+            if(subtitle!=null) {
+                state.conversationState=subtitle.formattedText==null?"":subtitle.formattedText.text;
+                if(subtitle.dialogueEntry!=null) {
+                    state.conversationId=subtitle.dialogueEntry.conversationID;
+                    state.entryId=subtitle.dialogueEntry.id;
+                }
+            }
+        }
+    }
+    void DumpIntro() {
+        // One game-thread observation. No glyph/layout, notebook, quest or
+        // availability traversal; original terminal consumers remain mandatory.
+        var responses=ReadResponses();
+        var rows=new List<string>();
+        rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+            " | dustin="+TheForestOfLove.Services.SceneManagement.SceneHelper.inDustinMinigame+
+            " | glitch="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGlitchRoom+
+            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive);
+        rows.AddRange(IntroCleanupDiagnostics());
+        var state=new State{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
+            company=Application.companyName,product=Application.productName,
+            frame=Time.frameCount,realtime=Time.realtimeSinceStartup,scaledTime=Time.time,timeScale=Time.timeScale,
+            narrativeDbName=TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName,
+            narrativeArcName=TheForestOfLove.Narrative.DialogueService.CurrentArcName,
+            responseCount=responses.Count,responseRecords=responses.ConvertAll(row=>JsonUtility.ToJson(row)).ToArray(),
+            typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping(),introDiagnostics=rows.ToArray()};
+        ReadConversation(state);
+        File.WriteAllText(Path.Combine(root,"intro-state.json"),JsonUtility.ToJson(state,true));
+    }
+    void Dump() {
+        var texts=new List<TextRow>();var buttons=new List<string>();var components=new List<string>();
+        var responses=ReadResponses();
         var tmpObjects=Resources.FindObjectsOfTypeAll<TMP_Text>();
         var rendererDiagnostics=new List<string>();
         var subtitleGlyphDiagnostics=new List<string>();
@@ -762,19 +813,7 @@ public sealed class ForestProbe : MonoBehaviour
             typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping()};
         var typewriter=FindObjectOfType<TheForestOfLove.CustomTypewriterEffectTextMeshPro>();
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;
-        state.conversationActive=DialogueManager.isConversationActive;
-        // Subtitle contains actor/Unity objects and a conversation graph. Never
-        // hand that graph to JsonUtility: inspect only bounded scalar values.
-        if(state.conversationActive && DialogueManager.currentConversationState!=null) {
-            var subtitle=DialogueManager.currentConversationState.subtitle;
-            if(subtitle!=null) {
-                state.conversationState=subtitle.formattedText==null?"":subtitle.formattedText.text;
-                if(subtitle.dialogueEntry!=null) {
-                    state.conversationId=subtitle.dialogueEntry.conversationID;
-                    state.entryId=subtitle.dialogueEntry.id;
-                }
-            }
-        }
+        ReadConversation(state);
         File.WriteAllText(Path.Combine(root,"state.json"),JsonUtility.ToJson(state,true));
     }
 }

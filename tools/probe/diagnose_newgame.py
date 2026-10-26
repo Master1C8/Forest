@@ -7,6 +7,7 @@ Run a frozen copy in the probe directory; all later-read helpers live there too.
 """
 import hashlib
 import json
+import math
 from pathlib import Path
 import shutil
 import subprocess
@@ -37,9 +38,11 @@ def processes():
             if any(path in line for path in paths)]
 
 
-def command(value):
+def command(value, deadline=None):
+    timeout = 25 if deadline is None else min(25, deadline - time.monotonic())
+    assert timeout > 0, 'Observation budget exhausted before command submission'
     result = subprocess.run([sys.executable, str(RUN / 'command.py'), str(RUN), value],
-                            capture_output=True, text=True, timeout=25)
+                            capture_output=True, text=True, timeout=timeout)
     assert result.returncode == 0, (value, result.stdout[-500:], result.stderr[-500:])
 
 
@@ -170,6 +173,89 @@ def intro_complete(state, guards, seen_dialogue, diagnostics):
     triggers = [r for r in diagnostics if r.startswith('trigger | name=Cutscene_IntroBunnyHouse | ')]
     trigger = diagnostic_fields(triggers, 'trigger')
     return trigger.get('count', '').isdigit() and int(trigger['count']) > 0
+
+
+class IntroObservationBudget:
+    """Wall-clock bounds with source milestones, independent of rendered FPS.
+
+    Original source: intro-observation-20261026/source-trace.json. The limits
+    are conservative harness limits, not claims about original game duration.
+    Acks, typing changes, clock ticks and repeated milestones buy no more time.
+    """
+    HARD_SECONDS = 360
+    LIMITS = {'bootstrap': (120, 60), 'dialogue': (240, 30), 'cleanup': (60, 15)}
+    STAGES = ['Starting', 'BunnyWalksIn', 'BunnyApproachesBed', 'BunnySaysHi',
+              'BunnyLeavesRoom', 'Ending', 'Cleanup']
+
+    def __init__(self, now):
+        self.started = self.stage_started = self.progress_at = now
+        self.stage = 'bootstrap'
+        self.milestones = set()
+        self.frame = -1
+        self.realtime = -1
+        self.cutscene_stage = -1
+        self.timer_min = None
+        self.terminal_frames = []
+
+    @property
+    def deadline(self):
+        cap, idle = self.LIMITS[self.stage]
+        return min(self.started + self.HARD_SECONDS, self.stage_started + cap, self.progress_at + idle)
+
+    def check(self, now):
+        assert now < self.started + self.HARD_SECONDS, 'Intro total hard limit exhausted'
+        cap, idle = self.LIMITS[self.stage]
+        assert now < self.stage_started + cap, 'Intro stage hard limit exhausted: ' + self.stage
+        assert now < self.progress_at + idle, 'Intro forward progress stalled: ' + self.stage
+
+    def observe(self, now, state, graph, seen_dialogue):
+        self.check(now)
+        assert state['frame'] > self.frame and state['realtime'] > self.realtime, 'Intro observation must be a new real frame'
+        assert all(math.isfinite(state[k]) and state[k] >= 0 for k in ['realtime', 'scaledTime', 'timeScale']), 'Invalid original Unity clocks'
+        self.frame, self.realtime = state['frame'], state['realtime']
+        rows = state['introDiagnostics']
+        guards = next(r for r in rows if r.startswith('guards |'))
+        # Validate source identities/branching before crediting any progress.
+        action = intro_action(state, graph)
+        assert state['scene'] in ['StartMenu', 'SoftResetLoadingScene', 'ChapterSelect', 'IntroForest', 'BunnyHouse'], 'Unexpected intro scene'
+        milestone = ('scene', state['scene'])
+        if state['conversationActive']:
+            milestone = ('entry', state['conversationId'], state['entryId'])
+        stage = ('cleanup' if 249 in seen_dialogue and not state['conversationActive']
+                 else 'dialogue' if action is not None else self.stage)
+        assert ['bootstrap', 'dialogue', 'cleanup'].index(stage) >= ['bootstrap', 'dialogue', 'cleanup'].index(self.stage), 'Intro stage regressed'
+        if stage != self.stage:
+            self.stage, self.stage_started, self.progress_at = stage, now, now
+        if milestone not in self.milestones:
+            self.milestones.add(milestone)
+            self.progress_at = now
+        cutscenes = [diagnostic_fields([r], 'introCutscene') for r in rows if r.startswith('introCutscene |')]
+        assert len(cutscenes) <= 1, 'Ambiguous original intro controllers'
+        if cutscenes:
+            c = cutscenes[0]
+            index = self.STAGES.index(c['stage'])
+            assert index >= self.cutscene_stage, 'Original cutscene stage regressed'
+            if index > self.cutscene_stage:
+                self.cutscene_stage, self.timer_min, self.progress_at = index, None, now
+            if c['timerSet'] == 'True':
+                remaining = float(c['timerSeconds'])
+                assert math.isfinite(remaining) and remaining > 0, 'Invalid active original cleanup timer'
+                assert c['stage'] in ['Starting', 'Ending'] and remaining <= (.5 if c['stage'] == 'Starting' else 3), 'Timer differs from original source stage'
+                assert self.timer_min is None or remaining <= self.timer_min + .01, 'Original intro timer increased within stage'
+                if self.timer_min is None or remaining < self.timer_min - .01:
+                    self.timer_min, self.progress_at = remaining, now
+        terminal = intro_complete(state, guards, seen_dialogue, rows)
+        if terminal:
+            self.terminal_frames.append(state['frame'])
+        else:
+            self.terminal_frames = []
+        return guards, action, len(self.terminal_frames) >= 2
+
+    def receipt(self, now):
+        return dict(stage=self.stage, elapsed=round(now-self.started, 3),
+                    stageElapsed=round(now-self.stage_started, 3),
+                    idle=round(now-self.progress_at, 3), hardLimit=self.HARD_SECONDS,
+                    stageLimits=self.LIMITS, actualTerminalFrames=list(self.terminal_frames))
 
 
 def loaded_travel(state):
@@ -527,6 +613,7 @@ def main():
     success = False
     error = None
     quit_ok = False
+    budget = None
     try:
         with (RUN / 'wine.log').open('wb') as log:
             child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
@@ -559,16 +646,15 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'play-menu-notebook.json')
         assert 'Canvas/PlayMenu/Controls/New' in state['buttons']
         assert not any('/Continue' in b for b in state['buttons']), 'Do not overwrite an existing QA session'
-        command('menu PlayMenu OnClickStart')
         graph = json.loads((RUN / 'intro-graph.json').read_text())
         assert graph['conversationId'] == 145
         assert graph['wrapper']['conversationId'] == 109
         assert graph['wrapper']['bootstrapEntries'] == [0, 5, 8]
         assert graph['wrapper']['narrativeDbName'] == 'NewGame_Intro'
         entries = {e['id']: e for e in graph['entries']}
-        scene_deadline = time.monotonic() + 240
+        budget = IntroObservationBudget(time.monotonic())
+        command('menu PlayMenu OnClickStart', deadline=budget.deadline)
         observations = []
-        stable_free = 0
         seen_dialogue = set()
         previous = None
         observed_transitions = []
@@ -576,25 +662,30 @@ def main():
         submitted_continues = []
         last_action_key = None
         same_action_count = 0
-        while time.monotonic() < scene_deadline:
-            command('dump')
-            state = read_state()
-            command('dump-notebook')
-            notebook = json.loads((RUN / 'notebook-route.json').read_text())
-            guards = next(x for x in notebook['diagnostics'] if x.startswith('guards |'))
+        while True:
+            budget.check(time.monotonic())
+            command('dump-intro', deadline=budget.deadline)
+            state = decode_state(json.loads((RUN / 'intro-state.json').read_text()))
+            assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
+            assert state['dataPath'].replace('\\', '/').endswith('/' + RUN.name + '/game/' + DATA)
+            guards, action, terminal_pair = budget.observe(time.monotonic(), state, graph, seen_dialogue)
             key = (state['scene'], state['conversationActive'], state['conversationId'], state['entryId'])
             observations.append({'elapsed': round(time.monotonic() - started, 3),
                                  'scene': key[0], 'conversationActive': key[1],
                                  'conversationId': key[2], 'entryId': key[3], 'typing': state['typing'],
                                  'narrativeDbName': state['narrativeDbName'], 'narrativeArcName': state['narrativeArcName'],
                                  'responses': state['responses'],
-                                 'guards': guards})
+                                 'guards': guards, 'frame': state['frame'], 'realtime': state['realtime'],
+                                 'scaledTime': state['scaledTime'], 'timeScale': state['timeScale'],
+                                 'cleanupDiagnostics': state['introDiagnostics'],
+                                 'budget': budget.receipt(time.monotonic())})
             write('newgame-observations.json', observations)
-            action = intro_action(state, graph)
+            write('intro-observation-budget.json', budget.receipt(time.monotonic()))
+            if terminal_pair:
+                break
             if state['conversationActive'] and action is None:
                 # Original wrapper/bootstrap and empty metadata must progress themselves.
                 previous = None
-                stable_free = 0
             elif state['conversationActive']:
                 if previous is not None and previous != state['entryId']:
                     links = entries[previous]['outgoingLinks']
@@ -609,7 +700,7 @@ def main():
                 # At most fast-forward then advance, with one settling observation.
                 # A response submits once. Never repeat an unchanged no-op indefinitely.
                 assert same_action_count <= (1 if action.startswith('response ') else 3), 'Original action did not advance; inspect boundary'
-                command(action)
+                command(action, deadline=budget.deadline)
                 if action.startswith('continue-bound '):
                     receipt = json.loads((RUN / 'continue-receipt.json').read_text())
                     result = continue_outcome(state, receipt)
@@ -627,29 +718,19 @@ def main():
                     write('intro-responses.json', submitted_responses)
                     observed_transitions.append([state['entryId'], destination])
                     previous = destination
-                stable_free = 0
             else:
                 previous = None
-                free = False
-                if state['scene'] == 'BunnyHouse' and 249 in seen_dialogue:
-                    command('dump-tutorial')
-                    tutorial = json.loads((RUN / 'tutorial-route.json').read_text())
-                    free = intro_complete(state, guards, seen_dialogue, tutorial['diagnostics'])
-                    observations[-1]['cleanupDiagnostics'] = [r for r in tutorial['diagnostics']
-                        if r.startswith(('introCutscene |', 'introCleanup |', 'trigger | name=Cutscene_IntroBunnyHouse |'))]
-                    write('newgame-observations.json', observations)
-                stable_free = stable_free + 1 if free else 0
-                if stable_free >= 2:
-                    break
-            time.sleep(.3 if state['conversationActive'] else 1)
-        else:
-            raise AssertionError('No source-bound completed intro/free state within240 seconds')
+            budget.check(time.monotonic())
+            time.sleep(min(.3 if state['conversationActive'] else 1,
+                           max(0, budget.deadline-time.monotonic())))
         write('newgame-state.json', state)
         write('intro-progression.json', {'conversationId': 145, 'seenEntries': sorted(seen_dialogue),
               'observedTransitions': observed_transitions, 'finalScene': state['scene'], 'guards': guards,
               'submittedResponses': submitted_responses,
+              'observationBudget': budget.receipt(time.monotonic()),
               'cleanupBoundary': 'Original Cutscene_IntroBunnyHouse fired, all intro controllers destroyed, exactly one active original bed interaction; two consecutive guarded observations',
               'inputBoundary': 'Original Continue and sole source-bound response Button.onClick on active145 entries; no OS keyboard/controller delivery or forced story state'})
+        command('dump-notebook')
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
         command('dump-tutorial')
         shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
@@ -659,6 +740,8 @@ def main():
         success = True
     except BaseException as ex:
         error = repr(ex)
+        if budget is not None:
+            write('intro-observation-budget.json', dict(budget.receipt(time.monotonic()), error=error))
     finally:
         owned = processes()
         if owned and not (RUN / 'command.txt').exists():

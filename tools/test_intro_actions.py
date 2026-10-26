@@ -1,9 +1,11 @@
 """Source-bound action guards only; real response delivery is a separate runtime check."""
 import copy
+from datetime import datetime
 import importlib.util
 import json
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('intro', ROOT / 'tools/probe/diagnose_newgame.py')
@@ -16,6 +18,156 @@ def state(entry=205):
     return dict(conversationActive=True, conversationId=145, entryId=entry,
                 narrativeDbName='NewGame_Intro', narrativeArcName='bunny_says_hello',
                 conversationState='How are ya feeling?', responses=[])
+
+
+def observation(frame, entry=205, active=True, cleanup=False, stage=None, timer=0):
+    s = state(entry)
+    s.update(scene='BunnyHouse', conversationActive=active, frame=frame,
+             realtime=float(frame), scaledTime=frame/2, timeScale=1,
+             introDiagnostics=[
+                 'guards | gameplay=True | dustin=False | glitch=False | anyEvent=False',
+                 'introCleanup | remainingControllers=%s | bedControllers=1 | activeBedControllers=%s' %
+                 (0 if cleanup else 1, 1 if cleanup else 0),
+                 'trigger | name=Cutscene_IntroBunnyHouse | count=' + ('1' if cleanup or stage == 'Ending' else 'absent')])
+    if stage:
+        s['introDiagnostics'].append('introCutscene | path=CutsceneIntroBunnyHouse(Clone) | active=True | stage=%s | timerSet=%s | timerSeconds=%s' %
+                                     (stage, 'True' if timer > 0 else 'False', timer))
+    return s
+
+
+class IntroObservation(unittest.TestCase):
+    def test_consumed38_timestamps_reach_incomplete_cleanup_without_global240_rejection(self):
+        run = ROOT / 'localization/probes/ru-20261026-38'
+        actions = []
+        for line in (run / 'actions.log').read_text().splitlines():
+            if ' OK ' in line:
+                stamp, value = line.split(' OK ', 1)
+                actions.append((datetime.fromisoformat(stamp[:26]+'+00:00'), value))
+        started = next(t for t, value in actions if value == 'menu PlayMenu OnClickStart')
+        stamps = [t for t, value in actions if t > started and value == 'dump-notebook']
+        rows = json.loads((run / 'newgame-observations.json').read_text())
+        self.assertEqual(len(stamps), len(rows))
+        b, seen = intro.IntroObservationBudget(0), set()
+        for index, (stamp, actual) in enumerate(zip(stamps, rows), 1):
+            #38 had no unified frame/clock fields. Synthetic monotone values
+            # exercise Python budgeting only; these never become runtime evidence.
+            elapsed = (stamp-started).total_seconds()
+            s = dict(actual, frame=index, realtime=elapsed+1, scaledTime=elapsed,
+                     timeScale=1, introDiagnostics=[actual['guards']]+
+                     actual.get('cleanupDiagnostics', []))
+            _, action, terminal = b.observe(elapsed, s, GRAPH, seen)
+            if action:
+                seen.add(s['entryId'])
+            self.assertFalse(terminal)
+        self.assertEqual(b.stage, 'cleanup')
+        self.assertEqual(b.terminal_frames, [])
+        b.check(240)
+        # Real38 remains incomplete. Supply no invented successful continuation.
+        self.assertLess(b.deadline, 300)
+
+    def test_loading_and_dialogue_do_not_spend_cleanup_stage_budget(self):
+        b = intro.IntroObservationBudget(0)
+        b.observe(1, dict(observation(1, active=False), scene='StartMenu'), GRAPH, set())
+        b.observe(40, dict(observation(2, active=False), scene='IntroForest'), GRAPH, set())
+        b.observe(55, observation(3, entry=205), GRAPH, set())
+        self.assertEqual(b.stage, 'dialogue')
+        b.observe(80, observation(4, entry=207), GRAPH, {205})
+        b.observe(105, observation(5, entry=249), GRAPH, {205, 207})
+        b.observe(120, observation(6, active=False, stage='BunnyLeavesRoom'), GRAPH, {249})
+        self.assertEqual(b.stage, 'cleanup')
+        self.assertEqual(b.stage_started, 120)
+        b.observe(130, observation(7, active=False, stage='Ending', timer=3), GRAPH, {249})
+        self.assertFalse(b.observe(140, observation(8, active=False, stage='Ending', timer=1.9), GRAPH, {249})[2])
+        self.assertFalse(b.observe(150, observation(9, active=False, cleanup=True), GRAPH, {249})[2])
+        self.assertTrue(b.observe(151, observation(10, active=False, cleanup=True), GRAPH, {249})[2])
+        self.assertEqual(b.terminal_frames, [9, 10])
+
+    def test_clock_typing_and_revisited_entries_do_not_reset_progress(self):
+        b = intro.IntroObservationBudget(0)
+        b.observe(1, observation(1), GRAPH, set())
+        s = dict(observation(2), typing=False)
+        b.observe(20, s, GRAPH, set())
+        self.assertEqual(b.progress_at, 1)
+        with self.assertRaisesRegex(AssertionError, 'forward progress stalled: dialogue'):
+            b.observe(31, observation(3), GRAPH, set())
+        b = intro.IntroObservationBudget(0)
+        b.observe(1, observation(1), GRAPH, set())
+        b.observe(20, observation(2, entry=207), GRAPH, {205})
+        b.observe(40, observation(3), GRAPH, {205, 207})
+        self.assertEqual(b.progress_at, 20)
+
+    def test_same_frame_and_frozen_realtime_cannot_supply_terminal_pair(self):
+        s = observation(1, active=False, cleanup=True)
+        b = intro.IntroObservationBudget(0)
+        self.assertFalse(b.observe(1, s, GRAPH, {249})[2])
+        first_receipt = b.receipt(1)
+        with self.assertRaisesRegex(AssertionError, 'new real frame'):
+            b.observe(2, s, GRAPH, {249})
+        with self.assertRaisesRegex(AssertionError, 'new real frame'):
+            b.observe(3, dict(s, frame=2), GRAPH, {249})
+        self.assertTrue(b.observe(4, dict(s, frame=2, realtime=2), GRAPH, {249})[2])
+        self.assertEqual(first_receipt['actualTerminalFrames'], [1], 'Later real frames must not rewrite earlier observation receipts')
+
+    def test_terminal_frames_must_be_consecutive_and_all_guards_still_pass(self):
+        for old, new in [('anyEvent=False', 'anyEvent=True'),
+                         ('remainingControllers=0', 'remainingControllers=1'),
+                         ('activeBedControllers=1', 'activeBedControllers=0'),
+                         ('count=1', 'count=absent')]:
+            with self.subTest(rejection=new):
+                b = intro.IntroObservationBudget(0)
+                b.observe(1, observation(1, active=False, cleanup=True), GRAPH, {249})
+                bad = observation(2, active=False, cleanup=True)
+                bad['introDiagnostics'] = [r.replace(old, new) for r in bad['introDiagnostics']]
+                self.assertFalse(b.observe(2, bad, GRAPH, {249})[2])
+                self.assertFalse(b.observe(3, observation(3, active=False, cleanup=True), GRAPH, {249})[2])
+                self.assertTrue(b.observe(4, observation(4, active=False, cleanup=True), GRAPH, {249})[2])
+
+    def test_original_timer_progress_is_bounded_and_increases_buy_no_time(self):
+        b = intro.IntroObservationBudget(0)
+        b.observe(1, observation(1, active=False, stage='Ending', timer=3), GRAPH, {249})
+        b.observe(10, observation(2, active=False, stage='Ending', timer=2.5), GRAPH, {249})
+        with self.assertRaisesRegex(AssertionError, 'timer increased within stage'):
+            b.observe(20, observation(3, active=False, stage='Ending', timer=2.8), GRAPH, {249})
+        self.assertEqual(b.progress_at, 10)
+        with self.assertRaisesRegex(AssertionError, 'forward progress stalled: cleanup'):
+            b.observe(25, observation(4, active=False, stage='Ending', timer=2.5), GRAPH, {249})
+        b = intro.IntroObservationBudget(0)
+        for n in range(1, 61, 10):
+            b.observe(n, observation(n, active=False, stage='Ending', timer=3-n/100), GRAPH, {249})
+        with self.assertRaisesRegex(AssertionError, 'stage hard limit exhausted: cleanup'):
+            b.observe(61, observation(61, active=False, stage='Ending', timer=2), GRAPH, {249})
+
+    def test_bootstrap_hard_limit_and_total_hard_limit_are_independent(self):
+        b = intro.IntroObservationBudget(0)
+        for n, scene in [(1, 'StartMenu'), (50, 'SoftResetLoadingScene'), (99, 'IntroForest')]:
+            b.observe(n, dict(observation(n, active=False), scene=scene), GRAPH, set())
+        with self.assertRaisesRegex(AssertionError, 'stage hard limit exhausted: bootstrap'):
+            b.observe(120, dict(observation(120, active=False), scene='BunnyHouse'), GRAPH, set())
+        b = intro.IntroObservationBudget(0)
+        b.stage, b.stage_started, b.progress_at = 'cleanup', 350, 359
+        with self.assertRaisesRegex(AssertionError, 'total hard limit exhausted'):
+            b.check(360)
+
+    def test_source_stage_regression_unknown_scene_or_unexpected_dialogue_holds(self):
+        b = intro.IntroObservationBudget(0)
+        b.observe(1, observation(1, active=False, stage='Ending', timer=3), GRAPH, {249})
+        with self.assertRaisesRegex(AssertionError, 'cutscene stage regressed'):
+            b.observe(2, observation(2, active=False, stage='BunnyLeavesRoom'), GRAPH, {249})
+        for changes, reason in [(dict(scene='CentralForest'), 'Unexpected intro scene'),
+                                (dict(conversationId=225), 'Stop at unexpected dialogue')]:
+            with self.assertRaisesRegex(AssertionError, reason):
+                intro.IntroObservationBudget(0).observe(1, dict(observation(1), **changes), GRAPH, set())
+
+    def test_inflight_command_uses_remaining_deadline_and_never_submits_after_expiry(self):
+        with patch.object(intro.time, 'monotonic', return_value=100), \
+             patch.object(intro, 'RUN', Path('/unused')), patch.object(intro.subprocess, 'run') as sender:
+            sender.return_value.returncode = 0
+            intro.command('dump-intro', deadline=103)
+            self.assertEqual(sender.call_args.kwargs['timeout'], 3)
+            sender.reset_mock()
+            with self.assertRaisesRegex(AssertionError, 'before command submission'):
+                intro.command('dump-intro', deadline=100)
+            sender.assert_not_called()
 
 
 class IntroActions(unittest.TestCase):

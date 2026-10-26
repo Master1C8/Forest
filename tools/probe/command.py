@@ -37,13 +37,14 @@ while time.monotonic() < deadline:
     time.sleep(.1)
 assert receipt and (' OK ' + args.command) in receipt, receipt or 'Timeout; outcome unknown, reconcile before resubmitting.'
 print(receipt)
-if args.command == 'dump':
-    state = json.loads((run / 'state.json').read_text())
-    assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe'
+if args.command in ['dump', 'dump-intro']:
+    state_path = run / ('intro-state.json' if args.command == 'dump-intro' else 'state.json')
+    state = json.loads(state_path.read_text())
+    assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe', 'Unexpected QA identity in acknowledged dump'
     if args.snapshot:
         output = run / args.snapshot
         assert output.parent == run and not output.exists()
-        output.write_bytes((run / 'state.json').read_bytes())
+        output.write_bytes(state_path.read_bytes())
     print(json.dumps(state, ensure_ascii=False, indent=2))
 elif args.command.startswith('capture '):
     output = run / args.command[8:]

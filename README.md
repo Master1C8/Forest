@@ -1,32 +1,12 @@
-## Phase0030: strict original menu readiness passed; intro cleanup deadline reached
+## Phase0031: source-bound intro observation repaired; runtime pending
 
-One new immutable38 used accepted34 resource bytes and the changed passive startup
-instrumentation. All Root/Prefab/menu/Install/Awake/READY boundaries were observed,
-with the actual isolated company/product. Seven real original-policy idle menu frames
-passed strict focus/filter/native/Rewired eligibility, Player1, exact movement maps
-and all-eight-key/zero-axis checks. No QA policy setter or native pulse was used.
-This verifies38 startup/readiness, without diagnosing37's earlier startup failure.
+Original timer/cleanup and all90 consumed38 timestamps traced. Compact same-frame intro observation and bounded stage/forward-progress budgets repaired; two real terminal frames still required.43 tests passed, fresh bridge compile/IL and exact startup injection readback passed. No game launch/images;38 remains failed and no39 is prepared. All150 original managed refs,19 distinct live-lane input pins and38 evidence preserved.
 
-Original New reached the same49 selected-route content entries as accepted33 and
-10 source-bound responses.49 Continue dispatches were applied; no stale branch ran.
-The single240s intro budget expired while the original Ending controller still had
-a1.937142s timer, one end trigger and an inactive bed. Two actual terminal cleanup
-samples were absent, so no loaded geometry, LEFT/DOWN or CentralForest test ran.
-The failed runtime receipt remains failed. Next: trace source timer/cleanup and actual
-observer/transport timing, then repair the bounded observation mechanism with tests;
-do not simply increase the timeout or replay38.
+Source confirms that Ending exits cinematic mode and activates the end trigger before a separate 3-second scaled-time timer enables the bed and destroys the controller. In 38, firstContinue arrived 54.405516s after New; finalContinue arrived 227.805037s after New. The old 240s budget also included 90 full dumps, 90 separate notebook dumps and 6 tutorial dumps. Actual per-command CPU cost, FPS and eventual cleanup remain unknown.
 
-Normal restore/Quit was acknowledged. Full exact-path process/hash verification passed:
-354 frozen dependencies (352 unchanged plus2 intended DLL restore/removal exceptions),
-150 managed references,262 other original files,5 resource pairs and7 pinned inputs.
-Source catalog/app.info and owner files are unchanged, the bridge is removed and QA
-persistence is empty. Generated isolated tfol.settings is preserved.33 focused tests
-passed; one native stack sample timed out and provides no cause diagnosis. No images
-were captured or opened. Evidence: `localization/probes/ru-20261026-38/`.
+The shared observer now reads dialogue/responses/guards/controller/trigger/bed in one game-thread callback with frame/realtime/scaledTime/timeScale. Bootstrap, dialogue and cleanup have separate hard/forward-progress bounds plus a 360s total limit; repeats, acks and clock changes do not renew progress. Distinct real terminal frames remain mandatory. No performance improvement or runtime success is inferred from static tests.
 
-Accepted10/15/29/33/36 scopes remain unchanged. Full renderer/source/special-scene,
-editorial and final-delivery gates remain pending; asset lanes were not modified.
-Previous phase summaries are preserved in `localization/history/phase0029-summary.md`.
+Evidence: `localization/source/intro-observation-20261026`. Accepted 10/15/29/33/36 scopes and all pending renderer/source/special-scene/editorial/delivery gates remain unchanged. The Russian and six other asset lanes are authorized and read-only to this lane. Previous summary: `localization/history/phase0030-summary.md`.
 
 # The Forest of Love: Russian localization work
 

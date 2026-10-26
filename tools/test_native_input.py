@@ -119,6 +119,40 @@ class NativeReleaseObservation(unittest.TestCase):
             self.assertEqual((run / 'command.txt').read_text(), 'original unknown command\n')
             self.assertFalse((run / 'command.pending').exists())
 
+    def test_compact_intro_transport_reads_and_snapshots_its_own_bound_state(self):
+        # File producer replaces Unity only; serialized values and real game
+        # frame semantics must still be proved by the next immutable runtime.
+        script = Path(__file__).resolve().parent / 'probe/command.py'
+        for product, expected in [('ForestRuRendererProbe', 0), ('OtherPlayer', 1)]:
+            with self.subTest(product=product), tempfile.TemporaryDirectory() as directory:
+                run = Path(directory) / 'Forest/localization/probes/transport'
+                run.mkdir(parents=True)
+                payload = json.dumps(dict(company='VNRevivalQA', product=product, frame=12))
+                (run / 'state.json').write_text('old full dump must not be read or copied')
+                received = []
+                def bridge():
+                    deadline = time.monotonic() + 10
+                    while not (run / 'command.txt').exists() and time.monotonic() < deadline:
+                        time.sleep(.01)
+                    if not (run / 'command.txt').exists():
+                        return
+                    received.append((run / 'command.txt').read_text())
+                    (run / 'command.txt').unlink()
+                    (run / 'intro-state.json').write_text(payload)
+                    (run / 'actions.log').write_text('test OK dump-intro\n')
+                observer = threading.Thread(target=bridge)
+                observer.start()
+                result = subprocess.run([sys.executable, '-B', str(script), str(run), 'dump-intro',
+                                         '--snapshot', 'bound.json'], capture_output=True, text=True, timeout=15)
+                observer.join(timeout=1)
+                self.assertEqual(result.returncode, expected, result.stderr)
+                self.assertEqual(received, ['dump-intro\n'])
+                if expected == 0:
+                    self.assertEqual((run / 'bound.json').read_text(), payload)
+                else:
+                    self.assertIn('Unexpected QA identity in acknowledged dump', result.stderr)
+                    self.assertFalse((run / 'bound.json').exists())
+
     def menu_fixture(self, focus='False', policy='False'):
         row = dict(scene='StartMenu', gameplay='False', anyEvent='False', conversation='False',
                    actor='null', body='null', player='0:Player1', keyboardEnabled='True', nativeValid='True',
