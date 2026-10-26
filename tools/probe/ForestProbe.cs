@@ -357,10 +357,33 @@ public sealed class ForestProbe : MonoBehaviour
                 rows.Add("travelPlayer | id="+player.GetInstanceID()+" | path="+Address(player.transform)+
                     " | active="+player.gameObject.activeInHierarchy+" | enabled="+player.enabled+
                     " | position="+Vector(player.transform.position)+" | state="+player.playerState+
+                    " | speed="+Vector((Vector2)ReadField(player,"speed"))+" | currentSpeed="+Vector((Vector2)ReadField(player,"currentSpeed"))+
                     " | movement="+ReadField(player,"enableMovement")+" | lanternTransition="+player.lanternTransitioning+
                     " | sweaterTransition="+player.sweaterTransitioning+" | swim="+ObjectAddress(swim)+
                     " | waypoints="+(waypoints==null?"absent":waypoints.HasWaypoints.ToString()));
                 TravelColliders(rows,player);
+                // Read-only native physics queries for each bounded route leg.
+                // Never invoke collision/travel callbacks or move the cast shape.
+                var root=player.GetComponent<CircleCollider2D>();
+                if(root!=null && root.enabled && player.gameObject.activeInHierarchy) {
+                    var filter=new ContactFilter2D(); filter.useTriggers=false;
+                    filter.SetLayerMask(Physics2D.GetLayerCollisionMask(root.gameObject.layer));
+                    foreach(var direction in new[]{Vector2.left,Vector2.down}) {
+                        string label=direction.x<0?"left":"down";
+                        var hits=new RaycastHit2D[128];
+                        int count=root.Cast(direction,filter,hits,1.2f,true);
+                        rows.Add("travelSweep | direction="+label+" | root="+root.GetInstanceID()+
+                            " | distance=1.2 | count="+count+" | capacity="+hits.Length);
+                        for(int i=0;i<count;i++) {
+                            var other=hits[i].collider;
+                            rows.Add("travelSweepHit | direction="+label+" | collider="+other.GetInstanceID()+
+                                " | path="+Address(other.transform)+" | distance="+hits[i].distance+
+                                " | ownChild="+other.transform.IsChildOf(player.transform)+
+                                " | ignoredPair="+Physics2D.GetIgnoreCollision(root,other)+
+                                " | trigger="+other.isTrigger+" | point="+Vector(hits[i].point));
+                        }
+                    }
+                }
             }
         foreach(var door in Resources.FindObjectsOfTypeAll<TheForestOfLove.Doorway>())
             if(door.gameObject.scene.IsValid()) {

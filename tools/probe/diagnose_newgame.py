@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Follow original New through source-bound intro dialogue to the first free gameplay state.
 
-Then inspect loaded original Player/doorway geometry and one scoped left pulse.
+Then follow the source-backed natural doorway corridor with guarded left/down pulses.
 No screenshots, forced chapter selection, trigger mutation or inventory opening.
 Run a frozen copy in the probe directory; all later-read helpers live there too.
 """
@@ -148,13 +148,17 @@ def loaded_travel(state):
     assert pairs, 'Missing actual enabled collider-pair diagnostics'
     assert any(p['playerCollider'] == root['id'] and
                p['doorCollider'] in {c['id'] for c in door_colliders} for p in pairs), 'Missing root Player/door collider pair'
-    return dict(guards=guards, player=player, body=body, door=door,
-                bodies=bodies, playerColliders=player_colliders, doorColliders=door_colliders, pairs=pairs)
+    return dict(guards=guards, policy=diagnostic_fields(rows, 'travelRewired'), player=player, body=body, door=door,
+                bodies=bodies, playerColliders=player_colliders, doorColliders=door_colliders, pairs=pairs,
+                sweeps=[dict(part.split('=', 1) for part in r.split(' | ')[1:]) for r in rows if r.startswith('travelSweep | ')],
+                sweepHits=[dict(part.split('=', 1) for part in r.split(' | ')[1:]) for r in rows if r.startswith('travelSweepHit | ')])
 
 
 def movement_ready(loaded):
     """Loaded topology and original guards must pass before any native DOWN."""
     player, body, door = (loaded[k] for k in ('player', 'body', 'door'))
+    assert loaded['guards'].get('focused') == 'True', 'Original ignore-unfocused policy requires real Unity focus; no task DOWN'
+    assert all(loaded['policy'].get(k) == v for k,v in {'ignoreUnfocused':'True', 'nativeKeyboard':'True', 'unityInput':'False'}.items()), 'Original input policy changed; no task DOWN'
     assert all(player.get(k) == v for k, v in {
         'movement': 'True', 'lanternTransition': 'False', 'sweaterTransition': 'False',
         'swim': 'null', 'waypoints': 'False'}.items()), 'Original movement guard not ready'
@@ -221,80 +225,192 @@ def keyboard_gameplay_guard(row, loaded):
         'anyEvent': 'False', 'conversation': 'False', 'dustin': 'False', 'glitch': 'False',
         'movement': 'True', 'lanternTransition': 'False', 'sweaterTransition': 'False',
         'waypoints': 'False', 'nativeValid': 'True', 'keyboardEnabled': 'True',
-        'ignoreUnfocused': 'True'}.items()), 'Gameplay/input guard changed; hold further DOWN'
+        'ignoreUnfocused': 'True', 'focused': 'True'}.items()), 'Gameplay/input guard changed; hold further DOWN'
     assert row['actor'] == loaded['player']['path'] + '#' + loaded['player']['id'], 'Player sample identity changed'
     assert row['body'] == loaded['body']['path'] + '#' + loaded['body']['id'], 'Root body sample identity changed'
 
 
-def gameplay_left_pulse(loaded):
-    """One150ms native pulse; original Player physics, no route-clearance claim."""
-    movement_ready(loaded)
-    sampling = attempted = released = False
-    report = {'direction': 'left', 'milliseconds': 150, 'attempted': False,
-              'boundary': 'Original Player.FixedUpdate -> CheckInput -> FullAxis -> Walk -> root Rigidbody.velocity. Native target helper only; no game-state writes.'}
-
+def posted_task_down(stdout, direction, identity):
+    """Recovery authority comes from this helper's actual task edge, never intent."""
     try:
-        target = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'inspect'], capture_output=True, text=True, timeout=10)
-        write('target-inspection.json', dict(exitCode=target.returncode, stdout=target.stdout, stderr=target.stderr))
-        assert target.returncode == 0, 'Exact native target inspection failed'
-        identity = json.loads(target.stdout)
-        assert identity['accessibilityTrusted'], 'Target transport unavailable'
-        command('sample-keyboard-start'); sampling = True
-        time.sleep(.3)
-        before = keyboard_samples()
-        assert len(before) >= 2 and all(keyboard_idle(r) for r in before[-2:]), 'No observed all-up/zero-axis idle before DOWN'
-        for row in before:
+        lines = stdout.splitlines()
+        target = json.loads(lines[0])
+        return target['pid'] == identity['pid'] and target['windowID'] == identity['windowID'] and target['mode'] == direction and any(
+            line.startswith('post%sDown pid=%s window=%s unixTime=' %
+                            (direction.title(), identity['pid'], identity['windowID'])) for line in lines[1:])
+    except (ValueError, KeyError, IndexError):
+        return False
+
+
+def input_released(row):
+    # A scene transition can temporarily destroy the old body. Key/axis release
+    # is still observed independently; BunnyHouse readiness also requires its body.
+    return all(row.get(k) == 'True' for k in ['nativeValid', 'nativeMovementUp',
+        'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']) and all(
+        row.get(k) == '0,0,0' for k in ['actionAxes', 'fullAxis'])
+
+
+def route_pulse_plan(loaded, spent):
+    """Source polygon corridor: left at intro Y, then down at X2.30–2.65.
+
+    Limits come from the pinned doorway, radius.16 and original walking speed.
+    Native time is only a bound: actual position/producers decide each next step.
+    """
+    movement_ready(loaded)
+    x, y, _ = map(float, loaded['body']['position'].split(','))
+    assert 2.30 <= x <= 3.55 and .20 < y < 1.40, 'Outside bounded original doorway route'
+    direction = 'left' if x > 2.65 else 'down'
+    assert direction != 'left' or y > 1.20, 'Horizontal leg must precede descent'
+    if direction == 'down':
+        assert x <= 2.65, 'Right wall blocks descent at intro X'
+    # Original prefab speed is checked against the loaded fields before launch.
+    assert all(abs(float(v)-1.2)<.0001 for v in loaded['player']['speed'].split(',')[:2]), 'Original walking speed changed'
+    assert all(abs(float(v)-1.2)<.0001 for v in loaded['player']['currentSpeed'].split(',')[:2]), 'Walking speed not active'
+    speed = 1.2
+    distance = x - 2.50 if direction == 'left' else y - .24
+    ms = max(150, min(400, int(distance / speed * 1000)))
+    assert spent[direction] + ms <= 2400, 'Source-backed leg time bound exhausted; no blind retry'
+    sweeps = [r for r in loaded['sweeps'] if r['direction'] == direction]
+    assert len(sweeps) == 1, 'Missing unique original root cast'
+    sweep = sweeps[0]
+    assert int(sweep['count']) < int(sweep['capacity']), 'Physics query truncated'
+    root = next(c for c in loaded['playerColliders'] if c['path'] == loaded['player']['path'] and c['tag'] == 'Player')
+    assert sweep['root'] == root['id'], 'Sweep does not bind original root'
+    required = speed * ms / 1000 + .08
+    assert float(sweep['distance']) >= required
+    blockers = [r for r in loaded['sweepHits'] if r['direction'] == direction and
+                r['ownChild'] != 'True' and r['ignoredPair'] != 'True' and float(r['distance']) <= required]
+    assert not blockers, 'Original geometry blocks proposed pulse: ' + repr(blockers)
+    return direction, ms
+
+
+def route_sample_guard(rows, direction, loaded, transitioning=False):
+    allowed_axis = '-1,0,0' if direction == 'left' else '0,-1,0'
+    key = 'LeftArrow' if direction == 'left' else 'DownArrow'
+    for row in rows:
+        assert all(row.get(k) == v for k,v in {'nativeValid':'True', 'keyboardEnabled':'True', 'ignoreUnfocused':'True'}.items()), 'Unknown or changed original keyboard policy'
+        for layer in ['native', 'async', 'rewired', 'unity']:
+            assert set(filter(None, row[layer + 'MovementDown'].split(','))) <= {key}, 'Unexplained movement producer; no further DOWN'
+        assert row['actionAxes'] in ['0,0,0', allowed_axis] and row['fullAxis'] in ['0,0,0', allowed_axis], 'Unexpected original axis'
+        assert row['scene'] in ['BunnyHouse', 'CentralForest'], 'Unexpected scene'
+        if row['scene'] == 'BunnyHouse' and not transitioning:
             keyboard_gameplay_guard(row, loaded)
-        report['attempted'] = attempted = True
-        write('movement-pulse.json', report)
-        pulse = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'left', '150'], capture_output=True, text=True, timeout=10)
-        report.update(exitCode=pulse.returncode, stdout=pulse.stdout, stderr=pulse.stderr)
-        write('movement-pulse.json', report)
-        deadline = time.monotonic() + 8
-        while True:
-            rows = keyboard_samples()
-            down = all(any(r[k] == 'True' for r in rows) for k in ['nativeLeft', 'asyncLeft', 'rewiredLeft', 'unityLeft'])
-            released = down and len(rows) >= 2 and all(keyboard_idle(r) for r in rows[-2:])
-            if released or time.monotonic() >= deadline:
-                break
-            time.sleep(.25)
-        command('sample-keyboard-stop'); sampling = False
-        shutil.copy2(RUN / 'keyboard-samples.txt', RUN / 'gameplay-left-samples.txt')
-        report.update(samples=len(rows), deliveryAllFourLayers=down, releaseAndZeroAxesObserved=released)
-        write('movement-pulse.json', report)
-        assert pulse.returncode == 0, 'Native pulse failed; hold further DOWN'
-        assert json.loads(pulse.stdout.splitlines()[0])['pid'] == identity['pid'], 'Native target changed'
-        assert released, 'Delivery/release unknown; no second DOWN'
-        for row in rows:
-            keyboard_gameplay_guard(row, loaded)
-        assert any(r['fullAxis'] == '-1,0,0' and r['actionAxes'] == '-1,0,0' for r in rows), 'No original action-axis ingress'
-        start = [float(x) for x in before[-1]['bodyPosition'].split(',')]
-        end = [float(x) for x in rows[-1]['bodyPosition'].split(',')]
-        delta = [b-a for a, b in zip(start, end)]
-        report.update(startBodyPosition=start, endBodyPosition=end, displacement=delta,
-                      observedBodyVelocities=sorted({r['bodyVelocity'] for r in rows}))
-        write('movement-pulse.json', report)
-        assert delta[0] < -.001 and abs(delta[1]) < .1, 'Native ingress did not establish bounded original left displacement'
-        assert any(float(r['bodyVelocity'].split(',')[0]) < -.01 for r in rows), 'No actual left physics velocity observed'
-        command('dump-travel')
-        shutil.copy2(RUN / 'travel-route.json', RUN / 'post-movement-travel.json')
-        after = loaded_travel(json.loads((RUN / 'travel-route.json').read_text()))
-        movement_ready(after)
-        report['result'] = 'passed: one original left movement and observed release; route/collision/travel unverified'
-        write('movement-pulse.json', report)
-    finally:
-        if attempted and not released:
-            recovery = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'release-left'], capture_output=True, text=True, timeout=10)
-            write('failure-key-release.json', dict(exitCode=recovery.returncode, stdout=recovery.stdout, stderr=recovery.stderr))
-            if not sampling:
-                command('sample-keyboard-start'); sampling = True
-            time.sleep(.5)
-            recovered = keyboard_samples()
-            report['upOnlyRecoveryObserved'] = len(recovered) >= 2 and all(keyboard_idle(r) for r in recovered[-2:])
-            write('movement-pulse.json', report)
-            shutil.copy2(RUN / 'keyboard-samples.txt', RUN / 'failure-release-samples.txt')
-        if sampling:
-            command('sample-keyboard-stop')
+
+
+def natural_doorway_route(loaded):
+    """Bounded original movement only; stop at first actual CentralForest state."""
+    spent = {'left': 0, 'down': 0}
+    pulses = []
+    original = loaded
+    for index in range(16):
+        direction, ms = route_pulse_plan(loaded, spent)
+        prefix = 'route-%02d-%s' % (index + 1, direction)
+        report = dict(direction=direction, milliseconds=ms, attempted=False)
+        sampling = posted = released = False
+        identity = None
+        try:
+            target = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'inspect'], capture_output=True, text=True, timeout=10)
+            write(prefix + '-target.json', dict(exitCode=target.returncode, stdout=target.stdout, stderr=target.stderr))
+            assert target.returncode == 0, 'Exact native target inspection failed'
+            identity = json.loads(target.stdout)
+            assert identity['accessibilityTrusted'], 'Native transport unavailable'
+            command('sample-keyboard-start'); sampling = True
+            time.sleep(.3)
+            before = keyboard_samples()
+            assert len(before) >= 2 and all(keyboard_idle(r) for r in before), 'Non-idle before task DOWN; no input recovery authorized'
+            for row in before:
+                keyboard_gameplay_guard(row, loaded)
+            report['attempted'] = True
+            write(prefix + '-pulse.json', report)
+            pulse = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), direction, str(ms)], capture_output=True, text=True, timeout=10)
+            posted = posted_task_down(pulse.stdout, direction, identity)
+            spent[direction] += ms
+            report.update(exitCode=pulse.returncode, stdout=pulse.stdout, stderr=pulse.stderr, taskDownReceipt=posted)
+            write(prefix + '-pulse.json', report)
+            deadline = time.monotonic() + 8
+            key = 'LeftArrow' if direction == 'left' else 'DownArrow'
+            while True:
+                rows = keyboard_samples()
+                # Check producer/axis surprises immediately. Story guards may
+                # be changing through the real doorway; bind that separately
+                # before crediting arrival or submitting another DOWN.
+                route_sample_guard(rows, direction, loaded, transitioning=True)
+                down = all(any(key in r[layer + 'MovementDown'].split(',') for r in rows)
+                           for layer in ['native', 'async', 'rewired', 'unity'])
+                released = len(rows) >= 2 and all(input_released(r) for r in rows[-2:])
+                if released or time.monotonic() >= deadline:
+                    break
+                time.sleep(.25)
+            command('sample-keyboard-stop'); sampling = False
+            shutil.copy2(RUN / 'keyboard-samples.txt', RUN / (prefix + '-samples.txt'))
+            rows = [diagnostic_fields([r], 'keyboard') for r in (RUN / (prefix + '-samples.txt')).read_text().splitlines()]
+            # Stop can retain later frames than the decision snapshot. Those
+            # frames must pass release too before any following pulse.
+            down = all(any(key in r[layer + 'MovementDown'].split(',') for r in rows)
+                       for layer in ['native', 'async', 'rewired', 'unity'])
+            released = len(rows) >= 2 and all(input_released(r) for r in rows[-2:])
+            report.update(savedSamples=len(rows), deliveryAllFourLayers=down, releaseAndZeroAxesObserved=released)
+            write(prefix + '-pulse.json', report)
+            assert pulse.returncode == 0 and posted, 'Task DOWN transport not established'
+            assert down and released, 'Native direction delivery/release unknown; stop route'
+            command('dump-travel')
+            shutil.copy2(RUN / 'travel-route.json', RUN / (prefix + '-travel.json'))
+            travel = json.loads((RUN / 'travel-route.json').read_text())
+            # A real original door transition is allowed to change scene/guards.
+            transition = direction == 'down' and (travel['scene'] == 'CentralForest' or any(
+                r.startswith('travelDoor | ') and 'destination=CentralForest' in r and 'transitioning=True' in r
+                for r in travel['diagnostics']))
+            route_sample_guard(rows, direction, loaded, transitioning=transition)
+            if transition:
+                deadline = time.monotonic() + 20
+                while travel['scene'] == 'BunnyHouse' and time.monotonic() < deadline:
+                    time.sleep(.5)
+                    command('dump-travel')
+                    travel = json.loads((RUN / 'travel-route.json').read_text())
+                assert travel['scene'] == 'CentralForest', 'Original transition did not reach CentralForest'
+                command('dump')
+                arrival = read_state()
+                write('central-forest-arrival.json', arrival)
+                assert arrival['scene'] == 'CentralForest', 'Arrival changed to unexpected scene'
+                command('dump-tutorial')
+                shutil.copy2(RUN / 'tutorial-route.json', RUN / 'central-forest-tutorial.json')
+                report['result'] = 'Original natural CentralForest entry observed; no tutorial action submitted'
+                pulses.append(report)
+                write('natural-route.json', dict(result='passed', pulses=pulses, spentMilliseconds=spent,
+                    boundary='Original native left/down -> original axes/Player physics -> natural Doorway travel; stop at first CentralForest state. No tutorial choice or visual acceptance.'))
+                return
+            after = loaded_travel(travel)
+            movement_ready(after)
+            for component in ['player', 'body', 'door']:
+                assert all(after[component][k] == original[component][k] for k in ['id', 'path']), 'Route identity changed'
+            start = list(map(float, before[-1]['bodyPosition'].split(',')))
+            end = list(map(float, after['body']['position'].split(',')))
+            delta = [b-a for a,b in zip(start,end)]
+            axis = 0 if direction == 'left' else 1
+            assert delta[axis] < -.02 and abs(delta[1-axis]) < .08, 'Blocked or unexpected displacement; no repeat'
+            expected = '-1,0,0' if direction == 'left' else '0,-1,0'
+            assert any(r['actionAxes'] == expected and r['fullAxis'] == expected for r in rows), 'No original directional ingress'
+            assert any(float(r['bodyVelocity'].split(',')[axis]) < -.01 for r in rows if r['bodyVelocity'] != 'null'), 'No original directional velocity'
+            report.update(result='original movement/release observed; continue from changed geometry',
+                          startBodyPosition=start, endBodyPosition=end, displacement=delta)
+            write(prefix + '-pulse.json', report)
+            pulses.append(report)
+            write('natural-route.json', dict(result='in-progress', pulses=pulses, spentMilliseconds=spent))
+            loaded = after
+        finally:
+            if posted and not released:
+                recovery = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'release-' + direction, str(identity['pid'])], capture_output=True, text=True, timeout=10)
+                write(prefix + '-recovery.json', dict(exitCode=recovery.returncode, stdout=recovery.stdout, stderr=recovery.stderr,
+                    boundary='UP for this exact task DOWN only; posting does not prove delivery'))
+                if not sampling:
+                    command('sample-keyboard-start'); sampling = True
+                time.sleep(.5)
+                recovered = keyboard_samples()
+                write(prefix + '-recovery-observation.json', dict(released=len(recovered)>=2 and all(input_released(r) for r in recovered[-2:])))
+            if sampling:
+                command('sample-keyboard-stop')
+                shutil.copy2(RUN / 'keyboard-samples.txt', RUN / (prefix + '-failure-samples.txt'))
+    raise AssertionError('Source-backed route pulse count exhausted; no blind continuation')
 
 
 def main():
@@ -332,7 +448,7 @@ def main():
         write('launch.json', {'pid': child.pid, 'command': args,
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
-                             'scope': 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then one150ms process-targeted left pulse; no screenshots or forced eligibility'})
+                             'scope': 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility'})
         deadline = time.monotonic() + 300
         while not (RUN / 'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN / 'player.log').read_text(errors='replace'):
             assert time.monotonic() < deadline, 'Startup marker timeout'
@@ -452,7 +568,7 @@ def main():
         command('dump-tutorial')
         shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
         loaded = observe_loaded_travel()
-        gameplay_left_pulse(loaded[-1])
+        natural_doorway_route(loaded[-1])
         print('Original intro completed in', state['scene'], guards, flush=True)
         success = True
     except BaseException as ex:
@@ -489,7 +605,7 @@ def main():
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
                                       'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': 0,
-                                      'imagesOpened': 0, 'scope': 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and one150ms original left movement pulse',
+                                      'imagesOpened': 0, 'scope': 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry',
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 

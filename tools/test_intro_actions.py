@@ -21,7 +21,8 @@ def state(entry=205):
 class IntroActions(unittest.TestCase):
     def test_loaded_geometry_requires_real_scene_owned_body_and_pair_rows(self):
         rows = [
-            'travelGuards | gameplay=True | anyEvent=False | conversation=False | axis=0,0,0',
+            'travelGuards | gameplay=True | anyEvent=False | conversation=False | focused=True | axis=0,0,0',
+            'travelRewired | ignoreUnfocused=True | nativeKeyboard=True | unityInput=False',
             'travelPlayer | id=10 | path=Spawned/Player | active=True | enabled=True',
             'travelBody | id=11 | owner=10 | path=Spawned/Player',
             'travelBody | id=13 | owner=10 | path=Spawned/Player/PlayerFootSensor',

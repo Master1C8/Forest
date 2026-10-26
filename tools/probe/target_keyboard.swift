@@ -18,13 +18,13 @@ func processRows() throws -> String {
 }
 let args = CommandLine.arguments
 do {
-    try require(args.count == 3 || args.count == 4, "run-directory inspect|left|release-left [milliseconds]")
+    try require(args.count == 3 || args.count == 4, "run-directory inspect|left|down|release-left|release-down [milliseconds|expected-pid]")
     let run = URL(fileURLWithPath: args[1]).standardizedFileURL.path
     let root = "/Users/antonkrutov/Desktop/Forest/localization/probes/"
     try require(run.hasPrefix(root) && !run.dropFirst(root.count).contains("/") &&
         run.dropFirst(root.count).hasPrefix("ru-20261026-"), "Only one isolated Forest QA candidate")
     let mode = args[2]
-    try require(["inspect", "left", "release-left"].contains(mode), "Only inspect, bounded left or release-left supported")
+    try require(["inspect", "left", "down", "release-left", "release-down"].contains(mode), "Only inspect, bounded left/down or task-edge release supported")
     let exe = run + "/game/The Forest of Love.exe"
     let variants = [exe, "Z:" + exe.replacingOccurrences(of: "/", with: "\\"),
         "Y:" + exe.replacingOccurrences(of: "/Users/antonkrutov", with: "").replacingOccurrences(of: "/", with: "\\")]
@@ -57,18 +57,23 @@ do {
     print(String(decoding: data, as: UTF8.self)); fflush(stdout)
     if mode != "inspect" {
         try require(trusted, "Accessibility unavailable; no permission prompt or global fallback")
+        let direction = mode.hasSuffix("left") ? "Left" : "Down"
+        let key: CGKeyCode = direction == "Left" ? 123 : 125
         let source = CGEventSource(stateID: .privateState)!
-        let up = CGEvent(keyboardEventSource: source, virtualKey: 123, keyDown: false)!
+        let up = CGEvent(keyboardEventSource: source, virtualKey: key, keyDown: false)!
         up.flags = []
-        if mode == "release-left" {
+        if mode.hasPrefix("release-") {
+            // Caller must possess a task DOWN receipt; also bind recovery to
+            // that exact native PID instead of accepting a replacement process.
+            try require(args.count == 4 && Int(args[3]) == Int(pid), "Task DOWN process identity required")
             up.postToPid(pid)
-            print("postLeftUp pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)")
+            print("post\(direction)Up pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)")
             exit(0)
         }
         try require(args.count == 4, "Pulse duration required")
         let duration = Int(args[3]) ?? 0
         try require(duration >= 100 && duration <= 1000, "Pulse bound100–1000ms")
-        let down = CGEvent(keyboardEventSource: source, virtualKey: 123, keyDown: true)!
+        let down = CGEvent(keyboardEventSource: source, virtualKey: key, keyDown: true)!
         down.flags = []
         let previousInt = signal(SIGINT, SIG_IGN), previousTerm = signal(SIGTERM, SIG_IGN)
         defer { signal(SIGINT, previousInt); signal(SIGTERM, previousTerm) }
@@ -76,10 +81,10 @@ do {
         // releases to the same verified process even on INT/TERM. The caller
         // must allow this at-most-one-second helper to finish, never SIGKILL it.
         down.postToPid(pid)
-        print("postLeftDown pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)"); fflush(stdout)
+        print("post\(direction)Down pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)"); fflush(stdout)
         defer {
             up.postToPid(pid)
-            print("postLeftUp pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)"); fflush(stdout)
+            print("post\(direction)Up pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)"); fflush(stdout)
         }
         Thread.sleep(forTimeInterval: Double(duration) / 1000.0)
     }

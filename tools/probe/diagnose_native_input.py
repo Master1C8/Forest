@@ -58,6 +58,7 @@ def main():
     quit_ok = False
     policy_restored = False
     pulse_attempted = False
+    task_down_posted = False
     sample_active = False
     release_verified = False
     started = time.monotonic()
@@ -92,8 +93,10 @@ def main():
             time.sleep(.3)
             # A prior trial's successful release never covers the next pulse.
             release_verified = False
+            task_down_posted = False
             pulse_attempted = True
             pulse = subprocess.run([str(run / 'target_keyboard'), str(run), 'left', '600'], capture_output=True, text=True, timeout=10)
+            task_down_posted = shared.posted_task_down(pulse.stdout, 'left', identity)
             samples = wait_for_release(run)
             command('sample-keyboard-stop')
             sample_active = False
@@ -124,9 +127,9 @@ def main():
     finally:
         owned = shared.processes()
         if owned and not (run / 'command.txt').exists():
-            if pulse_attempted and not release_verified:
+            if task_down_posted and not release_verified:
                 try:
-                    release = subprocess.run([str(run / 'target_keyboard'), str(run), 'release-left'], capture_output=True, text=True, timeout=10)
+                    release = subprocess.run([str(run / 'target_keyboard'), str(run), 'release-left', str(identity['pid'])], capture_output=True, text=True, timeout=10)
                     write('failure-key-release.json', {'exitCode': release.returncode, 'stdout': release.stdout, 'stderr': release.stderr,
                                                       'boundary': 'Target-scoped up only; posted event is not proof of delivery'})
                     if not sample_active:

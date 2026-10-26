@@ -1,0 +1,152 @@
+{
+  "game": "The Forest of Love0.45",
+  "candidate": "ru-20261026-34",
+  "result": "failed at first native-to-game producer boundary; no next pulse",
+  "model": "gpt-6.1-sol/high/OpenAI",
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "intro": {
+    "contentNodes": 49,
+    "responses": 10,
+    "boundContinues": 54,
+    "continueResults": {
+      "stale": 1,
+      "applied": 53
+    },
+    "cleanupBoundary": "Original Cutscene_IntroBunnyHouse fired, all intro controllers destroyed, exactly one active original bed interaction; two consecutive guarded observations",
+    "staleRuntimeBoundary": "continue-bound145:265: active=False, actual IDs-1,-1; stale receipt, no Continue applied. First runtime exercise of the stale rejection branch; frozen33 had none."
+  },
+  "loadedObservations": {
+    "samples": 55,
+    "summary": {
+      "focused": {
+        "False": 55
+      },
+      "ignoreUnfocused": {
+        "True": 55
+      },
+      "keyboardEnabled": {
+        "True": 55
+      },
+      "nativeValid": {
+        "True": 55
+      },
+      "nativeMovementDown": {
+        "": 55
+      },
+      "asyncMovementDown": {
+        "": 55
+      },
+      "rewiredMovementDown": {
+        "": 55
+      },
+      "unityMovementDown": {
+        "": 55
+      },
+      "actionAxes": {
+        "0,0,0": 55
+      },
+      "fullAxis": {
+        "0,0,0": 55
+      },
+      "bodyVelocity": {
+        "0,0,0": 55
+      }
+    },
+    "rootCasts": "Both actual observations: LEFT1.2 distance has0 hits; DOWN hits original RightCollider at.72545/.72561. Original speed/currentSpeed1.2,1.2; root/child topology retained.",
+    "acceptance": "Actual loaded read-only casts and idle keys/axes; original-focus readiness FAILED. Frozen34 omitted this focus guard; canonical recipe now rejects actual34 before task DOWN."
+  },
+  "pulse": {
+    "direction": "left",
+    "milliseconds": 400,
+    "savedSamples": 44,
+    "summary": {
+      "focused": {
+        "False": 44
+      },
+      "ignoreUnfocused": {
+        "True": 44
+      },
+      "keyboardEnabled": {
+        "True": 44
+      },
+      "nativeValid": {
+        "True": 44
+      },
+      "nativeMovementDown": {
+        "": 39,
+        "LeftArrow": 5
+      },
+      "asyncMovementDown": {
+        "": 39,
+        "LeftArrow": 5
+      },
+      "rewiredMovementDown": {
+        "": 44
+      },
+      "unityMovementDown": {
+        "": 44
+      },
+      "actionAxes": {
+        "0,0,0": 44
+      },
+      "fullAxis": {
+        "0,0,0": 44
+      },
+      "bodyVelocity": {
+        "0,0,0": 44
+      }
+    },
+    "taskDownReceipt": true,
+    "releaseObserved": true,
+    "upOnlyRecovery": "not needed; no unrelated UP submitted",
+    "originalMovement": "not established; zero original axes and velocity throughout; only small idle position drift",
+    "nativeEdges": [
+      "postLeftDown pid=22085 window=436 unixTime=1793009080.2368588",
+      "postLeftUp pid=22085 window=436 unixTime=1793009080.638881"
+    ]
+  },
+  "firstDivergence": "Native GetKeyboardState/async observe LeftArrow on5 frames each; Rewired.Keyboard.GetKey and Unity.Input.GetKey remain false, all axes/velocity zero. Unity focused=False throughout and ignoreUnfocused=True. This differs from33 focused=True. Shipped focus-filter IL is consistent with rejection; exact internal Rewired allowed/focus watchers were not sampled, so sole-cause attribution remains unverified.",
+  "repair": {
+    "files": [
+      "tools/probe/diagnose_newgame.py",
+      "tools/test_intro_actions.py",
+      "tools/test_native_input.py"
+    ],
+    "boundary": "movement_ready requires real focus=True and unchanged original native/filter policy; keyboard_gameplay_guard also requires actual focused=True. Before DOWN, not only after no movement.",
+    "regression": "Actual34 loaded1/2 rejected for focus while unchanged33 positive passes; mocked same-state focus/policy negative controls and18 focused tests pass.",
+    "runtime": "Post34 repair not run; consumed34 snapshot unchanged."
+  },
+  "route": "Source-backed corridor left->X2.30\u20132.65 then down remains planned. No down event, doorway collision, CentralForest, tutorial, notebook/inventory or broad renderer/visual/editorial acceptance.",
+  "cleanup": {
+    "verifiedTaskProcessRowsBeforeQuit": [
+      "22045 22040 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-34/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-34/player.log",
+      "22085     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-34\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-34/player.log",
+      "22089     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-34\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+    ],
+    "remainingTaskProcessRows": [],
+    "quitAcknowledged": true,
+    "originalAssetsAndPlayerFilesUnchanged": true,
+    "originalAssemblyRestoredInQACopy": true,
+    "inspectionBridgeRemoved": true,
+    "inputPinsUnchanged": true,
+    "candidateAssetHashesUnchanged": true,
+    "ownerSavePathUsed": false
+  },
+  "finalVerification": "final-verification.json",
+  "next": "Investigate actual unfocused producer eligibility with source-backed public configuration and narrow menu-only trial; do not replay intro under unchanged original unfocused/filter combination. Preserve actual focus, no fabricated focus/axes/maps/callbacks.",
+  "usage": "Parent serial runner accounts exact CLI telemetry; per-request counters unavailable in this work context. No subagents or nested model jobs.",
+  "evidence": {
+    "build.json": "6d3eaf70cfcd7b3a7880314e132cdef2e5d5ef1cbb853b3066e64a75a77e2b8c",
+    "frozen-files.json": "f2d107a084b7a811b8068fbe1f57920dd062f851a36339f268619cebae9b1f76",
+    "bridge-build.json": "da9774251a709d43a6d8b7365c2facb9df8d701d5ba21b1d3bfc80ea98414d74",
+    "runtime-result.json": "abdbf3a87708a5686b0ec8adef2cd64f8a7e674d2202ba9c9be0f498673f6616",
+    "loaded-travel-1.json": "01ef4325949234c21a877839e749ac75b36442fb3ebffde37cc58d520e81ed2f",
+    "loaded-travel-2.json": "bfdb187f9f9b08faaa17b819e338a30438684a1dd2d7ea0f37c19db85bce8360",
+    "loaded-travel-input-samples.txt": "0dbf1ec4e08daef0c2694184eee259b7f53fbb033f35be1e360626bb6df5adf1",
+    "route-01-left-pulse.json": "52c3d59a944c2fd9c2e921b60444a539535209870be0911b7e80c144ab30f718",
+    "route-01-left-samples.txt": "308f24cec7e36ed7274bda3fc2204860d1b6dd503ca82ffcc9f1c2ba925a5b87",
+    "cleanup.json": "71ed42bf20474520eef028986d2d4d329e71196764b9184a7040d72c12397e9e",
+    "final-verification.json": "1cf0123d85eec69f7fea132225297176db7a34479c146115edda512d67a2af75"
+  }
+}

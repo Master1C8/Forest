@@ -63,7 +63,7 @@ class NativeReleaseObservation(unittest.TestCase):
         idle.update({k: '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity']})
         idle.update(scene='BunnyHouse', gameplay='True', anyEvent='False', conversation='False',
                     dustin='False', glitch='False', movement='True', lanternTransition='False',
-                    sweaterTransition='False', waypoints='False', keyboardEnabled='True', ignoreUnfocused='True',
+                    sweaterTransition='False', waypoints='False', keyboardEnabled='True', ignoreUnfocused='True', focused='True',
                     actor=loaded['player']['path'] + '#' + loaded['player']['id'],
                     body=loaded['body']['path'] + '#' + loaded['body']['id'])
         for second_axis in ['0,0,0', '1,0,0']:
@@ -95,6 +95,73 @@ class NativeReleaseObservation(unittest.TestCase):
                 self.assertEqual(calls[-1], 'sample-keyboard-stop')
                 self.assertEqual((run / 'loaded-travel-input-samples.txt').read_bytes(),
                                  (run / 'keyboard-samples.txt').read_bytes())
+
+    def route_fixture(self):
+        root = Path(__file__).resolve().parents[1]
+        loaded = loaded_travel(json.loads((root / 'localization/probes/ru-20261026-33/post-movement-travel.json').read_text()))
+        # Mock only the newly added source speed and read-only physics producer.
+        loaded['player'].update(speed='1.2,1.2,0', currentSpeed='1.2,1.2,0')
+        root_id = loaded['pairs'][0]['playerCollider']
+        loaded['sweeps'] = [dict(direction=d, root=root_id, distance='1.2', count='0', capacity='128') for d in ['left', 'down']]
+        return loaded
+
+    def test_route_uses_left_before_down_and_stops_on_real_blocker(self):
+        loaded = self.route_fixture()
+        self.assertEqual(gameplay.route_pulse_plan(loaded, dict(left=0, down=0)), ('left', 400))
+        loaded['body']['position'] = '2.50,1.29,0'
+        self.assertEqual(gameplay.route_pulse_plan(loaded, dict(left=800, down=0)), ('down', 400))
+        hit = dict(direction='down', ownChild='False', ignoredPair='False', distance='.30')
+        loaded['sweepHits'] = [hit]
+        with self.assertRaisesRegex(AssertionError, 'Original geometry blocks proposed pulse'):
+            gameplay.route_pulse_plan(loaded, dict(left=800, down=0))
+        loaded['sweepHits'][0]['distance'] = '.8'
+        self.assertEqual(gameplay.route_pulse_plan(loaded, dict(left=800, down=0)), ('down', 400))
+        with self.assertRaisesRegex(AssertionError, 'leg time bound exhausted'):
+            gameplay.route_pulse_plan(loaded, dict(left=800, down=2400))
+        loaded['sweeps'][1]['count'] = '128'
+        with self.assertRaisesRegex(AssertionError, 'Physics query truncated'):
+            gameplay.route_pulse_plan(loaded, dict(left=800, down=0))
+
+    def test_actual_focus_must_pass_before_original_policy_task_down(self):
+        loaded = self.route_fixture()
+        gameplay.movement_ready(loaded)
+        loaded['guards']['focused'] = 'False'
+        with self.assertRaisesRegex(AssertionError, 'requires real Unity focus; no task DOWN'):
+            gameplay.route_pulse_plan(loaded, dict(left=0, down=0))
+        loaded['guards']['focused'] = 'True'
+        loaded['policy']['ignoreUnfocused'] = 'False'
+        with self.assertRaisesRegex(AssertionError, 'Original input policy changed; no task DOWN'):
+            gameplay.movement_ready(loaded)
+
+    def test_down_sample_rejects_foreign_producer_axis_or_story_guard(self):
+        root = Path(__file__).resolve().parents[1]
+        row = gameplay.diagnostic_fields([(root / 'localization/probes/ru-20261026-33/loaded-travel-input-samples.txt').read_text().splitlines()[-1]], 'keyboard')
+        loaded = self.route_fixture()
+        row.update(actionAxes='0,-1,0', fullAxis='0,-1,0')
+        for layer in ['native', 'async', 'rewired', 'unity']:
+            row[layer + 'MovementDown'] = 'DownArrow'
+        gameplay.route_sample_guard([row], 'down', loaded)
+        for field, value, reason in [('nativeMovementDown', 'DownArrow,D', 'Unexplained movement producer'),
+                                     ('actionAxes', '1,0,0', 'Unexpected original axis'),
+                                     ('anyEvent', 'True', 'Gameplay/input guard changed')]:
+            with self.subTest(field=field), self.assertRaisesRegex(AssertionError, reason):
+                gameplay.route_sample_guard([dict(row, **{field:value})], 'down', loaded)
+        # A separately observed natural door transition may change story guards;
+        # it still cannot authorize an unrelated key or axis.
+        gameplay.route_sample_guard([dict(row, anyEvent='True')], 'down', loaded, transitioning=True)
+        with self.assertRaisesRegex(AssertionError, 'Unexplained movement producer'):
+            gameplay.route_sample_guard([dict(row, nativeMovementDown='D')], 'down', loaded, transitioning=True)
+
+    def test_recovery_requires_actual_same_target_task_down(self):
+        identity = dict(pid=123, windowID=44)
+        header = json.dumps(dict(identity, mode='down'))
+        edge = 'postDownDown pid=123 window=44 unixTime=1.0'
+        self.assertTrue(gameplay.posted_task_down(header + '\n' + edge, 'down', identity))
+        for wrong in [header, header + '\npostDownUp pid=123 window=44 unixTime=1',
+                      header + '\n' + edge.replace('123', '999'),
+                      header.replace('"down"', '"left"') + '\n' + edge, '']:
+            self.assertFalse(gameplay.posted_task_down(wrong, 'down', identity))
+        self.assertFalse(gameplay.posted_task_down(header + '\n' + edge, 'down', dict(pid=123, windowID=45)))
 
     def test_delivery_and_release_are_distinct(self):
         up = {key: 'False' for key in ['nativeLeft', 'asyncLeft', 'rewiredLeft', 'unityLeft']}
