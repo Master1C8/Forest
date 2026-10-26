@@ -183,6 +183,52 @@ class CommandLifetimeObservation(unittest.TestCase):
             self.assertEqual(events[-1]['transportExitCode'], 0)
             self.assertFalse(events[-1]['transportStoppedByObserver'])
 
+    def test_successful_reap_reuses_dated_return_sample_but_next_command_checks_fresh(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            # Real child exit/output; no Unity or action-dispatch claim.
+            (run/'command.py').write_text('import sys\nprint("fixture OK " + sys.argv[2])\n')
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=None))), \
+                 patch.object(gameplay, 'processes', return_value=[self.game_row]) as scans:
+                gameplay.command('dump-focus')
+                events = [json.loads(x) for x in (run/'process-lifetime.jsonl').read_text().splitlines()]
+                returned = next(e for e in events if e['boundary']=='transport-returned')
+                reaped = events[-1]
+                self.assertTrue(reaped['processSample']['reused'])
+                self.assertEqual(reaped['processSample']['sourceMonotonic'], returned['monotonic'])
+                self.assertEqual(reaped['processSample']['completed'], returned['processSample']['completed'])
+                self.assertEqual(scans.call_count, len(events)-1)
+                self.assertTrue(all(not e['processSample']['reused'] for e in events[:-1]))
+                # Game disappears after the successful returned sample. Reuse
+                # must never authorize another submission from cached rows.
+                scans.return_value = []
+                with patch.object(gameplay.subprocess, 'Popen') as sender:
+                    with self.assertRaisesRegex(AssertionError, 'before command; no submission'):
+                        gameplay.command('dump-intro')
+                    sender.assert_not_called()
+                self.assertEqual(scans.call_count, len(events))
+
+    def test_process_scan_timing_brackets_only_the_scan_and_preserves_pending_hash(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = self.transport_fixture(directory)
+            pending = b'unknown command\n'
+            (run/'command.txt').write_bytes(pending)
+            clock = [10.]
+            def rows():
+                clock[0] = 12.
+                return [self.game_row]
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'EXE', self.exe), \
+                 patch.object(gameplay, 'LAUNCHER', Mock(pid=4149, poll=Mock(return_value=7))), \
+                 patch.object(gameplay, 'processes', side_effect=rows), \
+                 patch.object(gameplay.time, 'monotonic', side_effect=lambda: clock[0]):
+                event = gameplay.observe_lifetime('fixture')
+            self.assertEqual(event['processSample'], dict(started=10., completed=12., reused=False))
+            self.assertEqual(event['hostBeforeAppendMonotonic'], 12.)
+            self.assertTrue(event['pendingCommand'])
+            self.assertEqual(event['pendingCommandSha256'], gameplay.hashlib.sha256(pending).hexdigest())
+            self.assertEqual((run/'command.txt').read_bytes(), pending)
+
     def test_game_loss_during_real_file_wait_preserves_unknown_command_and_reaps_only_transport(self):
         with tempfile.TemporaryDirectory() as directory:
             run = self.transport_fixture(directory)
@@ -355,6 +401,7 @@ class CommandLifetimeObservation(unittest.TestCase):
             if returned:
                 self.assertTrue(returned[0]['completedResultCollectedAtExpiredBoundary'])
             self.assertEqual(events[-1]['transportStoppedByObserver'], outcome == 'running')
+            self.assertEqual(events[-1]['processSample']['reused'], outcome == 'ack')
             self.assertEqual(events[-1]['transportPid'], children[0].pid)
             self.assertIsNotNone(children[0].returncode)
             with self.assertRaises(ProcessLookupError):
@@ -431,7 +478,9 @@ class PassiveFocusObservation(unittest.TestCase):
                 if status == 'unique':
                     native.update(pid=123,windowID=456,windowCount=1,onScreen=True)
                 result = subprocess.CompletedProcess([],0,json.dumps(native),'')
-                with patch.object(gameplay,'RUN',run), patch.object(gameplay,'command') as command, patch.object(gameplay.subprocess,'run',return_value=result) as helper:
+                with patch.object(gameplay,'RUN',run), patch.object(gameplay,'command') as command, \
+                     patch.object(gameplay.subprocess,'run',return_value=result) as helper, \
+                     patch.object(gameplay.time,'monotonic',side_effect=[100.,102.,103.,110.,111.]):
                     gameplay.observe_focus_boundary('loaded-1',force=True)
                     command.assert_called_once_with('dump-focus')
                     self.assertEqual(helper.call_args.args[0], [str(run/'target_keyboard'),str(run),'observe'])
@@ -441,6 +490,9 @@ class PassiveFocusObservation(unittest.TestCase):
                 self.assertLessEqual(row['hostBefore'],row['hostAfter'])
                 self.assertEqual(row['native'],native)
                 self.assertEqual(row['bridge']['focused'],'False')
+                timing = row['hostTiming']
+                self.assertEqual(timing, dict(started=100., commandReturned=102., nativeStarted=103.,
+                                              nativeReturned=110., beforeAppend=111.))
 
     def test_failed_passive_helper_is_retained_without_retry_or_input(self):
         with tempfile.TemporaryDirectory() as directory:

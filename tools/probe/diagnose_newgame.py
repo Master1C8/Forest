@@ -80,20 +80,36 @@ def real_game_rows(rows):
     return result
 
 
-def observe_lifetime(boundary, value=None, **extra):
+def observe_lifetime(boundary, value=None, process_sample=None, **extra):
     """Retain launcher wait status separately from non-child game presence.
 
     A ps sample proves presence/absence at its own time, never a game exit code.
     No foreground observation, process signal or policy change occurs here.
     """
     assert LAUNCHER is not None, 'Missing exact launcher handle; hold commands'
-    rows = processes()
+    began = time.monotonic()
+    if process_sample is None:
+        rows = processes()
+        sampled = time.monotonic()
+        sample = dict(started=began, completed=sampled, reused=False)
+    else:
+        # communicate() already reaped this exact successful helper before the
+        # transport-returned check. No wait/signal follows it on this path.
+        # Retain that sample's time; never label reused rows as fresh evidence.
+        assert boundary == 'transport-reaped' and process_sample['boundary'] == 'transport-returned'
+        assert process_sample['command'] == value and process_sample['launcherPid'] == LAUNCHER.pid
+        assert process_sample['transportPid'] == extra['transportPid'] and extra['transportExitCode'] == 0
+        assert not extra['transportStoppedByObserver'] and COMMAND_HOLD is None
+        rows = process_sample['ownedProcessRows']
+        sample = dict(process_sample['processSample'], reused=True,
+                      sourceBoundary='transport-returned', sourceMonotonic=process_sample['monotonic'])
     pending = RUN / 'command.txt'
     event = dict(utc=datetime.now(timezone.utc).isoformat(), monotonic=time.monotonic(),
                  boundary=boundary, command=value, launcherPid=LAUNCHER.pid,
                  launcherExitCode=LAUNCHER.poll(), gameExitCode=None,
                  ownedProcessRows=rows, realGameRows=real_game_rows(rows),
-                 pendingCommand=pending.exists(), unresolvedCommand=COMMAND_HOLD, **extra)
+                 pendingCommand=pending.exists(), unresolvedCommand=COMMAND_HOLD,
+                 processSample=sample, **extra)
     try:
         raw = pending.read_bytes()
     except FileNotFoundError:
@@ -101,6 +117,8 @@ def observe_lifetime(boundary, value=None, **extra):
     else:
         event['pendingCommand'] = True
         event['pendingCommandSha256'] = hashlib.sha256(raw).hexdigest()
+    # Ends before the append itself; it is not a measurement of disk flush time.
+    event['hostBeforeAppendMonotonic'] = time.monotonic()
     with (RUN / 'process-lifetime.jsonl').open('a') as stream:
         stream.write(json.dumps(event, ensure_ascii=False) + '\n')
     return event
@@ -154,6 +172,7 @@ def command(value, deadline=None):
         sender = subprocess.Popen([sys.executable, str(RUN / 'command.py'), str(RUN), value],
                                   stdout=output, stderr=errors, text=True)
         stopped = False
+        completed_sample = None
         completed_at_expired_boundary = False
         try:
             while True:
@@ -190,6 +209,7 @@ def command(value, deadline=None):
             assert value == 'quit' or len(state['realGameRows']) == 1, \
                 'Command acknowledged but real task game absent or ambiguous after receipt: ' + value
             COMMAND_HOLD = None
+            completed_sample = state
         finally:
             # Only this ordinary file-transport child is stopped, never the game,
             # launcher, observer, other lane or a process selected by name.
@@ -202,7 +222,8 @@ def command(value, deadline=None):
                     sender.kill()
                     sender.communicate(timeout=2)
             observe_lifetime('transport-reaped', value, transportPid=sender.pid,
-                             transportExitCode=sender.returncode, transportStoppedByObserver=stopped)
+                             transportExitCode=sender.returncode, transportStoppedByObserver=stopped,
+                             process_sample=completed_sample if not stopped else None)
 
 
 def focus_trace_latest(trace):
@@ -236,16 +257,22 @@ def observe_focus_boundary(label, force=False):
         return
     assert len(rows) < 512, 'Passive native focus observation bound; hold actions'
     before = time.time()
+    began = time.monotonic()
     command('dump-focus')
+    command_returned = time.monotonic()
     trace = focus_trace_latest(json.loads((RUN / 'focus-trace.json').read_text()))
+    native_started = time.monotonic()
     result = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'observe'],
                             capture_output=True, text=True, timeout=10)
+    native_returned = time.monotonic()
     try:
         native = json.loads(result.stdout) if result.returncode == 0 else None
     except (ValueError, TypeError):
         native = None
     rows.append(dict(label=label, hostBefore=before, hostAfter=time.time(), bridge=trace,
-        native=native, helperExitCode=result.returncode, helperStdout=result.stdout, helperStderr=result.stderr))
+        native=native, helperExitCode=result.returncode, helperStdout=result.stdout, helperStderr=result.stderr,
+        hostTiming=dict(started=began, commandReturned=command_returned, nativeStarted=native_started,
+                        nativeReturned=native_returned, beforeAppend=time.monotonic())))
     write('focus-observations.json', rows)
     assert result.returncode == 0, 'Passive native observation failed; no replay or fallback'
     assert isinstance(native, dict), 'Malformed passive native JSON; hold actions'

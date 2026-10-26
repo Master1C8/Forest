@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "snapshot": "localization/probes/ru-20261026-42/phase0042-snapshot",
+  "inputs": {
+    "process-lifetime.jsonl": {
+      "bytes": 727664,
+      "sha256": "3535756592d6181a619e0a9c3c2be5a8b3c306e3f93b5791802ee201c26e9765"
+    },
+    "actions.log": {
+      "bytes": 5215,
+      "sha256": "d53c186d7654b05428f500ea9ea3e44664e1d440a66cbe203bbeffc97542386c"
+    },
+    "newgame-observations.json": {
+      "bytes": 46656,
+      "sha256": "cd5398a3a3015f57f40f896270a60422ea62d8393d26e27304fa7d9f39edc0ac"
+    },
+    "intro-observation-budget.json": {
+      "bytes": 418,
+      "sha256": "1cebeb8149f9bde7385790a0bc0000a28f948b6b5e62795d9f42baa02ec18fc7"
+    }
+  },
+  "commandSpanSeconds": 295.703486291,
+  "allCommands": {
+    "commands": 113,
+    "beforeToReaped": 192.339492,
+    "beforeToAckUtc": 93.830783,
+    "ackToReapedUtc": 98.514461,
+    "returnedToReaped": 40.958235,
+    "awaitSamples": 179
+  },
+  "byCommand": {
+    "continue-bound": {
+      "commands": 21,
+      "beforeToReaped": 39.310805,
+      "beforeToAckUtc": 17.135087,
+      "ackToReapedUtc": 22.177014,
+      "returnedToReaped": 9.662969,
+      "awaitSamples": 28
+    },
+    "dump": {
+      "commands": 2,
+      "beforeToReaped": 2.267187,
+      "beforeToAckUtc": 1.494466,
+      "ackToReapedUtc": 0.77276,
+      "returnedToReaped": 0.335281,
+      "awaitSamples": 3
+    },
+    "dump-focus": {
+      "commands": 40,
+      "beforeToReaped": 61.010378,
+      "beforeToAckUtc": 26.522653,
+      "ackToReapedUtc": 34.495314,
+      "returnedToReaped": 14.168567,
+      "awaitSamples": 52
+    },
+    "dump-intro": {
+      "commands": 38,
+      "beforeToReaped": 75.805906,
+      "beforeToAckUtc": 42.133848,
+      "ackToReapedUtc": 33.66848,
+      "returnedToReaped": 13.803556,
+      "awaitSamples": 81
+    },
+    "dump-notebook": {
+      "commands": 2,
+      "beforeToReaped": 1.928554,
+      "beforeToAckUtc": 1.040331,
+      "ackToReapedUtc": 0.888268,
+      "returnedToReaped": 0.349552,
+      "awaitSamples": 2
+    },
+    "dump-tutorial": {
+      "commands": 1,
+      "beforeToReaped": 0.769636,
+      "beforeToAckUtc": 0.448872,
+      "ackToReapedUtc": 0.32079,
+      "returnedToReaped": 0.150279,
+      "awaitSamples": 1
+    },
+    "menu": {
+      "commands": 2,
+      "beforeToReaped": 2.459531,
+      "beforeToAckUtc": 1.393532,
+      "ackToReapedUtc": 1.066079,
+      "returnedToReaped": 0.368878,
+      "awaitSamples": 4
+    },
+    "response": {
+      "commands": 3,
+      "beforeToReaped": 5.443505,
+      "beforeToAckUtc": 2.260345,
+      "ackToReapedUtc": 3.183328,
+      "returnedToReaped": 1.423395,
+      "awaitSamples": 4
+    },
+    "sample-keyboard-snapshot": {
+      "commands": 1,
+      "beforeToReaped": 0.715608,
+      "beforeToAckUtc": 0.25561,
+      "ackToReapedUtc": 0.460022,
+      "returnedToReaped": 0.161342,
+      "awaitSamples": 1
+    },
+    "sample-keyboard-start": {
+      "commands": 1,
+      "beforeToReaped": 0.851558,
+      "beforeToAckUtc": 0.384665,
+      "ackToReapedUtc": 0.466907,
+      "returnedToReaped": 0.162298,
+      "awaitSamples": 1
+    },
+    "sample-keyboard-stop": {
+      "commands": 1,
+      "beforeToReaped": 0.693893,
+      "beforeToAckUtc": 0.263161,
+      "ackToReapedUtc": 0.430753,
+      "returnedToReaped": 0.148351,
+      "awaitSamples": 1
+    },
+    "show-menu": {
+      "commands": 1,
+      "beforeToReaped": 1.082931,
+      "beforeToAckUtc": 0.498213,
+      "ackToReapedUtc": 0.584746,
+      "returnedToReaped": 0.223767,
+      "awaitSamples": 1
+    }
+  },
+  "betweenCommandSeconds": 103.36399379900011,
+  "dialogueSampleWindow": {
+    "note": "Starts before first dialogue dump, not at exact stage transition; last command has no returned sample.",
+    "firstDumpStart": 108.226435416,
+    "lastReaped": 350.633535291,
+    "aggregates": {
+      "commands": 88,
+      "beforeToReaped": 154.262749,
+      "beforeToAckUtc": 69.058212,
+      "ackToReapedUtc": 85.208557,
+      "returnedToReaped": 36.162399,
+      "awaitSamples": 117
+    }
+  },
+  "sourceObservations": {
+    "count": 38,
+    "dialogueCount": 32,
+    "firstFrame": 407,
+    "lastFrame": 1799,
+    "hostElapsedDelta": 272.915,
+    "unityRealtimeDelta": 272.09362411499023,
+    "unityScaledTimeDelta": 195.9023494720459,
+    "finalSource": [
+      145,
+      214
+    ],
+    "finalBudget": {
+      "stage": "dialogue",
+      "elapsed": 281.645,
+      "stageElapsed": 240.764,
+      "idle": 6.285,
+      "hardLimit": 360,
+      "stageLimits": {
+        "bootstrap": [
+          120,
+          60
+        ],
+        "dialogue": [
+          240,
+          30
+        ],
+        "cleanup": [
+          60,
+          15
+        ]
+      },
+      "actualTerminalFrames": [],
+      "error": "TimeoutError('Command deadline; outcome unknown, reconcile before resubmitting: continue-bound 145 214')"
+    }
+  },
+  "longestCommandIntervals": [
+    {
+      "command": "dump-intro",
+      "start": 75.808376916,
+      "end": 82.715287333,
+      "beforeToReaped": 6.906910417000006,
+      "beforeToAckUtc": 6.548478841781616,
+      "ackToReapedUtc": 0.3586139678955078,
+      "returnedToReaped": 0.14130558300000473,
+      "awaitSamples": 16
+    },
+    {
+      "command": "dump-intro",
+      "start": 209.984467791,
+      "end": 215.693662333,
+      "beforeToReaped": 5.709194542000006,
+      "beforeToAckUtc": 5.184006929397583,
+      "ackToReapedUtc": 0.5253481864929199,
+      "returnedToReaped": 0.2373403329999917,
+      "awaitSamples": 10
+    },
+    {
+      "command": "dump-intro",
+      "start": 88.105301416,
+      "end": 92.724002791,
+      "beforeToReaped": 4.6187013750000006,
+      "beforeToAckUtc": 4.233269929885864,
+      "ackToReapedUtc": 0.3855600357055664,
+      "returnedToReaped": 0.1406048329999976,
+      "awaitSamples": 11
+    },
+    {
+      "command": "dump-focus",
+      "start": 82.855829333,
+      "end": 86.463573458,
+      "beforeToReaped": 3.6077441249999964,
+      "beforeToAckUtc": 3.19878888130188,
+      "ackToReapedUtc": 0.40903711318969727,
+      "returnedToReaped": 0.1502040419999986,
+      "awaitSamples": 8
+    }
+  ],
+  "longestBetweenCommandIntervals": [
+    {
+      "after": "dump-focus",
+      "before": "dump-intro",
+      "start": 134.402770416,
+      "end": 139.33544425,
+      "seconds": 4.932673833999985
+    },
+    {
+      "after": "dump-intro",
+      "before": "dump-focus",
+      "start": 151.105114666,
+      "end": 154.248969791,
+      "seconds": 3.143855125000016
+    },
+    {
+      "after": "dump-focus",
+      "before": "continue-bound 145 267",
+      "start": 169.102512208,
+      "end": 172.016477708,
+      "seconds": 2.913965499999989
+    },
+    {
+      "after": "dump-focus",
+      "before": "continue-bound 145 210",
+      "start": 310.641761833,
+      "end": 312.984266416,
+      "seconds": 2.34250458300005
+    }
+  ],
+  "limits": [
+    "beforeToReaped excludes the initial process scan, includes final scan, helper waits, file/Python work and game ACK latency.",
+    "ACK uses Unity UTC and host UTC, not a measured synchronized monotonic clock; negative brackets are rejected.",
+    "ackToReaped includes helper completion/output decoding and host work; it is not pure process-scan or disk time.",
+    "returnedToReaped encloses a repeated unguarded ps/file log boundary after communicate already reaped a successful child. It is not an estimate of saved seconds.",
+    "betweenCommand includes the next initial process scan, focus/native observation, bookkeeping, original sleeps and scheduling; no component can be isolated from these four files.",
+    "Unity realtime/scaled deltas and frame counts overlap host intervals; they neither measure pure source waiting nor explain unsampled stalls.",
+    "The final helper exit instant relative to the old deadline remains unknown; no missing transport-returned event is fabricated."
+  ],
+  "recipe": "python3 -B tools/attribute_intro_observation.py localization/probes/ru-20261026-42/phase0042-snapshot"
+}
