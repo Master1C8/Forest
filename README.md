@@ -33,16 +33,30 @@ frozen dependencies, original resources/player files and all seven asset input p
 The helper posted its deferred up edge; actual key-release delivery in27 remains
 unverified and must not be inferred from quit or successful posting.
 
-The repaired canonical menu runner continuously snapshots real input, records native
-post-edge timestamps, requires down then two released observations within a bound,
-and has exact-target up-only failure recovery before independent quit/restore.
-Five positive/negative controls exercise this observation predicate, including27's
-last-sample-down failure. Candidate29 is newly prepared with exact25 resources and
-the exact28 compiled bridge/helper and the per-trial release-flag reset. It is frozen
-but **not launched**. Candidate28 is preserved and superseded before launch.
-Candidate29’s `preparation.json` and `frozen-files.json` bind the next menu-only test. Do not rerun26/27 or replay the intro
-until the native/release boundary is resolved; unchanged status is not progress.
-No images were captured/opened and no accepted10/15 surface was recaptured.
+Phase0020 ran prepared candidate29 once. The menu-only preflight completed both
+original-policy and temporary QA-background-policy trials, with 81/93 real frame
+samples. `GetKeyboardState`, async state, Rewired and Unity each observed 17/28 down
+samples respectively; actual player action axes and `InputHelper.FullAxis` reached
+`-1,0,0`. Both trials then observed all-up states and zero axes before any subsequent
+pulse or quit. Native post-edge timestamps and per-layer sample ranges are recorded in
+`localization/probes/ru-20261026-29/runtime-diagnosis.json`. Candidate29 establishes delivery and
+release for this run. Candidate27's historical release remains unknown, and this result
+does not establish its failure cause or attribute success solely to the observer change.
+
+Both configurations reported Unity focused=True while another macOS app was frontmost.
+This verifies both configured policies, without proving actual unfocused behavior or
+benefit from changing the policy. No up-only recovery was needed; its failure branch
+remains runtime-untested. The runner restored the original policy, quit normally,
+restored the QA assembly and removed the bridge. Post-run text/hash verification
+confirmed 150 original managed references, all 7 pins, 5 source/candidate resource pairs,
+and 317 frozen dependencies plus the 2 expected DLL cleanup exceptions. Candidate28
+remains superseded and unlaunched;29 must not be relaunched.
+
+The next boundary is original guarded Player movement, loaded BunnyHouse door geometry
+and natural CentralForest entry/tutorial after the accepted source-bound intro.
+Menu axis ingress does not establish gameplay movement or collision. No New, intro,
+images or accepted10/15 surface captures ran in phase0020. Preserve original producers,
+focus, maps and story/transition/doorway guards, and use a new immutable candidate.
 
 Phase0018's original geometry/input evidence remains unchanged in
 `localization/source/travel-20261026/`. BunnyHouse is BuildSettings level3, not level2
