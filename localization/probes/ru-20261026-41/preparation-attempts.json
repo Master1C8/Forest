@@ -1,0 +1,17 @@
+[
+  {
+    "attempt": 1,
+    "result": "failed-before-compile-no-game-launch",
+    "boundary": "clonefile original installation on external volume -> Desktop: EXDEV errno18",
+    "firstPath": "MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
+    "repair": "Use copy2 only for verified EXDEV; preserve/hash-check any partial copied bytes, same candidate41; no new variant"
+  },
+  {
+    "attempt": 2,
+    "result": "passed-preparation-not-launched",
+    "materialChange": "EXDEV-specific verified copy2 fallback; same candidate and all partial bytes hash-checked",
+    "gameFiles": 269,
+    "originalManagedReferences": 150,
+    "bridgeAndNativeCompiledFresh": true
+  }
+]
