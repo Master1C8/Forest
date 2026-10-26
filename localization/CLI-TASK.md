@@ -1,15 +1,17 @@
-# Russian localization: sequential CLI continuation
+# Russian localization: technical CLI with parallel asset translation
 
-The owner requested the complete Russian standard localization of The Forest of Love
-0.45 and now explicitly authorizes **sequential CLI sessions with clean contexts,
-strictly one at a time, without parallel tasks** (October 26, 2026). This supersedes
-this file's former prohibition on fresh sessions. Do not ask for that permission again.
+The owner requests the complete Russian standard localization of The Forest of Love
+0.45. On October 26, 2026 the owner explicitly authorized a parallel asset-translation
+CLI and then instructed: resume this technical CLI, communicate that parallel work is
+authorized, and do not stop translation. This supersedes every older whole-project
+single-CLI/no-parallel instruction. Within THIS technical lane, fresh work/review
+phases remain sequential, one at a time. The asset lane may run simultaneously.
+Never stop either lane merely because the other approved lane is live.
 
-The parent-owned serial runner launches each fresh `codex exec` with gpt-6.1-sol/high/
-OpenAI pinned explicitly and verifies the exact permitted registry slug before each
-launch. NEVER use Astra, aliases/fallbacks, external translation engines, or inherited
-conversation history. Each worker must not spawn other agents or CLI/model jobs;
-it hands back a concise next-phase brief. All model work remains one serial stream.
+The parent-owned technical runner launches each fresh `codex exec` with exactly
+gpt-6.1-sol/high/OpenAI pinned and registry-verified. NEVER Astra, aliases/fallbacks,
+external translation engines or inherited history. Workers must not spawn agents or
+nested CLI/model jobs; return concise next-phase briefs to the technical runner.
 Separate fresh review sessions can supply identifiable independent review; do not
 retroactively relabel the prior author's self-review as independent.
 
@@ -17,8 +19,14 @@ retroactively relabel the prior author's self-review as independent.
 
 Game checkout: `/Users/antonkrutov/Desktop/Forest`, canonical `main`. Initial accepted
 technical work is at commits 303a697 and 89898ca. The parent may prepare the current
-handoff before dispatch; the active CLI worker then has exclusive write/index ownership.
-The parent only monitors and accounts for usage. No configured remote exists: do not
+handoff before dispatch; the active technical worker then has exclusive Git transaction
+ownership (stage -> full staged-diff inspection -> commit -> committed-tree verification).
+The asset worker is prohibited from all Git/index/branch mutations and writes only
+`localization/ru-assets/` and `outputs/ru-assets-parallel-20261026/`. These directories
+are READ-ONLY to the technical worker: do not stage, commit, modify, remove or stop them.
+Never use `git add .`, `git add -A`, `git commit -a`, reset/stash or broad cleanup.
+Inspect the full index before staging and committing; preserve unrelated changes.
+The parent monitors after dispatch. No concurrent technical commits are permitted. No configured remote exists: do not
 invent one, create a repository or stop ordinary local work solely for that reason.
 Preserve the unrelated Helltaker ZIP and all existing valid evidence.
 
@@ -27,6 +35,13 @@ the mandatory universal localization prompt/audit manuals, and the relevant skil
 Reuse the existing CHECKPOINT.json and README stage binding. Do not build a second
 project, broad framework, game card, task or tracker. Full local translation/editing,
 necessary assets/fonts/tools/packaging and isolated runtime verification are authorized.
+This lane owns technical work, renderer/source consumer investigation and its canonical
+integration. The parallel asset lane owns actual authored translation; do not duplicate
+its translation batches. Current input files listed in
+`outputs/ru-assets-parallel-20261026/input-pins.json` must remain byte-identical while
+translation is live. Add new technical findings separately rather than changing those
+pinned sources, glossary snapshots, existing inventory or special-scene input. Coordinate
+any later source/glossary change and invalidate affected draft evidence explicitly.
 Original install and owner saves must remain unchanged. No site publication, protected
 source edit, deployment or server lifecycle action is authorized by this task.
 
@@ -53,15 +68,15 @@ Current source candidates are `localization/source/dialogue-manifest.json` and
 complete source/consumer/special-scene gates are still unaccepted. BGDatabase, UI,
 code literals and baked images remain part of the agreed complete inventory.
 
-Read `localization/feasibility.json` and the exact findings in
-`localization/probes/ru-20261026-06/native-result-01.json`. No-op/reinsertion checks,
-CRC-preserving Addressables catalog updates and ordinary synthetic dialogue progression
-197 -> 199 -> 200 -> 202 -> unchanged 203 passed. TMP overflow was corrected. The
-native visual pilot FAILED: Cyrillic in the legacy nameplate is taller/thinner than
-adjacent original Latin/digits; decomposed-mark placement is uncertain. Preserve the
-failure, repair the responsible shared resource, capture a new version and review it.
-Other narrow UI/item/quest/menu, baked-texture and fictional-font paths are unverified.
-Do not mark a whole renderer accepted from this ordinary dialogue test.
+Current accepted technical evidence is in CHECKPOINT.json and README.md. Candidate10
+ordinary dialogue/nameplate exact two-frame pair passed independent visual review.
+Candidate15 fullscreen/windowed settings exact two-frame pair also passed independent
+review and was imported/checked in phase0011. Its duplicate baked Stretch Off Image was
+proved at runtime and disabled in the resource recipe; preserve these accepted unchanged
+results rather than recapturing/reviewing them. Broader UI/item/quest, texture/fictional
+font, complete source/special-scene and final corpus acceptance remain unverified.
+Read the next bounded brief for remaining Scale work. Phase0011's concurrency blocker
+is explicitly resolved by the current owner instruction above.
 
 The current adapter/tooling is in `tools/build_renderer_probe.py`,
 `tools/addressables_catalog.py`, `tools/probe/prepare_bridge.py`, ForestProbe.cs,
@@ -98,13 +113,21 @@ approved sequential sessions, names, type, ordinary repair, or lack of a remote.
 An unavailable transport stays explicitly blocked rather than spawning a replacement.
 A completed phase does not imply the complete localization is done.
 
-After renderer/source acceptance, settle every discovered special-scene group's Russian
-adaptation before ordinary translation. Then directly author coherent contextual batches,
-edit immediately, preserve all controls, and complete the universal full semantic /
-independent diff / dependency delta algorithm using sequential fresh reviewer contexts.
+The owner explicitly authorized parallel provisional asset translation before remaining
+technical/source acceptance. This is a drafting-order exception, not a passed gate.
+Do not stop translation or force it to wait. Preserve complete source, special-scene,
+editorial, resource and final delivery gates as separate pending acceptance. After
+technical acceptance hand off verified inputs for later draft integration and the
+universal full semantic / independent diff / dependency delta protocol; do not create
+competing target overlays while the asset lane is working.
 Use the fixed shared stage gates. Final fonts precede final texture production. Build,
 resource readback, runtime/visual acceptance and canonical integration remain separate.
 Commit verified phase work on main with exclusive index ownership; preserve unrelated
 changes. Keep exact measured usage and provenance; cached input and reasoning are subsets.
 Only report `complete` when the requested local localization is actually accepted and
 its deliverable exists; source counts, a successful build or an evidence ZIP do not suffice.
+
+Concurrency regression: when the authorized asset CLI is alive in the same checkout,
+continue technical work with one Git owner and disjoint file scopes. Its existence is
+not a needs-owner blocker. Never resolve this by stopping translation or staging its
+live files. New phases must retain this rule in their briefs.

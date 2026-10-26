@@ -146,7 +146,7 @@
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
   },
-  "updatedAt": "2026-10-26T04:21:20.368556+00:00",
+  "updatedAt": "2026-10-26T04:57:26.156046+00:00",
   "processBinding": {
     "guide": "README.md",
     "references": {
@@ -158,7 +158,7 @@
       "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
       "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
     },
-    "projectGuideSha256": "0a54dcad9271bba63f1b2b58e860c8f574cd76a4453b3ba898db490ba387e7ed"
+    "projectGuideSha256": "5a0cf6adc103c868d7a6a8105c6a3fd676dfecb5dfccb259fb709d646bb342f9"
   },
   "currentStage": "probe",
   "probe": "localization/probes/ru-20261026-15/build.json",
@@ -185,16 +185,16 @@
       "textures": "not-run",
       "build": "not-run for localization; synthetic probe passed static build/readback",
       "runtime": "candidate15 actual Stretch/Fullscreen/Back passed, all11 duplicate replacement Images disabled, six active Off TMP layers retained, cleanup passed; other scales/surfaces unverified",
-      "visual": "candidate10 dialogue/nameplate 2/2 accepted; candidate11 settings1/1 failed; candidate12 fullscreen failed/windowed passed; candidate15 settings0/2 pending. No visual repair credited.",
+      "visual": "candidate10 dialogue/nameplate 2/2 accepted; candidate11 settings failed; candidate12 fullscreen failed/windowed passed; candidate15 exact two settings originals 2/2 passed after independent phase0010 and helper import/check in phase0011. Other states/surfaces unaccepted.",
       "screenshot-upload": "not-applicable; not requested",
       "screenshot-review": "not-applicable; not requested",
       "release": "not-run; publication excluded",
       "blocker": "Remaining menu/UI/item/quest, baked texture and fictional-font paths, complete source/special-scene and editorial gates remain unaccepted.",
-      "nextAction": "Independently review the exact candidate15 two-original settings packet in a fresh visual-only phase, then import actual findings in work. Duplicate baked Stretch Off Image proved at runtime and disabled in resource recipe; exact incremental delta is one Image.enabled field. No visual repair credited yet. Remaining UI/item/quest, texture/fictional-font and complete source/special-scene gates precede ordinary translation."
+      "nextAction": "Trace normal Scale selection/up/down handlers and display eligibility, then run a bounded isolated test. Reuse accepted candidate10 and candidate15 frames unchanged. Parallel asset translation is authorized and is not a blocker; keep its input pins byte-identical and its writable paths untouched."
     }
   },
   "execution": {
-    "mode": "owner-authorized sequential fresh CLI sessions; strictly one at a time, no parallel work",
+    "mode": "Sequential fresh technical CLI phases, one at a time; concurrent owner-authorized asset drafting in disjoint paths.",
     "model": "gpt-6.1-sol",
     "reasoning": "high",
     "brief": "localization/CLI-TASK.md",
@@ -203,15 +203,15 @@
     "provider": "openai",
     "actualModelVerified": true,
     "inheritedHistory": false,
-    "exclusiveWriteAndGitOwner": "one current serial CLI phase; parent prepares before dispatch and then monitors only",
+    "exclusiveWriteAndGitOwner": "Current technical phase owns technical edits and complete Git transaction; authorized asset lane writes only its disjoint directories without Git mutations.",
     "result": "continuation authorized; failed font pilot remains failed until repaired and reviewed",
     "nestedModelJobs": false,
     "agentsLaunched": false,
     "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
-    "activePhase": "outputs/ru-serial-20261026/0009-work",
-    "phaseResult": "Imported actual candidate12 1pass/1fail; diagnosed active baked Off sprite vs Fullscreen Off control in baseline13. One-field recipe repair candidate14 exact-readback passed. Preserved diagnostic-scope runtime failure14; candidate15 same resources with full-menu telemetry passed guarded route/capture/cleanup, 2 originals pending independent review. Zero images opened.",
-    "modelVerification": "localization/probes/ru-20261026-13/execution-model.json",
-    "usageAccounting": "Parent-owned serial accounting; request token telemetry unavailable in this phase. No agents or nested model/CLI jobs launched. Unrelated ru-assets CLI observed outside this assignment and left untouched."
+    "activePhase": "outputs/ru-serial-20261026/0012-work",
+    "phaseResult": "Phase0011 review evidence rechecked text-only; owner concurrency correction and resume/model controls verified. Scale investigation proceeding.",
+    "modelVerification": "Actual PID16150 argv pins --model gpt-6.1-sol, provider openai, reasoning high; authorized asset PID7943 separately pins same selection.",
+    "usageAccounting": "Parent accounts serial request telemetry; current-phase input/cached-input/output/reasoning counts unavailable. No subagents or nested CLI/model requests launched. Other ru-assets CLI excluded from this phase accounting."
   },
   "sourceCandidates": {
     "path": "localization/source/dialogue-manifest.json",
@@ -290,12 +290,26 @@
           "automationStatus": "failed old simultaneous-label guard; preserve independently observed Off overprinting",
           "checker": "exit 1 as expected: actual visual defect; layout/glyph findings are the same single value defect"
         }
+      },
+      "visualAcceptance": {
+        "path": "localization/probes/ru-20261026-15/native-review.json",
+        "sha256": "8b90370ef313cccb8a584652304584cfb63472ef42de87ab1495d247d2cdd6f5",
+        "packet": "localization/probes/ru-20261026-15/native-packet-01.json",
+        "packetSha256": "25a332537c6bb27bcf69083f13155e046667616a2c6de750b439cebcac5b430e",
+        "result": "localization/probes/ru-20261026-15/native-result-01.json",
+        "resultSha256": "657a3f60e64f2d8b83d7b826a2ee8169e75849e9389443a25f8033dc2b59aa09",
+        "total": 2,
+        "reviewed": 2,
+        "passed": 2,
+        "failed": 0,
+        "pending": 0,
+        "acceptanceBoundary": "Exact candidate15 synthetic fullscreen/windowed settings frames only; Scale input and seven unseen active slots remain untested; no broad renderer or source acceptance"
       }
     }
   },
   "independentReview": {
     "status": "not-run",
-    "reason": "Owner now authorizes identifiable independent fresh reviewer contexts sequentially; no parallel work.",
+    "reason": "Distinct fresh sequential reviewers authorized in technical lane; parallel asset drafting separately authorized. Full corpus editorial review remains not-run.",
     "selfReviewIsIndependent": false
   },
   "delivery": {
@@ -303,7 +317,7 @@
     "localizationInstaller": null,
     "technicalArchive": "dist/forest-ru-technical-checkpoint-20261026.zip",
     "canonicalBranch": "main",
-    "gitIntegration": "canonical HEAD after verified commit",
+    "gitIntegration": "Verified phase0011 review and parent authorization/resume repair integrated by phase0012 on canonical main; current technical work continues.",
     "push": "unavailable: no configured remote; no repository/remote created",
     "publication": "not-authorized; no glossary/game/mod publication or deployment",
     "platformLimit": "Windows build exercised through CrossOver; native Windows and native macOS not verified"
@@ -365,20 +379,6 @@
       "completeSourceAcceptance": false
     }
   },
-  "pendingNativeVisualReview": {
-    "path": "localization/probes/ru-20261026-15/native-review.json",
-    "sha256": "69a192e4ef84dfd3589f54baef716815acb7815760f3930a956a0c10c38e3be4",
-    "total": 2,
-    "reviewed": 0,
-    "passed": 0,
-    "failed": 0,
-    "pending": 2,
-    "packet": "localization/probes/ru-20261026-15/native-packet-01.json",
-    "packetSha256": "25a332537c6bb27bcf69083f13155e046667616a2c6de750b439cebcac5b430e",
-    "automationStatus": "passed actual Stretch/Fullscreen/Back and reciprocal visibility; all 11 legacy replacement Images disabled; scale-up/down and 7 other active slots untested",
-    "reviewer": "not-run",
-    "imagesOpenedInThisWorkContext": 0
-  },
   "failedSettingsNativeVisualReview": {
     "path": "localization/probes/ru-20261026-12/native-review.json",
     "sha256": "f4e4efd786dc48dc107b2afe6d2ee3f41500ea5a2885cf9d282b7b2916846041",
@@ -408,6 +408,55 @@
       "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0006; imported once in text-only phase 0007",
       "automationStatus": "failed old simultaneous-label guard; preserve independently observed Off overprinting",
       "checker": "exit 1 as expected: actual visual defect; layout/glyph findings are the same single value defect"
+    }
+  },
+  "settingsNativeVisualReview": {
+    "path": "localization/probes/ru-20261026-15/native-review.json",
+    "sha256": "8b90370ef313cccb8a584652304584cfb63472ef42de87ab1495d247d2cdd6f5",
+    "total": 2,
+    "reviewed": 2,
+    "passed": 2,
+    "failed": 0,
+    "pending": 0,
+    "packet": "localization/probes/ru-20261026-15/native-packet-01.json",
+    "packetSha256": "25a332537c6bb27bcf69083f13155e046667616a2c6de750b439cebcac5b430e",
+    "automationStatus": "passed actual Stretch/Fullscreen/Back and reciprocal visibility; all 11 legacy replacement Images disabled; scale-up/down and 7 other active slots untested",
+    "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0010-visual-review; actual per-image results imported once in text-only phase 0011-work",
+    "imagesOpenedInThisWorkContext": 0,
+    "result": "localization/probes/ru-20261026-15/native-result-01.json",
+    "resultSha256": "657a3f60e64f2d8b83d7b826a2ee8169e75849e9389443a25f8033dc2b59aa09",
+    "checker": "passed; complete 2/2 bounded native evidence coverage",
+    "acceptanceBoundary": "Exact candidate15 synthetic fullscreen/windowed settings frames only; Scale input and seven unseen active slots remain untested; no broad renderer or source acceptance",
+    "previousFailure": {
+      "path": "localization/probes/ru-20261026-12/native-review.json",
+      "sha256": "f4e4efd786dc48dc107b2afe6d2ee3f41500ea5a2885cf9d282b7b2916846041",
+      "total": 2,
+      "reviewed": 2,
+      "passed": 1,
+      "failed": 1,
+      "pending": 0,
+      "packet": "localization/probes/ru-20261026-12/native-packet-01.json",
+      "packetSha256": "b22f15f550ccdb591d7216eaf7932c7adcf0c83baac74db06cf8a995f96bf644",
+      "result": "localization/probes/ru-20261026-12/native-result-01.json",
+      "resultSha256": "9c432a89d78b35d7323ba8bcbae89432fc0c108da66150831ea3b5eabf9e7c8a",
+      "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0008; imported once in text-only phase 0009",
+      "automationStatus": "passed actual Stretch/Fullscreen/Back; fullscreen visual failed, windowed visual passed",
+      "checker": "exit 1 as expected for retained Stretch Off overprinting; layout/glyph findings describe one visible defect",
+      "previousFailure": {
+        "path": "localization/probes/ru-20261026-11/native-review.json",
+        "sha256": "2802187bf1e9dd622af816173971570c4b8d5cce7a90996dcfeae01792df91d8",
+        "total": 1,
+        "reviewed": 1,
+        "passed": 0,
+        "failed": 1,
+        "pending": 0,
+        "packet": "localization/probes/ru-20261026-11/native-packet-01.json",
+        "result": "localization/probes/ru-20261026-11/native-result-01.json",
+        "resultSha256": "a1bfe4fcd604dc7e4f9a87272b9f43cbaec472d515863cf7a2a8677482426b31",
+        "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0006; imported once in text-only phase 0007",
+        "automationStatus": "failed old simultaneous-label guard; preserve independently observed Off overprinting",
+        "checker": "exit 1 as expected: actual visual defect; layout/glyph findings are the same single value defect"
+      }
     }
   }
 }

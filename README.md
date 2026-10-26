@@ -6,24 +6,26 @@ The owner selected standard localization and requested Russian (`ru`). The curre
 state is `CHECKPOINT.json`; the earlier export-only checkpoint is preserved in
 `localization/history/asset-preparation-checkpoint.json`. The English and Russian
 171-entry glossary snapshots in `localization/glossary/` match the accepted canonical
-SiteForMods layers. No game text has been translated yet. This is an unfinished localization, not a release.
+SiteForMods layers. This technical lane has authored no ordinary game translation. The owner-authorized parallel asset lane drafts in `localization/ru-assets/`; its work is separate and is not counted here. This is an unfinished localization, not a release.
 The verified local archive `dist/forest-ru-technical-checkpoint-20261026.zip` contains
 source candidates, glossary snapshots, tools and machine evidence, with exact ZIP
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
 The first CLI session ended at the bounded protocol's two-original context limit.
-The owner now explicitly authorizes sequential CLI sessions with clean contexts,
-strictly one at a time, without parallel work. `tools/run_serial_ru.py` preserves
+The owner authorizes sequential technical CLI sessions with clean contexts and a
+parallel asset-translation CLI. The technical lane alone owns Git transactions;
+the asset lane owns only `localization/ru-assets/` and its operational directory. `tools/run_serial_ru.py` preserves
 that boundary: text-only repair/capture phases hand off to fresh bounded review-only
 phases, using the skill's external review deadline. Independent fresh editorial
 review is authorized sequentially and remains unperformed until actual evidence exists.
-Remaining failed/unverified renderer and source gates still block mass translation.
+The owner permits provisional asset drafting before remaining renderer/source
+acceptance; this exception does not pass any technical or editorial gate.
 
 Every CLI phase explicitly pins `gpt-6.1-sol / high / OpenAI` and rejects Astra before
 a request. No agents, nested model jobs, external translation services, publication or
 deployment are authorized by this continuation. The active CLI phase exclusively owns
-the canonical checkout and Git index; the parent monitors the serial job. The updated
+technical project edits and the Git index; the parent monitors the serial job. The updated
 scope and phase-result contract are in `localization/CLI-TASK.md`.
 
 Rebuild the current bounded candidate into a **new** probe directory with:
@@ -190,6 +192,22 @@ requires Delete Savegame. The failed attempt and successful cleanup are retained
 Candidate15 reuses the exact candidate14 asset bytes with a newly snapshotted
 bridge that measures all OptionsMenu Images. Its capture/review status is
 recorded in CHECKPOINT.json; static/runtime checks cannot credit visual repair.
+
+Candidate15's exact two native settings originals were independently reviewed in
+fresh phase 0010 and imported once in text-only phase 0011. The native ledger checker
+passes with 2 reviewed, 2 passed, 0 failed and 0 pending. Stretch Off now has a coherent
+outline, both synthetic sample sets are readable, and the windowed raw-NFD marks are
+above their bases. This accepts only these two synthetic settings states. The verified
+candidate12-to14 delta, retained byte-for-byte in candidate15, is Image 9708 disabled; candidate12's retained
+geometry experiment is not independently credited as a causal repair. Prior failures
+remain intact. Scale up/down and the seven unseen active Scale slots remain untested.
+
+Phase 0011 found a separate live ru-assets CLI (PID 7943) in this checkout, conflicting
+with its current one-active-CLI instruction. No game was launched, no image opened,
+and no index mutation performed in this phase. That historical hold was resolved by the owner's explicit parallel authorization in
+phase0012. The technical lane resumes with exclusive Git ownership and disjoint
+paths; the other task's process and files remain untouched. See the bounded observation
+and continuation brief under `outputs/ru-serial-20261026/0011-work/`.
 
 For this bounded settings candidate use a fresh output with:
 

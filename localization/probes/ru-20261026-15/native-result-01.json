@@ -1,0 +1,49 @@
+{
+  "packetSha256": "25a332537c6bb27bcf69083f13155e046667616a2c6de750b439cebcac5b430e",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-settings-fullscreen.png",
+      "sha256": "3ff6b2553ee1d4e3fc7500896b21b9f493845d5437eee501c739318333723081",
+      "width": 1440,
+      "height": 900,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0010-visual-review; actual launch PID 11984 verified; no workers",
+      "reviewedAt": "2026-10-26T04:26:36.250542+00:00",
+      "observations": "Reviewed the entire 1440x900 original. Music, Effects, both sliders, the synthetic labels Ёж Йй 123: and Ёж Latin!:, On, Off, Back, the title logo and v0.45.1 are visible and readable. Stretch Off is one coherent O followed by ff with no displaced duplicate O/ff contour; its white fill and black outline are consistent with On immediately above and with windowed Fullscreen Off. Cyrillic, Latin, digits and punctuation have compatible apparent height, baseline and weight in these TMP labels. Dots on Ё and breves on Й/й are above their bases and fully visible. Spaces remain distinct. Labels and values have clear separation, and there is no clipping, overlap, lost edge character, tofu or printed markup. Scale is absent as expected. Back remains inside the lower picture edge; the top and bottom black bands are game-owned letterboxing allowed by the acceptance context. No external banner, notification, annotation or locale label. LTR; RTL checks are not applicable. This accepts this synthetic settings frame only.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "ru-02-settings-windowed.png",
+      "sha256": "2488ad80f298896fb8e8c96bc7ab3aaea30b669d9ee4e40b49a495c7afd3cc7a",
+      "width": 960,
+      "height": 540,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial phase 0010-visual-review; actual launch PID 11984 verified; no workers",
+      "reviewedAt": "2026-10-26T04:26:36.250776+00:00",
+      "observations": "Reviewed the entire 960x540 original independently. Music, Effects, both sliders, Ёж Йй 123:, Fullscreen Off, the raw-NFD Ё й 12: label, baked 2x, Back, the title logo and v0.45.1 are readable. Off has a single coherent outline without doubled/displaced contours. The raw-NFD diaeresis is above Е and the breve is above и; neither mark is clipped or visibly displaced onto the following space/number. The upper precomposed Ё/Й/й marks are also intact. Cyrillic/Latin/digits in the TMP labels have compatible apparent size, weight and baseline at this smaller resolution. The pixel-style 2x is the expected baked value and is legible, separate from the label and within its field. All visible text, sliders and Back fit with no overlap, missing glyph, literal tag or cropped edge character. Stretch is absent as expected. No external overlay, notification or added annotation. LTR; RTL checks are not applicable. This accepts this synthetic settings frame only, not Scale interaction or unseen states.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

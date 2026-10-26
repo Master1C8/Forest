@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the owner-authorized Russian localization in one serial CLI stream."""
+"""Run sequential technical phases alongside the authorized asset-translation lane."""
 import argparse
 import datetime
 import hashlib
@@ -37,9 +37,23 @@ def atomic_json(path, value):
     temp.replace(path)
 
 
-def run(directory, first_brief):
+def run(directory, first_brief, resume=False):
     validate_model(MODEL, EFFORT, PROVIDER)
-    assert directory.is_dir() and not (directory / 'job.json').exists()
+    assert directory.is_dir()
+    path = directory / 'job.json'
+    previous = json.loads(path.read_text()) if resume else None
+    if resume:
+        assert previous['status'] == 'needs-owner', 'Only reconciled needs-owner jobs may resume.'
+        for pid in (previous.get('supervisorPid'), previous['phases'][-1].get('pid')):
+            if pid:
+                row = subprocess.run(['ps', '-p', str(pid), '-o', 'command='], text=True, capture_output=True)
+                assert not (row.returncode == 0 and str(directory) in row.stdout), 'Recorded technical process still alive.'
+        history = directory / 'resume-history' / now().replace(':', '-')
+        history.mkdir(parents=True)
+        for name in ('job.json', 'contract.md', 'run_review.py'):
+            shutil.copyfile(directory / name, history / name)
+    else:
+        assert not path.exists()
     registry = json.loads((Path.home() / '.codex/models_cache.json').read_text())
     assert any(x.get('slug') == MODEL for x in registry['models'])
     lock = directory / 'queue.lock'
@@ -54,13 +68,22 @@ def run(directory, first_brief):
     wrapper = directory / 'run_review.py'
     shutil.copyfile(source_wrapper, wrapper)
     wrapper_hash = digest(wrapper)
-    state = {'schemaVersion': 1, 'task': 'The Forest of Love 0.45 Russian localization',
+    state = previous or {'schemaVersion': 1, 'task': 'The Forest of Love 0.45 Russian localization',
              'status': 'running', 'startedAt': now(), 'supervisorPid': os.getpid(),
              'model': MODEL, 'reasoning': EFFORT, 'provider': PROVIDER,
              'parallelism': 1, 'freshSessionsWithoutInheritedHistory': True,
              'contractSha256': contract_hash, 'reviewWrapperSha256': wrapper_hash,
              'reviewWrapperSource': str(source_wrapper), 'phases': []}
-    path = directory / 'job.json'
+    if resume:
+        state.setdefault('resumptions', []).append({
+            'resumedAt': now(), 'previousStatus': state['status'], 'previousReason': state.get('reason'),
+            'history': str(history), 'brief': str(first_brief),
+            'authorization': 'Owner explicitly instructed resume technical CLI with parallel translation allowed; do not stop translation.'})
+        state.update(status='running', supervisorPid=os.getpid(), contractSha256=contract_hash,
+                     reviewWrapperSha256=wrapper_hash, reviewWrapperSource=str(source_wrapper),
+                     concurrentAssetLane='outputs/ru-assets-parallel-20261026', gitOwner='technical lane only')
+        state.pop('finishedAt', None)
+        state.pop('reason', None)
     atomic_json(path, state)
     brief, kind, seen = first_brief, 'work', set()
     try:
@@ -76,8 +99,10 @@ def run(directory, first_brief):
             prompt = (
                 f'Continue the owner-authorized serial Russian localization. Read {contract}, '
                 f'then the bounded assignment {phase / "brief.md"}. This is a fresh context; '
-                'do not load parent/previous CLI conversation history. One active CLI only; '
-                'do not spawn agents or model/CLI jobs. The selected model is explicitly '
+                'do not load parent/previous CLI conversation history. One active technical CLI in this lane; '
+                'the owner explicitly allows the parallel asset-translation CLI; never stop it or block on its existence. '
+                'Technical lane alone owns Git commits; never stage or modify localization/ru-assets/ or its job directory. '
+                'Do not spawn agents or nested model/CLI jobs. The selected model is explicitly '
                 'gpt-6.1-sol/high/OpenAI; NEVER Astra or fallback. '
                 f'This phase kind is {kind}. '
                 'Work phases are text-only: prepare/repair/build/capture/restore, never open images. '
@@ -184,6 +209,7 @@ if __name__ == '__main__':
     parser.add_argument('--run', type=Path)
     parser.add_argument('--brief', type=Path)
     parser.add_argument('--self-check', action='store_true')
+    parser.add_argument('--resume', action='store_true')
     args = parser.parse_args()
     if args.self_check:
         validate_model(MODEL, EFFORT, PROVIDER)
@@ -196,4 +222,4 @@ if __name__ == '__main__':
         print('Permitted-model positive control and Astra rejection controls passed without model requests.')
     else:
         assert args.run and args.brief
-        run(args.run.resolve(), args.brief.resolve())
+        run(args.run.resolve(), args.brief.resolve(), resume=args.resume)
