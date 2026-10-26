@@ -1,41 +1,38 @@
-## Phase0058: ordinary Bucky input/authority/source route prepared
+## Phase0059: bounded right/Return and read-only Bucky admission implemented
 
-The tutorial extractor now has a bounded `--ordinary-bucky` mode. Two fresh
-compiled Cecil extractions reproduce all20 outputs byte-identically:17 original
-consumer groups,18 exact serialized objects and complete original conversation141.
-Original resource hashes and exported objects match; all19 live-lane pins and
-existing bridge/host/transport/selection guards are unchanged. No game launched,
-images opened, predicates evaluated or target text authored in this phase.
+The existing native helper now supports right and a single 100 ms Return press,
+bound again to the inspected QA PID/window before either new action. The bridge
+adds read-only `dump-bucky`: exact actor/controller/trigger/settings/UI/listeners,
+both distinct GameObject authority IDs, cached Talk/Quest and actual root-collider
+contact. Keyboard samples additionally expose all four original action2 keys,
+Rewired/Unity/InputHelper edges and Submit map bindings. Three pure host guards
+admit this state and all-key/action2/axes release; no gameplay executor uses them yet.
 
-The original Bucky control is exactly InteractionUiController, with an independent
-DialogueInteractionTrigger authority and a shared real collision listener/capsule.
-Its Bucky / `- Untagged -` / empty-arc settings select the inferred Quest route.
-Talk/Quest requires naturally acquired, visible, **locked** shared UI and both
-GameObject authority identities. Gameplay Submit is Rewired2 (Return13 available),
-while menu Submit is18. Existing native transport permits only left/down; right
-and Return remain untested. Cached Talk alone cannot prove141: original dispatch
-prioritizes dates/latest arcs/turn-in/new quests before an unplayed primary quest.
+All 106 focused tests pass (7 Bucky, 52 input, 36 Continue, 11 tutorial181).
+The compiled Swift helper passes 11 no-delivery checks with zero posted events.
+Original and synthetic bridges compile. Complete Cecil comparison preserves
+50 exact and 14 compiler-ordinal-only method bodies per mode; only Update,
+KeyboardMaps and LateUpdate change, with all existing Update command bodies
+otherwise exact. All 54 existing Python definitions are AST-identical. Mock
+contact/listeners/clocks prove host boundaries only; Unity/native acceptance
+remains pending. All 19 lane inputs, 150 original managed references, 262 other
+original files, owner saves and QA43 disk bytes are unchanged; no game launched,
+image opened, predicate called or candidate51 directory created.
 
-The exact141 plan is loaded primary215 -> original Yes217 -> actual194 -> all
-content194..212. No216 terminates. Marker192 binds intro_from_beaver to212's real
-line-end; observing212/ACK does not establish trigger execution or all four
-prerequisites. The dedicated217 control and native right/Return admission/host
-extension still need implementation, focused positive/rejection checks and compiled
-readback before a new immutable candidate may run. Existing generic/original120
-terminal guards must remain intact.
+Next implement dedicated original141:215 -> Yes217 and real194..212/line-end/two
+cleanup frames; then wire finite ordinary movement/Submit stages without changing
+QA43/readiness/prefix/181/full187 or generic/terminal/synthetic guards. New immutable
+candidate51 needs all later-read snapshots, focused checks, compiled readback and
+normal preflight before launch. Never replay consumed50/49/48/47/46/45/44/43.
+Accepted50/10/15/47/48 evidence remains; QA43 is not a post187 checkpoint.
 
-Accepted50 original181/full route187/two-frame cleanup and10/15/47/48 visuals are
-unchanged. Never replay consumed50/49/48/47/46/45/44/43. QA disk bytes still equal43;
-no post187 restore checkpoint exists. New candidate preparation must retain the
-QA43 Continue/readiness/prefix/181 route and freshly measure post187 state. Initial
-spawn, notebook/inventory, complete source/BGDatabase/special-scene/editorial,
-final font/license/resources and local delivery gates remain pending. All seven
-asset lanes continue independently and remain read-only to this technical lane.
-
-Evidence: `localization/source/tutorial-20261026/phase0058/ADAPTER.md`,
-`interaction-plan.json`, `verification.json`, `original/extraction.json` and
-`reproduce/extraction.json`. Previous summary: `localization/history/phase0057-summary.md`.
-No publication/deployment occurred.
+Evidence: `localization/source/tutorial-20261026/phase0059/ADAPTER.md`,
+`verification.json`, `compiled-readback/comparison.json`, `compile.json`,
+`native-helper-checks.json` and the four focused test logs. Prior summary:
+`localization/history/phase0058-summary.md`. Complete source/BGDatabase/special-scene/
+editorial, native right/Return/ordinary141/trigger, initial spawn/notebook/inventory,
+final fonts/resources and local delivery gates remain pending. All seven asset
+lanes continue read-only to this technical lane. No publication/deployment.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

@@ -18,13 +18,19 @@ func processRows() throws -> String {
 }
 let args = CommandLine.arguments
 do {
-    try require(args.count == 3 || args.count == 4, "run-directory inspect|observe|left|down|release-left|release-down [milliseconds|expected-pid]")
+    try require((3...6).contains(args.count), "run-directory inspect|observe|left|down [milliseconds|expected-pid]; right|return milliseconds expected-pid expected-window; release-right|release-return expected-pid expected-window")
     let run = URL(fileURLWithPath: args[1]).standardizedFileURL.path
     let root = "/Users/antonkrutov/Desktop/Forest/localization/probes/"
     try require(run.hasPrefix(root) && !run.dropFirst(root.count).contains("/") &&
         run.dropFirst(root.count).hasPrefix("ru-20261026-"), "Only one isolated Forest QA candidate")
     let mode = args[2]
-    try require(["inspect", "observe", "left", "down", "release-left", "release-down"].contains(mode), "Only passive inspect/observe, bounded left/down or task-edge release supported")
+    try require(["inspect", "observe", "left", "down", "right", "return", "release-left", "release-down", "release-right", "release-return"].contains(mode), "Only passive observation, bounded arrows/Return or task-edge release supported")
+    let boundInput = ["right", "return", "release-right", "release-return"].contains(mode)
+    if boundInput {
+        try require(args.count == (mode.hasPrefix("release-") ? 5 : 6), "Right/Return requires exact inspected PID/window")
+    } else if mode == "inspect" {
+        try require(args.count == 3, "Passive inspection has no action arguments")
+    }
     let exe = run + "/game/The Forest of Love.exe"
     let variants = [exe, "Z:" + exe.replacingOccurrences(of: "/", with: "\\"),
         "Y:" + exe.replacingOccurrences(of: "/Users/antonkrutov", with: "").replacingOccurrences(of: "/", with: "\\")]
@@ -64,6 +70,11 @@ do {
     try require(windows.count == 1, "Matching QA processes must own exactly one game-sized window")
     let pid = pid_t(windows[0][kCGWindowOwnerPID as String] as! Int)
     let windowID = windows[0][kCGWindowNumber as String] as! Int
+    if boundInput {
+        let offset = mode.hasPrefix("release-") ? 3 : 4
+        try require(Int(args[offset]) == Int(pid) && Int(args[offset+1]) == windowID,
+            "Inspected task PID/window changed; no event sent")
+    }
     let trusted = AXIsProcessTrusted()
     let foreground = NSWorkspace.shared.frontmostApplication?.processIdentifier ?? -1
     let details: [String: Any] = ["pid": Int(pid), "windowID": windowID,
@@ -74,22 +85,25 @@ do {
     print(String(decoding: data, as: UTF8.self)); fflush(stdout)
     if mode != "inspect" {
         try require(trusted, "Accessibility unavailable; no permission prompt or global fallback")
-        let direction = mode.hasSuffix("left") ? "Left" : "Down"
-        let key: CGKeyCode = direction == "Left" ? 123 : 125
+        let action = mode.replacingOccurrences(of: "release-", with: "")
+        let keys: [String: CGKeyCode] = ["left": 123, "down": 125, "right": 124, "return": 36]
+        let direction = action.prefix(1).uppercased() + action.dropFirst()
+        let key = keys[action]!
         let source = CGEventSource(stateID: .privateState)!
         let up = CGEvent(keyboardEventSource: source, virtualKey: key, keyDown: false)!
         up.flags = []
         if mode.hasPrefix("release-") {
             // Caller must possess a task DOWN receipt; also bind recovery to
             // that exact native PID instead of accepting a replacement process.
-            try require(args.count == 4 && Int(args[3]) == Int(pid), "Task DOWN process identity required")
+            try require(boundInput || (args.count == 4 && Int(args[3]) == Int(pid)), "Task DOWN process identity required")
             up.postToPid(pid)
             print("post\(direction)Up pid=\(pid) window=\(windowID) unixTime=\(Date().timeIntervalSince1970)")
             exit(0)
         }
-        try require(args.count == 4, "Pulse duration required")
+        try require(boundInput || args.count == 4, "Pulse duration required")
         let duration = Int(args[3]) ?? 0
         try require(duration >= 100 && duration <= 1000, "Pulse bound100–1000ms")
+        try require(action != "return" || duration == 100, "Return is a single100ms task press")
         let down = CGEvent(keyboardEventSource: source, virtualKey: key, keyDown: true)!
         down.flags = []
         let previousInt = signal(SIGINT, SIG_IGN), previousTerm = signal(SIGTERM, SIG_IGN)

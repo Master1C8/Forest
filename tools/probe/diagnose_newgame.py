@@ -655,6 +655,89 @@ def input_released(row):
         (row.get('body') == 'null' and row.get('bodyVelocity') == 'null'))
 
 
+BUCKY_ACTOR = 'SpawnedContent/Critters/Bucky/Content/BuckyOnNorthShore(Clone)'
+BUCKY_PLAYER = 'SpawnedContent/Player/Content/Player(Clone)'
+
+
+def bucky_interaction_guard(sample, state):
+    """Read-only ordinary admission. Call only with fresh real bridge samples.
+
+    No native action is wired here yet. Cached Talk cannot prove selected141;
+    the eventual host must observe the original dispatch separately.
+    """
+    qa_identity(sample)
+    qa_identity(state)
+    assert sample['choiceMode'] == 'original', 'Bucky requires original mode'
+    assert sample['scene'] == state['scene'] == 'CentralForest', 'Bucky scene differs'
+    assert all(sample[k] == state[k] for k in ['dataPath', 'persistentDataPath']), 'Bucky process/save identity differs'
+    assert continue_diagnostic_ready(state), 'Bucky dependencies not ready'
+    assert type(sample['frame']) is type(state['frame']) is int and 0 < sample['frame'] <= state['frame'] <= sample['frame'] + 120, 'Stale Bucky frame'
+    assert all(math.isfinite(x) and x >= 0 for x in [sample['realtime'], state['realtime']]) and 0 <= state['realtime'] - sample['realtime'] <= 2, 'Stale Bucky time'
+    assert state['conversationActive'] is False and not state['responses'] and not state['narrativeDbName'] and not state['narrativeArcName'], 'Bucky conversation/menu already active'
+    rows = sample['diagnostics']
+    result = {key: diagnostic_fields(rows, 'bucky' + key.title()) for key in [
+        'guards', 'actor', 'controller', 'trigger', 'settings', 'ui', 'bindings', 'collision', 'enter', 'stay', 'exit', 'player']}
+    assert result['guards'] == dict(gameplay='True', anyEvent='False', conversation='False'), 'Bucky gameplay/event guards differ'
+    for key, typename, path in [('actor', 'Gameplay.CritterActor', BUCKY_ACTOR),
+            ('controller', 'InteractionUiController', BUCKY_ACTOR + '/Interaction/InteractionUiController'),
+            ('trigger', 'Interaction.DialogueInteractionTrigger', BUCKY_ACTOR + '/Interaction/DialogueTrigger'),
+            ('settings', 'DialogueSettings', BUCKY_ACTOR + '/Interaction/DialogueTrigger'),
+            ('collision', 'CollisionEventListener', BUCKY_ACTOR + '/Interaction/InteractionArea'),
+            ('player', 'Player', BUCKY_PLAYER), ('ui', 'InteractionUi', None)]:
+        row = result[key]
+        assert row['type'] == 'TheForestOfLove.' + typename and (row['path'] == path if path else bool(row['path'])), 'Bucky exact type/path differs: ' + key
+        assert row['active'] == row['enabled'] == 'True' and int(row['id']) != 0, 'Bucky inactive/invalid component: ' + key
+    assert result['actor']['dbName'] == 'Bucky', 'Bucky actor differs'
+    assert all(result['bindings'].get(k) == 'True' for k in ['actor', 'listener', 'actorParent', 'settingsObject',
+        'controllerDescendant', 'triggerDescendant', 'listenerDescendant']), 'Bucky original bindings differ'
+    for key in ['controller', 'trigger']:
+        row = result[key]
+        assert int(row['authorityId']) == int(row['gameObject']) != 0 and row['gameObject'] != row['id'], 'Bucky GameObject authority differs: ' + key
+        assert row['touching'] == 'True', 'Bucky natural touch missing: ' + key
+    controller, trigger, ui, collision, player = [result[k] for k in ['controller', 'trigger', 'ui', 'collision', 'player']]
+    assert controller['gameObject'] != trigger['gameObject'], 'Bucky authority stores conflated'
+    assert 'Talk' in controller['available'].split(',') and 'Talk' not in controller['disallowed'].split(','), 'Bucky cached Talk unavailable/disallowed'
+    assert all(trigger.get(k) == v for k, v in dict(mode='0', triggered='False', cooldown='0', blocked='False',
+        onCollision='False', withoutUi='False', namedTrigger='', maxTimes='0').items()), 'Bucky trigger mode/ordinary guards differ'
+    assert tuple(result['settings'][k] for k in ['actor', 'dialogue', 'arc']) == ('Bucky', '- Untagged -', ''), 'Bucky inferred settings differ'
+    assert all(ui.get(k) == v for k, v in dict(activeCount='1', visible='True', locked='True', selected='0').items()) and 'Talk' in ui['available'].split(','), 'Bucky shared UI/selected Talk differs'
+    callback = controller['path'] + '#' + controller['id'] + '::TheForestOfLove.InteractionUiController::'
+    assert ui['callbacks'] == callback + 'OnInterationOptionSelected', 'Bucky option listener differs'
+    trigger_callback = trigger['path'] + '#' + trigger['id'] + '::TheForestOfLove.Interaction.DialogueInteractionTrigger::'
+    for key, suffix, include_trigger in [('enter', 'OnTriggerEnter2D', True), ('stay', 'OnTriggerStay2D', False), ('exit', 'OnTriggerExit2D', True)]:
+        expected = [callback + suffix] + ([trigger_callback + suffix] if include_trigger else [])
+        assert result[key] == dict(persistent='0', callbacks=','.join(sorted(expected))), 'Bucky collision listener differs: ' + key
+    assert all(collision.get(k) == v for k, v in dict(colliderType='UnityEngine.CapsuleCollider2D', colliderCount='1',
+        colliderEnabled='True', isTrigger='True', rootTouch='True', ignoredPair='False').items()), 'Bucky actual collider/contact differs'
+    for key, expected in [('size', [1, .6, 0]), ('offset', [0, .21, 0]), ('scale', [1, 1, 1])]:
+        values = list(map(float, collision[key].split(',')))
+        assert len(values) == 3 and all(math.isfinite(a) and abs(a-b) < .0001 for a, b in zip(values, expected)), 'Bucky collider geometry differs'
+    assert all(player.get(k) == v for k, v in dict(canInteract='True', bodyType='Dynamic', bodySimulated='True',
+        rootColliderEnabled='True', rootIsTrigger='False', rootTag='Player', velocity='0,0,0').items()), 'Bucky root Player not idle/eligible'
+    assert all(int(row[key]) != 0 for row, key in [(player, 'body'), (player, 'rootCollider'), (collision, 'collider')]), 'Bucky physics identity missing'
+    return result
+
+
+def bucky_submit_map_guard(row):
+    """Retain original movement/focus guards; additionally pin gameplay action2."""
+    original_keyboard_guard(row)
+    maps = json.loads(row['keyboardMaps'])['maps']
+    gameplay_map = next(m for m in maps if m['source'] == 0)
+    bindings = gameplay_map['submit']
+    assert sorted((b['action'], b['key'], b['pole']) for b in bindings) == [(2, 13, 0), (2, 32, 0), (2, 305, 0), (2, 306, 0)], 'Bucky original gameplay Submit bindings differ'
+    assert all(b['enabled'] is True and b['invert'] is False and all(b[k] == v for k, v in dict(
+        type=1, range=0, modifier1=0, modifier2=0, modifier3=0).items()) for b in bindings), 'Bucky Submit binding flags differ'
+    assert all(not any(b['action'] == 2 for b in m['submit']) for m in maps if m['source'] != 0), 'Bucky gameplay Submit rebound'
+
+
+def bucky_input_released(row):
+    """All twelve original movement/action keys plus action2 and both axes idle."""
+    bucky_submit_map_guard(row)
+    return input_released(row) and all(row.get(layer + 'SubmitUp') == 'True' and
+        row.get(layer + 'SubmitDown') == row.get(layer + 'MovementDown') == '' for layer in ['native', 'async', 'rewired', 'unity']) and all(
+        row.get(k) == 'False' for k in ['rewiredAction2Held', 'rewiredAction2Down', 'helperSubmitDown', 'unityReturnDown'])
+
+
 def route_pulse_plan(loaded, spent):
     """Source polygon corridor: left at intro Y, then down at X2.30–2.65.
 

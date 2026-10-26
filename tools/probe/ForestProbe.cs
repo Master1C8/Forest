@@ -76,6 +76,12 @@ public sealed class ForestProbe : MonoBehaviour
         public string scene, company, product, dataPath, persistentDataPath;
         public string[] diagnostics;
     }
+    [Serializable] public sealed class BuckyInteractionState {
+        public string scene, company, product, dataPath, persistentDataPath, choiceMode;
+        public int frame;
+        public float realtime;
+        public string[] diagnostics;
+    }
     [Serializable] public sealed class ContinueReceipt {
         public string result;
         public bool active;
@@ -146,6 +152,13 @@ public sealed class ForestProbe : MonoBehaviour
                     company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
                     persistentDataPath=Application.persistentDataPath,diagnostics=TravelRouteDiagnostics()};
                 File.WriteAllText(Path.Combine(root,"travel-route.json"),JsonUtility.ToJson(state,true));
+            }
+            else if(text=="dump-bucky") {
+                var state=new BuckyInteractionState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                    company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
+                    persistentDataPath=Application.persistentDataPath,choiceMode=TutorialChoiceMode,
+                    frame=Time.frameCount,realtime=Time.realtimeSinceStartup,diagnostics=BuckyInteractionDiagnostics()};
+                File.WriteAllText(Path.Combine(root,"bucky-interaction.json"),JsonUtility.ToJson(state,true));
             }
             else if(text=="qa-background-input") {
                 if(originalIgnoreUnfocused.HasValue || !Rewired.ReInput.isReady)
@@ -376,15 +389,19 @@ public sealed class ForestProbe : MonoBehaviour
         var maps=new List<string>();
         foreach(var map in player.controllers.maps.GetAllMaps(Rewired.ControllerType.Keyboard)) {
             var bindings=new List<string>();
+            var submit=new List<string>();
             foreach(var binding in map.AllMaps)
-                if(binding.actionId==0 || binding.actionId==1)
-                    bindings.Add("{\"action\":"+binding.actionId+",\"key\":"+(int)binding.keyCode+
+                if(binding.actionId==0 || binding.actionId==1 || binding.actionId==2 || binding.actionId==18) {
+                    string row="{\"action\":"+binding.actionId+",\"key\":"+(int)binding.keyCode+
                         ",\"type\":"+(int)binding.elementType+",\"range\":"+(int)binding.axisRange+
                         ",\"pole\":"+(int)binding.axisContribution+",\"invert\":"+(binding.invert?"true":"false")+
                         ",\"enabled\":"+(binding.enabled?"true":"false")+",\"modifier1\":"+(int)binding.modifierKey1+
-                        ",\"modifier2\":"+(int)binding.modifierKey2+",\"modifier3\":"+(int)binding.modifierKey3+"}");
+                        ",\"modifier2\":"+(int)binding.modifierKey2+",\"modifier3\":"+(int)binding.modifierKey3+"}";
+                    if(binding.actionId==0 || binding.actionId==1)bindings.Add(row); else submit.Add(row);
+                }
             maps.Add("{\"source\":"+map.sourceMapId+",\"category\":"+map.categoryId+",\"layout\":"+map.layoutId+
-                ",\"enabled\":"+(map.enabled?"true":"false")+",\"movement\":["+String.Join(",",bindings.ToArray())+"]}");
+                ",\"enabled\":"+(map.enabled?"true":"false")+",\"movement\":["+String.Join(",",bindings.ToArray())+
+                "],\"submit\":["+String.Join(",",submit.ToArray())+"]}");
         }
         return "{\"maps\":["+String.Join(",",maps.ToArray())+"]}";
     }
@@ -426,6 +443,21 @@ public sealed class ForestProbe : MonoBehaviour
             nativeMovementUp &= !n; asyncMovementUp &= !a; rewiredMovementUp &= !r; unityMovementUp &= !u;
             if(i<4) { nativeArrowsUp &= !n; asyncArrowsUp &= !a; rewiredArrowsUp &= !r; unityArrowsUp &= !u; }
         }
+        // Observe every original action2 key, including the Control alternatives.
+        // These additional fields do not replace the accepted eight-key guards.
+        bool nativeSubmitUp=valid, asyncSubmitUp=true, rewiredSubmitUp=true, unitySubmitUp=true;
+        var nativeSubmitDown=new List<string>(); var asyncSubmitDown=new List<string>();
+        var rewiredSubmitDown=new List<string>(); var unitySubmitDown=new List<string>();
+        var submitNativeCodes=new[]{0x0d,0x20,0xa2,0xa3};
+        var submitUnityCodes=new[]{KeyCode.Return,KeyCode.Space,KeyCode.LeftControl,KeyCode.RightControl};
+        for(int i=0;i<submitNativeCodes.Length;i++) {
+            bool n=(keys[submitNativeCodes[i]]&128)!=0, a=(GetAsyncKeyState(submitNativeCodes[i])&0x8000)!=0;
+            bool r=keyboard.GetKey(submitUnityCodes[i]), u=Input.GetKey(submitUnityCodes[i]);
+            string label=submitUnityCodes[i].ToString();
+            if(n)nativeSubmitDown.Add(label); if(a)asyncSubmitDown.Add(label);
+            if(r)rewiredSubmitDown.Add(label); if(u)unitySubmitDown.Add(label);
+            nativeSubmitUp &= !n; asyncSubmitUp &= !a; rewiredSubmitUp &= !r; unitySubmitUp &= !u;
+        }
         // Observe the real producer and public getters. Never feed these values back.
         keyboardSamples.Add("keyboard | frame="+Time.frameCount+" | scaledTime="+Time.time+
             " | timeScale="+Time.timeScale+" | time="+Time.realtimeSinceStartup+
@@ -448,6 +480,16 @@ public sealed class ForestProbe : MonoBehaviour
             " | asyncMovementDown="+String.Join(",",asyncDown.ToArray())+
             " | rewiredMovementDown="+String.Join(",",rewiredDown.ToArray())+
             " | unityMovementDown="+String.Join(",",unityDown.ToArray())+
+            " | nativeSubmitUp="+nativeSubmitUp+" | asyncSubmitUp="+asyncSubmitUp+
+            " | rewiredSubmitUp="+rewiredSubmitUp+" | unitySubmitUp="+unitySubmitUp+
+            " | nativeSubmitDown="+String.Join(",",nativeSubmitDown.ToArray())+
+            " | asyncSubmitDown="+String.Join(",",asyncSubmitDown.ToArray())+
+            " | rewiredSubmitDown="+String.Join(",",rewiredSubmitDown.ToArray())+
+            " | unitySubmitDown="+String.Join(",",unitySubmitDown.ToArray())+
+            " | rewiredAction2Held="+(player==null?"null":player.GetButton(2).ToString())+
+            " | rewiredAction2Down="+(player==null?"null":player.GetButtonDown(2).ToString())+
+            " | helperSubmitDown="+TheForestOfLove.InputHelper.IsSubmitButtonDown+
+            " | unityReturnDown="+Input.GetKeyDown(KeyCode.Return)+
             " | scene="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+
             " | routeDoorTransition="+NaturalDoorTransition()+
             " | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
@@ -495,6 +537,114 @@ public sealed class ForestProbe : MonoBehaviour
             rows.Add(DiagnosticValue(value));
         }
         return String.Join(",",rows.ToArray());
+    }
+    static string BuckyCallback(Delegate callback) {
+        if(callback==null)return "null";
+        return ObjectAddress(callback.Target)+"::"+callback.Method.DeclaringType.FullName+"::"+callback.Method.Name;
+    }
+    static string BuckyRuntimeListeners(UnityEngine.Events.UnityEventBase source) {
+        var calls=typeof(UnityEngine.Events.UnityEventBase).GetField("m_Calls",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(source);
+        var runtime=ReadField(calls,"m_RuntimeCalls") as IList;
+        if(runtime==null || runtime.Count>16)throw new Exception("Missing or unbounded Bucky collision listeners");
+        var rows=new List<string>();
+        foreach(var call in runtime) {
+            var callback=ReadField(call,"Delegate") as Delegate;
+            if(callback==null || callback.GetInvocationList().Length!=1)throw new Exception("Unknown Bucky collision callback");
+            rows.Add(BuckyCallback(callback));
+        }
+        rows.Sort(StringComparer.Ordinal);
+        return "persistent="+source.GetPersistentEventCount()+" | callbacks="+String.Join(",",rows.ToArray());
+    }
+    // Observe original fields and real physics contacts only. No availability,
+    // callback invocation, control acquisition, dialogue dispatch or state writes.
+    string[] BuckyInteractionDiagnostics() {
+        const string actorPath="SpawnedContent/Critters/Bucky/Content/BuckyOnNorthShore(Clone)";
+        var rows=new List<string>();
+        TheForestOfLove.Gameplay.SpawnableActor actor=null;
+        foreach(var item in Resources.FindObjectsOfTypeAll<TheForestOfLove.Gameplay.SpawnableActor>())
+            if(item.gameObject.scene.IsValid() && Address(item.transform)==actorPath) {
+                if(actor!=null)throw new Exception("Ambiguous Bucky actor");actor=item;
+            }
+        TheForestOfLove.InteractionUiController controller=null;
+        foreach(var item in Resources.FindObjectsOfTypeAll<TheForestOfLove.InteractionUiController>())
+            if(item.gameObject.scene.IsValid() && Address(item.transform)==actorPath+"/Interaction/InteractionUiController") {
+                if(controller!=null)throw new Exception("Ambiguous Bucky controller");controller=item;
+            }
+        if(actor==null || controller==null)throw new Exception("Bucky actor/controller absent");
+        var trigger=ReadField(controller,"dialogueInteractionTrigger") as TheForestOfLove.Interaction.DialogueInteractionTrigger;
+        var ui=ReadField(controller,"interactionUi") as TheForestOfLove.InteractionUi;
+        var listener=ReadField(controller,"collisionEventListener") as TheForestOfLove.CollisionEventListener;
+        var settings=trigger==null?null:ReadField(trigger,"settings") as TheForestOfLove.DialogueSettings;
+        var player=TheForestOfLove.Player.current;
+        if(trigger==null || ui==null || listener==null || settings==null || player==null)
+            throw new Exception("Missing loaded Bucky bindings/Player");
+        var capsule=listener.GetComponent<CapsuleCollider2D>();
+        var rootCollider=player.GetComponent<CircleCollider2D>();
+        var body=player.GetComponent<Rigidbody2D>();
+        if(capsule==null || rootCollider==null || body==null)throw new Exception("Missing loaded Bucky/Player physics");
+        int controllerAuthority=(int)typeof(TheForestOfLove.InteractionUiController).GetField("authorityId",BindingFlags.Static|BindingFlags.NonPublic|BindingFlags.Public).GetValue(null);
+        int triggerAuthority=(int)typeof(TheForestOfLove.Interaction.DialogueInteractionTrigger).GetField("authorityId",BindingFlags.Static|BindingFlags.NonPublic|BindingFlags.Public).GetValue(null);
+        rows.Add("buckyGuards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+" | conversation="+DialogueManager.isConversationActive);
+        rows.Add("buckyActor | path="+Address(actor.transform)+" | id="+actor.GetInstanceID()+" | gameObject="+actor.gameObject.GetInstanceID()+
+            " | type="+actor.GetType().FullName+" | dbName="+actor.ActorDbName+" | active="+actor.gameObject.activeInHierarchy+
+            " | enabled="+actor.enabled+" | position="+Vector(actor.transform.position));
+        rows.Add("buckyController | path="+Address(controller.transform)+" | id="+controller.GetInstanceID()+
+            " | gameObject="+controller.gameObject.GetInstanceID()+" | type="+controller.GetType().FullName+
+            " | active="+controller.gameObject.activeInHierarchy+" | enabled="+controller.enabled+
+            " | authorityId="+controllerAuthority+" | touching="+ReadField(controller,"isPlayerTouching")+
+            " | available="+ListValues(ReadField(controller,"availableOptions") as IEnumerable)+
+            " | disallowed="+ListValues(ReadField(controller,"disallowedOptions") as IEnumerable));
+        rows.Add("buckyTrigger | path="+Address(trigger.transform)+" | id="+trigger.GetInstanceID()+
+            " | gameObject="+trigger.gameObject.GetInstanceID()+" | type="+trigger.GetType().FullName+
+            " | active="+trigger.gameObject.activeInHierarchy+" | enabled="+trigger.enabled+
+            " | authorityId="+triggerAuthority+" | touching="+ReadField(trigger,"isPlayerTouching")+
+            " | mode="+(int)trigger.interactionMode+" | triggered="+ReadField(trigger,"isTriggered")+
+            " | cooldown="+ReadField(trigger,"cooldownLoopsRemaining")+" | blocked="+trigger.interactionBlocked+
+            " | onCollision="+ReadField(trigger,"triggerOnCollision")+" | withoutUi="+ReadField(trigger,"allowTriggeringWithoutUi")+
+            " | namedTrigger="+trigger.TriggerDbName+" | maxTimes="+ReadField(typeof(TheForestOfLove.Interaction.InteractionTrigger),trigger,"maxTimesTriggerable"));
+        rows.Add("buckySettings | path="+Address(settings.transform)+" | id="+settings.GetInstanceID()+
+            " | type="+settings.GetType().FullName+" | active="+settings.gameObject.activeInHierarchy+" | enabled="+settings.enabled+
+            " | actor="+settings.ActorDbName+" | dialogue="+settings.DialogueDbName+" | arc="+settings.ArcDbName);
+        int sharedUiCount=0;
+        foreach(var item in Resources.FindObjectsOfTypeAll<TheForestOfLove.InteractionUi>())
+            if(item.gameObject.scene.IsValid() && item.gameObject.activeInHierarchy)sharedUiCount++;
+        var selected=ReadField(ui,"onOptionSelected") as Delegate;
+        var selectedCallbacks=new List<string>();
+        if(selected!=null)foreach(var callback in selected.GetInvocationList())selectedCallbacks.Add(BuckyCallback(callback));
+        rows.Add("buckyUi | path="+Address(ui.transform)+" | id="+ui.GetInstanceID()+" | type="+ui.GetType().FullName+
+            " | active="+ui.gameObject.activeInHierarchy+" | enabled="+ui.enabled+" | activeCount="+sharedUiCount+
+            " | visible="+TheForestOfLove.InteractionUi.visible+" | locked="+ui.locked+" | selected="+(int)ui.currentSelectedOption+
+            " | available="+ListValues(ReadField(ui,"availableOptions") as IEnumerable)+" | callbacks="+String.Join(",",selectedCallbacks.ToArray()));
+        rows.Add("buckyBindings | actor="+System.Object.ReferenceEquals(ReadField(controller,"character"),actor)+
+            " | listener="+System.Object.ReferenceEquals(ReadField(trigger,"collisionEventListener"),listener)+
+            " | actorParent="+(controller.GetComponentInParent<TheForestOfLove.Gameplay.SpawnableActor>()==actor)+
+            " | settingsObject="+(settings.gameObject==trigger.gameObject)+
+            " | controllerDescendant="+controller.transform.IsChildOf(actor.transform)+
+            " | triggerDescendant="+trigger.transform.IsChildOf(actor.transform)+
+            " | listenerDescendant="+listener.transform.IsChildOf(actor.transform));
+        rows.Add("buckyCollision | path="+Address(listener.transform)+" | id="+listener.GetInstanceID()+
+            " | type="+listener.GetType().FullName+" | active="+listener.gameObject.activeInHierarchy+" | enabled="+listener.enabled+
+            " | collider="+capsule.GetInstanceID()+" | colliderType="+capsule.GetType().FullName+" | colliderCount="+listener.GetComponents<Collider2D>().Length+
+            " | colliderEnabled="+capsule.enabled+" | isTrigger="+capsule.isTrigger+" | size="+Vector(capsule.size)+
+            " | offset="+Vector(capsule.offset)+" | scale="+Vector(capsule.transform.lossyScale)+
+            " | boundsCenter="+Vector(capsule.bounds.center)+" | boundsSize="+Vector(capsule.bounds.size)+
+            " | rootTouch="+capsule.IsTouching(rootCollider)+" | ignoredPair="+Physics2D.GetIgnoreCollision(capsule,rootCollider));
+        rows.Add("buckyEnter | "+BuckyRuntimeListeners(listener.onTriggerEnter2D));
+        rows.Add("buckyStay | "+BuckyRuntimeListeners(listener.onTriggerStay2D));
+        rows.Add("buckyExit | "+BuckyRuntimeListeners(listener.onTriggerExit2D));
+        rows.Add("buckyPlayer | path="+Address(player.transform)+" | id="+player.GetInstanceID()+" | type="+player.GetType().FullName+
+            " | active="+player.gameObject.activeInHierarchy+" | enabled="+player.enabled+" | canInteract="+player.canInteract+
+            " | body="+body.GetInstanceID()+" | bodyType="+body.bodyType+" | bodySimulated="+body.simulated+
+            " | rootCollider="+rootCollider.GetInstanceID()+" | rootColliderEnabled="+rootCollider.enabled+
+            " | rootIsTrigger="+rootCollider.isTrigger+" | rootTag="+rootCollider.gameObject.tag+
+            " | position="+Vector(player.transform.position)+" | velocity="+Vector(body.velocity));
+        return rows.ToArray();
+    }
+    static object ReadField(Type declaringType, object owner, string name) {
+        var field=declaringType.GetField(name,BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.DeclaredOnly);
+        if(field==null)throw new Exception("Unknown declared diagnostic field: "+declaringType.Name+"."+name);
+        return field.GetValue(owner);
     }
     static string Vector(Vector3 value) {
         return String.Format(System.Globalization.CultureInfo.InvariantCulture,"{0:R},{1:R},{2:R}",value.x,value.y,value.z);
