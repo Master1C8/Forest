@@ -2,7 +2,7 @@
 from pathlib import Path
 import sys
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 import tempfile
 import copy
 import subprocess
@@ -14,6 +14,65 @@ from diagnose_native_input import release_observed, menu_guard, menu_ready, deli
 from diagnose_newgame import keyboard_idle, loaded_travel, movement_ready
 import diagnose_newgame as gameplay
 import json
+
+
+class StartupLifetimeObservation(unittest.TestCase):
+    """Real child exit codes; fixtures replace only Unity logs/process identities."""
+
+    def test_exited_launcher_without_owned_game_rejects_even_stale_ready(self):
+        for code in [0, 7]:
+            for marker in [False, True]:
+                with self.subTest(code=code, marker=marker), tempfile.TemporaryDirectory() as directory:
+                    run = Path(directory)
+                    if marker:
+                        (run / 'player.log').write_text('FOREST_PROBE_READY\n')
+                    child = subprocess.Popen([sys.executable, '-c', 'raise SystemExit(%d)' % code])
+                    self.assertEqual(child.wait(timeout=15), code)
+                    with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'processes', return_value=[]), patch.object(gameplay.time, 'sleep') as sleep:
+                        with self.assertRaisesRegex(AssertionError, 'Launcher exited before readiness.*returnCode=' + str(code)):
+                            gameplay.wait_for_ready(child)
+                        sleep.assert_not_called()
+                    receipt = json.loads((run / 'startup-observation.json').read_text())
+                    self.assertEqual(receipt['launcherExitCode'], code)
+                    self.assertEqual(receipt['readyMarker'], marker)
+                    self.assertEqual(receipt['result'], 'launcher-exited-without-game')
+                    self.assertFalse((run / 'command.txt').exists())
+
+    def test_exited_wrapper_with_surviving_game_and_ready_is_accepted(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory)
+            (run / 'player.log').write_text('FOREST_PROBE_READY\n')
+            child = Mock(poll=Mock(return_value=7))
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'processes', return_value=['fixture exact game']):
+                gameplay.wait_for_ready(child)
+            receipt = json.loads((run / 'startup-observation.json').read_text())
+            self.assertEqual(receipt['result'], 'ready')
+            self.assertEqual(receipt['launcherExitCode'], 7)
+            self.assertEqual(receipt['ownedProcessRows'], ['fixture exact game'])
+
+    def test_live_launcher_waits_for_real_marker(self):
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory)
+            child = Mock(poll=Mock(return_value=None))
+            def produce(_):
+                (run / 'player.log').write_text('FOREST_PROBE_READY\n')
+            with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'processes', return_value=['fixture exact game']), patch.object(gameplay.time, 'sleep', side_effect=produce) as sleep:
+                gameplay.wait_for_ready(child)
+            self.assertEqual(sleep.call_count, 1)
+            self.assertEqual(json.loads((run / 'startup-observation.json').read_text())['result'], 'ready')
+
+    def test_alive_or_detached_game_without_marker_keeps_original_timeout(self):
+        for code in [None, 7]:
+            with self.subTest(code=code), tempfile.TemporaryDirectory() as directory:
+                run = Path(directory)
+                child = Mock(poll=Mock(return_value=code))
+                with patch.object(gameplay, 'RUN', run), patch.object(gameplay, 'processes', return_value=['fixture exact game']), patch.object(gameplay.time, 'monotonic', side_effect=[0, 0, 301]), patch.object(gameplay.time, 'sleep'):
+                    with self.assertRaisesRegex(AssertionError, '^Startup marker timeout$'):
+                        gameplay.wait_for_ready(child)
+                receipt = json.loads((run / 'startup-observation.json').read_text())
+                self.assertEqual(receipt['result'], 'timeout')
+                self.assertEqual(receipt['ownedProcessRows'], ['fixture exact game'])
+                self.assertFalse(receipt['readyMarker'])
 
 
 class NativeReleaseObservation(unittest.TestCase):

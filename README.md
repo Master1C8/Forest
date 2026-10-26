@@ -1,12 +1,31 @@
-## Phase0031: source-bound intro observation repaired; runtime pending
+## Phase0032: one fresh runtime exited before readiness; startup lifetime repaired
 
-Original timer/cleanup and all90 consumed38 timestamps traced. Compact same-frame intro observation and bounded stage/forward-progress budgets repaired; two real terminal frames still required.43 tests passed, fresh bridge compile/IL and exact startup injection readback passed. No game launch/images;38 remains failed and no39 is prepared. All150 original managed refs,19 distinct live-lane input pins and38 evidence preserved.
+Candidate39 was prepared once from exact34 resource bytes and a full269-file enumeration,
+with only catalog/app.info as declared companions beyond five resource pairs. All19
+live-lane input pins,150 original managed references, separate clone inodes, excluded
+nested tfol files and363 frozen dependencies were verified. Fresh bridge/injector compile
+and exact instruction readback passed;43 initial tests passed.
 
-Source confirms that Ending exits cinematic mode and activates the end trigger before a separate 3-second scaled-time timer enables the bed and destroys the controller. In 38, firstContinue arrived 54.405516s after New; finalContinue arrived 227.805037s after New. The old 240s budget also included 90 full dumps, 90 separate notebook dumps and 6 tutorial dumps. Actual per-command CPU cost, FPS and eventual cleanup remain unknown.
+The single runtime exited1 during Mono initialization, before FOREST_PROBE_READY. No
+menu command, New, intro, native task pulse or image ran. The launcher zombie and absence
+of exact owned game processes were recorded before SIGINT ended only the waiting technical
+observer through its existing cleanup. The failed KeyboardInterrupt receipt is preserved;
+normal Quit was not acknowledged because the game had already exited. Original resources,
+owner player files, all19 pins and361 frozen hashes plus2 intended DLL cleanup exceptions
+passed verification; QA persistence is empty. The startup failure cause remains unknown.
 
-The shared observer now reads dialogue/responses/guards/controller/trigger/bed in one game-thread callback with frame/realtime/scaledTime/timeScale. Bootstrap, dialogue and cleanup have separate hard/forward-progress bounds plus a 360s total limit; repeats, acks and clock changes do not renew progress. Distinct real terminal frames remain mandatory. No performance improvement or runtime success is inferred from static tests.
+The shared startup waiter now records launcher exit and actual surviving game identities,
+rejecting early death while preserving a detached live game's chance to reach readiness.
+All47 intro/native/transport/startup tests passed. These fixtures do not prove Unity startup,
+the repaired compact intro serialization, cleanup, gameplay route or performance.39 is
+consumed and must never be replayed; diagnose the early Mono boundary statically and establish
+a materially changed hypothesis before a future new runtime.
 
-Evidence: `localization/source/intro-observation-20261026`. Accepted 10/15/29/33/36 scopes and all pending renderer/source/special-scene/editorial/delivery gates remain unchanged. The Russian and six other asset lanes are authorized and read-only to this lane. Previous summary: `localization/history/phase0030-summary.md`.
+Evidence: `localization/probes/ru-20261026-39/runtime-diagnosis.json` and
+`localization/source/startup-boundary-20261026/lifetime-repair.json`. Accepted10/15/29/33/36
+scopes remain unchanged; complete source/special-scene/editorial/renderer/delivery gates
+remain pending. All authorized asset lanes remain read-only to the technical lane.
+Previous summary: `localization/history/phase0031-summary.md`.
 
 # The Forest of Love: Russian localization work
 

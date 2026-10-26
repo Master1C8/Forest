@@ -127,10 +127,7 @@ def main():
                               'frozenManifestSha256': sha(run / 'frozen-files.json')})
         # Match the existing New-game runner.35 reached its real bridge only
         # after this menu runner's former180s boundary; no input had been sent.
-        deadline = time.monotonic() + 300
-        while not (run / 'player.log').exists() or 'FOREST_PROBE_READY' not in (run / 'player.log').read_text(errors='replace'):
-            assert time.monotonic() < deadline, 'Startup marker timeout'
-            time.sleep(1)
+        shared.wait_for_ready(child)
         (run / 'actions.log').touch(exist_ok=True)
         command('show-menu'); command('dump')
         state = shared.read_state()

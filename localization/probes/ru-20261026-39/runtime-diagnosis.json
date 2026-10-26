@@ -1,0 +1,46 @@
+{
+  "candidate": "39; consumed once, never replay",
+  "observedAt": "2026-10-26T12:51:01.924217+00:00",
+  "firstDivergence": "Original launch -> Unity Mono initialization -> process exit1 before passive MainMenu readiness; no bridge command, menu, New or native pulse",
+  "launchFlagsEquivalentTo38": true,
+  "resourceBytes": "Exact34 five resource pairs plus catalog and QA app.info;269 whole-game files enumerated before hook install",
+  "launcherExit": {
+    "controlProcessStatus": "60572 60571 Z     700",
+    "controlExitCode": 7,
+    "format": "macOS ps XSTAT hexadecimal wait status; local exit7 control produced700",
+    "candidate39RawXstat": "100",
+    "candidate39DecodedExitCode": 1,
+    "boundary": "Local non-game child calibrates wait-status format; it does not establish why Unity exited"
+  },
+  "startupEvidence": [
+    "launch.json",
+    "player.log",
+    "wine.log",
+    "early-launch-exit.json",
+    "exit-status-calibration.json"
+  ],
+  "cause": "unknown; no newer game crash report identified in bounded DiagnosticReports filenames. High workstation load recorded, without attributing the exit to it.",
+  "observerOutcome": "Compact dump-intro serialization, staged budgeting and real terminal cleanup remain runtime-unverified after31 repair",
+  "observerInterruption": "SIGINT to verified technical Python PID59431 after actual launcher zombie PID59449 and no exact owned game; existing finally restored QA files. Preserve KeyboardInterrupt failed receipt; not a normal Quit.",
+  "newGameCommands": 0,
+  "nativeTaskPulses": 0,
+  "gameLaunches": 1,
+  "imagesOpened": 0,
+  "imagesCaptured": 0,
+  "cleanup": {
+    "frozenDependenciesUnchanged": true,
+    "originalManagedReferencesUnchanged": true,
+    "originalOtherGameFilesUnchanged": true,
+    "resourcePairsUnchanged": true,
+    "inputPinsUnchanged": true,
+    "ownerPlayerFilesUnchanged": true,
+    "originalQAAssemblyRestored": true,
+    "inspectionBridgeRemoved": true,
+    "exactTaskProcessesAbsent": true,
+    "originalCatalogUnchanged": true,
+    "originalAppIdentityUnchanged": true,
+    "qaPersistenceEmpty": true
+  },
+  "consumed38EvidenceUnchanged": true,
+  "nextBoundary": "Static diagnosis of early Unity/Mono exit; prove changed hypothesis before any later new runtime. No second runtime in this phase."
+}

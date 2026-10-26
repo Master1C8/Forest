@@ -38,6 +38,37 @@ def processes():
             if any(path in line for path in paths)]
 
 
+def wait_for_ready(child, timeout=300):
+    """Bound startup by both real readiness and the exact owned process lifetime.
+
+    A CrossOver launcher can exit while its real game survives. Its exit alone
+    is insufficient; preserve that distinction and never retry a consumed copy.
+    """
+    started = time.monotonic()
+    while True:
+        log = RUN / 'player.log'
+        raw = log.read_bytes() if log.exists() else b''
+        ready = b'FOREST_PROBE_READY' in raw
+        code = child.poll()
+        owned = processes() if code is not None or ready else None
+        elapsed = time.monotonic() - started
+        result = ('launcher-exited-without-game' if code is not None and not owned
+                  else 'ready' if ready else 'timeout' if elapsed >= timeout else None)
+        if result is not None:
+            if owned is None:
+                owned = processes()
+            write('startup-observation.json', dict(result=result, launcherExitCode=code,
+                  elapsedSeconds=round(elapsed, 3), readyMarker=ready,
+                  ownedProcessRows=owned, playerLogBytes=len(raw),
+                  playerLogSha256=hashlib.sha256(raw).hexdigest(),
+                  pendingCommand=(RUN / 'command.txt').exists(),
+                  boundary='Launcher poll plus exact executable-path process scan; no game command or retry'))
+            assert result != 'launcher-exited-without-game', 'Launcher exited before readiness with no surviving owned game: returnCode=' + str(code)
+            assert result != 'timeout', 'Startup marker timeout'
+            return
+        time.sleep(min(1, max(0, timeout - elapsed)))
+
+
 def command(value, deadline=None):
     timeout = 25 if deadline is None else min(25, deadline - time.monotonic())
     assert timeout > 0, 'Observation budget exhausted before command submission'
@@ -621,10 +652,7 @@ def main():
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
                              'scope': 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility'})
-        deadline = time.monotonic() + 300
-        while not (RUN / 'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN / 'player.log').read_text(errors='replace'):
-            assert time.monotonic() < deadline, 'Startup marker timeout'
-            time.sleep(1)
+        wait_for_ready(child)
         (RUN / 'actions.log').touch(exist_ok=True)
         command('show-menu')
         command('dump')
