@@ -1,0 +1,26 @@
+{
+  "commands": {
+    "TriggerActivation.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.NarrativeActions",
+      "ActivateTrigger"
+    ],
+    "IntroCleanupFields.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.IntroBunnyHouseCutscene",
+      "--fields"
+    ]
+  },
+  "assemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "files": {
+    "TriggerActivation.il": "de425d7b60c586d997f310ffa380181156c33ec9d381110e787684212a8df594",
+    "IntroCleanupFields.il": "d55cb1177f3e2c2446075df62d505ef02860ae6d3c675b6d291bf0f774d08fa9"
+  },
+  "additionalOriginalConsumers": {
+    "localization/source/intro-20261026/IntroBunnyHouse.il": "e03a643b6f7c954d8b5df3f842fc88a24b8d4dca3c4ad9a1c3e2172b600b1ced"
+  }
+}

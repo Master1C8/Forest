@@ -32,7 +32,8 @@ def tutorial(entry=153, responses=None):
     return dict(conversationActive=True, conversationId=120, entryId=entry,
         narrativeDbName='TutorialQuest_IntroFromBunny', narrativeArcName='',
         conversationState=text, responses=responses or [], typing=False,
-        frame=1, realtime=1., scaledTime=1., timeScale=1., scene='CentralForest')
+        frame=1, realtime=1., scaledTime=1., timeScale=1., scene='CentralForest',
+        diagnosticsReady=True, dataServicePresent=True, manifestPresent=True, dataServiceInstance=101, notReady=[])
 
 
 def response(entry):
@@ -167,6 +168,107 @@ class SaveContinue(unittest.TestCase):
         self.assertEqual(b.progress_at, 1)
         with self.assertRaisesRegex(AssertionError, 'forward progress stalled: dialogue'):
             b.observe_continue(31, dict(tutorial(), frame=3, realtime=3.), PREFIX)
+
+
+    def test_scalar_readiness_matching_ready_control(self):
+        s = tutorial()
+        self.assertTrue(probe.continue_diagnostic_ready(s))
+        for reason in ['DataManifest.generalData', 'DataManifest.triggersByTriggerName',
+                       'quest.Act1_TutorialQuest.primaryArcs', 'GameStateManager.isEventActive']:
+            self.assertFalse(probe.continue_diagnostic_ready(dict(s, diagnosticsReady=False, notReady=[reason])))
+        self.assertFalse(probe.continue_diagnostic_ready(dict(s, diagnosticsReady=False,
+            dataServicePresent=False, manifestPresent=False, dataServiceInstance=0, notReady=['DataService._instance'])))
+        self.assertFalse(probe.continue_diagnostic_ready(dict(s, diagnosticsReady=False,
+            manifestPresent=False, notReady=['DataService._manifest'])))
+
+    def test_readiness_rejects_inconsistent_and_arbitrary_failures(self):
+        for change, reason in [({'diagnosticsReady':False}, 'readiness/list disagree'),
+              ({'notReady':['DataManifest.generalData']}, 'readiness/list disagree'),
+              ({'diagnosticsReady':False,'notReady':['NullReferenceException']}, 'Unknown not-ready'),
+              ({'diagnosticsReady':False,'dataServicePresent':False,'notReady':['DataService._instance']}, 'absent singleton'),
+              ({'diagnosticsReady':False,'manifestPresent':False,'notReady':['DataManifest.generalData']}, 'absent manifest'),
+              ({'dataServiceInstance':0}, 'service instance identity')]:
+            with self.subTest(change=change):
+                with self.assertRaisesRegex(AssertionError, reason):
+                    probe.continue_diagnostic_ready(dict(tutorial(), **change))
+
+    def test_scalar_wait_never_renews_idle_or_hard_budgets(self):
+        b = probe.ContinueObservationBudget(0)
+        for now, scene, missing in [(1,'StartMenu','DataService._instance'),
+                (20,'SoftResetLoadingScene','DataService._manifest'),
+                (59,'ChapterSelect','DataManifest.generalData')]:
+            s = dict(tutorial(), frame=now, realtime=float(now), scene=scene,
+                     diagnosticsReady=False, notReady=[missing])
+            if missing=='DataService._instance':
+                s.update(dataServicePresent=False,manifestPresent=False,dataServiceInstance=0)
+            elif missing=='DataService._manifest':s.update(manifestPresent=False)
+            self.assertEqual(b.observe_not_ready(now,s), (None,False))
+            self.assertEqual((b.started,b.stage_started,b.progress_at,b.deadline), (0,0,0,60))
+        with self.assertRaisesRegex(AssertionError, 'forward progress stalled: bootstrap'):
+            b.observe_not_ready(60,s)
+        with self.assertRaisesRegex(AssertionError, 'total hard limit'):
+            b.observe_not_ready(360,s)
+
+    def test_not_ready_scene_and_post_dialogue_loss_fail_at_intended_boundaries(self):
+        s = dict(tutorial(), diagnosticsReady=False, notReady=['DataManifest.generalData'])
+        with self.assertRaisesRegex(AssertionError, 'Unexpected not-ready scene'):
+            probe.ContinueObservationBudget(0).observe_not_ready(1,dict(s,scene='BunnyHouse'))
+        b = probe.ContinueObservationBudget(0)
+        b.observe_continue(1,tutorial(),PREFIX)
+        with self.assertRaisesRegex(AssertionError, 'disappeared after tutorial'):
+            b.observe_not_ready(2,dict(s,frame=2,realtime=2.))
+        with self.assertRaisesRegex(AssertionError, 'Full diagnostic dependencies not ready'):
+            probe.ContinueObservationBudget(0).observe_continue(1,s,PREFIX)
+
+    def test_readiness_to_real_dialogue_retains_original_caps_and_frames(self):
+        b = probe.ContinueObservationBudget(0)
+        s = dict(tutorial(), diagnosticsReady=False, notReady=['DataManifest.generalData'])
+        b.observe_not_ready(1,s)
+        with self.assertRaisesRegex(AssertionError, 'new real frame'):
+            b.observe_continue(2,tutorial(),PREFIX)
+        b.observe_continue(3,dict(tutorial(),frame=2,realtime=2.),PREFIX)
+        self.assertEqual((b.started,b.stage_started,b.progress_at), (0,3,3))
+        self.assertEqual(b.deadline,33)
+
+
+    def test_observer_skips_intro_after_scalar_save_and_rechecks_intro_readiness(self):
+        # Mock command/file transport and identity only; actual adapter/budget/fixture
+        # guards execute. This cannot establish Unity lifecycle or deserialization.
+        ready = dict(loaded(), diagnosticsReady=True, dataServicePresent=True,
+                     manifestPresent=True, dataServiceInstance=101, notReady=[])
+        menu = dict(ready, components=['PlayMenu Canvas/PlayMenu'], buttons=['Canvas/PlayMenu/Controls/Continue'])
+        for transitional in [False, True]:
+            with self.subTest(transitional=transitional), tempfile.TemporaryDirectory() as tmp:
+                run = Path(tmp); (run/'tutorial-prefix.json').write_text(json.dumps(PREFIX))
+                calls=[]; save_count=0; intro_count=0
+                def native(cmd, **kwargs):
+                    nonlocal save_count, intro_count
+                    calls.append(cmd)
+                    if cmd=='dump-save-continuation':
+                        save_count+=1
+                        sample=dict(ready)
+                        if transitional and save_count==2:
+                            sample.update(diagnosticsReady=False,dataServicePresent=False,manifestPresent=False,
+                                dataServiceInstance=0,notReady=['DataService._instance'],frame=1,realtime=1.,scaledTime=1.,timeScale=1.)
+                        (run/'save-continuation.json').write_text(json.dumps(sample))
+                    if cmd=='dump-intro':
+                        intro_count+=1
+                        if not transitional or intro_count==2:raise RuntimeError('stop at ready intro boundary')
+                        (run/'intro-state.json').write_text(json.dumps(dict(tutorial(),diagnosticsReady=False,
+                            notReady=['DataManifest.generalData'],frame=2,realtime=2.,responseRecords=[],responseCount=0)))
+                with patch.object(probe,'RUN',run), patch.object(probe,'command',side_effect=native), \
+                     patch.object(probe,'qa_identity'), patch.object(probe.time,'monotonic',return_value=1), \
+                     patch.object(probe.time,'sleep'):
+                    with self.assertRaisesRegex(RuntimeError,'stop at ready intro boundary'):
+                        probe.continue_from_fixture(menu,FIXTURE,probe.ContinueObservationBudget(0))
+                if transitional:
+                    self.assertEqual(calls, ['dump-save-continuation','menu PlayMenu OnClickContinue',
+                        'dump-save-continuation','dump-save-continuation','dump-intro','dump-save-continuation','dump-intro'])
+                    rows=json.loads((run/'continue-observations.json').read_text())
+                    self.assertEqual(len(rows),2)
+                    self.assertTrue(all(row['action'] is None and row['budget']['idle']==1 for row in rows))
+                else:
+                    self.assertEqual(calls,['dump-save-continuation','menu PlayMenu OnClickContinue','dump-save-continuation','dump-intro'])
 
 
 if __name__ == '__main__':

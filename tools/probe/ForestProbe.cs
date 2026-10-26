@@ -44,6 +44,9 @@ public sealed class ForestProbe : MonoBehaviour
         public int frame;
         public float realtime, scaledTime, timeScale;
         public string[] introDiagnostics;
+        public bool diagnosticsReady, dataServicePresent, manifestPresent;
+        public int dataServiceInstance;
+        public string[] notReady;
     }
     [Serializable] public sealed class NotebookRouteState {
         public string scene, company, product, dataPath, persistentDataPath;
@@ -761,24 +764,31 @@ public sealed class ForestProbe : MonoBehaviour
         }
     }
     void DumpIntro() {
-        // One game-thread observation. No glyph/layout, notebook, quest or
-        // availability traversal; original terminal consumers remain mandatory.
-        var responses=ReadResponses();
-        var rows=new List<string>();
-        rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
-            " | dustin="+TheForestOfLove.Services.SceneManagement.SceneHelper.inDustinMinigame+
-            " | glitch="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGlitchRoom+
-            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive);
-        rows.AddRange(IntroCleanupDiagnostics());
+        // Recheck on this game-thread command: service lifetime can change after
+        // a preceding save sample. No manifest consumer runs on a scalar sample.
         var state=new State{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
             dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
             company=Application.companyName,product=Application.productName,
             frame=Time.frameCount,realtime=Time.realtimeSinceStartup,scaledTime=Time.time,timeScale=Time.timeScale,
-            narrativeDbName=TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName,
-            narrativeArcName=TheForestOfLove.Narrative.DialogueService.CurrentArcName,
-            responseCount=responses.Count,responseRecords=responses.ConvertAll(row=>JsonUtility.ToJson(row)).ToArray(),
-            typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping(),introDiagnostics=rows.ToArray()};
-        ReadConversation(state);
+            responseRecords=new string[0],introDiagnostics=new string[0]};
+        state.notReady=ContinuationReadiness(out state.dataServicePresent,out state.manifestPresent,out state.dataServiceInstance);
+        state.diagnosticsReady=state.notReady.Length==0;
+        if(state.diagnosticsReady) {
+            var responses=ReadResponses();
+            var rows=new List<string>();
+            rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+                " | dustin="+TheForestOfLove.Services.SceneManagement.SceneHelper.inDustinMinigame+
+                " | glitch="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGlitchRoom+
+                " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive);
+            rows.AddRange(IntroCleanupDiagnostics());
+            state.narrativeDbName=TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName;
+            state.narrativeArcName=TheForestOfLove.Narrative.DialogueService.CurrentArcName;
+            state.responseCount=responses.Count;
+            state.responseRecords=responses.ConvertAll(row=>JsonUtility.ToJson(row)).ToArray();
+            state.typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping();
+            state.introDiagnostics=rows.ToArray();
+            ReadConversation(state);
+        }
         File.WriteAllText(Path.Combine(root,"intro-state.json"),JsonUtility.ToJson(state,true));
     }
     void Dump() {
@@ -880,7 +890,10 @@ public sealed class ForestProbe : MonoBehaviour
     [Serializable] public sealed class SaveContinuationState {
         public string scene, company, product, dataPath, persistentDataPath;
         public int frame;
-        public float realtime, storyClock;
+        public float realtime, scaledTime, timeScale, storyClock;
+        public bool diagnosticsReady, dataServicePresent, manifestPresent;
+        public int dataServiceInstance;
+        public string[] notReady;
         public bool hasSavedPlaySession, isChapterSelect, isCheatCode, isFinishingSoftReset;
         public bool gameplay, anyEvent, conversation;
         public string currentArea, lastArea, cameraSettingsObjectName;
@@ -892,42 +905,97 @@ public sealed class ForestProbe : MonoBehaviour
         public int introStatus, tutorialIntroControllers;
         public string[] diagnostics;
     }
+    // Read existing fields only. Never invoke Manifest (it dereferences _instance),
+    // lifecycle callbacks, service initialization, disk IO or eligibility APIs.
+    // Required nested collections are exactly the consumers used by both dumps.
+    string[] ContinuationReadiness(out bool servicePresent,out bool manifestPresent,out int serviceInstance) {
+        servicePresent=false;manifestPresent=false;serviceInstance=0;
+        var field=typeof(TheForestOfLove.Services.Persistence.DataService).GetField("_instance",BindingFlags.Static|BindingFlags.NonPublic);
+        if(field==null)throw new Exception("Unknown original DataService singleton field");
+        var service=field.GetValue(null) as TheForestOfLove.Services.Persistence.DataService;
+        if(service==null)return new[]{"DataService._instance"};
+        servicePresent=true;serviceInstance=service.GetInstanceID();
+        var manifest=ReadField(service,"_manifest") as TheForestOfLove.Narrative.DataManifest;
+        if(manifest==null)return new[]{"DataService._manifest"};
+        manifestPresent=true;
+        var missing=new List<string>();
+        if(manifest.playerRespawnData==null)missing.Add("DataManifest.playerRespawnData");
+        if(manifest.generalData==null)missing.Add("DataManifest.generalData");
+        if(manifest.triggersByTriggerName==null)missing.Add("DataManifest.triggersByTriggerName");
+        if(manifest.activeTagsByDbName==null)missing.Add("DataManifest.activeTagsByDbName");
+        if(manifest.dialoguesByDbName==null)missing.Add("DataManifest.dialoguesByDbName");
+        else {
+            TheForestOfLove.Narrative.Dialogue intro;
+            if(!manifest.dialoguesByDbName.TryGetValue("NewGame_Intro",out intro) || intro==null)
+                missing.Add("dialogue.NewGame_Intro");
+        }
+        if(manifest.questsByDbName==null)missing.Add("DataManifest.questsByDbName");
+        else foreach(var name in new[]{"Act1_TutorialQuest","Act1_GossipQuest"}) {
+            TheForestOfLove.Narrative.Quest quest;
+            if(!manifest.questsByDbName.TryGetValue(name,out quest) || quest==null) {missing.Add("quest."+name);continue;}
+            if(quest.dialogues==null) {missing.Add("quest."+name+".dialogues");continue;}
+            foreach(var dialogue in quest.dialogues) {
+                if(dialogue==null) {missing.Add("quest."+name+".dialogue");continue;}
+                if(dialogue.primaryArcs==null) {missing.Add("quest."+name+".primaryArcs");continue;}
+                foreach(var arc in dialogue.primaryArcs)
+                    if(arc==null)missing.Add("quest."+name+".primaryArc");
+            }
+        }
+        var eventsField=typeof(TheForestOfLove.Events.GameStateManager).GetField("isEventActive",BindingFlags.Static|BindingFlags.Public|BindingFlags.NonPublic);
+        if(eventsField==null)throw new Exception("Unknown original event array field");
+        var events=eventsField.GetValue(null) as bool[];
+        if(events==null || events.Length<11)missing.Add("GameStateManager.isEventActive");
+        return new List<string>(new HashSet<string>(missing)).ToArray();
+    }
     void DumpSaveContinuation() {
         // Source-pinned getters return existing records; do not read ES3, reload,
         // evaluate availability, save, or mutate the story/scene/player state.
+        var state=new SaveContinuationState {
+            scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            company=Application.companyName,product=Application.productName,
+            dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
+            frame=Time.frameCount,realtime=Time.realtimeSinceStartup,scaledTime=Time.time,timeScale=Time.timeScale,
+            diagnostics=new string[0]};
+        state.notReady=ContinuationReadiness(out state.dataServicePresent,out state.manifestPresent,out state.dataServiceInstance);
+        state.diagnosticsReady=state.notReady.Length==0;
+        if(!state.diagnosticsReady) {
+            File.WriteAllText(Path.Combine(root,"save-continuation.json"),JsonUtility.ToJson(state,true));
+            return;
+        }
         var respawn=TheForestOfLove.Services.Persistence.DataService.GetPlayerRespawnData();
         var general=TheForestOfLove.Services.Persistence.DataService.GetGeneralData();
-        if(respawn==null || general==null)throw new Exception("Original save manifest not ready");
         var player=TheForestOfLove.Player.current;
         var intro=TheForestOfLove.Services.Persistence.DataService.GetDialogueByDbName("NewGame_Intro");
         if(intro==null)throw new Exception("Missing original intro record");
         int controllers=0;
         foreach(var controller in Resources.FindObjectsOfTypeAll<TheForestOfLove.TutorialQuestBunnyIntroduction>())
             if(controller.gameObject.scene.IsValid() && controller.gameObject.activeInHierarchy)controllers++;
-        var state=new SaveContinuationState {
-            scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
-            company=Application.companyName,product=Application.productName,
-            dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
-            frame=Time.frameCount,realtime=Time.realtimeSinceStartup,
-            hasSavedPlaySession=TheForestOfLove.Services.Persistence.SaveManager.HasSavedPlaySession,
-            isChapterSelect=Globals.isChapterSelect,isCheatCode=Globals.isCheatCode,
-            isFinishingSoftReset=Globals.isFinishingSoftReset,
-            gameplay=TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene,
-            anyEvent=TheForestOfLove.Events.GameStateManager.isAnyEventActive,
-            conversation=DialogueManager.IsConversationActive,
-            currentArea=respawn.currentAreaUnitySceneName,lastArea=respawn.lastAreaUnitySceneName,
-            lastPosition=respawn.lastPosition,lastSpawnPosition=respawn.lastSpawnPosition,
-            lastPositionExact=respawn.lastPositionExact,isSwimming=respawn.isSwimming,
-            isFastTraveling=respawn.isFastTraveling,cameraSettingsObjectName=respawn.cameraSettingsObjectName,
-            storyClock=general.storyClock,finishedControlTutorial=general.finishedControlTutorial,
-            finishedDialogueTutorial=general.finishedDialogueTutorial,
-            finishedGossipTutorial=general.finishedGossipTutorial,
-            playerPresent=player!=null && player.gameObject.activeInHierarchy,
-            playerPath=player==null?null:Address(player.transform),playerInstance=player==null?0:player.GetInstanceID(),
-            playerPosition=player==null?Vector3.zero:player.transform.position,
-            introStatus=(int)intro.status,tutorialIntroControllers=controllers,
-            diagnostics=TutorialRouteDiagnostics()
-        };
+        state.hasSavedPlaySession=TheForestOfLove.Services.Persistence.SaveManager.HasSavedPlaySession;
+        state.isChapterSelect=Globals.isChapterSelect;
+        state.isCheatCode=Globals.isCheatCode;
+        state.isFinishingSoftReset=Globals.isFinishingSoftReset;
+        state.gameplay=TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene;
+        state.anyEvent=TheForestOfLove.Events.GameStateManager.isAnyEventActive;
+        state.conversation=DialogueManager.IsConversationActive;
+        state.currentArea=respawn.currentAreaUnitySceneName;
+        state.lastArea=respawn.lastAreaUnitySceneName;
+        state.lastPosition=respawn.lastPosition;
+        state.lastSpawnPosition=respawn.lastSpawnPosition;
+        state.lastPositionExact=respawn.lastPositionExact;
+        state.isSwimming=respawn.isSwimming;
+        state.isFastTraveling=respawn.isFastTraveling;
+        state.cameraSettingsObjectName=respawn.cameraSettingsObjectName;
+        state.storyClock=general.storyClock;
+        state.finishedControlTutorial=general.finishedControlTutorial;
+        state.finishedDialogueTutorial=general.finishedDialogueTutorial;
+        state.finishedGossipTutorial=general.finishedGossipTutorial;
+        state.playerPresent=player!=null && player.gameObject.activeInHierarchy;
+        state.playerPath=player==null?null:Address(player.transform);
+        state.playerInstance=player==null?0:player.GetInstanceID();
+        state.playerPosition=player==null?Vector3.zero:player.transform.position;
+        state.introStatus=(int)intro.status;
+        state.tutorialIntroControllers=controllers;
+        state.diagnostics=TutorialRouteDiagnostics();
         File.WriteAllText(Path.Combine(root,"save-continuation.json"),JsonUtility.ToJson(state,true));
     }
 }

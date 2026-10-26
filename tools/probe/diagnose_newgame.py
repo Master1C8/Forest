@@ -917,10 +917,49 @@ def tutorial_action(state, prefix):
     return 'continue-bound 120 ' + str(state['entryId'])
 
 
+def continue_diagnostic_ready(state):
+    """Read-only producer contract; never infer readiness from default story fields."""
+    assert type(state['diagnosticsReady']) is bool, 'Invalid diagnostic readiness flag'
+    assert type(state['dataServicePresent']) is bool and type(state['manifestPresent']) is bool, 'Invalid service readiness flags'
+    missing = state['notReady']
+    assert isinstance(missing, list) and len(missing) <= 128 and len(set(missing)) == len(missing), 'Invalid not-ready dependency list'
+    allowed = {'DataService._instance', 'DataService._manifest',
+               'DataManifest.playerRespawnData', 'DataManifest.generalData',
+               'DataManifest.triggersByTriggerName', 'DataManifest.activeTagsByDbName',
+               'DataManifest.dialoguesByDbName', 'DataManifest.questsByDbName',
+               'dialogue.NewGame_Intro', 'GameStateManager.isEventActive'}
+    allowed.update('quest.' + name + suffix for name in ['Act1_TutorialQuest', 'Act1_GossipQuest']
+                   for suffix in ['', '.dialogues', '.dialogue', '.primaryArcs', '.primaryArc'])
+    assert all(isinstance(reason, str) and reason in allowed for reason in missing), 'Unknown not-ready dependency'
+    if not state['dataServicePresent']:
+        assert not state['manifestPresent'] and state['dataServiceInstance'] == 0 and missing == ['DataService._instance'], 'Inconsistent absent singleton'
+    else:
+        assert type(state['dataServiceInstance']) is int and state['dataServiceInstance'] != 0, 'Invalid service instance identity'
+        if not state['manifestPresent']:
+            assert missing == ['DataService._manifest'], 'Inconsistent absent manifest'
+        else:
+            assert not any(r.startswith('DataService.') for r in missing), 'Inconsistent present manifest'
+    assert state['diagnosticsReady'] == (not missing), 'Diagnostic readiness/list disagree'
+    return state['diagnosticsReady']
+
+
 class ContinueObservationBudget(IntroObservationBudget):
     """Same hard/stage/idle caps, monotone real frames and source-only milestones."""
+    def observe_not_ready(self, now, state):
+        self.check(now)
+        assert not continue_diagnostic_ready(state), 'Expected scalar not-ready observation'
+        assert self.stage == 'bootstrap', 'Diagnostic dependencies disappeared after tutorial started'
+        assert state['scene'] in ['StartMenu', 'SoftResetLoadingScene', 'ChapterSelect', 'CentralForest'], 'Unexpected not-ready scene'
+        assert state['frame'] > self.frame and state['realtime'] > self.realtime, 'Continue observation must be a new real frame'
+        assert all(math.isfinite(state[k]) and state[k] >= 0 for k in ['realtime', 'scaledTime', 'timeScale']), 'Invalid original Unity clocks'
+        self.frame, self.realtime = state['frame'], state['realtime']
+        self.terminal_frames = []
+        # Readiness, timers and scalar scene changes never buy more idle/hard time.
+        return None, False
+
     def observe_continue(self, now, state, prefix):
         self.check(now)
+        assert continue_diagnostic_ready(state), 'Full diagnostic dependencies not ready'
         assert state['frame'] > self.frame and state['realtime'] > self.realtime, 'Continue observation must be a new real frame'
         assert all(math.isfinite(state[k]) and state[k] >= 0 for k in ['realtime', 'scaledTime', 'timeScale']), 'Invalid original Unity clocks'
         self.frame, self.realtime = state['frame'], state['realtime']
@@ -941,6 +980,7 @@ def continue_from_fixture(menu, fixture, budget):
     command('dump-save-continuation', deadline=budget.deadline)
     loaded = json.loads((RUN / 'save-continuation.json').read_text())
     shutil.copy2(RUN / 'save-continuation.json', RUN / 'continue-menu-loaded.json')
+    assert continue_diagnostic_ready(loaded), 'Loaded menu diagnostic dependencies not ready'
     loaded_fixture_guard(loaded, fixture)
     prefix = json.loads((RUN / 'tutorial-prefix.json').read_text())
     command('menu PlayMenu OnClickContinue', deadline=budget.deadline)
@@ -954,11 +994,25 @@ def continue_from_fixture(menu, fixture, budget):
         command('dump-save-continuation', deadline=budget.deadline)
         saved = json.loads((RUN / 'save-continuation.json').read_text())
         qa_identity(saved)
+        if not continue_diagnostic_ready(saved):
+            budget.observe_not_ready(time.monotonic(), saved)
+            observations.append(dict(save=saved, intro=None, action=None, budget=budget.receipt(time.monotonic())))
+            write('continue-observations.json', observations)
+            write('intro-observation-budget.json', budget.receipt(time.monotonic()))
+            time.sleep(min(1, max(0, budget.deadline-time.monotonic())))
+            continue
+        assert saved['hasSavedPlaySession'] and not saved['isChapterSelect'] and not saved['isCheatCode'], 'Restored session flags changed'
         command('dump-intro', deadline=budget.deadline)
         state = decode_state(json.loads((RUN / 'intro-state.json').read_text()))
         qa_identity(state)
+        if not continue_diagnostic_ready(state):
+            budget.observe_not_ready(time.monotonic(), state)
+            observations.append(dict(save=saved, intro=state, action=None, budget=budget.receipt(time.monotonic())))
+            write('continue-observations.json', observations)
+            write('intro-observation-budget.json', budget.receipt(time.monotonic()))
+            time.sleep(min(1, max(0, budget.deadline-time.monotonic())))
+            continue
         action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix)
-        assert saved['hasSavedPlaySession'] and not saved['isChapterSelect'] and not saved['isCheatCode'], 'Restored session flags changed'
         if saved['scene'] == 'CentralForest' and saved['playerPresent']:
             assert saved['gameplay'] and saved['playerPath'] == 'SpawnedContent/Player/Content/Player(Clone)' and saved['playerInstance'] != 0, 'Restored root Player identity differs'
             if first_player is None:
