@@ -1,25 +1,31 @@
-## Phase0023: original intro verified; movement held before input
+## Phase0024: original Player movement and release verified
 
-Immutable candidate32 followed49 original content nodes and10 source-bound responses,
-with60 game-thread-verified Continue receipts. All60 applied to their expected145
-entries; the stale no-op branch remains runtime-unexercised. The original end trigger,
-controller destruction and active bed were observed in two terminal samples.
-The corrected bridge produced actual root Player/door collider pairs. The first loaded
-sample was idle with the original root/trigger pair enabled, not ignored and separated.
-The second sample showed FullAxis+1 and root velocity1.2 to the right, so the idle guard
-stopped before native target inspection or any task key pulse. The input producer is
-unknown; this is not accepted controlled movement. No images were captured or opened.
+Immutable candidate33 completed the original New/145 intro through49 content nodes,
+10 source-bound response buttons and61 applied game-thread-bound Continue receipts.
+The original end trigger, controller destruction and active bed were observed twice.
+Its passive observer retained114 actual frames across two movement-ready root/door
+checks: arrows and WASD up in all four producer layers, zero axes/body velocity,
+and stable original Player/body/door identities. No unexpected input appeared.
 
-Candidate32 quit/restored. Its exact frozen launcher/helpers/resources remain historical
-and must not be rerun. The current recipe passively records arrows AND original WASD
-across both loaded observations, saves rejected raw states and stops/saves sampling on
-failure.14 guard tests and a150-reference bridge compile pass; this new instrumentation
-has not run. Use one new immutable candidate33 with unchanged resources to observe the
-actual input boundary before any controlled movement. Never release unrelated owner
-keys, forge focus/maps/axes, force story state or credit unknown input as a passed pulse.
-See localization/probes/ru-20261026-32/runtime-diagnosis.json and the separate source
-supplement localization/source/input-idle-20261026/source-trace.json. Original source,
-editorial, broad renderer, travel/notebook/inventory and final delivery gates remain open.
+One150ms process-targeted left pulse reached native GetKeyboardState, async, Rewired
+and Unity; each layer has one actual down frame. Original action axes/FullAxis became
+-1,0,0 and root-body velocity-1.2,0,0. The body moved from(3.44954,1.28998) to
+(3.35000,1.29000), then all-eight-key release, zero axes and zero velocity were observed.
+The decision snapshot had75 rows; stop preserved86 total rows. No second pulse or
+up-only recovery was needed. The original root/door pair remained separated afterward.
+This verifies scoped original left movement, without accepting collision or travel.
+It does not explain candidate32's unknown producer or candidate27's historical release.
+
+Candidate33 quit/restored;150 original managed references,5 resource pairs,7 input pins,
+7 launch hashes and326 frozen dependencies verified (324 unchanged,2 intended DLL
+cleanup exceptions). All task processes are absent, QA persistent storage is empty,
+and original player files remain unchanged. No images were captured or opened.
+See localization/probes/ru-20261026-33/runtime-diagnosis.json. Do not rerun33 or any
+consumed candidate. Next prepare source-backed directional native transport and a
+bounded guarded natural doorway route before one new candidate34. Preserve actual
+focus, original input maps/callbacks, Player/story/doorway guards and real release.
+Source/special-scene, broad renderer, tutorial, notebook/inventory, editorial and
+final delivery gates remain pending. Accepted10/15 exact visual pairs remain valid.
 
 # The Forest of Love: Russian localization work
 

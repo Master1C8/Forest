@@ -1,0 +1,204 @@
+{
+  "game": "The Forest of Love0.45",
+  "candidate": "ru-20261026-33",
+  "result": "passed at scoped movement boundary",
+  "recordedAt": "2026-10-26T09:33:32.575200+00:00",
+  "model": "gpt-6.1-sol/high/OpenAI",
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "preparation": {
+    "attempts": "First read-only process precheck falsely matched its own preparation shell; it aborted before candidate creation. The subsequent bridge command rejected the nonexistent target. Corrected executable-identity check then prepared candidate33 once; one actual game launch only.",
+    "reuse": "Exact32 five resource bytes, hash verified; no resource rebuild or accepted10/15 recapture",
+    "guardTests": "14 passed (9 intro and5 native), mocked state/producer guards only",
+    "compile": "150 exact original managed references; only MainMenuController.Start hook"
+  },
+  "intro": {
+    "contentNodes": 49,
+    "sourceBoundResponses": 10,
+    "boundContinueReceipts": 61,
+    "applied": 61,
+    "stale": 0,
+    "terminalCleanup": "Original end trigger count1, zero intro controllers, one active bed, twice observed",
+    "staleBranch": "not exercised at runtime; guard tests only"
+  },
+  "passiveObserver": {
+    "savedSamples": 114,
+    "timeRange": [
+      "198.4091",
+      "200.8505"
+    ],
+    "allEightKeysUpAcrossFourLayers": true,
+    "allActionAxesFullAxisVelocityZero": true,
+    "identityStable": true,
+    "loadedPairs": [
+      [
+        {
+          "playerCollider": "-55554",
+          "doorCollider": "202506",
+          "ignoredLayers": "False",
+          "ignoredPair": "False",
+          "touching": "False",
+          "boundsIntersect": "False",
+          "distanceValid": "True",
+          "overlapped": "False",
+          "distance": "0.9869638",
+          "playerPoint": "3.44917655,1.28996384,0",
+          "doorPoint": "3.44917655,0.302999973,0"
+        },
+        {
+          "playerCollider": "-55630",
+          "doorCollider": "202506",
+          "ignoredLayers": "False",
+          "ignoredPair": "False",
+          "touching": "False",
+          "boundsIntersect": "False",
+          "distanceValid": "True",
+          "overlapped": "False",
+          "distance": "1.097",
+          "playerPoint": "3.45000052,1.4000001,0",
+          "doorPoint": "3.45000029,0.303,0"
+        }
+      ],
+      [
+        {
+          "playerCollider": "-55554",
+          "doorCollider": "202506",
+          "ignoredLayers": "False",
+          "ignoredPair": "False",
+          "touching": "False",
+          "boundsIntersect": "False",
+          "distanceValid": "True",
+          "overlapped": "False",
+          "distance": "0.9869799",
+          "playerPoint": "3.44954252,1.28997993,0",
+          "doorPoint": "3.44954252,0.302999973,0"
+        },
+        {
+          "playerCollider": "-55630",
+          "doorCollider": "202506",
+          "ignoredLayers": "False",
+          "ignoredPair": "False",
+          "touching": "False",
+          "boundsIntersect": "False",
+          "distanceValid": "True",
+          "overlapped": "False",
+          "distance": "1.097",
+          "playerPoint": "3.45000052,1.4000001,0",
+          "doorPoint": "3.45000029,0.303,0"
+        }
+      ]
+    ],
+    "acceptance": "Two actual movement-ready root/door observations, sampler active across both; no unexpected input in this run"
+  },
+  "movement": {
+    "milliseconds": 150,
+    "postedEdges": [
+      "postLeftDown pid=15735 window=300 unixTime=1793007034.14061",
+      "postLeftUp pid=15735 window=300 unixTime=1793007034.293685"
+    ],
+    "nativePid": 15735,
+    "windowId": 300,
+    "originalPolicy": {
+      "ignoreUnfocused": true,
+      "unityFocused": true,
+      "frontmostPid": 9796
+    },
+    "decisionSnapshotSamples": 75,
+    "savedAfterStopSamples": 86,
+    "sampleCountBoundary": "Runtime decision used75 snapshot rows; stop saved86 total rows as sampling continued through command transport. Both are real samples from the same interval, not separate trials.",
+    "layerDownRanges": {
+      "nativeLeft": {
+        "count": 1,
+        "first": "202.9407",
+        "last": "202.9407"
+      },
+      "asyncLeft": {
+        "count": 1,
+        "first": "202.8634",
+        "last": "202.8634"
+      },
+      "rewiredLeft": {
+        "count": 1,
+        "first": "202.9407",
+        "last": "202.9407"
+      },
+      "unityLeft": {
+        "count": 1,
+        "first": "202.9407",
+        "last": "202.9407"
+      }
+    },
+    "originalAxisLeft": {
+      "count": 1,
+      "first": "202.9407",
+      "last": "202.9407"
+    },
+    "originalBodyLeft": {
+      "count": 1,
+      "first": "202.9789",
+      "last": "202.9789"
+    },
+    "startBodyPosition": [
+      3.44954252,
+      1.28997993,
+      0.0
+    ],
+    "endBodyPosition": [
+      3.35,
+      1.29,
+      0.0
+    ],
+    "displacement": [
+      -0.09954251999999997,
+      2.0069999999927646e-05,
+      0.0
+    ],
+    "releasedAcrossAllLayers": true,
+    "finalAxisVelocityZero": true,
+    "upOnlyRecovery": "not needed; runtime failure-recovery branch remains unexercised",
+    "postMovementRootDoorGuard": "passed with original pair still separated"
+  },
+  "acceptance": "Only exact33 original New/intro, passive idle checks, one bounded original left Player movement and observed release. No changes to focus, input maps, axes, transforms, story, trigger or doorway state. This run does not explain32 unexpected input or27 historical release.",
+  "notAccepted": [
+    "Other-direction native transport",
+    "Actual collision/doorway travel",
+    "CentralForest tutorial interactions",
+    "Notebook225:195 unlock",
+    "Inventory/page3/empty-cell renderer",
+    "Broader UI/item/quest/font/texture and source/special-scene gates",
+    "Editorial or final localization delivery"
+  ],
+  "cleanup": {
+    "verifiedTaskProcessRowsBeforeQuit": [
+      "15709 15706 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-33/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-33/player.log",
+      "15735     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-33\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-33/player.log",
+      "15738     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-33\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+    ],
+    "remainingTaskProcessRows": [],
+    "quitAcknowledged": true,
+    "originalAssetsAndPlayerFilesUnchanged": true,
+    "originalAssemblyRestoredInQACopy": true,
+    "inspectionBridgeRemoved": true,
+    "inputPinsUnchanged": true,
+    "candidateAssetHashesUnchanged": true,
+    "ownerSavePathUsed": false
+  },
+  "evidence": {
+    "build.json": "6d3eaf70cfcd7b3a7880314e132cdef2e5d5ef1cbb853b3066e64a75a77e2b8c",
+    "frozen-files.json": "0fe39526123c69a101a736a769985e54b64161df88410197aafbeac9b643d352",
+    "bridge-build.json": "f3947d779c278900d26922e94839a11385f87913bfaa4b9dfddcd87e64f6e0e9",
+    "runtime-result.json": "b9edc2ccf2cde5426a2359a51c81b874f259fe134d7cd1a56811cd9b72a83968",
+    "intro-progression.json": "51f071af9293c81734dd59a58bfb6be44fe0f54c27ef7941968a728ecc769da5",
+    "intro-continues.json": "539e389a32f17f3126a2dfed08cf51abc352f91a7a0024f656d8d829fcd5e248",
+    "newgame-observations.json": "ffc689e907d04caf10cf965531c04083fc064c8cc0a1b87531f3664a4135eff3",
+    "loaded-travel-1.json": "02d82e18f37e2fd135bf42bb3fbc2f72bd9befcc6ecf521d7bb490ff9af18f84",
+    "loaded-travel-2.json": "65c0ff414b8bffe6c52217074188e05bdf3ca005ac09fbcb2b9300c46632d3f6",
+    "loaded-travel-input-samples.txt": "2027c6f956f5b5a7ccb3f1fcb31e00338736dcb051d0d48c908698a0806b82c1",
+    "movement-pulse.json": "62412f1021fcf01522bf192f0f817bd7e29eddb3d0db6852530bb5e6ee4b10a9",
+    "gameplay-left-samples.txt": "a91225b9273524bacafb68a0c4eb7739787e8642700d00c7e9695f266a03db1d",
+    "post-movement-travel.json": "efb89507084c84298aea1c0866c7ba6b2546e3771b134ad19dccf5b7e1b8761a",
+    "cleanup.json": "64bcaa6afeac78907d43dc93efeb61be37c1328c9852c16ce4599a55d0d7f994",
+    "final-verification.json": "81621fad4c44c580183cfc33af4606d9dc68d3c0f324178fee9c2dd2185ac73e"
+  },
+  "usage": "Parent serial runner accounts this exact CLI request. Per-phase input/cached-input/output/reasoning counters unavailable in this work context; no subagents or nested model calls."
+}
