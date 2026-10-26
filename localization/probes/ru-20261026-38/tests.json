@@ -1,0 +1,12 @@
+{
+  "result": "passed",
+  "nativeInputTests": 24,
+  "introActionTests": 9,
+  "total": 33,
+  "commands": [
+    "python3 -m unittest discover -s tools -p test_native_input.py -v",
+    "python3 -m unittest discover -s tools -p test_intro_actions.py -v"
+  ],
+  "boundary": "Mocked guard/action fixtures and real file transport; no Unity/native-delivery acceptance",
+  "sourceHashes": "Bound in frozen-files.json after preparation"
+}
