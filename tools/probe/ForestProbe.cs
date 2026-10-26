@@ -80,6 +80,12 @@ public sealed class ForestProbe : MonoBehaviour
                     persistentDataPath=Application.persistentDataPath,diagnostics=TutorialRouteDiagnostics()};
                 File.WriteAllText(Path.Combine(root,"tutorial-route.json"),JsonUtility.ToJson(state,true));
             }
+            else if(text=="dump-travel") {
+                var state=new NotebookRouteState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                    company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
+                    persistentDataPath=Application.persistentDataPath,diagnostics=TravelRouteDiagnostics()};
+                File.WriteAllText(Path.Combine(root,"travel-route.json"),JsonUtility.ToJson(state,true));
+            }
             else if(text=="quit") Application.Quit();
             else if(text=="show-menu") {
                 var controller=FindObjectOfType<TheForestOfLove.MainMenuController>();
@@ -190,6 +196,72 @@ public sealed class ForestProbe : MonoBehaviour
             rows.Add(DiagnosticValue(value));
         }
         return String.Join(",",rows.ToArray());
+    }
+    static string Vector(Vector3 value) {
+        return String.Format(System.Globalization.CultureInfo.InvariantCulture,"{0:R},{1:R},{2:R}",value.x,value.y,value.z);
+    }
+    static void TravelColliders(List<string> rows, Component owner) {
+        foreach(var collider in owner.GetComponentsInChildren<Collider2D>(true)) {
+            var body=collider.attachedRigidbody;
+            rows.Add("travelCollider | owner="+owner.GetInstanceID()+" | path="+Address(collider.transform)+
+                " | type="+collider.GetType().Name+" | active="+collider.gameObject.activeInHierarchy+
+                " | enabled="+collider.enabled+" | trigger="+collider.isTrigger+" | tag="+collider.gameObject.tag+
+                " | layer="+collider.gameObject.layer+" | offset="+Vector(collider.offset)+
+                " | boundsCenter="+Vector(collider.bounds.center)+" | boundsSize="+Vector(collider.bounds.size)+
+                " | rigidbody="+ObjectAddress(body)+" | simulated="+(body!=null && body.simulated));
+        }
+    }
+    // Original movement/joystick getters are pinned in travel-20261026. This
+    // diagnostic never feeds input, changes focus, enables controls or moves objects.
+    string[] TravelRouteDiagnostics() {
+        var rows=new List<string>();
+        rows.Add("travelGuards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
+            " | conversation="+DialogueManager.isConversationActive+" | focused="+Application.isFocused+
+            " | runInBackground="+Application.runInBackground+" | axis="+Vector(TheForestOfLove.InputHelper.FullAxis));
+        if(Rewired.ReInput.isReady)rows.Add("travelRewired | ignoreUnfocused="+Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus+
+            " | nativeKeyboard="+Rewired.ReInput.configuration.nativeKeyboardSupport+
+            " | unityInput="+Rewired.ReInput.configuration.alwaysUseUnityInput);
+        foreach(var player in Resources.FindObjectsOfTypeAll<TheForestOfLove.Player>())
+            if(player.gameObject.scene.IsValid()) {
+                var waypoints=player.waypointController;
+                var swim=ReadField(player,"playerSwimTransition");
+                rows.Add("travelPlayer | id="+player.GetInstanceID()+" | path="+Address(player.transform)+
+                    " | active="+player.gameObject.activeInHierarchy+" | enabled="+player.enabled+
+                    " | position="+Vector(player.transform.position)+" | state="+player.playerState+
+                    " | movement="+ReadField(player,"enableMovement")+" | lanternTransition="+player.lanternTransitioning+
+                    " | sweaterTransition="+player.sweaterTransitioning+" | swim="+ObjectAddress(swim)+
+                    " | waypoints="+(waypoints==null?"absent":waypoints.HasWaypoints.ToString()));
+                TravelColliders(rows,player);
+            }
+        foreach(var door in Resources.FindObjectsOfTypeAll<TheForestOfLove.Doorway>())
+            if(door.gameObject.scene.IsValid()) {
+                rows.Add("travelDoor | id="+door.GetInstanceID()+" | path="+Address(door.transform)+
+                    " | scene="+door.gameObject.scene.name+" | active="+door.gameObject.activeInHierarchy+
+                    " | enabled="+door.enabled+" | destination="+ReadField(door,"sceneName")+
+                    " | transitioning="+ReadField(door,"transitioning")+" | delay="+ReadField(door,"secondsBeforeTravel")+
+                    " | position="+Vector(door.transform.position));
+                TravelColliders(rows,door);
+            }
+        foreach(var helper in Resources.FindObjectsOfTypeAll<TheForestOfLove.InputHelper>())
+            if(helper.gameObject.scene.IsValid()) {
+                var inputPlayer=ReadField(helper,"player") as Rewired.Player;
+                rows.Add("travelInput | path="+Address(helper.transform)+" | active="+helper.gameObject.activeInHierarchy+
+                    " | enabled="+helper.enabled+" | player="+(inputPlayer==null?"null":inputPlayer.id+":"+inputPlayer.name)+
+                    " | joystick="+ObjectAddress(ReadField(helper,"theKingOfJoysticks"))+
+                    " | customController="+ObjectAddress(ReadField(helper,"kingOfJoysticksRewiredCustomController"))+
+                    " | touch="+ObjectAddress(ReadField(helper,"touchInputHelper")));
+            }
+        int joysticks=0;
+        foreach(var joystick in Resources.FindObjectsOfTypeAll<Itelisoft.KOF.TheKingOfJoysticks>())
+            if(joystick.gameObject.scene.IsValid()) {
+                joysticks++;
+                rows.Add("travelJoystick | path="+Address(joystick.transform)+" | active="+joystick.gameObject.activeInHierarchy+
+                    " | enabled="+joystick.enabled+" | inUse="+ReadField(joystick,"inUse")+
+                    " | mouseMode="+ReadField(joystick,"mouseMode")+" | disabled="+Itelisoft.KOF.TheKingOfJoysticks.DisableJoystickInput);
+            }
+        rows.Add("travelJoystickCount | loaded="+joysticks);
+        return rows.ToArray();
     }
     // Each getter below has read-only original IL pinned in tutorial-20261026.
     // Never call an oracle, CanTrigger, HasAvailableMessages or IsSatisfied here:

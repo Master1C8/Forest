@@ -1,0 +1,69 @@
+{
+  "game": "The Forest of Love 0.45",
+  "scope": "Original input production and BunnyHouse doorway; supplemental technical source only",
+  "sceneIdentity": "BuildSettings scenes[3] = Assets/_Game/[Scenes]/BunnyHouse.unity -> level3; level2 is BeaverHouse and also has a CentralForest doorway. Destination name alone cannot identify the route.",
+  "doorway": {
+    "path": "RootActivator/Root/Environment/Doorways/DoorwayToCentralForest",
+    "componentPathId": 303,
+    "gameObjectPathId": 91,
+    "position": [
+      2.4240000247955322,
+      0.18299999833106995,
+      0.0
+    ],
+    "enabledBoxTriggerPathId": 257,
+    "boxSize": [
+      2.1600000858306885,
+      0.2199999988079071
+    ],
+    "circleColliderEnabled": false,
+    "destination": "CentralForest",
+    "secondsBeforeTravel": 0,
+    "spawnOffset": [
+      0,
+      0.33000001311302185,
+      0
+    ],
+    "acceptance": "Serialized original geometry only; loaded collider/state, collision and scene travel not exercised",
+    "allParentsIdentityTransformed": true
+  },
+  "inputProduction": "InputHelper.Awake gets Rewired player via GetPlayer(0), finds original joystick/touch helpers and binds kingofjoysticks custom-controller callbacks. CheckInputsRewired consumes original action axes and zeroes the axis if all normal providers return zero. No synthetic axis API is authorized by this finding.",
+  "joystickLifecycle": "Pinned original Auto-asmdef-SecondPass.dll: TheKingOfJoysticks.Awake unconditionally Destroy(gameObject) then ret. A serialized enabled component is therefore not evidence of a usable runtime joystick; never create/enable a replacement.",
+  "joystickConsumers": "MouseDown only sets insideArea; UpdateMouseMode requires UnityEngine.Input.GetMouseButtonDown/get_mousePosition and ValidateMouseMode. Touch mode reads Input.touches. Neither path implements an ordinary drag/pointer motion callback for bridge input. GetAxisValueCallback returns zero if the original joystick is absent or not inUse; otherwise reads its real axes. Do not write joystick fields, replace callbacks or feed the custom controller directly.",
+  "serializedKeyboardConfiguration": {
+    "source": "input-configuration.json",
+    "alwaysUseUnityInput": 0,
+    "windowsNativeKeyboard": 1,
+    "windowsIgnoreInputWhenAppNotInFocus": 1,
+    "movementActionIds": [
+      0,
+      1
+    ],
+    "originalKeyCodes": [
+      119,
+      115,
+      97,
+      100,
+      273,
+      274,
+      276,
+      275
+    ],
+    "interpretation": "Original keyboard maps include WASD/arrows. runInBackground does not by itself establish Rewired focus/input eligibility. Current runtime focus, configuration and maps must be observed separately. Export preserves both serialized players; no assumed serialized ID0 mapping."
+  },
+  "runtimeDiagnostic": "tools/probe/ForestProbe.cs dump-travel now reads focus/runInBackground/actual Rewired focus configuration, InputHelper.FullAxis, original player identity/movement/transition/waypoint fields, loaded door identity/transition, and player/door Collider2D bounds/tag/layer/attached-body/simulated state. Does not inject input, focus windows, enable controls, query availability/chance, move objects or invoke events.",
+  "regressions": [
+    "Never bind a doorway by destination label alone: BeaverHouse and BunnyHouse both target CentralForest; bind BuildSettings scene, source file, original object and transform chain.",
+    "Serialized enabled joystick is not runtime eligibility: original Awake destroys it.",
+    "Native player runInBackground and Rewired ignore-unfocused are separate gates.",
+    "Do not assume Rewired serialized player ID equals GetPlayer argument; observe actual original player identity."
+  ],
+  "remaining": "No safe background native keyboard transport has been demonstrated. Before another dependency replay, investigate the public Rewired background-input configuration and a target-specific native keyboard transport. Any QA-only focus-policy delta must be source-pinned, documented as a replaced harness dependency and restored; it is not proof of unchanged original focus handling. Do not forge focus, write InputHelper/joystick axes, create controllers, replace callbacks or bypass movement/doorway/story guards. Observe actual native input->Rewired axis->original Player physics->real collision.",
+  "unchangedAcceptance": "Candidate10/15 exact native pairs and candidate25 intro cleanup retained. No CentralForest, tutorial120, notebook225:195, inventory, visual, full-source or editorial acceptance added.",
+  "extraction": "extraction.json",
+  "extractionSha256": "8171f89200536fc3ddbe578c82c76a661fc461b6ec177cb6e3010e5b05ccd05e",
+  "bridgeCheck": "bridge-check.json",
+  "imagesOpened": 0,
+  "runtimeLaunches": 0,
+  "frozenAssetInputsUnchanged": 7
+}

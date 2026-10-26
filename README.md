@@ -12,6 +12,36 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
+Phase0018 pinned the actual BunnyHouse doorway and traced the original input
+production before any new replay. `tools/inspect_travel_source.py` reproduces 11
+consumer groups, native `level3` geometry and the original Rewired configuration in
+`localization/source/travel-20261026/`. BuildSettings identifies BunnyHouse as level3;
+level2 is BeaverHouse and also has a door to CentralForest. The BunnyHouse door is
+`RootActivator/Root/Environment/Doorways/DoorwayToCentralForest`, at (2.424, 0.183),
+with an enabled 2.16×0.22 box trigger, disabled circle collider and zero travel delay.
+These are original serialized facts; loaded collider state and travel remain untested.
+
+The original joystick's `Awake()` unconditionally destroys its game object. Its mouse
+path polls Unity input; `MouseDown()` alone merely sets an area flag. The existing
+Rewired custom controller obtains axes from original callbacks, so feeding controller
+values or enabling a replacement joystick would bypass that input producer. Original
+Windows configuration uses native keyboard input and ignores unfocused input. Player
+`runInBackground` alone does not establish Rewired input eligibility. No background
+native input transport is verified; do not repeat the intro until this boundary has
+a concrete safe input plan. Investigate a documented public Rewired background-input
+policy in the isolated QA copy and a target-specific native input transport; keep any
+focus-policy delta explicit as a harness dependency. Preserve original callbacks,
+movement/doorway guards, the owner installation and saves.
+
+The new read-only `dump-travel` bridge command compiles against all unchanged original
+managed references. It records actual focus/Rewired configuration/player identity,
+movement/transition/waypoint state, door identity and player/door collider geometry.
+It changes no input, focus, control visibility, transform, story state or event.
+Compilation proves API compatibility only: this command has not run in Unity.
+No game launch, image opening or accepted-surface recapture occurred in phase0018;
+all seven asset-lane input pins remain unchanged. The next technical phase must
+resolve the native focus/input transport boundary before another dependency replay.
+
 Phase0017 traced the original tutorial route and repaired an early-stop defect in
 `tools/probe/diagnose_newgame.py`. Candidate24 reached final145:249 and two free-event
 samples while the BunnyHouse intro controller was still alive, its end trigger absent
