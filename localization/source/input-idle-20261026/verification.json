@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-10-26T09:20:53.811314+00:00",
+  "status": "passed",
+  "command": ".venv-assets314/bin/python -B -m unittest tools.test_intro_actions tools.test_native_input",
+  "tests": 14,
+  "introTests": 9,
+  "nativeInputTests": 5,
+  "observedResult": "Ran 14 tests in 0.915s; OK",
+  "boundary": "Source-bound state/topology/receipt guards and mocked passive-sampler failure cleanup; these replace real state/input producers, not runtime proof",
+  "newRegressions": [
+    "Arrows/axes idle while a native/async/Rewired/Unity original WASD key remains down rejects idle; missing observation rejects, matching all-up control accepts.",
+    "Matching two-observation producer control accepts; changing only second FullAxis from0 to+1 rejects at guarded idle gameplay, preserves the second raw dump and stops/saves passive sampling."
+  ],
+  "sourceHashes": {
+    "tools/probe/ForestProbe.cs": "0d28f3a7a1caaa27f21604f4dcf5dd2935b439e9ca7d99b10c97abb5991c4a19",
+    "tools/probe/diagnose_newgame.py": "e9a8f9dbeafe85a674137e144ce2a93d3d25543900e3d974292f77d578b79c47",
+    "tools/test_native_input.py": "e6fb4423c952ce19ec3a0f6f70ec1ad5aa11c0cef6706993776b3ba4d89ea7d9",
+    "tools/test_intro_actions.py": "70659dd4ee3ce6ff699b7d6ec79f9ad07ca353438edc82eaf8279f0311920387"
+  },
+  "compile": "bridge-check.json",
+  "runtimeOfNewObserver": "not-run",
+  "previousActualRuntime": "localization/probes/ru-20261026-32/runtime-result.json",
+  "imagesOpened": 0,
+  "usage": "Current-phase model tokens accounted by parent runner; unavailable locally. No subagents or nested model requests."
+}

@@ -1,0 +1,117 @@
+{
+  "game": "The Forest of Love 0.45",
+  "candidate": 32,
+  "phase": "0023-work",
+  "runtimeResult": "failed before native movement; preserved, consumed32 not reusable for another launch",
+  "boundary": "First loaded observation ready; second original axis changed to+1 and root velocity1.2 before any native helper inspection or pulse",
+  "intro": {
+    "sourceBoundContentNodes": 49,
+    "sourceBoundResponses": 10,
+    "continueReceipts": 60,
+    "applied": 60,
+    "stale": 0,
+    "staleNoOpRuntime": "not exercised; guard tests only",
+    "originalFinalEntry": 249,
+    "terminalSamples": 2,
+    "originalEndTrigger": "Cutscene_IntroBunnyHouse count1",
+    "remainingIntroControllers": 0,
+    "activeBedControllers": 1
+  },
+  "firstLoadedSample": {
+    "player": {
+      "id": "-55550",
+      "path": "SpawnedContent/Player/Content/Player(Clone)",
+      "active": "True",
+      "enabled": "True",
+      "position": "1.81979609,1.58931327,0",
+      "state": "Resting",
+      "movement": "True",
+      "lanternTransition": "False",
+      "sweaterTransition": "False",
+      "swim": "null",
+      "waypoints": "False"
+    },
+    "body": {
+      "owner": "-55550",
+      "id": "-55552",
+      "path": "SpawnedContent/Player/Content/Player(Clone)",
+      "active": "True",
+      "layer": "0",
+      "type": "Dynamic",
+      "simulated": "True",
+      "position": "1.81968725,1.5889467,0",
+      "velocity": "0,0,0",
+      "constraints": "FreezeRotation",
+      "gravityScale": "0",
+      "collisionDetection": "Continuous",
+      "fullKinematicContacts": "True"
+    },
+    "rootDoorPair": {
+      "playerCollider": "-55554",
+      "doorCollider": "202506",
+      "ignoredLayers": "False",
+      "ignoredPair": "False",
+      "touching": "False",
+      "boundsIntersect": "False",
+      "distanceValid": "True",
+      "overlapped": "False",
+      "distance": "1.285947",
+      "playerPoint": "1.81968725,1.5889467,0",
+      "doorPoint": "1.81968725,0.302999973,0"
+    },
+    "door": {
+      "id": "202598",
+      "path": "SpawnedContent/Environment/Environment/Content/Environment/Doorways/DoorwayToCentralForest",
+      "scene": "BunnyHouse",
+      "active": "True",
+      "enabled": "True",
+      "destination": "CentralForest",
+      "transitioning": "False",
+      "delay": "0",
+      "position": "2.424,0.183,0"
+    }
+  },
+  "secondLoadedSample": {
+    "guards": {
+      "gameplay": "True",
+      "anyEvent": "False",
+      "conversation": "False",
+      "focused": "True",
+      "runInBackground": "True",
+      "axis": "1,0,0"
+    },
+    "player": {
+      "id": "-55550",
+      "path": "SpawnedContent/Player/Content/Player(Clone)",
+      "active": "True",
+      "enabled": "True",
+      "position": "2.58096313,1.52723408,0",
+      "state": "Walking",
+      "movement": "True",
+      "lanternTransition": "False",
+      "sweaterTransition": "False",
+      "swim": "null",
+      "waypoints": "False"
+    },
+    "bodies": [
+      "travelBody | owner=-55550 | id=-55552 | path=SpawnedContent/Player/Content/Player(Clone) | active=True | layer=0 | type=Dynamic | simulated=True | position=2.58869362,1.52723408,0 | velocity=1.2,0,0 | constraints=FreezeRotation | gravityScale=0 | collisionDetection=Continuous | fullKinematicContacts=True",
+      "travelBody | owner=-55550 | id=-55632 | path=SpawnedContent/Player/Content/Player(Clone)/PlayerFootSensor | active=True | layer=0 | type=Dynamic | simulated=True | position=2.546576,1.52723408,0 | velocity=0,0,0 | constraints=None | gravityScale=0 | collisionDetection=Discrete | fullKinematicContacts=False"
+    ]
+  },
+  "taskNativePulseSubmitted": false,
+  "movementAcceptance": "not established; uncontrolled original movement is diagnostic observation, not a credited left transport test",
+  "cause": "unknown; all-eight-key producer sampling was not active. No claim about owner activity, focus cause or key identity.",
+  "repair": {
+    "source": "localization/source/input-idle-20261026/source-trace.json",
+    "recipe": "tools/probe/diagnose_newgame.py",
+    "bridge": "tools/probe/ForestProbe.cs",
+    "scope": "Passive all-eight-key sampling spans loaded observation guards; save raw dump before validation and stop/save on rejection; no input-state changes",
+    "runtime": "not-run; next unused immutable candidate required"
+  },
+  "preservedAcceptance": "candidate10/15 exact two-frame reviews and29 native menu ingress/release unchanged",
+  "cleanup": "cleanup.json",
+  "verification": "final-verification.json",
+  "remaining": "Two stable idle loaded observations, one controlled left movement/release, collision/travel, tutorial, notebook/inventory, broader renderer, complete source and editorial/release acceptance",
+  "imagesCaptured": 0,
+  "imagesOpened": 0
+}

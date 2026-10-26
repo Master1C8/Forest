@@ -176,8 +176,44 @@ def movement_ready(loaded):
 
 def keyboard_idle(row):
     return all(row.get(k) == 'True' for k in ['nativeValid', 'nativeArrowsUp', 'asyncArrowsUp',
-                                             'rewiredArrowsUp', 'unityArrowsUp']) and all(
+                                             'rewiredArrowsUp', 'unityArrowsUp', 'nativeMovementUp',
+                                             'asyncMovementUp', 'rewiredMovementUp', 'unityMovementUp']) and all(
         row.get(k) == '0,0,0' for k in ['actionAxes', 'fullAxis', 'bodyVelocity'])
+
+
+def keyboard_samples():
+    command('sample-keyboard-snapshot')
+    return [diagnostic_fields([row], 'keyboard') for row in (RUN / 'keyboard-samples.txt').read_text().splitlines()]
+
+
+def observe_loaded_travel():
+    """Keep passive producer evidence even when a pre-movement guard rejects."""
+    loaded = []
+    command('sample-keyboard-start')
+    try:
+        time.sleep(.3)
+        for index in range(2):
+            command('dump-travel')
+            # Preserve the exact rejected observation before parsing any guard.
+            shutil.copy2(RUN / 'travel-route.json', RUN / ('loaded-travel-%d.json' % (index + 1)))
+            rows = keyboard_samples()
+            current = loaded_travel(json.loads((RUN / 'travel-route.json').read_text()))
+            movement_ready(current)
+            assert len(rows) >= 2 and all(keyboard_idle(r) for r in rows), 'Non-idle input during loaded observations; no DOWN'
+            for row in rows:
+                keyboard_gameplay_guard(row, current)
+            if loaded:
+                for component in ('player', 'body', 'door'):
+                    assert all(current[component][key] == loaded[0][component][key]
+                               for key in ('id', 'path')), 'Loaded movement identity changed between observations'
+            loaded.append(current)
+            time.sleep(.5)
+    finally:
+        command('sample-keyboard-stop')
+        shutil.copy2(RUN / 'keyboard-samples.txt', RUN / 'loaded-travel-input-samples.txt')
+    write('loaded-geometry.json', {'samples': loaded,
+          'boundary': 'Two actual idle loaded-world observations after strict intro cleanup; original arrows/WASD and axes observed; no movement or collision acceptance'})
+    return loaded
 
 
 def keyboard_gameplay_guard(row, loaded):
@@ -197,10 +233,6 @@ def gameplay_left_pulse(loaded):
     report = {'direction': 'left', 'milliseconds': 150, 'attempted': False,
               'boundary': 'Original Player.FixedUpdate -> CheckInput -> FullAxis -> Walk -> root Rigidbody.velocity. Native target helper only; no game-state writes.'}
 
-    def samples():
-        command('sample-keyboard-snapshot')
-        return [diagnostic_fields([row], 'keyboard') for row in (RUN / 'keyboard-samples.txt').read_text().splitlines()]
-
     try:
         target = subprocess.run([str(RUN / 'target_keyboard'), str(RUN), 'inspect'], capture_output=True, text=True, timeout=10)
         write('target-inspection.json', dict(exitCode=target.returncode, stdout=target.stdout, stderr=target.stderr))
@@ -209,7 +241,7 @@ def gameplay_left_pulse(loaded):
         assert identity['accessibilityTrusted'], 'Target transport unavailable'
         command('sample-keyboard-start'); sampling = True
         time.sleep(.3)
-        before = samples()
+        before = keyboard_samples()
         assert len(before) >= 2 and all(keyboard_idle(r) for r in before[-2:]), 'No observed all-up/zero-axis idle before DOWN'
         for row in before:
             keyboard_gameplay_guard(row, loaded)
@@ -220,7 +252,7 @@ def gameplay_left_pulse(loaded):
         write('movement-pulse.json', report)
         deadline = time.monotonic() + 8
         while True:
-            rows = samples()
+            rows = keyboard_samples()
             down = all(any(r[k] == 'True' for r in rows) for k in ['nativeLeft', 'asyncLeft', 'rewiredLeft', 'unityLeft'])
             released = down and len(rows) >= 2 and all(keyboard_idle(r) for r in rows[-2:])
             if released or time.monotonic() >= deadline:
@@ -257,7 +289,7 @@ def gameplay_left_pulse(loaded):
             if not sampling:
                 command('sample-keyboard-start'); sampling = True
             time.sleep(.5)
-            recovered = samples()
+            recovered = keyboard_samples()
             report['upOnlyRecoveryObserved'] = len(recovered) >= 2 and all(keyboard_idle(r) for r in recovered[-2:])
             write('movement-pulse.json', report)
             shutil.copy2(RUN / 'keyboard-samples.txt', RUN / 'failure-release-samples.txt')
@@ -419,15 +451,7 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'newgame-notebook.json')
         command('dump-tutorial')
         shutil.copy2(RUN / 'tutorial-route.json', RUN / 'newgame-tutorial.json')
-        loaded = []
-        for index in range(2):
-            command('dump-travel')
-            travel = json.loads((RUN / 'travel-route.json').read_text())
-            loaded.append(loaded_travel(travel))
-            shutil.copy2(RUN / 'travel-route.json', RUN / ('loaded-travel-%d.json' % (index + 1)))
-            time.sleep(.5)
-        write('loaded-geometry.json', {'samples': loaded,
-              'boundary': 'Two actual idle loaded-world observations after strict intro cleanup; no movement or collision acceptance'})
+        loaded = observe_loaded_travel()
         gameplay_left_pulse(loaded[-1])
         print('Original intro completed in', state['scene'], guards, flush=True)
         success = True

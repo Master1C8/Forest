@@ -234,12 +234,22 @@ public sealed class ForestProbe : MonoBehaviour
         var actor=FindObjectOfType<TheForestOfLove.Player>();
         var body=actor==null?null:actor.GetComponent<Rigidbody2D>();
         bool nativeArrowsUp=valid, asyncArrowsUp=true, rewiredArrowsUp=true, unityArrowsUp=true;
-        foreach(var code in new[]{0x25,0x26,0x27,0x28}) {
-            nativeArrowsUp &= (keys[code]&128)==0;
-            asyncArrowsUp &= (GetAsyncKeyState(code)&0x8000)==0;
-        }
-        foreach(var code in new[]{KeyCode.LeftArrow,KeyCode.UpArrow,KeyCode.RightArrow,KeyCode.DownArrow}) {
-            rewiredArrowsUp &= !keyboard.GetKey(code); unityArrowsUp &= !Input.GetKey(code);
+        bool nativeMovementUp=valid, asyncMovementUp=true, rewiredMovementUp=true, unityMovementUp=true;
+        var nativeDown=new List<string>(); var asyncDown=new List<string>();
+        var rewiredDown=new List<string>(); var unityDown=new List<string>();
+        // Original action0/1 maps contain WASD as well as arrows. Observe all
+        // eight keys before crediting idle; never release unrelated owner input.
+        var nativeCodes=new[]{0x25,0x26,0x27,0x28,(int)'W',(int)'A',(int)'S',(int)'D'};
+        var unityCodes=new[]{KeyCode.LeftArrow,KeyCode.UpArrow,KeyCode.RightArrow,KeyCode.DownArrow,
+            KeyCode.W,KeyCode.A,KeyCode.S,KeyCode.D};
+        for(int i=0;i<nativeCodes.Length;i++) {
+            bool n=(keys[nativeCodes[i]]&128)!=0, a=(GetAsyncKeyState(nativeCodes[i])&0x8000)!=0;
+            bool r=keyboard.GetKey(unityCodes[i]), u=Input.GetKey(unityCodes[i]);
+            string label=unityCodes[i].ToString();
+            if(n)nativeDown.Add(label); if(a)asyncDown.Add(label);
+            if(r)rewiredDown.Add(label); if(u)unityDown.Add(label);
+            nativeMovementUp &= !n; asyncMovementUp &= !a; rewiredMovementUp &= !r; unityMovementUp &= !u;
+            if(i<4) { nativeArrowsUp &= !n; asyncArrowsUp &= !a; rewiredArrowsUp &= !r; unityArrowsUp &= !u; }
         }
         // Observe the real producer and public getters. Never feed these values back.
         keyboardSamples.Add("keyboard | time="+Time.realtimeSinceStartup+
@@ -254,6 +264,12 @@ public sealed class ForestProbe : MonoBehaviour
             " | fullAxis="+Vector(TheForestOfLove.InputHelper.FullAxis)+
             " | nativeArrowsUp="+nativeArrowsUp+" | asyncArrowsUp="+asyncArrowsUp+
             " | rewiredArrowsUp="+rewiredArrowsUp+" | unityArrowsUp="+unityArrowsUp+
+            " | nativeMovementUp="+nativeMovementUp+" | asyncMovementUp="+asyncMovementUp+
+            " | rewiredMovementUp="+rewiredMovementUp+" | unityMovementUp="+unityMovementUp+
+            " | nativeMovementDown="+String.Join(",",nativeDown.ToArray())+
+            " | asyncMovementDown="+String.Join(",",asyncDown.ToArray())+
+            " | rewiredMovementDown="+String.Join(",",rewiredDown.ToArray())+
+            " | unityMovementDown="+String.Join(",",unityDown.ToArray())+
             " | scene="+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+
             " | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
             " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+

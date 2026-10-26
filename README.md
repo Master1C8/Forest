@@ -1,15 +1,25 @@
-## Interrupted phase22 recovery
+## Phase0023: original intro verified; movement held before input
 
-Candidate31 failed before movement: an original timed dialogue ended between its
-external observation and unbound Continue dispatch. Its failed result and successful
-cleanup remain preserved. The canonical bridge now applies Continue only when the
-actual game-thread conversation/entry matches the submitted source binding; otherwise
-it records a stale no-op. Nine intro and three native-input guard tests and compilation
-against150 original references pass. Corrected runtime is still unverified; use a new
-immutable candidate32 and retain real root/doorway, input-release and original story
-guards. Parent recovery independently verified frozen31 resources, original references,
-seven translation input pins and absence of the old game processes. The orphaned model
-turn has no fabricated exit/completion or usage. Translation remains independently owned.
+Immutable candidate32 followed49 original content nodes and10 source-bound responses,
+with60 game-thread-verified Continue receipts. All60 applied to their expected145
+entries; the stale no-op branch remains runtime-unexercised. The original end trigger,
+controller destruction and active bed were observed in two terminal samples.
+The corrected bridge produced actual root Player/door collider pairs. The first loaded
+sample was idle with the original root/trigger pair enabled, not ignored and separated.
+The second sample showed FullAxis+1 and root velocity1.2 to the right, so the idle guard
+stopped before native target inspection or any task key pulse. The input producer is
+unknown; this is not accepted controlled movement. No images were captured or opened.
+
+Candidate32 quit/restored. Its exact frozen launcher/helpers/resources remain historical
+and must not be rerun. The current recipe passively records arrows AND original WASD
+across both loaded observations, saves rejected raw states and stops/saves sampling on
+failure.14 guard tests and a150-reference bridge compile pass; this new instrumentation
+has not run. Use one new immutable candidate33 with unchanged resources to observe the
+actual input boundary before any controlled movement. Never release unrelated owner
+keys, forge focus/maps/axes, force story state or credit unknown input as a passed pulse.
+See localization/probes/ru-20261026-32/runtime-diagnosis.json and the separate source
+supplement localization/source/input-idle-20261026/source-trace.json. Original source,
+editorial, broad renderer, travel/notebook/inventory and final delivery gates remain open.
 
 # The Forest of Love: Russian localization work
 
@@ -54,8 +64,8 @@ Candidate30 quit normally, restored the original QA assembly and removed the bri
 Current task processes are absent;150 original managed references,5 resource pairs,
 all7 asset pins, exact launch snapshots and317 frozen dependencies with2 intended
 DLL cleanup exceptions were verified. No movement or images were submitted.
-Use a new immutable candidate31 for actual loaded pair diagnostics and later guarded
-movement; do not relaunch30. Settings remain no evidence of story-save continuation.
+That earlier recommendation led to consumed31 and32, whose results are recorded above;
+do not relaunch30/31/32. Settings remain no evidence of story-save continuation.
 
 Phase0019 pinned ten original native keyboard/policy groups with
 `tools/inspect_native_input_source.py` in `localization/source/native-input-20261026/`.

@@ -1,0 +1,21 @@
+{
+  "scope": "Supplemental isolated QA native-input feasibility; no canonical source/asset input changes",
+  "nativeProducer": "Shipped Rewired_Windows aUzJnDdLagLcYhSjJnsRTHTqyRC implements the unified keyboard. ZXuGbUVrsKcbexFubWFQFBrecCK reads ReInput.IsInputAllowed(Keyboard), calls user32.GetKeyboardState into a256-byte buffer, checks high-bit down states, and passes reconstructed key transitions through pmEkkkanGSbOAFLCwZTkNgBKQei. That event handler also calls GetAsyncKeyState for modifier reconciliation. Its ctor registers original focus-change callbacks. Merely posting a Win32 WM_KEYDOWN is not evidence that either native state or raw-input delivery changed.",
+  "publicPolicy": "ConfigHelper.ignoreInputWhenAppNotInFocus setter changes the platform config and calls qlBFRJWraZKrzfOnAGXcGDaGoOh -> sXSmojTfsGWqzEIEtxKcdoWFQcy to synchronize the filtering flag. IsInputAllowed first consults inputAllowed, which evaluates actual focus watchers against that flag. No rewritten focus watcher or input-provider callback is needed for this QA-only configuration change.",
+  "axisConsumer": "Original InputHelper.UpdateAxisInputFromKeyboard reads the original player.GetAxis2D(0,1), then TryUpdateAxisInput; it does not accept bridge-injected keyboard axes.",
+  "readOnlyObservation": "Rewired.Keyboard.GetKey(KeyCode) reads the mapped button value. Temporary bridge separately samples user32.GetKeyboardState/GetAsyncKeyState high bits, public Rewired key state, actual InputHelper player identity/axes, Unity key state, actual focus and full axis. No observed value is fed back.",
+  "transportPlan": "CGEvent.postToPid of a bounded left-arrow pulse, only after exact candidate executable/process matching and unique native game-window ownership. Never activate the game or use global CGEvent, SendInput, PostMessage, engine axis, custom controller, replacement callbacks, story flags, transforms or fake focus. Compare original filtering with the public QA-only disabled filter; restore it and release the key before quitting. Test in StartMenu before any New/intro replay.",
+  "officialSources": [
+    {
+      "url": "https://guavaman.com/projects/rewired/docs/api-reference/html/P_Rewired_ReInput_ConfigHelper_ignoreInputWhenAppNotInFocus.htm",
+      "claim": "Public runtime setter; disabling the filter does not guarantee out-of-focus input delivery. Current documentation, corroborated with shipped setter and producer IL."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/coregraphics/cgevent/posttopid(_:)",
+      "claim": "Public process-targeted event API; availability does not establish delivery to CrossOver native keyboard polling."
+    }
+  ],
+  "extractionSha256": "fa146606c9e3cffd1bb9b3583443c841c2e0d2171ba8d2de5931f650e45b0c6d",
+  "originalGroupReproduction": "All initial8 IL outputs byte-identical;2 additional policy-followup groups separately pinned",
+  "acceptanceBoundary": "Native transport, Rewired ingress, original Player physics, real doorway collision, tutorial routes and visual acceptance remain separate. A successful compile or posted event alone passes none of them."
+}
