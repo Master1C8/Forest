@@ -1320,6 +1320,201 @@ def observe_tutorial181(budget, tracker, now, state, saved):
     return (None if action == 'route-ended' else action), len(budget.terminal_frames) >= 2
 
 
+BUCKY141_ROUTE = list(range(194, 213))
+BUCKY141_PLAN_SHA = '33f993794f98a44c9080b5d03a9ebf105dae3bb9b795b720a5de324173293dba'
+BUCKY141_WRAPPER = 'PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton'
+BUCKY141_LISTENER = 'PixelCrushers.DialogueSystem.StandardUIResponseButton'
+BUCKY141_COUNTS = ['intro_from_beaver', 'intro_from_mouse', 'intro_from_otter', 'give_sugar_to_bunny']
+
+
+def bucky141_plan_guard(plan):
+    assert (plan['conversation'], plan['dbName'], plan['arc'], plan['first'], plan['selected'],
+        plan['declined'], plan['successor'], plan['route']) == (141, 'TutorialQuest_BeaverIntroduction', 'p1', 215, 217, 216, 194, BUCKY141_ROUTE), 'Bucky141 source route differs'
+    assert plan['sourceSha256'] == '7cd3173110e9498ada7669cb07f1edf6ab949abef76d791c1e07c7e96da0e10b', 'Bucky141 source pin differs'
+    entries = {e['id']: e for e in plan['entries']}
+    assert len(entries) == len(plan['entries']) and set(entries) == {215, 216, 217, *BUCKY141_ROUTE, 218, 192, 225, 235}, 'Bucky141 source IDs differ'
+    for eid, e in entries.items():
+        expected_actor = (7, 1) if eid in [201, 215] else (1, 3) if eid in [206, 216, 217] else (3, 1)
+        assert (e['actor'], e['conversant']) == expected_actor, 'Bucky141 source actors differ'
+        assert e['isGroup'] == 0 and all(e[k] == '' for k in ['menuText', 'responseMenuSequence', 'conditions', 'script']), 'Bucky141 source controls differ'
+        assert e['sequence'] == ('None()' if eid in [218, 192, 225, 235] else ''), 'Bucky141 source sequence differs'
+        assert e['onExecute']['m_PersistentCalls']['m_Calls'] == [], 'Bucky141 source callback differs'
+        targets = [216, 217] if eid == 215 else [194] if eid == 217 else [215] if eid == 218 else [212] if eid in [192, 225, 235] else [eid+1] if eid in BUCKY141_ROUTE[:-1] else []
+        assert e['outgoingLinks'] == [dict(originConversationID=141, originDialogueID=eid,
+            destinationConversationID=141, destinationDialogueID=t, isConnector=0, priority=2) for t in targets], 'Bucky141 source link differs'
+    canonical = json.dumps(plan, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()
+    assert hashlib.sha256(canonical).hexdigest() == BUCKY141_PLAN_SHA, 'Bucky141 full plan pin differs'
+    return entries
+
+
+def bucky141_subtitle_guard(state, entries):
+    qa_identity(state)
+    assert continue_diagnostic_ready(state), 'Bucky141 dependencies not ready'
+    assert state['scene'] == 'CentralForest' and state['conversationActive'] is True, 'Bucky141 requires actual conversation'
+    assert (state['conversationId'], state['narrativeDbName'], state['narrativeArcName']) == (141, 'TutorialQuest_BeaverIntroduction', 'p1'), 'Bucky141 narrative binding differs'
+    eid = state['entryId']
+    assert eid in [215, 217, *BUCKY141_ROUTE], 'Bucky141 unexpected source entry'
+    e = entries[eid]
+    row = json.loads(state.get('bucky141Record') or '{}')
+    assert row.get('status') != 'rejected', 'Bucky141 native admission rejected: ' + str(row.get('error'))
+    assert (row.get('frame'), row.get('conversationId'), row.get('entryId')) == (state['frame'], 141, eid), 'Stale Bucky141 native source'
+    assert row['choiceMode'] == 'original' and row['graphVerified'] is True, 'Bucky141 original graph unverified'
+    assert (row['actorId'], row['conversantId'], row['sourceText']) == (e['actor'], e['conversant'], e['text']), 'Bucky141 exact actor/text differs'
+    text = e['text'].split(']', 1)[1] if e['text'].startswith('[pic=') else e['text']
+    assert state['conversationState'] == text, 'Bucky141 exact rendered subtitle differs'
+    return row
+
+
+def bucky217_selection_guard(state, entries):
+    bucky141_subtitle_guard(state, entries)
+    assert state['entryId'] == 215 and state['typing'] is False, 'Bucky217 requires non-typing215'
+    responses = state['responses']
+    assert len(responses) == 2 and {r['entryId'] for r in responses} == {216, 217}, 'Bucky217 requires both exact choices'
+    for r in responses:
+        text = entries[r['entryId']]['text']
+        assert r['conversationId'] == 141 and r['text'] == text and r['visible'] is True and r['clickable'] is True and r['targetPath'] == TUTORIAL_UI and r['path'] == TUTORIAL_TEXT_PANEL+'/Response Menu Panel/Viewport/Content/Response: '+text, 'Bucky217 response control differs'
+    row = json.loads(state.get('bucky217Record') or '{}')
+    assert (row.get('frame'), row.get('conversationId'), row.get('sourceId'), row.get('destinationId'), row.get('successorId')) == (state['frame'], 141, 215, 217, 194), 'Stale/wrong Bucky217 native source'
+    path = TUTORIAL_TEXT_PANEL+'/Response Menu Panel/Viewport/Content/Response: Yes'
+    assert (row['choiceMode'], row['text'], row['path'], row['targetPath'], row['listenerMethod'], row['listenerTargetPath']) == ('original', 'Yes', path, TUTORIAL_UI, 'OnClick', path), 'Bucky217 native binding differs'
+    assert all(row[k] == BUCKY141_WRAPPER for k in ['controllerType', 'declinedControllerType']), 'Bucky217 exact wrapper type differs'
+    assert all(row[k] == BUCKY141_LISTENER for k in ['listenerDeclaringType', 'declinedListenerDeclaringType']), 'Bucky217 inherited listener differs'
+    assert row['typing'] is False and row['graphVerified'] is True and row['listenerVerified'] is True, 'Bucky217 native graph/listener unverified'
+    ids = [row[k] for k in ['buttonInstance', 'controllerInstance', 'declinedButtonInstance', 'declinedControllerInstance']]
+    assert all(type(i) is int and i != 0 for i in ids) and len(set(ids)) == 4, 'Bucky217 distinct control identities missing'
+    return row
+
+
+def bucky_completion_snapshot(sample):
+    """Freshness against gameplay samples belongs to the caller, never a file mtime."""
+    qa_identity(sample)
+    assert sample['scene'] == 'CentralForest' and sample['choiceMode'] == 'original', 'Bucky completion identity/mode differs'
+    assert type(sample['frame']) is int and sample['frame'] > 0 and math.isfinite(sample['realtime']) and sample['realtime'] >= 0, 'Bucky completion frame/time missing'
+    rows = sample['diagnostics']
+    guards = diagnostic_fields(rows, 'guards')
+    assert guards == dict(gameplay='True', anyEvent='False', conversation='False'), 'Bucky completion not idle gameplay'
+    def select(prefix, **fields):
+        parsed = [dict(p.split('=', 1) for p in r.split(' | ')[1:]) for r in rows if r.split(' | ')[0] == prefix]
+        selected = [r for r in parsed if all(r.get(k) == str(v) for k, v in fields.items())]
+        assert len(selected) == 1, 'Bucky completion missing/ambiguous ' + prefix + str(fields)
+        return selected[0]
+    counts = {name: int(select('trigger', name=name)['count']) for name in BUCKY141_COUNTS}
+    assert all(n >= 0 for n in counts.values()), 'Bucky completion negative count'
+    return dict(counts=counts, completion=diagnostic_fields(rows, 'buckyCompletion'),
+        quest=select('quest', name='Act1_TutorialQuest'),
+        dialogue=select('questDialogue', name='TutorialQuest_BeaverIntroduction'),
+        arc=select('primaryArc', dialogue='TutorialQuest_BeaverIntroduction', suffix='p1'),
+        notebook=select('buckyNotebookTrigger', conversation=225, entry=195))
+
+
+class Bucky141Transitions:
+    """Bounded pure host state only; no gameplay executor or input injection here."""
+    def __init__(self, plan, baseline, started):
+        self.entries = bucky141_plan_guard(plan)
+        self.baseline = baseline
+        self.before = bucky_completion_snapshot(baseline)
+        assert self.before['counts'] == dict.fromkeys(BUCKY141_COUNTS, 0), 'Bucky initial four counts differ'
+        assert self.before['completion'] == dict(notebookLearned='False', observerArmed='False', lineEnd='null') and self.before['notebook']['executed'] == 'False', 'Bucky initial notebook/observer differs'
+        assert (self.before['quest']['status'], self.before['dialogue']['status'], self.before['arc']['status']) == ('100', '0', '0'), 'Bucky initial source status differs'
+        assert math.isfinite(started), 'Bucky invalid clock'
+        self.started = self.progress_at = self.observed_at = started
+        self.deadline = started + 120
+        self.frame, self.realtime = baseline['frame'], baseline['realtime']
+        self.previous = None
+        self.selection = self.line_end = self.completion = None
+        self.observed = []
+        self.cleanup = []
+        self.first212 = None
+
+    def check(self, now):
+        assert math.isfinite(now) and self.observed_at <= now <= self.deadline, 'Bucky fixed stage deadline exceeded'
+        assert now - self.progress_at <= 20, 'Bucky unchanged progress timeout'
+
+    def action(self, state):
+        if not state['conversationActive']:
+            assert self.selection is not None and self.observed == BUCKY141_ROUTE, 'Bucky cleanup before full212 route'
+            assert not state['responses'] and not state['typing'] and not state['narrativeDbName'] and not state['narrativeArcName'], 'Bucky cleanup active text/menu/narrative'
+            return 'route-ended'
+        bucky141_subtitle_guard(state, self.entries)
+        eid = state['entryId']
+        if self.selection is None:
+            assert eid == 215, 'Bucky first actual entry must be215'
+            if state['typing'] or not state['responses']:
+                return None
+            row = bucky217_selection_guard(state, self.entries)
+            return 'select-bucky217 %s %s' % (row['frame'], row['buttonInstance'])
+        if eid == 215:
+            bucky217_selection_guard(state, self.entries)
+            return None
+        assert not state['responses'], 'Bucky unexpected response menu'
+        return None if state['typing'] or eid == 217 else 'continue-bound 141 ' + str(eid)
+
+    def observe(self, state, now, saved=None):
+        self.check(now)
+        qa_identity(state)
+        assert continue_diagnostic_ready(state), 'Bucky141 dependencies not ready'
+        assert state['scene'] == 'CentralForest' and all(state[k] == self.baseline[k] for k in ['dataPath', 'persistentDataPath']), 'Bucky process/scene identity changed'
+        assert type(state['frame']) is int and state['frame'] > self.frame and math.isfinite(state['realtime']) and state['realtime'] > self.realtime, 'Bucky requires new real frame/time'
+        action = self.action(state)
+        if state['conversationActive']:
+            assert not self.cleanup, 'Bucky conversation resumed during cleanup'
+            eid = state['entryId']
+            if self.previous is None:
+                assert eid == 215 and state['realtime']-self.baseline['realtime'] <= 15, 'Bucky stale initial dispatch'
+            elif eid != self.previous:
+                expected = [215, 217, 194] if self.previous == 215 else [194] if self.previous == 217 else [self.previous+1]
+                assert eid in expected, 'Bucky actual successor194 required or source transition skipped/backtracked'
+            if eid != self.previous:
+                self.progress_at = now
+                if eid in BUCKY141_ROUTE:self.observed.append(eid)
+                if eid == 212:self.first212 = dict(frame=state['frame'], realtime=state['realtime'])
+            self.previous = eid
+        else:
+            end = json.loads(state.get('bucky212EndRecord') or '{}')
+            assert self.first212 is not None and (end.get('conversationId'), end.get('entryId'), end.get('dbName'), end.get('arc'), end.get('count')) == (141, 212, 'TutorialQuest_BeaverIntroduction', 'p1', 1), 'Bucky missing exact real212 line-end'
+            assert type(end['frame']) is int and self.first212['frame'] < end['frame'] <= state['frame'] and math.isfinite(end['realtime']) and self.first212['realtime'] < end['realtime'] <= state['realtime'], 'Bucky stale real212 line-end'
+            assert saved and saved['scene'] == 'CentralForest' and saved['gameplay'] is True and saved['anyEvent'] is False and saved['conversation'] is False and saved['playerPresent'] is True, 'Bucky cleanup requires no-event Player frame'
+            if not self.cleanup:
+                self.deadline = min(self.deadline, now+15)
+                self.progress_at = now
+                self.line_end = end
+            assert end == self.line_end, 'Bucky line-end changed during cleanup'
+            self.cleanup.append(dict(frame=state['frame'], realtime=state['realtime']))
+        self.frame, self.realtime, self.observed_at = state['frame'], state['realtime'], now
+        return None if action == 'route-ended' else action
+
+    def acknowledge_selection(self, state, action, transport, receipt):
+        assert self.selection is None, 'Bucky217 already selected; no replay'
+        expected = bucky217_selection_guard(state, self.entries)
+        assert (state['frame'], state['entryId']) == (self.frame, self.previous), 'Stale Bucky217 host observation'
+        assert action == 'select-bucky217 %s %s' % (state['frame'], expected['buttonInstance']), 'Bucky217 action binding differs'
+        assert transport.get('command') == action and transport.get('transportExitCode') == 0 and transport.get('acknowledgement', '').partition(' OK ')[2] == action, 'Missing exact Bucky217 ACK'
+        assert self.observed_at <= transport['submittedAt'] <= transport['acknowledgedAt'] <= self.deadline and transport['acknowledgedAt']-self.progress_at <= 20, 'Stale Bucky217 ACK'
+        assert receipt['result'] == 'submitted' and type(receipt['frame']) is int and 0 <= receipt['frame']-state['frame'] <= 120, 'Stale Bucky217 receipt'
+        assert all(receipt[k] == v for k, v in expected.items() if k not in ['frame', 'result']), 'Bucky217 receipt binding differs'
+        self.selection = dict(native=receipt, transport=transport, sourceFrame=state['frame'])
+        # ACK does not change self.frame, progress_at, previous, deadline or coverage.
+
+    def accept_completion(self, sample, now):
+        self.check(now)
+        assert self.completion is None, 'Bucky completion already accepted'
+        assert len(self.cleanup) >= 2 and self.line_end is not None, 'Bucky needs two real cleanup frames'
+        after = bucky_completion_snapshot(sample)
+        assert all(sample[k] == self.baseline[k] for k in ['dataPath', 'persistentDataPath']), 'Bucky completion process identity differs'
+        assert type(sample['frame']) is int and self.frame < sample['frame'] <= self.frame+120 and 0 < sample['realtime']-self.realtime <= 2, 'Bucky stale completion snapshot'
+        assert after['counts'] == dict(zip(BUCKY141_COUNTS, [1, 0, 0, 0])), 'Bucky actual named trigger delta differs'
+        assert after['completion']['observerArmed'] == 'True' and json.loads(after['completion']['lineEnd']) == self.line_end, 'Bucky completion line-end differs'
+        assert after['completion']['notebookLearned'] == 'False' and after['notebook']['executed'] == 'False', 'Bucky alone cannot complete notebook'
+        assert (after['quest']['status'], after['dialogue']['status'], after['arc']['status']) == ('100', '200', '100'), 'Bucky actual quest/dialogue/arc status differs'
+        self.completion = dict(sample=sample, parsed=after)
+        return self.receipt()
+
+    def receipt(self):
+        return dict(selection217=self.selection, actual194Observed=194 in self.observed, observedRouteSubtitles=list(self.observed),
+            real212LineEnd=self.line_end, cleanupFrames=list(self.cleanup), completion=self.completion,
+            boundary='Pure host admission, pending real Unity/native execution. Selection/actual194/real212 end/two cleanup frames/counts are separate. Bucky alone is not all-four/notebook acceptance.')
+
+
 def continue_diagnostic_ready(state):
     """Read-only producer contract; never infer readiness from default story fields."""
     assert type(state['diagnosticsReady']) is bool, 'Invalid diagnostic readiness flag'

@@ -50,6 +50,7 @@ public sealed class ForestProbe : MonoBehaviour
         public string tutorialCompletionRecord;
         public string tutorial181Record;
         public string tutorial181ControlRecord;
+        public string bucky217Record, bucky141Record, bucky212EndRecord;
     }
     [Serializable] public sealed class TutorialCompletion {
         public string result, text, sourceText, panelPath, buttonPath, textPath, targetPath;
@@ -59,6 +60,26 @@ public sealed class ForestProbe : MonoBehaviour
     }
     private bool tutorial158Completed;
     private bool tutorial181Selected;
+    private bool bucky217Selected;
+    private UnityEngine.Events.UnityEvent<TheForestOfLove.Narrative.Dialogue,TheForestOfLove.Narrative.Arc,int,int> buckyLineEndSource;
+    private Bucky212End bucky212End;
+    [Serializable] public sealed class Bucky141Subtitle {
+        public string choiceMode, sourceText;
+        public int frame, conversationId, entryId, actorId, conversantId;
+        public bool graphVerified;
+    }
+    [Serializable] public sealed class Bucky217Selection {
+        public string result, choiceMode, text, path, targetPath, listenerMethod, listenerTargetPath;
+        public string controllerType, listenerDeclaringType, declinedControllerType, declinedListenerDeclaringType;
+        public int frame, conversationId, sourceId, destinationId, successorId, buttonInstance, controllerInstance;
+        public int declinedButtonInstance, declinedControllerInstance;
+        public bool typing, graphVerified, listenerVerified;
+    }
+    [Serializable] public sealed class Bucky212End {
+        public string dbName, arc;
+        public int frame, conversationId, entryId, count;
+        public float realtime;
+    }
     [Serializable] public sealed class Tutorial181Rejection {
         public string status="rejected", error;
     }
@@ -160,6 +181,13 @@ public sealed class ForestProbe : MonoBehaviour
                     frame=Time.frameCount,realtime=Time.realtimeSinceStartup,diagnostics=BuckyInteractionDiagnostics()};
                 File.WriteAllText(Path.Combine(root,"bucky-interaction.json"),JsonUtility.ToJson(state,true));
             }
+            else if(text=="dump-bucky-completion") {
+                var state=new BuckyInteractionState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                    company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
+                    persistentDataPath=Application.persistentDataPath,choiceMode=TutorialChoiceMode,
+                    frame=Time.frameCount,realtime=Time.realtimeSinceStartup,diagnostics=BuckyCompletionDiagnostics()};
+                File.WriteAllText(Path.Combine(root,"bucky-completion.json"),JsonUtility.ToJson(state,true));
+            }
             else if(text=="qa-background-input") {
                 if(originalIgnoreUnfocused.HasValue || !Rewired.ReInput.isReady)
                     throw new Exception("Background policy already changed or input not ready");
@@ -211,6 +239,23 @@ public sealed class ForestProbe : MonoBehaviour
                 tutorial181Selected=true;
                 selection.result="submitted";
                 File.WriteAllText(Path.Combine(root,"selection181-receipt.json"),JsonUtility.ToJson(selection,true));
+                button.onClick.Invoke();
+            } else if(text.StartsWith("select-bucky217 ")) {
+                if(bucky217Selected)throw new Exception("Bucky217 already selected; no replay");
+                var parts=text.Substring(16).Split(' ');
+                if(parts.Length!=2)throw new Exception("Expected observed frame and original button identity");
+                int observedFrame=Int32.Parse(parts[0]), buttonId=Int32.Parse(parts[1]);
+                Button button;
+                var selection=ReadBucky217(out button);
+                if(observedFrame<=0 || observedFrame>selection.frame || selection.frame-observedFrame>120 ||
+                   selection.buttonInstance!=buttonId)throw new Exception("Stale Bucky217 menu/control");
+                // Consume before any listener/action side effect. Unknown outcome is not replay permission.
+                bucky217Selected=true;
+                buckyLineEndSource=TheForestOfLove.Narrative.DialogueService.onDialogueLineArcTriggerCheck;
+                if(buckyLineEndSource==null)throw new Exception("Bucky original line-end event absent");
+                buckyLineEndSource.AddListener(ObserveBucky212End);
+                selection.result="submitted";
+                File.WriteAllText(Path.Combine(root,"selection217-receipt.json"),JsonUtility.ToJson(selection,true));
                 button.onClick.Invoke();
             } else if(text.StartsWith("continue-bound ")) {
                 var parts=text.Substring(15).Split(' ');
@@ -326,6 +371,7 @@ public sealed class ForestProbe : MonoBehaviour
     }
     void OnDestroy() {
         Application.focusChanged-=ObserveUnityFocusEvent;
+        if(buckyLineEndSource!=null)buckyLineEndSource.RemoveListener(ObserveBucky212End);
         RestoreInputPolicy();
     }
     // These handlers receive real engine/library events. They never call the
@@ -1128,6 +1174,176 @@ public sealed class ForestProbe : MonoBehaviour
             listenerMethod="OnClick",listenerTargetPath=path,buttonInstance=button.GetInstanceID(),
             controllerInstance=match.GetInstanceID(),typing=false,graphVerified=true,listenerVerified=true};
     }
+    // Exact source graph calls are produced by tools/prepare_bucky141.py.
+    // BEGIN BUCKY141 GRAPH
+    void Bucky141Graph() {
+        Bucky141Entry(215,"","He… seems to be quitely snoring… Wake him up?",7,1,"",new int[]{216,217});
+        Bucky141Entry(216,"","No",1,3,"",new int[]{});
+        Bucky141Entry(217,"","Yes",1,3,"",new int[]{194});
+        Bucky141Entry(194,"","[pic=3]Zzz… Zzz…",3,1,"",new int[]{195});
+        Bucky141Entry(195,"","[pic=3]Zzz- H",3,1,"",new int[]{196});
+        Bucky141Entry(196,"","[pic=2]uh~! Wha?",3,1,"",new int[]{197});
+        Bucky141Entry(197,"","[pic=4]Oh-",3,1,"",new int[]{198});
+        Bucky141Entry(198,"","[pic=1]Hello there!",3,1,"",new int[]{199});
+        Bucky141Entry(199,"","[pic=1]You must be that new fella!",3,1,"",new int[]{200});
+        Bucky141Entry(200,"","[pic=1]Good to see ya back on your paws!",3,1,"",new int[]{201});
+        Bucky141Entry(201,"","The beaver lets out a long yawn.",7,1,"",new int[]{202});
+        Bucky141Entry(202,"","[pic=2]Sorry - ya caught me in the middle of my afternoon nap!",3,1,"",new int[]{203});
+        Bucky141Entry(203,"","[pic=1]Anyways, the name’s Barnaby Webbz!",3,1,"",new int[]{204});
+        Bucky141Entry(204,"","[pic=2]But you can just call me Bucky!",3,1,"",new int[]{205});
+        Bucky141Entry(205,"","[pic=4]And what’s your name, pal?",3,1,"",new int[]{206});
+        Bucky141Entry(206,"","Rascal! Rascal Redtail.",1,3,"",new int[]{207});
+        Bucky141Entry(207,"","[pic=1]The pleasure’s all mine Rascal!",3,1,"",new int[]{208});
+        Bucky141Entry(208,"","[pic=4]I’m the town’s handyman!",3,1,"",new int[]{209});
+        Bucky141Entry(209,"","[pic=1]Fixing, crafting, building, you name it!",3,1,"",new int[]{210});
+        Bucky141Entry(210,"","[pic=1]If there’s anything ya need during your stay, don’t hesitate to ask!",3,1,"",new int[]{211});
+        Bucky141Entry(211,"","[pic=2]Until then… I kinda wanna get back to my nap…",3,1,"",new int[]{212});
+        Bucky141Entry(212,"","[pic=1]I’m sure I’ll be seeing ya again very soon!",3,1,"",new int[]{});
+        Bucky141Entry(218,"PRIMARY","",3,1,"None()",new int[]{215});
+        Bucky141Entry(192,"TRIGGER(intro_from_beaver)","",3,1,"None()",new int[]{212});
+        Bucky141Entry(225,"FINISHSTEP","",3,1,"None()",new int[]{212});
+        Bucky141Entry(235,"FINISHARC(p1)","",3,1,"None()",new int[]{212});
+    }
+    // END BUCKY141 GRAPH
+    void Bucky141Entry(int id,string title,string text,int actor,int conversant,string sequence,int[] destinations) {
+        var entry=DialogueManager.masterDatabase.GetDialogueEntry(141,id);
+        if(entry==null || entry.conversationID!=141 || entry.id!=id || entry.Title!=title || entry.DialogueText!=text ||
+           entry.ActorID!=actor || entry.ConversantID!=conversant || entry.isRoot || entry.isGroup || entry.delaySimStatus ||
+           entry.falseConditionAction!="Block" || (int)entry.conditionPriority!=2 ||
+           !String.IsNullOrEmpty(entry.conditionsString) || !String.IsNullOrEmpty(entry.userScript) ||
+           !String.IsNullOrEmpty(entry.MenuText) || entry.Sequence!=sequence || !String.IsNullOrEmpty(entry.ResponseMenuSequence) ||
+           (entry.onExecute!=null && entry.onExecute.GetPersistentEventCount()!=0) ||
+           entry.outgoingLinks==null || entry.outgoingLinks.Count!=destinations.Length)
+            throw new Exception("Bucky141 exact source/actor/control differs: "+id);
+        for(int i=0;i<destinations.Length;i++) {
+            var link=entry.outgoingLinks[i];
+            if(link.originConversationID!=141 || link.originDialogueID!=id || link.destinationConversationID!=141 ||
+               link.destinationDialogueID!=destinations[i] || link.isConnector || (int)link.priority!=2)
+                throw new Exception("Bucky141 exact source link differs: "+id);
+        }
+    }
+    Bucky141Subtitle ReadBucky141() {
+        if(TutorialChoiceMode!="original" || !DialogueManager.isConversationActive ||
+           TheForestOfLove.Narrative.DialogueService.CurrentDialogueDbName!="TutorialQuest_BeaverIntroduction" ||
+           TheForestOfLove.Narrative.DialogueService.CurrentArcName!="p1" ||
+           UnityEngine.SceneManagement.SceneManager.GetActiveScene().name!="CentralForest")
+            throw new Exception("Bucky141 original narrative binding differs");
+        var current=DialogueManager.currentConversationState;
+        var subtitle=current==null?null:current.subtitle;
+        var entry=subtitle==null?null:subtitle.dialogueEntry;
+        if(entry==null || entry.conversationID!=141 || (entry.id!=215 && entry.id!=217 && (entry.id<194 || entry.id>212)))
+            throw new Exception("Bucky141 unexpected current entry");
+        Bucky141Graph();
+        if(!System.Object.ReferenceEquals(entry,DialogueManager.masterDatabase.GetDialogueEntry(141,entry.id)))
+            throw new Exception("Bucky141 current source entry identity differs");
+        var expected=entry.DialogueText;
+        if(expected.StartsWith("[pic="))expected=expected.Substring(expected.IndexOf(']')+1);
+        if(subtitle.formattedText==null || subtitle.formattedText.text!=expected)
+            throw new Exception("Bucky141 exact current subtitle differs");
+        return new Bucky141Subtitle{choiceMode=TutorialChoiceMode,frame=Time.frameCount,conversationId=141,entryId=entry.id,
+            sourceText=entry.DialogueText,actorId=entry.ActorID,conversantId=entry.ConversantID,graphVerified=true};
+    }
+    Bucky217Selection ReadBucky217(out Button button) {
+        var source=ReadBucky141();
+        if(source.entryId!=215 || TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping())
+            throw new Exception("Bucky217 requires fresh non-typing215 menu");
+        var responses=ReadResponses();
+        if(responses.Count!=2 || DialogueManager.currentConversationState.pcResponses==null ||
+           DialogueManager.currentConversationState.pcResponses.Length!=2)
+            throw new Exception("Bucky217 exact two choices absent");
+        var ids=new HashSet<int>();
+        foreach(var response in DialogueManager.currentConversationState.pcResponses) {
+            var entry=response.destinationEntry;
+            if(entry==null || (entry.id!=216 && entry.id!=217) || !ids.Add(entry.id) ||
+               !System.Object.ReferenceEquals(entry,DialogueManager.masterDatabase.GetDialogueEntry(141,entry.id)) ||
+               response.formattedText==null || response.formattedText.text!=entry.DialogueText || response.formattedText.forceAuto)
+                throw new Exception("Bucky217 exact PC source choices differ");
+        }
+        ids.Clear();
+        foreach(var row in responses) {
+            string label=row.entryId==216?"No":"Yes";
+            if((row.entryId!=216 && row.entryId!=217) || !ids.Add(row.entryId) || row.conversationId!=141 ||
+               row.text!=label || !row.visible || !row.clickable || row.targetPath!=TutorialUI ||
+               row.path!=TutorialTextPanel+"/Response Menu Panel/Viewport/Content/Response: "+label)
+                throw new Exception("Bucky217 original response rows differ");
+        }
+        StandardUIResponseButton chosen=null, declined=null;
+        foreach(var candidate in Resources.FindObjectsOfTypeAll<StandardUIResponseButton>()) {
+            if(!candidate.gameObject.scene.IsValid() || !candidate.gameObject.activeInHierarchy || candidate.response==null ||
+               candidate.response.destinationEntry==null)continue;
+            var entry=candidate.response.destinationEntry;
+            string label=entry.id==216?"No":"Yes";
+            string path=TutorialTextPanel+"/Response Menu Panel/Viewport/Content/Response: "+label;
+            if(entry.conversationID!=141 || (entry.id!=216 && entry.id!=217) ||
+               candidate.GetType()!=typeof(PixelCrushers.DialogueSystem.Wrappers.StandardUIResponseButton) ||
+               !candidate.enabled || !candidate.isVisible || !candidate.isClickable || candidate.text!=label ||
+               Address(candidate.transform)!=path || candidate.target==null || Address(candidate.target)!=TutorialUI ||
+               candidate.button==null || candidate.button.transform!=candidate.transform || !candidate.button.enabled ||
+               !candidate.button.IsInteractable() || candidate.button.onClick.GetPersistentEventCount()!=0 ||
+               !System.Object.ReferenceEquals(entry,DialogueManager.masterDatabase.GetDialogueEntry(141,entry.id)) ||
+               candidate.response.formattedText==null || candidate.response.formattedText.text!=label || candidate.response.formattedText.forceAuto)
+                throw new Exception("Bucky217 original response control differs");
+            // Both No and Yes must have the original empty wrapper and one inherited base OnClick.
+            var calls=typeof(UnityEngine.Events.UnityEventBase).GetField("m_Calls",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(candidate.button.onClick);
+            var runtime=ReadField(calls,"m_RuntimeCalls") as IList;
+            if(runtime==null || runtime.Count!=1)throw new Exception("Bucky217 runtime listener count differs");
+            var callback=ReadField(runtime[0],"Delegate") as Delegate;
+            if(callback==null || callback.GetInvocationList().Length!=1 || !System.Object.ReferenceEquals(callback.Target,candidate) ||
+               callback.Method.Name!="OnClick" || callback.Method.DeclaringType!=typeof(StandardUIResponseButton))
+                throw new Exception("Bucky217 runtime listener target differs");
+            if(entry.id==217) {if(chosen!=null)throw new Exception("Ambiguous Bucky217 button");chosen=candidate;}
+            else {if(declined!=null)throw new Exception("Ambiguous Bucky216 button");declined=candidate;}
+        }
+        if(chosen==null || declined==null || chosen==declined || chosen.button==declined.button)
+            throw new Exception("Bucky217 original distinct buttons absent");
+        button=chosen.button;
+        string chosenPath=Address(chosen.transform);
+        return new Bucky217Selection{choiceMode=TutorialChoiceMode,frame=Time.frameCount,conversationId=141,sourceId=215,
+            destinationId=217,successorId=194,text="Yes",path=chosenPath,targetPath=TutorialUI,listenerMethod="OnClick",
+            listenerTargetPath=chosenPath,buttonInstance=button.GetInstanceID(),controllerInstance=chosen.GetInstanceID(),
+            declinedButtonInstance=declined.button.GetInstanceID(),declinedControllerInstance=declined.GetInstanceID(),
+            controllerType=chosen.GetType().FullName,declinedControllerType=declined.GetType().FullName,
+            listenerDeclaringType=typeof(StandardUIResponseButton).FullName,declinedListenerDeclaringType=typeof(StandardUIResponseButton).FullName,
+            typing=false,graphVerified=true,listenerVerified=true};
+    }
+    void ObserveBucky212End(TheForestOfLove.Narrative.Dialogue dialogue,TheForestOfLove.Narrative.Arc arc,int conversationId,int entryId) {
+        // Passive real original event callback; never dispatch, evaluate predicates or change narrative state.
+        if(!bucky217Selected || conversationId!=141 || entryId!=212)return;
+        bucky212End=new Bucky212End{dbName=dialogue==null?"":dialogue.dbName,arc=arc==null?"":arc.pluginDbSuffix,
+            conversationId=conversationId,entryId=entryId,frame=Time.frameCount,realtime=Time.realtimeSinceStartup,
+            count=bucky212End==null?1:bucky212End.count+1};
+    }
+    string[] BuckyCompletionDiagnostics() {
+        var rows=new List<string>(TutorialRouteDiagnostics());
+        rows.Add("buckyCompletion | notebookLearned="+TheForestOfLove.QuestTriggerHelper.PlayerLearnedNotebook()+
+            " | observerArmed="+(buckyLineEndSource!=null)+" | lineEnd="+(bucky212End==null?"null":JsonUtility.ToJson(bucky212End)));
+        var dialogue=TheForestOfLove.Services.Persistence.DataService.GetDialogueByDbName("TutorialQuest_BeaverIntroduction");
+        if(dialogue==null)throw new Exception("Bucky completion dialogue absent");
+        foreach(var trigger in dialogue.arcTriggers) {
+            var named=trigger as TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger;
+            rows.Add("buckyArcTrigger | type="+trigger.GetType().FullName+" | conversation="+trigger.GetConversationId()+
+                " | entry="+trigger.GetDialogueEntryId()+" | executed="+trigger.isExecuted+
+                " | namedTrigger="+(named==null?"":named.triggerPluginDbName));
+        }
+        var notebook=TheForestOfLove.Services.Persistence.DataService.GetDialogueByPluginDbId(225);
+        if(notebook==null || notebook.dbName!="GossipQuest_GetTheNotebook")throw new Exception("Notebook completion dialogue differs");
+        foreach(var trigger in notebook.arcTriggers) {
+            var named=trigger as TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger;
+            if(named!=null && named.triggerPluginDbName=="notebook_unlocked")
+                rows.Add("buckyNotebookTrigger | conversation="+named.GetConversationId()+" | entry="+named.GetDialogueEntryId()+" | executed="+named.isExecuted);
+        }
+        return rows.ToArray();
+    }
+    void ReadBuckyRecords(State state) {
+        state.bucky212EndRecord=bucky212End==null?"":JsonUtility.ToJson(bucky212End);
+        if(!state.conversationActive || state.conversationId!=141)return;
+        try {
+            state.bucky141Record=JsonUtility.ToJson(ReadBucky141());
+            if(state.entryId==215 && !state.typing && ReadResponses().Count!=0) {
+                Button button;state.bucky217Record=JsonUtility.ToJson(ReadBucky217(out button));
+            }
+        } catch(Exception ex) {state.bucky141Record=JsonUtility.ToJson(new Tutorial181Rejection{error=ex.Message});}
+    }
     void ReadConversation(State state) {
         state.conversationActive=DialogueManager.isConversationActive;
         // Read scalar state only; never serialize the conversation graph.
@@ -1168,6 +1384,7 @@ public sealed class ForestProbe : MonoBehaviour
             state.introDiagnostics=rows.ToArray();
             ReadConversation(state);
             ReadTutorialCompletionRecord(state);
+            ReadBuckyRecords(state);
         }
         File.WriteAllText(Path.Combine(root,"intro-state.json"),JsonUtility.ToJson(state,true));
     }
@@ -1273,6 +1490,7 @@ public sealed class ForestProbe : MonoBehaviour
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;
         ReadConversation(state);
         ReadTutorialCompletionRecord(state);
+        ReadBuckyRecords(state);
         File.WriteAllText(Path.Combine(root,"state.json"),JsonUtility.ToJson(state,true));
     }
     [Serializable] public sealed class SaveContinuationState {

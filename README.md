@@ -1,38 +1,36 @@
-## Phase0059: bounded right/Return and read-only Bucky admission implemented
+## Phase0060: source-bound Bucky choice and progression prepared
 
-The existing native helper now supports right and a single 100 ms Return press,
-bound again to the inspected QA PID/window before either new action. The bridge
-adds read-only `dump-bucky`: exact actor/controller/trigger/settings/UI/listeners,
-both distinct GameObject authority IDs, cached Talk/Quest and actual root-collider
-contact. Keyboard samples additionally expose all four original action2 keys,
-Rewired/Unity/InputHelper edges and Submit map bindings. Three pure host guards
-admit this state and all-key/action2/axes release; no gameplay executor uses them yet.
+The bridge now admits original141:215 -> Yes217 through exact source, both choice
+controls and inherited base OnClick listeners. A passive original212 line-end
+observer and frame-bound completion dump keep selection, actual194, all19 lines,
+real212 end, two idle cleanup frames and subsequent counts/status separate.
+The new pure host tracker rejects skipped/backtracked lines, stale/replayed
+selection, wrong actors/types/listeners and premature cleanup. It does not yet
+run movement/Submit or dispatch gameplay actions. All previous guards remain.
 
-All 106 focused tests pass (7 Bucky, 52 input, 36 Continue, 11 tutorial181).
-The compiled Swift helper passes 11 no-delivery checks with zero posted events.
-Original and synthetic bridges compile. Complete Cecil comparison preserves
-50 exact and 14 compiler-ordinal-only method bodies per mode; only Update,
-KeyboardMaps and LateUpdate change, with all existing Update command bodies
-otherwise exact. All 54 existing Python definitions are AST-identical. Mock
-contact/listeners/clocks prove host boundaries only; Unity/native acceptance
-remains pending. All 19 lane inputs, 150 original managed references, 262 other
-original files, owner saves and QA43 disk bytes are unchanged; no game launched,
-image opened, predicate called or candidate51 directory created.
+118 focused tests pass:12 Bucky141,7 Bucky admission,52 input,36 Continue and11
+181. Original/synthetic bridges compile; complete Cecil comparison retains56 exact
+and12 compiler-ordinal-only bodies per mode. Only Update, OnDestroy and the two
+dump methods change. All57 existing host definitions retain identical AST.
+Mocked Unity/clock fixtures prove host boundaries only. No game launched, images
+opened, native events posted or candidate51 created.19 lane pins, original files,
+owner saves and QA43 disk bytes are verified unchanged.
 
-Next implement dedicated original141:215 -> Yes217 and real194..212/line-end/two
-cleanup frames; then wire finite ordinary movement/Submit stages without changing
-QA43/readiness/prefix/181/full187 or generic/terminal/synthetic guards. New immutable
-candidate51 needs all later-read snapshots, focused checks, compiled readback and
-normal preflight before launch. Never replay consumed50/49/48/47/46/45/44/43.
-Accepted50/10/15/47/48 evidence remains; QA43 is not a post187 checkpoint.
+Next wire finite measured ordinary right/down/Submit stages into the existing
+host, preserve QA43/prefix/181/actual182/full187/two cleanup frames, then connect
+Bucky141Transitions and its fresh pre-Submit/completion samples. Add whole-host
+positive/failure checks, compile/read back changed IL and only then freeze a new
+immutable51 with all later-loaded dependencies and normal preflight. Do not replay
+consumed50/49/48/47/46/45/44/43. QA43 disk is not a post187 checkpoint.
 
-Evidence: `localization/source/tutorial-20261026/phase0059/ADAPTER.md`,
-`verification.json`, `compiled-readback/comparison.json`, `compile.json`,
-`native-helper-checks.json` and the four focused test logs. Prior summary:
-`localization/history/phase0058-summary.md`. Complete source/BGDatabase/special-scene/
-editorial, native right/Return/ordinary141/trigger, initial spawn/notebook/inventory,
-final fonts/resources and local delivery gates remain pending. All seven asset
-lanes continue read-only to this technical lane. No publication/deployment.
+Evidence: `localization/source/tutorial-20261026/phase0060/ADAPTER.md`,
+`verification.json`, `source-plan/bucky141-plan.json`, `compiled-readback/comparison.json`
+and the five test logs. Prior summary: `localization/history/phase0059-summary.md`.
+Native right/Return, loaded Bucky/141/trigger behavior, initial spawn/notebook/
+inventory, complete source/BGDatabase/special-scene/editorial, final fonts/resources
+and local delivery remain pending. Accepted50/10/15/47/48 evidence stays unchanged.
+All seven authorized asset lanes continue independently/read-only to technical
+work; technical lane alone owns Git/index. No publication or deployment.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 
