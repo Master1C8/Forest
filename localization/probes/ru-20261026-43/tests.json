@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-10-26T16:07:50.981715+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.test_native_input",
+    "tools.test_intro_actions"
+  ],
+  "returnCode": 0,
+  "durationSeconds": 3.515703875,
+  "testsPassed": 70,
+  "stdout": "",
+  "stderr": "......................................................................\n----------------------------------------------------------------------\nRan 70 tests in 3.390s\n\nOK\n",
+  "sourceHashes": {
+    "tools/probe/diagnose_newgame.py": "4758d3a8654df46ceadb65c004bc3643f24ccbf129bef7a574a9320743c82dbf",
+    "tools/test_native_input.py": "55b2f984f2fca8ddc88c90cde7210fb6ba07be2a60eb364c4eb955bc83baa5b7",
+    "tools/test_intro_actions.py": "f44c2e2140560a6fa2c8a1677d6460b50fef16fde6810ca2f362797da3685c89",
+    "tools/probe/command.py": "fa24daef57164f63e7a3831bb823057f7b0a13e607be7b54422ece10153446a8",
+    "tools/attribute_intro_observation.py": "d32168befefc7815c467f80d13f299ec257a87e618a833aba7dc3fa212f9e245"
+  },
+  "boundary": "Real Python helper children/output/exit/reaping; Wine/Unity game rows and controlled timing are fixtures. No native game or speedup acceptance.",
+  "priorAttempt": "Initial final-code-development suite passed70; repeated here after focus timing assertions were strengthened."
+}

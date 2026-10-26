@@ -1,0 +1,24 @@
+{
+  "scope": "Supplemental read-only eligibility diagnostics; canonical inventories/glossaries and all asset lanes unchanged",
+  "source": "Original pinned Rewired_Core.dll; exact field layouts plus getter IL in extraction.json",
+  "predicate": "inputAllowed reads global-ready, actual focus watcher QBAmVS..., original filter NPfef..., editor presence and other watcher xIMFC.... IsInputAllowed(Keyboard) consults it. No sampled state is fed back.",
+  "observer": "tools/probe/ForestProbe.cs KeyboardEligibility reads exact static fields/watchers, invokes the shipped getter/predicate and reads public configuration. ValueWatcher.value IL is one field load followed by ret.",
+  "trial": "Original-policy all-eight-key and zero-axis passive samples, no original-policy DOWN. One QA-only public ignoreInputWhenAppNotInFocus=False LEFT after idle/actual focus/native/eligibility guards; require native + Rewired + original action axes + FullAxis delivery in a real frame. Record Unity separately: it is not the shipped axis consumer. Restore original policy and observe idle before quitting.",
+  "guardRegression": "A real focused=False/original filter=True state may be passively sampled but cannot authorize DOWN. Explicit QA filter=False may authorize a bounded menu-only DOWN if actual eligibility/idle/focus guards pass. Native-only key transitions never prove delivered input.",
+  "acceptanceBoundary": "Menu native/Rewired/axis feasibility only, under an explicitly replaced QA policy. No original-policy unfocused, gameplay movement, natural doorway/tutorial, renderer/source/editorial/final-delivery acceptance.",
+  "files": {
+    "Eligibility.il": "4966971472bac12cc83bb8be5b109bcb3c45c7b5a06b9231a81981a7e2480574",
+    "EditorEligibility.il": "145103fd1df9ffa440bf6f6d6264737ec0c06d1ac15300d14425bc4dd4352387",
+    "FocusWatcherFields.il": "29d81dcaccbad8f39927f4e2b58ad829a512eb5b455342f5fb456f571d21d864",
+    "extraction.json": "7905ab9b9feeb6fe32e359c162875cda7b7f1346c589a567c9a5c83b0b6257c0",
+    "EligibilityFields.il": "b6d505292091f6d24aae2b42248f5446554db6a83adadd37c41b2a6fdf59d39e",
+    "WatcherValue.il": "d9c3d2f4ccd1f4ce308df34bfc8ac0353d7e5af1ad0dc87fb175fefc04bcd3fe"
+  },
+  "recipeSha256": "4c18b451fc82a4259d9764aa1f0d08b5da610d90bc0817dcab7e063ae9fa5bf9",
+  "runtime35": {
+    "diagnosis": "localization/probes/ru-20261026-35/runtime-diagnosis.json",
+    "actualOriginalPolicySampleCount": 1,
+    "eligibility": "Real focus=False/filter=True/globalReady=True/focusWatcher=False/otherWatcher=True; inputAllowed and keyboardAllowed=False",
+    "limitation": "One passive frame only; no2-frame idle readiness, QA setter or native pulse; no inference about34 watcher state"
+  }
+}

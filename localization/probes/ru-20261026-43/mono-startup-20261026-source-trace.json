@@ -1,0 +1,92 @@
+{
+  "scope": "Exact39 first native startup log gap; static supplement only. All live-lane inputs and consumed candidates immutable.",
+  "observed": {
+    "candidate39": "Two Mono path/config lines only; calibrated exit1 with no owned game surviving, beforeREADY. No bridge command/New/intro/native pulse/image.",
+    "candidate38": "Same path/config format followed by Initialize engine version, graphics, Mono reload, original Root/Prefab/Menu markers andREADY. Historical intro cleanup later failed; not a new acceptance."
+  },
+  "nativeEvidence": [
+    {
+      "artifact": "MonoLoad.asm",
+      "addresses": "1808d04de -> 1808d05d0; 1808d0579 -> 1808c7880",
+      "meaning": "Native loader/resolver succeeds before normal entry to the Mono domain setup containing the two path log calls. File parity/export presence is static, not loaded-module identity proof."
+    },
+    {
+      "artifact": "MonoPaths.asm",
+      "addresses": "1808ca8ff and1808ca92c",
+      "meaning": "Original logger emits Mono path and Mono config path. Their presence does not prove the second logger returned or later calls completed."
+    },
+    {
+      "artifact": "MonoPaths.asm",
+      "addresses": "1808cab24 and1808cab66",
+      "meaning": "After logging and path conversion, original code calls mono_set_dirs and mono_set_assemblies_path_null_separated, then performs full-path bookkeeping."
+    },
+    {
+      "artifact": "MonoDomain.asm",
+      "addresses": "1808c7b47/1808c7b5e then1808c7b96..1808c7cbd",
+      "meaning": "Original path setup returns before signal/default/optional incremental-GC options, runtime args/data dir and mono_jit_init_version(Unity Root Domain,v4.0.30319). Further native setup follows. No MainMenu/ForestProbe managed hook at this boundary."
+    },
+    {
+      "artifact": "EngineVersion.asm",
+      "addresses": "18076dd49/18076dd50",
+      "meaning": "Next observed successful38 engine-version marker is a different later native logger call. No trace in39 establishes exactly which intervening call failed."
+    }
+  ],
+  "parity": "Original and restored39 copies agree on7 startup files: EXE, UnityPlayer, Mono runtime/helper, Mono config, mscorlib and boot.config. All262 unchanged game files and150 managed references are rechecked separately.",
+  "cause": "Unknown. No precise fault, allocation error, native exception, missing module or source-level failure was recovered. Workstation load and DYLD unnest advisory are not attributed causes. Equal files do not prove transient loader/OS execution.",
+  "osEvidence": "Exact59449 bounded log query saved1046 bytes; only routine macOS activation/preferences/font messages plus kernel DYLD unnest advisory. Two bounded25-file crash-report filename lists contain no identified matching newer game crash. Other wineloader PIDs have no verified identity binding and are excluded.",
+  "changedHypothesis": {
+    "question": "Does early native module resolution/exception/process termination or Mono initialization report a concrete error before the engine/managed startup markers?",
+    "change": "Fresh future snapshot may opt into --startup-diagnostics: per-child Wine loaddll/seh/process plus Mono debug/all logs. Both CX_DEBUGMSG and WINEDEBUG must be set because the installed CrossOver wrapper otherwise replaces WINEDEBUG with-all. No original game byte, renderer, input policy, focus, save or timing change.",
+    "staticDependencyEvidence": "trace-dependencies.json pins wrapper hash/line excerpts and installed ntdll channel strings; extraction.json pins original Mono env strings/exports and native code.48 tests include a real non-game child reading exact overrides, unrelated environment preservation and unchanged non-opt-in inheritance.",
+    "limitations": "Logging may change startup timing; future result must label conditions. Actual emission is unverified. A later successful startup cannot diagnose39 retrospectively or prove continuation from39.",
+    "futureRuntime": "One new immutable40 is justified to observe this previously silent native boundary. Never replay39/38 or submit another equivalent attempt after a new unexplained failure. Reconcile exact launcher+owned child identities; normal300s ceiling unchanged. Future phase may continue only after actual original-policy menu and original source/cleanup/input/door gates; stop at first explained/unexplained failing boundary."
+  },
+  "regressions": [
+    "Exact39 two-line exit remains a real failed run. No absence of a managed marker can be relabeled a managed hook defect before native loading is observed.",
+    "CrossOver defaults CX_DEBUGMSG to-all then overwrites WINEDEBUG; diagnostic child sets both, parent and default non-opt-in path remain unchanged.",
+    "Chained x64 unwind metadata divides MonoPaths into prologue/body/epilogue; extraction must follow CHAININFO and include both logger calls, mono_set_dirs and assembly-path call. A prologue-only dump is incomplete.",
+    "Early exited launcher without surviving exact game fails immediately; detached surviving game retains readiness wait and no retry."
+  ],
+  "acceptance": "Native static observation and opt-in diagnostic preparation only. No new runtime/visual/source completeness/special-scene/editorial/resource/delivery gate passes.",
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "imagesCaptured": 0,
+  "model": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "actualArgvVerified": true,
+    "agents": 0,
+    "nestedModelJobs": 0
+  },
+  "tests": {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "tools/test_intro_actions.py",
+      "tools/test_native_input.py"
+    ],
+    "result": "passed",
+    "tests": 48,
+    "seconds": 0.83,
+    "boundary": "Actual local child environment and mocked Unity/process/input/file-transport boundaries; no Wine or Unity process invoked. Earlier version before CX_DEBUGMSG correction also passed48 in4.382s; does not verify corrected override."
+  },
+  "files": {
+    "EngineVersion.asm": "a203af7a040089ac6874f385563199ebf600e3deaf6c307abaed59fb019fd36a",
+    "MonoDomain.asm": "6403a84d5c63e702fa91a4d18c046c5871a88c1030fc9a97e32a9a4335538d49",
+    "os-evidence.json": "9b8f602571fdeea222f93885d28f39cc34230c4e7fcad6378dedd9d00d4516cd",
+    "trace-dependencies.json": "df623d42dee86fad6a0f7e7875d9091033701635b86fffb97f86a96f74ac5826",
+    "MonoPaths.asm": "28155d347fc63e0f1f0f30078dad608ac257c44984fcc9698814aa57e4354bbb",
+    "MonoLoad.asm": "78ee1dc13050484a00c88a25052930cbf3be6e9e2e899e6c348315a142305ebd",
+    "CrossOver-wrapper.txt": "0422375db58cb0741f6f2e4926f1cc4e1968c93a24cfe6279085502f6d06c9e6",
+    "extraction.json": "299a56988a5cef66eb83fad456bac8a9977ac3f801f60c872323d81fdb260de3",
+    "os-launch59449.log": "42701b724da82242fe870a70a825018b1b66693f25a97fe0670ef21b4e071038"
+  },
+  "tools": {
+    "tools/inspect_mono_startup.py": "384b9951b1ceba95243fb112bbe9b79c09c81d3163ee875c06df88538b3f6b57",
+    "tools/probe/diagnose_newgame.py": "f803477cc0db186c991dff9bdb8340d0ed9086dce783d3c8c843f98d5e8c5b53",
+    "tools/test_native_input.py": "27de411ea8d47af90a912dc6c2db0d46f5b82dfe690695fc54d5ef1dd2c9afb6"
+  }
+}

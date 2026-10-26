@@ -1,0 +1,83 @@
+{
+  "status": "passed-scoped-runtime-and-cleanup",
+  "verifiedAt": "2026-10-26T16:23:20.404940+00:00",
+  "phase": "0045-work",
+  "canonicalHeadAtLaunch": "b917d666d83e947eb221dd97c456bd0c9b4d1b26",
+  "gameLaunches": 1,
+  "observer": {
+    "observerPid": 27917,
+    "returnCode": 0,
+    "waitStatusSource": "subprocess.Popen.wait on exact task-owned child",
+    "boundary": "OS observer status only; runtime-result/cleanup define game acceptance"
+  },
+  "preflight": "localization/probes/ru-20261026-43/preflight.json",
+  "postrun": "localization/probes/ru-20261026-43/final-verification.json",
+  "instrumentation": "localization/probes/ru-20261026-43/instrumentation-attribution.json",
+  "model": "localization/probes/ru-20261026-43/execution-model.json",
+  "originalMenu": {
+    "result": "passed",
+    "actualIdleFrames": 26,
+    "boundary": "Actual original focus/filter/native/Player/maps/eligibility and eight-key/axis idle; no menu pulse or QA policy replacement"
+  },
+  "intro": {
+    "observations": 112,
+    "contentNodes": 49,
+    "sourceBoundResponses": 10,
+    "terminalFrames": [
+      8858,
+      8969
+    ],
+    "budget": {
+      "stage": "cleanup",
+      "elapsed": 152.137,
+      "stageElapsed": 16.091,
+      "idle": 3.995,
+      "hardLimit": 360,
+      "stageLimits": {
+        "bootstrap": [
+          120,
+          60
+        ],
+        "dialogue": [
+          240,
+          30
+        ],
+        "cleanup": [
+          60,
+          15
+        ]
+      },
+      "actualTerminalFrames": [
+        8858,
+        8969
+      ]
+    }
+  },
+  "naturalRoute": {
+    "result": "passed",
+    "pulses": 5,
+    "spentMilliseconds": {
+      "left": 791,
+      "down": 950
+    },
+    "arrival": "CentralForest",
+    "source": "localization/probes/ru-20261026-43/natural-route.json"
+  },
+  "runtimeSeconds": 212.31,
+  "cleanup": "Normal original-policy restore and Quit ACK/exit0; exact wrapper/observer/launcher/game/crash absent, original QA DLL restored and inspection bridge removed. Numeric game/launcher exit remains unknown.",
+  "measurement": "313 exact successful ACK/exit0 commands reuse only their dated transport-returned process sample for final accounting.665 fresh process scans cost22.015373s; returned-to-reaped brackets0.153662s. No counterfactual saved-time or whole-run causal speedup claim.",
+  "fixtures": "localization/probes/ru-20261026-43/qa-generated/manifest.json",
+  "unverified": [
+    "QA save restore and continued execution",
+    "tutorial120:158 choices159/181",
+    "notebook225:195",
+    "inventory rendering",
+    "complete source and special-scene inventory",
+    "full renderer/editorial/final delivery"
+  ],
+  "imagesCaptured": 0,
+  "imagesOpened": 0,
+  "assetLaneWrites": 0,
+  "readiness": "Scoped original-policy route success only. No visual, corpus, renderer, semantic editorial or full-localization acceptance. Existing10/15 visuals and earlier unchanged scoped gates retained.",
+  "frozenDocumentationCorrection": "cleanup-plan.md heading says Candidate42 and preparation-only zero launches: inherited historical wording. Its path and all executable guards/manifest/launch receipts identify43; preserve frozen bytes. This diagnosis and actual runtime receipts supersede its preparation-only wording."
+}

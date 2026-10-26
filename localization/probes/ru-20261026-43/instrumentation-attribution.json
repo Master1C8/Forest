@@ -1,0 +1,151 @@
+{
+  "verifiedAt": "2026-10-26T16:21:22.511308+00:00",
+  "inputs": {
+    "process-lifetime.jsonl": {
+      "bytes": 1565088,
+      "sha256": "e635e2b491d1e82f00a184fd2e4cb29d868a11a64085b1e410330da8456118ee"
+    },
+    "actions.log": {
+      "bytes": 14715,
+      "sha256": "dfff349b25111f6b3f64e4b7725d8bcf7cf855f1a6e15088bd11d4571d09224a"
+    },
+    "focus-observations.json": {
+      "bytes": 131741,
+      "sha256": "e60ceef641cee3c2ab341ad697002cd07a67f3fdb51475a48d7062781d04547e"
+    },
+    "newgame-observations.json": {
+      "bytes": 141292,
+      "sha256": "73b853b4da735df37d01c27afa814a94f4f4d0d449fb13b4bad5bcd655775d69"
+    },
+    "intro-observation-budget.json": {
+      "bytes": 318,
+      "sha256": "c92bc7b0e4a3a553b09cf63042a519e894f4e733d25e8fb9f0180a771bec31c4"
+    },
+    "startup-observation.json": {
+      "bytes": 1131,
+      "sha256": "4e1e1c2a613a69b08dd1f6a19326b605cbf8469bbfbb49cbee649ec0f77a99e4"
+    },
+    "intro-progression.json": {
+      "bytes": 9936,
+      "sha256": "ce1b7ba527f11c49736d098327f5be8dd4b7a4ac92ccd3d72681ca397af32a6c"
+    },
+    "natural-route.json": {
+      "bytes": 5332,
+      "sha256": "f5921de80d2e97f7eaf9fa42e1a57b3740c80b823c33de2eb8a13456498ff964"
+    },
+    "runtime-result.json": {
+      "bytes": 351,
+      "sha256": "4b358b5fbbd37c7ab0194230b8e85ef5bbf8fbdc3573a57b3d61f2a7a1086804"
+    },
+    "observer-exit.json": {
+      "bytes": 207,
+      "sha256": "319237583566a7810607781841b6ba5c35eaeaa496363e9b576580d3e9c28171"
+    },
+    "final-verification.json": {
+      "bytes": 1626,
+      "sha256": "9be815f716c3895f1b6a2f7879844f190064e7e3fc4173c48a487bc702bde0b4"
+    }
+  },
+  "lifecycleEvents": 978,
+  "successfulCommands": 313,
+  "exactAckExitAndDatedReuseVerified": 313,
+  "freshProcessScans": 665,
+  "datedReusedProcessRows": 313,
+  "freshProcessScanSeconds": 22.015372804999764,
+  "scansByBoundary": {
+    "before-command": {
+      "count": 313,
+      "seconds": 10.280948912999854
+    },
+    "await-ack": {
+      "count": 37,
+      "seconds": 1.3141105419999874
+    },
+    "transport-returned": {
+      "count": 313,
+      "seconds": 10.355642307999908
+    },
+    "observer-finally": {
+      "count": 1,
+      "seconds": 0.035419417000014164
+    },
+    "after-cleanup-wait": {
+      "count": 1,
+      "seconds": 0.02925162500000056
+    }
+  },
+  "lifetimeAfterScanBeforeAppendSeconds": 0.10232314199978987,
+  "commandSpanSeconds": 178.68974679099998,
+  "commandBracketsSeconds": 84.11094571399991,
+  "returnedToReapedSeconds": 0.1536617900001076,
+  "betweenCommandSeconds": 94.57880107700007,
+  "passiveFocus": {
+    "observations": 79,
+    "seconds": {
+      "command": 22.280535706999984,
+      "decode": 0.08495750100004074,
+      "nativeHelper": 14.312880330999981,
+      "afterNative": 0.0048198369999354895
+    }
+  },
+  "sourceSamples": {
+    "count": 112,
+    "firstFrame": 308,
+    "lastFrame": 8969,
+    "frameDelta": 8661,
+    "hostElapsedDelta": 150.913,
+    "unityRealtimeDelta": 150.9196662902832,
+    "unityScaledDelta": 145.71038055419922
+  },
+  "originalIntro": {
+    "contentNodes": 49,
+    "sourceBoundResponses": 10,
+    "terminalFrames": [
+      8858,
+      8969
+    ],
+    "budget": {
+      "stage": "cleanup",
+      "elapsed": 152.137,
+      "stageElapsed": 16.091,
+      "idle": 3.995,
+      "hardLimit": 360,
+      "stageLimits": {
+        "bootstrap": [
+          120,
+          60
+        ],
+        "dialogue": [
+          240,
+          30
+        ],
+        "cleanup": [
+          60,
+          15
+        ]
+      },
+      "actualTerminalFrames": [
+        8858,
+        8969
+      ]
+    }
+  },
+  "naturalRoute": {
+    "pulses": 5,
+    "spentMilliseconds": {
+      "left": 791,
+      "down": 950
+    },
+    "arrival": "CentralForest"
+  },
+  "startupSeconds": 32.14,
+  "runtimeSeconds": 212.31,
+  "limits": [
+    "313 exact successful commands reuse their own fresh returned scan only for completion bookkeeping; every admission and next command remains fresh.",
+    "Observed removal of one duplicate scan per successful command is established. Counterfactual saved seconds are not measured.",
+    "Fresh process scans bracket ps and its subprocess decoding; lifetime after-scan metadata excludes append/flush. Focus decode brackets scalar JSON/validation; native helper brackets include child scheduling.",
+    "Process, command, focus and Unity durations overlap. They are not additive or pure source-wait measurements.",
+    "Consumed42 ended after38 observations at145:214;43 completed112 observations/49 content nodes and route. Workload, startup, original menu frames, scheduling and caches differ; whole-run speedup cannot be attributed to the repair.",
+    "No source, renderer, visual, editorial or final-delivery acceptance follows from this scoped runtime success."
+  ]
+}
