@@ -143,3 +143,10 @@ then proceed to the next phase without rerunning the completed model request.
 The asset lane uses `localization/ASSET-CLI-TASK.md` and a supervisor that starts fresh
 bounded continuation phases automatically. A partial draft or completed technical phase
 is not complete localization. Neither lane may rewrite the other's running dependencies.
+After an exact known capacity failure, a current owner repair/continue instruction may
+resume through `--reconcile-capacity` only with a receipt bound to the failed request,
+canonical HEAD, recovered artifact hashes and original next brief. Preserve its failed
+exit and incomplete usage; a parent-reviewed commit is not a completed model turn.
+Unknown transport outcomes must still hold. Regression: capacity after staging runtime
+evidence must preserve/review/commit that exact index under one coordinator, verify
+cleanup and continue the next phase without rerunning the consumed game candidate.

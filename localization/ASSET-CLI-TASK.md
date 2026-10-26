@@ -65,6 +65,13 @@ It covers this draft family only, not full source/editorial/font/resource/runtim
 release acceptance. After unvisited scenes, investigate held groups using source
 evidence; report genuinely unresolved decisions precisely without guessing or looping.
 Transport/unknown request failures stop for reconciliation rather than automatic retries.
+For a known capacity failure, a later explicit owner instruction to repair/continue
+allows one restart on the same pinned model after exact failed-request reconciliation,
+confirmed process exit, pinned-input checks, rebuilding any completed authored TSV and
+verifying that all earlier target hashes survive. The parent supplies a job/overlay-bound
+receipt through `--reconcile-capacity`; old failure history is retained. Unknown transport
+outcomes or a changed receipt must still reject before another model request. Capacity
+does not authorize changing models or silently entering an automatic retry loop.
 
 Regressions: a finished CLI turn at 3,540 saved IDs is an incomplete batch, not a
 finished assignment; continuation must preserve those exact IDs and start at the

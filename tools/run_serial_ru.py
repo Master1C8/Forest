@@ -39,14 +39,39 @@ def atomic_json(path, value):
     temp.replace(path)
 
 
-def run(directory, first_brief, resume=False):
+def validate_capacity_restart(directory, previous, receipt_path, first_brief):
+    receipt_path = receipt_path.resolve()
+    assert directory in receipt_path.parents, 'Receipt belongs to another job.'
+    receipt = json.loads(receipt_path.read_text())
+    last = previous['phases'][-1]
+    thread, _, errors = cli_events(Path(last['directory']) / 'events.jsonl')
+    messages = [e.get('message') or (e.get('error') or {}).get('message') for e in errors]
+    assert messages and all(m == 'Selected model is at capacity. Please try a different model.' for m in messages), 'Unknown request outcome cannot resume as capacity.'
+    assert last.get('exitCode') == 1 and receipt['failedPhase'] == last['number'] and receipt['failedThreadId'] == thread, 'Wrong failed request.'
+    assert digest(directory / 'job.json') == receipt['jobSha256'], 'Job changed since reconciliation.'
+    assert first_brief == Path(receipt['nextBrief']).resolve() and digest(first_brief) == receipt['nextBriefSha256'], 'Continuation changed since reconciliation.'
+    assert Path(last['directory']).resolve() in first_brief.parents, 'Use the recorded phase continuation.'
+    assert receipt['ownerInstruction'] == 'Repair and continue both authorized CLI lanes', 'Restart authorization missing.'
+    for name, expected in receipt['artifacts'].items():
+        path = (ROOT / name).resolve()
+        assert ROOT.resolve() in path.parents and digest(path) == expected, f'Recovered artifact changed: {name}'
+    assert receipt['artifacts'], 'Recovered artifact verification is required.'
+    return receipt
+
+
+def run(directory, first_brief, resume=False, reconciliation=None):
     directory, first_brief = directory.resolve(), first_brief.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
     assert directory.is_dir()
     path = directory / 'job.json'
     previous = json.loads(path.read_text()) if resume else None
     if resume:
-        assert previous['status'] in ('needs-owner', 'held-supervisor-error'), 'Reconcile the previous outcome before resuming.'
+        assert previous['status'] in ('needs-owner', 'held-supervisor-error', 'held-process-failure'), 'Reconcile the previous outcome before resuming.'
+        capacity_receipt = None
+        if previous['status'] == 'held-process-failure':
+            assert reconciliation is not None, 'Failed request requires explicit capacity reconciliation; no automatic retry.'
+            capacity_receipt = validate_capacity_restart(directory, previous, reconciliation, first_brief)
+            assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip() == capacity_receipt['head'], 'Canonical HEAD changed after reconciliation.'
         for pid in (previous.get('supervisorPid'), previous['phases'][-1].get('pid')):
             if pid:
                 row = subprocess.run(['ps', '-p', str(pid), '-o', 'command='], text=True, capture_output=True)
@@ -82,6 +107,10 @@ def run(directory, first_brief, resume=False):
              'contractSha256': contract_hash, 'reviewWrapperSha256': wrapper_hash,
              'reviewWrapperSource': str(source_wrapper), 'phases': []}
     if resume:
+        if capacity_receipt is not None:
+            state['phases'][-1].update(status='capacity-reconciled',
+                parentReconciliation={'receipt': str(reconciliation.resolve()), 'sha256': digest(reconciliation),
+                                      'recoveredArtifacts': capacity_receipt['artifacts']})
         if previous['status'] == 'held-supervisor-error':
             last = state['phases'][-1]
             assert last.get('exitCode') == 0 and last.get('result', {}).get('outcome') == 'continue', 'Unresolved worker failure cannot be replayed.'
@@ -104,7 +133,7 @@ def run(directory, first_brief, resume=False):
     atomic_json(path, state)
     brief, kind, seen = first_brief, 'work', set()
     if resume:
-        kind = state['phases'][-1].get('result', {}).get('nextKind', 'work')
+        kind = (state['phases'][-1].get('result') or {}).get('nextKind', 'work')
         for old in state['phases']:
             seen.update(tuple(x) for x in old.get('evidenceFingerprints', []))
     try:
@@ -227,6 +256,7 @@ if __name__ == '__main__':
     parser.add_argument('--brief', type=Path)
     parser.add_argument('--self-check', action='store_true')
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--reconcile-capacity', type=Path)
     args = parser.parse_args()
     if args.self_check:
         validate_model(MODEL, EFFORT, PROVIDER)
@@ -239,4 +269,4 @@ if __name__ == '__main__':
         print('Permitted-model positive control and Astra rejection controls passed without model requests.')
     else:
         assert args.run and args.brief
-        run(args.run.resolve(), args.brief.resolve(), resume=args.resume)
+        run(args.run.resolve(), args.brief.resolve(), resume=args.resume, reconciliation=args.reconcile_capacity)

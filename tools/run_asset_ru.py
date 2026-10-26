@@ -25,19 +25,49 @@ def save(path, data):
     temporary.replace(path)
 
 
-def run(directory):
+def validate_capacity_restart(directory, state, receipt_path, snapshot):
+    """One explicit reconciled restart, never an automatic failed-request retry."""
+    receipt_path = receipt_path.resolve()
+    if directory not in receipt_path.parents:
+        raise ValueError('Reconciliation receipt must belong to this asset job')
+    receipt = json.loads(receipt_path.read_text())
+    last = state['phases'][-1]
+    messages = [e.get('message') or (e.get('error') or {}).get('message') for e in last.get('errors', [])]
+    if not messages or any(m != 'Selected model is at capacity. Please try a different model.' for m in messages):
+        raise ValueError('Only the exact reconciled capacity failure is eligible; unknown transport outcomes remain held')
+    if last.get('exitCode') != 1 or receipt.get('failedPhase') != last['number'] or receipt.get('failedThreadId') != last.get('threadId'):
+        raise ValueError('Reconciliation identifies a different failed request')
+    if receipt.get('jobSha256') != digest(directory / 'job.json'):
+        raise ValueError('Job changed since reconciliation')
+    if receipt.get('overlaySha256') != snapshot['overlaySha256'] or receipt.get('inputPinsSha256') != digest(directory / 'input-pins.json'):
+        raise ValueError('Inputs or recovered overlay changed since reconciliation')
+    before_path = Path(receipt['beforeSnapshot']).resolve()
+    if directory not in before_path.parents or digest(before_path) != receipt.get('beforeSnapshotSha256'):
+        raise ValueError('Invalid pre-recovery snapshot')
+    before = json.loads(before_path.read_text())
+    if any(snapshot['targetHashes'].get(ident) != value for ident, value in before['targetHashes'].items()):
+        raise ValueError('Recovery changed or lost previously saved targets')
+    if receipt.get('ownerInstruction') != 'Repair and continue both authorized CLI lanes':
+        raise ValueError('Explicit restart authorization is missing')
+    return receipt
+
+
+def run(directory, reconciliation=None):
     directory = directory.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
     state_path = directory / 'job.json'
     state = json.loads(state_path.read_text())
-    if state['status'] != 'finished':
-        raise ValueError('Only the reconciled finished partial asset job may be continued.')
+    if state['status'] not in ('finished', 'held-process-or-transport-failure'):
+        raise ValueError('Only a reconciled partial or known capacity-held asset job may continue.')
+    if state['status'] == 'held-process-or-transport-failure' and reconciliation is None:
+        raise ValueError('Capacity-held restart needs an explicit reconciled receipt; no automatic retry.')
     for pid in (state.get('supervisorPid'), state.get('pid')):
         assert_stopped(pid, directory)
     registry = json.loads((Path.home() / '.codex/models_cache.json').read_text())
     if not any(m.get('slug') == MODEL for m in registry['models']):
         raise ValueError('Exact permitted model is unavailable')
-    asset_snapshot(ROOT, directory)
+    snapshot = asset_snapshot(ROOT, directory)
+    receipt = validate_capacity_restart(directory, state, reconciliation, snapshot) if reconciliation is not None else None
     lock = directory / 'queue.lock'
     with lock.open('x') as stream:
         json.dump({'pid': os.getpid(), 'startedAt': now()}, stream)
@@ -50,11 +80,14 @@ def run(directory):
             state['phases'] = [{**state, 'number': 1, 'kind': 'translation',
                                 'status': 'partial-complete', 'directory': str(directory)}]
         state.setdefault('resumptions', []).append({'resumedAt': now(), 'history': str(history),
-            'reason': 'Owner instructed repair both lanes; continue existing saved draft automatically.'})
+            'reason': 'Owner instructed repair both lanes; continue existing saved draft automatically.',
+            'capacityReconciliation': {'path': str(reconciliation.resolve()), 'sha256': digest(reconciliation),
+                                       'failedPhase': receipt['failedPhase']} if receipt else None})
         state.update(status='running', supervisorPid=os.getpid(), freshSessionsWithoutInheritedHistory=True,
-                     usageScope='measuredUsage is cumulative across phases; never add it to phase totals')
+                     usageScope='measuredUsage sums phases with complete CLI usage; unavailable phases are excluded, not zero. Never add this subtotal to phase totals.')
         state.pop('finishedAt', None)
         state.pop('exitCode', None)
+        state.pop('reason', None)
         cli = Path(shutil.which('codex')).resolve()
         pinned = {p: digest(p) for p in (cli, directory / 'supervise.py',
                   directory / 'cli_job_support.py', directory / 'contract.md')}
@@ -117,6 +150,7 @@ def run(directory):
             measured = [p['measuredUsage'] for p in state['phases'] if p.get('measuredUsage')]
             state['measuredUsage'] = {k: sum(u.get(k, 0) for u in measured) for k in
                 ('input_tokens', 'cached_input_tokens', 'output_tokens', 'reasoning_output_tokens', 'total_tokens')}
+            state['unavailableUsagePhases'] = [p['number'] for p in state['phases'] if not p.get('measuredUsage')]
             save(state_path, state)
             if rc or errors:
                 state.update(status='held-process-or-transport-failure', reason='Reconcile exact request outcome before retry; no automatic failed-request retry.')
@@ -158,4 +192,6 @@ def run(directory):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', required=True, type=Path)
-    run(parser.parse_args().run.resolve())
+    parser.add_argument('--reconcile-capacity', type=Path)
+    args = parser.parse_args()
+    run(args.run.resolve(), reconciliation=args.reconcile_capacity)

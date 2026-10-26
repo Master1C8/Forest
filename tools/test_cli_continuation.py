@@ -168,6 +168,71 @@ class ContinuationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'explicitly pinned'):
                 support.validate_model(forbidden, 'high', 'openai')
 
+    def test_capacity_restart_is_bound_to_failed_request_and_saved_targets(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary).resolve()
+            state = {'status': 'held-process-or-transport-failure', 'phases': [
+                {'number': 8, 'threadId': 'failed-request', 'exitCode': 1, 'errors': [
+                    {'type': 'error', 'message': 'Selected model is at capacity. Please try a different model.'}]}]}
+            write(directory / 'job.json', state)
+            write(directory / 'input-pins.json', {})
+            before = directory / 'before.json'
+            write(before, {'targetHashes': {'saved': 'unchanged'}})
+            snapshot = {'overlaySha256': 'recovered', 'targetHashes': {'saved': 'unchanged', 'new': 'added'}}
+            receipt = {'failedPhase': 8, 'failedThreadId': 'failed-request',
+                'jobSha256': support.digest(directory / 'job.json'), 'overlaySha256': 'recovered',
+                'inputPinsSha256': support.digest(directory / 'input-pins.json'),
+                'beforeSnapshot': str(before), 'beforeSnapshotSha256': support.digest(before),
+                'ownerInstruction': 'Repair and continue both authorized CLI lanes'}
+            path = directory / 'receipt.json'
+            write(path, receipt)
+            self.assertEqual(assets.validate_capacity_restart(directory, state, path, snapshot), receipt)
+            with self.assertRaisesRegex(ValueError, 'changed or lost previously saved'):
+                assets.validate_capacity_restart(directory, state, path,
+                    {**snapshot, 'targetHashes': {'saved': 'overwritten'}})
+            write(path, {**receipt, 'failedPhase': 7})
+            with self.assertRaisesRegex(ValueError, 'different failed request'):
+                assets.validate_capacity_restart(directory, state, path, snapshot)
+            unknown = json.loads(json.dumps(state))
+            unknown['phases'][0]['errors'][0]['message'] = 'Stream disconnected; outcome unknown'
+            write(directory / 'job.json', unknown)
+            write(path, {**receipt, 'jobSha256': support.digest(directory / 'job.json')})
+            with self.assertRaisesRegex(ValueError, 'unknown transport outcomes remain held'):
+                assets.validate_capacity_restart(directory, unknown, path, snapshot)
+
+    def test_technical_capacity_restart_retains_failed_turn_and_binds_next_step(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            directory = root / 'outputs/technical'
+            phase = directory / '0020-work'
+            phase.mkdir(parents=True)
+            brief = phase / 'next.md'
+            brief.write_text('Continue new geometry work; never repeat consumed runtime')
+            artifact = root / 'localization/verified.json'
+            write(artifact, {'cleanup': True})
+            events = phase / 'events.jsonl'
+            records = [{'type': 'thread.started', 'thread_id': 'interrupted'},
+                       {'type': 'error', 'message': 'Selected model is at capacity. Please try a different model.'}]
+            events.write_text(''.join(json.dumps(x) + '\n' for x in records))
+            state = {'phases': [{'number': 20, 'exitCode': 1, 'directory': str(phase), 'result': None}]}
+            write(directory / 'job.json', state)
+            receipt = {'failedPhase': 20, 'failedThreadId': 'interrupted',
+                'jobSha256': support.digest(directory / 'job.json'), 'nextBrief': str(brief),
+                'nextBriefSha256': support.digest(brief), 'ownerInstruction': 'Repair and continue both authorized CLI lanes',
+                'artifacts': {'localization/verified.json': support.digest(artifact)}}
+            path = directory / 'receipt.json'
+            write(path, receipt)
+            with patch.object(technical, 'ROOT', root):
+                self.assertEqual(technical.validate_capacity_restart(directory, state, path, brief), receipt)
+                write(artifact, {'cleanup': False})
+                with self.assertRaisesRegex(AssertionError, 'Recovered artifact changed'):
+                    technical.validate_capacity_restart(directory, state, path, brief)
+                write(artifact, {'cleanup': True})
+                records[-1]['message'] = 'Unknown stream outcome'
+                events.write_text(''.join(json.dumps(x) + '\n' for x in records))
+                with self.assertRaisesRegex(AssertionError, 'Unknown request outcome'):
+                    technical.validate_capacity_restart(directory, state, path, brief)
+
 
 if __name__ == '__main__':
     unittest.main()
