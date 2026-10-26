@@ -1,0 +1,31 @@
+{
+  "status": "specified-not-implemented-not-run",
+  "candidateCreated": false,
+  "materialChange": "Enable shipped macdrv trace gates for one new immutable candidate and retain only exact-task termination messages, preserving existing diagnostic channels and game/bridge logic",
+  "hypothesis": "Received Quit traverses Cocoa queue -> macdrv app quit event -> Windows query/end-session callbacks -> aggregate reply and potentially driver TerminateProcess; distinguish actual per-boundary observations from managed lifecycle silence",
+  "environmentDelta": {"WINEDEBUG": "append ,trace+macdrv to the existing mask", "CX_DEBUGMSG": "same explicit mask as WINEDEBUG"},
+  "admission": [
+    "Use existing canonical host; no changes to consumed52 or its later-loaded frozen dependencies",
+    "Before launch bind current installed wineloader/winemac.so/winemac.drv hashes plus previous startup dependencies to the new candidate; verify driver loading in the task Windows PID",
+    "Retain only task-stderr termination records for macdrv_app_quit_requested, macdrv_app_quit_request, quit_callback, get_process_windows, and only their pinned quit/query/end-session/reason formats; include original timestamp/pid/tid",
+    "Discard other macdrv records in the stream before persistence or model reading; do not inspect or store owner keyboard, clipboard, other-app or global-activity records; no global trace or debugger attachment",
+    "Use existing finite runtime/observation/deadline budget; bound retained diagnostic bytes and report drops/truncation instead of blocking a pipe or treating incomplete traces as complete",
+    "Test the retention logic with synthetic matching-positive and neighboring wrong PID/function/format controls; a filter test replaces logging transport/native execution and cannot pass those boundaries",
+    "Preserve original source guards, all14 host guards/default New, fixed Continue budget, fixture identity, five resources, all19 pins and all seven independently running read-only asset lanes",
+    "Verify no exact task-owned processes survive, freeze every later-read file in NEW53, pass source/readiness/input/deadline/no-replay preflight before at most one launch",
+    "Do not replay any43..52 pending file, suppress/veto quit, invoke lifecycle/predicates, mutate story/authority/physics or change focus/input policy"
+  ],
+  "observationsAndLimits": [
+    "Unix reason trace demonstrates that handler reached its trace site; it does not prove a Windows callback completed",
+    "sending WM_QUERYENDSESSION plus results establishes exact observed windows/responses; missing response is unknown",
+    "finished WM_ENDSESSION and giving quit reply establish driver callback progress for only the recorded process/window set",
+    "terminating process trace is before the installed TerminateProcess call and proves branch entry, not syscall success or a numerical process wait status",
+    "AppKit Later/YES remains independent native evidence; correlate timestamps, native birth/argv and Windows PID without substituting launcher/observer status",
+    "Managed quitting/destroy rows are their own observations; their absence does not establish callback suppression or a source exception",
+    "Even complete downstream trace does not identify why Dock sent Quit; do not investigate owner/global activity",
+    "If diagnostic availability or task identity is unverified, do not make an unchanged retry; preserve the one-use result and make independent bounded source-consumer progress"
+  ],
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "localizationAccepted": false
+}

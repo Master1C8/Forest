@@ -1,0 +1,341 @@
+/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-unix/winemac.so
+SHA256 a46e1c63a5096210626d64ef6c62ddea7632f95dbcf437b1a3bf006d43dcf532
+Unslid VM range 0xbc10..0xc190 (exclusive)
+000000000000bc10	pushq	%rbp
+000000000000bc11	movq	%rsp, %rbp
+000000000000bc14	pushq	%r15
+000000000000bc16	pushq	%r14
+000000000000bc18	pushq	%r13
+000000000000bc1a	pushq	%r12
+000000000000bc1c	pushq	%rbx
+000000000000bc1d	pushq	%rax
+000000000000bc1e	movq	%rdx, %r14
+000000000000bc21	movq	%rdi, -0x30(%rbp)
+000000000000bc25	movq	0x538a4(%rip), %rsi             ## Objc selector ref: userInfo
+000000000000bc2c	movq	0x48595(%rip), %r12             ## Objc message: -[%rdi userInfo]
+000000000000bc33	movq	%rdx, %rdi
+000000000000bc36	callq	*%r12
+000000000000bc39	movq	0x534f8(%rip), %rsi             ## Objc selector ref: objectForKeyedSubscript:
+000000000000bc40	leaq	0x4ac41(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bc47	movq	%rax, %rdi
+000000000000bc4a	callq	*%r12
+000000000000bc4d	movq	0x538c4(%rip), %rsi             ## Objc selector ref: intValue
+000000000000bc54	movq	%rax, %rdi
+000000000000bc57	callq	*%r12
+000000000000bc5a	movl	%eax, %ebx
+000000000000bc5c	movq	0x54695(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSProcessInfo
+000000000000bc63	movq	0x53256(%rip), %rsi             ## Objc selector ref: processInfo
+000000000000bc6a	callq	*%r12
+000000000000bc6d	movq	%rax, %r13
+000000000000bc70	movq	0x53861(%rip), %rsi             ## Objc selector ref: processIdentifier
+000000000000bc77	movq	%rax, %rdi
+000000000000bc7a	callq	*%r12
+000000000000bc7d	cmpl	%eax, %ebx
+000000000000bc7f	jne	0xbc90
+000000000000bc81	addq	$0x8, %rsp
+000000000000bc85	popq	%rbx
+000000000000bc86	popq	%r12
+000000000000bc88	popq	%r13
+000000000000bc8a	popq	%r14
+000000000000bc8c	popq	%r15
+000000000000bc8e	popq	%rbp
+000000000000bc8f	retq
+000000000000bc90	movq	%r14, %rdi
+000000000000bc93	movq	0x53836(%rip), %rsi             ## Objc selector ref: userInfo
+000000000000bc9a	callq	*%r12
+000000000000bc9d	leaq	0x4ac04(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bca4	movq	%rax, %rdi
+000000000000bca7	movq	0x5348a(%rip), %rsi             ## Objc selector ref: objectForKeyedSubscript:
+000000000000bcae	callq	*%r12
+000000000000bcb1	movq	%rax, %rbx
+000000000000bcb4	movq	0x53185(%rip), %rsi             ## Objc selector ref: length
+000000000000bcbb	movq	%rax, %rdi
+000000000000bcbe	callq	*%r12
+000000000000bcc1	testq	%rax, %rax
+000000000000bcc4	je	0xbce8
+000000000000bcc6	movq	0x53853(%rip), %rsi             ## Objc selector ref: explicitAppUserModelID
+000000000000bccd	movq	-0x30(%rbp), %rdi
+000000000000bcd1	callq	*%r12
+000000000000bcd4	movq	0x5343d(%rip), %rsi             ## Objc selector ref: isEqualToString:
+000000000000bcdb	movq	%rax, %rdi
+000000000000bcde	movq	%rbx, %rdx
+000000000000bce1	callq	*%r12
+000000000000bce4	testb	%al, %al
+000000000000bce6	je	0xbc81
+000000000000bce8	movq	%r14, %rdi
+000000000000bceb	movq	0x537de(%rip), %rsi             ## Objc selector ref: userInfo
+000000000000bcf2	callq	*%r12
+000000000000bcf5	leaq	0x4abcc(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bcfc	movq	%rax, %rdi
+000000000000bcff	movq	0x53432(%rip), %rsi             ## Objc selector ref: objectForKeyedSubscript:
+000000000000bd06	callq	*%r12
+000000000000bd09	movq	%rax, %rbx
+000000000000bd0c	movq	0x545dd(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSRunningApplication
+000000000000bd13	movq	0x53176(%rip), %rsi             ## Objc selector ref: currentApplication
+000000000000bd1a	callq	*%r12
+000000000000bd1d	movq	0x53174(%rip), %rsi             ## Objc selector ref: executableURL
+000000000000bd24	movq	%rax, %rdi
+000000000000bd27	callq	*%r12
+000000000000bd2a	movq	0x5316f(%rip), %rsi             ## Objc selector ref: lastPathComponent
+000000000000bd31	movq	%rax, %rdi
+000000000000bd34	callq	*%r12
+000000000000bd37	movq	%rax, %r15
+000000000000bd3a	movq	%rbx, %rdi
+000000000000bd3d	movq	0x530fc(%rip), %rsi             ## Objc selector ref: length
+000000000000bd44	callq	*%r12
+000000000000bd47	testq	%rax, %rax
+000000000000bd4a	je	0xbd67
+000000000000bd4c	movq	0x533c5(%rip), %rsi             ## Objc selector ref: isEqualToString:
+000000000000bd53	movq	%r15, %rdi
+000000000000bd56	movq	%rbx, %rdx
+000000000000bd59	callq	*0x48469(%rip)                  ## Objc message: +[NSRunningApplication isEqualToString:]
+000000000000bd5f	testb	%al, %al
+000000000000bd61	je	0xbc81
+000000000000bd67	movq	0x5377a(%rip), %rsi             ## Objc selector ref: environment
+000000000000bd6e	movq	%r13, %rdi
+000000000000bd71	callq	*%r12
+000000000000bd74	leaq	0x4aa8d(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bd7b	movq	%rax, %rdi
+000000000000bd7e	movq	0x533b3(%rip), %r15             ## Objc selector ref: objectForKeyedSubscript:
+000000000000bd85	movq	%r15, %rsi
+000000000000bd88	callq	*%r12
+000000000000bd8b	movq	%rax, %rbx
+000000000000bd8e	movq	%r14, %rdi
+000000000000bd91	movq	0x53738(%rip), %rsi             ## Objc selector ref: userInfo
+000000000000bd98	callq	*%r12
+000000000000bd9b	leaq	0x4ab46(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bda2	movq	%rax, %rdi
+000000000000bda5	movq	%r15, %rsi
+000000000000bda8	callq	*%r12
+000000000000bdab	movq	%rax, %r15
+000000000000bdae	movq	%rbx, %rdi
+000000000000bdb1	movq	0x53088(%rip), %rsi             ## Objc selector ref: length
+000000000000bdb8	callq	*%r12
+000000000000bdbb	testq	%rax, %rax
+000000000000bdbe	je	0xbdf0
+000000000000bdc0	movq	%r15, %rdi
+000000000000bdc3	movq	0x53076(%rip), %rsi             ## Objc selector ref: length
+000000000000bdca	callq	*0x483f8(%rip)                  ## Objc message: -[%rdi length]
+000000000000bdd0	testq	%rax, %rax
+000000000000bdd3	je	0xbdf0
+000000000000bdd5	movq	0x5333c(%rip), %rsi             ## Objc selector ref: isEqualToString:
+000000000000bddc	movq	%rbx, %rdi
+000000000000bddf	movq	%r15, %rdx
+000000000000bde2	callq	*0x483e0(%rip)                  ## Objc message: -[%rdi isEqualToString:]
+000000000000bde8	testb	%al, %al
+000000000000bdea	je	0xbc81
+000000000000bdf0	movq	%r13, %rdi
+000000000000bdf3	movq	0x536ee(%rip), %rsi             ## Objc selector ref: environment
+000000000000bdfa	callq	*%r12
+000000000000bdfd	leaq	0x4aa44(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000be04	movq	%rax, %rdi
+000000000000be07	movq	0x5332a(%rip), %r15             ## Objc selector ref: objectForKeyedSubscript:
+000000000000be0e	movq	%r15, %rsi
+000000000000be11	callq	*%r12
+000000000000be14	movq	%rax, %rbx
+000000000000be17	movq	%r14, %rdi
+000000000000be1a	movq	0x536af(%rip), %rsi             ## Objc selector ref: userInfo
+000000000000be21	callq	*%r12
+000000000000be24	leaq	0x4aadd(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000be2b	movq	%rax, %rdi
+000000000000be2e	movq	%r15, %rsi
+000000000000be31	callq	*%r12
+000000000000be34	movq	%rax, %r14
+000000000000be37	movq	%rbx, %rdi
+000000000000be3a	movq	0x52fff(%rip), %rsi             ## Objc selector ref: length
+000000000000be41	callq	*%r12
+000000000000be44	testq	%rax, %rax
+000000000000be47	je	0xbe79
+000000000000be49	movq	%r14, %rdi
+000000000000be4c	movq	0x52fed(%rip), %rsi             ## Objc selector ref: length
+000000000000be53	callq	*0x4836f(%rip)                  ## Objc message: -[%rdi length]
+000000000000be59	testq	%rax, %rax
+000000000000be5c	je	0xbe79
+000000000000be5e	movq	0x532b3(%rip), %rsi             ## Objc selector ref: isEqualToString:
+000000000000be65	movq	%rbx, %rdi
+000000000000be68	movq	%r14, %rdx
+000000000000be6b	callq	*0x48357(%rip)                  ## Objc message: -[%rdi isEqualToString:]
+000000000000be71	testb	%al, %al
+000000000000be73	je	0xbc81
+000000000000be79	movq	-0x30(%rbp), %rax
+000000000000be7d	movb	$0x1, 0x148(%rax)
+000000000000be84	movq	0x48195(%rip), %rax             ## literal pool symbol address: _NSApp
+000000000000be8b	movq	(%rax), %rdi
+000000000000be8e	movq	0x53093(%rip), %rsi             ## Objc selector ref: terminate:
+000000000000be95	movq	%rdi, %rdx
+000000000000be98	addq	$0x8, %rsp
+000000000000be9c	popq	%rbx
+000000000000be9d	popq	%r12
+000000000000be9f	popq	%r13
+000000000000bea1	popq	%r14
+000000000000bea3	popq	%r15
+000000000000bea5	popq	%rbp
+000000000000bea6	jmpq	*0x4831c(%rip)                  ## Objc message: -[%rdi terminate:]
+000000000000beac	nopl	(%rax)
+000000000000beb0	pushq	%rbp
+000000000000beb1	movq	%rsp, %rbp
+000000000000beb4	pushq	%r15
+000000000000beb6	pushq	%r14
+000000000000beb8	pushq	%r13
+000000000000beba	pushq	%r12
+000000000000bebc	pushq	%rbx
+000000000000bebd	subq	$0x68, %rsp
+000000000000bec1	movq	%rdi, %rbx
+000000000000bec4	cmpq	$-0x1, 0x555dc(%rip)
+000000000000becc	jne	0xc10f
+000000000000bed2	movq	0x54417(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSRunningApplication
+000000000000bed9	movq	0x52fb0(%rip), %rsi             ## Objc selector ref: currentApplication
+000000000000bee0	movq	0x482e1(%rip), %r12             ## Objc message: +[NSRunningApplication currentApplication]
+000000000000bee7	callq	*%r12
+000000000000beea	movq	0x52fa7(%rip), %rsi             ## Objc selector ref: executableURL
+000000000000bef1	movq	%rax, %rdi
+000000000000bef4	callq	*%r12
+000000000000bef7	movq	0x52fa2(%rip), %rsi             ## Objc selector ref: lastPathComponent
+000000000000befe	movq	%rax, %rdi
+000000000000bf01	callq	*%r12
+000000000000bf04	movq	0x5320d(%rip), %rsi             ## Objc selector ref: isEqualToString:
+000000000000bf0b	leaq	0x4aa56(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bf12	movq	%rax, %rdi
+000000000000bf15	callq	*%r12
+000000000000bf18	movq	0x53601(%rip), %r15             ## Objc selector ref: explicitAppUserModelID
+000000000000bf1f	testb	%al, %al
+000000000000bf21	je	0xc0c0
+000000000000bf27	movq	%rbx, -0x38(%rbp)
+000000000000bf2b	leaq	0x4aa56(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bf32	movq	%rax, -0x30(%rbp)
+000000000000bf36	movq	0x543bb(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSProcessInfo
+000000000000bf3d	movq	0x52f7c(%rip), %rsi             ## Objc selector ref: processInfo
+000000000000bf44	callq	*%r12
+000000000000bf47	movq	%rax, %r13
+000000000000bf4a	movq	0x53597(%rip), %rsi             ## Objc selector ref: environment
+000000000000bf51	movq	%rax, %rdi
+000000000000bf54	callq	*%r12
+000000000000bf57	movq	0x531da(%rip), %rbx             ## Objc selector ref: objectForKeyedSubscript:
+000000000000bf5e	leaq	0x4a8a3(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bf65	movq	%rax, %rdi
+000000000000bf68	movq	%rbx, %rsi
+000000000000bf6b	callq	*%r12
+000000000000bf6e	testq	%rax, %rax
+000000000000bf71	leaq	0x4a430(%rip), %r14             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bf78	cmoveq	%r14, %rax
+000000000000bf7c	movq	%rax, -0x40(%rbp)
+000000000000bf80	movq	%r13, %rdi
+000000000000bf83	movq	0x5355e(%rip), %rsi             ## Objc selector ref: environment
+000000000000bf8a	callq	*%r12
+000000000000bf8d	leaq	0x4a8b4(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bf94	movq	%rax, %rdi
+000000000000bf97	movq	%rbx, %rsi
+000000000000bf9a	callq	*%r12
+000000000000bf9d	movq	%rax, %r13
+000000000000bfa0	testq	%rax, %rax
+000000000000bfa3	cmoveq	%r14, %r13
+000000000000bfa7	leaq	0x4a8fa(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bfae	movq	%rax, -0x68(%rbp)
+000000000000bfb2	movq	-0x38(%rbp), %rbx
+000000000000bfb6	movq	%rbx, %rdi
+000000000000bfb9	movq	%r15, %rsi
+000000000000bfbc	callq	*%r12
+000000000000bfbf	testq	%rax, %rax
+000000000000bfc2	je	0xbfd3
+000000000000bfc4	movq	%rbx, %rdi
+000000000000bfc7	movq	%r15, %rsi
+000000000000bfca	callq	*0x481f8(%rip)                  ## Objc message: +[NSProcessInfo environment]
+000000000000bfd0	movq	%rax, %r14
+000000000000bfd3	movq	%r14, -0x90(%rbp)
+000000000000bfda	leaq	0x4a8e7(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bfe1	movq	%rax, -0x60(%rbp)
+000000000000bfe5	movq	-0x30(%rbp), %rax
+000000000000bfe9	movq	%rax, -0x88(%rbp)
+000000000000bff0	leaq	0x4a891(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000bff7	movq	%rax, -0x58(%rbp)
+000000000000bffb	movq	0x5429e(%rip), %rbx             ## Objc class ref: _OBJC_CLASS_$_NSNumber
+000000000000c002	movq	0x542ef(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSProcessInfo
+000000000000c009	movq	0x52eb0(%rip), %rsi             ## Objc selector ref: processInfo
+000000000000c010	movq	0x481b1(%rip), %r14             ## Objc message: +[NSProcessInfo processInfo]
+000000000000c017	callq	*%r14
+000000000000c01a	movq	0x534b7(%rip), %rsi             ## Objc selector ref: processIdentifier
+000000000000c021	movq	%rax, %rdi
+000000000000c024	callq	*%r14
+000000000000c027	movq	0x534d2(%rip), %rsi             ## Objc selector ref: numberWithInt:
+000000000000c02e	movq	%rbx, %rdi
+000000000000c031	movl	%eax, %edx
+000000000000c033	callq	*%r14
+000000000000c036	movq	%rax, -0x80(%rbp)
+000000000000c03a	leaq	0x4a8a7(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000c041	movq	%rax, -0x50(%rbp)
+000000000000c045	movq	-0x40(%rbp), %rax
+000000000000c049	movq	%rax, -0x78(%rbp)
+000000000000c04d	leaq	0x4a8b4(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000c054	movq	%rax, -0x48(%rbp)
+000000000000c058	movq	%r13, -0x70(%rbp)
+000000000000c05c	movq	0x54245(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSDictionary
+000000000000c063	movq	0x52d06(%rip), %rsi             ## Objc selector ref: dictionaryWithObjects:forKeys:count:
+000000000000c06a	leaq	-0x90(%rbp), %rdx
+000000000000c071	leaq	-0x68(%rbp), %rcx
+000000000000c075	movl	$0x5, %r8d
+000000000000c07b	callq	*%r14
+000000000000c07e	movq	%rax, %rbx
+000000000000c081	movq	0x54310(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSDistributedNotificationCenter
+000000000000c088	movq	0x533a9(%rip), %rsi             ## Objc selector ref: defaultCenter
+000000000000c08f	callq	*%r14
+000000000000c092	movq	0x5346f(%rip), %rsi             ## Objc selector ref: postNotificationName:object:userInfo:deliverImmediately:
+000000000000c099	leaq	0x4a6c8(%rip), %rdx             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000c0a0	movq	%rax, %rdi
+000000000000c0a3	xorl	%ecx, %ecx
+000000000000c0a5	movq	%rbx, %r8
+000000000000c0a8	movl	$0x1, %r9d
+000000000000c0ae	callq	*%r14
+000000000000c0b1	addq	$0x68, %rsp
+000000000000c0b5	popq	%rbx
+000000000000c0b6	popq	%r12
+000000000000c0b8	popq	%r13
+000000000000c0ba	popq	%r14
+000000000000c0bc	popq	%r15
+000000000000c0be	popq	%rbp
+000000000000c0bf	retq
+000000000000c0c0	movq	%rbx, %rdi
+000000000000c0c3	movq	%r15, %rsi
+000000000000c0c6	callq	*%r12
+000000000000c0c9	movq	0x52d70(%rip), %rsi             ## Objc selector ref: length
+000000000000c0d0	movq	%rax, %rdi
+000000000000c0d3	callq	*%r12
+000000000000c0d6	testq	%rax, %rax
+000000000000c0d9	je	0xc0b1
+000000000000c0db	movq	0x553be(%rip), %r14
+000000000000c0e2	movq	%rbx, %rdi
+000000000000c0e5	movq	%r15, %rsi
+000000000000c0e8	callq	*%r12
+000000000000c0eb	movq	0x52db6(%rip), %rsi             ## Objc selector ref: containsObject:
+000000000000c0f2	movq	%r14, %rdi
+000000000000c0f5	movq	%rax, %rdx
+000000000000c0f8	callq	*%r12
+000000000000c0fb	testb	%al, %al
+000000000000c0fd	je	0xc0b1
+000000000000c0ff	movq	%rbx, -0x38(%rbp)
+000000000000c103	leaq	0x4a29e(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000c10a	jmp	0xbf32
+000000000000c10f	leaq	0x55392(%rip), %rdi
+000000000000c116	leaq	0x485d3(%rip), %rsi
+000000000000c11d	callq	0x42643                         ## symbol stub for: _dispatch_once
+000000000000c122	jmp	0xbed2
+000000000000c127	nopw	(%rax,%rax)
+000000000000c130	pushq	%rbp
+000000000000c131	movq	%rsp, %rbp
+000000000000c134	subq	$0x10, %rsp
+000000000000c138	leaq	0x4a7e9(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000c13f	movq	%rax, -0x10(%rbp)
+000000000000c143	leaq	0x4a7fe(%rip), %rax             ## Objc cfstring ref: @"bad cfstring ref"
+000000000000c14a	movq	%rax, -0x8(%rbp)
+000000000000c14e	movq	0x54193(%rip), %rdi             ## Objc class ref: _OBJC_CLASS_$_NSArray
+000000000000c155	movq	0x52d2c(%rip), %rsi             ## Objc selector ref: arrayWithObjects:count:
+000000000000c15c	leaq	-0x10(%rbp), %rdx
+000000000000c160	movl	$0x2, %ecx
+000000000000c165	callq	*0x4805d(%rip)                  ## Objc message: +[NSArray arrayWithObjects:count:]
+000000000000c16b	movq	%rax, %rdi
+000000000000c16e	callq	*0x48064(%rip)                  ## literal pool symbol address: _objc_retain
+000000000000c174	movq	%rax, 0x55325(%rip)
+000000000000c17b	addq	$0x10, %rsp
+000000000000c17f	popq	%rbp
+000000000000c180	retq
+000000000000c181	nopw	%cs:(%rax,%rax)
+000000000000c18b	nopl	(%rax,%rax)

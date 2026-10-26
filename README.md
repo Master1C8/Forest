@@ -1,38 +1,32 @@
-## Phase0064: candidate52 verified; native Quit received after Continue
+## Phase0065: installed native Quit route identified; runtime hold preserved
 
-Candidate52 passed37 preflight checks with381 frozen files, exact QA43 fixture,
-all19 lane pins and five unchanged47/50 resources/95-tree readback. Both freshly
-compiled bridges have87 exact0063 method bodies;14 original guards remain intact.
-133 focused results are reused with all ten source hashes verified. The stale
-README checkpoint pin found by first preflight was reviewed/repaired; universal
-references and the complete stable command/stage binding remained unchanged.
+Static readback pins CrossOver26.3.0.39832/cxoffice-26.3.0rc2 and its installed
+wineloader plus Unix/Windows Mac drivers. Four actual Cocoa implementations,
+PE imports and bounded function bodies establish a native query/end-session
+route that can call TerminateProcess(-1,0). AppKit Later/YES and missing managed
+lifecycle rows alone do not prove that this branch ran in52 or identify why Dock
+sent Quit. The two driver hashes were not captured at52 load time; this phase's
+current installed readback is explicitly scoped, with previous startup pins rechecked.
 
-One runtime reached readiness33.168s and acknowledged original Continue. Exact
-native77552 then received Quit AppleEvent target=Dock at03:49:06.551+07:00; AppKit
-approved termination at.567. Upstream action is unknown. New passive lifecycle
-logging produced35 actual rows ending with Continue ACK; no quit/destroy row was
-observed. Separate exact PID/birth sampling established numeric absence, without
-a numeric game exit code. Observer1/launcher0/runtime39.075s failure are distinct.
-Unknown dump-save-continuation remains intact, unreplayed. No dialogue, native
-input event,181/Bucky/loaded-marker acceptance or image was produced.
+The shipped macdrv trace gates expose query/result/end-session/reply/termination
+progress;52's -all mask did not enable them. A concrete passive diagnostic is
+specified for a NEW candidate, retaining only exact-task termination formats before
+persistence/model reading. No quit veto, input/focus change, callback/predicate
+invocation or game/source/authority mutation. No53 prepared or launched here.
+No images opened. Seven asset lanes continue independently/read-only.
 
-All15 postrun and8 preservation checks pass:52 QA restored/bridge removed, exact
-task processes absent,377 unchanged frozen files plus4 declared cleanup exceptions,
-51 evidence/frozen358/pending dump preserved,262 original files INCLUDING150 managed,
-all19 pins/owner files unchanged; QA persistence empty. Accepted10/15/47/48 visuals
-and50 route remain unchanged. All seven asset lanes continue independently/read-only.
+Next implement the finite task-only trace retention, verify positive/negative filter
+controls, bind the new installed-driver pins, and freeze a changed candidate before
+considering its one-use runtime under every unchanged guard. Preserve43..52 and both
+unknown51/52 commands. Source/BGDatabase/parser/special-scene, initial spawn/other
+three introductions/notebook/Bucky loaded consumers, editorial/final fonts/licenses/
+resources/local delivery remain pending. Accepted10/15/47/48 visuals and50 route
+remain unchanged. No publication/deployment.
 
-Next inspect the repeated exact-task Quit AppleEvent/native termination boundary
-using existing evidence and installed consumers. No unchanged53 retry or replay43..52,
-quit veto/suppression, focus/input/story/authority change. Complete source/BGDatabase/
-special-scene, Bucky loaded consumers, initial spawn/notebook, editorial/final
-resources/local delivery remain pending. No publication/deployment.
-
-Evidence: `localization/source/tutorial-20261026/phase0064/ADAPTER.md`,
-`verification.json`, `candidate52-native-quit.txt`, `preservation.json`;
-`localization/probes/ru-20261026-52/runtime-diagnosis.json`, `preflight.json`,
-`bridge-verification.json`, `final-verification.json`.
-Prior summary: `localization/history/phase0063-summary.md`.
+Evidence: `localization/source/tutorial-20261026/phase0065/ADAPTER.md`,
+`native-consumers.json`, `windows-quit.asm.txt`, `appkit-quit.asm.txt`,
+`diagnostic-plan.json`, `verification.json`, `preservation.json`.
+Prior summary: `localization/history/phase0064-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

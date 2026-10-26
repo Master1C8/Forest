@@ -1,0 +1,420 @@
+SHA256 3d88a8e1f918e7593b396fff995ac344f7297eab74d3966eb6f1b1f1821b4955
+
+/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winemac.drv:	file format coff-x86-64
+
+Disassembly of section .text:
+
+0000000180001000 <.text>:
+180002520:     	pushq	%r15
+180002522:     	pushq	%r14
+180002524:     	pushq	%r13
+180002526:     	pushq	%r12
+180002528:     	pushq	%rbp
+180002529:     	pushq	%rdi
+18000252a:     	pushq	%rsi
+18000252b:     	pushq	%rbx
+18000252c:     	subq	$0x58, %rsp
+180002530:     	xorl	%edx, %edx
+180002532:     	movq	0x5ce7(%rip), %rsi      # 0x180008220 "kernel32.dll!HeapAlloc"
+180002539:     	movl	$0x20, %r8d
+18000253f:     	movq	%gs:0x30, %rdi
+180002548:     	movq	0x60(%rdi), %rax
+18000254c:     	movq	%rcx, %rbx
+18000254f:     	movq	0x30(%rax), %rcx
+180002553:     	callq	*%rsi
+180002555:     	testq	%rax, %rax
+180002558:     	movq	%rax, %r13
+18000255b:     	je	0x1800027a1 <.text+0x17a1>
+180002561:     	movl	$0x20, 0x8(%rax)
+180002568:     	movq	0x60(%rdi), %rax
+18000256c:     	xorl	%edx, %edx
+18000256e:     	movl	$0x100, %r8d            # imm = 0x100
+180002574:     	movq	0x30(%rax), %rcx
+180002578:     	callq	*%rsi
+18000257a:     	movq	$0x0, 0xc(%r13)
+180002582:     	testq	%rax, %rax
+180002585:     	movq	%rax, (%r13)
+180002589:     	je	0x180002720 <.text+0x1720>
+18000258f:     	leaq	-0x606(%rip), %rcx      # 0x180001f90 <.text+0xf90>
+180002596:     	movq	%r13, %rdx
+180002599:     	callq	*0x5d69(%rip)           # 0x180008308 "user32.dll!EnumWindows"
+18000259f:     	testl	%eax, %eax
+1800025a1:     	je	0x180002720 <.text+0x1720>
+1800025a7:     	movl	0x8(%rbx), %eax
+1800025aa:     	leaq	0xa4f(%rip), %rdi       # 0x180003000
+1800025b1:     	xorl	%ebx, %ebx
+1800025b3:     	movq	$0x1, 0x18(%r13)
+1800025bb:     	movq	0x5d5e(%rip), %rbp      # 0x180008320 "user32.dll!SendMessageCallbackW"
+1800025c2:     	leaq	0x3b7(%rip), %r12       # 0x180002980 <.text+0x1980>
+1800025c9:     	leaq	0x1e60(%rip), %r15      # 0x180004430 "sending WM_QUERYENDSESSION to win %p\n"
+1800025d0:     	leaq	0x2019(%rip), %r14      # 0x1800045f0 "macdrv_app_quit_request"
+1800025d7:     	movl	%eax, 0x14(%r13)
+1800025db:     	movl	0xc(%r13), %eax
+1800025df:     	testl	%eax, %eax
+1800025e1:     	jne	0x18000261e <.text+0x161e>
+1800025e3:     	jmp	0x18000268c <.text+0x168c>
+1800025e8:     	nopl	(%rax,%rax)
+1800025f0:     	movq	(%r13), %rax
+1800025f4:     	xorl	%r8d, %r8d
+1800025f7:     	movl	$0x11, %edx
+1800025fc:     	movq	(%rax,%rsi), %rcx
+180002600:     	movq	%r13, 0x28(%rsp)
+180002605:     	movq	%r12, 0x20(%rsp)
+18000260a:     	movl	0x14(%r13), %r9d
+18000260e:     	callq	*%rbp
+180002610:     	testl	%eax, %eax
+180002612:     	je	0x180002650 <.text+0x1650>
+180002614:     	addq	$0x1, %rbx
+180002618:     	cmpl	0xc(%r13), %ebx
+18000261c:     	jae	0x18000268c <.text+0x168c>
+18000261e:     	testb	$0x8, (%rdi)
+180002621:     	leaq	(,%rbx,8), %rsi
+180002629:     	je	0x1800025f0 <.text+0x15f0>
+18000262b:     	movq	(%r13), %rax
+18000262f:     	movq	%r15, %r9
+180002632:     	movq	%r14, %r8
+180002635:     	movq	%rdi, %rdx
+180002638:     	movl	$0x3, %ecx
+18000263d:     	movq	(%rax,%rbx,8), %rax
+180002641:     	movq	%rax, 0x20(%rsp)
+180002646:     	callq	0x180002e50 <.text+0x1e50>
+18000264b:     	jmp	0x1800025f0 <.text+0x15f0>
+18000264d:     	nopl	(%rax)
+180002650:     	callq	*0x5c2a(%rip)           # 0x180008280 "ntdll.dll!RtlGetLastWin32Error"
+180002656:     	cmpl	$0x578, %eax            # imm = 0x578
+18000265b:     	sete	%r11b
+18000265f:     	je	0x1800026a0 <.text+0x16a0>
+180002661:     	testb	$0x4, (%rdi)
+180002664:     	jne	0x1800026e0 <.text+0x16e0>
+180002666:     	movq	(%r13), %rax
+18000266a:     	movq	%r11, %r9
+18000266d:     	movq	%r13, %r8
+180002670:     	movl	$0x11, %edx
+180002675:     	andl	$0x1, %r9d
+180002679:     	addq	$0x1, %rbx
+18000267d:     	movq	(%rax,%rsi), %rcx
+180002681:     	callq	0x180002980 <.text+0x1980>
+180002686:     	cmpl	0xc(%r13), %ebx
+18000268a:     	jb	0x18000261e <.text+0x161e>
+18000268c:     	xorl	%eax, %eax
+18000268e:     	addq	$0x58, %rsp
+180002692:     	popq	%rbx
+180002693:     	popq	%rsi
+180002694:     	popq	%rdi
+180002695:     	popq	%rbp
+180002696:     	popq	%r12
+180002698:     	popq	%r13
+18000269a:     	popq	%r14
+18000269c:     	popq	%r15
+18000269e:     	retq
+18000269f:     	nop
+1800026a0:     	testb	$0x8, (%rdi)
+1800026a3:     	je	0x180002666 <.text+0x1666>
+1800026a5:     	movq	(%r13), %rax
+1800026a9:     	movq	%rdi, %rdx
+1800026ac:     	movl	$0x3, %ecx
+1800026b1:     	movb	%r11b, 0x3f(%rsp)
+1800026b6:     	leaq	0x1d9b(%rip), %r9       # 0x180004458 "failed to send WM_QUERYENDSESSION to win %p because it's invalid; assuming success\n"
+1800026bd:     	leaq	0x1f2c(%rip), %r8       # 0x1800045f0 "macdrv_app_quit_request"
+1800026c4:     	movq	(%rax,%rsi), %rax
+1800026c8:     	movq	%rax, 0x20(%rsp)
+1800026cd:     	callq	0x180002e50 <.text+0x1e50>
+1800026d2:     	movzbl	0x3f(%rsp), %r11d
+1800026d8:     	jmp	0x180002666 <.text+0x1666>
+1800026da:     	nopw	(%rax,%rax)
+1800026e0:     	movl	%eax, 0x28(%rsp)
+1800026e4:     	movq	(%r13), %rax
+1800026e8:     	movq	%rdi, %rdx
+1800026eb:     	movl	$0x2, %ecx
+1800026f0:     	leaq	0x1db9(%rip), %r9       # 0x1800044b0 "failed to send WM_QUERYENDSESSION to win %p; error 0x%08lx; assuming refusal\n"
+1800026f7:     	movb	%r11b, 0x3f(%rsp)
+1800026fc:     	leaq	0x1eed(%rip), %r8       # 0x1800045f0 "macdrv_app_quit_request"
+180002703:     	movq	(%rax,%rsi), %rax
+180002707:     	movq	%rax, 0x20(%rsp)
+18000270c:     	callq	0x180002e50 <.text+0x1e50>
+180002711:     	movzbl	0x3f(%rsp), %r11d
+180002717:     	jmp	0x180002666 <.text+0x1666>
+18000271c:     	nopl	(%rax)
+180002720:     	testb	$0x4, 0x8d9(%rip)       # 0x180003000
+180002727:     	jne	0x180002780 <.text+0x1780>
+180002729:     	movq	%gs:0x30, %rsi
+180002732:     	movq	0x60(%rsi), %rax
+180002736:     	xorl	%edx, %edx
+180002738:     	movq	(%r13), %r8
+18000273c:     	movq	0x5ae5(%rip), %rbx      # 0x180008228 "kernel32.dll!HeapFree"
+180002743:     	movq	0x30(%rax), %rcx
+180002747:     	callq	*%rbx
+180002749:     	movq	0x60(%rsi), %rax
+18000274d:     	movq	%r13, %r8
+180002750:     	xorl	%edx, %edx
+180002752:     	movq	0x30(%rax), %rcx
+180002756:     	callq	*%rbx
+180002758:     	movq	0x4a01(%rip), %rcx      # 0x180007160
+18000275f:     	leaq	0x4c(%rsp), %r8
+180002764:     	movl	$0x1, %edx
+180002769:     	movl	$0x0, 0x4c(%rsp)
+180002771:     	callq	*0x8f9(%rip)            # 0x180003070
+180002777:     	jmp	0x18000268c <.text+0x168c>
+18000277c:     	nopl	(%rax)
+180002780:     	leaq	0x1d79(%rip), %r9       # 0x180004500 "failed to allocate window list\n"
+180002787:     	movl	$0x2, %ecx
+18000278c:     	leaq	0x1e5d(%rip), %r8       # 0x1800045f0 "macdrv_app_quit_request"
+180002793:     	leaq	0x866(%rip), %rdx       # 0x180003000
+18000279a:     	callq	0x180002e50 <.text+0x1e50>
+18000279f:     	jmp	0x180002729 <.text+0x1729>
+1800027a1:     	testb	$0x4, 0x858(%rip)       # 0x180003000
+1800027a8:     	je	0x180002758 <.text+0x1758>
+1800027aa:     	leaq	0x1d4f(%rip), %r9       # 0x180004500 "failed to allocate window list\n"
+1800027b1:     	movl	$0x2, %ecx
+1800027b6:     	leaq	0x1e33(%rip), %r8       # 0x1800045f0 "macdrv_app_quit_request"
+1800027bd:     	leaq	0x83c(%rip), %rdx       # 0x180003000
+1800027c4:     	callq	0x180002e50 <.text+0x1e50>
+1800027c9:     	jmp	0x180002758 <.text+0x1758>
+1800027cb:     	nop
+1800027cc:     	nop
+1800027cd:     	nop
+1800027ce:     	nop
+1800027cf:     	nop
+
+/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winemac.drv:	file format coff-x86-64
+
+Disassembly of section .text:
+
+0000000180001000 <.text>:
+180002980:     	pushq	%r15
+180002982:     	pushq	%r14
+180002984:     	pushq	%r13
+180002986:     	pushq	%r12
+180002988:     	pushq	%rbp
+180002989:     	pushq	%rdi
+18000298a:     	pushq	%rsi
+18000298b:     	pushq	%rbx
+18000298c:     	subq	$0x58, %rsp
+180002990:     	leaq	0x669(%rip), %rbp       # 0x180003000
+180002997:     	movl	0x10(%r8), %eax
+18000299b:     	movq	%rcx, %rdi
+18000299e:     	movl	%edx, %ecx
+1800029a0:     	movzbl	0x659(%rip), %edx       # 0x180003000
+1800029a7:     	addl	$0x1, %eax
+1800029aa:     	movq	%r8, %rbx
+1800029ad:     	movq	%r9, %rsi
+1800029b0:     	movl	%eax, 0x10(%r8)
+1800029b4:     	andl	$0x8, %edx
+1800029b7:     	cmpl	$0x11, %ecx
+1800029ba:     	je	0x180002a60 <.text+0x1a60>
+1800029c0:     	testb	%dl, %dl
+1800029c2:     	jne	0x180002a90 <.text+0x1a90>
+1800029c8:     	cmpl	0xc(%rbx), %eax
+1800029cb:     	jb	0x180002a79 <.text+0x1a79>
+1800029d1:     	movl	0x1c(%rbx), %ecx
+1800029d4:     	testl	%ecx, %ecx
+1800029d6:     	jne	0x180002a03 <.text+0x1a03>
+1800029d8:     	testb	$0x8, 0x621(%rip)       # 0x180003000
+1800029df:     	jne	0x180002d10 <.text+0x1d10>
+1800029e5:     	movl	0x18(%rbx), %eax
+1800029e8:     	leaq	0x4c(%rsp), %r8
+1800029ed:     	movl	$0x1, %edx
+1800029f2:     	movq	0x4767(%rip), %rcx      # 0x180007160
+1800029f9:     	movl	%eax, 0x4c(%rsp)
+1800029fd:     	callq	*0x66d(%rip)            # 0x180003070
+180002a03:     	testb	$0x8, 0x5f6(%rip)       # 0x180003000
+180002a0a:     	jne	0x180002ba8 <.text+0x1ba8>
+180002a10:     	movl	0x18(%rbx), %eax
+180002a13:     	testl	%eax, %eax
+180002a15:     	jne	0x180002bea <.text+0x1bea>
+180002a1b:     	movq	%gs:0x30, %rdi
+180002a24:     	movq	0x60(%rdi), %rax
+180002a28:     	xorl	%edx, %edx
+180002a2a:     	movq	(%rbx), %r8
+180002a2d:     	movq	0x57f4(%rip), %rsi      # 0x180008228 "kernel32.dll!HeapFree"
+180002a34:     	movq	0x30(%rax), %rcx
+180002a38:     	callq	*%rsi
+180002a3a:     	movq	0x60(%rdi), %rax
+180002a3e:     	movq	%rbx, %r8
+180002a41:     	xorl	%edx, %edx
+180002a43:     	movq	0x30(%rax), %rcx
+180002a47:     	movq	%rsi, %rax
+180002a4a:     	addq	$0x58, %rsp
+180002a4e:     	popq	%rbx
+180002a4f:     	popq	%rsi
+180002a50:     	popq	%rdi
+180002a51:     	popq	%rbp
+180002a52:     	popq	%r12
+180002a54:     	popq	%r13
+180002a56:     	popq	%r14
+180002a58:     	popq	%r15
+180002a5a:     	jmpq	*%rax
+180002a5d:     	nopl	(%rax)
+180002a60:     	testb	%dl, %dl
+180002a62:     	jne	0x180002c48 <.text+0x1c48>
+180002a68:     	testq	%rsi, %rsi
+180002a6b:     	je	0x180002c00 <.text+0x1c00>
+180002a71:     	movl	0xc(%rbx), %eax
+180002a74:     	cmpl	%eax, 0x10(%rbx)
+180002a77:     	jae	0x180002ad0 <.text+0x1ad0>
+180002a79:     	addq	$0x58, %rsp
+180002a7d:     	popq	%rbx
+180002a7e:     	popq	%rsi
+180002a7f:     	popq	%rdi
+180002a80:     	popq	%rbp
+180002a81:     	popq	%r12
+180002a83:     	popq	%r13
+180002a85:     	popq	%r14
+180002a87:     	popq	%r15
+180002a89:     	retq
+180002a8a:     	nopw	(%rax,%rax)
+180002a90:     	movl	0xc(%r8), %edx
+180002a94:     	leaq	0x1945(%rip), %r9       # 0x1800043e0 "finished WM_ENDSESSION for win %p (%u of %u done)\n"
+180002a9b:     	movl	%eax, 0x28(%rsp)
+180002a9f:     	movl	$0x3, %ecx
+180002aa4:     	movq	%rdi, 0x20(%rsp)
+180002aa9:     	leaq	0x1ad8(%rip), %r8       # 0x180004588 "quit_callback"
+180002ab0:     	movl	%edx, 0x30(%rsp)
+180002ab4:     	movq	%rbp, %rdx
+180002ab7:     	callq	0x180002e50 <.text+0x1e50>
+180002abc:     	movl	0x10(%rbx), %eax
+180002abf:     	cmpl	0xc(%rbx), %eax
+180002ac2:     	jb	0x180002a79 <.text+0x1a79>
+180002ac4:     	jmp	0x1800029d1 <.text+0x19d1>
+180002ac9:     	nopl	(%rax)
+180002ad0:     	testl	%eax, %eax
+180002ad2:     	movl	$0x0, 0x10(%rbx)
+180002ad9:     	je	0x180002a79 <.text+0x1a79>
+180002adb:     	movq	0x583e(%rip), %r12      # 0x180008320 "user32.dll!SendMessageCallbackW"
+180002ae2:     	leaq	-0x169(%rip), %r13      # 0x180002980 <.text+0x1980>
+180002ae9:     	xorl	%esi, %esi
+180002aeb:     	testb	$0x8, (%rbp)
+180002aef:     	leaq	0x1872(%rip), %r15      # 0x180004368 "sending WM_ENDSESSION to win %p result %d flags 0x%08lx\n"
+180002af6:     	leaq	0x1a8b(%rip), %r14      # 0x180004588 "quit_callback"
+180002afd:     	leaq	(,%rsi,8), %rdi
+180002b05:     	jne	0x180002b71 <.text+0x1b71>
+180002b07:     	nopw	(%rax,%rax)
+180002b10:     	movq	(%rbx), %rax
+180002b13:     	movl	$0x16, %edx
+180002b18:     	movl	0x14(%rbx), %r9d
+180002b1c:     	movslq	0x18(%rbx), %r8
+180002b20:     	movq	(%rax,%rdi), %rcx
+180002b24:     	movq	%rbx, 0x28(%rsp)
+180002b29:     	movq	%r13, 0x20(%rsp)
+180002b2e:     	callq	*%r12
+180002b31:     	testl	%eax, %eax
+180002b33:     	jne	0x180002b56 <.text+0x1b56>
+180002b35:     	testb	$0x4, (%rbp)
+180002b39:     	jne	0x180002c80 <.text+0x1c80>
+180002b3f:     	movq	(%rbx), %rax
+180002b42:     	xorl	%r9d, %r9d
+180002b45:     	movq	%rbx, %r8
+180002b48:     	movl	$0x16, %edx
+180002b4d:     	movq	(%rax,%rdi), %rcx
+180002b51:     	callq	0x180002980 <.text+0x1980>
+180002b56:     	addq	$0x1, %rsi
+180002b5a:     	cmpl	0xc(%rbx), %esi
+180002b5d:     	jae	0x180002a79 <.text+0x1a79>
+180002b63:     	testb	$0x8, (%rbp)
+180002b67:     	leaq	(,%rsi,8), %rdi
+180002b6f:     	je	0x180002b10 <.text+0x1b10>
+180002b71:     	movl	0x14(%rbx), %eax
+180002b74:     	movq	%r15, %r9
+180002b77:     	movq	%r14, %r8
+180002b7a:     	movq	%rbp, %rdx
+180002b7d:     	movl	$0x3, %ecx
+180002b82:     	movl	%eax, 0x30(%rsp)
+180002b86:     	movl	0x18(%rbx), %eax
+180002b89:     	movl	%eax, 0x28(%rsp)
+180002b8d:     	movq	(%rbx), %rax
+180002b90:     	movq	(%rax,%rsi,8), %rax
+180002b94:     	movq	%rax, 0x20(%rsp)
+180002b99:     	callq	0x180002e50 <.text+0x1e50>
+180002b9e:     	jmp	0x180002b10 <.text+0x1b10>
+180002ba3:     	nopl	(%rax,%rax)
+180002ba8:     	movl	0x18(%rbx), %edx
+180002bab:     	leaq	0x171a(%rip), %rax      # 0x1800042cc
+180002bb2:     	movl	$0x3, %ecx
+180002bb7:     	leaq	0x1855(%rip), %r9       # 0x180004413 "%sterminating process\n"
+180002bbe:     	leaq	0x19c3(%rip), %r8       # 0x180004588 "quit_callback"
+180002bc5:     	testl	%edx, %edx
+180002bc7:     	leaq	0x16fd(%rip), %rdx      # 0x1800042cb
+180002bce:     	cmovneq	%rdx, %rax
+180002bd2:     	movq	%rbp, %rdx
+180002bd5:     	movq	%rax, 0x20(%rsp)
+180002bda:     	callq	0x180002e50 <.text+0x1e50>
+180002bdf:     	movl	0x18(%rbx), %eax
+180002be2:     	testl	%eax, %eax
+180002be4:     	je	0x180002a1b <.text+0x1a1b>
+180002bea:     	xorl	%edx, %edx
+180002bec:     	movq	$-0x1, %rcx
+180002bf3:     	callq	*0x5657(%rip)           # 0x180008250 "kernel32.dll!TerminateProcess"
+180002bf9:     	jmp	0x180002a1b <.text+0x1a1b>
+180002bfe:     	nop
+180002c00:     	movq	%rdi, %rcx
+180002c03:     	callq	*0x5707(%rip)           # 0x180008310 "user32.dll!IsWindow"
+180002c09:     	testl	%eax, %eax
+180002c0b:     	jne	0x180002cc0 <.text+0x1cc0>
+180002c11:     	testb	$0x8, 0x3e8(%rip)       # 0x180003000
+180002c18:     	je	0x180002a71 <.text+0x1a71>
+180002c1e:     	movq	%rdi, 0x20(%rsp)
+180002c23:     	leaq	0x16ee(%rip), %r9       # 0x180004318 "win %p no longer exists; ignoring apparent refusal\n"
+180002c2a:     	movq	%rbp, %rdx
+180002c2d:     	movl	$0x3, %ecx
+180002c32:     	leaq	0x194f(%rip), %r8       # 0x180004588 "quit_callback"
+180002c39:     	callq	0x180002e50 <.text+0x1e50>
+180002c3e:     	jmp	0x180002a71 <.text+0x1a71>
+180002c43:     	nopl	(%rax,%rax)
+180002c48:     	movl	0xc(%r8), %edx
+180002c4c:     	movl	$0x3, %ecx
+180002c51:     	movq	%r9, 0x20(%rsp)
+180002c56:     	movl	%eax, 0x30(%rsp)
+180002c5a:     	leaq	0x1677(%rip), %r9       # 0x1800042d8 "got WM_QUERYENDSESSION result %Id from win %p (%u of %u done)\n"
+180002c61:     	movq	%rdi, 0x28(%rsp)
+180002c66:     	leaq	0x191b(%rip), %r8       # 0x180004588 "quit_callback"
+180002c6d:     	movl	%edx, 0x38(%rsp)
+180002c71:     	movq	%rbp, %rdx
+180002c74:     	callq	0x180002e50 <.text+0x1e50>
+180002c79:     	jmp	0x180002a68 <.text+0x1a68>
+180002c7e:     	nop
+180002c80:     	callq	*0x55fa(%rip)           # 0x180008280 "ntdll.dll!RtlGetLastWin32Error"
+180002c86:     	leaq	0x171b(%rip), %r9       # 0x1800043a8 "failed to send WM_ENDSESSION to win %p; error 0x%08lx\n"
+180002c8d:     	movq	%rbp, %rdx
+180002c90:     	movl	$0x2, %ecx
+180002c95:     	movl	%eax, 0x28(%rsp)
+180002c99:     	movq	(%rbx), %rax
+180002c9c:     	leaq	0x18e5(%rip), %r8       # 0x180004588 "quit_callback"
+180002ca3:     	movq	(%rax,%rdi), %rax
+180002ca7:     	movq	%rax, 0x20(%rsp)
+180002cac:     	callq	0x180002e50 <.text+0x1e50>
+180002cb1:     	jmp	0x180002b3f <.text+0x1b3f>
+180002cb6:     	nopw	%cs:(%rax,%rax)
+180002cc0:     	movl	0x18(%rbx), %r8d
+180002cc4:     	testl	%r8d, %r8d
+180002cc7:     	je	0x180002a71 <.text+0x1a71>
+180002ccd:     	movl	0x1c(%rbx), %eax
+180002cd0:     	movl	$0x0, 0x18(%rbx)
+180002cd7:     	testl	%eax, %eax
+180002cd9:     	jne	0x180002a71 <.text+0x1a71>
+180002cdf:     	testb	$0x8, 0x31a(%rip)       # 0x180003000
+180002ce6:     	movl	$0x1, 0x1c(%rbx)
+180002ced:     	jne	0x180002d37 <.text+0x1d37>
+180002cef:     	movq	0x446a(%rip), %rcx      # 0x180007160
+180002cf6:     	movl	%eax, 0x4c(%rsp)
+180002cfa:     	leaq	0x4c(%rsp), %r8
+180002cff:     	movl	$0x1, %edx
+180002d04:     	callq	*0x366(%rip)            # 0x180003070
+180002d0a:     	jmp	0x180002a71 <.text+0x1a71>
+180002d0f:     	nop
+180002d10:     	movl	0x18(%rbx), %eax
+180002d13:     	leaq	0x1632(%rip), %r9       # 0x18000434c "giving quit reply %d\n"
+180002d1a:     	movq	%rbp, %rdx
+180002d1d:     	movl	$0x3, %ecx
+180002d22:     	leaq	0x185f(%rip), %r8       # 0x180004588 "quit_callback"
+180002d29:     	movl	%eax, 0x20(%rsp)
+180002d2d:     	callq	0x180002e50 <.text+0x1e50>
+180002d32:     	jmp	0x1800029e5 <.text+0x19e5>
+180002d37:     	movl	$0x0, 0x20(%rsp)
+180002d3f:     	leaq	0x1606(%rip), %r9       # 0x18000434c "giving quit reply %d\n"
+180002d46:     	movq	%rbp, %rdx
+180002d49:     	movl	$0x3, %ecx
+180002d4e:     	leaq	0x1833(%rip), %r8       # 0x180004588 "quit_callback"
+180002d55:     	callq	0x180002e50 <.text+0x1e50>
+180002d5a:     	movl	0x18(%rbx), %eax
+180002d5d:     	jmp	0x180002cef <.text+0x1cef>
+180002d5f:     	nop

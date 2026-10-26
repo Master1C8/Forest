@@ -1,0 +1,154 @@
+{
+  "scope": "Static shipped binary readback, no execution/injection/debugger/game launch; no claim of every branch running in52",
+  "installedFiles": {
+    "/Applications/CrossOver.app/Contents/Info.plist": "48d3fedca14d94c970184003bef34997ca1c3fdb479fe2e6c0268f98502fd28b",
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/etc/CrossOver.conf": "8e342e4b366648e8b642e3ed30577eba0f4969d98fa04fecfaeedf040a667745",
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/CrossOver-Hosted Application/wineloader": "ed1318f573bbcd7f153c6fc4c0de66dcf5642b5967e9665991503acb29ea9159",
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-unix/winemac.so": "a46e1c63a5096210626d64ef6c62ddea7632f95dbcf437b1a3bf006d43dcf532",
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winemac.drv": "3d88a8e1f918e7593b396fff995ac344f7297eab74d3966eb6f1b1f1821b4955"
+  },
+  "candidate52StartupPinsRechecked": {
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin/wine": "04da13c940c57919334520f2fee4adb2186edb41904faf8f86647a0a03114953",
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-unix/ntdll.so": "ab32585d767ae631154235861a2e0e8ea61bd09267a2dd341a439e3e8ed071fc",
+    "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/ntdll.dll": "6dff64c00793ce92124f1316985c63783f539f26b392975c70f57637458d2387"
+  },
+  "bundleVersion": "26.3.0.39832",
+  "buildTag": "cxoffice-26.3.0rc2",
+  "buildTimestamp": "20260715T103801Z",
+  "machOArchitecture": "x86_64",
+  "machOUuid": "df65b8e0bb5d31c5bae187e3aa493d35",
+  "controllerMethods": {
+    "handleExternalQuitRequest:": "0xbc10",
+    "postExternalQuitRequest": "0xbeb0",
+    "applicationShouldTerminate:": "0xcaa0",
+    "handleApplicationShouldTerminateReply:": "0xcca0"
+  },
+  "cfstrings": {
+    "0x56888": "SourcePID",
+    "0x568a8": "AUMID",
+    "0x568c8": "ExeName",
+    "0x56768": "WineExternalQuitRequestNotification",
+    "0x568e8": "WineConfigDir",
+    "0x56908": "WinePrefix"
+  },
+  "windowsImageBase": "0x180000000",
+  "windowsImports": {
+    "0x1800081e0": "kernel32.dll!DelayLoadFailureHook",
+    "0x1800081e8": "kernel32.dll!DisableThreadLibraryCalls",
+    "0x1800081f0": "kernel32.dll!EnumResourceNamesW",
+    "0x1800081f8": "kernel32.dll!FindResourceW",
+    "0x180008200": "kernel32.dll!FreeResource",
+    "0x180008208": "kernel32.dll!GetModuleHandleW",
+    "0x180008210": "kernel32.dll!GetProcAddress",
+    "0x180008218": "kernel32.dll!GetTickCount",
+    "0x180008220": "kernel32.dll!HeapAlloc",
+    "0x180008228": "kernel32.dll!HeapFree",
+    "0x180008230": "kernel32.dll!HeapReAlloc",
+    "0x180008238": "kernel32.dll!LoadResource",
+    "0x180008240": "kernel32.dll!LockResource",
+    "0x180008248": "kernel32.dll!ResolveDelayLoadedAPI",
+    "0x180008250": "kernel32.dll!TerminateProcess",
+    "0x180008260": "ntdll.dll!LdrGetDllHandle",
+    "0x180008268": "ntdll.dll!NtCallbackReturn",
+    "0x180008270": "ntdll.dll!NtQueryVirtualMemory",
+    "0x180008278": "ntdll.dll!RtlFindExportedRoutineByName",
+    "0x180008280": "ntdll.dll!RtlGetLastWin32Error",
+    "0x180008288": "ntdll.dll!_vsnprintf",
+    "0x180008298": "ucrtbase.dll!__acrt_iob_func",
+    "0x1800082a0": "ucrtbase.dll!__stdio_common_vsprintf",
+    "0x1800082a8": "ucrtbase.dll!_strdup",
+    "0x1800082b0": "ucrtbase.dll!free",
+    "0x1800082b8": "ucrtbase.dll!fwrite",
+    "0x1800082c0": "ucrtbase.dll!getenv",
+    "0x1800082c8": "ucrtbase.dll!memcmp",
+    "0x1800082d0": "ucrtbase.dll!memmove",
+    "0x1800082d8": "ucrtbase.dll!strchr",
+    "0x1800082e0": "ucrtbase.dll!strcmp",
+    "0x1800082e8": "ucrtbase.dll!strcspn",
+    "0x1800082f0": "ucrtbase.dll!strlen",
+    "0x180008300": "user32.dll!CreateIconFromResourceEx",
+    "0x180008308": "user32.dll!EnumWindows",
+    "0x180008310": "user32.dll!IsWindow",
+    "0x180008318": "user32.dll!LoadStringW",
+    "0x180008320": "user32.dll!SendMessageCallbackW",
+    "0x180008330": "win32u.dll!NtUserCallHwndParam",
+    "0x180008338": "win32u.dll!NtUserGetClassName"
+  },
+  "windowsQuitStrings": {
+    "0x1800042d8": "got WM_QUERYENDSESSION result %Id from win %p (%u of %u done)\n",
+    "0x180004318": "win %p no longer exists; ignoring apparent refusal\n",
+    "0x18000434c": "giving quit reply %d\n",
+    "0x180004368": "sending WM_ENDSESSION to win %p result %d flags 0x%08lx\n",
+    "0x1800043a8": "failed to send WM_ENDSESSION to win %p; error 0x%08lx\n",
+    "0x1800043e0": "finished WM_ENDSESSION for win %p (%u of %u done)\n",
+    "0x180004413": "%sterminating process\n",
+    "0x180004430": "sending WM_QUERYENDSESSION to win %p\n",
+    "0x180004458": "failed to send WM_QUERYENDSESSION to win %p because it's invalid; assuming success\n",
+    "0x1800044b0": "failed to send WM_QUERYENDSESSION to win %p; error 0x%08lx; assuming refusal\n",
+    "0x180004500": "failed to allocate window list\n",
+    "0x180004588": "quit_callback",
+    "0x1800045f0": "macdrv_app_quit_request"
+  },
+  "debugChannel": {
+    "name": "macdrv",
+    "dataAddress": "0x180003000",
+    "traceFlagMask": "0x08",
+    "requestTraceGate": "0x18000261e",
+    "callbackTraceGate": "0x1800029b4",
+    "terminationTraceGate": "0x180002a03"
+  },
+  "sdkDefinitions": [
+    {
+      "path": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSApplication.h",
+      "sha256": "33ed7a975710fc58046253c6d12f5210acb99418ae5e2c3f6a89c585fc3ee793",
+      "rows": [
+        {
+          "line": 390,
+          "text": "    NSTerminateCancel = 0,"
+        },
+        {
+          "line": 391,
+          "text": "    NSTerminateNow = 1,"
+        },
+        {
+          "line": 392,
+          "text": "    NSTerminateLater = 2"
+        }
+      ]
+    },
+    {
+      "path": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AERegistry.h",
+      "sha256": "4304eb32653b771fa709684f483dbf328ed4dac16c0b30cff36d0ba8fc903c63",
+      "rows": [
+        {
+          "line": 256,
+          "text": "  kAELogOut                     = 'logo',"
+        },
+        {
+          "line": 257,
+          "text": "  kAEReallyLogOut               = 'rlgo',"
+        },
+        {
+          "line": 258,
+          "text": "  kAEShowRestartDialog          = 'rrst',"
+        },
+        {
+          "line": 259,
+          "text": "  kAEShowShutdownDialog         = 'rsdn'"
+        },
+        {
+          "line": 602,
+          "text": "  kAEQuitReason                 = 'why?' ///< in a kAEQuitApplication event, this parameter if present is the reason the quit is being sent.  The possible values are kAEQuitAll, kAEShutDown, kAERestart, kAEReallyLogOut"
+        }
+      ]
+    }
+  ],
+  "priorLogEnvironment": {
+    "WINEDEBUG": "-all,+timestamp,+pid,+tid,+loaddll,+seh,+process",
+    "CX_DEBUGMSG": "-all,+timestamp,+pid,+tid,+loaddll,+seh,+process",
+    "MONO_LOG_LEVEL": "debug",
+    "MONO_LOG_MASK": "all"
+  },
+  "gameLaunches": 0,
+  "imagesOpened": 0
+}

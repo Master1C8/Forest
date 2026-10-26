@@ -1,0 +1,43 @@
+/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-unix/winemac.so
+SHA256 a46e1c63a5096210626d64ef6c62ddea7632f95dbcf437b1a3bf006d43dcf532
+Unslid VM range 0x40c00..0x40c90 (exclusive)
+0000000000040c00	pushq	%rbp
+0000000000040c01	movq	%rsp, %rbp
+0000000000040c04	pushq	%r14
+0000000000040c06	pushq	%rbx
+0000000000040c07	subq	$0x20, %rsp
+0000000000040c0b	movq	%rdi, %rbx
+0000000000040c0e	leaq	0x21aeb(%rip), %rax
+0000000000040c15	movq	(%rax), %r14
+0000000000040c18	movq	%r14, -0x20(%rbp)
+0000000000040c1c	movl	$0x0, -0x18(%rbp)
+0000000000040c23	testb	$0x8, 0x20796(%rip)
+0000000000040c2a	jne	0x40c58
+0000000000040c2c	cmpl	$0x1, 0x18(%rbx)
+0000000000040c30	je	0x40c7c
+0000000000040c32	testq	%r14, %r14
+0000000000040c35	je	0x40c4f
+0000000000040c37	leaq	-0x20(%rbp), %rsi
+0000000000040c3b	leaq	-0x30(%rbp), %rcx
+0000000000040c3f	leaq	-0x24(%rbp), %r8
+0000000000040c43	xorl	%edi, %edi
+0000000000040c45	movl	$0x10, %edx
+0000000000040c4a	callq	0x422d7                         ## symbol stub for: _KeUserModeCallback
+0000000000040c4f	addq	$0x20, %rsp
+0000000000040c53	popq	%rbx
+0000000000040c54	popq	%r14
+0000000000040c56	popq	%rbp
+0000000000040c57	retq
+0000000000040c58	movl	0x18(%rbx), %r8d
+0000000000040c5c	leaq	0xb3a2(%rip), %rdx              ## literal pool for: "macdrv_app_quit_requested"
+0000000000040c63	leaq	0xb3b5(%rip), %rcx              ## literal pool for: "reason %d\n"
+0000000000040c6a	movl	$0x3, %edi
+0000000000040c6f	xorl	%eax, %eax
+0000000000040c71	callq	0x3c460
+0000000000040c76	cmpl	$0x1, 0x18(%rbx)
+0000000000040c7a	jne	0x40c32
+0000000000040c7c	movl	$0x80000000, -0x18(%rbp)        ## imm = 0x80000000
+0000000000040c83	testq	%r14, %r14
+0000000000040c86	jne	0x40c37
+0000000000040c88	jmp	0x40c4f
+0000000000040c8a	nopw	(%rax,%rax)
