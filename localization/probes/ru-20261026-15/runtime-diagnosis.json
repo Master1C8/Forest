@@ -1,0 +1,34 @@
+{
+  "status": "passed bounded runtime repair/control guards; visual pending",
+  "resourceDelta": "Exact candidate12 -> candidate14/15: only Image9708 /m_Enabled 1 -> 0; all four other assets byte-identical, all other level1 objects/fields unchanged",
+  "baselineDiagnosis": "localization/probes/ru-20261026-13/duplicate-image-diagnosis.json",
+  "static": "localization/probes/ru-20261026-14/static-settings-result.json",
+  "reuse": "reuse-binding.json",
+  "runtimeImages": {
+    "settings-fullscreen-state.json": [
+      "Canvas/OptionsMenu/Controls/Fullscreen/Off | activeSelf=False | activeInHierarchy=False | sprite=TitleScreenButtonLabels_Off | enabled=False | instance=154126 | color=RGBA(1.000, 1.000, 1.000, 1.000) | canvasAlpha=1 | culled=False | material=Default UI Material | worldBottomLeft=(-0.140000015, -500.9, 0) | worldTopRight=(1.06, -500.740021, 0)",
+      "Canvas/OptionsMenu/Controls/FullscreenStretch/Off | activeSelf=True | activeInHierarchy=True | sprite=TitleScreenButtonLabels_Off | enabled=False | instance=154712 | color=RGBA(1.000, 1.000, 1.000, 1.000) | canvasAlpha=1 | culled=False | material=Default UI Material | worldBottomLeft=(-0.140000015, -501.06, 0) | worldTopRight=(1.06, -500.900024, 0)"
+    ],
+    "settings-windowed-state.json": [
+      "Canvas/OptionsMenu/Controls/Fullscreen/Off | activeSelf=True | activeInHierarchy=True | sprite=TitleScreenButtonLabels_Off | enabled=False | instance=154126 | color=RGBA(1.000, 1.000, 1.000, 1.000) | canvasAlpha=1 | culled=False | material=Default UI Material | worldBottomLeft=(-0.140000015, -500.9, 0) | worldTopRight=(1.06, -500.740021, 0)",
+      "Canvas/OptionsMenu/Controls/FullscreenStretch/Off | activeSelf=True | activeInHierarchy=False | sprite=TitleScreenButtonLabels_Off | enabled=False | instance=154712 | color=RGBA(1.000, 1.000, 1.000, 1.000) | canvasAlpha=1 | culled=False | material=Default UI Material | worldBottomLeft=(-0.140000015, -501.06, 0) | worldTopRight=(1.06, -500.900024, 0)"
+    ]
+  },
+  "all11ReplacementFamilyImagesDisabled": "passed in every guarded settings state; including hidden images outside Controls",
+  "OffTMPFamilies": "All six Off components retained in active Stretch or Fullscreen family; sample labels and overflow guards passed",
+  "glyphComparison": {
+    "settings-fullscreen-state.json": {
+      "sameTMPGlyphMeasurementsAsUnrepairedBaseline": true,
+      "limitation": "TMP rows only; Image observations establish additional draw mechanism, pixels require fresh review"
+    },
+    "settings-windowed-state.json": {
+      "sameTMPGlyphMeasurementsAsUnrepairedBaseline": true,
+      "limitation": "TMP rows only; Image observations establish additional draw mechanism, pixels require fresh review"
+    }
+  },
+  "actualControls": "Stretch toggle/restore, Fullscreen -> windowed -> fullscreen and actual Back -> main menu passed",
+  "scale": "Windowed index 1 selects 2x from 8 Image slots; scale-up/down and other 7 active slots not tested",
+  "restoration": "Fullscreen/Stretch restored to initial states; no byte-exact QA configuration restoration claimed. QA stopped, bridge removed; original installation/player files unchanged",
+  "visual": "pending independent two-original review; candidate11/12 failures preserved",
+  "imageInput": 0
+}

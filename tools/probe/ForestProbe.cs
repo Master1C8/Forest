@@ -149,8 +149,14 @@ public sealed class ForestProbe : MonoBehaviour
             if(b!=null && b.gameObject.activeInHierarchy && b.gameObject.scene.IsValid() && b.GetType().Namespace=="TheForestOfLove")
                 components.Add(b.GetType().Name+" "+Address(b.transform));
         foreach(var im in Resources.FindObjectsOfTypeAll<Image>())
-            if(im.gameObject.scene.IsValid() && Address(im.transform).StartsWith("Canvas/OptionsMenu/Controls/Scale"))
-                settingsControlDiagnostics.Add(Address(im.transform)+" | activeSelf="+im.gameObject.activeSelf+" | activeInHierarchy="+im.gameObject.activeInHierarchy+" | sprite="+(im.sprite==null?"null":im.sprite.name));
+            if(im.gameObject.scene.IsValid() && Address(im.transform).StartsWith("Canvas/OptionsMenu/")) {
+                var corners=new Vector3[4]; im.rectTransform.GetWorldCorners(corners);
+                settingsControlDiagnostics.Add(Address(im.transform)+" | activeSelf="+im.gameObject.activeSelf+" | activeInHierarchy="+im.gameObject.activeInHierarchy+" | sprite="+(im.sprite==null?"null":im.sprite.name)+
+                    " | enabled="+im.enabled+" | instance="+im.GetInstanceID()+" | color="+im.color+
+                    " | canvasAlpha="+im.canvasRenderer.GetAlpha()+" | culled="+im.canvasRenderer.cull+
+                    " | material="+(im.materialForRendering==null?"null":im.materialForRendering.name)+
+                    " | worldBottomLeft="+corners[0].ToString("R")+" | worldTopRight="+corners[2].ToString("R"));
+            }
         var state=new State{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
             dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
             company=Application.companyName,product=Application.productName,width=Screen.width,height=Screen.height,

@@ -1,0 +1,66 @@
+{
+  "packetSha256": "b22f15f550ccdb591d7216eaf7932c7adcf0c83baac74db06cf8a995f96bf644",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-settings-fullscreen.png",
+      "sha256": "47eb591c9bc1aa9c126dc5de4b9355e256b891d15d4f0212894450fd88709c27",
+      "width": 1440,
+      "height": 900,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial visual-review phase 0008; expected samples supplied",
+      "reviewedAt": "2026-10-26T04:07:47.663204+00:00",
+      "observations": "Inspected the complete 1440x900 original. Logo and v0.45.1 remain readable; Music, Effects, both sliders and Back fit their surfaces. Synthetic Ёж Йй 123: and Ёж Latin!: are complete, with visible dots/breves above their respective Cyrillic bases, normal spaces, mixed Latin/digits and no clipped ascenders or punctuation. Cyrillic, Latin and digits have compatible apparent weight and baseline in these labels. Fullscreen On is a single readable contour. Stretch Off is visibly overprinted: an extra left-shifted rounded contour overlaps the O and the ff strokes are crowded/doubled (approximately x826–895, y727–763). This is visibly different from the coherent On above. The value remains recognizable as Off, but does not pass readability/layout. No scale row is visible, consistent with the pinned state. Game-owned black letterboxing is allowed; no external notification, annotation or literal markup is visible. LTR screenshot; RTL checks not applicable.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "major",
+          "region": "Stretch Off value, approximately x826–895 y727–763 in the 1440x900 original",
+          "observed": "Multiple horizontally displaced white/black contours are visible in Off, especially a second rounded contour to the left of O and crowded/doubled ff strokes. Candidate12 still exhibits the overprinting defect in the fullscreen Stretch Off family.",
+          "expected": "One coherent, readable Off value with aligned face/outline layers, comparable to the clean On value above.",
+          "nextAction": "Trace the actual active Stretch Off face/glow instances, text bindings, transforms and material/outline offsets at runtime. Compare with the windowed Fullscreen Off family that is coherent in the second original. Preserve candidate11 and candidate12 failures; experimental child-height changes have not established a repair or cause."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Stretch Off layered value, approximately x826–895 y727–763",
+          "observed": "The visible layers of the same value do not coincide; the displaced left contour overlaps the main O instead of forming a single outline.",
+          "expected": "The value layers share the intended placement without overlapping duplicate letter contours.",
+          "nextAction": "Resolve actual runtime layer placement/binding before rebuilding and capturing a new affected review cycle; do not credit serialized Top fields or coherent glyph metrics as visual acceptance."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "failed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "ru-02-settings-windowed.png",
+      "sha256": "b0bcb3e387e8028833a14a7a461581e9f5bd10dba97ce1f3118d87f7cf6bf061",
+      "width": 960,
+      "height": 540,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high/OpenAI; independent fresh serial visual-review phase 0008; expected samples supplied",
+      "reviewedAt": "2026-10-26T04:07:47.663204+00:00",
+      "observations": "Inspected the complete 960x540 original. Logo, v0.45.1, Music, Effects, both sliders and Back are visible and readable without edge clipping or overlap. Ёж Йй 123: is complete and the precomposed dots/breves remain above their respective bases. The second label visibly reads Ё й 12:; the diaeresis is above Е and the breve above и rather than an adjacent digit or space. Marks, colon and digits fit without clipping. Both synthetic labels retain compatible baseline/weight across Cyrillic and numerals. Fullscreen Off has a coherent single readable face/outline here, with no displaced duplicate O or ff contours like the first image. The baked Scale 2x value is complete and readable in its pixel style; no Stretch row is visible, consistent with the pinned windowed state. All text stays separated from neighboring fields and Back. Original English labels, logo/version and baked 2x are allowed by this synthetic acceptance context. No external notifications, added annotations, markup or missing-glyph boxes are visible. LTR screenshot; RTL checks not applicable. Acceptance applies only to these visible surfaces/state; scale interactions and other values were not visually exercised.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

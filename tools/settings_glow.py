@@ -12,6 +12,66 @@ import copy
 from extract_assets import read_tree
 
 
+def settings_value_image_plan(objects, generator):
+    """Suppress legacy baked labels only where the scene has a full TMP replacement.
+
+    OptionsMenu enables/disables the value GameObjects, leaving Image.enabled intact.
+    A six-layer NameContainer is the source-backed replacement contract. Cursors,
+    Scale multiplier images and other non-text images have no such container.
+    """
+    cache = {}
+    def tree(pid):
+        if pid not in cache:
+            cache[pid] = read_tree(objects[pid], generator)
+        return cache[pid]
+    def components(go, kind):
+        result = []
+        for ref in tree(go)['m_Component']:
+            obj = objects[ref['component']['m_PathID']]
+            name = obj.type.name
+            if name == 'MonoBehaviour':
+                name = obj.parse_monobehaviour_head().m_Script.deref().read().m_ClassName
+            if name == kind:
+                result.append(obj.path_id)
+        return result
+    def transform(go):
+        ids = components(go, 'RectTransform')
+        assert len(ids) == 1
+        return ids[0]
+    def path(go):
+        father = tree(transform(go))['m_Father']['m_PathID']
+        return (path(tree(father)['m_GameObject']['m_PathID']) + '/' if father else '') + tree(go)['m_Name']
+    def text_descendants(rect):
+        go = tree(rect)['m_GameObject']['m_PathID']
+        return (components(go, 'TextMeshProUGUI') +
+                [pid for ref in tree(rect)['m_Children'] for pid in text_descendants(ref['m_PathID'])])
+    repairs, evidence = {}, []
+    for obj in objects.values():
+        if obj.type.name != 'GameObject':
+            continue
+        go = obj.path_id
+        images = components(go, 'Image')
+        if not images or not path(go).startswith('Canvas/OptionsMenu/'):
+            continue
+        containers = [ref['m_PathID'] for ref in tree(transform(go))['m_Children']
+                      if tree(tree(ref['m_PathID'])['m_GameObject']['m_PathID'])['m_Name'].startswith('NameContainer')]
+        if not containers:
+            continue
+        assert len(images) == len(containers) == 1, ('Ambiguous replacement topology', path(go))
+        texts = text_descendants(containers[0])
+        assert len(texts) == 6 and len({tree(pid)['m_text'] for pid in texts}) == 1, ('Incomplete TMP replacement', path(go))
+        image_id = images[0]; image = tree(image_id)
+        assert all(tree(pid)['m_Enabled'] == 1 for pid in texts)
+        evidence.append({'hierarchy': path(go), 'imageId': image_id, 'sprite': image['m_Sprite'],
+                         'textIds': texts, 'text': tree(texts[0])['m_text'], 'beforeEnabled': image['m_Enabled'],
+                         'afterEnabled': 0})
+        if image['m_Enabled']:
+            fixed = copy.deepcopy(image); fixed['m_Enabled'] = 0
+            repairs[image_id] = fixed
+    assert set(repairs) == {9708}, 'Pinned duplicate Image set changed; inspect before broadening scope'
+    return repairs, evidence
+
+
 def settings_glow_plan(objects, generator):
     cache = {}
     def tree(pid):

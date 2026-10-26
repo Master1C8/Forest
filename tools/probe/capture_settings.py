@@ -4,6 +4,8 @@ import datetime, hashlib, json, re, shutil, subprocess, sys, time
 from pathlib import Path
 
 RUN=Path(sys.argv[1]).resolve()
+DIAGNOSTICS_ONLY=len(sys.argv)==3 and sys.argv[2]=='--diagnostics-only'
+assert len(sys.argv)==2 or DIAGNOSTICS_ONLY, 'run [--diagnostics-only]'
 PROJECT=RUN.parents[2]
 SOURCE=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 GAME=RUN/'game'; DATA='The Forest of Love_Data'; EXE=GAME/'The Forest of Love.exe'
@@ -63,6 +65,13 @@ def main():
             assert counts=={old:6 if old in wanted else 0 for old in expected}, counts
             assert all('overflow=False' in x for x in rows if any((' | '+sample+' | ') in x for sample in expected.values())), 'Settings sample overflow'
             assert not any((' | '+old+' | ') in x for old in expected for x in rows), 'Source label remains'
+            for binding in report.get('settingsValueImageRepair', []):
+                images=[x for x in state['settingsControlDiagnostics'] if x.startswith(binding['hierarchy']+' |')]
+                assert len(images)==1, ('Image diagnostics missing or ambiguous', binding['hierarchy'], images)
+                assert ' | enabled=False |' in images[0], ('Legacy duplicate Image still enabled', binding['hierarchy'], images)
+            value='Canvas/OptionsMenu/Controls/'+('FullscreenStretch' if fullscreen else 'Fullscreen')+'/Off/'
+            if not fullscreen or not state['stretch']:
+                assert sum(x.startswith(value) and ' | TMPro.TextMeshProUGUI | Off |' in x for x in rows)==6, 'Off TMP replacement family incomplete'
             return state
         if not d['fullscreen']:
             assert 'Canvas/OptionsMenu/Controls/Fullscreen' in d['buttons']
@@ -79,16 +88,18 @@ def main():
         assert not d['stretch'], 'Pinned pilot requires the observed Stretch Off state'
         assert d['width']==1440 and d['height']==900,(d['width'],d['height'])
         write('settings-fullscreen-state.json',d)
-        name='ru-01-settings-fullscreen.png'; command('capture '+name); captures.append(name)
-        print('captured',name,flush=True)
+        if not DIAGNOSTICS_ONLY:
+            name='ru-01-settings-fullscreen.png'; command('capture '+name); captures.append(name)
+            print('captured',name,flush=True)
         command('click Canvas/OptionsMenu/Controls/Fullscreen'); d=settings_state(False)
         write('settings-windowed-state.json',d)
         slots=[row for row in d['settingsControlDiagnostics'] if re.search(r'/Multipliers/[1-8]x \|',row)]
         assert len(slots)==8, 'Scale Image slot inventory changed'
         active=[row for row in slots if 'activeInHierarchy=True' in row]
         assert len(active)==1 and '/'+str(d['scaleIndex']+1)+'x |' in active[0], 'Scale index/active Image disagree'
-        name='ru-02-settings-windowed.png'; command('capture '+name); captures.append(name)
-        print('captured',name,flush=True)
+        if not DIAGNOSTICS_ONLY:
+            name='ru-02-settings-windowed.png'; command('capture '+name); captures.append(name)
+            print('captured',name,flush=True)
         command('click Canvas/OptionsMenu/Controls/Fullscreen'); d=settings_state(True)
         assert d['stretch']==initial_stretch
         write('settings-restored-state.json',d)

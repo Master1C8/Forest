@@ -154,8 +154,57 @@ Scale up/down input and the other 7 active slots are still untested. Fullscreen
 and Stretch return to initial states; the game normalizes its QA scale index
 from 0 to 1, so no byte-exact QA configuration restoration is claimed. Original
 installed assets/player files remain unchanged. The bridge is removed and the
-task-owned processes are absent. The complete new two-original packet is pending
-fresh independent visual review; all other renderer/source/final-corpus gates remain.
+task-owned processes are absent. The complete two-original packet was independently
+reviewed in fresh phase 0008
+and imported in text-only phase 0009: fullscreen failed layout/glyphs because
+Stretch Off still overprints; windowed passed its visible checks, including
+Fullscreen Off, raw NFD marks and baked 2x. This does not accept other states
+or the renderer. The failed geometry experiment remains historical evidence.
+
+The diagnostic-only run `localization/probes/ru-20261026-13/` reuses the exact
+candidate12 resource bytes and measures Images under OptionsMenu/Controls, including actual
+enabled/active state, sprite, alpha, culling and bounds. The original controller
+binds Stretch No to GameObject 2032 and Fullscreen No to GameObject 1683; its
+configuration/toggle methods change GameObject activation, preserving Image.enabled.
+At runtime Stretch Off has an enabled, opaque, unculled `TitleScreenButtonLabels_Off`
+Image in addition to six TMP components. The neighboring Fullscreen Off has the
+same baked sprite disabled. All 11 OptionsMenu Image families with a complete
+six-layer TMP NameContainer were checked; exactly this one legacy Image remains
+enabled. Equal TMP layer metrics did not enumerate this second rendering path.
+The diagnostic run captured/opened no images, returned through actual Back,
+stopped, removed the bridge and preserved the installed assets/player files.
+
+`--repair-settings-value-images` in the existing builder disables only the
+legacy Images with complete, consistent TMP replacement families. It fails on
+ambiguous/incomplete replacement topology and changed pinned duplicate selection;
+cursors and the eight baked Scale images have no such replacement and remain
+excluded. Matching positive/negative static controls verify that one inconsistent
+TMP copy is rejected for the intended reason. Candidate14 retains candidate12's
+experimental geometry so its incremental scene difference can be limited to
+Image 9708 `/m_Enabled: 1 -> 0`. The repair is in the asset recipe, never a runtime
+bridge mutation. All five no-op/readback checks passed; exact candidate12-to14
+readback proves
+only that one incremental field differs. The first runtime stopped because the
+diagnostic collector covered only Controls while the 11-family guard also
+requires Delete Savegame. The failed attempt and successful cleanup are retained.
+Candidate15 reuses the exact candidate14 asset bytes with a newly snapshotted
+bridge that measures all OptionsMenu Images. Its capture/review status is
+recorded in CHECKPOINT.json; static/runtime checks cannot credit visual repair.
+
+For this bounded settings candidate use a fresh output with:
+
+```sh
+.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/ru-next-settings --sample-surface menu-settings --repair-cyrillic-metrics --coherent-legacy-face --coherent-tmp-face --repair-settings-glow --repair-settings-value-images
+```
+
+Keep expanded Image diagnostics for the full OptionsMenu and duplicate-Image
+runtime guards in future settings captures; diagnostic scope must cover every
+static replacement-family path, including controls outside Controls/. Regression:
+Stretch Off has six coherent TMP layers plus a
+still-enabled baked Off sprite; TMP-only metric equality must not pass that
+state. Verify actual Image disablement and the neighboring Fullscreen Off,
+then independently inspect fresh originals. Other renderer/source/editorial,
+Scale interaction and final-corpus gates remain unaccepted.
 
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate

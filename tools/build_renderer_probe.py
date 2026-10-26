@@ -15,7 +15,7 @@ from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
 from extract_assets import read_tree, canonical
 from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
-from settings_glow import settings_glow_plan
+from settings_glow import settings_glow_plan, settings_value_image_plan
 
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
@@ -56,8 +56,10 @@ def main():
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
     parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
+    parser.add_argument('--repair-settings-value-images', action='store_true', help='Disable legacy baked Images with complete six-layer TMP replacements in OptionsMenu')
     args = parser.parse_args()
     assert not args.repair_settings_glow or args.sample_surface == 'menu-settings'
+    assert not args.repair_settings_value_images or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     out = args.output.resolve()
@@ -103,6 +105,7 @@ def main():
         objects = {o.path_id: o for o in env.objects}
         selected = {}
         glow_repairs = {}
+        image_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
@@ -147,6 +150,9 @@ def main():
             if args.repair_settings_glow:
                 glow_repairs, report['settingsGlowRepair'] = settings_glow_plan(objects, generator)
                 selected.update({pid: objects[pid] for pid in glow_repairs})
+            if args.repair_settings_value_images:
+                image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
+                selected.update({pid: objects[pid] for pid in image_repairs})
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
         raw_hashes = {pid: hashlib.sha256(obj.get_raw_data()).hexdigest() for pid, obj in objects.items()}
@@ -188,6 +194,8 @@ def main():
             elif name == 'level1':
                 if pid in glow_repairs:
                     tree = copy.deepcopy(glow_repairs[pid])
+                elif pid in image_repairs:
+                    tree = copy.deepcopy(image_repairs[pid])
                 else:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif obj.type.name == 'Font':
