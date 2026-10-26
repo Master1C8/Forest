@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "locale": "es-419",
+  "manifestPath": "localization/es-419-assets/display-spans.json",
+  "manifestSha256": "8e94f6b5029bdd75bd52e67aaa68e4ddda82d35d3be154e446f99fc7f7102fda",
+  "records": [
+    {
+      "id": "ds:131:153:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "target": "[Una flor particularmente grande. Se está… moviendo… ¿Estará dormida?]",
+      "targetSha256": "d692a982657bc04c774a0899bd7bf8912ebec208047e42694a52cd884e306d0b",
+      "batch": "0035-a",
+      "priorHold": {
+        "path": "localization/es-419-assets/batches/0002-a.tsv",
+        "lineNumber": 41,
+        "line": "131:153\t!HOLD Visible bracketed narration is misclassified by corpus.py controls() as one preserve-exactly token. Source: a particularly large flower moves and may be asleep. Needs owning source/parser classification; do not copy English or remove brackets for coverage.",
+        "lineSha256": "db770043f7ce8f54630e2d0e0db6963b288d7224cad67d09326f03b30ea26803",
+        "batchSha256": "9dcdaba32309a2e6f5f1c68e30a2ddf4a756e312c618e5152918df15e42ef9d7"
+      },
+      "decision": "Resolved as translatable bracket narration by owner-authorized source-consumer repair. Original hold remains immutable in its TSV. Feminine dormida agrees with flor; no gender assigned to the animate Plant.",
+      "proposalPath": "outputs/locale-assets-20261026/es-419/0034-translation/held-source-decisions.json",
+      "proposalSha256": "5ad9bee99d6ebe01469738a57a22968ec7161f7fd8985b02509d40dd45b1f8a2"
+    },
+    {
+      "id": "ds:540:232:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "target": "[Una flor particularmente grande. Se está… moviendo… ¿Estará dormida?]",
+      "targetSha256": "d692a982657bc04c774a0899bd7bf8912ebec208047e42694a52cd884e306d0b",
+      "batch": "0035-a",
+      "priorHold": {
+        "path": "localization/es-419-assets/batches/0032-b.tsv",
+        "lineNumber": 52,
+        "line": "540:232\t!HOLD The entire English observation is enclosed in square brackets and corpus.py classifies that full span as an exact control. Translating the visible prose would violate the current protected-token contract; retaining English would falsely count a translation. Shared source/parser classification must separate display text from controls before this ID can receive a target. See 0032-translation/source-context.json and scene-decisions.md.",
+        "lineSha256": "5c076223783316d6282aed4d0e5bacad58dc5eefa9b39446cc348de28c4faada",
+        "batchSha256": "9dbfd484c7f65c0e01f4a2ff73cad3dff0fd0eb7481fb0bd20cf302f31d40614"
+      },
+      "decision": "Resolved as translatable bracket narration by owner-authorized source-consumer repair. Original hold remains immutable in its TSV. Feminine dormida agrees with flor; no gender assigned to the animate Plant.",
+      "proposalPath": "outputs/locale-assets-20261026/es-419/0034-translation/held-source-decisions.json",
+      "proposalSha256": "5ad9bee99d6ebe01469738a57a22968ec7161f7fd8985b02509d40dd45b1f8a2"
+    }
+  ]
+}

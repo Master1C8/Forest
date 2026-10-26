@@ -8,8 +8,8 @@ import pathlib
 import tempfile
 import unittest
 
-from inline_guard import (controls, load_dispositions, sha, validate_preserve_manifest,
-                          validate_target)
+from inline_guard import (SOURCE_PLACEHOLDERS, controls, load_dispositions, sha,
+                          validate_preserve_manifest, validate_target)
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -103,11 +103,107 @@ class InlineGuardTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, 'unchanged nonprose mismatch'):
             validate_target(row, row['source'].replace('Violet:', 'Вайолет:'), d)
 
+    def test_constructed_language_is_whole_field_preserved(self):
+        selected = [d for d in DECISIONS.values()
+                    if d['disposition'] == 'preserved-constructed-language']
+        self.assertEqual(len(selected), 43)
+        for d in selected:
+            row = ROWS[d['id']]
+            with self.subTest(ident=row['id']):
+                self.assertEqual(validate_target(row, row['source'], d),
+                                 'preserved-constructed-language')
+                # All unrelated controls, numbers and separators still match.
+                # An added ordinary letter must reach the whole-field rejection.
+                with self.assertRaisesRegex(AssertionError, 'constructed language mismatch'):
+                    validate_target(row, row['source'] + 'x', d)
+                with self.assertRaisesRegex(AssertionError, 'no Russian text'):
+                    validate_target(row, row['source'])
+        # Known malformed source tags/brackets survive exactly; no source repair.
+        self.assertIn('<size=18><shake>', ROWS['ds:505:1142:Dialogue Text']['source'])
+        self.assertIn(']]Nid', ROWS['ds:505:1165:Dialogue Text']['source'])
+
     def test_advice_prefix_exact(self):
         ident = 'ds:227:180:Dialogue Text'
         self.assertEqual(validate_target(ROWS[ident], 'ADVICE Кто тут главный?', DECISIONS[ident]), 'translated-wording')
         with self.assertRaisesRegex(AssertionError, 'protected prefix mismatch'):
             validate_target(ROWS[ident], 'СОВЕТ Кто тут главный?', DECISIONS[ident])
+
+    def test_source_placeholders_complete_exact_bytes(self):
+        for ident, original in SOURCE_PLACEHOLDERS.items():
+            row, d = ROWS[ident], DECISIONS[ident]
+            with self.subTest(ident=ident):
+                self.assertEqual(validate_target(row, original, d), 'preserved-source-placeholder')
+                for changed in (original+'x', original[:-1], original+' ',
+                                original.replace('placeholder', 'заглушка').replace('TBD', 'позже').replace('dummy text', 'текст')):
+                    with self.assertRaisesRegex(AssertionError, 'source placeholder complete bytes mismatch'):
+                        validate_target(row, changed, d)
+                with self.assertRaisesRegex(AssertionError, 'no Russian text'):
+                    validate_target(row, original)
+
+    def test_source_placeholder_hash_and_occurrence(self):
+        ident = 'ds:265:273:Dialogue Text'
+        row, d = ROWS[ident], copy.deepcopy(DECISIONS[ident])
+        d['sourceSha256'] = '0'*64
+        with self.assertRaisesRegex(AssertionError, 'Disposition source hash mismatch'):
+            validate_target(row, row['source'], d)
+        d = copy.deepcopy(DECISIONS[ident])
+        d['sourceBinding']['occurrences'].pop()
+        with self.assertRaisesRegex(AssertionError, 'Source placeholder occurrence mismatch'):
+            validate_target(row, row['source'], d)
+        d = copy.deepcopy(DECISIONS[ident])
+        d['sourceDefectStatus'] = 'accepted'
+        with self.assertRaisesRegex(AssertionError, 'must remain OPEN'):
+            validate_target(row, row['source'], d)
+
+    def test_ordinary_english_cannot_become_source_placeholder(self):
+        ident = 'ds:435:18:Dialogue Text'
+        row = ROWS[ident]
+        d = copy.deepcopy(DECISIONS['ds:265:273:Dialogue Text'])
+        d.update(id=ident, sourceSha256=sha(row['source'].encode()),
+                 preserveExactly=row['source'],
+                 sourceBinding={k: row[k] for k in ('pointer', 'occurrences')})
+        with self.assertRaisesRegex(AssertionError, 'Unapproved source placeholder ID'):
+            validate_target(row, row['source'], d)
+        # Even an approved ID with a self-consistent replacement source/hash fails.
+        ident = 'ds:265:273:Dialogue Text'
+        row = {**ROWS[ident], 'source': 'Ordinary English'}
+        d.update(id=ident, sourceSha256=sha(row['source'].encode()),
+                 preserveExactly=row['source'])
+        with self.assertRaisesRegex(AssertionError, 'Source placeholder original bytes mismatch'):
+            validate_target(row, row['source'], d)
+
+    def test_source_placeholder_category_and_evidence_binding(self):
+        document = json.loads((HERE/'source-dispositions.json').read_text())
+        with tempfile.TemporaryDirectory(dir=HERE) as td:
+            p = pathlib.Path(td)/'decisions.json'
+            def check(doc):
+                p.write_text(json.dumps(doc))
+                return load_dispositions(p, ROOT, ROWS)
+            self.assertEqual(len(check(document)), len(DECISIONS))
+            changed = copy.deepcopy(document)
+            changed['sourcePlaceholderCount'] = 5
+            with self.assertRaisesRegex(AssertionError, 'category count mismatch'):
+                check(changed)
+            changed = copy.deepcopy(document)
+            changed['records'] = [d for d in changed['records'] if d['id'] != 'ds:265:273:Dialogue Text']
+            with self.assertRaisesRegex(AssertionError, 'category ID set mismatch'):
+                check(changed)
+            changed = copy.deepcopy(document)
+            d = next(d for d in changed['records'] if d['id'] == 'ds:265:273:Dialogue Text')
+            d['consumerEvidence'][0]['sha256'] = '0'*64
+            with self.assertRaisesRegex(AssertionError, 'Consumer evidence hash mismatch'):
+                check(changed)
+
+    def test_source_placeholder_preserve_manifest_count(self):
+        document = json.loads((HERE/'preserve-exactly.json').read_text())
+        with tempfile.TemporaryDirectory(dir=HERE) as td:
+            p = pathlib.Path(td)/'preserve.json'
+            p.write_text(json.dumps(document))
+            validate_preserve_manifest(p, HERE/'source-dispositions.json', DECISIONS, ROWS)
+            document['sourcePlaceholderCount'] = 5
+            p.write_text(json.dumps(document))
+            with self.assertRaisesRegex(AssertionError, 'category count mismatch'):
+                validate_preserve_manifest(p, HERE/'source-dispositions.json', DECISIONS, ROWS)
 
     def test_evidence_tampering_and_source_spans(self):
         ident = 'ds:131:153:Dialogue Text'
@@ -223,6 +319,23 @@ class BuildRecoveryTests(unittest.TestCase):
         path.write_text(json.dumps({'schemaVersion': 1, 'records': [receipt]}))
         with self.assertRaisesRegex(AssertionError, 'Resolution target mismatch'):
             self.build()
+
+    def test_source_placeholder_counts_are_separate_from_wording(self):
+        # Real six inputs through the storage/build boundary; no runtime claim.
+        (self.assets/'batches/0106.tsv').write_bytes((HERE/'batches/0106.tsv').read_bytes())
+        self.build()
+        progress = json.loads((self.output/'progress.json').read_text())
+        self.assertEqual(progress['savedTargetIds'], 7)
+        self.assertEqual(progress['translatedWordingIds'], 1)
+        self.assertEqual(progress['preservedSourcePlaceholderIds'], 6)
+        self.assertEqual(progress['coverageBreakdown']['sourcePlaceholders'], 6)
+        self.assertEqual({r['id'] for r in progress['sourceWarnings']}, set(SOURCE_PLACEHOLDERS))
+        self.assertTrue(all(r['status']=='OPEN' for r in progress['sourceWarnings']))
+        self.assertEqual(progress['acceptance']['sourceDefects'], {'status':'OPEN','count':6})
+        rows = {r['id']:r for r in map(json.loads,(self.assets/'dialogue.ru.jsonl').read_text().splitlines())}
+        for ident, source in SOURCE_PLACEHOLDERS.items():
+            self.assertEqual(rows[ident]['target'], source)
+            self.assertEqual(rows[ident]['unchangedCategory'], 'source-placeholder')
 
 
 if __name__ == '__main__':

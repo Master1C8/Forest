@@ -9,6 +9,34 @@ import json
 import pathlib
 import re
 
+# Current owner authority is limited to these six original source defects.
+# This is deliberately not a generic unchanged-English escape hatch.
+SOURCE_PLACEHOLDERS = {
+    'ds:265:273:Dialogue Text': 'dummy text',
+    'ds:50:82:Dialogue Text': '[pic=1]placeholder',
+    'ds:50:87:Dialogue Text': '[pic=1]placeholder',
+    'ds:52:128:Dialogue Text': '[pic=1]placeholder',
+    'ds:52:129:Dialogue Text': '[pic=1]placeholder',
+    'ds:496:20:Dialogue Text': '[pic=1]TBD',
+}
+
+
+def validate_source_placeholder(row, record):
+    assert row['id'] in SOURCE_PLACEHOLDERS, 'Unapproved source placeholder ID'
+    assert row['source'] == SOURCE_PLACEHOLDERS[row['id']], 'Source placeholder original bytes mismatch'
+    assert record['sourceSha256'] == sha(row['source'].encode()), 'Disposition source hash mismatch'
+    assert record['preserveExactly'] == row['source'], 'Source placeholder preserved bytes mismatch'
+    assert record['sourceDefectStatus'] == 'OPEN', 'Source placeholder defect must remain OPEN'
+    assert record['sourceBinding'] == {k: row[k] for k in ('pointer', 'occurrences')}, 'Source placeholder occurrence mismatch'
+
+
+def validate_placeholder_category(document, decisions):
+    selected = {i for i, d in decisions.items()
+                if d['disposition'] == 'preserved-source-placeholder'}
+    if selected or 'sourcePlaceholderCount' in document:
+        assert selected == set(SOURCE_PLACEHOLDERS), 'Source placeholder category ID set mismatch'
+        assert document.get('sourcePlaceholderCount') == len(selected) == 6, 'Source placeholder category count mismatch'
+
 
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
@@ -141,9 +169,12 @@ def load_dispositions(path, root, byid):
         spans = protected_spans(source, ordinary)
         expected_spans = [{'start': a, 'end': b, 'text': source[a:b]} for a, b in spans]
         assert record['protectedSpans'] == expected_spans, 'Source protected span mismatch'
-        if record['disposition'] in ('reviewed-unchanged-nonprose', 'preserved-detached-source'):
+        if record['disposition'] in ('reviewed-unchanged-nonprose', 'preserved-detached-source', 'preserved-constructed-language'):
             assert record['preserveExactly'] == source, 'Unchanged source value mismatch'
+        if record['disposition'] == 'preserved-source-placeholder':
+            validate_source_placeholder(byid[ident], record)
         found[ident] = record
+    validate_placeholder_category(document, found)
     return found
 
 
@@ -170,6 +201,7 @@ def validate_preserve_manifest(path, dispositions_path, decisions, byid):
                 expected.insert(0, {'start': 0, 'end': len(prefix), 'text': prefix})
             assert r['mode'] == 'protected-spans' and r['spans'] == expected, 'Preserve manifest spans mismatch'
     assert seen == set(decisions), 'Preserve manifest incomplete'
+    validate_placeholder_category(document, decisions)
 
 
 def validate_target(row, target, decision=None):
@@ -178,6 +210,10 @@ def validate_target(row, target, decision=None):
     if decision:
         assert decision['id'] == ident, 'Disposition ID mismatch'
         assert decision['sourceSha256'] == sha(source.encode()), 'Disposition source hash mismatch'
+        if decision['disposition'] == 'preserved-source-placeholder':
+            validate_source_placeholder(row, decision)
+            assert target == source, ident + ' source placeholder complete bytes mismatch'
+            return 'preserved-source-placeholder'
         if decision.get('preservePrefix'):
             assert source.startswith(decision['preservePrefix']) and target.startswith(decision['preservePrefix']), ident + ' protected prefix mismatch'
     ordinary = decision.get('ordinaryBracketOrdinals', []) if decision else []
@@ -188,9 +224,9 @@ def validate_target(row, target, decision=None):
         assert source.count(separator) == target.count(separator), (ident, 'line separator mismatch', repr(separator))
     assert re.findall(r'\d+', display_text(source, ordinary)) == re.findall(r'\d+', display_text(target, ordinary)), ident + ' number mismatch'
     punctuation_only = not re.search(r'[^\W\d_]', display_text(source, ordinary))
-    unchanged = bool(decision and decision['disposition'] in ('reviewed-unchanged-nonprose', 'preserved-detached-source'))
+    unchanged = bool(decision and decision['disposition'] in ('reviewed-unchanged-nonprose', 'preserved-detached-source', 'preserved-constructed-language'))
     if unchanged:
-        assert target == source == decision['preserveExactly'], ident + ' unchanged nonprose mismatch'
+        assert target == source == decision['preserveExactly'], ident + (' constructed language mismatch' if decision['disposition'] == 'preserved-constructed-language' else ' unchanged nonprose mismatch')
         return decision['disposition']
     assert target.strip() and (re.search('[А-Яа-яЁё]', display_text(target, ordinary))
                                or (punctuation_only and target == source)), ident + ' no Russian text'
