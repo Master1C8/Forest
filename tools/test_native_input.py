@@ -5,15 +5,139 @@ import unittest
 from unittest.mock import patch
 import tempfile
 import copy
+import subprocess
+import threading
+import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / 'probe'))
-from diagnose_native_input import release_observed
+from diagnose_native_input import release_observed, menu_guard, menu_ready, delivered_to_consumer, observe_menu_idle
 from diagnose_newgame import keyboard_idle, loaded_travel, movement_ready
 import diagnose_newgame as gameplay
 import json
 
 
 class NativeReleaseObservation(unittest.TestCase):
+    def test_actual35_single_passive_frame_is_insufficient_before_any_down(self):
+        root = Path(__file__).resolve().parents[1]
+        rows = [gameplay.diagnostic_fields([line], 'keyboard') for line in
+                (root / 'localization/probes/ru-20261026-35/late-ready-passive-samples.txt').read_text().splitlines()]
+        self.assertEqual(len(rows), 1)
+        menu_guard(rows, 'True', 'False', minimum=1)  # observation only
+        self.assertTrue(all(row['rewiredKeyboardAllowed'] == row['rewiredInputAllowed'] == 'False' for row in rows))
+        with self.assertRaisesRegex(AssertionError, 'Need two real menu samples'):
+            menu_ready(rows, 'True', 'False')
+
+    def test_menu_waits_for_produced_frames_and_rejects_first_foreign_key(self):
+        row = self.menu_fixture()
+        for foreign in [False, True]:
+            with self.subTest(foreign=foreign), tempfile.TemporaryDirectory() as directory:
+                run = Path(directory)
+                first = dict(row, nativeMovementDown='D') if foreign else row
+                responses = iter([[first], [row, row]])
+                def command(value):
+                    self.assertEqual(value, 'sample-keyboard-snapshot')
+                    samples = next(responses)
+                    (run / 'keyboard-samples.txt').write_text('\n'.join('keyboard | '+' | '.join(k+'='+v for k,v in x.items()) for x in samples))
+                with patch.object(gameplay, 'command', side_effect=command) as sender, patch('diagnose_native_input.time.sleep'):
+                    if foreign:
+                        with self.assertRaisesRegex(AssertionError, 'Unexplained movement producer'):
+                            observe_menu_idle(run, 'False')
+                        self.assertEqual(sender.call_count, 1)
+                    else:
+                        rows, focus = observe_menu_idle(run, 'False')
+                        self.assertEqual((len(rows), focus), (2, 'False'))
+                        self.assertEqual(sender.call_count, 2)
+
+    def test_transport_waits_for_first_real_action_log_without_replaying_command(self):
+        script = Path(__file__).resolve().parent / 'probe/command.py'
+        # Stand-in tests the file transport only; Unity startup/action semantics
+        # are not replaced evidence. Exercise both absent and existing log states.
+        for existing in [False, True]:
+            with self.subTest(existing=existing), tempfile.TemporaryDirectory() as directory:
+                run = Path(directory) / 'Forest/localization/probes/transport'
+                run.mkdir(parents=True)
+                log = run / 'actions.log'
+                if existing:
+                    log.write_text('old OK unrelated\n')
+                received = []
+                def bridge():
+                    deadline = time.monotonic() + 10
+                    while not (run / 'command.txt').exists() and time.monotonic() < deadline:
+                        time.sleep(.01)
+                    if not (run / 'command.txt').exists():
+                        return
+                    received.append((run / 'command.txt').read_text())
+                    (run / 'command.txt').unlink()
+                    with log.open('a') as stream:
+                        stream.write('test OK restore-input-policy\n')
+                observer = threading.Thread(target=bridge)
+                observer.start()
+                result = subprocess.run([sys.executable, '-B', str(script), str(run), 'restore-input-policy'],
+                                        capture_output=True, text=True, timeout=15)
+                observer.join(timeout=1)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(received, ['restore-input-policy\n'])
+                self.assertFalse((run / 'command.pending').exists())
+
+    def test_missing_log_does_not_override_unknown_pending_command(self):
+        script = Path(__file__).resolve().parent / 'probe/command.py'
+        with tempfile.TemporaryDirectory() as directory:
+            run = Path(directory) / 'Forest/localization/probes/transport'
+            run.mkdir(parents=True)
+            (run / 'command.txt').write_text('original unknown command\n')
+            result = subprocess.run([sys.executable, '-B', str(script), str(run), 'quit'],
+                                    capture_output=True, text=True, timeout=5)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Reconcile the pending command', result.stderr)
+            self.assertEqual((run / 'command.txt').read_text(), 'original unknown command\n')
+            self.assertFalse((run / 'command.pending').exists())
+
+    def menu_fixture(self, focus='False', policy='False'):
+        row = dict(scene='StartMenu', gameplay='False', anyEvent='False', conversation='False',
+                   actor='null', body='null', player='0:Player1', keyboardEnabled='True', nativeValid='True',
+                   nativeKeyboard='True', unityInput='False', rewiredReady='True', rewiredGlobalEnabled='True',
+                   ignoreUnfocused=policy, rewiredFilter=policy, focused=focus, rewiredFocusWatcher=focus,
+                   rewiredOtherWatcher='False', rewiredInputAllowed='True', rewiredKeyboardAllowed='True',
+                   actionAxes='0,0,0', fullAxis='0,0,0')
+        for layer in ['native', 'async', 'rewired', 'unity']:
+            row.update({layer + 'MovementUp': 'True', layer + 'MovementDown': '', layer + 'Left': 'False'})
+        return row
+
+    def test_menu_refuses_unfocused_original_down_but_allows_explicit_qa_policy(self):
+        qa = self.menu_fixture()
+        menu_ready([qa, qa], 'False', 'False')
+        original = self.menu_fixture(policy='True')
+        menu_guard([original, original], 'True', 'False')  # passive observation is allowed
+        with self.assertRaisesRegex(AssertionError, 'Original filter with real focus=False'):
+            menu_ready([original, original], 'True', 'False')
+        focused = self.menu_fixture(focus='True', policy='True')
+        menu_ready([focused, focused], 'True', 'True')
+        with self.assertRaisesRegex(AssertionError, 'Original keyboard input disallowed'):
+            menu_ready([dict(focused, rewiredKeyboardAllowed='False')]*2, 'True', 'True')
+
+    def test_menu_down_requires_eight_key_idle_and_stable_real_focus_eligibility(self):
+        row = self.menu_fixture()
+        menu_ready([row, row], 'False', 'False')
+        for field, value, reason in [('nativeMovementUp', 'False', 'All eight keys'),
+                                     ('rewiredKeyboardAllowed', 'False', 'QA policy did not enable'),
+                                     ('focused', 'True', 'Menu input/focus/policy guard changed'),
+                                     ('nativeMovementDown', 'D', 'Unexplained movement producer'),
+                                     ('fullAxis', '0,-1,0', 'Unexpected original menu axis')]:
+            with self.subTest(field=field), self.assertRaisesRegex(AssertionError, reason):
+                menu_ready([dict(row, **{field: value})]*2, 'False', 'False')
+
+    def test_menu_success_requires_shipped_consumer_and_not_unused_unity_layer(self):
+        row = self.menu_fixture()
+        native = dict(row, nativeLeft='True', nativeMovementDown='LeftArrow', nativeMovementUp='False')
+        self.assertFalse(delivered_to_consumer([native, row, row]))
+        consumer = dict(native, rewiredLeft='True', rewiredMovementDown='LeftArrow', rewiredMovementUp='False',
+                        actionAxes='-1,0,0', fullAxis='-1,0,0')
+        menu_guard([row, consumer, row, row], 'False', 'False', pulse=True)
+        self.assertTrue(delivered_to_consumer([row, consumer, row, row]))
+        for field in ['rewiredLeft', 'actionAxes', 'fullAxis']:
+            wrong = dict(consumer, **{field: 'False' if field.endswith('Left') else '0,0,0'})
+            self.assertFalse(delivered_to_consumer([wrong, row, row]))
+
     def test_gameplay_down_requires_all_arrows_released_and_zero_axes(self):
         row = {k: 'True' for k in ['nativeValid', 'nativeArrowsUp', 'asyncArrowsUp',
                                   'rewiredArrowsUp', 'unityArrowsUp', 'nativeMovementUp',

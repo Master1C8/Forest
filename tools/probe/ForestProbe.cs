@@ -224,6 +224,26 @@ public sealed class ForestProbe : MonoBehaviour
         originalIgnoreUnfocused=null;
     }
     void OnDestroy() { RestoreInputPolicy(); }
+    // Exact shipped getters/fields are pinned in native-focus-20261026. These
+    // predicates only read the real eligibility state; never write focus/watchers.
+    static string KeyboardEligibility() {
+        var type=typeof(Rewired.ReInput);
+        var flags=BindingFlags.Static|BindingFlags.Public|BindingFlags.NonPublic;
+        var watchers=type.GetField("GGbNxxBRsPVtXooKvddzWaNspLr",flags).GetValue(null);
+        Func<string,object> watcherValue=name=> {
+            var watcher=ReadField(watchers,name);
+            return watcher.GetType().GetProperty("value").GetValue(watcher,null);
+        };
+        return " | rewiredReady="+Rewired.ReInput.isReady+
+            " | rewiredGlobalEnabled="+type.GetField("aLzbAjHdyinuPAkYilYZkIGyBOc",flags).GetValue(null)+
+            " | rewiredFilter="+type.GetField("NPfefDCOwXSjdltUbdIpmiYqZmUC",flags).GetValue(null)+
+            " | rewiredFocusWatcher="+watcherValue("QBAmVSgbZBPmppTHWYNgMiDCmXg")+
+            " | rewiredOtherWatcher="+watcherValue("xIMFCrwXunWxoekBlleMmJYPdj")+
+            " | rewiredInputAllowed="+type.GetProperty("inputAllowed",flags).GetValue(null,null)+
+            " | rewiredKeyboardAllowed="+type.GetMethod("IsInputAllowed",flags).Invoke(null,new object[]{Rewired.ControllerType.Keyboard})+
+            " | nativeKeyboard="+Rewired.ReInput.configuration.nativeKeyboardSupport+
+            " | unityInput="+Rewired.ReInput.configuration.alwaysUseUnityInput;
+    }
     void LateUpdate() {
         if(!samplingKeyboard)return;
         if(keyboardSamples.Count>=1200){samplingKeyboard=false;throw new Exception("Keyboard sample exceeded bound");}
@@ -255,6 +275,7 @@ public sealed class ForestProbe : MonoBehaviour
         keyboardSamples.Add("keyboard | time="+Time.realtimeSinceStartup+
             " | winPid="+GetCurrentProcessId()+" | focused="+Application.isFocused+
             " | ignoreUnfocused="+Rewired.ReInput.configuration.ignoreInputWhenAppNotInFocus+
+            KeyboardEligibility()+
             " | nativeValid="+valid+" | nativeLeft="+((keys[0x25]&128)!=0)+
             " | asyncLeft="+((GetAsyncKeyState(0x25)&0x8000)!=0)+
             " | rewiredLeft="+keyboard.GetKey(KeyCode.LeftArrow)+

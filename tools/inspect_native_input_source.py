@@ -17,7 +17,9 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
-    out = parser.parse_args().output.resolve()
+    parser.add_argument('--focus-only', action='store_true', help='Read-only supplemental watcher/eligibility bindings; preserve original extraction')
+    args = parser.parse_args()
+    out = args.output.resolve()
     assert ROOT in out.parents and not out.exists()
     refs = json.loads((ROOT / 'localization/probes/ru-20261026-25/bridge-build.json').read_text())['originalManagedReferences']
     inspector = ROOT / 'tools/probe/bin/Debug/net8.0/InspectMethods.dll'
@@ -33,6 +35,14 @@ def main():
         'NativeKeyboardStateAPI': ('Rewired_Windows.dll', '--find-native', 'GetKeyboardState'),
         'NativeAsyncKeyAPI': ('Rewired_Windows.dll', '--find-native', 'GetAsyncKeyState'),
     }
+    if args.focus_only:
+        groups = {
+            'Eligibility': ('Rewired_Core.dll', 'Rewired.ReInput', 'get_inputAllowed,IsInputAllowed'),
+            'EligibilityFields': ('Rewired_Core.dll', 'Rewired.ReInput', '--fields'),
+            'FocusWatcherFields': ('Rewired_Core.dll', 'Rewired.ReInput/UYDcZIUFzwNkgKFpAvKGoMimqAT', '--fields'),
+            'WatcherValue': ('Rewired_Core.dll', 'Rewired.Utils.Classes.Utility.ValueWatcher`1', 'get_value'),
+            'EditorEligibility': ('Rewired_Core.dll', 'Rewired.ReInput', 'get_isEditor,get_isAllowedEditorWindowFocused,get_isUnityEditorFocused,get_isReady'),
+        }
     commands, files = {}, {}
     for name, (assembly, typename, methods) in groups.items():
         assert sha(MANAGED / assembly) == refs[assembly]

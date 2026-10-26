@@ -1,0 +1,108 @@
+{
+  "game": "The Forest of Love0.45",
+  "candidate": "ru-20261026-35",
+  "model": "gpt-6.1-sol/high/OpenAI",
+  "result": "Startup deadline failed before input; late-ready original-policy passive eligibility observed; normal quit/restoration verified separately",
+  "originalReceipts": "runtime-result.json and cleanup.json retain failed223.928s attempt and live PIDs; final-verification.json records later reconciliation without rewriting the failure",
+  "runtime": {
+    "scriptStartupDeadlineSeconds": 180,
+    "nextRecipeDeadlineSeconds": 300,
+    "lateReadyObserver": "Original runner exited; same verified live game reached FOREST_PROBE_READY. Text coordinator resumed read-only diagnostics and normal cleanup; candidate not rerun.",
+    "nativePulses": 0,
+    "qaPolicySetterCalls": 0,
+    "imagesCaptured": 0,
+    "imagesOpened": 0
+  },
+  "passive": {
+    "samples": 1,
+    "values": {
+      "focused": {
+        "False": 1
+      },
+      "ignoreUnfocused": {
+        "True": 1
+      },
+      "rewiredReady": {
+        "True": 1
+      },
+      "rewiredGlobalEnabled": {
+        "True": 1
+      },
+      "rewiredFilter": {
+        "True": 1
+      },
+      "rewiredFocusWatcher": {
+        "False": 1
+      },
+      "rewiredOtherWatcher": {
+        "True": 1
+      },
+      "rewiredInputAllowed": {
+        "False": 1
+      },
+      "rewiredKeyboardAllowed": {
+        "False": 1
+      },
+      "nativeMovementDown": {
+        "": 1
+      },
+      "asyncMovementDown": {
+        "": 1
+      },
+      "rewiredMovementDown": {
+        "": 1
+      },
+      "unityMovementDown": {
+        "": 1
+      },
+      "actionAxes": {
+        "0,0,0": 1
+      },
+      "fullAxis": {
+        "0,0,0": 1
+      }
+    },
+    "acceptance": "ONE actual original-policy StartMenu frame. Real Unity focus=False; global input enabled=True, original filter=True, focus watcher=False, other watcher=True; shipped inputAllowed=False and IsInputAllowed(Keyboard)=False. All8 keys up/zero axes at that frame. No two-frame idle readiness, no native delivery/release or QA-policy runtime acceptance.",
+    "attribution": "Establishes actual35 eligibility rejection consistent with shipped IL. It does not retroactively establish34 internal watcher state or sole cause for32/27."
+  },
+  "cleanup": {
+    "taskPidsAbsent": [
+      29233,
+      29238,
+      29268,
+      29316
+    ],
+    "quitAcknowledged": true,
+    "inputPolicy": "Original True throughout; restore-input-policy was a no-op, no public setter trial ran",
+    "inspectionBridgeRemoved": true,
+    "originalQaAssemblyRestored": true,
+    "originalInstallAndPlayerFilesUnchanged": true,
+    "originalManagedReferences": 150,
+    "resourcePairs": 5,
+    "inputPins": 7,
+    "frozenDependencies": 326,
+    "unchangedFrozenHashes": 324,
+    "intendedCleanupExceptions": 2,
+    "qaPersistentDirectoryEmpty": true
+  },
+  "repairs": {
+    "commandTransport": "command.py accepts absent first actions.log, waits for first actual receipt and preserves pending-command rejection; tests simulate file producer only, not Unity startup.",
+    "idleObservation": "Bounded menu idle polling requires actual produced frames, validates the first observed row and stops on unexpected key/focus/policy. Actual35 one-frame observation rejects DOWN for insufficient count; separate mocked focused/original-filter negative and matching focused positive controls remain.",
+    "startup": "Menu-only deadline300s now matches existing New runner;35 crossed old180s before ready. This does not assert cause of slow startup or pass a new run.",
+    "consumerGate": "Native+Rewired+original actionAxes/FullAxis required in a real matching frame; Unity separately recorded. Original unfocused/filter=True DOWN refused. Explicit QA filter=False path retains real focus and original producer/maps/consumer.",
+    "tests": "25 focused tests pass; post35 canonical changes are not the consumed35 snapshot."
+  },
+  "remaining": "One new immutable menu-only QA background-policy trial after actual two-frame idle readiness, then restore and prove release. No New/intro until boundary resolved. Natural movement/door/tutorial, notebook/inventory, broad renderer/source/special-scene/editorial and final delivery remain pending.",
+  "evidence": {
+    "runtime-result.json": "df2f15fa31de833343a71fec1b98e24f34de87bd4816d1a9b80f695b18c8866c",
+    "cleanup.json": "9109577e12cac47f3b1ebad5d823ebdceaa90af2005e75dcdf76d651a58911a7",
+    "late-ready-cleanup-commands.json": "30fa21cb560de93ce40d9944c65ece139e8fe6e99f74f41682a20907df8ff135",
+    "late-ready-travel.json": "a4d992a2ed191c64727a8b308c3624165cbf5e89d8a51ce6e7d592e4c6628bdf",
+    "late-ready-passive-samples.txt": "fb68a099959fd75bb3e6839a9493ea92e3a8ba5bd752deea5009e7200f85973d",
+    "final-verification.json": "101acbf4af3085a64ae3e1b05f58eeed51f75d594f9f648cd6ff942ce8d08c4a",
+    "frozen-files.json": "21503f7c0e06a5d4b74a208490dedd93fbbc88b1a0d9d2b96a5dff575f39c674",
+    "bridge-build.json": "924f03e88df6b4da886e958f0314e7479d020bc9539f04b31dcabafa8a037392",
+    "execution-model.json": "e5032abb73cc3e7567742e424942724e8626d5296c23067d8fae859d5373a202"
+  },
+  "usage": "Parent serial runner owns actual request accounting; local request/token totals unavailable. No subagents/nested model jobs; asset lanes excluded."
+}

@@ -15,7 +15,9 @@ assert 'Forest/localization/probes/' in run.as_posix()
 pending = run / 'command.txt'
 assert not pending.exists(), 'Reconcile the pending command instead of overwriting it.'
 log = run / 'actions.log'
-offset = log.stat().st_size
+# The bridge creates its action log on the first acknowledged command. A slow
+# startup/cleanup can legitimately reach this transport before that first write.
+offset = log.stat().st_size if log.exists() else 0
 temp = run / 'command.pending'
 assert not temp.exists()
 temp.write_text(args.command + '\n')
@@ -23,6 +25,9 @@ temp.rename(pending)
 deadline = time.monotonic() + 20
 receipt = None
 while time.monotonic() < deadline:
+    if not log.exists():
+        time.sleep(.1)
+        continue
     with log.open('rb') as f:
         f.seek(offset)
         lines = f.read().decode('utf-8').splitlines()
