@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-26T01:20:19.488121+00:00",
+  "safeActiveConversationDump": "passed",
+  "evidence": [
+    "launch5-wait-00.json",
+    "launch5-after-265.json",
+    "launch5-waypoint2.json"
+  ],
+  "observed": [
+    "145:265 Huh?",
+    "Continue advanced conversation and waypoint to 145:260"
+  ],
+  "priorCrashCause": "unproven; scalar dump no longer fails on active Subtitle",
+  "cyrillic": "not-run",
+  "limitation": "TMP text rows absent in JSON; investigate enumeration/serialization. Direct dialogueUI.OnContinue bypasses the actual typewriter button and is insufficient final progression evidence.",
+  "next": "Move synthetic sample to the first normal new-game dialogue; inspect real continue button and scalar renderer diagnostics."
+}

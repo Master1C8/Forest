@@ -1,0 +1,46 @@
+{
+  "scope": "Russian game localization; parent model work only; no agents launched",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "baselineBeforeUserRequest": {
+    "input_tokens": 102569804,
+    "cached_input_tokens": 101673344,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 377733,
+    "reasoning_output_tokens": 233957,
+    "total_tokens": 102947537
+  },
+  "requestTimestamp": "2026-10-26T00:37:19.941Z",
+  "latestObservedCumulative": {
+    "input_tokens": 115412320,
+    "cached_input_tokens": 114339328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 422162,
+    "reasoning_output_tokens": 253351,
+    "total_tokens": 115834482
+  },
+  "measurement": "Exposed token_count totals. Cached input and reasoning are subsets. No estimated costs. Reporting tail unmeasured.",
+  "cliSessions": [
+    {
+      "sessionId": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "provenance": "Actual fresh session_meta/turn_context and pinned --ignore-user-config launch arguments; every observed turn matches",
+      "inheritedHistory": false,
+      "scope": "This single CLI assignment: instruction reads, renderer diagnosis/resources/runtime, bounded source preparation, tools and verification. Phase attribution is mixed.",
+      "measurementCutoff": "2026-10-26T02:07:54.329Z",
+      "firstExposedEvent": "2026-10-26T01:11:50.771Z",
+      "measuredSessionCumulative": {
+        "input_tokens": 15674024,
+        "cached_input_tokens": 15497216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 83045,
+        "reasoning_output_tokens": 45122,
+        "total_tokens": 15757069
+      },
+      "measurement": "Nonoverlapping fresh-session cumulative total. Cached input is a subset of input; reasoning is a subset of output. No costs estimated.",
+      "unmeasured": "Requests after this cutoff, final reporting tail and parent monitoring; not claimed zero."
+    }
+  ]
+}

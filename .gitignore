@@ -3,6 +3,7 @@ __pycache__/
 .venv*/
 *.zip
 !dist/text-bearing-textures.zip
+!dist/forest-ru-technical-checkpoint-20261026.zip
 assets/source-v1/
 assets/source-v2/trees/
 assets/source-v2/objects.json
@@ -11,3 +12,13 @@ assets/source-v2/sheets/
 assets/source-v2/ocr-batch*
 assets/source-v2/ocr-work*
 assets/source-v2/ocr-probe*
+localization/probes/*/game/
+localization/probes/*/noop-*
+localization/probes/*/*.dll
+localization/probes/**/*.dll
+localization/probes/**/bin/
+localization/probes/**/obj/
+localization/probes/*/*-startup-sample.txt
+tools/probe/bin/
+tools/probe/obj/
+outputs/

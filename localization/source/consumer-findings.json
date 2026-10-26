@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "sourceAcceptance": "needs-review",
+  "fullVisibleDenominator": null,
+  "confirmed": [
+    {
+      "surface": "Normal dialogue",
+      "consumer": "TheForestOfLove.CustomTypewriterEffectTextMeshPro / Febucci.UI.TypewriterByCharacter / TMPro.TextMeshProUGUI",
+      "evidence": "localization/probes/ru-20261026-04/runtime-result.json",
+      "finding": "Real typewriter and button progressed through synthetic marks/trailing spaces to unchanged original ds:145:203. Native glyph review remains separate.",
+      "evidenceSha256": "757f78bf7cd2950561f704cdc40bedfe01f067d182082a1b57e3f072adc2ea9e"
+    },
+    {
+      "surface": "Dialogue speaker name",
+      "consumer": "TheForestOfLove.DialogueNameplateController.UpdateNameplate",
+      "evidence": "localization/probes/ru-20261026-04/dialogue-nameplate.cs",
+      "finding": "UnityEngine.UI.Text; BGDatabase actor.NameplateName is replaced by ??? before introduction. Keep reveal timing and actor/control identifiers unchanged.",
+      "evidenceSha256": "10f43d0947f21dee6255c298e1de760e1d2981fc06bfa850bb6f95e9336aadad"
+    },
+    {
+      "surface": "Mouse language",
+      "consumer": "DialogueNameplateController.OnChangeFont / SetFontToMouse",
+      "evidence": "localization/probes/ru-20261026-04/dialogue-nameplate.cs",
+      "finding": "fontName mouse switches the subtitle font to fontMouse. OokLanguage_TMP mapping/control semantics must remain intact; this probe has not accepted that path.",
+      "evidenceSha256": "10f43d0947f21dee6255c298e1de760e1d2981fc06bfa850bb6f95e9336aadad"
+    },
+    {
+      "surface": "Dialogue inline syntax",
+      "consumer": "PixelCrushers.DialogueSystem.FormattedText.Parse",
+      "evidence": "localization/source/consumers/FormattedText.cs",
+      "finding": "Recognized [pic], [pica], [picc], [var], [lua], [autocase], panel/position/emphasis tags and pipes differ from ordinary bracketed prose. Do not treat every [...] as protected control.",
+      "evidenceSha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306"
+    }
+  ],
+  "regressions": [
+    {
+      "id": "square-bracket-prose-vs-control",
+      "sourceIds": [
+        "ds:131:153:Dialogue Text"
+      ],
+      "requirement": "Narrative [A particularly large flower...] remains visible prose; [pic=3] remains an exact parser control. Both must survive the eventual extraction/reinsertion contract."
+    },
+    {
+      "id": "name-reveal-and-reference-identity",
+      "requirement": "Do not replace plugin actor names, savekeys or ??? reveal conditions with localized display names."
+    },
+    {
+      "id": "native-button-typewriter-completion",
+      "requirement": "Use CustomTypewriterEffectTextMeshPro.FastForwardTextOrAdvanceDialogue and verify actual next entry; dialogueUI.OnContinue bypasses typewriter semantics."
+    },
+    {
+      "id": "runtime-resource-enumeration",
+      "requirement": "Keep scene validity and prefab/template visibility distinct. The old TMP query excluded all sample rows; unfiltered resource enumeration can include hidden templates and does not prove visible rendering."
+    }
+  ],
+  "pending": [
+    "All 1351 unresolved metadata records",
+    "BGDatabase/UI/C# literals complete display-versus-control classification",
+    "All 75 bundled Subtitle Text component consumers/font roles",
+    "Menu/settings actual rendered bindings; absence in the old TMP dump is insufficient evidence",
+    "Full special-scene semantic discovery and Russian adaptation groups",
+    "Complete source inventory and parser-derived inline preserve-exactly manifest"
+  ]
+}

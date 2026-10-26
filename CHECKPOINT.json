@@ -4,13 +4,16 @@
   "version": "0.45",
   "sourceLocale": "en",
   "checkout": "/Users/antonkrutov/Desktop/Forest",
-  "scope": "Read-only original asset extraction and a gallery containing only text-bearing textures",
-  "localizationType": "not-selected; not required for technical export",
-  "locales": [],
+  "scope": "Complete Russian standard localization: source, text, resources, local package and verification; publication remains separate.",
+  "localizationType": "standard-localization; selected by owner in this chat",
+  "locales": [
+    "ru"
+  ],
   "model": {
     "coordinator": "gpt-6.1-sol",
     "reasoning": "high",
-    "verification": "current chat turn_context",
+    "provider": "openai",
+    "verification": "Actual fresh CLI session_meta, every observed turn_context and pinned launch arguments; see localization/usage.json",
     "workers": []
   },
   "sourceManifest": "assets/source-v2/source-files.json",
@@ -34,27 +37,27 @@
   },
   "specialScenes": {
     "path": "special-scenes.json",
-    "sha256": "f23f9f4c4641fd6e89aca10a03a9da26194dad3ce1cd711273c372d2ba22e8e9",
-    "status": "needs-review; visual cases registered, script discovery pending"
+    "sha256": "958fac7945edf767b20a60915338ec61f6baaa62f80bd23ef6ac19f29d339182",
+    "status": "needs-review; partial consumer tracing, complete textual discovery/adaptations pending"
   },
   "stages": {
-    "scope": "passed for export-only work",
-    "probe": "not-run; no renderer or reinsertion requested",
-    "source": "needs-review; source exported, semantic classification and remaining metadata pending",
-    "glossary": "not-run",
-    "translate-edit": "not-run",
-    "editorial": "not-run",
-    "resources": "original textures exported; no localized textures produced",
-    "package": "not-run",
-    "runtime": "not-run",
+    "scope": "passed: 0.45, ru, standard localization, canonical Forest checkout",
+    "probe": "needs-review: current ordinary-dialogue/native-nameplate pilot awaiting bounded visual read; other required paths unverified",
+    "source": "needs-review: exact two-copy dialogue candidates and protected-boundary hashes prepared; full inventory/parser/special-scene closure pending",
+    "glossary": "passed: source and ru layers accepted with two complete editorial layers; exact snapshots pinned",
+    "translate-edit": "not-run; renderer/source gates prohibit mass work",
+    "editorial": "not-run; no game corpus; independent diff reviewer unavailable under explicit single-task restriction",
+    "resources": "needs-review: bounded Cyrillic metric/native fallback candidates verified statically/runtime; final corpus/fonts/textures absent",
+    "package": "not-run for localization; separate technical evidence archive verified",
+    "runtime": "needs-review: synthetic Windows-player-via-CrossOver progression passed, other surfaces unverified",
     "screenshot-upload": "not-applicable; no game screenshots requested",
     "screenshot-review": "not-applicable; no screenshot upload",
-    "delivery": "passed for verified asset exports and text-only gallery; full semantic source handoff remains needs-review"
+    "delivery": "needs-review: technical checkpoint only; unfinished localization"
   },
   "publication": "not-run",
   "gameWrites": false,
   "remainingMetadataFailures": 1351,
-  "nextAction": "Review the filtered gallery; before translation, settle type/locales, source consumers, special-scene dependencies and renderer feasibility.",
+  "nextAction": "Single CLI task resumes renderer/source acceptance, then Russian text/resources/package work.",
   "validation": {
     "status": "passed",
     "boundary": "pinned installed bytes -> object/typetree/text/PNG export",
@@ -142,5 +145,117 @@
     "componentsCorrected": 35182,
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
-  }
+  },
+  "updatedAt": "2026-10-26T02:03:15.420426+00:00",
+  "processBinding": {
+    "guide": "README.md",
+    "references": {
+      "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+      "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+      "/Users/antonkrutov/Desktop/SiteForMods/tools/codex-skills/shared/ROUTING.md": "7375d9c48cb3fadb25233d42c258899e7729b5ce8c6118e612d67b67b56c0ee9",
+      "/Users/antonkrutov/Desktop/SiteForMods/tools/codex-skills/shared/CHECKPOINT.md": "de6fcd0119aceda9edeed0850eaa659b10aaf8e7cfc7e7c22ce7c627c9849b25",
+      "/Users/antonkrutov/Desktop/SiteForMods/tools/codex-skills/shared/EARLY-PROBE.md": "834ea4fe965447f00c59680d149fc1445fe08b8f042f30c99a0504354c9bc237",
+      "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
+      "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
+    },
+    "projectGuideSha256": "18a45e5082e11456a43d34b15321effbaea329924f1ee712e0652171bb0e92f8"
+  },
+  "currentStage": "probe",
+  "probe": "localization/probes/ru-20261026-06/build.json",
+  "glossary": {
+    "source": "localization/glossary/en.json",
+    "sourceRawSha256": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+    "target": "localization/glossary/ru.json",
+    "targetRawSha256": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0",
+    "canonicalTranslationFileSha256": "5690ff2b205a49df19a55643be62fa44175113ff9078e572a3a62e48922c244a",
+    "acceptanceIndex": "/Users/antonkrutov/Desktop/SiteForMods/data/games/the-forest-of-love/glossary-translation-reviews/parallel-cli-20261026/current-acceptance-index.json",
+    "acceptanceIndexSha256": "cd940c7a68e5fd212096710aa4282a07cab6329497acf8e97a42369d9e4ddf08",
+    "entries": 171,
+    "standard": "standard-localization",
+    "completeEditorialLayers": 2
+  },
+  "localeStatus": {
+    "ru": {
+      "phase": "probe",
+      "translatedVisibleIds": 0,
+      "totalVisibleIds": null,
+      "glossary": "passed",
+      "editorial": "not-run; independent diff review unavailable under current restriction",
+      "fonts": "needs-review; bounded candidate only",
+      "textures": "not-run",
+      "build": "not-run for localization; synthetic probe passed static build/readback",
+      "runtime": "needs-review; synthetic ordinary-dialogue progression passed",
+      "visual": "needs-review; current native pilot pending",
+      "screenshot-upload": "not-applicable; not requested",
+      "screenshot-review": "not-applicable; not requested",
+      "release": "not-run; publication excluded",
+      "blocker": "Shared renderer gate lacks required remaining surfaces and source acceptance is incomplete. One-context visual packet limit prevents further image submissions here; no fresh agent/model job is authorized.",
+      "nextAction": "Finish the current one-image pilot, preserve evidence and remaining gates. A fresh authorized bounded review context must resolve other renderer paths before mass work."
+    }
+  },
+  "execution": {
+    "mode": "one CLI task, no parallel tasks; explicitly requested by owner",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "brief": "localization/CLI-TASK.md",
+    "briefSha256": "f4aabe169eb1db47128b3285ddda52cde009dd9625d7af3b79d34fc344d6e54a",
+    "parentRole": "read-only monitoring after dispatch; CLI owns game checkout/index",
+    "sessionId": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
+    "provider": "openai",
+    "actualModelVerified": true,
+    "inheritedHistory": false,
+    "exclusiveWriteAndGitOwner": "single current CLI task; parent read-only monitor",
+    "result": "incomplete; not a finished localization",
+    "nestedModelJobs": false,
+    "agentsLaunched": false
+  },
+  "sourceCandidates": {
+    "path": "localization/source/dialogue-manifest.json",
+    "sha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+    "candidateUnits": 12246,
+    "physicalOccurrences": 24492,
+    "fullVisibleDenominator": null,
+    "acceptance": "needs-review; dialogue candidates only",
+    "consumerFindings": "localization/source/consumer-findings.json",
+    "sourceWords": 100236,
+    "wordCountMethod": "Unicode regex \\b[\\w’']+\\b on candidate source strings; not model token usage"
+  },
+  "feasibility": {
+    "path": "localization/feasibility.json",
+    "sha256": "40424bdb77b4859bf920d8771976472bab96ee905e0c62186c2690af3a8916a3",
+    "status": "needs-review",
+    "massTranslationAllowed": false
+  },
+  "technicalEvidenceArchive": {
+    "path": "dist/forest-ru-technical-checkpoint-20261026.zip",
+    "bytes": 919949,
+    "sha256": "9937e8108d8da1aecf2197feba66748a2dd2644d34743575e0790287721fcab8",
+    "members": 84,
+    "exactReadback": "passed",
+    "kind": "technical checkpoint; no localization release"
+  },
+  "runtimeEvidence": {
+    "current": "localization/probes/ru-20261026-06/runtime-result.json",
+    "cleanup": "localization/probes/ru-20261026-06/cleanup.json",
+    "nativeManifest": "localization/probes/ru-20261026-06/native-manifest.json",
+    "nativeReview": "localization/probes/ru-20261026-06/native-review.json",
+    "previousFailure": "localization/probes/ru-20261026-04/runtime-result.json",
+    "partialBuildFailure": "localization/probes/ru-20261026-05/failed-attempt.json"
+  },
+  "independentReview": {
+    "status": "unavailable",
+    "reason": "Owner requires one CLI task, one selected model, no agents/nested model jobs or parallel delegation",
+    "selfReviewIsIndependent": false
+  },
+  "delivery": {
+    "localizationComplete": false,
+    "localizationInstaller": null,
+    "technicalArchive": "dist/forest-ru-technical-checkpoint-20261026.zip",
+    "canonicalBranch": "main",
+    "gitIntegration": "canonical HEAD after verified commit",
+    "push": "unavailable: no configured remote; no repository/remote created",
+    "publication": "not-authorized; no glossary/game/mod publication or deployment",
+    "platformLimit": "Windows build exercised through CrossOver; native Windows and native macOS not verified"
+  },
+  "checksNote": "Git whitespace checks cover all authored files; raw Windows Unity player logs retain exact CRLF/trailing bytes and are explicitly excluded from that style check."
 }

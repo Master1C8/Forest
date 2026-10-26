@@ -1,0 +1,12 @@
+globalgamemanagers no-op and exact readback passed
+resources.assets no-op and exact readback passed
+level1 no-op and exact readback passed
+sharedassets0.assets no-op and exact readback passed
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/tools/build_renderer_probe.py", line 215, in <module>
+    main()
+    ~~~~^^
+  File "/Users/antonkrutov/Desktop/Forest/tools/build_renderer_probe.py", line 101, in main
+    assert subtitle_count == 1, (name, subtitle_count)
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError: ('StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle', 75)

@@ -1,4 +1,111 @@
-# The Forest of Love: localization asset preparation
+# The Forest of Love: Russian localization work
+
+## Current Russian localization
+
+The owner selected standard localization and requested Russian (`ru`). The current
+state is `CHECKPOINT.json`; the earlier export-only checkpoint is preserved in
+`localization/history/asset-preparation-checkpoint.json`. The English and Russian
+171-entry glossary snapshots in `localization/glossary/` match the accepted canonical
+SiteForMods layers. No game text has been translated yet. This is an unfinished localization, not a release.
+The verified local archive `dist/forest-ru-technical-checkpoint-20261026.zip` contains
+source candidates, glossary snapshots, tools and machine evidence, with exact ZIP
+member readback. It contains no game assets, inspection DLL, installer or translated
+corpus. Native review is recorded separately in the checkpoint and probe ledger.
+
+The current execution has one earlier diagnostic image in its context. Its final
+one-image pilot reaches the bounded protocol's two-original context limit. Under
+`game-localization-visual-qa/references/BOUNDED-REVIEW.md`, further packets require a
+fresh authorized context; the owner forbids another model job/agent in this assignment.
+Remaining renderer surfaces therefore stay unverified and block mass translation.
+Independent editorial review is likewise unavailable and is never replaced by self-review.
+
+The single authorized CLI task verified `gpt-6.1-sol / high / OpenAI` from its
+fresh session and pinned launch arguments. No agents, nested model jobs, translation
+services, publication or deployment were used. The CLI owns the canonical checkout
+and Git index; the parent only monitors.
+
+Rebuild the current bounded candidate into a **new** probe directory with:
+
+```sh
+.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/ru-next --sample-surface new-game --repair-cyrillic-metrics
+python3 tools/probe/prepare_bridge.py localization/probes/ru-next
+```
+
+The builder refuses an existing output. `prepare_bridge.py` also refuses an existing
+bridge snapshot; reconcile partial/live execution rather than overwriting it. The
+runtime command and exact hashes are in the versioned launch/build receipts. Cleanup
+removes the inspection DLL and restores the original assembly in the stopped QA copy;
+this changes only the inspection hook, not the verified candidate asset files.
+
+Current technical evidence is under `localization/probes/ru-20261026-06/`.
+Attempt 04 exercised the real typewriter and normal Continue button through synthetic
+entries 197, 199, 200 and 202 to original entry 203. Combining marks and trailing spaces
+completed; the uncorrected TMP field reported overflow. Attempt 05 stopped on an
+incorrect singleton assumption: the bundle contains 75 subtitle components. Attempt
+06 preserves each component's original maximum size, adds bounded auto-sizing,
+calibrates the existing Cyrillic TMP fallback by cap-height ratio, and replaces only
+the existing legacy fallback font's data/metrics using the game's Liberation Sans.
+These are technical candidates, not final corpus-bound font approval.
+
+The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
+the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate
+progression evidence because it bypasses that handler. `prepare_bridge.py` compiles
+against original managed references, snapshots its sources, and checks that the hook
+changes only `MainMenuController.Start`. Never include this bridge in a player release.
+The previous crash cause remains unproven; a successful scalar dump is not retrospective
+proof of that cause. Startup can take minutes; queued commands are reconciled, not resent.
+
+`localization/source/dialogue-manifest.json` binds 12,246 nonempty dialogue/menu
+**candidate fields**, 24,492 physical occurrences, 627 conversations and 16,396 entries.
+The two complete conversation trees agree. `tools/prepare_dialogue_source.py` records
+each candidate's exact pointer and fingerprints every other tree value as protected.
+This is a partial source family, not the game's accepted visible-ID denominator.
+Inline controls, BGDatabase/UI/code/image consumers, 1,351 unresolved metadata records
+and complete special-scene discovery still block source acceptance and mass translation.
+The write-boundary test verifies continuation after the first file exists and the
+second write fails; the two output files do not form an atomic transaction.
+
+The earlier absence of TMP rows must not be used to infer that a screen is texture-only:
+the scene-validity filter excluded the actual dialogue sample. Unfiltered enumeration
+also includes hidden templates, so it cannot prove visibility. Baked textures exist,
+but menu/settings renderer bindings require their own real-screen evidence. Speaker
+nameplates use legacy `UnityEngine.UI.Text`; the mouse-language font is a separate
+mapping that this ordinary-dialogue probe does not accept. See the source consumer
+findings and regression catalog in `localization/source/consumer-findings.json`.
+
+All locales use the shared process and editorial protocol pinned in the checkpoint.
+This project binds its existing tools to those stages as follows; missing commands
+remain explicit pending work rather than invented successful gates.
+
+| Stage | Project command or artifact | Acceptance boundary |
+| --- | --- | --- |
+| `scope` | `CHECKPOINT.json` | Exact 0.45 source, `ru`, standard localization and canonical checkout. |
+| `probe` | `.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/<new-run>` | Five bounded no-op/readback checks, then real synthetic Cyrillic rendering and normal-button progression on each required text path. |
+| `source` | Existing extractor/validator; `tools/prepare_dialogue_source.py`; `special-scenes.json` | Shared complete visible inventory, consumer classification and preserve-exactly manifest; semantic handoff pending. |
+| `glossary` | `localization/glossary/{en,ru}.json` | Accepted source and Russian layers, 171 IDs, canonical hashes and two review layers. |
+| `translate-edit` | Pending source and probe gates | Direct model translation with immediate editing; every discovered special-scene group settled first. |
+| `editorial` | Universal protocol pinned in checkpoint | One complete semantic audit, reproducible closures, independent diff/delta review and final structural gate. |
+| `resources` | Existing texture inventory; final adapters pending | Final corpus-bound fonts, then applicable localized textures. |
+| `package` | Pending adapter | Reproducible local deliverable with exact resource readback. |
+| `runtime` | Isolated versioned runtime evidence | Actual packaged rendering, controls and semantic progression, separately from static checks. |
+| `screenshot-upload` | Not requested | No website screenshot writes. |
+| `screenshot-review` | Not applicable without upload | Does not inherit a pass from capture. |
+| `delivery` | Canonical `main`, checkpoint and artifact hashes | Honest separate text/editorial/technical/runtime states. |
+
+The renderer probe is a disposable runtime copy, not a competing project checkout.
+It excludes player files and changes its QA company/product identity, TMP/native
+font fallbacks, bounded subtitle auto-sizing, synthetic text fields and an explicitly
+identified temporary inspection bridge. The bridge invokes guarded game-thread actions and captures the
+native Unity backbuffer, avoiding desktop input and focus dependencies. It is more
+deterministic than external mouse automation for this probe and must never ship in
+the player package. The installed game, original DLLs and player saves are preserved.
+The first partial probe exposed a validator bug: UnityPy ObjectReader retains the
+original reader after `save_typetree`. The recipe now retains authored expected trees
+and compares them with independently reopened files, instead of rereading the old
+stream. The failed copy remains diagnostic evidence, not a successful probe.
+
+The sections below describe the previously completed extraction, not Russian release
+readiness. Its historical scope and limitations remain available.
 
 Canonical project: `/Users/antonkrutov/Desktop/Forest`.
 
@@ -130,7 +237,7 @@ the current source manifest before reusing these results.
 
 This task exported original assets and identified baked text. It did not translate,
 redraw textures, install a mod, launch the game, publish content or deploy anything.
-No localization type or target locale was selected. `special-scenes.json` records
+At that historical export-only checkpoint, no localization type or target locale had been selected. `special-scenes.json` records
 observed visual dependencies and the remaining discovery gaps. Source acceptance and
 renderer feasibility remain unverified; extraction success is not a playable localization.
 

@@ -8,10 +8,10 @@
     "textureScreening": "1375/1375 at contact-sheet scale, selected small atlases at native size",
     "textAndScriptSemanticDiscovery": "not-run; extracted fields retain unresolved consumer classifications",
     "audioVideo": "source file inventory only; transcription and semantic review not-run",
-    "runtimeConsumerTracing": "not-run"
+    "runtimeConsumerTracing": "partial; dialogue/typewriter, legacy nameplate, mouse font switch and dialogue markup parser traced"
   },
   "sourceAcceptance": "needs-review",
-  "localePretranslationGate": "not-run; no locale selected",
+  "localePretranslationGate": "not-run; Russian selected; complete textual discovery and group adaptations pending",
   "cases": [
     {
       "id": "visual-control-labels",
@@ -253,5 +253,9 @@
       "runtimeVisual": "not-run",
       "localeDecisions": {}
     }
-  ]
+  ],
+  "consumerFindings": {
+    "path": "localization/source/consumer-findings.json",
+    "sha256": "820777713d3754331aa3391efb18cff36b489cfb50a8d486b283784d8b6134bc"
+  }
 }
