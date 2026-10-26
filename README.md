@@ -1,42 +1,43 @@
-## Phase0045: original New/intro and natural CentralForest route passed
+## Phase0046: original save/Continue consumers and fixture guards prepared
 
-One new immutable candidate43 completed the original-policy menu/New/intro and
-natural doorway route in212.310s with observer exit0. All39 preflight checks passed:
-387 frozen dependencies,150 original managed references,262 other original files,
-5 resource pairs/95 selected trees,19 live-lane pins, isolated identity/saves,
-external startup/interpreter pins and all14 original guards. The unchanged70-test
-phase0044 result was reused against exact source hashes; no redundant test rerun.
+Nineteen bounded original IL groups now trace DataPath/PlayerPrefs loading,
+version cleanup, original PlayMenu Continue, normal soft-reset dispatch and
+exact-position Player restoration. The preserved43 QA save matches the required
+schema versions and records its real CentralForest arrival from BunnyHouse,
+completed NewGame_Intro, exact respawn position and unplayed tutorial state.
+Static parsing does not establish successful restoration or continued execution.
 
-The original menu supplied26 actual idle frames. The intro supplied112 observations,
-49 content nodes and10 source-bound responses; terminal frames8858/8969 confirmed
-original cleanup. Its original360s hard budget ended at152.137s, including16.091s in
-the cleanup stage. Five original targeted pulses (LEFT791ms, DOWN950ms total) proved
-four-layer delivery, matching-frame axes/consumer ingress, release/zero axes and
-natural CentralForest arrival. No tutorial choice or image was submitted.
+Normal Continue passes through the original ChapterSelect soft-reset scene and
+the original next-update BeginPlaySession callback. It does not need a direct
+chapter selection. The alternate settings object named settingsPersistentData
+uses PlayerPrefs: an empty QA persistence directory alone cannot establish that
+no alternate state exists. The fixture admission helper requires the pinned
+QA-only manifest, exact original file bytes and exactly two DataPath tfol.*
+files, rejecting extra nested saves, changed bytes and symlinked candidates.
 
-All313 successful commands retained exact ACK/exit0 and correctly dated reused
-transport-returned process samples for final bookkeeping.665 fresh scans total
-22.015373s; returned-to-reaped brackets total0.153662s.79 passive-focus observations
-separately bracket command22.280536s, decode0.084958s and native-helper14.312880s.
-These intervals overlap. Workload, startup, menu frames, scheduling and caches differ
-from42: no counterfactual saved seconds or whole-run causal speedup is claimed.
+The additive dump-save-continuation diagnostic compiled against all150 original
+managed assemblies. Exact IL comparison retained33 existing top-level methods;
+only dispatch and the new read-only diagnostic differ. It observes loaded
+manifest fields, original flags, real frame/time, Player identity/position and
+existing tutorial diagnostics. Native serialization and runtime order remain
+unverified. All79 focused tests passed (existing70 plus9 fixture-admission
+checks);16 static checks passed, including19 lane pins,150 managed/262 other
+original files,5 resource pairs, owner saves/identity/catalog and no QA runtime.
 
-Normal policy restore/Quit were acknowledged. All15 postrun checks passed: exact QA
-processes absent, original QA DLL restored, bridge removed, originals/player saves
-and19 pins unchanged. Launcher/game numeric exits remain unknown. The new QA-only
-settings/save are preserved under `qa-generated/`; restoration and continued execution
-are NOT yet verified. Candidate43 is consumed/stopped and must never be relaunched.
+Candidate44 has NOT been created/prepared/launched. The existing New-only
+observer still rejects every tfol.* and invokes New; its Continue control,
+budget and restored-state branch must be implemented before freezing44. The
+source-backed next recipe stops safely at120:158 before selecting159/181.
+No game launch, image input, original-install write or asset-lane write occurred.
+Accepted43 route/cleanup and10/15 visuals remain scoped and unchanged. Full
+source/special-scene/renderer/editorial/resource/delivery gates remain pending.
 
-Evidence: `localization/probes/ru-20261026-43/runtime-diagnosis.json`,
-`instrumentation-attribution.json` (reproduce with the postrun
-`attribute-runtime.py`), `natural-route.json`, `intro-progression.json` and
-`final-verification.json`. No images opened/captured. All7 authorized asset lanes
-continue untouched. Accepted10/15 visuals and earlier unchanged scoped results remain
-reusable; source/special-scene/renderer/editorial/full delivery remain pending.
-Next: inspect the normal save/Continue consumer and prepare a bounded fresh isolated
-restoration/continuation toward tutorial120:158. Never assume the saved state restores
-correctly or replace failed restoration with another unchanged New/intro replay.
-Previous summary: `localization/history/phase0044-summary.md`.
+Evidence and the next concrete recipe:
+`localization/source/save-continue-20261026/source-trace.json`,
+`CONTINUE-RECIPE.md`, `fixture-binding.json`, `bridge-verification.json`,
+`tests.json` and `verification.json`. Continue with one new immutable44 only
+once its repaired observer and full freeze/preflight pass; never replay43.
+Previous summary: `localization/history/phase0045-summary.md`.
 
 # The Forest of Love: Russian localization work
 

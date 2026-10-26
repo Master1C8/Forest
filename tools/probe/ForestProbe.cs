@@ -100,6 +100,7 @@ public sealed class ForestProbe : MonoBehaviour
         try {
             if(text=="dump-focus") ObserveFocus("snapshot","unknown");
             else if(text=="dump") Dump();
+            else if(text=="dump-save-continuation") DumpSaveContinuation();
             else if(text=="dump-intro") DumpIntro();
             else if(text=="dump-notebook") {
                 var state=new NotebookRouteState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
@@ -863,5 +864,51 @@ public sealed class ForestProbe : MonoBehaviour
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;
         ReadConversation(state);
         File.WriteAllText(Path.Combine(root,"state.json"),JsonUtility.ToJson(state,true));
+    }
+    [Serializable] public sealed class SaveContinuationState {
+        public string scene, company, product, dataPath, persistentDataPath;
+        public int frame;
+        public float realtime, storyClock;
+        public bool hasSavedPlaySession, isChapterSelect, isCheatCode, isFinishingSoftReset;
+        public bool gameplay, anyEvent, conversation;
+        public string currentArea, lastArea, cameraSettingsObjectName;
+        public Vector3 lastPosition, lastSpawnPosition, playerPosition;
+        public bool lastPositionExact, isSwimming, isFastTraveling, playerPresent;
+        public bool finishedControlTutorial, finishedDialogueTutorial, finishedGossipTutorial;
+        public string playerPath;
+        public int playerInstance;
+        public string[] diagnostics;
+    }
+    void DumpSaveContinuation() {
+        // Source-pinned getters return existing records; do not read ES3, reload,
+        // evaluate availability, save, or mutate the story/scene/player state.
+        var respawn=TheForestOfLove.Services.Persistence.DataService.GetPlayerRespawnData();
+        var general=TheForestOfLove.Services.Persistence.DataService.GetGeneralData();
+        if(respawn==null || general==null)throw new Exception("Original save manifest not ready");
+        var player=TheForestOfLove.Player.current;
+        var state=new SaveContinuationState {
+            scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            company=Application.companyName,product=Application.productName,
+            dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
+            frame=Time.frameCount,realtime=Time.realtimeSinceStartup,
+            hasSavedPlaySession=TheForestOfLove.Services.Persistence.SaveManager.HasSavedPlaySession,
+            isChapterSelect=Globals.isChapterSelect,isCheatCode=Globals.isCheatCode,
+            isFinishingSoftReset=Globals.isFinishingSoftReset,
+            gameplay=TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene,
+            anyEvent=TheForestOfLove.Events.GameStateManager.isAnyEventActive,
+            conversation=DialogueManager.IsConversationActive,
+            currentArea=respawn.currentAreaUnitySceneName,lastArea=respawn.lastAreaUnitySceneName,
+            lastPosition=respawn.lastPosition,lastSpawnPosition=respawn.lastSpawnPosition,
+            lastPositionExact=respawn.lastPositionExact,isSwimming=respawn.isSwimming,
+            isFastTraveling=respawn.isFastTraveling,cameraSettingsObjectName=respawn.cameraSettingsObjectName,
+            storyClock=general.storyClock,finishedControlTutorial=general.finishedControlTutorial,
+            finishedDialogueTutorial=general.finishedDialogueTutorial,
+            finishedGossipTutorial=general.finishedGossipTutorial,
+            playerPresent=player!=null && player.gameObject.activeInHierarchy,
+            playerPath=player==null?null:Address(player.transform),playerInstance=player==null?0:player.GetInstanceID(),
+            playerPosition=player==null?Vector3.zero:player.transform.position,
+            diagnostics=TutorialRouteDiagnostics()
+        };
+        File.WriteAllText(Path.Combine(root,"save-continuation.json"),JsonUtility.ToJson(state,true));
     }
 }
