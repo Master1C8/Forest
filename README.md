@@ -29,7 +29,7 @@ scope and phase-result contract are in `localization/CLI-TASK.md`.
 Rebuild the current bounded candidate into a **new** probe directory with:
 
 ```sh
-.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/ru-next --sample-surface new-game --repair-cyrillic-metrics --coherent-legacy-face
+.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/ru-next --sample-surface new-game --repair-cyrillic-metrics --coherent-legacy-face --coherent-tmp-face
 python3 tools/probe/prepare_bridge.py localization/probes/ru-next
 ```
 
@@ -79,8 +79,30 @@ The corrected run captured both unchanged 1440×900 native frames, completed nor
 197 → 199 → 200 → 202 → unchanged 203 progression without overflow, and restored/stopped
 the QA copy. Runtime diagnostics confirm the native Text loads Liberation Sans at
 size 14 with Cyrillic/digit coverage. Original installed assets/player files remain
-byte-identical. The complete two-original packet is prepared with zero images reviewed;
-raw NFD mark placement and the repaired nameplate remain pending visual acceptance.
+byte-identical. The complete two-original packet was independently reviewed in fresh serial phase
+0002: both frames fail the TMP glyph gate. Raw NFD marks sit right of their bases,
+and pixel Latin/digits remain heavier than outline Cyrillic. The native nameplate
+passes coherent height/weight/baseline and NFC mark placement in those exact frames.
+These observations do not accept other text roles or the complete renderer.
+
+Candidate10 (`localization/probes/ru-20261026-10/`) replaces the shared TMP
+primary face using the same embedded Liberation Sans for Cyrillic, Latin and digits.
+It preserves font/material/atlas object identity, the bitmap shader and 1024×1024
+Alpha8 dimensions, with a cleared readable atlas and smooth hinted raster glyphs.
+`tools/tmp_dialogue_font.py` derives four Russian canonical base/mark placements
+from the embedded font's composite accent geometry and uses TMP's existing pair
+table; logical NFD/NFC strings and zero mark advances are preserved. This is a
+bounded mechanism, not general mark-to-base/mark-to-mark shaping acceptance.
+Candidate10 completed normal progression and captured/restored the new NFD/NFC pair;
+its visual packet is pending independent review. Its nested glyph diagnostic array
+was omitted by Unity JsonUtility, as was the prior text-object array. No actual
+per-character metrics are claimed. The canonical bridge now uses string arrays for
+future measurement; that format compiles but has not run. Current captures and bridge
+snapshots are preserved. No runtime font or text repair lives in the inspection bridge. Final corpus/fonts and all other
+renderer paths remain gated. The first static attempt's float32 mismatch (08) and
+the readable-atlas prerequisite discovered before launching 09 remain preserved.
+Rebuilds must retain exact float32 scale, readable cleared atlas and smooth bitmap
+mode together; static cmap/readback cannot establish native glyph attachment.
 
 The safe bridge dumps only scalar subtitle fields. Its `continue` command now invokes
 the actual game typewriter/button handler. Direct `dialogueUI.OnContinue` is inadequate

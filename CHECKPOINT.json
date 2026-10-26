@@ -146,7 +146,7 @@
     "allBodyAndStringValues": "unchanged",
     "receipt": "assets/source-v2/schema-header-recovery.json"
   },
-  "updatedAt": "2026-10-26T02:52:45.150038+00:00",
+  "updatedAt": "2026-10-26T03:22:49.306832+00:00",
   "processBinding": {
     "guide": "README.md",
     "references": {
@@ -158,10 +158,10 @@
       "/Users/antonkrutov/.codex/skills/game-localization-visual-qa/references/BOUNDED-REVIEW.md": "a272040a440b7d13686d3441570e7007660c8336c360adb7a8edac638c1e3616",
       "/Users/antonkrutov/.codex/skills/vn-game-fonts/references/WORKFLOW.md": "351a467691d3eb979bbf7176a87afb63efd5a12c0a553a3b222a0de781a1d180"
     },
-    "projectGuideSha256": "0018c0e50a304a4d855e6b8ac13345d53316582aa5afd486c9c236af460c445f"
+    "projectGuideSha256": "37ccb5801631b4fab62c9504f174c4a17b54b5cc0570f8b3d324be3864dc45b6"
   },
   "currentStage": "probe",
-  "probe": "localization/probes/ru-20261026-07/build.json",
+  "probe": "localization/probes/ru-20261026-10/build.json",
   "glossary": {
     "source": "localization/glossary/en.json",
     "sourceRawSha256": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
@@ -181,16 +181,16 @@
       "totalVisibleIds": null,
       "glossary": "passed",
       "editorial": "not-run; independent fresh reviewers now authorized sequentially",
-      "fonts": "needs-review: candidate07 coherent embedded native face, exact byte/table readback and loaded face passed; visual pending",
+      "fonts": "needs-review: candidate10 shared TMP primary/mark-pair resource repair static-passed; 4 canonical Cyrillic pairs only; final corpus not accepted",
       "textures": "not-run",
       "build": "not-run for localization; synthetic probe passed static build/readback",
-      "runtime": "needs-review: candidate07 progression and cleanup passed; other surfaces unverified",
-      "visual": "pending: candidate07 two originals, 0 reviewed; prior candidate06 failed and preserved",
+      "runtime": "passed for candidate10 bounded progression/capture/cleanup; per-character glyph telemetry unavailable, all other surfaces unverified",
+      "visual": "pending: candidate10 2 originals, 0 reviewed; candidate07 2/2 failed and preserved",
       "screenshot-upload": "not-applicable; not requested",
       "screenshot-review": "not-applicable; not requested",
       "release": "not-run; publication excluded",
-      "blocker": "New candidate has no visual acceptance; prior native mismatch/NFD uncertainty and other renderer/source gates still block translation.",
-      "nextAction": "Review the complete pinned two-original candidate07 packet in one fresh authorized visual-review-only phase, write actual results, then finish. A subsequent text-only phase imports results and repairs/continues remaining gates. No ordinary translation yet."
+      "blocker": "New candidate10 has no visual acceptance. Source completeness, special-scene, remaining renderer/resource and universal editorial gates remain real prerequisites.",
+      "nextAction": "Fresh visual-review-only phase: inspect the exact candidate10 two-original packet, save actual results and finish. Subsequent text-only work imports findings and continues remaining real gates; no ordinary translation yet."
     }
   },
   "execution": {
@@ -208,9 +208,9 @@
     "nestedModelJobs": false,
     "agentsLaunched": false,
     "lastCompletedSession": "01a175c3-4558-7883-8cb7-fa7f5d678bed",
-    "activePhase": "outputs/ru-serial-20261026/0001-work",
-    "phaseResult": "Static repair, actual native paired capture, progression and cleanup completed; review continuation pending",
-    "modelVerification": "localization/probes/ru-20261026-07/execution-model.json",
+    "activePhase": "outputs/ru-serial-20261026/0003-work",
+    "phaseResult": "Imported independent candidate07 failures; repaired shared TMP resource; static/readback, normal progression and restored two-original candidate10 capture passed; visual review pending",
+    "modelVerification": "localization/probes/ru-20261026-10/execution-model.json",
     "usageAccounting": "Parent-owned runner; no forbidden prior history or operational logs loaded by this phase; worker request telemetry unavailable here."
   },
   "sourceCandidates": {
@@ -226,7 +226,7 @@
   },
   "feasibility": {
     "path": "localization/feasibility.json",
-    "sha256": "f097eb5145688f6af782d89b07e2371e11c8bdad1293fd8d3f432ff032c8ba79",
+    "sha256": "cff06b93a0ac4620776b975da5a6ff900895cd75155ab8e39f51fdc53c3b6b70",
     "status": "failed",
     "massTranslationAllowed": false
   },
@@ -239,14 +239,16 @@
     "kind": "technical checkpoint; no localization release"
   },
   "runtimeEvidence": {
-    "current": "localization/probes/ru-20261026-07/runtime-result.json",
-    "cleanup": "localization/probes/ru-20261026-07/cleanup.json",
-    "nativeManifest": "localization/probes/ru-20261026-07/native-manifest.json",
-    "nativeReview": "localization/probes/ru-20261026-07/native-review.json",
+    "current": "localization/probes/ru-20261026-10/runtime-result.json",
+    "cleanup": "localization/probes/ru-20261026-10/cleanup.json",
+    "nativeManifest": "localization/probes/ru-20261026-10/native-manifest.json",
+    "nativeReview": "localization/probes/ru-20261026-10/native-review.json",
     "previousFailure": "localization/probes/ru-20261026-04/runtime-result.json",
-    "partialBuildFailure": "localization/probes/ru-20261026-05/failed-attempt.json",
-    "previousCandidate": "localization/probes/ru-20261026-06/runtime-result.json",
-    "captureGuardFailure": "localization/probes/ru-20261026-07/runtime-attempt-01/runtime-result.json"
+    "partialBuildFailure": "localization/probes/ru-20261026-08/failed-attempt.json",
+    "previousCandidate": "localization/probes/ru-20261026-07/runtime-result.json",
+    "captureGuardFailure": "localization/probes/ru-20261026-07/runtime-attempt-01/runtime-result.json",
+    "staticPrerequisiteHold": "localization/probes/ru-20261026-09/static-prerequisite-hold.json",
+    "diagnosticLimitation": "localization/probes/ru-20261026-10/diagnostic-limitation.json"
   },
   "independentReview": {
     "status": "not-run",
@@ -265,27 +267,41 @@
   },
   "checksNote": "Git whitespace checks cover all authored files; raw Windows Unity player logs retain exact CRLF/trailing bytes and are explicitly excluded from that style check.",
   "nativeVisualReview": {
-    "ledger": "localization/probes/ru-20261026-07/native-review.json",
-    "sha256": "5584c83138d7116d24c076b9ee8305d729bea67ef0961332458d260c1487a199",
-    "packet": "localization/probes/ru-20261026-07/native-packet-01.json",
+    "ledger": "localization/probes/ru-20261026-10/native-review.json",
+    "sha256": "1ef2c8daa8a2c4bbf6fa5cebb3569e72c798b4a1ae5774cbefce1855610cabfa",
+    "packet": "localization/probes/ru-20261026-10/native-packet-01.json",
     "total": 2,
     "reviewed": 0,
     "passed": 0,
     "failed": 0,
     "pending": 2,
-    "independent": "not-run; fresh sequential reviewer assigned next",
+    "independent": "not-run for candidate10; new fresh review needed",
     "imagesOpenedInThisWorkContext": 0,
     "previousFailure": {
-      "ledger": "localization/probes/ru-20261026-06/native-review.json",
-      "sha256": "5fa24777365831490e2385ae3489ffe4e0cf2b7ba9c0ea89cf39c24be32c978a",
-      "result": "localization/probes/ru-20261026-06/native-result-01.json",
-      "total": 1,
-      "reviewed": 1,
+      "ledger": "localization/probes/ru-20261026-07/native-review.json",
+      "sha256": "6ff0f6d974ee363661393c48d991a90c078936e9f6c4f7ddaf7447a6cd1c6dfb",
+      "packet": "localization/probes/ru-20261026-07/native-packet-01.json",
+      "total": 2,
+      "reviewed": 2,
       "passed": 0,
-      "failed": 1,
+      "failed": 2,
       "pending": 0,
-      "independent": false,
-      "contextImageLimitReached": true
+      "independent": "completed by fresh serial phase 0002-visual-review; results imported in text-only phase 0003-work",
+      "imagesOpenedInThisWorkContext": 0,
+      "previousFailure": {
+        "ledger": "localization/probes/ru-20261026-06/native-review.json",
+        "sha256": "5fa24777365831490e2385ae3489ffe4e0cf2b7ba9c0ea89cf39c24be32c978a",
+        "result": "localization/probes/ru-20261026-06/native-result-01.json",
+        "total": 1,
+        "reviewed": 1,
+        "passed": 0,
+        "failed": 1,
+        "pending": 0,
+        "independent": false,
+        "contextImageLimitReached": true
+      },
+      "result": "localization/probes/ru-20261026-07/native-result-01.json",
+      "resultSha256": "0006ae8d88a0fae3cbf465a2ec2c4682f9556f164de909fcadc4340d78416e36"
     }
   }
 }

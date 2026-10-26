@@ -8,26 +8,26 @@
   "overall": "failed",
   "massTranslationAllowed": false,
   "build": {
-    "path": "localization/probes/ru-20261026-07/build.json",
-    "sha256": "e38c20091b2e7c6ddffc56fc73123a411514c2552959e67bfe5633c2f17f749a"
+    "path": "localization/probes/ru-20261026-10/build.json",
+    "sha256": "c0c4d8d8a1c891e6da4463294308319ed50457c098d3683980898eda1cb72456"
   },
   "rows": [
     {
       "id": "ru-normal-dialogue-tmp",
       "requirement": "Cyrillic, marks, Latin/digits/punctuation, wrapping and normal button progression",
-      "static": "passed: candidate07 exact readback/no-op and unchanged TMP auto-size/fallback settings; paired canonically equivalent NFD/NFC fields",
-      "runtime": "passed: actual 197 -> 199 -> 200 -> 202 -> unchanged 203; natural completion and overflow false; raw Unicode values retained",
-      "visual": "pending: two new originals captured/restored; prior NFD positioning uncertainty unresolved",
-      "evidence": "localization/probes/ru-20261026-07/runtime-result.json",
-      "limitation": "No NFD waiver/NFC-only adapter; complete corpus and dynamic inputs, other layouts and final fonts remain unaccepted"
+      "static": "passed: candidate10 dynamic smooth alpha bitmap Liberation primary in both copies; readable cleared atlas, four canonical Cyrillic mark-pair placements; exact no-op/readback and protected-object equality",
+      "runtime": "passed: actual 197 -> 199 -> 200 -> 202 -> unchanged 203, natural completion and overflow false; raw NFD/NFC retained. Per-character diagnostics unavailable; see diagnostic-limitation.json",
+      "visual": "pending: 2/2 candidate10 originals captured/restored, 0 reviewed; candidate07 failed mixed TMP style and NFD attachment",
+      "evidence": "localization/probes/ru-20261026-10/runtime-result.json",
+      "limitation": "Four Russian canonical pair resource correction is not general shaping. Final corpus/dynamic input requirements, other layouts and final fonts remain unaccepted"
     },
     {
       "id": "ru-legacy-speaker-name",
       "requirement": "Cyrillic through UnityEngine.UI.Text and its actual nameplate consumer",
-      "static": "passed: both primary/fallback objects in both copies contain exact bundled Liberation Sans face and coordinated tables; identities/references preserved",
-      "runtime": "passed: actual native Text reports Liberation Sans, dynamic=True and Cyrillic/digit coverage at original size14, style Normal",
-      "visual": "pending: candidate07 coherent face captured in both originals; prior candidate06 height/weight mismatch remains a failed historical finding",
-      "evidence": "localization/probes/ru-20261026-07/captured-state-197.json",
+      "static": "passed: native font recipe unchanged from candidate07, exact readback using embedded Liberation Sans",
+      "runtime": "passed: actual nameplate reports Liberation Sans, dynamic=True, Cyrillic/digit coverage in both candidate10 samples",
+      "visual": "pending candidate10 complete-frame review; native role passed only the exact candidate07 pair",
+      "evidence": "localization/probes/ru-20261026-10/captured-state-197.json",
       "limitation": "Candidate changes original pixel styling to one outline face. Readability/coherence pending; BGDatabase reinsertion and other native text roles remain unverified"
     },
     {
@@ -55,21 +55,21 @@
       "limitation": "Ordinary Cyrillic fallback success does not accept the fictional mapping"
     }
   ],
-  "nextAction": "Review the complete pinned two-original candidate07 packet in one fresh authorized visual-review-only phase, write actual results, then finish. A subsequent text-only phase imports results and repairs/continues remaining gates. No ordinary translation yet.",
+  "nextAction": "Fresh visual-review-only phase: inspect the exact candidate10 two-original packet, save actual results and finish. Subsequent text-only work imports findings and continues remaining real gates; no ordinary translation yet.",
   "nativeReview": {
-    "path": "localization/probes/ru-20261026-07/native-review.json",
-    "sha256": "5584c83138d7116d24c076b9ee8305d729bea67ef0961332458d260c1487a199",
+    "path": "localization/probes/ru-20261026-10/native-review.json",
+    "sha256": "1ef2c8daa8a2c4bbf6fa5cebb3569e72c798b4a1ae5774cbefce1855610cabfa",
     "total": 2,
     "reviewed": 0,
     "passed": 0,
     "failed": 0,
     "pending": 2,
-    "reviewer": "not-run; fresh independent context pending",
-    "packet": "localization/probes/ru-20261026-07/native-packet-01.json"
+    "reviewer": "not-run; fresh independent review assigned next",
+    "packet": "localization/probes/ru-20261026-10/native-packet-01.json"
   },
   "priorFailedCandidate": {
-    "build": "localization/probes/ru-20261026-06/build.json",
-    "review": "localization/probes/ru-20261026-06/native-result-01.json",
-    "status": "failed; not superseded until repaired candidate passes actual review"
+    "build": "localization/probes/ru-20261026-07/build.json",
+    "review": "localization/probes/ru-20261026-07/native-result-01.json",
+    "status": "failed; independent review of both originals imported; glyph failures remain historical and are not superseded by static/runtime checks"
   }
 }

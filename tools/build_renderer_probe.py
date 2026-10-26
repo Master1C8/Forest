@@ -14,6 +14,7 @@ from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
 
 from extract_assets import read_tree, canonical
 from addressables_catalog import update_catalog
+from tmp_dialogue_font import coherent_tmp_face
 
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
@@ -51,7 +52,9 @@ def main():
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
+    parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
     args = parser.parse_args()
+    assert not args.coherent_tmp_face or args.coherent_legacy_face
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     out = args.output.resolve()
     assert PROJECT in out.parents and SOURCE not in out.parents
@@ -64,6 +67,7 @@ def main():
     out.mkdir(parents=True)
     # Preserve the recipe used by this attempt, including partial failures.
     shutil.copy2(Path(__file__), out / 'build_renderer_probe.py')
+    shutil.copy2(PROJECT / 'tools/tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
     runtime = out / 'game'
     shutil.copytree(SOURCE, runtime, ignore=shutil.ignore_patterns('tfol.*', '*.log', '*.dmp'))
     target = runtime / DATA_NAME
@@ -74,6 +78,7 @@ def main():
         fonts_env = UnityPy.load(str(SOURCE / DATA_NAME / 'resources.assets'))
         native_fallback = next(o for o in fonts_env.objects if o.path_id == 439).read_typetree()
         assert native_fallback['m_Name'] == 'LiberationSans'
+        tmp_fallback = read_tree(next(o for o in fonts_env.objects if o.path_id == 1017), generator)
     entry_ids = [197, 199, 200, 202] if args.sample_surface == 'new-game' else [153, 154, 155, 156]
     mark_samples = {str(entry_ids[0]): SAMPLE + '\nЕ\u0308 и\u0306'}
     if args.coherent_legacy_face:
@@ -82,6 +87,7 @@ def main():
               'sample': SAMPLE, 'sampleSurface': args.sample_surface, 'runtime': 'not-run', 'visual': 'not-run',
               'cyrillicMetricsRepair': args.repair_cyrillic_metrics,
               'coherentLegacyFace': args.coherent_legacy_face,
+              'coherentTmpFace': args.coherent_tmp_face,
               'markSamples': mark_samples,
               'scope': 'Synthetic script feasibility only; no translated game corpus.',
               'sourceManifestSha256': sha(PROJECT / 'assets/source-v2/source-files.json'),
@@ -105,6 +111,12 @@ def main():
                 if args.coherent_legacy_face:
                     primary_id = 369 if name == 'sharedassets0.assets' else 525290011395715274
                     selected[primary_id] = objects[primary_id]
+                if args.coherent_tmp_face:
+                    tmp_id = 3323 if name == 'sharedassets0.assets' else -1127281652424575413
+                    selected[tmp_id] = objects[tmp_id]
+                    atlas_ref = read_tree(objects[tmp_id], generator)['m_AtlasTextures'][0]
+                    assert atlas_ref['m_FileID'] == 0
+                    selected[atlas_ref['m_PathID']] = objects[atlas_ref['m_PathID']]
                 subtitle_count = 0
                 for obj in env.objects:
                     if obj.type.name != 'MonoBehaviour':
@@ -180,6 +192,17 @@ def main():
                     preserved = {'m_Name', 'm_DefaultMaterial', 'm_Texture', 'm_FallbackFonts'}
                     for key in tree.keys() - preserved:
                         tree[key] = copy.deepcopy(native_fallback[key])
+            elif args.coherent_tmp_face and obj.type.name == 'Texture2D':
+                assert tree['m_TextureFormat'] == 1 and tree['m_MipCount'] == 1
+                assert tree['m_Width'] == 1024 and tree['m_Height'] == 1024
+                tree['m_IsReadable'] = True
+                tree['m_TextureSettings']['m_FilterMode'] = 1
+                tree['image data'] = bytes(tree['m_Width'] * tree['m_Height'])
+                tree['m_StreamData'] = {'offset': 0, 'size': 0, 'path': ''}
+            elif args.coherent_tmp_face and tree.get('m_Name') == 'MatchupPro_TFOL_SDF':
+                native_font_id = 369 if name == 'sharedassets0.assets' else 525290011395715274
+                tree, pair_evidence = coherent_tmp_face(tree, tmp_fallback, native_font_id, native_fallback['m_FontData'])
+                report['tmpMarkPairs'] = pair_evidence
             elif 'm_text' in tree:
                 assert args.repair_cyrillic_metrics
                 tree['m_enableAutoSizing'] = True

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "build": "0.45",
+  "siteLocale": "ru",
+  "sample": "Ёж, съешь ещё этих мягких булок. Йй Щщ Ъъ Ыы Ьь Ээ Юю Яя; 123 — Latin!",
+  "sampleSurface": "new-game",
+  "runtime": "not-run",
+  "visual": "not-run",
+  "cyrillicMetricsRepair": true,
+  "coherentLegacyFace": true,
+  "coherentTmpFace": true,
+  "markSamples": {
+    "197": "Ёж, съешь ещё этих мягких булок. Йй Щщ Ъъ Ыы Ьь Ээ Юю Яя; 123 — Latin!\nЁ й",
+    "199": "Ёж, съешь ещё этих мягких булок. Йй Щщ Ъъ Ыы Ьь Ээ Юю Яя; 123 — Latin!\nЁ й"
+  },
+  "scope": "Synthetic script feasibility only; no translated game corpus.",
+  "sourceManifestSha256": "05741788febb466a7641bbc680a60bad715708325aba0f07c542d9f9d377ea3e",
+  "files": [
+    {
+      "path": "globalgamemanagers",
+      "sourceSha256": "5fbacef6643b366ac4c696126a8f283dd1448d5526bd9389e365463c065c2fae",
+      "probeSha256": "8cd8fcc8c8e2771581c44244c591b10d97991c5029921b67e0a544cf5afe9160",
+      "noOpSha256": "baaddf7a68cd5d3244a2b19a5c48d6c545e388bad178961e42ad149940e0654e",
+      "objectCount": 18,
+      "noOpTreeEquality": "passed",
+      "unselectedRawBytesEquality": "passed",
+      "probeReadback": "passed",
+      "changes": [
+        {
+          "pathId": 1,
+          "changedFieldPaths": [
+            "/companyName",
+            "/productName",
+            "/runInBackground"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "resources.assets",
+      "sourceSha256": "73eb7d75cb2b76a697a4885c64edbfc6e7115b2306e0769734dddc546e695f0f",
+      "probeSha256": "5ffc33eb0bbd2ebf356ef6d5331ab79b413321608768b8b7166433aaf9d6fdc2",
+      "noOpSha256": "6b9d8751b447ffafc3af4d98615f45191a1be14e2b5ab9e039e0dd9233af0a9a",
+      "objectCount": 1229,
+      "noOpTreeEquality": "passed",
+      "unselectedRawBytesEquality": "passed",
+      "probeReadback": "passed",
+      "changes": [
+        {
+          "pathId": 1020,
+          "changedFieldPaths": [
+            "/m_fallbackFontAssets"
+          ]
+        },
+        {
+          "pathId": 1017,
+          "changedFieldPaths": [
+            "/m_FaceInfo/m_Scale"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "level1",
+      "sourceSha256": "5ff0636003eed46615678c124f42320eb9a8c66baa0870ec11c9faa42db78db0",
+      "probeSha256": "e37da927abbb675fcf5e8b2159a52f37bdc5fcc2110dee4d3ae1d3c6a0d3b910",
+      "noOpSha256": "5ff0636003eed46615678c124f42320eb9a8c66baa0870ec11c9faa42db78db0",
+      "objectCount": 10029,
+      "noOpTreeEquality": "passed",
+      "unselectedRawBytesEquality": "passed",
+      "probeReadback": "passed",
+      "changes": [
+        {
+          "pathId": 7862,
+          "changedFieldPaths": [
+            "/m_text"
+          ]
+        },
+        {
+          "pathId": 7884,
+          "changedFieldPaths": [
+            "/m_text"
+          ]
+        },
+        {
+          "pathId": 7925,
+          "changedFieldPaths": [
+            "/m_text"
+          ]
+        },
+        {
+          "pathId": 7972,
+          "changedFieldPaths": [
+            "/m_text"
+          ]
+        },
+        {
+          "pathId": 8000,
+          "changedFieldPaths": [
+            "/m_text"
+          ]
+        },
+        {
+          "pathId": 8014,
+          "changedFieldPaths": [
+            "/m_text"
+          ]
+        }
+      ]
+    }
+  ]
+}

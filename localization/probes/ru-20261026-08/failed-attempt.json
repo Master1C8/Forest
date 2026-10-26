@@ -1,0 +1,13 @@
+{
+  "result": "failed-before-runtime",
+  "boundary": "Exact float32 serialized readback for TMP primary sharedassets0.assets:3323",
+  "differences": [
+    {
+      "path": "/m_FaceInfo/m_Scale",
+      "authored": 0.6377118644067796,
+      "readback": 0.6377118825912476
+    }
+  ],
+  "runtime": "not-run",
+  "repair": "Quantize authored resource floats to the exact storage type before equality validation; retain strict comparison"
+}

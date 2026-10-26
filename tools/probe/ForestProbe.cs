@@ -21,6 +21,7 @@ public sealed class ForestProbe : MonoBehaviour
         public string visibleTypewriterText;
         public int conversationId, entryId, tmpObjectCount;
         public string[] rendererDiagnostics;
+        public string[] subtitleGlyphDiagnostics;
         public int width, height; public TextRow[] texts; public string[] buttons, components;
     }
     private string root;
@@ -101,9 +102,24 @@ public sealed class ForestProbe : MonoBehaviour
         var texts=new List<TextRow>();var buttons=new List<string>();var components=new List<string>();
         var tmpObjects=Resources.FindObjectsOfTypeAll<TMP_Text>();
         var rendererDiagnostics=new List<string>();
+        var subtitleGlyphDiagnostics=new List<string>();
         foreach(var t in tmpObjects)
             if(t.gameObject.activeInHierarchy)
             {
+                if(t.name=="Subtitle Text") {
+                    // Measurement only: never mutate fonts, strings, meshes or typewriter state.
+                    var info=t.textInfo;
+                    for(int i=0;i<info.characterCount;i++) {
+                        var ch=info.characterInfo[i]; if(ch.textElement==null)continue;
+                        var g=ch.textElement.glyph; var metrics=g.metrics;
+                        subtitleGlyphDiagnostics.Add(String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                            "{0} | U+{1:X4} | glyph={2} | font={3} | face={4} | origin={5:R} | advance={6:R} | baseline={7:R} | scale={8:R} | bearing=({9:R},{10:R}) | size=({11:R},{12:R}) | glyphAdvance={13:R} | topLeft=({14:R},{15:R}) | bottomRight=({16:R},{17:R})",
+                            i,(int)ch.character,g.index,ch.fontAsset==null?"":ch.fontAsset.name,
+                            ch.fontAsset==null?"":ch.fontAsset.faceInfo.familyName,
+                            ch.origin,ch.xAdvance,ch.baseLine,ch.scale,metrics.horizontalBearingX,metrics.horizontalBearingY,
+                            metrics.width,metrics.height,metrics.horizontalAdvance,ch.topLeft.x,ch.topLeft.y,ch.bottomRight.x,ch.bottomRight.y));
+                    }
+                }
                 texts.Add(new TextRow{path=Address(t.transform),text=t.text,font=t.font==null?"":t.font.name,size=t.fontSize,overflow=t.isTextOverflowing});
                 rendererDiagnostics.Add(Address(t.transform)+" | "+t.GetType().FullName+" | "+t.text+" | font="+(t.font==null?"null":t.font.name)+" | overflow="+t.isTextOverflowing);
             }
@@ -122,7 +138,7 @@ public sealed class ForestProbe : MonoBehaviour
             dataPath=Application.dataPath,persistentDataPath=Application.persistentDataPath,
             company=Application.companyName,product=Application.productName,width=Screen.width,height=Screen.height,
             texts=texts.ToArray(),buttons=buttons.ToArray(),components=components.ToArray(),
-            tmpObjectCount=tmpObjects.Length,rendererDiagnostics=rendererDiagnostics.ToArray(),
+            tmpObjectCount=tmpObjects.Length,rendererDiagnostics=rendererDiagnostics.ToArray(),subtitleGlyphDiagnostics=subtitleGlyphDiagnostics.ToArray(),
             typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping()};
         var typewriter=FindObjectOfType<TheForestOfLove.CustomTypewriterEffectTextMeshPro>();
         state.visibleTypewriterText=typewriter==null?"":typewriter.CurrentVisibleText;

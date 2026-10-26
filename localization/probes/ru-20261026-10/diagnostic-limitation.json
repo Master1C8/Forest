@@ -1,0 +1,6 @@
+{
+  "observed": "Actual candidate10 JsonUtility dumps omit both the prior TextRow[] texts and new GlyphRow[] subtitleGlyphs; scalar fields and string[] rendererDiagnostics are present. Candidate07 also lacks texts.",
+  "impact": "No actual per-character face/geometry evidence can be credited to candidate10; static font graph and actual text/progression/capture remain valid, visual judgment still pending.",
+  "repair": "Canonical bridge now emits bounded string[] subtitleGlyphDiagnostics instead of nested class arrays, using the representation already observed working. Compiles against exact original managed assemblies. Runtime verification pending; not retroactively imported into candidate10.",
+  "capturePreserved": "No recapture or replacement; candidate10 bridge snapshot/DLL receipt/captured JSON unchanged. Current two originals remain exact valid native captures with the original runtime/cleanup receipts."
+}

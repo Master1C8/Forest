@@ -1,0 +1,31 @@
+{
+  "source": "Bundled resources.assets:439, exact exported game bytes",
+  "export": "assets/source-v2/fonts/90744c19ec-resources.assets-439.font",
+  "sha256": "e5b0af421ea2bfbc1ac8d251d647268087ae82786234c57f757d1f0b90fa8b49",
+  "sfntNames": {
+    "1": "Liberation Sans",
+    "2": "Regular",
+    "5": "Version 2.00.1",
+    "6": "LiberationSans",
+    "13": "Licensed under the SIL Open Font License, Version 1.1",
+    "14": "http://scripts.sil.org/OFL"
+  },
+  "candidateRole": "Entire native nameplate role unchanged from candidate07 plus shared TMP dialogue role in both serialized copies",
+  "preserved": [
+    "Font object IDs/names",
+    "DefaultMaterial and Texture references",
+    "FallbackFonts references",
+    "all unselected object raw bytes, including OokLanguage_TMP mapping"
+  ],
+  "styleTradeoff": "Regular outline face replaces pixel face in this bounded technical candidate. Fresh native review must assess consistent height, weight, baseline and readability. This is not final corpus font approval.",
+  "redistribution": "No release made. Embedded face identifies SIL OFL 1.1. Final packaging must retain the full OFL notice and verify its license payload.",
+  "coreTextDiagnosis": "All hard-sample codepoints map to nonzero glyphs; proves neither Unity mark positioning nor loaded face.",
+  "tmpResourceRepair": {
+    "original": "Static RASTER bitmap MatchupPro primary; dynamic Liberation SDF fallback mixes styles",
+    "new": "Original TMP object/material/atlas bindings, dynamic smooth alpha raster Liberation primary; four canonical Cyrillic mark-pair placements computed from embedded sfnt composite geometry",
+    "mode": "SMOOTH_HINTED=4121, verified in game UnityEngine.TextCoreModule.dll enum",
+    "textTransform": "none; raw NFD and NFC field values retained",
+    "limits": "No general mark-to-base/mark-to-mark shaping claimed; four canonical Russian pairs only; final corpus/dynamic requirements remain gated",
+    "atlas": "Original 1024x1024 Alpha8 atlas identity/links/dimensions retained, zero-initialized inline, m_IsReadable=True, bilinear; raw original texture was non-readable/point-filtered"
+  }
+}
