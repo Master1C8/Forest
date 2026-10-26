@@ -1,0 +1,21 @@
+TYPE TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger
+METHOD System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger::.ctor(System.Int32,System.Int32,System.String)
+IL_0000: ldarg.0
+IL_0001: ldarg.1
+IL_0002: ldarg.2
+IL_0003: call System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTrigger::.ctor(System.Int32,System.Int32)
+IL_0008: ldarg.0
+IL_0009: ldarg.3
+IL_000a: stfld System.String TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger::triggerPluginDbName
+IL_000f: ldarg.0
+IL_0010: ldc.i4.1
+IL_0011: call System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTrigger::set_allowExecuteMoreThanOnce(System.Boolean)
+IL_0016: ret
+METHOD System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger::OnExecute()
+IL_0000: ldarg.0
+IL_0001: ldfld System.String TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger::triggerPluginDbName
+IL_0006: call System.Void TheForestOfLove.Narrative.NarrativeActions::ActivateTrigger(System.String)
+IL_000b: ldarg.0
+IL_000c: ldc.i4.1
+IL_000d: call System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTrigger::set_isExecuted(System.Boolean)
+IL_0012: ret

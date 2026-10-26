@@ -12,18 +12,34 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
-Phase0013 traced the inventory selection consumer to all three serialized ticker
-variants (six native Text fields) and the adjacent quest pane (seven fields).
-Only the FixedWidths ticker is active in the original hierarchy. Candidate17 passed
-five resource no-op/readback controls and exact insertion/readback of two synthetic
-empty-cell display literals; the standard hook-only control also passed. The game
-was not launched: ordinary inventory access requires `notebook_unlocked`, a gameplay
-scene and no active event. Original dialogue conversation225/entry188 encodes
-`TRIGGER(notebook_unlocked)`; its dispatch and a safe route from the isolated fresh
-profile remain to be exercised.
-The QA bridge was removed and its original assembly restored. No images were captured
-or opened. See `localization/source/inventory-20261026/source-trace.json` and
-`localization/probes/ru-20261026-17/verification.json`.
+Phase0013 traced the three inventory tickers (six native Text fields) and seven
+adjacent quest fields. Candidate17 retains its five-resource static/readback controls
+and two synthetic empty-cell literals. Phase0014 traced the notebook control marker188
+through the original loader: it binds **conversation225 / line195**, the final line of
+PRIMARY129 → 191 → 192 → 193 → 194 → 195. Marker188 has no incoming dialogue edge;
+replaying or waiting for that marker as a spoken node would use the wrong route.
+
+Candidate18 copied candidate17's five verified resources byte-for-byte into a fresh
+isolated run, compiled a fixed bridge snapshot, and exercised original Main/Play/Back
+handlers with read-only `dump-notebook` diagnostics. The loaded trigger really targets
+225:195, remains unexecuted, and is not skipped during ChapterSelect. All 32 global
+chapter records are locked; the original Play menu exposes only New and Back.
+Fast Forward is unavailable in this QA profile. Its public handler still performs
+real state/save initialization, so calling it directly would bypass availability.
+The next action is the normal new-game/narrative route to the notebook conversation,
+then verification of every original MasterLog guard before page3/empty-cell selection.
+No flags, chapter/private indices or inventory panels were forced.
+
+The game quit normally, the bridge was removed, and the original QA assembly was
+restored. Original resources/player files, candidate resources and all seven frozen
+asset-lane inputs stayed unchanged. No images were captured or opened; inventory
+runtime/layout acceptance remains pending. See
+`localization/source/notebook-20261026/source-trace.json` and
+`localization/probes/ru-20261026-18/runtime-diagnosis.json`.
+Reproduce the bounded original-source trace with
+`python3 tools/inspect_notebook_source.py --output <project-evidence-directory>`.
+`tools/probe/diagnose_notebook.py` must run from a frozen probe copy with its helpers;
+it measures menu state only and does not unlock the notebook.
 
 The quest consumer has three `Contains("lost photos")` tests over displayed history
 before appending photo counters. This needs a bounded consumer adapter before localized

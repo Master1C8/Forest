@@ -31,6 +31,10 @@ public sealed class ForestProbe : MonoBehaviour
         public string selectedControl;
         public string[] scaleEligibility, scaleControlState;
     }
+    [Serializable] public sealed class NotebookRouteState {
+        public string scene, company, product, dataPath, persistentDataPath;
+        public string[] diagnostics;
+    }
     private string root;
     private float next;
     public static void Install() {
@@ -54,6 +58,12 @@ public sealed class ForestProbe : MonoBehaviour
         var text=File.ReadAllText(command).Trim();File.Delete(command);
         try {
             if(text=="dump") Dump();
+            else if(text=="dump-notebook") {
+                var state=new NotebookRouteState{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                    company=Application.companyName,product=Application.productName,dataPath=Application.dataPath,
+                    persistentDataPath=Application.persistentDataPath,diagnostics=NotebookRouteDiagnostics()};
+                File.WriteAllText(Path.Combine(root,"notebook-route.json"),JsonUtility.ToJson(state,true));
+            }
             else if(text=="quit") Application.Quit();
             else if(text=="show-menu") {
                 var controller=FindObjectOfType<TheForestOfLove.MainMenuController>();
@@ -118,6 +128,50 @@ public sealed class ForestProbe : MonoBehaviour
         yield return new WaitForEndOfFrame();
         ScreenCapture.CaptureScreenshot(path);
         Debug.Log("FOREST_PROBE_CAPTURE " + path);
+    }
+    // Read original state only. In particular, never unlock chapters/triggers,
+    // select a private destination index, or open MasterLog from this diagnostic.
+    string[] NotebookRouteDiagnostics() {
+        var rows=new List<string>();
+        rows.Add("guards | gameplay="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+
+            " | dustin="+TheForestOfLove.Services.SceneManagement.SceneHelper.inDustinMinigame+
+            " | glitch="+TheForestOfLove.Services.SceneManagement.SceneHelper.inGlitchRoom+
+            " | anyEvent="+TheForestOfLove.Events.GameStateManager.isAnyEventActive+
+            " | notebookLearned="+TheForestOfLove.QuestTriggerHelper.PlayerLearnedNotebook());
+        foreach(var log in Resources.FindObjectsOfTypeAll<TheForestOfLove.MasterLog>())
+            if(log.gameObject.scene.IsValid()) {
+                var panel=(PixelCrushers.UIPanel)log.GetType().GetField("masterLogUi",BindingFlags.Instance|BindingFlags.NonPublic|BindingFlags.Public).GetValue(log);
+                rows.Add("masterLog | path="+Address(log.transform)+" | active="+log.gameObject.activeInHierarchy+
+                    " | open="+panel.isOpen+" | page="+log.currentPage);
+            }
+        foreach(var chapter in TheForestOfLove.Services.Persistence.DataService.GetChapterRecords()) {
+            var triggers=new List<string>();
+            foreach(var trigger in chapter.unlockTriggers)triggers.Add(trigger.name);
+            rows.Add("chapter | id="+(int)chapter.unlockStopPoint+" | title="+chapter.title+
+                " | unlocked="+chapter.IsUnlocked+" | parent="+(chapter.parent==null?"null":((int)chapter.parent.unlockStopPoint).ToString())+
+                " | scene="+chapter.respawnInScene+" | unlockTriggers="+String.Join(",",triggers.ToArray()));
+        }
+        foreach(var chapter in TheForestOfLove.Services.Persistence.DataService.GetGlobalChapterRecords())
+            rows.Add("globalChapter | id="+(int)chapter.unlockStopPoint+" | unlocked="+chapter.IsUnlocked);
+        var dialogue=TheForestOfLove.Services.Persistence.DataService.GetDialogueByPluginDbId(225);
+        if(dialogue!=null)foreach(var trigger in dialogue.arcTriggers) {
+            var named=trigger as TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger;
+            if(named!=null && named.triggerPluginDbName=="notebook_unlocked")
+                rows.Add("notebookTrigger | conversation="+named.GetConversationId()+" | entry="+named.GetDialogueEntryId()+
+                    " | executed="+named.isExecuted+" | skipChapterSelect="+named.skipDuringChapterSelect);
+        }
+        foreach(var ticker in Resources.FindObjectsOfTypeAll<TheForestOfLove.InventoryInfoTicker>())
+            if(ticker.gameObject.scene.IsValid()) {
+                rows.Add("ticker | instance="+ticker.GetInstanceID()+" | path="+Address(ticker.transform)+
+                    " | activeSelf="+ticker.gameObject.activeSelf+" | activeInHierarchy="+ticker.gameObject.activeInHierarchy+
+                    " | enabled="+ticker.enabled+" | isActiveAndEnabled="+ticker.isActiveAndEnabled);
+                foreach(var key in new[]{"itemTitleText","tickerText"}) {
+                    var t=(Text)ticker.GetType().GetField(key,BindingFlags.Instance|BindingFlags.NonPublic|BindingFlags.Public).GetValue(ticker);
+                    rows.Add("tickerText | controller="+ticker.GetInstanceID()+" | field="+key+" | path="+Address(t.transform)+
+                        " | active="+t.gameObject.activeInHierarchy+" | enabled="+t.enabled+" | text="+t.text);
+                }
+            }
+        return rows.ToArray();
     }
     void Dump() {
         var texts=new List<TextRow>();var buttons=new List<string>();var components=new List<string>();
