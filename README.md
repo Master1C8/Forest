@@ -12,17 +12,19 @@ source candidates, glossary snapshots, tools and machine evidence, with exact ZI
 member readback. It contains no game assets, inspection DLL, installer or translated
 corpus. Native review is recorded separately in the checkpoint and probe ledger.
 
-The current execution has one earlier diagnostic image in its context. Its final
-one-image pilot reaches the bounded protocol's two-original context limit. Under
-`game-localization-visual-qa/references/BOUNDED-REVIEW.md`, further packets require a
-fresh authorized context; the owner forbids another model job/agent in this assignment.
-Remaining renderer surfaces therefore stay unverified and block mass translation.
-Independent editorial review is likewise unavailable and is never replaced by self-review.
+The first CLI session ended at the bounded protocol's two-original context limit.
+The owner now explicitly authorizes sequential CLI sessions with clean contexts,
+strictly one at a time, without parallel work. `tools/run_serial_ru.py` preserves
+that boundary: text-only repair/capture phases hand off to fresh bounded review-only
+phases, using the skill's external review deadline. Independent fresh editorial
+review is authorized sequentially and remains unperformed until actual evidence exists.
+Remaining failed/unverified renderer and source gates still block mass translation.
 
-The single authorized CLI task verified `gpt-6.1-sol / high / OpenAI` from its
-fresh session and pinned launch arguments. No agents, nested model jobs, translation
-services, publication or deployment were used. The CLI owns the canonical checkout
-and Git index; the parent only monitors.
+Every CLI phase explicitly pins `gpt-6.1-sol / high / OpenAI` and rejects Astra before
+a request. No agents, nested model jobs, external translation services, publication or
+deployment are authorized by this continuation. The active CLI phase exclusively owns
+the canonical checkout and Git index; the parent monitors the serial job. The updated
+scope and phase-result contract are in `localization/CLI-TASK.md`.
 
 Rebuild the current bounded candidate into a **new** probe directory with:
 
