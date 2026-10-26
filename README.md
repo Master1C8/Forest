@@ -17,7 +17,8 @@ Native ready21.121s; original loaded-menu fixture binding passed. Actual no-menu
 at956 received guarded original Continue at981. Both exact original choices were
 visible/clickable in separate real frames1041/1090; neither was selected. Subtitle
 observations remain153/155/156/157/158;154 is selection-only. Runtime passed48.913s.
-The one untouched native1440×900 capture is pending independent visual review:
+Phase0051 independently accepted the one untouched native1440×900 capture; phase0052
+imported and checked its immutable result with the native manifest (1/1 passed):
 `localization/probes/ru-20261026-47/native-packet-01.json` (149271 source bytes).
 
 This is an original English source/control-route test in the Russian project. Native
@@ -33,7 +34,8 @@ Observer0/launcher0/game numeric exit unknown are retained. Restore/Quit were
 acknowledged, exact game/crash/observer/wrapper/transport processes are absent,
 QA DLL restored/bridge removed, and all15 postrun checks pass150/262 originals,
 5 resource pairs,19 lane pins, unchanged two fixture files and empty QA persistence.
-Zero images opened. All seven authorized asset lanes remain disjoint/read-only to
+Phase0052 opened zero images; accepted English choices do not establish Cyrillic feasibility.
+All seven authorized asset lanes remain disjoint/read-only to
 technical work. Prior summary: `localization/history/phase0049-summary.md`.
 
 Evidence: phase0050 `ADAPTER.md`, `extraction.json`, `original-controls.json`,
