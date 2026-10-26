@@ -5,7 +5,7 @@
   "locales": [
     "ru"
   ],
-  "overall": "failed",
+  "overall": "needs-review",
   "massTranslationAllowed": false,
   "build": {
     "path": "localization/probes/ru-20261026-10/build.json",
@@ -17,7 +17,7 @@
       "requirement": "Cyrillic, marks, Latin/digits/punctuation, wrapping and normal button progression",
       "static": "passed: candidate10 dynamic smooth alpha bitmap Liberation primary in both copies; readable cleared atlas, four canonical Cyrillic mark-pair placements; exact no-op/readback and protected-object equality",
       "runtime": "passed: actual 197 -> 199 -> 200 -> 202 -> unchanged 203, natural completion and overflow false; raw NFD/NFC retained. Per-character diagnostics unavailable; see diagnostic-limitation.json",
-      "visual": "pending: 2/2 candidate10 originals captured/restored, 0 reviewed; candidate07 failed mixed TMP style and NFD attachment",
+      "visual": "passed for exact candidate10 NFD/NFC synthetic dialogue samples: independent phase 0004, 2/2 originals; coherent mixed-script face and attached marks",
       "evidence": "localization/probes/ru-20261026-10/runtime-result.json",
       "limitation": "Four Russian canonical pair resource correction is not general shaping. Final corpus/dynamic input requirements, other layouts and final fonts remain unaccepted"
     },
@@ -26,9 +26,9 @@
       "requirement": "Cyrillic through UnityEngine.UI.Text and its actual nameplate consumer",
       "static": "passed: native font recipe unchanged from candidate07, exact readback using embedded Liberation Sans",
       "runtime": "passed: actual nameplate reports Liberation Sans, dynamic=True, Cyrillic/digit coverage in both candidate10 samples",
-      "visual": "pending candidate10 complete-frame review; native role passed only the exact candidate07 pair",
+      "visual": "passed for exact candidate10 speaker plates in both originals: coherent regular height/weight/baseline and readable marks",
       "evidence": "localization/probes/ru-20261026-10/captured-state-197.json",
-      "limitation": "Candidate changes original pixel styling to one outline face. Readability/coherence pending; BGDatabase reinsertion and other native text roles remain unverified"
+      "limitation": "Candidate changes original pixel styling to one outline face; exact candidate10 samples accepted. BGDatabase reinsertion and other native text roles remain unverified."
     },
     {
       "id": "ru-menu-settings-hud-item-quest",
@@ -55,17 +55,19 @@
       "limitation": "Ordinary Cyrillic fallback success does not accept the fictional mapping"
     }
   ],
-  "nextAction": "Fresh visual-review-only phase: inspect the exact candidate10 two-original packet, save actual results and finish. Subsequent text-only work imports findings and continues remaining real gates; no ordinary translation yet.",
+  "nextAction": "Trace and probe real menu/settings consumers; other UI/item/quest, baked textures and fictional mapping remain unverified. Complete source/special-scene gates before ordinary translation.",
   "nativeReview": {
     "path": "localization/probes/ru-20261026-10/native-review.json",
-    "sha256": "1ef2c8daa8a2c4bbf6fa5cebb3569e72c798b4a1ae5774cbefce1855610cabfa",
+    "sha256": "82370c0241cf437cfff2cf64d3338225772c9551181e716768c6b9f02e89d736",
     "total": 2,
-    "reviewed": 0,
-    "passed": 0,
+    "reviewed": 2,
+    "passed": 2,
     "failed": 0,
-    "pending": 2,
-    "reviewer": "not-run; fresh independent review assigned next",
-    "packet": "localization/probes/ru-20261026-10/native-packet-01.json"
+    "pending": 0,
+    "reviewer": "gpt-6.1-sol/high/OpenAI; fresh independent phase 0004-visual-review",
+    "packet": "localization/probes/ru-20261026-10/native-packet-01.json",
+    "result": "localization/probes/ru-20261026-10/native-result-01.json",
+    "resultSha256": "0c887965e76c3d5b9510f61c5ebd671893f947f5e7bf08f979ac18b3367b6050"
   },
   "priorFailedCandidate": {
     "build": "localization/probes/ru-20261026-07/build.json",

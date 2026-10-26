@@ -30,16 +30,16 @@
       "width": 1440,
       "height": 900,
       "url": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "observations": "",
+      "reviewer": "gpt-6.1-sol/high/OpenAI; fresh independent serial reviewer 0004-visual-review; session 01a1763e-d7de-73d0-b89e-20d34577a37b; expected synthetic samples supplied, not blind",
+      "reviewedAt": "2026-10-26T03:28:21.478280+00:00",
+      "observations": "Inspected the entire unchanged 1440x900 original individually at original detail. The black wake-up backdrop and white outlined character silhouette match the supplied source-backed scene context. The native speaker plate reads Ёж Йй 123: Cyrillic capitals/lowercase and digits share coherent regular weight, height and baseline within that role, including visible marks, with padding inside the plate. The centered dialogue reads Ёж, съешь ещё этих мягких булок. Йй Щщ on its first visual line, Ъъ Ыы Ьь Ээ Юю Яя; 123 — Latin! on the second, and the raw decomposed Е + U+0308 / и + U+0306 sample on the third. The diaeresis sits above Е and the breve above и, attached to their intended bases rather than displaced into the following space. Both marked letters remain distinguishable and unclipped. Cyrillic, Latin! and 123 now have coherent outline-face weight and baseline; the earlier heavier Latin/digit pixel-face discontinuity is absent in this frame. Spaces, punctuation and the three-line wrap are readable; the final exclamation mark and bottom sample stay inside the dialogue field without overlap or clipped marks. No tofu, visible tags, missing expected text or external notification/added annotation is visible. This is LTR Russian; RTL is not applicable. Acceptance is limited to this nameplate and synthetic dialogue sample, not all canonical pairs, all corpus text or other renderer surfaces.",
       "findings": [],
       "checks": {
-        "layout": "pending",
-        "glyphs": "pending",
-        "content": "pending",
-        "contamination": "pending",
-        "rtl": "pending"
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
       }
     },
     {
@@ -52,16 +52,16 @@
       "width": 1440,
       "height": 900,
       "url": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "observations": "",
+      "reviewer": "gpt-6.1-sol/high/OpenAI; fresh independent serial reviewer 0004-visual-review; session 01a1763e-d7de-73d0-b89e-20d34577a37b; expected synthetic samples supplied, not blind",
+      "reviewedAt": "2026-10-26T03:28:21.478280+00:00",
+      "observations": "Inspected the entire unchanged 1440x900 original individually at original detail, independently of the NFD judgment. The native plate reads Ёж Йй 123 with readable marks, consistent regular weight/height/baseline and adequate padding. The dialogue displays Ёж, съешь ещё этих мягких булок. Йй Щщ, then Ъъ Ыы Ьь Ээ Юю Яя; 123 — Latin!, then the precomposed Ё й sample. Both the two dots over Ё and the breve over й are visible above the intended letters; neither is dropped, detached, shifted into the next space or clipped. Mixed Cyrillic, Latin! and 123 use a coherent outline face with consistent weight and baseline within the dialogue role. All expected letters, spaces and punctuation are readable and fit the panel; there is no edge clipping, overlap, ellipsis, tofu or literal markup. The black scene backdrop, outlined silhouette and panel/icon are game content under the pinned acceptance context; there is no external notification or added annotation. Russian is LTR, so RTL is not applicable. The visible NFC sample has the same correctly attached mark appearance as the separately inspected raw NFD sample. This passes these exact samples only and does not establish general shaping, other game surfaces or full corpus acceptance.",
       "findings": [],
       "checks": {
-        "layout": "pending",
-        "glyphs": "pending",
-        "content": "pending",
-        "contamination": "pending",
-        "rtl": "pending"
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
       }
     }
   ]

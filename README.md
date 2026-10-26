@@ -94,7 +94,10 @@ from the embedded font's composite accent geometry and uses TMP's existing pair
 table; logical NFD/NFC strings and zero mark advances are preserved. This is a
 bounded mechanism, not general mark-to-base/mark-to-mark shaping acceptance.
 Candidate10 completed normal progression and captured/restored the new NFD/NFC pair;
-its visual packet is pending independent review. Its nested glyph diagnostic array
+its two originals independently passed all applicable visual checks in fresh phase
+0004. The coherent face/weight/baseline and raw NFD/NFC mark attachment pass only
+these exact ordinary-dialogue/nameplate samples. All other surfaces remain unverified.
+Its nested glyph diagnostic array
 was omitted by Unity JsonUtility, as was the prior text-object array. No actual
 per-character metrics are claimed. The canonical bridge now uses string arrays for
 future measurement; that format compiles but has not run. Current captures and bridge
