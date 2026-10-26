@@ -1,0 +1,11 @@
+{
+  "phase": "0035-work",
+  "canonicalHead": "40622b99612c5d76c3ab4fa19bc601b1dc3416f8",
+  "priorConsumed": "ru-20261026-39",
+  "change": "Explicit --startup-diagnostics; both WINEDEBUG and CX_DEBUGMSG plus MONO_LOG_LEVEL=debug/MONO_LOG_MASK=all child-only; unchanged resource bytes/input-policy/300s ceiling",
+  "question": "Concrete early native module/exception/process or Mono initialization error?",
+  "limitations": "Logging changes timing conditions; a successful40 cannot diagnose39 retrospectively",
+  "gameLaunchLimit": 1,
+  "imagesOpened": 0,
+  "imagesCaptured": 0
+}

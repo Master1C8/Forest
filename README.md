@@ -1,29 +1,34 @@
-## Phase0033: native Mono startup boundary pinned; diagnostic launch prepared
+## Phase0035: diagnostic startup and original intro accepted; loaded focus rejects input
 
-Consumed39 still has a calibrated exit1 after only two Mono path/config lines. Static
-readback of the exact UnityPlayer identifies those log calls, subsequent Mono directories,
-assembly paths, native setup and root-domain creation; it does not identify the failing
-call. Seven startup files match original/restored39 bytes,248 dynamic Mono bindings were
-resolved and four native functions were extracted with chained unwind ranges preserved.
-ExactPID59449 macOS records contain no explanatory failure in the bounded window; the
-cause remains unknown. No game was launched and no image was opened in this phase.
+Immutable candidate40 ran once with opt-in Wine/Mono tracing. Native loader paths identify
+its exact UnityPlayer and Mono files; READY arrived in39.25s. All24 actual original-policy
+menu idle frames passed. The repaired compact observer followed49 source content nodes
+and10 original response buttons, then accepted two distinct advancing terminal frames
+6970/7046: original end trigger1, no intro controller, one active original bed. This proves
+these runtime boundaries on40; it does not establish a restorable story checkpoint.
 
-The existing new-game observer now accepts opt-in `--startup-diagnostics` for a future
-immutable snapshot. It enables per-child Wine loader/exception/process and Mono logs.
-Both CX_DEBUGMSG and WINEDEBUG are required: the installed CrossOver wrapper defaults
-to-all and overwrites WINEDEBUG otherwise. Default launches retain ordinary inheritance;
-only explicit diagnostic values are recorded, never the inherited environment. All48
-intro/native/transport/startup tests pass; actual Wine/Mono trace emission remains unverified.
+The first loaded BunnyHouse observation and43 passive input frames show actual Unity
+focus=False, Rewired focus watcher=False, original filter=True and both original input
+eligibility predicates=False. All eight keys/axes were idle. The existing first focus
+guard stopped before a second loaded sample or any native DOWN. No LEFT/DOWN, policy
+trial, focus activation, CentralForest entry or image occurred. The observed cause of
+rejected input is original unfocused eligibility; why focus changed after menu is unknown.
+A new successful startup cannot retrospectively diagnose39's earlier native exit.
 
-A new immutable40 may test this changed observation input after fresh preflight/freeze.
-Never replay39/38 or any consumed candidate. Logging changes timing conditions; future
-success cannot establish39's cause. Original300s readiness lifetime, actual original-policy
-menu frames, compact intro/two real terminal cleanup frames and all loaded/input/door guards
-remain mandatory. Complete source/special-scene/editorial/renderer/delivery gates remain
-pending. All authorized asset lanes remain read-only and may continue independently.
+Normal policy restore/no-op and Quit were acknowledged. Original QA assembly restored,
+bridge removed, exact recorded observer/launcher/game/crash-helper PIDs absent, QA
+persistence empty. All150 original managed references,262 other files,5 resource pairs,
+19 live-lane pins and378 frozen dependencies (2 intended DLL cleanup exceptions) match.
+One QA-only tfol.settings is retained; owner player files remain unchanged. All48 focused
+tests passed. No numeric detached-observer exit was retained; failed runtime JSON and
+traceback are preserved without inventing an exit code.
 
-Evidence: `localization/source/mono-startup-20261026/source-trace.json` and
-`final-verification.json` there. Previous summary: `localization/history/phase0032-summary.md`.
+Next: static tracing of original focus producers and a bounded passive focus/window
+observation repair in the existing harness; no blind retry or replay40. Keep source,
+special-scene, editorial, full renderer and final delivery gates pending. Asset lanes
+remain owner-authorized/read-only to this lane. Evidence:
+`localization/probes/ru-20261026-40/runtime-diagnosis.json` and `final-verification.json`.
+Previous summary: `localization/history/phase0033-summary.md`.
 
 # The Forest of Love: Russian localization work
 

@@ -1,0 +1,276 @@
+{
+  "actualTraceEmission": "Wine loaddll/process/seh channel lines and Mono debug messages emitted in40",
+  "startup": {
+    "result": "ready",
+    "launcherExitCode": null,
+    "elapsedSeconds": 39.25,
+    "readyMarker": true,
+    "ownedProcessRows": [
+      "69475 69472 /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-40/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-40/player.log",
+      "69525     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-40\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-20261026-40/player.log",
+      "69529     1 Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-40\\game\\UnityCrashHandler64.exe --attach 204 549064704"
+    ],
+    "playerLogBytes": 370653,
+    "playerLogSha256": "1967786fcfdd8df3b4b27a15585b03a7776036b9ea99aefb721e10ae30d25826",
+    "pendingCommand": false,
+    "boundary": "Launcher poll plus exact executable-path process scan; no game command or retry"
+  },
+  "trace": {
+    "wine.log": {
+      "bytes": 206119,
+      "sha256": "b764437c4504fc9e2a5bf9807a614bddabf0d3af5abbe90db38cf38583de3c0b",
+      "matched": [
+        {
+          "line": 377,
+          "text": "18160.300:00cc:00d0:trace:loaddll:build_module Loaded L\"Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-40\\\\game\\\\UnityPlayer.dll\" at 00006FFFFCC00000: native"
+        },
+        {
+          "line": 535,
+          "text": "18163.817:00cc:00d0:trace:loaddll:build_module Loaded L\"Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-40\\\\game\\\\MonoBleedingEdge\\\\EmbedRuntime\\\\mono-2.0-bdwgc.dll\" at 00006FFFFBE00000: native"
+        },
+        {
+          "line": 1680,
+          "text": "18323.482:00cc:00d0:trace:loaddll:free_modref Unloaded module L\"Y:\\\\Desktop\\\\Forest\\\\localization\\\\probes\\\\ru-20261026-40\\\\game\\\\MonoBleedingEdge\\\\EmbedRuntime\\\\mono-2.0-bdwgc.dll\" : native"
+        }
+      ]
+    },
+    "player.log": {
+      "bytes": 448363,
+      "sha256": "530ad27f22929514d967b608a06b58333d899bdf47f8c46a74c722846495f398",
+      "matched": [
+        {
+          "line": 19,
+          "text": "Initialize engine version: 2020.3.24f1 (79c78de19888)"
+        },
+        {
+          "line": 2268,
+          "text": "FOREST_STARTUP ROOT_AWAKE_ENTER"
+        },
+        {
+          "line": 2269,
+          "text": "FOREST_STARTUP ROOT_SCENE_CHANGED_ENTER"
+        },
+        {
+          "line": 2270,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5376,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5377,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5378,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5379,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5380,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5827,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5828,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5829,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5830,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5831,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5832,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5833,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5861,
+          "text": "FOREST_STARTUP MENU_START_ENTER"
+        },
+        {
+          "line": 5862,
+          "text": "FOREST_STARTUP INSTALL_ENTER company=VNRevivalQA product=ForestRuRendererProbe"
+        },
+        {
+          "line": 5863,
+          "text": "FOREST_STARTUP IDENTITY_ACCEPTED"
+        },
+        {
+          "line": 5864,
+          "text": "FOREST_STARTUP BEFORE_ADD_COMPONENT"
+        },
+        {
+          "line": 5866,
+          "text": "FOREST_STARTUP AWAKE_ENTER"
+        },
+        {
+          "line": 5867,
+          "text": "FOREST_PROBE_READY Y:\\Desktop\\Forest\\localization\\probes\\ru-20261026-40 SAVES C:/users/crossover/AppData/LocalLow/VNRevivalQA/ForestRuRendererProbe"
+        },
+        {
+          "line": 5868,
+          "text": "FOREST_STARTUP INSTALL_RETURN"
+        },
+        {
+          "line": 5917,
+          "text": "FOREST_STARTUP ROOT_AWAKE_ENTER"
+        },
+        {
+          "line": 5918,
+          "text": "FOREST_STARTUP ROOT_SCENE_CHANGED_ENTER"
+        },
+        {
+          "line": 5919,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5920,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5927,
+          "text": "FOREST_STARTUP ROOT_AWAKE_ENTER"
+        },
+        {
+          "line": 5928,
+          "text": "FOREST_STARTUP ROOT_SCENE_CHANGED_ENTER"
+        },
+        {
+          "line": 5929,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5930,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5931,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5932,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5933,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5934,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5935,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5942,
+          "text": "FOREST_STARTUP ROOT_AWAKE_ENTER"
+        },
+        {
+          "line": 5943,
+          "text": "FOREST_STARTUP ROOT_SCENE_CHANGED_ENTER"
+        },
+        {
+          "line": 5944,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5945,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5946,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5947,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5948,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5949,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5950,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 5951,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6420,
+          "text": "FOREST_STARTUP ROOT_AWAKE_ENTER"
+        },
+        {
+          "line": 6421,
+          "text": "FOREST_STARTUP ROOT_SCENE_CHANGED_ENTER"
+        },
+        {
+          "line": 6422,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6423,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6424,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6425,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6426,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6427,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6428,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        },
+        {
+          "line": 6429,
+          "text": "FOREST_STARTUP PREFAB_AWAKE_ENTER"
+        }
+      ]
+    }
+  },
+  "loadedIdentityBoundary": "Native Wine module trace names exact40 UnityPlayer/Mono paths and base addresses; pre/post full hashes pin file bytes. Not an in-memory image digest.",
+  "cause39": "Unknown; diagnostic logging changes timing.40 success cannot retrospectively diagnose39.",
+  "fatalErrorClassification": "No startup-fatal error preventedREADY in40. Mono AOT/symbol misses are retained raw and followed by later successful resolution; they do not prove a missing dependency defect.",
+  "actualWineChannels": {
+    "process": 1348,
+    "loaddll": 272,
+    "seh": 114
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "result": "passed-original-route-and-delayed-cleanup",
+  "observations": 134,
+  "distinctSourceContentNodes": 49,
+  "sourceBoundResponses": 10,
+  "continueReceipts": 68,
+  "terminalFrames": [
+    {
+      "elapsed": 167.016,
+      "scene": "BunnyHouse",
+      "conversationActive": false,
+      "conversationId": 0,
+      "entryId": 0,
+      "typing": false,
+      "narrativeDbName": "",
+      "narrativeArcName": "",
+      "responses": [],
+      "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False",
+      "frame": 6970,
+      "realtime": 146.75448608398438,
+      "scaledTime": 122.11354064941406,
+      "timeScale": 1.0,
+      "cleanupDiagnostics": [
+        "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False",
+        "trigger | name=Cutscene_IntroBunnyHouse | count=1",
+        "introCleanup | remainingControllers=0 | bedControllers=1 | activeBedControllers=1"
+      ],
+      "budget": {
+        "stage": "cleanup",
+        "elapsed": 125.202,
+        "stageElapsed": 13.863,
+        "idle": 1.25,
+        "hardLimit": 360,
+        "stageLimits": {
+          "bootstrap": [
+            120,
+            60
+          ],
+          "dialogue": [
+            240,
+            30
+          ],
+          "cleanup": [
+            60,
+            15
+          ]
+        },
+        "actualTerminalFrames": [
+          6970
+        ]
+      }
+    },
+    {
+      "elapsed": 168.273,
+      "scene": "BunnyHouse",
+      "conversationActive": false,
+      "conversationId": 0,
+      "entryId": 0,
+      "typing": false,
+      "narrativeDbName": "",
+      "narrativeArcName": "",
+      "responses": [],
+      "guards": "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False",
+      "frame": 7046,
+      "realtime": 148.02099609375,
+      "scaledTime": 123.37893676757812,
+      "timeScale": 1.0,
+      "cleanupDiagnostics": [
+        "guards | gameplay=True | dustin=False | glitch=False | anyEvent=False",
+        "trigger | name=Cutscene_IntroBunnyHouse | count=1",
+        "introCleanup | remainingControllers=0 | bedControllers=1 | activeBedControllers=1"
+      ],
+      "budget": {
+        "stage": "cleanup",
+        "elapsed": 126.459,
+        "stageElapsed": 15.12,
+        "idle": 2.507,
+        "hardLimit": 360,
+        "stageLimits": {
+          "bootstrap": [
+            120,
+            60
+          ],
+          "dialogue": [
+            240,
+            30
+          ],
+          "cleanup": [
+            60,
+            15
+          ]
+        },
+        "actualTerminalFrames": [
+          6970,
+          7046
+        ]
+      }
+    }
+  ],
+  "observationBudget": {
+    "stage": "cleanup",
+    "elapsed": 126.464,
+    "stageElapsed": 15.124,
+    "idle": 2.511,
+    "hardLimit": 360,
+    "stageLimits": {
+      "bootstrap": [
+        120,
+        60
+      ],
+      "dialogue": [
+        240,
+        30
+      ],
+      "cleanup": [
+        60,
+        15
+      ]
+    },
+    "actualTerminalFrames": [
+      6970,
+      7046
+    ]
+  },
+  "source": "localization/source/intro-observation-20261026/source-trace.json",
+  "boundary": "Actual immutable40 compact game-thread serialization, source-bound original actions and two advancing original cleanup frames. No save/restore continuation, movement, visual or editorial acceptance."
+}
