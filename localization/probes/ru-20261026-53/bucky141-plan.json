@@ -1,0 +1,752 @@
+{
+  "conversation": 141,
+  "dbName": "TutorialQuest_BeaverIntroduction",
+  "arc": "p1",
+  "sourceSha256": "7cd3173110e9498ada7669cb07f1edf6ab949abef76d791c1e07c7e96da0e10b",
+  "first": 215,
+  "selected": 217,
+  "declined": 216,
+  "successor": 194,
+  "route": [
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212
+  ],
+  "entries": [
+    {
+      "id": 215,
+      "title": "",
+      "text": "He… seems to be quitely snoring… Wake him up?",
+      "actor": 7,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 215,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 216,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 141,
+          "originDialogueID": 215,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 217,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 216,
+      "title": "",
+      "text": "No",
+      "actor": 1,
+      "conversant": 3,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": []
+    },
+    {
+      "id": 217,
+      "title": "",
+      "text": "Yes",
+      "actor": 1,
+      "conversant": 3,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 217,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 194,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 194,
+      "title": "",
+      "text": "[pic=3]Zzz… Zzz…",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 194,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 195,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "title": "",
+      "text": "[pic=3]Zzz- H",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 195,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 196,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "title": "",
+      "text": "[pic=2]uh~! Wha?",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 196,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 197,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 197,
+      "title": "",
+      "text": "[pic=4]Oh-",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 197,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 198,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 198,
+      "title": "",
+      "text": "[pic=1]Hello there!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 198,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 199,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 199,
+      "title": "",
+      "text": "[pic=1]You must be that new fella!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 199,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 200,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "title": "",
+      "text": "[pic=1]Good to see ya back on your paws!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 200,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 201,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "title": "",
+      "text": "The beaver lets out a long yawn.",
+      "actor": 7,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 201,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 202,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "title": "",
+      "text": "[pic=2]Sorry - ya caught me in the middle of my afternoon nap!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 202,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 203,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "title": "",
+      "text": "[pic=1]Anyways, the name’s Barnaby Webbz!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 203,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 204,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "title": "",
+      "text": "[pic=2]But you can just call me Bucky!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 204,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 205,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "title": "",
+      "text": "[pic=4]And what’s your name, pal?",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 205,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 206,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "title": "",
+      "text": "Rascal! Rascal Redtail.",
+      "actor": 1,
+      "conversant": 3,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 206,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 207,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "title": "",
+      "text": "[pic=1]The pleasure’s all mine Rascal!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 207,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 208,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 208,
+      "title": "",
+      "text": "[pic=4]I’m the town’s handyman!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 208,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 209,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 209,
+      "title": "",
+      "text": "[pic=1]Fixing, crafting, building, you name it!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 209,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 210,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 210,
+      "title": "",
+      "text": "[pic=1]If there’s anything ya need during your stay, don’t hesitate to ask!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 210,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 211,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 211,
+      "title": "",
+      "text": "[pic=2]Until then… I kinda wanna get back to my nap…",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 211,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 212,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 212,
+      "title": "",
+      "text": "[pic=1]I’m sure I’ll be seeing ya again very soon!",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": []
+    },
+    {
+      "id": 218,
+      "title": "PRIMARY",
+      "text": "",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "None()",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 218,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 215,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "title": "TRIGGER(intro_from_beaver)",
+      "text": "",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "None()",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 192,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 212,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 225,
+      "title": "FINISHSTEP",
+      "text": "",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "None()",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 225,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 212,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": 235,
+      "title": "FINISHARC(p1)",
+      "text": "",
+      "actor": 3,
+      "conversant": 1,
+      "menuText": "",
+      "sequence": "None()",
+      "responseMenuSequence": "",
+      "conditions": "",
+      "script": "",
+      "isGroup": 0,
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "outgoingLinks": [
+        {
+          "originConversationID": 141,
+          "originDialogueID": 235,
+          "destinationConversationID": 141,
+          "destinationDialogueID": 212,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ]
+    }
+  ],
+  "boundary": "Original source/controls only; marker218 is not the loaded first subtitle. Selection is not194 coverage; seeing212 is not its line-end or notebook completion."
+}

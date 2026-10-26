@@ -1,32 +1,36 @@
-## Phase0065: installed native Quit route identified; runtime hold preserved
+## Phase0066: native termination branch observed with bounded task trace
 
-Static readback pins CrossOver26.3.0.39832/cxoffice-26.3.0rc2 and its installed
-wineloader plus Unix/Windows Mac drivers. Four actual Cocoa implementations,
-PE imports and bounded function bodies establish a native query/end-session
-route that can call TerminateProcess(-1,0). AppKit Later/YES and missing managed
-lifecycle rows alone do not prove that this branch ran in52 or identify why Dock
-sent Quit. The two driver hashes were not captured at52 load time; this phase's
-current installed readback is explicitly scoped, with previous startup pins rechecked.
+A finite task-stderr filter is implemented and exercised in one new candidate53.
+All144 tests and40 preflight checks passed;330 files frozen. Both debug masks append
+trace+macdrv, with exact native birth/argv and Windows PID binding. Other macdrv
+records are rejected before persistence; retained trace and diagnostic bytes are bounded.
+Five resource pairs, six recipes, both87-method compiled bridge modes and original
+host/story guards reuse exact verified bytes; no source/input/focus policy change.
 
-The shipped macdrv trace gates expose query/result/end-session/reply/termination
-progress;52's -all mask did not enable them. A concrete passive diagnostic is
-specified for a NEW candidate, retaining only exact-task termination formats before
-persistence/model reading. No quit veto, input/focus change, callback/predicate
-invocation or game/source/authority mutation. No53 prepared or launched here.
-No images opened. Seven asset lanes continue independently/read-only.
+53 reached source dialogue153/155/156/157/158 and acknowledged guarded completion158,
+then the game disappeared.15 exact-task trace rows show Unix quit reason0, three
+positive query results, all three end-session completions, reply1 and the driver's
+terminating-process branch. This trace precedes TerminateProcess: syscall success,
+game numeric exit, Cocoa sender and upstream action remain unknown.101 lifecycle
+rows have no observed quit/destroy rows. No crash/owner-action inference or new retry.
+EOF false remains an explicit tail gap, with no retained byte-budget drops.
 
-Next implement the finite task-only trace retention, verify positive/negative filter
-controls, bind the new installed-driver pins, and freeze a changed candidate before
-considering its one-use runtime under every unchanged guard. Preserve43..52 and both
-unknown51/52 commands. Source/BGDatabase/parser/special-scene, initial spawn/other
-three introductions/notebook/Bucky loaded consumers, editorial/final fonts/licenses/
-resources/local delivery remain pending. Accepted10/15/47/48 visuals and50 route
-remain unchanged. No publication/deployment.
+All15 postrun checks passed: originals150/262, resources5, pins19, owner files,
+QA restoration/bridge removal, empty QA persistence and exact process absence.
+Zero images captured/opened. Seven asset lanes continue independently/read-only.
+53 is consumed; no54 exists. Next bounded work is independent BGDatabase/item-text
+source-consumer inventory in a separate supplement; keep live source/glossary pins
+unchanged and runtime on hold without a materially different admitted hypothesis.
+Complete source/parser/special-scene, initial spawn/other three introductions/notebook/
+Bucky loaded consumers, editorial/final fonts/licenses/resources/local delivery remain
+pending. Accepted10/15/47/48 visuals and50 route remain unchanged. No deployment.
 
-Evidence: `localization/source/tutorial-20261026/phase0065/ADAPTER.md`,
-`native-consumers.json`, `windows-quit.asm.txt`, `appkit-quit.asm.txt`,
-`diagnostic-plan.json`, `verification.json`, `preservation.json`.
-Prior summary: `localization/history/phase0064-summary.md`.
+Evidence: `localization/source/tutorial-20261026/phase0066/ADAPTER.md`,
+`tests.json`, `format-pins.json`, `verification.json`, `preservation.json`;
+`tools/probe/termination_trace.py`;
+`localization/probes/ru-20261026-53/runtime-diagnosis.json`,
+`termination-trace.log`, `termination-trace-retention.json`, `final-verification.json`.
+Prior summary: `localization/history/phase0065-summary.md`.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

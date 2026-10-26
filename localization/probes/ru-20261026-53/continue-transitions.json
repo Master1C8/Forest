@@ -1,0 +1,110 @@
+{
+  "prefix": {
+    "observedSubtitleEntries": [
+      153,
+      155,
+      156,
+      157,
+      158
+    ],
+    "selectedResponses": [
+      {
+        "source": 153,
+        "sourceFrame": 632,
+        "destination": 154,
+        "successor": 155,
+        "action": "response 153 120 154",
+        "response": [
+          {
+            "path": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Response Menu Panel/Viewport/Content/Response: Much better.",
+            "text": "Much better.",
+            "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+            "conversationId": 120,
+            "entryId": 154,
+            "visible": true,
+            "clickable": true
+          }
+        ],
+        "transport": {
+          "command": "response 153 120 154",
+          "acknowledgement": "2026-10-26T21:11:35.9182070Z OK response 153 120 154",
+          "transportPid": 79911,
+          "transportExitCode": 0,
+          "submittedAt": 40.161860833,
+          "acknowledgedAt": 40.454849333
+        }
+      }
+    ],
+    "transitions": [
+      {
+        "source": 153,
+        "selectedResponse": 154,
+        "observed": 155,
+        "frame": 704,
+        "kind": "acknowledged-response"
+      },
+      {
+        "source": 155,
+        "observed": 156,
+        "frame": 792,
+        "kind": "observed-source-link"
+      },
+      {
+        "source": 156,
+        "observed": 157,
+        "frame": 867,
+        "kind": "observed-source-link"
+      },
+      {
+        "source": 157,
+        "observed": 158,
+        "frame": 939,
+        "kind": "observed-source-link"
+      }
+    ],
+    "pendingResponse": null,
+    "completion158": {
+      "sourceFrame": 939,
+      "action": "complete-tutorial158",
+      "transport": {
+        "command": "complete-tutorial158",
+        "acknowledgement": "2026-10-26T21:11:41.1520330Z OK complete-tutorial158",
+        "transportPid": 79975,
+        "transportExitCode": 0,
+        "submittedAt": 45.420562541,
+        "acknowledgedAt": 45.718442708
+      },
+      "native": {
+        "result": "applied",
+        "text": "So tell me. What is it you’re here for?",
+        "sourceText": "[pic=3]So tell me. What is it you’re here for?",
+        "panelPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Subtitle Panel 0",
+        "buttonPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button",
+        "textPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Subtitle Text",
+        "targetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI",
+        "listenerMethod": "OnFastForward",
+        "listenerTargetPath": "Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI/Dialogue Panel/Text Panel/Continue Button",
+        "sourceDestinations": "120:159,120:181",
+        "pcDestinations": "120:159,120:181",
+        "choiceMode": "original",
+        "frame": 962,
+        "conversationId": 120,
+        "entryId": 158,
+        "panelInstance": -7838,
+        "buttonInstance": -7904,
+        "textInstance": -7870,
+        "typing": false,
+        "menuPresent": false,
+        "buttonActive": true,
+        "buttonEnabled": true,
+        "buttonInteractable": true,
+        "graphVerified": true
+      }
+    },
+    "boundary": "Selected response destinations are not credited as observed subtitles; ACKs do not renew budgets"
+  },
+  "selection181": null,
+  "observedRouteSubtitles": [],
+  "actual182Observed": false,
+  "boundary": "Selection ACK, PC181 and actual182 observation are separate; no initial-spawn/notebook/quest-completion claim"
+}

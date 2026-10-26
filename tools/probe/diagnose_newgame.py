@@ -44,6 +44,8 @@ def launch_options(argv):
     parser.add_argument('--retain-exit', action='store_true', help='Ordinary task-owned parent waits for observer and retains its actual exit code')
     parser.add_argument('--startup-diagnostics', action='store_true',
                         help='Opt-in Wine loader/exception/process and Mono logs; no runtime-policy changes')
+    parser.add_argument('--termination-trace', action='store_true',
+                        help='Bounded task-only macdrv quit formats; requires startup diagnostics')
     parser.add_argument('--continue-fixture', action='store_true',
                         help='Admit only the frozen QA43 fixture and use original Continue; never fall back to New')
     parser.add_argument('--tutorial-choice-mode', choices=['original', 'synthetic'], default='original',
@@ -53,16 +55,45 @@ def launch_options(argv):
     parser.add_argument('--bucky141', action='store_true',
                         help='After the full original181 route, measured native approach/Submit and exact141; no capture')
     args = parser.parse_args(argv)
+    assert not args.termination_trace or args.startup_diagnostics, 'Termination trace requires startup diagnostics'
     assert args.tutorial_choice_mode == 'original' or args.continue_fixture, 'Synthetic choices require exact QA43 Continue'
     assert not args.tutorial181 or (args.continue_fixture and args.tutorial_choice_mode == 'original'), 'Tutorial181 requires original QA43 Continue'
     assert not args.bucky141 or args.tutorial181, 'Bucky141 requires the full original181 route'
     return args
 
 
-def startup_environment(enabled):
+def startup_environment(enabled, termination_trace=False):
     # Preserve normal inheritance exactly unless this new immutable run opts in.
     # Never persist the inherited environment, which may contain credentials.
-    return dict(os.environ, **STARTUP_TRACE_ENV) if enabled else None
+    assert not termination_trace or enabled, 'Termination trace requires startup diagnostics'
+    if not enabled:
+        return None
+    overrides = dict(STARTUP_TRACE_ENV)
+    if termination_trace:
+        for key in ['WINEDEBUG', 'CX_DEBUGMSG']:
+            overrides[key] += ',trace+macdrv'
+    return dict(os.environ, **overrides)
+
+
+def bind_termination_trace(collector):
+    """Bind only current exact argv/birth and the task bridge's own lifecycle PID."""
+    current = real_game_rows(processes())
+    assert len(current) == 1, 'Ambiguous native trace identity'
+    native = numeric_identity_evidence(current)
+    assert native['status'] in ['bound', 'same-pid-birth-present'], 'Missing live native trace identity'
+    assert native['identity']['argvRow'] == current[0], 'Native trace argv identity changed'
+    path = RUN / 'lifecycle.jsonl'
+    with path.open('rb') as stream:
+        raw = stream.read(1024 * 1024 + 1)
+    assert len(raw) <= 1024 * 1024, 'Lifecycle trace identity exceeds bound'
+    # A game-thread append may still be in flight; never parse its partial tail.
+    rows = [json.loads(row) for row in raw.split(b'\n')[:-1]]
+    assert rows and len(rows) <= 512 and rows[0]['kind'] == 'awake' and rows[0]['sequence'] == 0
+    winpid = rows[0]['winPid']
+    assert isinstance(winpid, int) and winpid > 0 and all(row['winPid'] == winpid for row in rows)
+    identity = native['identity']
+    collector.bind(dict(windowsPid=winpid, nativePid=identity['pid'], nativeBirth=identity['birth'],
+                        argvRow=identity['argvRow'], boundUtc=datetime.now(timezone.utc).isoformat()))
 
 
 def sha(p):
@@ -2093,23 +2124,38 @@ def main():
     error = None
     quit_ok = False
     budget = None
+    termination_collector = None
     try:
-        with (RUN / 'wine.log').open('wb') as log:
-            child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT,
-                                     start_new_session=True, env=startup_environment(options.startup_diagnostics))
+        if options.termination_trace:
+            from termination_trace import TerminationTrace
+            installed = json.loads((RUN / 'external-startup-dependencies.json').read_text())
+            assert len(installed) >= 8 and all(sha(Path(p)) == h for p, h in installed.items()), 'Installed diagnostic dependency mismatch'
+            termination_collector = TerminationTrace()
+            child = subprocess.Popen(args, cwd=GAME, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                     start_new_session=True, env=startup_environment(True, True))
+            LAUNCHER = child
+            termination_collector.start(child.stdout)
+        else:
+            with (RUN / 'wine.log').open('wb') as log:
+                child = subprocess.Popen(args, cwd=GAME, stdout=log, stderr=subprocess.STDOUT,
+                                         start_new_session=True, env=startup_environment(options.startup_diagnostics))
         LAUNCHER = child
         write('launch.json', {'pid': child.pid, 'command': args,
                              'canonicalHeadAtLaunch': subprocess.check_output(['git', '-C', str(RUN.parents[2]), 'rev-parse', 'HEAD'], text=True).strip(),
                              'launchedAt': datetime.now(timezone.utc).isoformat(),
                              'startupDiagnostics': options.startup_diagnostics,
+                             'terminationTrace': options.termination_trace,
                              'tutorialChoiceMode': options.tutorial_choice_mode,
                              'tutorial181': options.tutorial181,
                              'bucky141': options.bucky141,
-                             'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
+                             'environmentOverrides': {key: startup_environment(True, options.termination_trace)[key]
+                                                      for key in STARTUP_TRACE_ENV} if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
                              'scope': ('Original QA43 Continue/full181/187 cleanup, finite native right/down/Return, exact Bucky141/212 and completion; no capture' if options.bucky141 else 'Original QA43 Continue, exact181 ->182 route through187 and cleanup; no capture' if options.tutorial181 else 'Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro, two loaded idle Player/door pair samples, then source-backed bounded process-targeted left/down route to natural CentralForest entry; no screenshots or forced eligibility')})
         wait_for_ready(child)
+        if termination_collector is not None:
+            bind_termination_trace(termination_collector)
         (RUN / 'actions.log').touch(exist_ok=True)
         observe_focus_boundary('ready', force=True)
         command('show-menu')
@@ -2263,6 +2309,16 @@ def main():
         pins_ok = all(sha(Path(p)) == h for p, h in pins.items())
         restored = sha(managed / 'Assembly-CSharp.dll') == owner[DATA + '/Managed/Assembly-CSharp.dll']
         clean = not remaining and unchanged and pins_ok and restored and not (managed / 'ForestProbe.dll').exists()
+        if termination_collector is not None and termination_collector.thread is not None:
+            try:
+                retention = termination_collector.finish(RUN)
+                if retention['readerError'] is not None:
+                    error = (error or '') + ' termination trace reader failed: ' + retention['readerError']
+                    clean = False
+            except Exception as ex:
+                # Diagnostic persistence must never skip the QA restore above.
+                error = (error or '') + ' termination trace finalization failed: ' + type(ex).__name__
+                clean = False
         write('cleanup.json', {'verifiedTaskProcessRowsBeforeQuit': owned, 'remainingTaskProcessRows': remaining,
                                'quitAcknowledged': quit_ok, 'unresolvedCommand': COMMAND_HOLD,
                                'originalAssetsAndPlayerFilesUnchanged': unchanged,
