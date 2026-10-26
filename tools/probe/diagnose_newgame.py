@@ -44,7 +44,11 @@ def launch_options(argv):
                         help='Opt-in Wine loader/exception/process and Mono logs; no runtime-policy changes')
     parser.add_argument('--continue-fixture', action='store_true',
                         help='Admit only the frozen QA43 fixture and use original Continue; never fall back to New')
-    return parser.parse_args(argv)
+    parser.add_argument('--tutorial-choice-mode', choices=['original', 'synthetic'], default='original',
+                        help='Explicit two-value synthetic choice admission; requires Continue and matching compiled bridge/resources')
+    args = parser.parse_args(argv)
+    assert args.tutorial_choice_mode == 'original' or args.continue_fixture, 'Synthetic choices require exact QA43 Continue'
+    return args
 
 
 def startup_environment(enabled):
@@ -884,8 +888,52 @@ def continue_menu_guard(state):
     assert state['buttons'].count('Canvas/PlayMenu/Controls/Continue') == 1, 'Exact original Continue control unavailable'
 
 
-def tutorial_action(state, prefix):
+SYNTHETIC_CHOICES = {
+    159: 'Ёж Йй Щъ Ыь Эю Яя; 123 — Latin!',
+    181: 'Е\u0308 и\u0306; ё й. Съешь ещё этих булок!',
+}
+
+
+def tutorial_choice_text(eid, prefix, choice_mode):
+    assert choice_mode in ['original', 'synthetic'], 'Unknown tutorial choice mode'
+    assert eid in [159, 181], 'Unapproved tutorial choice ID'
+    return (SYNTHETIC_CHOICES[eid] if choice_mode == 'synthetic' else
+            next(e['text'] for e in prefix['entries'] if e['id'] == eid))
+
+
+def choice_renderer_guard(state, prefix, choice_mode):
+    if choice_mode != 'synthetic':
+        return []
+    tutorial_action(state, prefix, choice_mode)
+    rows = [r for r in state['rendererDiagnostics'] if '/Response Text | UnityEngine.UI.Text | ' in r]
+    assert len(rows) == 2, 'Expected two actual loaded choice labels'
+    for eid in [159, 181]:
+        text = tutorial_choice_text(eid, prefix, choice_mode)
+        label = TUTORIAL_TEXT_PANEL + '/Response Menu Panel/Viewport/Content/Response: ' + text + '/Response Text'
+        matches = [r for r in rows if r.startswith(label + ' | UnityEngine.UI.Text | ' + text + ' | ')]
+        assert len(matches) == 1, 'Choice renderer identity/text differs'
+        fields = dict(part.split('=', 1) for part in matches[0].split(' | ')[3:])
+        assert fields['font'] == 'MatchupPro_TFOL' and fields['fontNames'] == 'Liberation Sans' and fields['dynamic'] == 'True', 'Choice runtime font/face differs'
+        assert fields['size'] == '12' and fields['style'] == 'Normal', 'Choice runtime size/style differs'
+        assert all(fields[k] == 'True' for k in ['hasYo', 'hasShortI', 'hasDigit1', 'hasSpace', 'hasDiaeresis', 'hasBreve']), 'Choice individual glyph availability differs'
+    return rows
+
+
+def admit_choice_mode(run, choice_mode):
+    assert choice_mode in ['original', 'synthetic'], 'Unknown tutorial choice mode'
+    build = json.loads((run / 'build.json').read_text())
+    bridge = json.loads((run / 'bridge-build.json').read_text())
+    assert bridge.get('tutorialChoiceMode', 'original') == choice_mode, 'Compiled tutorial choice mode differs'
+    if choice_mode == 'synthetic':
+        assert build['sampleSurface'] == 'tutorial-choices' and build['coherentChoiceFace'] is True, 'Synthetic choice resource surface differs'
+        assert build['choiceSamples'] == {str(k): v for k, v in SYNTHETIC_CHOICES.items()}, 'Synthetic choice resource values differ'
+    else:
+        assert not build.get('choiceSamples'), 'Original mode forbids synthetic choice resources'
+
+
+def tutorial_action(state, prefix, choice_mode='original'):
     """Finish158 via its exact original control; never select159/181."""
+    assert choice_mode in ['original', 'synthetic'], 'Unknown tutorial choice mode'
     if not state['conversationActive']:
         return None
     assert state['narrativeDbName'] == 'TutorialQuest_IntroFromBunny' and state['narrativeArcName'] in [None, ''], 'Unexpected restored narrative binding'
@@ -903,7 +951,7 @@ def tutorial_action(state, prefix):
     responses = [r for r in state['responses'] if r['visible'] and r['clickable']]
     links = entry['outgoingLinks']
     if state['entryId'] == 158:
-        tutorial_completion_guard(state, prefix)
+        tutorial_completion_guard(state, prefix, choice_mode)
         if state['typing']:
             return None
         if not state['responses']:
@@ -911,9 +959,8 @@ def tutorial_action(state, prefix):
         assert len(responses) == len(state['responses']), 'Tutorial choice control not visible/clickable'
         assert len(responses) == 2 and {r['entryId'] for r in responses} == {159, 181}, 'Tutorial choice set differs'
         for row in responses:
-            target = next(e for e in prefix['entries'] if e['id'] == row['entryId'])
-            assert (row['conversationId'] == 120 and row['targetPath'] == TUTORIAL_UI and row['text'] == target['text']
-                    and row['path'] == TUTORIAL_TEXT_PANEL + '/Response Menu Panel/Viewport/Content/Response: ' + target['text']), 'Tutorial choice binding/text differs'
+            assert (row['conversationId'] == 120 and row['targetPath'] == TUTORIAL_UI and row['text'] == tutorial_choice_text(row['entryId'], prefix, choice_mode)
+                    and row['path'] == TUTORIAL_TEXT_PANEL + '/Response Menu Panel/Viewport/Content/Response: ' + tutorial_choice_text(row['entryId'], prefix, choice_mode)), 'Tutorial choice binding/text differs'
         return 'target-settled'
     assert len(links) == 1 and links[0]['destinationConversationID'] == 120 and links[0]['destinationDialogueID'] == state['entryId'] + 1, 'Tutorial linear source changed'
     if responses:
@@ -929,7 +976,7 @@ TUTORIAL_UI = 'Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/Overw
 TUTORIAL_TEXT_PANEL = TUTORIAL_UI + '/Dialogue Panel/Text Panel'
 
 
-def tutorial_completion_guard(state, prefix):
+def tutorial_completion_guard(state, prefix, choice_mode='original'):
     entries = {e['id']: e for e in prefix['entries']}
     entry = entries[158]
     assert len(entry['outgoingLinks']) == 2 and {
@@ -947,6 +994,7 @@ def tutorial_completion_guard(state, prefix):
     row = json.loads(record)
     assert (row['frame'],row['conversationId'],row['entryId'],row['text'],row['sourceText']) == (
         state['frame'],120,158,state['conversationState'],entry['text']), 'Stale/wrong Tutorial158 completion evidence'
+    assert row.get('choiceMode', 'original') == choice_mode, 'Native tutorial choice mode differs'
     assert row['typing'] is state['typing'] and row['menuPresent'] is bool(state['responses']), 'Tutorial158 completion/menu disagreement'
     assert row['graphVerified'] is True and row['sourceDestinations'] == row['pcDestinations'] == '120:159,120:181', 'Tutorial158 native destinations differ'
     assert (row['panelPath'],row['buttonPath'],row['textPath'],row['targetPath'],row['listenerMethod'],row['listenerTargetPath']) == (
@@ -965,7 +1013,9 @@ class TutorialTransitions:
     host sample. Only a fresh exact ACK authorizes its one source-linked successor.
     This bookkeeping never renews a budget or submits/replays an action.
     """
-    def __init__(self, prefix):
+    def __init__(self, prefix, choice_mode='original'):
+        assert choice_mode in ['original', 'synthetic'], 'Unknown tutorial choice mode'
+        self.choice_mode = choice_mode
         self.prefix = prefix
         self.entries = {e['id']: e for e in prefix['entries']}
         assert len(self.entries) == len(prefix['entries']), 'Duplicate tutorial source IDs'
@@ -987,7 +1037,7 @@ class TutorialTransitions:
         return target
 
     def observe(self, state, now):
-        tutorial_action(state, self.prefix)  # Exact text, binding, controls and choice stop.
+        tutorial_action(state, self.prefix, self.choice_mode)  # Exact text, binding, controls and choice stop.
         if not state['conversationActive'] or state['conversationId'] != self.prefix['conversation']:
             assert self.previous is None, 'Tutorial left prefix after it started'
             return
@@ -1009,7 +1059,7 @@ class TutorialTransitions:
             self.observed.append(entry)
 
     def acknowledge_response(self, state, action, transport):
-        assert tutorial_action(state, self.prefix) == action and action.startswith('response '), 'Only an exact sole response may authorize a transition; stop before choices'
+        assert tutorial_action(state, self.prefix, self.choice_mode) == action and action.startswith('response '), 'Only an exact sole response may authorize a transition; stop before choices'
         assert self.pending is None, 'Response already acknowledged; no replay'
         assert (state['entryId'], state['frame']) == (self.previous, self.observed_frame), 'Stale tutorial action observation'
         assert isinstance(transport, dict) and transport.get('command') == action and transport.get('transportExitCode') == 0, 'Missing exact response acknowledgement'
@@ -1033,7 +1083,7 @@ class TutorialTransitions:
                     boundary='Selected response destinations are not credited as observed subtitles; ACKs do not renew budgets')
 
     def acknowledge_completion(self, state, action, transport, receipt):
-        assert action == 'complete-tutorial158' and tutorial_action(state,self.prefix) == action, 'Only exact158 completion is allowed; no terminal choice'
+        assert action == 'complete-tutorial158' and tutorial_action(state,self.prefix,self.choice_mode) == action, 'Only exact158 completion is allowed; no terminal choice'
         assert self.completion is None, 'Tutorial158 completion already acknowledged; no replay'
         assert (state['entryId'],state['frame']) == (self.previous,self.observed_frame), 'Stale Tutorial158 action observation'
         assert isinstance(transport,dict) and transport.get('command') == action and transport.get('transportExitCode') == 0, 'Missing exact completion acknowledgement'
@@ -1041,10 +1091,11 @@ class TutorialTransitions:
         assert line.partition(' OK ')[0] and line.partition(' OK ')[2] == action, 'Missing exact completion acknowledgement'
         assert self.observed_at <= transport['submittedAt'] <= transport['acknowledgedAt'], 'Stale completion acknowledgement'
         assert isinstance(receipt,dict) and receipt.get('result') in ['applied','menu-present'], 'Missing native completion receipt'
-        expected = tutorial_completion_guard(state,self.prefix)
+        expected = tutorial_completion_guard(state,self.prefix,self.choice_mode)
         assert receipt['frame'] >= state['frame'], 'Stale native completion receipt'
         # The native action rereads exact source/control/available responses on the
         # game thread; a menu appearing after sampling is an acknowledged no-op.
+        assert receipt.get('choiceMode', 'original') == self.choice_mode, 'Native completion mode differs'
         for k in ['conversationId','entryId','text','sourceText','graphVerified','sourceDestinations','pcDestinations',
                   'panelPath','buttonPath','textPath','targetPath','listenerMethod','listenerTargetPath',
                   'panelInstance','buttonInstance','textInstance']:
@@ -1095,14 +1146,14 @@ class ContinueObservationBudget(IntroObservationBudget):
         # Readiness, timers and scalar scene changes never buy more idle/hard time.
         return None, False
 
-    def observe_continue(self, now, state, prefix):
+    def observe_continue(self, now, state, prefix, choice_mode='original'):
         self.check(now)
         assert continue_diagnostic_ready(state), 'Full diagnostic dependencies not ready'
         assert state['frame'] > self.frame and state['realtime'] > self.realtime, 'Continue observation must be a new real frame'
         assert all(math.isfinite(state[k]) and state[k] >= 0 for k in ['realtime', 'scaledTime', 'timeScale']), 'Invalid original Unity clocks'
         self.frame, self.realtime = state['frame'], state['realtime']
         assert state['scene'] in ['StartMenu', 'SoftResetLoadingScene', 'ChapterSelect', 'CentralForest'], 'Unexpected restored scene'
-        action = tutorial_action(state, prefix)
+        action = tutorial_action(state, prefix, choice_mode)
         milestone = ('scene', state['scene']) if not state['conversationActive'] else ('entry', state['conversationId'], state['entryId'])
         if action is not None and self.stage == 'bootstrap':
             self.stage, self.stage_started, self.progress_at = 'dialogue', now, now
@@ -1113,7 +1164,7 @@ class ContinueObservationBudget(IntroObservationBudget):
         return action, len(self.terminal_frames) >= 2
 
 
-def continue_from_fixture(menu, fixture, budget):
+def continue_from_fixture(menu, fixture, budget, choice_mode='original'):
     continue_menu_guard(menu)
     command('dump-save-continuation', deadline=budget.deadline)
     loaded = json.loads((RUN / 'save-continuation.json').read_text())
@@ -1125,7 +1176,7 @@ def continue_from_fixture(menu, fixture, budget):
     observations, actions = [], []
     first_player = None
     saw_controller = False
-    transitions = TutorialTransitions(prefix)
+    transitions = TutorialTransitions(prefix, choice_mode)
     last_action, repeats = None, 0
     while True:
         budget.check(time.monotonic())
@@ -1153,7 +1204,7 @@ def continue_from_fixture(menu, fixture, budget):
         # Reject an unrelated jump before it can credit a budget milestone.
         transitions.observe(state, time.monotonic())
         write('continue-transitions.json', transitions.receipt())
-        action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix)
+        action, terminal_pair = budget.observe_continue(time.monotonic(), state, prefix, choice_mode)
         if action == 'complete-tutorial158' and transitions.completion is not None:
             action = None  # Wait under unchanged caps; never replay acknowledged completion.
         if saved['scene'] == 'CentralForest' and saved['playerPresent']:
@@ -1169,11 +1220,16 @@ def continue_from_fixture(menu, fixture, budget):
         if terminal_pair:
             assert first_player is not None and saw_controller, 'Missing original Player/tutorial controller observation'
             write('continue-progression.json', dict(result='target-settled', conversationId=120, entryId=158,
-                actualTerminalFrames=budget.terminal_frames, choicesSubmitted=0, initialSpawnPositionVerified=False,
+                tutorialChoiceMode=choice_mode, actualTerminalFrames=budget.terminal_frames, choicesSubmitted=0, initialSpawnPositionVerified=False,
                 firstObservedPositionMatchesFixture=first_player['matchesFixturePosition'],
                 positionBoundary='Host observation cannot establish the initial spawn frame; retained separately from normal continuation.',
                 observationBudget=budget.receipt(time.monotonic()),
                 subtitleAndResponseEvidence=transitions.receipt()))
+            command('dump', deadline=budget.deadline)
+            renderer = read_state()
+            assert tutorial_action(renderer, prefix, choice_mode) == 'target-settled', 'Tutorial state changed before capture'
+            rows = choice_renderer_guard(renderer, prefix, choice_mode)
+            write('choice-renderer-before-capture.json', dict(frame=renderer['frame'], choiceMode=choice_mode, rows=rows))
             # Native Unity framebuffer capture, no activation, OS overlay or pixel input.
             command('capture ru-01-tutorial-choice.png', deadline=budget.deadline)
             capture = RUN / 'ru-01-tutorial-choice.png'
@@ -1182,7 +1238,8 @@ def continue_from_fixture(menu, fixture, budget):
             assert capture.is_file(), 'Native capture did not materialize within existing observation budget'
             command('dump', deadline=budget.deadline)
             final = read_state()
-            assert tutorial_action(final, prefix) == 'target-settled', 'Tutorial state changed across capture'
+            assert tutorial_action(final, prefix, choice_mode) == 'target-settled', 'Tutorial state changed across capture'
+            choice_renderer_guard(final, prefix, choice_mode)
             shutil.copy2(RUN / 'state.json', RUN / 'capture-state.json')
             break
         if action and action != 'target-settled':
@@ -1217,6 +1274,7 @@ def main():
     assert Path(__file__).resolve().parent == RUN, 'Run the immutable snapshot'
     assert not (RUN / 'launch.json').exists() and not processes(), 'Reconcile any previous launch'
     fixture = admit_session(GAME, RUN, options.continue_fixture)
+    admit_choice_mode(RUN, options.tutorial_choice_mode)
     report = json.loads((RUN / 'build.json').read_text())
     assert len(report['files']) == 5 and report['saveIsolation']['companyName'] == 'VNRevivalQA'
     for row in report['files']:
@@ -1247,6 +1305,7 @@ def main():
                              'canonicalHeadAtLaunch': subprocess.check_output(['git', '-C', str(RUN.parents[2]), 'rev-parse', 'HEAD'], text=True).strip(),
                              'launchedAt': datetime.now(timezone.utc).isoformat(),
                              'startupDiagnostics': options.startup_diagnostics,
+                             'tutorialChoiceMode': options.tutorial_choice_mode,
                              'environmentOverrides': dict(STARTUP_TRACE_ENV) if options.startup_diagnostics else {},
                              'snapshots': {name: sha(RUN / name) for name in
                                            ['diagnose_newgame.py', 'command.py', 'build.json', 'bridge-build.json', 'input-pins.json', 'intro-graph.json', 'frozen-files.json']},
@@ -1275,7 +1334,7 @@ def main():
         shutil.copy2(RUN / 'notebook-route.json', RUN / 'play-menu-notebook.json')
         if options.continue_fixture:
             budget = ContinueObservationBudget(time.monotonic())
-            continue_from_fixture(state, fixture, budget)
+            continue_from_fixture(state, fixture, budget, options.tutorial_choice_mode)
         else:
             assert 'Canvas/PlayMenu/Controls/New' in state['buttons']
             assert not any('/Continue' in b for b in state['buttons']), 'Do not overwrite an existing QA session'
@@ -1413,7 +1472,7 @@ def main():
                                'ownerSavePathUsed': False})
         write('runtime-result.json', {'result': 'passed' if success and clean else 'failed', 'error': error,
                                       'durationSeconds': round(time.monotonic() - started, 3), 'imagesCaptured': len(list(RUN.glob('ru-*.png'))),
-                                      'imagesOpened': 0, 'scope': ('Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
+                                      'imagesOpened': 0, 'tutorialChoiceMode': options.tutorial_choice_mode, 'scope': ('Original QA43 Continue to source-bound120:158; no choice submitted' if options.continue_fixture else 'Original New/source-bound145 intro through delayed cleanup, loaded root/door pair observations and guarded original left/down movement to natural CentralForest entry'),
                                       'inventoryRuntime': 'not-run', 'visual': 'not-run'})
     assert success and clean, error
 

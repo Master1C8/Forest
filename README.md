@@ -1,34 +1,38 @@
-## Phase0052: original menu accepted; Cyrillic choice resource repair built
+## Phase0053: synthetic native choices captured; independent visual review pending
 
-Candidate47's single original English choice-menu image independently passed
-phase0051; exact native-manifest helper import/check passed1/1 in0052. This is
-source/control evidence, not Russian choice rendering acceptance. Commit8619736
-integrates that review. Accepted10/15/47 originals were not reopened.
+Candidate48 ran once through ordinary QA43 Continue and the original tutorial
+producer. Original no-menu158 at968 received guarded Continue at992; both exact
+synthetic159/181 controls were visible/clickable in real frames1036/1085. Neither
+terminal choice was selected. Loaded response labels report MatchupPro_TFOL,
+dynamic Liberation Sans at12 Normal; individual Ё/Й/1/space/diaeresis/breve checks
+are true for both labels. One untouched1440×900 native PNG is ready for independent
+review. These diagnostics do not establish glyph placement, wrapping or readability.
 
-The actual native response labels use ManaSpace bitmap101 glyphs: all66 Russian
-letters are absent, while digit1/space/ellipsis are present. The existing probe
-builder now has a bounded response-label pointer repair:156 native labels point
-to the existing coherent Font identities with game-bundled Liberation Sans.
-ManaSpace/controller bytes and every other label field are unchanged. Candidate48
-built all five no-op/readback resources and preserves both complete databases
-except declared synthetic159/181 values. Embedded coverage/space metrics pass;
-Unity loading, raw mark positioning, readability/wrapping remain unverified.
+The explicit compile-time/host synthetic mode admits only the two pinned sample
+values. Default original/New mode, source actors/links/conditions/scripts/sequences,
+original Continue/listener/controller and terminal selection guards remain strict.
+128 focused tests pass; static compiled readback preserves37/38 baseline methods
+semantically (two exact generated-closure renames), changing only completion's
+expected-text accessor/mode and adding its bounded accessor. Both compiled modes
+were read back; only synthetic was installed.32 preflight checks froze359 files.
 
-41 tests passed. The bridge's six individual HasCharacter diagnostics compile;
-37/38 top-level IL methods exactly match47, only Dump changes. No bridge is installed
-in48 and no game ran. Before launching48, the existing strict bridge/host validators
-must explicitly bind its synthetic-choice mode, retaining original controls and
-source guards. Then prepare/freeze/preflight, use original QA43 Continue once,
-capture two settled unselected-menu observations, restore and request fresh visual
-review. Never replay47/46/45/44/43. Initial spawn, notebook225:195/inventory, complete
-source/special-scene/editorial/resource/delivery gates remain pending.
+Runtime passed50.632s. Observer0/launcher0/game numeric exit unknown are retained.
+Restore/Quit were acknowledged;15 postrun checks verify exact process absence,
+bridge removal/QA DLL restore,150 managed/262 other originals,5 resource pairs,
+all19 shared lane pins, owner player files and empty QA persistence. QA fixture
+files remain unchanged. Work opened zero images and authored no translation overlay.
 
-All19 shared lane pins,247 original manifest inputs,262 other installation files
-and owner player files were verified unchanged. All seven authorized asset lanes
-remain read-only to technical work. No images opened or site publication/deployment.
-Evidence and exact next step: `localization/source/legacy-choice-20261027/ADAPTER.md`,
-`verification.json`, `extraction.json`, `bridge-verification.json`, `tests.json`, and
-`localization/probes/ru-20261026-48/{build,choice-resource-readback}.json`.
+Next: one fresh review-only context inspects `ru-20261026-48/native-packet-01.json`
+with its pinned native manifest, saves actual findings and finishes immediately.
+Accepted10/15/47 visuals remain unchanged. Initial spawn, inventory/notebook225:195,
+complete source/special-scene/editorial/final font-license-resource/local delivery
+remain pending. All seven authorized asset lanes continue independently/read-only
+to technical work. No publication/deployment. Prior phase0052 summary is preserved
+in `localization/history/phase0052-summary.md`.
+
+Evidence: `localization/probes/ru-20261026-48/{runtime-diagnosis,continue-progression,
+choice-renderer-before-capture,final-verification,native-manifest,native-packet-01}.json`;
+`tools/test_synthetic_choices.py` and the existing bridge/host preparation recipes.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 

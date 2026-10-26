@@ -51,7 +51,7 @@ public sealed class ForestProbe : MonoBehaviour
     }
     [Serializable] public sealed class TutorialCompletion {
         public string result, text, sourceText, panelPath, buttonPath, textPath, targetPath;
-        public string listenerMethod, listenerTargetPath, sourceDestinations, pcDestinations;
+        public string listenerMethod, listenerTargetPath, sourceDestinations, pcDestinations, choiceMode;
         public int frame, conversationId, entryId, panelInstance, buttonInstance, textInstance;
         public bool typing, menuPresent, buttonActive, buttonEnabled, buttonInteractable, graphVerified;
     }
@@ -773,6 +773,21 @@ public sealed class ForestProbe : MonoBehaviour
     const string TutorialUI="Singletons/GlobalSingletonsFirstpass(Clone)/DialogueManager/OverworldDialogueCanvas/VN Template Standard Dialogue UI";
     const string TutorialTextPanel=TutorialUI+"/Dialogue Panel/Text Panel";
     const string Tutorial158Text="So tell me. What is it you’re here for?";
+    // Compile-time admission: resource strings never select or broaden the mode.
+    const string TutorialChoiceMode =
+#if SYNTHETIC_TUTORIAL_CHOICES
+        "synthetic";
+#else
+        "original";
+#endif
+    static string TutorialChoiceText(int id) {
+        if(id!=159 && id!=181)throw new Exception("Unapproved Tutorial choice ID");
+#if SYNTHETIC_TUTORIAL_CHOICES
+        return id==159?"Ёж Йй Щъ Ыь Эю Яя; 123 — Latin!":"Е\u0308 и\u0306; ё й. Съешь ещё этих булок!";
+#else
+        return id==159?"Well… uhh… You see…":"The love. Definitely the love.";
+#endif
+    }
     TutorialCompletion ReadTutorialCompletion(out Button button) {
         var current=DialogueManager.currentConversationState;
         var subtitle=current==null?null:current.subtitle;
@@ -799,7 +814,7 @@ public sealed class ForestProbe : MonoBehaviour
         destinations.Clear();
         foreach(var response in current.pcResponses) {
             var target=response==null?null:response.destinationEntry;
-            var expected=target!=null && target.id==159?"Well… uhh… You see…":"The love. Definitely the love.";
+            var expected=target==null?null:TutorialChoiceText(target.id);
             if(target==null || target.conversationID!=120 || (target.id!=159 && target.id!=181) ||
                !destinations.Add(target.id) || target.ActorID!=1 || target.ConversantID!=2 || target.isGroup ||
                target.DialogueText!=expected || !String.IsNullOrEmpty(target.MenuText) ||
@@ -814,7 +829,7 @@ public sealed class ForestProbe : MonoBehaviour
         if(menu) {
             destinations.Clear();
             foreach(var row in rows) {
-                var expected=row.entryId==159?"Well… uhh… You see…":"The love. Definitely the love.";
+                var expected=TutorialChoiceText(row.entryId);
                 if(rows.Count!=2 || !row.visible || !row.clickable || row.conversationId!=120 ||
                    (row.entryId!=159 && row.entryId!=181) || !destinations.Add(row.entryId) || row.text!=expected ||
                    row.targetPath!=TutorialUI || row.path!=TutorialTextPanel+"/Response Menu Panel/Viewport/Content/Response: "+expected)
@@ -840,7 +855,7 @@ public sealed class ForestProbe : MonoBehaviour
         if(!menu && (!panel.gameObject.activeInHierarchy || !panel.enabled || panel.currentSubtitle!=subtitle ||
            !button.gameObject.activeInHierarchy || !button.enabled || !button.IsInteractable()))
             throw new Exception("Tutorial158 original Continue not active/bound/interactable");
-        return new TutorialCompletion{frame=Time.frameCount,conversationId=120,entryId=158,text=subtitle.formattedText.text,
+        return new TutorialCompletion{choiceMode=TutorialChoiceMode,frame=Time.frameCount,conversationId=120,entryId=158,text=subtitle.formattedText.text,
             sourceText=entry.DialogueText,panelPath=Address(panel.transform),buttonPath=Address(button.transform),textPath=Address(tmp.transform),
             targetPath=TutorialUI,listenerMethod="OnFastForward",listenerTargetPath=Address(handler.transform),
             sourceDestinations="120:159,120:181",pcDestinations="120:159,120:181",graphVerified=true,

@@ -1,3 +1,25 @@
+## Phase0053 continuation: actual synthetic-choice runtime evidence
+
+The original phase0052 static findings below remain bound to their original bytes.
+Candidate48 is now consumed exactly once. Explicit original/synthetic mode guards
+are in the existing bridge/host/preparation recipes; only the two exact declared
+sample strings are admitted. The original source graph/actors/conditions/script/
+sequence/control/listener and terminal selection prohibitions remain unchanged.
+128 tests and both compiled-mode readbacks pass. Candidate48's32-check preflight
+froze359 files; the earlier README binding mismatch was repaired before launch.
+
+Original QA43 Continue and the engine producer reached native120:158 completion,
+then two actual unselected synthetic menu frames1036/1085. Both actual labels use
+dynamic MatchupPro_TFOL/Liberation Sans12 Normal; all individual Ё/Й/1/space/raw
+marks HasCharacter checks are true. The one untouched1440×900 frame has not been
+opened. Independent glyph/combining-placement/layout/readability review is pending.
+Runtime50.632s, observer0/launcher0/game numeric exit unknown,15 postrun checks:
+bridge removed, QA original DLL restored, exact processes absent, original files/
+19 pins unchanged and QA persistence empty. See candidate48 runtime-diagnosis.json,
+choice-renderer-before-capture.json, final-verification.json, native-manifest.json
+and native-packet-01.json. Never replay consumed48 or prior candidates. Full source,
+special-scene/editorial/final fonts-license/resources and delivery remain pending.
+
 # Legacy response-label Cyrillic feasibility
 
 Phase0052 is text-only. Candidate47's one original English choice-menu image was
