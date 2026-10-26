@@ -956,7 +956,13 @@ public sealed class ForestProbe : MonoBehaviour
                 rendererDiagnostics.Add(Address(t.transform)+" | UnityEngine.UI.Text | "+t.text+" | font="+(t.font==null?"null":t.font.name)+" | size="+t.fontSize+
                     " | style="+t.fontStyle+" | fontNames="+(t.font==null?"null":String.Join(",",t.font.fontNames))+
                     " | dynamic="+(t.font!=null && t.font.dynamic)+
-                    " | hasCyrillicAndDigits="+(t.font!=null && t.font.HasCharacter('Ё') && t.font.HasCharacter('Й') && t.font.HasCharacter('1')));
+                    " | hasCyrillicAndDigits="+(t.font!=null && t.font.HasCharacter('Ё') && t.font.HasCharacter('Й') && t.font.HasCharacter('1'))+
+                    " | hasYo="+(t.font!=null && t.font.HasCharacter('Ё'))+
+                    " | hasShortI="+(t.font!=null && t.font.HasCharacter('Й'))+
+                    " | hasDigit1="+(t.font!=null && t.font.HasCharacter('1'))+
+                    " | hasSpace="+(t.font!=null && t.font.HasCharacter(' '))+
+                    " | hasDiaeresis="+(t.font!=null && t.font.HasCharacter('\u0308'))+
+                    " | hasBreve="+(t.font!=null && t.font.HasCharacter('\u0306')));
         foreach(var b in Resources.FindObjectsOfTypeAll<Button>())
             if(b.gameObject.activeInHierarchy && b.gameObject.scene.IsValid() && b.interactable) buttons.Add(Address(b.transform));
         foreach(var b in Resources.FindObjectsOfTypeAll<MonoBehaviour>())

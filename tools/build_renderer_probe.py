@@ -16,6 +16,7 @@ from extract_assets import read_tree, canonical
 from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
+from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
@@ -50,11 +51,12 @@ def fields_changed(before, after, pointer=''):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--sample-surface', choices=['tutorial', 'new-game', 'menu-settings'], default='tutorial')
+    parser.add_argument('--sample-surface', choices=['tutorial', 'new-game', 'menu-settings', 'tutorial-choices'], default='tutorial')
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
     parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
+    parser.add_argument('--coherent-choice-face', action='store_true', help='Rebind only native response-label Text fonts to the already coherent embedded face')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Disable legacy baked Images with complete six-layer TMP replacements in OptionsMenu')
     args = parser.parse_args()
@@ -62,6 +64,8 @@ def main():
     assert not args.repair_settings_value_images or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
+    assert not args.coherent_choice_face or args.coherent_legacy_face
+    assert args.sample_surface != 'tutorial-choices' or args.coherent_choice_face
     out = args.output.resolve()
     assert PROJECT in out.parents and SOURCE not in out.parents
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
@@ -75,6 +79,7 @@ def main():
     shutil.copy2(Path(__file__), out / 'build_renderer_probe.py')
     shutil.copy2(PROJECT / 'tools/tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
     shutil.copy2(PROJECT / 'tools/settings_glow.py', out / 'settings_glow.py')
+    shutil.copy2(PROJECT / 'tools/legacy_choice_font.py', out / 'legacy_choice_font.py')
     runtime = out / 'game'
     shutil.copytree(SOURCE, runtime, ignore=shutil.ignore_patterns('tfol.*', '*.log', '*.dmp'))
     target = runtime / DATA_NAME
@@ -87,14 +92,20 @@ def main():
         assert native_fallback['m_Name'] == 'LiberationSans'
         tmp_fallback = read_tree(next(o for o in fonts_env.objects if o.path_id == 1017), generator)
     entry_ids = [197, 199, 200, 202] if args.sample_surface == 'new-game' else [153, 154, 155, 156]
+    if args.sample_surface == 'tutorial-choices':
+        entry_ids = [159, 181]
     mark_samples = {str(entry_ids[0]): SAMPLE + '\nЕ\u0308 и\u0306'}
     if args.coherent_legacy_face:
         mark_samples[str(entry_ids[1])] = SAMPLE + '\n' + unicodedata.normalize('NFC', 'Е\u0308 и\u0306')
+    if args.sample_surface == 'tutorial-choices':
+        mark_samples = {}
     report = {'schemaVersion': 1, 'build': '0.45', 'siteLocale': 'ru',
               'sample': SAMPLE, 'sampleSurface': args.sample_surface, 'runtime': 'not-run', 'visual': 'not-run',
               'cyrillicMetricsRepair': args.repair_cyrillic_metrics,
               'coherentLegacyFace': args.coherent_legacy_face,
               'coherentTmpFace': args.coherent_tmp_face,
+              'coherentChoiceFace': args.coherent_choice_face,
+              'choiceSamples': CHOICE_SAMPLES if args.sample_surface == 'tutorial-choices' else {},
               'markSamples': mark_samples,
               'menuSamples': MENU_SAMPLES if args.sample_surface == 'menu-settings' else {'Fullscreen:': 'Ёж 123:'},
               'scope': 'Synthetic script feasibility only; no translated game corpus.',
@@ -106,6 +117,7 @@ def main():
         selected = {}
         glow_repairs = {}
         image_repairs = {}
+        choice_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
@@ -115,6 +127,10 @@ def main():
         elif name in ['sharedassets0.assets', BUNDLE]:
             pid = 3336 if name == 'sharedassets0.assets' else -9011735310751668748
             selected = {pid: objects[pid]}
+            if args.coherent_choice_face:
+                choice_repairs, choice_evidence = choice_font_plan(objects, generator, native_fallback)
+                report.setdefault('choiceFontRepair', {})[name] = choice_evidence
+                selected.update({pid: objects[pid] for pid in choice_repairs})
             if args.repair_cyrillic_metrics:
                 font_id = 368 if name == 'sharedassets0.assets' else 2133516458142313129
                 selected[font_id] = objects[font_id]
@@ -198,6 +214,8 @@ def main():
                     tree = copy.deepcopy(image_repairs[pid])
                 else:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
+            elif pid in choice_repairs:
+                tree = copy.deepcopy(choice_repairs[pid])
             elif obj.type.name == 'Font':
                 assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
                 # The default repair extends the existing fallback only. The
@@ -237,6 +255,12 @@ def main():
                 for entry in conversations[0]['dialogueEntries']:
                     for field in entry['fields']:
                         if field['title'] == 'Dialogue Text' and field['value'] and entry['id'] in entry_ids:
+                            if args.sample_surface == 'tutorial-choices':
+                                expected_source = {159: 'Well… uhh… You see…', 181: 'The love. Definitely the love.'}
+                                assert field['value'] == expected_source[entry['id']]
+                                field['value'] = CHOICE_SAMPLES[str(entry['id'])]
+                                changed += 1
+                                continue
                             prefix = field['value'].split(']', 1)[0] + ']' if field['value'].startswith('[pic=') else ''
                             suffix = '\nЕ\u0308 и\u0306' if entry['id'] == entry_ids[0] else '  '
                             if args.coherent_legacy_face and entry['id'] == entry_ids[1]:
@@ -244,7 +268,7 @@ def main():
                                 assert unicodedata.normalize('NFD', suffix) == '\nЕ\u0308 и\u0306'
                             field['value'] = prefix + SAMPLE + suffix
                             changed += 1
-                assert changed == 4, changed
+                assert changed == len(entry_ids), changed
             paths = fields_changed(before, canonical(tree))
             changes.append({'pathId': pid, 'changedFieldPaths': paths})
             # ObjectReader.read_typetree reads its original reader stream after

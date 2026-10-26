@@ -1,0 +1,42 @@
+{
+  "assembly": "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+  "assemblySha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+  "inspectorSourceSha256": "df870a479305893c698c66d5852653c4e9ef444fbb772e7cad07020b858a0862",
+  "commands": {
+    "ResponseLabel.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.DialogueSystem.StandardUIResponseButton",
+      "get_text,set_text,SetFormattedText,SetUnformattedText"
+    ],
+    "UITextField.il": [
+      "dotnet",
+      "/Users/antonkrutov/Desktop/Forest/tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll",
+      "PixelCrushers.UITextField",
+      "get_text,set_text"
+    ]
+  },
+  "outputs": {
+    "ResponseLabel.il": "d0953cc46d4aa5e775f6872342184f7ffa40cd230f8eafcf16b52bfa01126f31",
+    "UITextField.il": "49f29abe24a2ab49d84c6759eb38ef34aa15ed72bed5ca65e817eff17dfbc1f2"
+  },
+  "failedReadOnlyDiscoveryAttempts": [
+    {
+      "assembly": "Assembly-CSharp.dll",
+      "types": [
+        "PixelCrushers.DialogueSystem.StandardUIResponseButton",
+        "PixelCrushers.DialogueSystem.UITextField"
+      ],
+      "exitCode": 134,
+      "cause": "Types belong to Auto-asmdef-FirstPass.dll, confirmed by existing phase0049 extraction"
+    },
+    {
+      "assembly": "Auto-asmdef-FirstPass.dll",
+      "type": "PixelCrushers.DialogueSystem.UITextField",
+      "exitCode": 134,
+      "cause": "Actual field type is PixelCrushers.UITextField, confirmed by response getter IL"
+    }
+  ]
+}
