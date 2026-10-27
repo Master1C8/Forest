@@ -1,0 +1,1 @@
+TYPE PixelCrushers.DialogueSystem.Wrappers.StandardUISubtitlePanel BASE PixelCrushers.DialogueSystem.StandardUISubtitlePanel

@@ -1,0 +1,32 @@
+[
+  {
+    "output": "dependency-scopes-initial.json",
+    "commands": "initial-commands.json",
+    "dispatch": null,
+    "sha256": "ac4e6ed1afbeaf97b5251ea1d6c3d9628938c8b3498af968d1ebc7967ac843f3"
+  },
+  {
+    "output": "dependency-scopes-dispatch.json",
+    "commands": "dispatch-commands.json",
+    "dispatch": "Rebuild,LayoutComplete,GraphicUpdateComplete,IsDestroyed,UpdateMaterial",
+    "sha256": "6dd8aee99a444f8d1d13d04e9583b8cebc67f13607ff4c6f96d1c6398e934cbd"
+  },
+  {
+    "output": "dependency-scopes-managed.json",
+    "commands": "managed-commands.json",
+    "dispatch": "Rebuild,LayoutComplete,GraphicUpdateComplete,IsDestroyed,UpdateMaterial",
+    "sha256": "135c6c7de8036a2c28ef213644045f313a30c9c16eaa8b90bcfb269534a4ae18"
+  },
+  {
+    "output": "dependency-scopes-name-selection.json",
+    "commands": "wide-commands.json",
+    "dispatch": "Rebuild,LayoutComplete,GraphicUpdateComplete,IsDestroyed,UpdateMaterial,get_materialForRendering,UpdateMeshPadding,GenerateTextMesh",
+    "sha256": "00acf6ebc7c3decddce75f2f72512839a23dd1cca1886ee34f302741e7018687"
+  },
+  {
+    "output": "dependency-scopes.json",
+    "commands": "il-commands.json",
+    "dispatch": "Rebuild,LayoutComplete,GraphicUpdateComplete,IsDestroyed,UpdateMaterial,get_materialForRendering,UpdateMeshPadding,GenerateTextMesh",
+    "sha256": "f693fa77f1c7da2cc900bebd165e820e53ffa885ed0a0196fcc3b3e860d8e8b9"
+  }
+]

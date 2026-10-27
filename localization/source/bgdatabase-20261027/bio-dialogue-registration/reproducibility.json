@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "boundary": "Fresh decoder and separate-directory full verifier with final pinned code; ten readbacks byte-identical; no game execution",
+  "freshDecodedSha256": "9d661a1089a69a3cca702a626c6db3692d434bdda9ccbb157dcea8f6a2c47635",
+  "comparedFiles": {
+    "readback/arc-membership.json": "54affa3de1758444afd4c6fcb480c52fffabea42e7a6a4237383f8b47b15edd2",
+    "readback/bio-registration.json": "cef2860639ac9497e51edb7aefb3d61d697001a5485bbe15c10a8b6f0c6ae19b",
+    "readback/implicit-actors.json": "aa6f739ee14a645099a04a7f42a106218a5e759c63034e6201906851e74e0a8b",
+    "readback/preserve-exactly.jsonl": "acaaeefe0add2f931770ee675af21cfbff577233a7b8a91d6b4ddfdb68e82358",
+    "readback/registry-bindings.json": "a8f2f4c464428533296441262365dbfe06fe64d20705c2c3101aafca9d2d4431",
+    "readback/relations.json": "e3e326200076cf128a815d12792a83277fcc5e3e4af141898a0c276615e51bdf",
+    "readback/source-copies.json": "3de34bfa1214e490d419fa4a2ad471d677e25ead11afcd6bd3b30b32cead1b8d",
+    "readback/static-graph-controls.json": "92c0e47cc9ee62f1f23640b83f58368fde848e252b39ca054797dfe6a9ca9f80",
+    "readback/unregistered-conversations.json": "42830f910a254c120a87b2f31267617228d6c3ce788da2dfb43a691df6444bb0",
+    "readback/verification.json": "f38ecc9faa50e8e31cda08345ae5b2718370451a2c2545067884b81205f2178f"
+  },
+  "initialUnchangedOutputs": [
+    "readback/arc-membership.json",
+    "readback/bio-registration.json",
+    "readback/implicit-actors.json",
+    "readback/preserve-exactly.jsonl",
+    "readback/registry-bindings.json",
+    "readback/source-copies.json",
+    "readback/unregistered-conversations.json"
+  ],
+  "scriptHashes": {
+    "decode_registration.py": "5fe31906682c7f6619ac61bf709b4fbcccdfa50ddf045736218d6db25db9d0ef",
+    "verify_registration.py": "d0e28232d89cbf4e9aab726f1132c18bd68733038fb79caf6d600ad2e1bd9834",
+    "il-commands.json": "81bf8cab9dd2584b66e979d126101d2c94d62f7e8da0d2ba7afa9c3f16f33aac",
+    "execution-recipe.json": "59626c339226707cc820cfb4b95c4bfdacc5b00fc81703ef05cdeb676507e01d"
+  },
+  "priorRecheckExitCode": 0,
+  "finalVerifierExitCode": 0,
+  "freshVerifierExitCode": 0,
+  "frozenPins": 19,
+  "exactIlSelections": 27,
+  "exactMethodBodies": 41,
+  "reusedIlSelections": 92,
+  "priorNoteKinkReadbacksMatched": 11,
+  "priorKeywordAndDetailReadbacksMatched": 16,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "gitMutations": 0
+}

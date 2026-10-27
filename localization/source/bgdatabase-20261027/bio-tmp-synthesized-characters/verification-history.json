@@ -1,0 +1,39 @@
+{
+  "attempts": [
+    {
+      "output": "dependency-scopes-initial.json",
+      "result": "passed-exact-entry-declarations",
+      "selectedBodies": 1
+    },
+    {
+      "output": "dependency-scopes-with-direct.json",
+      "result": "passed-helper-and-metric-accessors",
+      "selectedBodies": 7
+    },
+    {
+      "output": "dependency-scopes.json",
+      "result": "passed-final-glyph-and-marshalling-dependencies",
+      "selectedBodies": 12
+    },
+    {
+      "action": "construct-retained-consumers-and-boundaries",
+      "result": "failed-before-retained-consumer-output",
+      "processExit": 1,
+      "exception": "ValueError: relative path is not in the subpath of absolute root",
+      "successfulEarlierWrite": "execution-model.json",
+      "reason": "Documentation path construction mixed relative and absolute Path values; no metadata reader failure.",
+      "repair": "Preserved verified execution record and used project-relative paths directly; completed consumer/next artifacts without rerunning metadata."
+    },
+    {
+      "output": "metadata-verified",
+      "result": "passed-static-scoped",
+      "processExit": 0,
+      "verifierSha256": "0e0bdbf77c0a0c35aed9155086bca7dbc41a104671ce8b9a81f42a4e7d9a95c1",
+      "verificationSha256": "6ecc80fdf1a92186dbaeabf2a05fd06dafd812e83011d28bb3fd0aea238d2c58"
+    }
+  ],
+  "failedMetadataAttempts": 0,
+  "failedDocumentationConstructionAttempts": 1,
+  "readerRebuilds": 0,
+  "newMetadataReaders": 0
+}

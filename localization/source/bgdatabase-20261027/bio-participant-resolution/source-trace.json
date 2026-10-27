@@ -1,0 +1,100 @@
+{
+  "status": "passed-original-metadata-scoped",
+  "source": "Pinned original metadata and exact unchanged target fields in both frozen trees; no original code execution",
+  "inputBinding": {
+    "targetRegistrations": 126,
+    "uniqueTargetEntries": 114,
+    "targetParticipantIds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      16,
+      25,
+      31
+    ],
+    "requestedConversantId": 1,
+    "identityEvidence": "localization/source/bgdatabase-20261027/actor-identity/readback/plugin-actor-bindings.json",
+    "targetParticipants": "localization/source/bgdatabase-20261027/bio-participant-resolution/readback/target-participants.json",
+    "targetActorIdentities": "localization/source/bgdatabase-20261027/bio-participant-resolution/readback/target-actor-identities.json",
+    "sourceCopies": 2,
+    "precondition": "Original fields unchanged at each consuming boundary; callbacks/cache/override/live selection not accepted"
+  },
+  "findings": [
+    {
+      "id": "exact-entry-ids",
+      "locator": "entry-participants.il IL_0000..0010; field-lookup-int.il; tools-string-int.il; safe-convert-int.il",
+      "rule": "First exact Actor/Conversant -> LookupValue -> Int32.TryParse; conversion failure returns0. Actual target fields are canonical positive ASCII decimals, not arbitrary conversion controls."
+    },
+    {
+      "id": "model-construction-and-roles",
+      "locator": "prior bio-subtitle-inputs/model-ctor.il .ctor IL_0000..0022/0087..00db; model-participants.il SetParticipants IL_0000..005e",
+      "rule": "Per-model requested-ID cache is created; found conversation initializes actor then conversant with supplied transforms before first GetState, Lua participants and PC portrait. Missing conversation sets firstState null, with no participant initialization on that branch."
+    },
+    {
+      "id": "wrapper-and-role-transform",
+      "locator": "model-participants.il GetCharacterInfo(Int32) IL_0000..000e / GetCharacterTransform IL_0000..0035",
+      "rule": "One-arg wrapper resolves transform before cache. Actor-info ID comparison precedes conversant-info ID, neither returns null; role infos are dereferenced without null guards. Selected info IDs may differ from conversation source IDs."
+    },
+    {
+      "id": "cache-and-override-identity",
+      "locator": "model-participants.il GetCharacterInfo(Int32,Transform) IL_0000..0119; database-actor-resolution.il; actor-id-predicate.il; prior actor-identity/plugin-actor-compare.il/plugin-asset-name.il",
+      "rule": "Cache hit by requested ID reuses whole info, ignoring newly supplied transform/override. Miss checks component actor Name in m_database then numeric requested ID. Found actor supplies resulting id/name, missing actor retains requested id and empty name. CharacterType still uses requested ID. Cache insertion remains requested ID; new requested -1 bypasses insertion."
+    },
+    {
+      "id": "component-resolution",
+      "locator": "dialogue-actor-resolution.il GetDialogueActorComponent IL_0000..0025",
+      "rule": "Null-comparing transform returns null, otherwise GetComponent self, then children, then parent. No enabled guard in this helper or CharacterInfo constructor; static GetActorName(Transform) has a separate enabled guard and is not the ctor call."
+    },
+    {
+      "id": "registry-and-original-input-distinction",
+      "locator": "model-participants.il GetCharacterInfo IL_005c..0073/0083..00c3; character-resolution.il .ctor IL_0024..008d",
+      "rule": "Outer registry fallback occurs after local DialogueActor capture without refresh. Constructor can search missing transform and update this.transform, but its next component lookup uses ORIGINAL constructor argument. Registry result passed into constructor and constructor-only found result therefore differ."
+    },
+    {
+      "id": "registry-lifecycle",
+      "locator": "character-resolution.il RegisterActorTransform/UnregisterActorTransform/GetRegisteredActorTransform/.cctor; dialogue-actor-resolution.il OnEnable/OnDisable; registry-uses.il",
+      "rule": "Register ignores null/empty names or null-comparing transform, otherwise overwrites/adds exact key. Unregister removes existing key without checking stored transform identity. Registry lookup returns stored value/null by key; direct lookup lacks null-key guard. Enable/disable invoke with actor and own transform. Actual order/transient objects are unknown."
+    },
+    {
+      "id": "constructor-search-route",
+      "locator": "character-resolution.il .ctor IL_002b..0054; sequencer-find-specifier.il; sequencer-specifier-grammar.il",
+      "rule": "These16 names have no tag= prefix. FindSpecifier(name,true) tries registry then GameObject.Find and returns null on miss without plain-name hard/resource lookup. Tag branch is separate case-insensitive prefix and can use hard tag search. No live object match proven."
+    },
+    {
+      "id": "display-name-versus-identity",
+      "locator": "character-resolution.il .ctor IL_0059..00c4/GetLocalizedDisplayNameInDatabase; dialogue-actor-resolution.il GetActorName()",
+      "rule": "Name uses argument component virtual GetActorName or localized Lua Display Name -> Name -> original DB name with null/empty/exact nil fallback, then ParseCode. Component name path reads Lua Name and may parse [lua/[var. Public Name is mutable. Constructor uses masterDatabase for its component portrait fallback, separately from model m_database. No current Lua/language/display/portrait value accepted."
+    },
+    {
+      "id": "linked-role-and-cache-limits",
+      "locator": "model-participants.il UpdateParticipantsOnLinkedConversation IL_0000..0098; model-cache-uses.il; character-portrait-callback.il",
+      "rule": "Linked update returns if conversation absent, updates changed actor role only for player actor and returns; otherwise analogous changed player conversant path. Does not clear cache or replace all roles. Own-assembly cache field scan is scoped; sprite callback stores portrait only. Reflection/external field mutation and actual callbacks remain unaccepted."
+    },
+    {
+      "id": "scene-argument-boundary",
+      "locator": "prior bio-subtitle-inputs/model-state.il GetState IL_006a..00ce",
+      "rule": "Both infos precede scene lookup; valid speaker transform selects its GameObject, else manager GameObject. No speaker-info/manager null guard here. Manager is event-argument fallback, not participant-ID fallback. skipExecution skips scene invoke, not participant resolution. Prior null EventGuid and mutable prepare/Lua/onExecute conditions remain."
+    }
+  ],
+  "metadataCommands": "il-commands.json",
+  "coverageLimits": [
+    "Only the16 derived participant identities are mapped; no broad object/scene/UI/save dump.",
+    "Requested ID, BGDatabase Actor row/dbName, plugin Name/ID, registration BIO target, CharacterInfo ID/Name and Transform remain distinct.",
+    "No real cache, DialogueActor override, registry, language/Lua, search object, manager/scene, callback, mutation or Subtitle delivery proof.",
+    "Portrait dependency calls and Lua/ParseCode are not executed or accepted.",
+    "No rendering, successful BIO, reachability, whole source/special-scene/editorial/font/resource/delivery acceptance.",
+    "No images, game/GUI/preview/Git interaction or authored overlay."
+  ],
+  "nextBoundary": "Original Lua actor Name/localized field lookup and initialization for these16 participants, exact language/fallback/null/nil/ParseCode dependencies; static only, no source/target edits.",
+  "usage": null
+}

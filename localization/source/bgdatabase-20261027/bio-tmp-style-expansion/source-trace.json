@@ -1,0 +1,66 @@
+{
+  "phase": "0098-work",
+  "status": "passed-static-scoped",
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-style-resolution/source-trace.json",
+    "sha256": "302398df7a9b02cb3d5b6e4ca529ed8671b3c1acee4d51d166e66cca69f0af4d",
+    "coverageLimits": "All phase79–97 source/cache/format/Lua/language/serialized-state/conditional UI/notification/coroutine/queue/pre-render/parsing/style-resolution limits retained unchanged."
+  },
+  "rules": [
+    {
+      "id": "null-before-mutation",
+      "evidence": "opening-style.il IL_0000-IL_002b",
+      "finding": "Managed-null style returns false before field access. A nonnull style first pushes its hash onto m_TextStyleStacks[0], before reading opening-array length. The array getter is called twice and simply returns m_OpeningTagArray. Empty definitions can still change the stack and finish true. No stack/array null or validity guard follows the style guard."
+    },
+    {
+      "id": "definition-expansion-loop",
+      "evidence": "opening-style.il IL_0033-IL_00bf;style-unicode.il;hex-digit.il",
+      "finding": "Opening definitions are traversed as Int32 elements with a cached initial length. Backslash+backslash consumes the second slash and emits one; backslash+n emits10. Lowercase u requires i+5<length and uppercase U requires i+9<length before four/eight-digit helpers. Other or insufficient escape sequences fall through to ordinary copying. Helpers narrow each element to UInt16/Char, shift/add HexToInt results without overflow/scalar/surrogate validation. HexToInt accepts0-9,A-F,a-f and maps every other Char to15, never rejects it. These are definition-expansion rules, distinct from the retained inputSource0-only parser escape block."
+    },
+    {
+      "id": "hash-selected-substitutions",
+      "evidence": "opening-style.il IL_00bf-IL_01da;metadata-readback/derived-hashes.json",
+      "finding": "On current value60, the Int32-array hash selects integer2256 -> unicode10 and local index+3;2869039 ->160/index+5;3288238 ->8203/index+5. Each then advances once through the common loop tail. Derived examples br/nbsp/zwsp match these constants; no name-equality or closing-delimiter validation occurs here before fixed skips. Hash100252951 calls the exact Int32[]& ReplaceOpeningStyleTag; true uses its returned local index, false falls through to copying the current value. Hash1927738392 calls the exact Int32[]& closing helper then index+7 before the tail. Inline grammar/collision handling/recursion behavior remain unread at those exact helper boundaries; derived examples style and /style do not prove grammar."
+    },
+    {
+      "id": "output-write-and-completion",
+      "evidence": "opening-style.il IL_011c-IL_0217;retained-consumers.json",
+      "finding": "Four emission sites resize only when writeIndex equals output array length, using the unchanged retained generic ResizeInternalArray(T[]&) body; they do not repair invalid negative or larger indexes. Emission writes only UnicodeChar.unicode and increments writeIndex; no stringIndex/length field is assigned and no terminator is inserted by this method. The second explicit Int32 parameter (IL argument2) is unused in the body. Ordinary unmatched values including UTF16 surrogate units are copied as Int32, without pairing here. At normal loop completion m_TextStyleStackDepth becomes0 and result true. This is neither balanced-pop proof nor validated glyph/rendered output; nested calls and exceptions may intervene."
+    },
+    {
+      "id": "bounded-markup-hash",
+      "evidence": "markup-hash.il;definition-markup-hash.il",
+      "finding": "Both exact overloads start hash0 and compute local end=readIndex+16 with unchecked Int32 add. For ordinary valid nonoverflowing indices they visit at most16 elements and stop early at value62 ('>'),61 ('=') or ASCII space32, without hashing that delimiter. They return a partial accumulated hash when no delimiter appears before the limit. TextBackingContainer is passed by value and bounded by Capacity, not Count; Int32[] uses Length. Local starg readIndex cannot update the caller index. No opening-bracket validation, zero/quote stop, Unicode normalization or final full-name equality appears. Invalid index/overflow/storage behavior is not covered by the ordinary bound claim."
+    },
+    {
+      "id": "original-markup-uppercase-table",
+      "evidence": "markup-uppercase.il;metadata-readback/derived-hashes.json",
+      "finding": "Markup hashing calls TMP_TextUtilities.ToUpperASCIIFast(UInt32), distinct from the prior style-name TMP_TextParsingUtilities.Char helper. Its literal128-slot table maps ASCII letters to uppercase and several ASCII/control entries to hyphen, including NUL and double quote. Values above127 return unchanged. Hash is shift5/add/XOR with ordinary32-bit operations, not Unicode casefold or a collision-free name identity. The derived five names corroborate branch constants only; original methods were never executed."
+    },
+    {
+      "id": "push-capacity-rollover-and-failure",
+      "evidence": "style-stack-push.il;dependency-scopes.json",
+      "finding": "Push grows only when index==m_Capacity: capacity is doubled, zero result becomes4, the field is stored BEFORE BCL Array.Resize<T>. It then stores at itemStack[index]. RolloverSize0 increments index and m_Count without cap; nonzero uses (index+1)%rollover and m_Count becomes rollover when count>=rollover, otherwise count+1. No initialized/consistent/nonnegative stack state is proved. Failure can leave capacity or output/stack/depth partially changed; the nine selected managed bodies have zero local handlers/finally/rollback."
+    },
+    {
+      "id": "exact-scope-and-reuse",
+      "evidence": "il-commands.json;retained-consumers.json;metadata-readback-final/verification.json",
+      "finding": "Eight exact selections contain9 managed bodies.29 TMP method operands and30 field operands resolve to the pinned original module;3 BCL/runtime method operands remain opaque. Four previously read exact direct dependencies are retained by body hashes/module/signature identities without rereading their bodies. Three raw/projection controls exclude10 declarations across selected exports (two other hash overload projections and eight alternate Unicode overloads); some excluded projections are selected separately in their correct scope.6 exact next declarations are pinned without bodies. No original assembly/native execution or mocks."
+    },
+    {
+      "id": "parent-commit-independent-helper-version",
+      "evidence": "ExpansionScopes.csproj;verify_expansion.py;verification-attempts.json",
+      "finding": "The new metadata helper disables source revision embedding in informational version. Verifier requires exact informational version1.0.0 and before/after-build helper hashes. Expected parent commits retain no-Git worker ownership; they are not source or original-module changes. Old helpers/other lanes remain untouched."
+    }
+  ],
+  "verification": "metadata-readback-final/verification.json",
+  "nextConsumer": "next-consumer.json",
+  "limits": [
+    "Static original metadata/IL only; no original managed/native execution, game/GUI/preview/images, Git mutation, overlay or authored translation.",
+    "Original panel3633/TMP4571 remain conditional consumers, not live UI proof. Actual preprocessing/styles/stacks/resources/API/native state, inline/closing grammar, concrete SetArraySizes, generation, typewriter/notifications and delivery remain unaccepted.",
+    "Actual controller/DB/Lua/metatables/language/loading/save/global scripts/callbacks/rendering/BIO/reachability and complete source/special-scene/runtime manifest unaccepted.",
+    "Serializer/nonlinear restore,Quest ordering/reflection/initial-unlock/counter,universal semantic/independent diff/delta,final fonts/licenses/resources/runtime/delivery pending.",
+    "Accepted10/15/47/48 visuals/50 route unchanged; spawn/other3 intros/notebook/Bucky open. No53 replay/no54. Parallel asset/editorial/Japanese lanes and actual preview independently authorized/read-only. Parent integrates; no Git ownership blocker."
+  ],
+  "usage": null
+}

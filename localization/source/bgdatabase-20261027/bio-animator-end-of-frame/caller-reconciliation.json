@@ -1,0 +1,111 @@
+{
+  "basis": {
+    "trace": "localization/source/bgdatabase-20261027/bio-subtitle-invalidation/source-trace.json",
+    "traceSha256": "1f59d03102aeaa04c976c9f37ee27393142362ee3af6ad426e9415c2e183c28c",
+    "scopes": "localization/source/bgdatabase-20261027/bio-subtitle-invalidation/dependency-scopes.json",
+    "scopesSha256": "018d393a33c821e78c753ca017a781cf69690c217c4878c0bab6d5f1c1caf43e",
+    "constructorOperand": "System.Void PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::.ctor(System.Int32)",
+    "module": "Auto-asmdef-FirstPass.dll",
+    "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+    "nextType": "PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109",
+    "targetToResolve": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+    "declarationStatus": "not yet enumerated/resolved; do not claim accepted body"
+  },
+  "animatorGetter": {
+    "definition": {
+      "signature": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+      "module": "Auto-asmdef-FirstPass.dll",
+      "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+      "attributes": "Family, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true
+    },
+    "scopes": "localization/source/bgdatabase-20261027/bio-subtitle-invalidation/dependency-scopes.json",
+    "scopesSha256": "018d393a33c821e78c753ca017a781cf69690c217c4878c0bab6d5f1c1caf43e",
+    "trace": "localization/source/bgdatabase-20261027/bio-subtitle-invalidation/source-trace.json",
+    "traceSha256": "1f59d03102aeaa04c976c9f37ee27393142362ee3af6ad426e9415c2e183c28c",
+    "body": "localization/source/bgdatabase-20261027/bio-subtitle-invalidation/panel-animator-access.il",
+    "bodySha256": "ee6762091aed1f46c4c348a9f0f0d8826d16e7caedc67802f3ae9611be89f2d8",
+    "coverageEvidence": {
+      "id": "animator-conditions",
+      "evidence": "panel-prewrite.il;panel-animator-access.il",
+      "locator": "CheckSubtitleAnimator",
+      "finding": "Null subtitle, useAnimatedPortraits false or Unity-null animator returns. Animator getter lazily caches portraitImage.GetComponent<Animator>; no portrait resource was read. With a DialogueActor, override Transform, panel index, default NPC/PC flags or custom panel matching permit a coroutine carrying portraitAnimatorController; unmatched actor returns. Absent actor schedules the coroutine carrying null. Native lookup/equality/StartCoroutine and live state remain unexecuted."
+    },
+    "status": "prior full selected reading reused by hash; not reread",
+    "calls": [
+      {
+        "offset": 31,
+        "opcode": "call",
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()"
+      },
+      {
+        "offset": 55,
+        "opcode": "call",
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()"
+      },
+      {
+        "offset": 141,
+        "opcode": "call",
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()"
+      },
+      {
+        "offset": 165,
+        "opcode": "call",
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()"
+      }
+    ]
+  },
+  "readerFilterCorrection": {
+    "rawBackingScopes": "dependency-scopes.json",
+    "rawAllOperands": "all-direct-operands.json",
+    "excludedEdges": [
+      {
+        "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+        "offset": 31,
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "scope": "Auto-asmdef-FirstPass.dll",
+        "boundary": "BCL/runtime semantics not executed"
+      },
+      {
+        "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+        "offset": 55,
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "scope": "Auto-asmdef-FirstPass.dll",
+        "boundary": "BCL/runtime semantics not executed"
+      },
+      {
+        "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+        "offset": 108,
+        "operand": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+        "scope": "Auto-asmdef-FirstPass.dll",
+        "boundary": "BCL/runtime semantics not executed"
+      },
+      {
+        "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+        "offset": 141,
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "scope": "Auto-asmdef-FirstPass.dll",
+        "boundary": "BCL/runtime semantics not executed"
+      },
+      {
+        "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+        "offset": 165,
+        "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "scope": "Auto-asmdef-FirstPass.dll",
+        "boundary": "BCL/runtime semantics not executed"
+      },
+      {
+        "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+        "offset": 218,
+        "operand": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+        "scope": "Auto-asmdef-FirstPass.dll",
+        "boundary": "BCL/runtime semantics not executed"
+      }
+    ],
+    "classification": "All six excluded edges are real managed PixelCrushers calls, resolved by frozen phase94 reader; no BCL/runtime operand in the five selected bodies. Raw files unchanged.",
+    "additionalReaderMetadata": "Frozen94 reader also enumerates three dirty-method declaration chains; they are incidental unchanged metadata and not counted as selected bodies, new coverage or acceptance."
+  },
+  "nonvirtualDependencies": "All four newly read direct dependency declarations are nonvirtual; get_animator is Family/HideBySig/SpecialName, and is invoked with call. No derived override selected by this edge.",
+  "constructorFactory": "Retained94 factory type/module/constructor edge reused; ctor body not claimed newly read here. StartCoroutine dispatch/virtual factory choice/native scheduling remain unexecuted."
+}

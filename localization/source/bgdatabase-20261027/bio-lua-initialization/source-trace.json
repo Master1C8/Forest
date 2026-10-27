@@ -1,0 +1,92 @@
+{
+  "phase": "0085-work",
+  "status": "passed-static-scoped",
+  "rules": [
+    {
+      "id": "reference-only-default",
+      "evidence": "manager-default-reset.il",
+      "locator": "DatabaseManager.set_defaultDatabase IL_0000..0007; GetMasterDatabase IL_0000..001f",
+      "finding": "Setter only stores reference. Empty loaded list triggers Add(default) on master read."
+    },
+    {
+      "id": "controller-order",
+      "evidence": "../bio-prepare-bindings/controller-lifecycle.il",
+      "locator": "Awake IL_0000..001d,0030..0073,023e..0261",
+      "finding": "Duplicate-instance guard; conditional clone with copied name; database then display then localization then scene subscription."
+    },
+    {
+      "id": "controller-database-path",
+      "evidence": "controller-initialization.il",
+      "locator": "InitializeDatabase IL_0000..0073",
+      "finding": "Always new manager. Nonnull initial Unity name equal last name -> Add; otherwise Reset(0); update last name only if nonnull."
+    },
+    {
+      "id": "reset-order",
+      "evidence": "manager-default-reset.il",
+      "locator": "Reset IL_0000..0014; ResetToDefaultDatabase; ResetToLoadedDatabases",
+      "finding": "0 KeepAllLoaded snapshots references, Clear, Add(default), Add old non-default references in order;1 Clear/Add(default); other values no reset branch."
+    },
+    {
+      "id": "manager-population",
+      "evidence": "../bio-participant-lua/manager-initialization.il",
+      "locator": "Add IL_0000..0052; Clear IL_0000..001b",
+      "finding": "Null/already-loaded skipped; empty-list table reset -> master.Add -> Lua population with pre-add list -> append reference. Clear resets Lua before master/list."
+    },
+    {
+      "id": "raw-name-merge",
+      "evidence": "database-merge.il",
+      "locator": "Add IL_000c..0098; AddAssets IL_001a..006c",
+      "finding": "Actors dedup by raw Name using cache; first key retained; append same incoming object reference. Conversation key is Title."
+    },
+    {
+      "id": "cache-conditions",
+      "evidence": "database-caches.il",
+      "locator": "SetupCaches; CreateCache IL_001a..0076; ResetCache",
+      "finding": "Only absent caches constructed. Application.isPlaying controls existing-list population; first repeated raw key retained."
+    },
+    {
+      "id": "clear-preserves-script",
+      "evidence": "database-merge.il",
+      "locator": "Clear IL_0000..003d; AddGlobalUserScript IL_0000..005c",
+      "finding": "Clear leaves script/emphasis fields. Incoming nonempty script either assigned or appended with semicolon-space; accumulated master script can run again at each Lua population."
+    },
+    {
+      "id": "creation-boundary",
+      "evidence": "utility-create.il",
+      "locator": "CreateDialogueDatabaseInstance IL_0000..006c",
+      "finding": "Template/wrapper/CreateScriptableObject; manager false argument skips optional Player/Alert. Native allocation/wrapper state unaccepted."
+    },
+    {
+      "id": "language-order",
+      "evidence": "controller-initialization.il; controller-language-master.il",
+      "locator": "InitializeLocalization IL_0000..00e0; SetLanguage IL_0000..008a",
+      "finding": "System/settings/UI language selection; UI setter then settings field then Localization setter. Real callbacks and final language unresolved."
+    },
+    {
+      "id": "start-callback",
+      "evidence": "controller-initialization.il",
+      "locator": "Start IL_0000..004e",
+      "finding": "Monitoring, optional preload/warm-up, function registration, initialized flag and initializationComplete invocation. Invoked bodies/callback success unaccepted."
+    },
+    {
+      "id": "direct-setters-narrow",
+      "evidence": "readback/direct-setter-call-search.json",
+      "locator": "6 raw metadata operand searches in3 named original DLLs",
+      "finding": "Zero matches in supplied search scope only; no absence claim for scripts, tables, reflection/native/dynamic paths."
+    },
+    {
+      "id": "exact-identities",
+      "evidence": "readback/target-initialization-inputs.json",
+      "locator": "16 original actor IDs;2 source copies;126 registrations/114 entries",
+      "finding": "Retains unchanged phase84 conditional input bindings, not live Lua or rendered names."
+    }
+  ],
+  "coverageLimits": [
+    "No game assemblies executed; no runtime/GUI/images/Git/target overlay.",
+    "Only sixteen actor identities covered; raw-name cache merge is separate from Lua converted-key collision behavior.",
+    "Actual instance/database/environment/language/lifecycle/metatables/mutation/save/callback/delivery/rendering remain unaccepted.",
+    "Complete source/special-scene/editorial/resource/package/delivery gates stay pending."
+  ],
+  "metadataCommands": "il-commands.json",
+  "usage": null
+}

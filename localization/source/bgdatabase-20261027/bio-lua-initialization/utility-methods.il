@@ -1,0 +1,1 @@
+PixelCrushers.DialogueSystem.DialogueDatabase PixelCrushers.DialogueSystem.DatabaseUtility::CreateDialogueDatabaseInstance(System.Boolean)

@@ -1,0 +1,1 @@
+TYPE PixelCrushers.DialogueSystem.LocalizeUIText BASE PixelCrushers.LocalizeUI

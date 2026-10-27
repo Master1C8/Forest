@@ -1,0 +1,1 @@
+PixelCrushers.DialogueSystem.ConversationState PixelCrushers.DialogueSystem.ConversationModel::GetState(PixelCrushers.DialogueSystem.DialogueEntry,System.Boolean,System.Boolean,System.Boolean) | IL_000b: ldstr "OnPrepareConversationLine"

@@ -1,0 +1,542 @@
+{
+  "selectedMethods": [
+    {
+      "signature": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::get_fontWeightTable()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 29,
+      "opcode": "callvirt",
+      "operand": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::get_fontWeightTable()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::get_fontWeightTable()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 219,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 228,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 251,
+      "opcode": "callvirt",
+      "operand": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 264,
+      "opcode": "callvirt",
+      "operand": "System.Boolean TMPro.TMP_FontAsset::TryAddCharacterInternal(System.UInt32,TMPro.TMP_Character\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Boolean TMPro.TMP_FontAsset::TryAddCharacterInternal(System.UInt32,TMPro.TMP_Character\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Assembly, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 278,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 296,
+      "opcode": "callvirt",
+      "operand": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 308,
+      "opcode": "callvirt",
+      "operand": "System.Boolean TMPro.TMP_FontAsset::TryAddCharacterInternal(System.UInt32,TMPro.TMP_Character\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Boolean TMPro.TMP_FontAsset::TryAddCharacterInternal(System.UInt32,TMPro.TMP_Character\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Assembly, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 326,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 334,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 375,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 384,
+      "opcode": "callvirt",
+      "operand": "System.Int32 TMPro.TMP_Asset::get_instanceID()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Asset::get_instanceID()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 428,
+      "opcode": "call",
+      "operand": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "offset": 9,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_FontAsset::ReadFontAssetDefinition()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_FontAsset::ReadFontAssetDefinition()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    }
+  ],
+  "fieldOperands": [
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 195,
+      "opcode": "ldfld",
+      "operand": "TMPro.TMP_FontAsset TMPro.TMP_FontWeightPair::regularTypeface",
+      "definition": {
+        "signature": "TMPro.TMP_FontAsset TMPro.TMP_FontWeightPair::regularTypeface",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 209,
+      "opcode": "ldfld",
+      "operand": "TMPro.TMP_FontAsset TMPro.TMP_FontWeightPair::italicTypeface",
+      "definition": {
+        "signature": "TMPro.TMP_FontAsset TMPro.TMP_FontWeightPair::italicTypeface",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 391,
+      "opcode": "ldsfld",
+      "operand": "System.Collections.Generic.HashSet\u00601\u003CSystem.Int32\u003E TMPro.TMP_FontAssetUtilities::k_SearchedAssets",
+      "definition": {
+        "signature": "System.Collections.Generic.HashSet\u00601\u003CSystem.Int32\u003E TMPro.TMP_FontAssetUtilities::k_SearchedAssets",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, Static"
+      }
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 406,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.HashSet\u00601\u003CSystem.Int32\u003E TMPro.TMP_FontAsset::FallbackSearchQueryLookup",
+      "definition": {
+        "signature": "System.Collections.Generic.HashSet\u00601\u003CSystem.Int32\u003E TMPro.TMP_FontAsset::FallbackSearchQueryLookup",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Assembly"
+      }
+    },
+    {
+      "caller": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::m_AtlasPopulationMode",
+      "definition": {
+        "signature": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::m_AtlasPopulationMode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private"
+      }
+    },
+    {
+      "caller": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::m_CharacterLookupDictionary",
+      "definition": {
+        "signature": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::m_CharacterLookupDictionary",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Assembly"
+      }
+    },
+    {
+      "caller": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "offset": 15,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::m_CharacterLookupDictionary",
+      "definition": {
+        "signature": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::m_CharacterLookupDictionary",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Assembly"
+      }
+    },
+    {
+      "caller": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::m_FallbackFontAssetTable",
+      "definition": {
+        "signature": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::m_FallbackFontAssetTable",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Assembly"
+      }
+    },
+    {
+      "caller": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::get_fontWeightTable()",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::m_FontWeightTable",
+      "definition": {
+        "signature": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::m_FontWeightTable",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private"
+      }
+    }
+  ],
+  "opaqueRuntimeOperands": [
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 236,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E::TryGetValue(!0,!1\u0026)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 286,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E::TryGetValue(!0,!1\u0026)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 343,
+      "operand": "System.Int32 System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E::get_Count()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 365,
+      "operand": "!0 System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E::get_Item(System.Int32)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 398,
+      "operand": "System.Boolean System.Collections.Generic.HashSet\u00601\u003CSystem.Int32\u003E::Add(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "offset": 413,
+      "operand": "System.Boolean System.Collections.Generic.HashSet\u00601\u003CSystem.Int32\u003E::Add(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    }
+  ],
+  "exceptionHandlers": [
+    {
+      "caller": "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean\u0026)",
+      "handlers": []
+    },
+    {
+      "caller": "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Collections.Generic.Dictionary\u00602\u003CSystem.UInt32,TMPro.TMP_Character\u003E TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Collections.Generic.List\u00601\u003CTMPro.TMP_FontAsset\u003E TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+      "handlers": []
+    },
+    {
+      "caller": "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::get_fontWeightTable()",
+      "handlers": []
+    }
+  ],
+  "nextDeclarations": [
+    {
+      "signature": "System.Boolean TMPro.TMP_FontAsset::TryAddCharacterInternal(System.UInt32,TMPro.TMP_Character\u0026)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Assembly, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+TYPE PixelCrushers.DialogueSystem.DialogueActor BASE UnityEngine.MonoBehaviour
+FIELD System.String PixelCrushers.DialogueSystem.DialogueActor::actor
+FIELD System.String PixelCrushers.DialogueSystem.DialogueActor::persistentDataName
+FIELD UnityEngine.Texture2D PixelCrushers.DialogueSystem.DialogueActor::portrait
+FIELD UnityEngine.Sprite PixelCrushers.DialogueSystem.DialogueActor::spritePortrait
+FIELD PixelCrushers.DialogueSystem.DialogueActor/BarkUISettings PixelCrushers.DialogueSystem.DialogueActor::barkUISettings
+FIELD PixelCrushers.DialogueSystem.DialogueActor/StandardDialogueUISettings PixelCrushers.DialogueSystem.DialogueActor::standardDialogueUISettings

@@ -1,0 +1,27 @@
+{
+  "status": "passed-static-scoped",
+  "reproducedMetadataSelections": 11,
+  "methodBodies": 6,
+  "completeDirectTypeChains": 6,
+  "directIDialogueUIImplementers": 0,
+  "inheritedInterfacePositiveControl": "RectTransform -> Transform -> IEnumerable",
+  "directLegacyTextOrTMPTypes": 0,
+  "nextBoundConsumer": "sharedassets0.assets:2447 /m_Children/0",
+  "regressionAssertions": [
+    "Declared UI field is GameObject, not a component pointer",
+    "Cached interface can bypass selection; fallback and settings writeback are ordered",
+    "Prefab test uses native live hierarchy/object enumeration; no serialized-boolean decision",
+    "Nonprefab and cloned-prefab routes use native GetComponentInChildren(IDialogueUI)",
+    "No six direct type implements IDialogueUI; inherited-interface positive control succeeds",
+    "All resolved type-chain modules match original pinned Managed DLLs",
+    "Only one direct child pointer is pinned; its original consumer remains unresolved"
+  ],
+  "gameAssemblyExecuted": false,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "gitMutations": 0,
+  "runtime": "not-run",
+  "visual": "not-run",
+  "sourceAcceptance": "needs-review",
+  "usage": null
+}

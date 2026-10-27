@@ -1,0 +1,210 @@
+{
+  "phase": "0104-work",
+  "status": "passed-static-scoped",
+  "selectedMethods": [
+    {
+      "signature": "System.Boolean TMPro.TMP_FontAsset::TryAddCharacterInternal(System.UInt32,TMPro.TMP_Character&)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Assembly, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "UnityEngine.Font TMPro.TMP_FontAsset::get_sourceFontFile()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Int32 UnityEngine.TextCore.FaceInfo::get_pointSize()",
+      "module": "UnityEngine.TextCoreModule.dll",
+      "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "UnityEngine.TextCore.LowLevel.FontEngineError UnityEngine.TextCore.LowLevel.FontEngine::LoadFontFace(UnityEngine.Font,System.Int32)",
+      "module": "UnityEngine.TextCoreModule.dll",
+      "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_Character::.ctor(System.UInt32,TMPro.TMP_FontAsset,UnityEngine.TextCore.Glyph)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Boolean UnityEngine.TextCore.LowLevel.FontEngine::TryAddGlyphToTexture(System.UInt32,System.Int32,UnityEngine.TextCore.LowLevel.GlyphPackingMode,System.Collections.Generic.List`1<UnityEngine.TextCore.GlyphRect>,System.Collections.Generic.List`1<UnityEngine.TextCore.GlyphRect>,UnityEngine.TextCore.LowLevel.GlyphRenderMode,UnityEngine.Texture2D,UnityEngine.TextCore.Glyph&)",
+      "module": "UnityEngine.TextCoreModule.dll",
+      "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+      "attributes": "Assembly, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.TextCore.Glyph::set_atlasIndex(System.Int32)",
+      "module": "UnityEngine.TextCoreModule.dll",
+      "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "coverage": {
+    "exportFiles": [
+      {
+        "path": "add-character.il",
+        "sha256": "392ab3cd61df3fdb3d3a55ff2fdcf2f3249ecf424be411997c7ca5f5693f3b05",
+        "lines": 287,
+        "modelReadLineRanges": [
+          [
+            1,
+            190
+          ],
+          [
+            191,
+            287
+          ]
+        ],
+        "ILInstructions": 285
+      },
+      {
+        "path": "direct-dependencies.il",
+        "sha256": "acb0c1f8e67d27d2757a6242b649b97dd13288d0a6afea1832cbab9cca15b099",
+        "lines": 218,
+        "modelReadLineRanges": [
+          [
+            1,
+            218
+          ]
+        ],
+        "ILInstructions": 206
+      }
+    ],
+    "totalInstructions": 491,
+    "perBodyInstructions": [
+      285,
+      3,
+      7,
+      8,
+      22,
+      161,
+      5
+    ],
+    "unreadSelectedBodyRanges": [],
+    "newDirectManagedDependencyBodiesRead": 6
+  },
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-font-character-internal/source-trace.json",
+    "sha256": "6e946f29d85b679c3dd243848820e8dd1574715faf1adc418ecdedf0e0c79503",
+    "meaning": "Selection/getters and all prior phase79\u2013102 restrictions retained by hashes; only normal character-add output ambiguity narrowed."
+  },
+  "rules": [
+    {
+      "id": "normal-output-contract",
+      "evidence": "add-character.il IL_0000\u2013IL_02cd",
+      "finding": "First action sets caller out character=null. Five ordinary false-return sites: missing-Unicode set hit, nonzero font-load result, zero glyph index after numeric aliases, unreadable current texture, and exhausted/disabled multi-atlas path. The only later out stores follow successful newobj and lead to true, never an ordinary false branch. Therefore ordinary false leaves out null and ordinary true leaves constructed nonnull character, conditional on normal completion and underlying call semantics. Exceptions are different: out/list/dictionary/native mutations may already have happened. No out reference is passed to helpers; glyph-add receives a distinct local glyph reference. This closes phase103 false-with-nonnull hypothetical for these normal returns; includeFallbacks/set/list/recursion limits remain unchanged."
+    },
+    {
+      "id": "missing-index-and-aliases",
+      "evidence": "add-character.il IL_0003\u2013IL_0074",
+      "finding": "Consult m_MissingUnicodesFromFontFile before font loading. Load sourceFontFile at stored FaceInfo point size; nonzero result returns false without adding to missing set. Query UInt32 glyph index; when zero, numeric160 retries32,173 or8209 retries45. If still zero, add ORIGINAL Unicode to missing set, discard Add bool and false. Alias glyph selection preserves ORIGINAL Unicode in constructed character and character dictionary. No scalar validation, atlas-mode guard or definition initialization here; collections/font/texture null and array bounds are not guarded. Native face selection and missing-set effects are separate."
+    },
+    {
+      "id": "existing-glyph-shortcut",
+      "evidence": "add-character.il IL_0075\u2013IL_00b4",
+      "finding": "If glyph dictionary contains index, construct TMP_Character(original Unicode,this,looked-up Glyph), assign caller out FIRST, append character table, then dictionary.Add(original Unicode,character), then true. No duplicate-character check, atlas readability check, glyph-list append or font-feature registration on shortcut. List append or dictionary failure may leave partially changed state/out; no handler or rollback."
+    },
+    {
+      "id": "texture-preflight",
+      "evidence": "add-character.il IL_00b5\u2013IL_0174",
+      "finding": "Initialize local glyph null; get current texture through atlas array/current index. Virtual Texture.isReadable false builds a diagnostic with font/texture names, calls LogWarning then false. The three English literals are diagnostic fragments, not established player-visible translation units; frozen inventories unchanged. If width==0 OR height==0, Resize(stored width,height), discard bool, then native ResetAtlasTexture. Negative sizes/nonzero dimensions are not rejected here. Concrete Texture2D overrides and Resize/name/log bodies remain unread; no runtime resource readback."
+    },
+    {
+      "id": "first-add-commit-order",
+      "evidence": "add-character.il IL_0179\u2013IL_0219",
+      "finding": "TryAddGlyphToTexture receives glyph index,padding,packing numeric0,free/used rect lists,render mode,current texture,and local glyph ref. On true set glyph atlas index, append glyph table, glyph dictionary.Add(index,glyph), construct character and store caller out, append character table, character dictionary.Add(original Unicode,character), append glyph index to both total/newly-added lists, conditionally call RegisterFontAssetForFontFeatureUpdate after settings getter, then true. No null glyph guard before setter/constructor. Success before late failure can leave partial mutations; settings/registration bodies unread."
+    },
+    {
+      "id": "second-add-and-failed-state",
+      "evidence": "add-character.il IL_021a\u2013IL_02cd",
+      "finding": "First failed attempt enters one conditional multi-atlas retry: if flag false return false; otherwise call exact unread SetupNewAtlasTexture, then repeat add using post-call current index/fields. If second call false, false; no retry loop/rollback here. If true repeat ordered glyph/character/list/feature actions. Setup mutations may survive second failure, but its exact mutation contract remains unread. No check that new atlas index differs or returned glyph valid; native behavior is not inferred."
+    },
+    {
+      "id": "direct-field-and-constructor-boundaries",
+      "evidence": "direct-dependencies.il source getter,FaceInfo getter,TMP_Character ctor,Glyph atlas setter",
+      "finding": "sourceFontFile and FaceInfo.pointSize read fields; atlasIndex setter writes Glyph field. TMP_Character ctor calls base ctor, writes element type numeric1, calls Unicode/textAsset/glyph setters, reads glyph.index, calls glyphIndex setter, sets scale through setter to1. These forwarded setters/base/Glyph getter remain individually declared but unread; no claim that their names alone prove backing field assignments."
+    },
+    {
+      "id": "font-native-loading",
+      "evidence": "direct-dependencies.il LoadFontFace body",
+      "finding": "LoadFontFace(Font,Int32) forwards exactly those arguments to InternalCall LoadFontFace_With_Size_FromFont_Internal and returns its Int32 as FontEngineError. GetGlyphIndex and ResetAtlasTexture are original InternalCall/no-body declarations; actual font loading/index/reset is unexecuted and unknown. No native invocation."
+    },
+    {
+      "id": "glyph-wrapper-arrays",
+      "evidence": "direct-dependencies.il TryAddGlyphToTexture IL_0000\u2013IL_00cb",
+      "finding": "Cache free/used list Counts and sum with unchecked IL add. If either shared static array length < sum, allocate both arrays with NextPowerOfTwo(sum+1), store free array then used array separately. No null guard, overflow guard, transaction or lock. Call unread Mathf.Max for loop bound; copy corresponding list entries into shared arrays while index<their individual counts. Invoke exact InternalCall TryAddGlyphToTexture_Internal with arrays,count references,render mode,texture,and local marshalling struct reference. Max and allocation sizing native NextPowerOfTwo semantics are not substituted by assumptions."
+    },
+    {
+      "id": "glyph-wrapper-output-and-side-effects",
+      "evidence": "direct-dependencies.il TryAddGlyphToTexture IL_00d0\u2013IL_015d",
+      "finding": "Native true constructs Glyph from marshalling struct, assigns glyph out, clears free then used list, calls Max(new counts), appends entries from shared arrays under updated count guards, then true. Native false writes glyph out null and returns false WITHOUT clearing/copying lists. Earlier shared array stores/copies and native texture/array effects may survive false; no rollback/lock/handlers. Glyph constructor and Mathf.Max remain unread. Failure/exception behavior of those boundaries and native counts is not proven; no unconditional glyph or packing correctness claim."
+    }
+  ],
+  "directConsumers": "consumer-boundaries.json",
+  "nextConsumer": "next-consumer.json",
+  "verification": "metadata-verified/verification.json",
+  "limits": [
+    "Static original metadata/IL only; no original managed/native execution, game/GUI/preview/images, Git mutation, overlay or authored translation.",
+    "Original panel3633/TMP4571 remain conditional, not live UI proof. Actual style graph/hash collisions/recursion/stack/resources/preprocessor/native state; concrete SetArraySizes/generation/typewriter/notifications/delivery remain unaccepted.",
+    "Actual controller/DB/Lua/metatables/language/loading/save/global scripts/callbacks/rendering/BIO/reachability and complete source/special-scene/runtime manifest unaccepted.",
+    "Serializer/nonlinear restore,Quest ordering/reflection/initial-unlock/counter,universal semantic/independent diff/delta,final fonts/licenses/resources/runtime/delivery pending.",
+    "Accepted10/15/47/48 visuals/50 route unchanged; spawn/other3 intros/notebook/Bucky open. No53 replay/no54. Parallel asset/editorial/Japanese lanes and actual preview independently authorized/read-only. Parent integrates; no Git ownership blocker.",
+    "TryAddCharacterInternal and six selected direct dependencies fully read. SetupNewAtlasTexture,ReadFontAssetDefinition,settings/registration,constructor forwarded dependencies,concrete Texture2D dispatch,diagnostics,Resize and native boundaries remain unread/unexecuted. Actual font3323/material7,Unicode coverage,resources,shaping,layout and delivery remain unverified. No shared-state termination or reentrancy proof."
+  ],
+  "usage": null
+}

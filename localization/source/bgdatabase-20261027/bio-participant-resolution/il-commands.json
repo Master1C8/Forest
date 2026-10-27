@@ -1,0 +1,290 @@
+[
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": "--list",
+    "output": "model-methods.il",
+    "exitCode": 0,
+    "sha256": "7f9c8ed85d1b3f6225c40271cdd56417480299afcde756e1c6c22961e878b109"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": "--fields",
+    "output": "model-fields.il",
+    "exitCode": 0,
+    "sha256": "40bc0fd24c6c571134e7542e4679dde7a4498b555746e53d2f930ef76f5bf018"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": "GetCharacterInfo,GetCharacterTransform,SetParticipants,UpdateParticipantsOnLinkedConversation,GetActorName,GetPCName",
+    "output": "model-participants.il",
+    "exitCode": 0,
+    "sha256": "fa9ba81cd459295fb32c96a649c4f21a72a97380fcbb5187935614b94c26c727"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.CharacterInfo",
+    "selection": "--list",
+    "output": "character-methods.il",
+    "exitCode": 0,
+    "sha256": "b05d47346715be1a712e33c1824c4918362a1ef96355eeb106655489104b4b46"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.CharacterInfo",
+    "selection": "--fields",
+    "output": "character-fields.il",
+    "exitCode": 0,
+    "sha256": "424c37131259e5b61f96833e768ece044222d05a40c9fd6756b3e03c74b397a4"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "--list",
+    "output": "entry-methods.il",
+    "exitCode": 0,
+    "sha256": "b895cc6cf7596ce99cb122de54c774fb93b03776c22a72b5690efbc7a6943279"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.CharacterInfo",
+    "selection": ".ctor,get_Name,set_Name,GetLocalizedDisplayNameInDatabase,RegisterActorTransform,UnregisterActorTransform,GetRegisteredActorTransform,.cctor",
+    "output": "character-resolution.il",
+    "exitCode": 0,
+    "sha256": "379164162b27e2f88b43a6c8421f91c8547de77d9484779cde6df5a3cbfc9008"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueActor",
+    "selection": "--list",
+    "output": "dialogue-actor-methods.il",
+    "exitCode": 0,
+    "sha256": "a6b27efe29d91c1288a67d18cdd867fa855f3e5bfd0213c50d3b5e8571243e28"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueActor",
+    "selection": "--fields",
+    "output": "dialogue-actor-fields.il",
+    "exitCode": 0,
+    "sha256": "2624c0381c7cf2546f2510de86dd0f602a8343a9a3c6faf248c68b2ddb975a6a"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "--list",
+    "output": "database-methods.il",
+    "exitCode": 0,
+    "sha256": "61c6a31cc802ccbd30f66cff16bd613127a1403c8a4362d06c9f6a403dba7741"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation",
+    "selection": "--list",
+    "output": "conversation-methods.il",
+    "exitCode": 0,
+    "sha256": "c568636f0c5bbcac19e29cbeab34dd14dd2a9a2975938e958361fe4f00a1514c"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Field",
+    "selection": "--list",
+    "output": "field-methods.il",
+    "exitCode": 0,
+    "sha256": "cd45921ede571a8b44a60541ff75adaeb4197a1c2113c3d5c2ea7b791c62c295"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "get_ActorID,get_ConversantID",
+    "output": "entry-participants.il",
+    "exitCode": 0,
+    "sha256": "d8648b79e1a7f1d6e2d2166692254caa98682fe79a824cf6b5822490c7f160ea"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueActor",
+    "selection": "GetDialogueActorComponent,GetActorName,GetName,Awake,OnEnable,OnDisable",
+    "output": "dialogue-actor-resolution.il",
+    "exitCode": 0,
+    "sha256": "4d8604e7e4b0fbd322ddbd442907a85cb50193529a6abe54828a95227bd74250"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "GetActor,GetCharacterType",
+    "output": "database-actor-resolution.il",
+    "exitCode": 0,
+    "sha256": "d02c41f0b15d059dd16a2704f94b91c44f480edf2817139ec4843f72c99a0c6b"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation",
+    "selection": "get_ActorID,get_ConversantID",
+    "output": "conversation-participants.il",
+    "exitCode": 0,
+    "sha256": "972bbd43d1096b0bc742284768f3d37a3c4f60fe8186c500a2f99c9c9aeeb947"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Field",
+    "selection": "LookupInt",
+    "output": "field-lookup-int.il",
+    "exitCode": 0,
+    "sha256": "dec539e5f53043442eac1df5e4696ff03675162954aeb648b31e4fd23ea556ed"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.SequencerTools",
+    "selection": "--list",
+    "output": "sequencer-methods.il",
+    "exitCode": 0,
+    "sha256": "a25210ad8457971d58632797ba3078b037df6a6e33e75bbd3476c6dd64fee737"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.SequencerTools",
+    "selection": "FindSpecifier",
+    "output": "sequencer-find-specifier.il",
+    "exitCode": 0,
+    "sha256": "0b20e8d312521d87a2eb344fbf7d29f74e130503f0a6d923b57e374eedf49856"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Tools",
+    "selection": "--list",
+    "output": "tools-methods.il",
+    "exitCode": 0,
+    "sha256": "8ade707b55da8c37990033666bddcfd51e64d8dd58da03a10f33f835e1b7203f"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass29_0",
+    "selection": "--list",
+    "output": "actor-id-predicate-methods.il",
+    "exitCode": 0,
+    "sha256": "5de4ecd56a5de154b94663ebd3fb255c04e411b14f698f7064890b896aef907a"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass29_0",
+    "selection": "<GetActor>b__0",
+    "output": "actor-id-predicate.il",
+    "exitCode": 0,
+    "sha256": "2fea68c6dc9d9d5290ec964f2fd3373dcd65a6edda05f3a2984df5d71581efa5"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "IsPlayerID",
+    "output": "database-player-id.il",
+    "exitCode": 0,
+    "sha256": "d7196ff966f5b9a250ff57c3c8d96127b7fb43cdbc83b4c2a81f0488058c699b"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-field-fragment",
+    "selection": "ConversationModel::m_characterInfoCache",
+    "output": "model-cache-uses.il",
+    "exitCode": 0,
+    "sha256": "98b96e85fdcdfec566c9fc46a638ae5a8aca0f4d53ad8e80196b787d9245155c"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-field-fragment",
+    "selection": "CharacterInfo::registeredActorTransforms",
+    "output": "registry-uses.il",
+    "exitCode": 0,
+    "sha256": "26de463316227da23d841dab8f27d45bf6eaa5204ab6ca920d35d047b33bdf18"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Tools",
+    "selection": "StringToInt",
+    "output": "tools-string-int.il",
+    "exitCode": 0,
+    "sha256": "8715e0a3b60d7b2366a4355f9542045ba1d6fee634fc64cf6ea58de45ce6ef14"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.SequencerTools",
+    "selection": "SpecifierSpecifiesTag,GetSpecifiedTag",
+    "output": "sequencer-specifier-grammar.il",
+    "exitCode": 0,
+    "sha256": "7fa43ce4b106a1a1efc751d364d411b0d8c30b1a8eb8b06a85c6094029b1e5bc"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Actor",
+    "selection": "--list",
+    "output": "plugin-actor-methods.il",
+    "exitCode": 0,
+    "sha256": "9f1af0eb556be6e57f3445b0b6a49896fb33bf17300936507a8530d50b0dd42f"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass22_0",
+    "selection": "--list",
+    "output": "player-id-predicate-methods.il",
+    "exitCode": 0,
+    "sha256": "b7735eacb2cb60c3d0e36c6f8d986b7e7e88d8da570f4a947f0200d7edee6a27"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass22_0",
+    "selection": "<IsPlayerID>b__0",
+    "output": "player-id-predicate.il",
+    "exitCode": 0,
+    "sha256": "c1faca018e44a22ffe98fbc031b45b773b4d8625ba7327619bb252dc8369ab6c"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.CharacterType",
+    "selection": "--fields",
+    "output": "character-type.il",
+    "exitCode": 0,
+    "sha256": "9bd17809aecacd4704871bbd4ec7c6df830164ea3c8eff5cb7f79dc4716d8b0f"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.SafeConvert",
+    "selection": "--list",
+    "output": "safe-convert-methods.il",
+    "exitCode": 0,
+    "sha256": "222b8be7264e5db044af4acf6a81daf57aa867987414cc708f59ea2cd292693e"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Actor",
+    "selection": "get_IsPlayer",
+    "output": "plugin-is-player.il",
+    "exitCode": 0,
+    "sha256": "ddf255ff8e33e9e48d3ea2008f05d42511c3b1e8e03b87ad6a3ec1554b11d34e"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.SafeConvert",
+    "selection": "ToInt",
+    "output": "safe-convert-int.il",
+    "exitCode": 0,
+    "sha256": "2ac65a8ec61c58e0e5628dcc9cdbe787fe7101ccc24fb40727cf58e45a04cb71"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel/<>c__DisplayClass74_0",
+    "selection": "--list",
+    "output": "character-closure-methods.il",
+    "exitCode": 0,
+    "sha256": "21e0b4e131ce5326fec61f10a8f8a71e150d320515151c8680335506d4d0a60e"
+  },
+  {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel/<>c__DisplayClass74_0",
+    "selection": "<GetCharacterInfo>b__0",
+    "output": "character-portrait-callback.il",
+    "exitCode": 0,
+    "sha256": "8bc0fc12e7a5036493608d56827806da9840f3fe221441aaa26bc00e610910bc"
+  }
+]

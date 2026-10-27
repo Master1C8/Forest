@@ -1,0 +1,205 @@
+[
+  {
+    "output": "dialogue-dispatch.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Dialogue",
+    "selection": "FireArcTriggers,ForceFireArcTriggers",
+    "sha256": "e686d0d5e68c7e26c8c5979612b6a6ee80508c0351202493411acdd7bc1ed92b"
+  },
+  {
+    "output": "trigger-base-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTrigger",
+    "selection": "--fields",
+    "sha256": "9edf11b2fe340a4c331ac75357da295bdc8c7463f25bdaa099f4377646b5b2ed"
+  },
+  {
+    "output": "trigger-base-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTrigger",
+    "selection": "--list",
+    "sha256": "5444f7f20f71e21cff553b614e6605313c087025f19c389d17f33243a98ada5f"
+  },
+  {
+    "output": "trigger-base.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTrigger",
+    "selection": ".ctor,CheckTrigger,IsConditionSatisfied,ForceExecute,OnExecute,get_isExecuted,set_isExecuted,get_allowExecuteMoreThanOnce,get_skipDuringDialogueSkip,get_skipDuringChapterSelect,get_skipDuringCheatCode",
+    "sha256": "14f68d5cd52f3be3c3e952b03a163f346504814503fdd6141fae7f556deddef4"
+  },
+  {
+    "output": "fire-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::FireArcTriggers(",
+    "sha256": "2edc8b899985dc32479d84e6e2dce733b4bbd63af9c5a7b8eb603f7d2426a6fe"
+  },
+  {
+    "output": "force-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::ForceFireArcTriggers(",
+    "sha256": "7fae29e74587fe342c653992b9d46592e755d097555dd1d197d94aeff08dfd83"
+  },
+  {
+    "output": "trigger-mutators.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "ArcTrigger::set_",
+    "sha256": "525ab83ef1a815abd887f6dd932fd1bd8775711c686ec3ff4a18a82e3a963d2c"
+  },
+  {
+    "output": "trigger-field-mutators.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "ArcTrigger::arc",
+    "sha256": "6a1c80fb4abff2a337e432872caca90e10bff625b339648c26912aefd4d00dda"
+  },
+  {
+    "output": "story-dispatch.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.StoryManager",
+    "selection": "HandleArcTriggerCheck,MarkQuestStepAsPlayed",
+    "sha256": "afbb8146d86967730a2f9d0c983eef61ba364bf63f5190b830968104f8a83a83"
+  },
+  {
+    "output": "skip-conversation.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestSkipController",
+    "selection": "SkipConversation",
+    "sha256": "3b777a6ed133e2e54ad4536addc9cd69eabee58df37dd680effad422bcef8c5b"
+  },
+  {
+    "output": "check-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::HandleArcTriggerCheck(",
+    "sha256": "9c0c753277c90ef9e1f807b39cba8ce9aed09069a39ff1d231a33dd0c36b2352"
+  },
+  {
+    "output": "skip-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::SkipConversation(",
+    "sha256": "f5efd2f4aeb6a7e9b97f5c9d0823132318f867892f6f4e5e1f9d051b10cc08b9"
+  },
+  {
+    "output": "mark-played-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::MarkQuestStepAsPlayed(",
+    "sha256": "d9578acdfbaae98abbf833f18fa90ed95cf472917fba9bda9ee1822ed3217796"
+  },
+  {
+    "output": "exact-lookups.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.DataService",
+    "selection": "GetActorByDbName,GetBioKeywordByPluginDbTriggerName,IsTagActive",
+    "sha256": "e2850e476466ab734cd51ef4ea4cde12aea772ddb7d0a55c908fe60f802aebe4"
+  },
+  {
+    "output": "bio-trigger-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment",
+    "selection": "--list",
+    "sha256": "9b0b6259517814bce69871b2983de5a636f4a6cf504a274d59226915725e0632"
+  },
+  {
+    "output": "detail-unlock.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioDetail",
+    "selection": "TryUnlockKeyword",
+    "sha256": "c3917fc3c767cdc5e80b08f43e0b38a6dc224206594f0f31bd14b58751e38e32"
+  },
+  {
+    "output": "notes-unlock.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioNotes",
+    "selection": "TryUnlockKeyword",
+    "sha256": "a787c30e484373eab34e44968f2dd8082313d9f521653cfa6be25c676eb506f9"
+  },
+  {
+    "output": "kinks-unlock.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioKinks",
+    "selection": "TryUnlockKeyword",
+    "sha256": "eb9026769a415159979e1500fb741e49f7df12c2b20dff6194e5de829d901206"
+  },
+  {
+    "output": "trigger-allow-null-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "ArcTrigger::allowNullArc",
+    "sha256": "1fc1fcc78f9031e59d76bf7096afddc3faec7d15e78bd49736b92418e57c4912"
+  },
+  {
+    "output": "trigger-default-field-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "ArcTrigger::<",
+    "sha256": "ba68d08eca07b9a5c5a709bf72c924b0442a8d1662a3be6be5837e87c3343d83"
+  },
+  {
+    "output": "check-trigger-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "ArcTrigger::CheckTrigger(",
+    "sha256": "796a0fddcdd2ca5f95cc4a9e51fc876f811258e218b10cbf8408012475d158a1"
+  },
+  {
+    "output": "story-listeners.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.StoryManager",
+    "selection": "AddEventListeners,RemoveEventListeners,MarkConversationsAsPlayed",
+    "sha256": "6fe50b6c41a64e7acef78b00b5fa2345d61d4f0c7eb314f7c6ba604288f78fb6"
+  },
+  {
+    "output": "skip-entry.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestSkipController",
+    "selection": "TrySkipConversation",
+    "sha256": "b022c76f8cff521eb7857e7e38e308de5ee09f1c2808b2760c4ad7a936a8df3d"
+  },
+  {
+    "output": "arc-event-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "::onArcTriggerCheck",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "force-execute-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "ArcTrigger::ForceExecute(",
+    "sha256": "c11c3ab9ca022787a06e14363908962e57f443202749cc5b10092dd296c2edf6"
+  },
+  {
+    "output": "line-event-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "::onDialogueLineArcTriggerCheck",
+    "sha256": "01bccfa56cf21c507570ad9317af7f9c571b9b46470217134e0f7f00c5c6f997"
+  },
+  {
+    "output": "skip-guard.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestSkipController",
+    "selection": "CanSkip",
+    "sha256": "e1849381020987f03972a74911d8aaac226abdbf2711e13dc87b7daf33e35e4d"
+  },
+  {
+    "output": "line-end-dispatch.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "Handler_OnConversationLineEnd",
+    "sha256": "303dd7c32f69db6b6db89bbc916164ea1df10db6a741cd302d5bc5b3228a75dd"
+  },
+  {
+    "output": "line-end-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::Handler_OnConversationLineEnd(",
+    "sha256": "b23f2d28d7792c1ef21331e3b1c3f2f4a2f57d5c9d73ed7fd55eb12995b6d8eb"
+  }
+]

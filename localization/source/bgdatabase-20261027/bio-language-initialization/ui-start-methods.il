@@ -1,0 +1,6 @@
+System.Void PixelCrushers.UILocalizationManager/<Start>d__22::.ctor(System.Int32)
+System.Void PixelCrushers.UILocalizationManager/<Start>d__22::System.IDisposable.Dispose()
+System.Boolean PixelCrushers.UILocalizationManager/<Start>d__22::MoveNext()
+System.Object PixelCrushers.UILocalizationManager/<Start>d__22::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+System.Void PixelCrushers.UILocalizationManager/<Start>d__22::System.Collections.IEnumerator.Reset()
+System.Object PixelCrushers.UILocalizationManager/<Start>d__22::System.Collections.IEnumerator.get_Current()

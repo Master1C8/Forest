@@ -1,0 +1,17 @@
+TYPE TMPro.FontStyles BASE System.Enum
+FIELD System.Int32 TMPro.FontStyles::value__
+FIELD TMPro.FontStyles TMPro.FontStyles::Normal = 0
+FIELD TMPro.FontStyles TMPro.FontStyles::Bold = 1
+FIELD TMPro.FontStyles TMPro.FontStyles::Italic = 2
+FIELD TMPro.FontStyles TMPro.FontStyles::Underline = 4
+FIELD TMPro.FontStyles TMPro.FontStyles::LowerCase = 8
+FIELD TMPro.FontStyles TMPro.FontStyles::UpperCase = 16
+FIELD TMPro.FontStyles TMPro.FontStyles::SmallCaps = 32
+FIELD TMPro.FontStyles TMPro.FontStyles::Strikethrough = 64
+FIELD TMPro.FontStyles TMPro.FontStyles::Superscript = 128
+FIELD TMPro.FontStyles TMPro.FontStyles::Subscript = 256
+FIELD TMPro.FontStyles TMPro.FontStyles::Highlight = 512
+TYPE TMPro.AtlasPopulationMode BASE System.Enum
+FIELD System.Int32 TMPro.AtlasPopulationMode::value__
+FIELD TMPro.AtlasPopulationMode TMPro.AtlasPopulationMode::Static = 0
+FIELD TMPro.AtlasPopulationMode TMPro.AtlasPopulationMode::Dynamic = 1

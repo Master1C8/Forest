@@ -1,0 +1,368 @@
+{
+  "concreteRendererDirtyDispatch": [
+    {
+      "method": "SetVerticesDirty",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": [
+            {
+              "signature": "System.Void TMPro.TextMeshProUGUI::SetVerticesDirty()",
+              "module": "Unity.TextMeshPro.dll",
+              "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+              "attributes": "Public, Virtual, HideBySig",
+              "implementation": "IL",
+              "hasBody": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "SetLayoutDirty",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": [
+            {
+              "signature": "System.Void TMPro.TextMeshProUGUI::SetLayoutDirty()",
+              "module": "Unity.TextMeshPro.dll",
+              "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+              "attributes": "Public, Virtual, HideBySig",
+              "implementation": "IL",
+              "hasBody": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "IsActive",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "TMPro.TMP_Text",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.MaskableGraphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.Graphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.EventSystems.UIBehaviour",
+          "module": "UnityEngine.UI.dll",
+          "declarations": [
+            {
+              "signature": "System.Boolean UnityEngine.EventSystems.UIBehaviour::IsActive()",
+              "module": "UnityEngine.UI.dll",
+              "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+              "attributes": "Public, Virtual, HideBySig, VtableLayoutMask",
+              "implementation": "IL",
+              "hasBody": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 31,
+      "opcode": "call",
+      "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+      "scope": "Auto-asmdef-FirstPass.dll",
+      "definition": {
+        "signature": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "module": "Auto-asmdef-FirstPass.dll",
+        "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+        "attributes": "Family, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 36,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()",
+      "scope": "UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()",
+        "module": "UnityEngine.AnimationModule.dll",
+        "sha256": "53d55909cc8f8c82abea29ab107b3b8e970975ed951e1ec2791d085aebabd560",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "InternalCall",
+        "hasBody": false
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 47,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 55,
+      "opcode": "call",
+      "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+      "scope": "Auto-asmdef-FirstPass.dll",
+      "definition": {
+        "signature": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "module": "Auto-asmdef-FirstPass.dll",
+        "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+        "attributes": "Family, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 66,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)",
+      "scope": "UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)",
+        "module": "UnityEngine.AnimationModule.dll",
+        "sha256": "53d55909cc8f8c82abea29ab107b3b8e970975ed951e1ec2791d085aebabd560",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "InternalCall",
+        "hasBody": false
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 78,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 97,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+      "scope": "UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 103,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 108,
+      "opcode": "call",
+      "operand": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "scope": "Auto-asmdef-FirstPass.dll",
+      "definition": {
+        "signature": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+        "module": "Auto-asmdef-FirstPass.dll",
+        "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 114,
+      "opcode": "newobj",
+      "operand": "System.Void UnityEngine.WaitForEndOfFrame::.ctor()",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.WaitForEndOfFrame::.ctor()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 141,
+      "opcode": "call",
+      "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+      "scope": "Auto-asmdef-FirstPass.dll",
+      "definition": {
+        "signature": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "module": "Auto-asmdef-FirstPass.dll",
+        "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+        "attributes": "Family, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 146,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()",
+      "scope": "UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()",
+        "module": "UnityEngine.AnimationModule.dll",
+        "sha256": "53d55909cc8f8c82abea29ab107b3b8e970975ed951e1ec2791d085aebabd560",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "InternalCall",
+        "hasBody": false
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 157,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 165,
+      "opcode": "call",
+      "operand": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+      "scope": "Auto-asmdef-FirstPass.dll",
+      "definition": {
+        "signature": "UnityEngine.Animator PixelCrushers.DialogueSystem.StandardUISubtitlePanel::get_animator()",
+        "module": "Auto-asmdef-FirstPass.dll",
+        "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+        "attributes": "Family, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 176,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)",
+      "scope": "UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)",
+        "module": "UnityEngine.AnimationModule.dll",
+        "sha256": "53d55909cc8f8c82abea29ab107b3b8e970975ed951e1ec2791d085aebabd560",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "InternalCall",
+        "hasBody": false
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 188,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 207,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+      "scope": "UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 213,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    },
+    {
+      "caller": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/\u003CSetAnimatorAtEndOfFrame\u003Ed__109::MoveNext()",
+      "offset": 218,
+      "opcode": "call",
+      "operand": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "scope": "Auto-asmdef-FirstPass.dll",
+      "definition": {
+        "signature": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+        "module": "Auto-asmdef-FirstPass.dll",
+        "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true
+      }
+    }
+  ]
+}

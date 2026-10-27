@@ -1,0 +1,1 @@
+TYPE PixelCrushers.DialogueSystem.Wrappers.StandardDialogueUI BASE PixelCrushers.DialogueSystem.StandardDialogueUI

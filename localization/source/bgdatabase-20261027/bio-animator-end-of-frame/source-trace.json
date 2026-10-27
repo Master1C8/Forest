@@ -1,0 +1,161 @@
+{
+  "phase": "0115-work",
+  "status": "passed-static-scoped",
+  "selectedMethods": [
+    {
+      "signature": "System.Boolean PixelCrushers.DialogueSystem.StandardUISubtitlePanel/<SetAnimatorAtEndOfFrame>d__109::MoveNext()",
+      "module": "Auto-asmdef-FirstPass.dll",
+      "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+      "attributes": "Private, Final, Virtual, HideBySig, VtableLayoutMask",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": true,
+      "isNewSlot": true,
+      "isFinal": true,
+      "genericArity": 0,
+      "explicitOverrides": [
+        "System.Boolean System.Collections.IEnumerator::MoveNext()"
+      ]
+    },
+    {
+      "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+      "module": "UnityEngine.UI.dll",
+      "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.WaitForEndOfFrame::.ctor()",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "module": "Auto-asmdef-FirstPass.dll",
+      "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "coverage": {
+    "files": [
+      {
+        "path": "move-next.il",
+        "sha256": "5140827592bb554482432918a199d2e45c79c985b9f8d5f4a0e7aabe687cd052",
+        "lines": 81,
+        "instructions": 79,
+        "modelReadLineRanges": [
+          [
+            1,
+            81
+          ]
+        ],
+        "unreadSelectedBodyRanges": []
+      },
+      {
+        "path": "direct-dependencies.il",
+        "sha256": "9ce02a5040f3b440bbdeadc1470a22985b949cd57172e40e27fcf11de9eef2f4",
+        "lines": 34,
+        "instructions": 26,
+        "modelReadLineRanges": [
+          [
+            1,
+            34
+          ]
+        ],
+        "unreadSelectedBodyRanges": []
+      }
+    ],
+    "selectedManagedBodies": 5,
+    "perBodyInstructions": [
+      79,
+      10,
+      3,
+      4,
+      9
+    ],
+    "instructions": 105,
+    "unreadSelectedBodyRanges": [],
+    "reusedBodies": 1,
+    "newDirectCoroutineManagedBodiesUnread": 0,
+    "forwardedManagedBodiesUnread": 2
+  },
+  "rules": [
+    {
+      "id": "exact-retained-type",
+      "evidence": "type-declarations.txt; dependency-scopes.json; caller-reconciliation.json",
+      "finding": "Unique exact Boolean d__109 MoveNext declared Private/Final/Virtual/new-slot, with explicit IEnumerator.MoveNext override. Retained94 SetAnimatorAtEndOfFrame newobj type/module/SHA agrees. Declaration resolution is not evidence of actual StartCoroutine dispatch or execution."
+    },
+    {
+      "id": "two-state-coroutine",
+      "evidence": "move-next.il lines1–81, IL0000–00e0",
+      "finding": "Loads state and captured panel. State0 changes to -1, performs first controller/portrait block, constructs WaitForEndOfFrame into current, writes state1, returns true. State1 changes to -1, repeats controller/portrait block, returns false; other states return false. No handler/finally in this body. No execution or actual end-of-frame scheduling inferred."
+    },
+    {
+      "id": "controller-and-portrait-twice",
+      "evidence": "move-next.il IL001e–0071 and IL008c–00df",
+      "finding": "Each pass re-fetches panel animator and native runtime controller, compares against captured animatorController via Unity inequality, conditionally native-sets controller. When captured controller compares unequal to Unity null, reads portraitImage.sprite and calls Tools.SetGameObjectActive(image, sprite unequal to Unity null). Captured null controller can still be set when inequality says current differs; portrait activation block is then skipped. No text/content/font/material access or direct notification call occurs in this body. Reads repeat after resumption; no snapshot of live animator/controller/sprite across yield."
+    },
+    {
+      "id": "guard-and-reentrancy-limits",
+      "evidence": "move-next.il complete body; direct-dependencies.il Tools block",
+      "finding": "No currentSubtitle/generation equality, cancel/stop token, lifecycle guard, lock or rollback in exact MoveNext. Before Tools component guard, portraitImage is dereferenced for get_sprite, so helper guard does not protect that earlier access. Calls can throw; no catch or explicit state rollback. This scoped absence does not prove cancellation is absent elsewhere or that an old coroutine runs after a later update. Native callback/reentry effects and actual failure remain open."
+    },
+    {
+      "id": "four-direct-managed-dependencies",
+      "evidence": "direct-dependencies.il lines1–34; direct-dependency-scopes.json",
+      "finding": "op_Inequality returns logical negation of forwarded CompareBaseObjects; its Unity null/object semantics remain unread. Image.get_sprite returns private m_Sprite directly, not overrideSprite or resource decoding. WaitForEndOfFrame ctor forwards to YieldInstruction ctor; no scheduler implementation read. Tools.SetGameObjectActive(Component,bool) checks Unity inequality vs null, then obtains native gameObject and calls native SetActive(bool), else returns. No activeSelf comparison or exception handler in this exact overload. CompareBaseObjects and YieldInstruction ctor are only two unread forwarded managed bodies."
+    },
+    {
+      "id": "reader-filter-reconciled",
+      "evidence": "caller-reconciliation.json; all-direct-operands.json",
+      "finding": "Frozen BackingScopes emits13 Unity method edges and erroneously categorizes6 PixelCrushers edges as opaque. Frozen94 reader resolves all19 edges including4 get_animator and2 Tools calls. Reconciliation preserves raw exports, counts0 actual opaque BCL/runtime operands in selected bodies, and reuses exact94 getter body reading by pinned trace/scopes/IL instead of rereading. PixelCrushers field references stay visible in IL; empty filtered fieldOperands does not mean none."
+    }
+  ],
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-character-initialization/source-trace.json",
+    "sha256": "4ea9e7d9cdf50570074e83c37f031086a312381c5ca5692c69807cf87040e9a0",
+    "meaning": "All79–114 controller/DB/Lua/metatable/language/loading/save/global/callback/delivery/BIO/reachability/parser/style/reentrancy/native/serialized/resource limits retained. Only exact d__109 and four direct bodies narrowed; prior text/TMP bodies not reread."
+  },
+  "callerReconciliation": "caller-reconciliation.json",
+  "consumerBoundaries": "consumer-boundaries.json",
+  "metadataVerification": "metadata-verified/verification.json",
+  "usage": null,
+  "runtime": "not-run",
+  "visual": "not-run",
+  "sourceAcceptance": "needs-review",
+  "gateChanges": []
+}

@@ -1,0 +1,1151 @@
+{
+  "concreteRendererDispatch": [
+    {
+      "method": "Rebuild",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": [
+            {
+              "signature": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+              "module": "Unity.TextMeshPro.dll",
+              "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+              "attributes": "Public, Virtual, HideBySig",
+              "implementation": "IL",
+              "hasBody": true,
+              "isVirtual": true,
+              "isNewSlot": false,
+              "isFinal": false,
+              "explicitOverrides": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "LayoutComplete",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "TMPro.TMP_Text",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.MaskableGraphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.Graphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": [
+            {
+              "signature": "System.Void UnityEngine.UI.Graphic::LayoutComplete()",
+              "module": "UnityEngine.UI.dll",
+              "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+              "attributes": "Public, Virtual, HideBySig, VtableLayoutMask",
+              "implementation": "IL",
+              "hasBody": true,
+              "isVirtual": true,
+              "isNewSlot": true,
+              "isFinal": false,
+              "explicitOverrides": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "GraphicUpdateComplete",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "TMPro.TMP_Text",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.MaskableGraphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.Graphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": [
+            {
+              "signature": "System.Void UnityEngine.UI.Graphic::GraphicUpdateComplete()",
+              "module": "UnityEngine.UI.dll",
+              "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+              "attributes": "Public, Virtual, HideBySig, VtableLayoutMask",
+              "implementation": "IL",
+              "hasBody": true,
+              "isVirtual": true,
+              "isNewSlot": true,
+              "isFinal": false,
+              "explicitOverrides": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "IsDestroyed",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "TMPro.TMP_Text",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.MaskableGraphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.UI.Graphic",
+          "module": "UnityEngine.UI.dll",
+          "declarations": []
+        },
+        {
+          "type": "UnityEngine.EventSystems.UIBehaviour",
+          "module": "UnityEngine.UI.dll",
+          "declarations": [
+            {
+              "signature": "System.Boolean UnityEngine.EventSystems.UIBehaviour::IsDestroyed()",
+              "module": "UnityEngine.UI.dll",
+              "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+              "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+              "implementation": "IL",
+              "hasBody": true,
+              "isVirtual": true,
+              "isNewSlot": true,
+              "isFinal": true,
+              "explicitOverrides": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "UpdateMaterial",
+      "chain": [
+        {
+          "type": "TMPro.TextMeshProUGUI",
+          "module": "Unity.TextMeshPro.dll",
+          "declarations": [
+            {
+              "signature": "System.Void TMPro.TextMeshProUGUI::UpdateMaterial()",
+              "module": "Unity.TextMeshPro.dll",
+              "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+              "attributes": "Family, Virtual, HideBySig",
+              "implementation": "IL",
+              "hasBody": true,
+              "isVirtual": true,
+              "isNewSlot": false,
+              "isFinal": false,
+              "explicitOverrides": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "canvasUpdateValues": [
+    {
+      "name": "Prelayout",
+      "value": 0
+    },
+    {
+      "name": "Layout",
+      "value": 1
+    },
+    {
+      "name": "PostLayout",
+      "value": 2
+    },
+    {
+      "name": "PreRender",
+      "value": 3
+    },
+    {
+      "name": "LatePreRender",
+      "value": 4
+    },
+    {
+      "name": "MaxUpdateValue",
+      "value": 5
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.UISystemProfilerApi::BeginSample(UnityEngine.UISystemProfilerApi/SampleType)",
+      "scope": "UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.UISystemProfilerApi::BeginSample(UnityEngine.UISystemProfilerApi/SampleType)",
+        "module": "UnityEngine.UIModule.dll",
+        "sha256": "160d98a221a768cf35f1ae52722ca8075e258cd5c99a40a5bcb730c8fe4ee6f8",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 7,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 30,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::Sort(System.Comparison\u00601\u003CT\u003E)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::Sort(System.Comparison\u00601\u003CT\u003E)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 50,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 58,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.UI.CanvasUpdateRegistry::ObjectValidForUpdate(UnityEngine.UI.ICanvasElement)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.UI.CanvasUpdateRegistry::ObjectValidForUpdate(UnityEngine.UI.ICanvasElement)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 67,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ICanvasElement::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ICanvasElement::Rebuild(UnityEngine.UI.CanvasUpdate)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 75,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.Transform UnityEngine.UI.ICanvasElement::get_transform()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "UnityEngine.Transform UnityEngine.UI.ICanvasElement::get_transform()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 80,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.Debug::LogException(System.Exception,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.Debug::LogException(System.Exception,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 98,
+      "opcode": "callvirt",
+      "operand": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Count()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 124,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 129,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ICanvasElement::LayoutComplete()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ICanvasElement::LayoutComplete()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 145,
+      "opcode": "callvirt",
+      "operand": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Count()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 158,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::Clear()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::Clear()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 171,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.UISystemProfilerApi::EndSample(UnityEngine.UISystemProfilerApi/SampleType)",
+      "scope": "UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.UISystemProfilerApi::EndSample(UnityEngine.UISystemProfilerApi/SampleType)",
+        "module": "UnityEngine.UIModule.dll",
+        "sha256": "160d98a221a768cf35f1ae52722ca8075e258cd5c99a40a5bcb730c8fe4ee6f8",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 177,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.UISystemProfilerApi::BeginSample(UnityEngine.UISystemProfilerApi/SampleType)",
+      "scope": "UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.UISystemProfilerApi::BeginSample(UnityEngine.UISystemProfilerApi/SampleType)",
+        "module": "UnityEngine.UIModule.dll",
+        "sha256": "160d98a221a768cf35f1ae52722ca8075e258cd5c99a40a5bcb730c8fe4ee6f8",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 182,
+      "opcode": "call",
+      "operand": "UnityEngine.UI.ClipperRegistry UnityEngine.UI.ClipperRegistry::get_instance()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "UnityEngine.UI.ClipperRegistry UnityEngine.UI.ClipperRegistry::get_instance()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 187,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ClipperRegistry::Cull()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ClipperRegistry::Cull()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 218,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 228,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.UI.CanvasUpdateRegistry::ObjectValidForUpdate(UnityEngine.UI.ICanvasElement)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.UI.CanvasUpdateRegistry::ObjectValidForUpdate(UnityEngine.UI.ICanvasElement)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 239,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ICanvasElement::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ICanvasElement::Rebuild(UnityEngine.UI.CanvasUpdate)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 254,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 259,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.Transform UnityEngine.UI.ICanvasElement::get_transform()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "UnityEngine.Transform UnityEngine.UI.ICanvasElement::get_transform()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 264,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.Debug::LogException(System.Exception,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.Debug::LogException(System.Exception,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 285,
+      "opcode": "callvirt",
+      "operand": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Count()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 316,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 321,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ICanvasElement::GraphicUpdateComplete()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ICanvasElement::GraphicUpdateComplete()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 340,
+      "opcode": "callvirt",
+      "operand": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Count()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 353,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::Clear()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::Clear()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "offset": 366,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.UISystemProfilerApi::EndSample(UnityEngine.UISystemProfilerApi/SampleType)",
+      "scope": "UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.UISystemProfilerApi::EndSample(UnityEngine.UISystemProfilerApi/SampleType)",
+        "module": "UnityEngine.UIModule.dll",
+        "sha256": "160d98a221a768cf35f1ae52722ca8075e258cd5c99a40a5bcb730c8fe4ee6f8",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "offset": 2,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "offset": 38,
+      "opcode": "call",
+      "operand": "UnityEngine.Vector2 TMPro.TMP_Text::GetPreferredValues(System.Single,System.Single)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "UnityEngine.Vector2 TMPro.TMP_Text::GetPreferredValues(System.Single,System.Single)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "offset": 43,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.RectTransform::set_sizeDelta(UnityEngine.Vector2)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.RectTransform::set_sizeDelta(UnityEngine.Vector2)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "offset": 54,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TextMeshProUGUI::OnPreRenderCanvas()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TextMeshProUGUI::OnPreRenderCanvas()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "offset": 69,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Graphic::UpdateMaterial()",
+      "scope": "UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Graphic::UpdateMaterial()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Family, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean UnityEngine.UI.CanvasUpdateRegistry::ObjectValidForUpdate(UnityEngine.UI.ICanvasElement)",
+      "offset": 23,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 6,
+      "opcode": "callvirt",
+      "operand": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Count()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 23,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 39,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::RemoveAt(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::RemoveAt(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 47,
+      "opcode": "callvirt",
+      "operand": "System.Boolean UnityEngine.UI.ICanvasElement::IsDestroyed()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.UI.ICanvasElement::IsDestroyed()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 61,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::RemoveAt(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::RemoveAt(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 67,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ICanvasElement::LayoutComplete()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ICanvasElement::LayoutComplete()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 86,
+      "opcode": "callvirt",
+      "operand": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Count()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 103,
+      "opcode": "callvirt",
+      "operand": "T UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::get_Item(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 119,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::RemoveAt(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::RemoveAt(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 127,
+      "opcode": "callvirt",
+      "operand": "System.Boolean UnityEngine.UI.ICanvasElement::IsDestroyed()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.UI.ICanvasElement::IsDestroyed()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 141,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601\u003CUnityEngine.UI.ICanvasElement\u003E::RemoveAt(System.Int32)",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::RemoveAt(System.Int32)",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Final, Virtual, HideBySig, VtableLayoutMask",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": true,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "offset": 147,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.UI.ICanvasElement::GraphicUpdateComplete()",
+      "scope": "UnityEngine.UI.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UI.ICanvasElement::GraphicUpdateComplete()",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "explicitOverrides": []
+      }
+    }
+  ],
+  "exceptionHandlers": [
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::PerformUpdate()",
+      "handlers": [
+        {
+          "kind": "Catch",
+          "catchType": "System.Exception",
+          "tryStart": 56,
+          "tryEnd": 74,
+          "handlerStart": 74,
+          "handlerEnd": 87,
+          "filterStart": null
+        },
+        {
+          "kind": "Catch",
+          "catchType": "System.Exception",
+          "tryStart": 210,
+          "tryEnd": 246,
+          "handlerStart": 246,
+          "handlerEnd": 271,
+          "filterStart": null
+        }
+      ]
+    },
+    {
+      "caller": "System.Void TMPro.TextMeshProUGUI::Rebuild(UnityEngine.UI.CanvasUpdate)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Boolean UnityEngine.UI.CanvasUpdateRegistry::ObjectValidForUpdate(UnityEngine.UI.ICanvasElement)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.CanvasUpdateRegistry::CleanInvalidItems()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.Graphic::LayoutComplete()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.Graphic::GraphicUpdateComplete()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::Clear()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Int32 UnityEngine.UI.Collections.IndexedSet\u00601::get_Count()",
+      "handlers": []
+    },
+    {
+      "caller": "T UnityEngine.UI.Collections.IndexedSet\u00601::get_Item(System.Int32)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.UI.Collections.IndexedSet\u00601::Sort(System.Comparison\u00601\u003CT\u003E)",
+      "handlers": []
+    }
+  ]
+}

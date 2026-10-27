@@ -1,0 +1,120 @@
+{
+  "boundary": "Synthetic Python transcription with supplied participant/cache/database/registry values. Replaces Unity null semantics, component and object search, .NET dictionaries, actor lookups, portraits, Lua/display parsing and callbacks. Original IL and exact source readback are separate evidence; no game/runtime acceptance.",
+  "cases": [
+    {
+      "name": "actor-role-selected-first",
+      "actual": "A",
+      "expected": "A"
+    },
+    {
+      "name": "conversant-role-selected",
+      "actual": "C",
+      "expected": "C"
+    },
+    {
+      "name": "neither-role-does-not-select-by-name",
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "equal-role-ids-actor-wins",
+      "actual": "A",
+      "expected": "A"
+    },
+    {
+      "name": "null-actor-transform-not-replaced-by-conversant",
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "override-id-differs-from-cache-key",
+      "actual": 4,
+      "expected": 4
+    },
+    {
+      "name": "character-type-still-uses-requested-id",
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "name": "override-does-not-rekey-cache",
+      "actual": [
+        3
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "cache-hit-ignores-new-transform-and-override",
+      "actual": {
+        "id": 4,
+        "nameInDatabase": "bear",
+        "transform": "T",
+        "characterTypeRequestedId": 3
+      },
+      "expected": {
+        "id": 4,
+        "nameInDatabase": "bear",
+        "transform": "T",
+        "characterTypeRequestedId": 3
+      }
+    },
+    {
+      "name": "missing-override-falls-back-to-numeric",
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "name": "missing-database-actor-keeps-requested-id-and-empty-name",
+      "actual": {
+        "id": 999,
+        "nameInDatabase": "",
+        "transform": null,
+        "characterTypeRequestedId": 999
+      },
+      "expected": {
+        "id": 999,
+        "nameInDatabase": "",
+        "transform": null,
+        "characterTypeRequestedId": 999
+      }
+    },
+    {
+      "name": "minus-one-is-not-cached",
+      "actual": {},
+      "expected": {}
+    },
+    {
+      "name": "registered-transform-used-only-when-input-null",
+      "actual": "R",
+      "expected": "R"
+    },
+    {
+      "name": "supplied-transform-precedes-registry",
+      "actual": "T",
+      "expected": "T"
+    },
+    {
+      "name": "field-first-exact-title",
+      "actual": "3",
+      "expected": "3"
+    },
+    {
+      "name": "constructor-found-transform-does-not-change-argument",
+      "actual": [
+        "FOUND",
+        null
+      ],
+      "expected": [
+        "FOUND",
+        null
+      ]
+    },
+    {
+      "name": "unregister-old-transform-removes-new-key",
+      "actual": {},
+      "expected": {}
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+TYPE PixelCrushers.Wrappers.LocalizeUI BASE PixelCrushers.LocalizeUI

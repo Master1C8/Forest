@@ -1,0 +1,20 @@
+{
+  "status": "passed-static-scoped",
+  "command": ".venv-assets314/bin/python -B localization/source/bgdatabase-20261027/bio-serialized-localization/verify_serialized.py --output localization/source/bgdatabase-20261027/bio-serialized-localization/<new-directory>",
+  "successfulOutput": "readback-v2",
+  "boundary": "Original raw/resource and whole-object export parity with unchanged header-aligned reader; hashes retain prior evidence. No original method execution or prior trace replay.",
+  "attempts": "attempts.json",
+  "readbackHashes": {
+    "verification.json": "46067eb12650037aee8a568e85433afbb2d036651e7ca9fe66329bd39bbd7481",
+    "serialized-localization.json": "47b60ae071a56d7694acb62263a6c1834dc582ad15d1d31425026559b375868e"
+  },
+  "codeHashes": {
+    "verify_serialized.py": "d4530c521461e597500c0deb004471074496db64be4abf148ab47191582890eb",
+    "baseline.json": "70cb95e27775a6377c017fbf93baf88d6b69e48d72ff3a2f657fe29e11e95b5f",
+    "execution-model.json": "cf48360c66418698aecceb9c9356955dd0b803f6299e32cd28a7af2f24defd72"
+  },
+  "gameAssemblyExecuted": false,
+  "imagesOpened": 0,
+  "gitMutations": 0,
+  "usage": null
+}

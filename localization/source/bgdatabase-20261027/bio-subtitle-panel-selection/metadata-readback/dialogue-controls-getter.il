@@ -1,0 +1,5 @@
+TYPE PixelCrushers.DialogueSystem.StandardUIDialogueControls
+METHOD PixelCrushers.DialogueSystem.StandardUISubtitleControls PixelCrushers.DialogueSystem.StandardUIDialogueControls::get_standardSubtitleControls() | attributes=Public, HideBySig, SpecialName | impl=IL
+IL_0000: ldarg.0
+IL_0001: ldfld PixelCrushers.DialogueSystem.StandardUISubtitleControls PixelCrushers.DialogueSystem.StandardUIDialogueControls::m_standardSubtitleControls
+IL_0006: ret

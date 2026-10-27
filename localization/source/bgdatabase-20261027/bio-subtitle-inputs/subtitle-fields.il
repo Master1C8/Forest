@@ -1,0 +1,9 @@
+TYPE PixelCrushers.DialogueSystem.Subtitle BASE System.Object
+FIELD PixelCrushers.DialogueSystem.CharacterInfo PixelCrushers.DialogueSystem.Subtitle::speakerInfo
+FIELD PixelCrushers.DialogueSystem.CharacterInfo PixelCrushers.DialogueSystem.Subtitle::listenerInfo
+FIELD PixelCrushers.DialogueSystem.FormattedText PixelCrushers.DialogueSystem.Subtitle::formattedText
+FIELD System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+FIELD System.String PixelCrushers.DialogueSystem.Subtitle::responseMenuSequence
+FIELD PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Subtitle::dialogueEntry
+FIELD System.String PixelCrushers.DialogueSystem.Subtitle::entrytag
+FIELD PixelCrushers.DialogueSystem.ActiveConversationRecord PixelCrushers.DialogueSystem.Subtitle::activeConversationRecord

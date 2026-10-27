@@ -1,0 +1,10 @@
+System.Void TheForestOfLove.GlitchRascalPart1Story::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_001e: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.GlitchRascalPart1Story::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_0026: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.CustomPortraitsUi::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_001e: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.CustomPortraitsUi::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_0026: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.DialogueNameplateController::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_002d: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.DialogueNameplateController::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_0035: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.Narrative.DialogueService::HandleDialogueLineTriggering(PixelCrushers.DialogueSystem.Subtitle) | IL_000c: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.Narrative.DialogueService::HandleDialogueLineTriggering(PixelCrushers.DialogueSystem.Subtitle) | IL_0014: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.Narrative.DialogueService::HandleDialogueLineActor(PixelCrushers.DialogueSystem.Subtitle) | IL_0001: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence
+System.Void TheForestOfLove.Narrative.DialogueService::HandleDialogueLineActor(PixelCrushers.DialogueSystem.Subtitle) | IL_0010: ldfld System.String PixelCrushers.DialogueSystem.Subtitle::sequence

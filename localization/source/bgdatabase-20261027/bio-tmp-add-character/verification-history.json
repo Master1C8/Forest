@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "output": "dependency-scopes-initial.json",
+      "result": "passed-exact-entry-declarations",
+      "selectedBodies": 1
+    },
+    {
+      "output": "dependency-scopes.json",
+      "result": "passed-entry-and-six-direct-dependencies",
+      "selectedBodies": 7,
+      "nextDeclarations": 2
+    },
+    {
+      "output": "metadata-verified",
+      "result": "passed-static-scoped",
+      "verifierSha256": "4e30393a317f2a3f01af44754e3be598bc3b9729e14c7f81a9bb6adb13ed709d",
+      "verificationSha256": "c1f0e0175b0f895fab586a169bde081d33d862d3af78265787cd6bef48dfd2fa"
+    }
+  ],
+  "failedAttempts": 0,
+  "readerRebuilds": 0,
+  "newMetadataHelpers": 0
+}

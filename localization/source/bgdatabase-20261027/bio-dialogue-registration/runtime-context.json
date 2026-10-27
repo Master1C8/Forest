@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "phase": 76,
+  "mode": "static-text-only",
+  "construction": [
+    {
+      "boundary": "Original BGDatabase Dialogue row -> Narrative.Dialogue",
+      "evidence": "generate-dialogue-callback.il",
+      "result": "primaryActor comes from exact actorsByDbActor[DB.Dialogue.primary_actor], independent initialActor fallback and source conversation speaker fields"
+    },
+    {
+      "boundary": "600 registry rows ->627 source conversations",
+      "evidence": "readback/registry-bindings.json",
+      "result": "600 exact unique title matches;27 absent registry conversations retained in source inventory"
+    },
+    {
+      "boundary": "Original roots -> arc membership",
+      "evidence": "populate-arcs.il",
+      "result": "Ordered PRIMARY/SECONDARY/IDLE/NAMED roots, NAMED first-link indirection, local-only visited DFS; conditions and scripts not evaluated"
+    },
+    {
+      "boundary": "128 BIO controls -> static registrations",
+      "evidence": "readback/bio-registration.json",
+      "result": "125 controls yield126 registrations;3 absent-registry controls. All126 original first-predecessor parent chains resolve; story execution unverified"
+    }
+  ],
+  "anomalies": [
+    {
+      "control": "108:118",
+      "result": "Two eligible idle arcs; missing legacy key; preserve exact i2 suffix newline and parent counts0/4"
+    },
+    {
+      "control": "299:1006",
+      "result": "Augustus/sizeplay registered to named n1 first485; keyword metadata can register despite no category membership"
+    },
+    {
+      "controls": [
+        "458:391",
+        "458:392",
+        "458:393"
+      ],
+      "result": "Exact current keyword/category identities, but conversation458 is outside original Dialogue registry; no global-unused claim"
+    },
+    {
+      "controls": "15 single-argument controls",
+      "result": "Exact implicit actors resolved; legacy keys remain missing and unmodified; registration occurs before optional metadata lookup"
+    }
+  ],
+  "ordering": {
+    "dialogueLists": "ascending integer priority; equal-priority stability unverified",
+    "arcs": "root call and outgoing-link order",
+    "entryMembership": "original visited DFS in link order",
+    "triggerPriority": "first predecessor in arc DFS order recursively counted; not shortest path; ties unverified"
+  },
+  "sourceAcceptance": "needs-review; static scoped registry/arc evidence only",
+  "successfulManifestExecution": "not-run",
+  "storyReachability": "not-accepted",
+  "execution": "Pending normal/forced dispatch and save/skip behavior; original NarrativeActions Vslice guard separate",
+  "preserved": [
+    "All frozen19 input pins and7 helpers",
+    "All prior source supplements",
+    "All111 keyword display IDs and128 control IDs",
+    "Charlotte Main/Vslice priority and FullName/nameplate override anomaly",
+    "Accepted10/15/47/48 visuals and50 route",
+    "preliminaryEditorial",
+    "russianActualPreview",
+    "parallelLocaleDrafts",
+    "All locale rows and owner-authorized independent lanes"
+  ],
+  "pending": [
+    "Normal/forced arc trigger dispatch, caller timing and successful unlock",
+    "Default database runtime selection/mutations and full GenerateManifest callback dependencies",
+    "Complete source/special-scene inventory and acceptance",
+    "Save initialization/serializer/nonlinear restore",
+    "Notification construction/rendering",
+    "Full semantic/independent diff/delta acceptance",
+    "Final fonts/licenses/resources/reinsertion/runtime/delivery",
+    "Prior Quest ordering/reflection/initial-unlock/counters",
+    "Initial spawn/other3 intros/notebook/Bucky"
+  ],
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "translationAuthored": false,
+  "gitCoordinator": "parent",
+  "workerGitMutations": 0,
+  "usage": "Unknown in worker; parent measures telemetry"
+}

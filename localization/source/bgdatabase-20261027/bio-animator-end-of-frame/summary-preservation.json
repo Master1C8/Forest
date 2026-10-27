@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "previousBytes": {
+    "CHECKPOINT.json": {
+      "archive": "previous-checkpoint.json",
+      "sha256": "31aecec1143c0afc45980d756e429d53a5ea803fa7533c5486df26fc2c484c39"
+    },
+    "README.md": {
+      "archive": "previous-summary.md",
+      "sha256": "2651b0129f9458f124bbd605f3978e803256ea9565027130d4db9e7a1986063b"
+    }
+  },
+  "previousCheckpointSections": 101,
+  "unchangedSections": 99,
+  "allowedExistingChanges": [
+    "nextAction",
+    "updatedAt"
+  ],
+  "addedSection": "bgdatabaseBioAnimatorEndOfFrameSource",
+  "protectedSectionsPreserved": [
+    "preliminaryEditorial",
+    "russianActualPreview",
+    "parallelLocaleDrafts",
+    "localeStatus"
+  ],
+  "readmeFollowingBytes": 89541,
+  "readmeFollowingSha256": "62e597a68173e3e51305104f84cbecdec50e1e614f3ea8f108b825ac399a2228",
+  "currentHashes": {
+    "CHECKPOINT.json": "fbab1532a322905dd8b800d40e58b88b9c539a1dd39c57836de27c92139b707c",
+    "README.md": "4dde9edb6548c83208cba665d76dd58104308a013f8354771d1d713b9dca48bb"
+  },
+  "commitBoundary": "Two separately guarded atomic per-file replacements, not transactional; both postconditions verified. No failure between writes was injected; no rollback or interprocess CAS guarantee.",
+  "gitCoordinator": "parent",
+  "workerGitMutations": 0
+}

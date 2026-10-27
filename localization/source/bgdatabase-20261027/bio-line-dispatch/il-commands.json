@@ -1,0 +1,177 @@
+[
+  {
+    "output": "line-triggering.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "HandleDialogueLineTriggering",
+    "sha256": "c55bdb85644c80f541d8fd7372678a12a87c846c188e8be4ef363ee4109b593a"
+  },
+  {
+    "output": "dynamic-conversation.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "BuildDynamicConversation",
+    "sha256": "7ef71060075a5294e6d186a28c45275fd8268dfa5cf8ba98c51e59800ff17fd2"
+  },
+  {
+    "output": "line-trigger-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::HandleDialogueLineTriggering(",
+    "sha256": "f969f5fa15e5fc2acad6e91896ee79d9b46fc41135d624bbbd930ef79f989e2d"
+  },
+  {
+    "output": "dynamic-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "::BuildDynamicConversation(",
+    "sha256": "7dd355c7ee70bc0f3c76d5e683be72226978c6ed8978617d19da2319ac15101c"
+  },
+  {
+    "output": "line-begin.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "Handler_OnConversationLineBegin,CheckIfActorChanged",
+    "sha256": "02cd4b434fca8234ebeeb4f232140364c21436b7ff2631dcf32ac6308f4482b2"
+  },
+  {
+    "output": "play-dialogue.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "PlayDialogue,PlayDialoguePlayerQuestion",
+    "sha256": "105967a16ae534e4ac54a83c954f0af78f44e46eceee35b4a14ae679ea3cc79c"
+  },
+  {
+    "output": "spoken-state-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "DialogueService::encounteredSpokenLineInCurrentDialogue",
+    "sha256": "02973dd9bd0af7ca1b34c9cf638ead866c8f5abcb93c04172727c844fd9fd826"
+  },
+  {
+    "output": "arc-state-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "DialogueService::set_CurrentArc(",
+    "sha256": "4013471082d4331433a2c151aeacc2ffb77f7b76b19e76f0b7a3ef8165ae4b22"
+  },
+  {
+    "output": "dialogue-service-types.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--types",
+    "selection": "DialogueService",
+    "sha256": "d567aaa12399fa40f6f719d239aa0473c8138bdc20678536141a35d38ac0f3c9"
+  },
+  {
+    "output": "dialogue-service-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "--list",
+    "sha256": "a989e65e8706d686398a6193c1d30e003290bed51f3a38f1511780c259b529a7"
+  },
+  {
+    "output": "plugin-actor-lookup.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.DataService",
+    "selection": "GetActorByPluginDbId",
+    "sha256": "c5bf16ba116bb5e8b19af85e659f555d630976b5b341c31a1d45c1fc58e89243"
+  },
+  {
+    "output": "service-initialize.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "Initialize",
+    "sha256": "b7ea7d0517fe0aa6fc2dad7886075389242fc84580fa89cdf2a18e026e553f4c"
+  },
+  {
+    "output": "line-actor.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "HandleDialogueLineActor,Handler_OnLinkedConversationStart",
+    "sha256": "13996b7ca2b843daf3e3c7f8fec66020fc3e4b4f29335ffa33018fa766e24a33"
+  },
+  {
+    "output": "current-state.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "get_CurrentDialogue,set_CurrentDialogue,get_CurrentArc,set_CurrentArc",
+    "sha256": "d6ea7644f319c19d111e7eee8d3e6e74755bf07940a7a5c1e496a0cb84d17c65"
+  },
+  {
+    "output": "dialogue-type.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueType",
+    "selection": "--fields",
+    "sha256": "5c52304b590f06d0a2fb1d452f65d3bc324f5379b09b4c0b49be0b2f463ae9b0"
+  },
+  {
+    "output": "plugin-entry-properties.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "get_ActorID,get_subtitleText",
+    "sha256": "bb877103358c1827482299c68c23afcb53d2f6b5a7df291c5fca661d855d4612"
+  },
+  {
+    "output": "actor-id-state-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "DialogueService::lastCurrentLineDialogueDbConversantId",
+    "sha256": "c9e921a91ee10d9c12d04b49e01c0378dda1e23d004d292eb0f9b3b5d1ec14cb"
+  },
+  {
+    "output": "initialize-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "DialogueService::Initialize(",
+    "sha256": "9d3ca35b7fcccb152a91cbafd675cc46218fe7a380039487743f57d21f27e4fd"
+  },
+  {
+    "output": "conversation-first.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation",
+    "selection": "GetFirstDialogueEntry",
+    "sha256": "4686ac9ae5e0202cfcb7370335b23b4c1b0f9a1feb0d52fa6b675efc2b7bb6a5"
+  },
+  {
+    "output": "service-lifecycle.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "Start,Handler_OnConversationStart,Handler_OnConversationEnd,Handler_OnConversationCancelled",
+    "sha256": "3cb3c8541cee0df924c9d0c39334ce12566a7c1ab9670353fa5233e732061e10"
+  },
+  {
+    "output": "first-entry-predicate.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation/<>c",
+    "selection": "<GetFirstDialogueEntry>b__22_0",
+    "sha256": "6e2554bebec3408c71082a02f03f0aceed7153ee2253652dae2eaadb0fbd1242"
+  },
+  {
+    "output": "plugin-current-text.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "get_currentDialogueText,get_currentMenuText",
+    "sha256": "16f8d1b31344027cedc54eec36fdf2391b2be1655a603af541990e3aa6ac2cea"
+  },
+  {
+    "output": "arc-selectors.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Dialogue",
+    "selection": "GetArcByName,GetArcByGeneratedName,GetFirstPrimaryArc,GetFirstIdleArc,GetFirstNamedArc",
+    "sha256": "77830c9f792db17ae1d4469cc0bc8ba09321be79b990e5228e3b9d3e0afbeac3"
+  },
+  {
+    "output": "db-type-getters.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.DialogueType",
+    "selection": "get_MetaDefault,get__enum_type,get_enum_type",
+    "sha256": "1b63e774dda7c8fd4b8d1a5306aa44f98659d7bedfee678c28e8d3d3c400eff9"
+  },
+  {
+    "output": "enum-codec.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldEnum",
+    "selection": "get_ValueSize,FromBytes,ToBytes,StoredValueToEnum,EnumToStoredValue",
+    "sha256": "9a36cbb7872c8b1aeafc5a19f3f51c666987a0da1ea4301ecaf89f209c0b1770"
+  }
+]

@@ -1,0 +1,192 @@
+{
+  "selectedMethods": [
+    {
+      "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+      "module": "UnityEngine.UI.dll",
+      "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.WaitForEndOfFrame::.ctor()",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "module": "Auto-asmdef-FirstPass.dll",
+      "sha256": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "offset": 3,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::CompareBaseObjects(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::CompareBaseObjects(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.WaitForEndOfFrame::.ctor()",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.YieldInstruction::.ctor()",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.YieldInstruction::.ctor()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "offset": 2,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "offset": 10,
+      "opcode": "callvirt",
+      "operand": "UnityEngine.GameObject UnityEngine.Component::get_gameObject()",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "UnityEngine.GameObject UnityEngine.Component::get_gameObject()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "offset": 16,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.GameObject::SetActive(System.Boolean)",
+      "scope": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "definition": {
+        "signature": "System.Void UnityEngine.GameObject::SetActive(System.Boolean)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    }
+  ],
+  "fieldOperands": [
+    {
+      "caller": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "UnityEngine.Sprite UnityEngine.UI.Image::m_Sprite",
+      "definition": {
+        "signature": "UnityEngine.Sprite UnityEngine.UI.Image::m_Sprite",
+        "module": "UnityEngine.UI.dll",
+        "sha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+        "attributes": "Private"
+      }
+    }
+  ],
+  "opaqueRuntimeOperands": [],
+  "exceptionHandlers": [
+    {
+      "caller": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)",
+      "handlers": []
+    },
+    {
+      "caller": "UnityEngine.Sprite UnityEngine.UI.Image::get_sprite()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.WaitForEndOfFrame::.ctor()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void PixelCrushers.DialogueSystem.Tools::SetGameObjectActive(UnityEngine.Component,System.Boolean)",
+      "handlers": []
+    }
+  ],
+  "nextDeclarations": []
+}

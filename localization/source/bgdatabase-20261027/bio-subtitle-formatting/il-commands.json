@@ -1,0 +1,138 @@
+[
+  {
+    "output": "dynamic-helpers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText",
+    "selection": "ReplaceLuaTags,ExtractVariableInputPrompt,ReplaceVarTags",
+    "sha256": "f54ba398197a955ddaf70930b310a7e11f2bffda0b40e7ac51eaa0308a00e485",
+    "exitCode": 0
+  },
+  {
+    "output": "static-helpers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText",
+    "selection": "ReplaceAutocaseTags,ReplacePipes,ExtractTag",
+    "sha256": "f09385f27ca326aefacd077f7c56e1500dff923b11f58b6c8ce122ea11625d7d",
+    "exitCode": 0
+  },
+  {
+    "output": "case-helpers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText",
+    "selection": "ShouldCapitalizeNextChar,SetCapitalization,FirstLetterToUpper,FirstLetterToLower",
+    "sha256": "287da5de949f60c3544c0c9105f70c5e8935013a5545c981d59c805bc4dab784",
+    "exitCode": 0
+  },
+  {
+    "output": "remaining-helpers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText",
+    "selection": "ExtractPositionTag,ExtractPanelNumberTag,ExtractPicTag,.cctor",
+    "sha256": "36e194eb3e31676df64a645ea51a13df23ecd11654046ed9e552e64d1e621594",
+    "exitCode": 0
+  },
+  {
+    "output": "nested-types.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--types",
+    "selection": "FormattedText",
+    "sha256": "cb941f2751e67d806035cd4561202ef9975edff975724052549da51e747d9eef",
+    "exitCode": 0
+  },
+  {
+    "output": "list-c.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c",
+    "selection": "--list",
+    "sha256": "49367210b3f00408df2d7112884b7c19eb1a385416e7e687059f7828631b061e",
+    "exitCode": 0
+  },
+  {
+    "output": "list-c__DisplayClass60_0.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass60_0",
+    "selection": "--list",
+    "sha256": "de498ecf072bc7de78fde6a3bdbafeffe223634f31d2ebb1849c051f44b7d3c2",
+    "exitCode": 0
+  },
+  {
+    "output": "list-c__DisplayClass65_0.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass65_0",
+    "selection": "--list",
+    "sha256": "2360e38d63e818c6deecaf98c2f909ec1bd3c7b64b965cd15023aaaeb4c00afa",
+    "exitCode": 0
+  },
+  {
+    "output": "list-c__DisplayClass67_0.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass67_0",
+    "selection": "--list",
+    "sha256": "1f92b5579afb6f879c04ea81400b5c49c16537843d8ac58ecf08ea0d6be3772e",
+    "exitCode": 0
+  },
+  {
+    "output": "list-c__DisplayClass68_0.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass68_0",
+    "selection": "--list",
+    "sha256": "c89526e1ec4005c515885e74588df590e1f58a2cb87f93644956200005fc0327",
+    "exitCode": 0
+  },
+  {
+    "output": "list-c__DisplayClass69_0.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass69_0",
+    "selection": "--list",
+    "sha256": "deeaa84ba309c9d90f1e545a9cfd0d8d619c2b3af936b944d6f3041c237f0d73",
+    "exitCode": 0
+  },
+  {
+    "output": "dynamic-evaluators.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c",
+    "selection": "<ReplaceLuaTags>b__58_0,<ReplaceVarTags>b__59_0",
+    "sha256": "1f43a7a78bd0924302a2dc6ead87bce29afc00b6ef0fbd41578f79fad2b47291",
+    "exitCode": 0
+  },
+  {
+    "output": "autocase-evaluator.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass60_0",
+    "selection": "<ReplaceAutocaseTags>b__0",
+    "sha256": "62e5217b9aa62bb499acb86bc1b786f00f04786a31a68a793adee8c1ce534e47",
+    "exitCode": 0
+  },
+  {
+    "output": "prompt-evaluator.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass65_0",
+    "selection": "<ExtractVariableInputPrompt>b__0",
+    "sha256": "5191fafb1bb687959d5e5d306026a87bba2b75c85d091f54ce952f3949c8212b",
+    "exitCode": 0
+  },
+  {
+    "output": "position-evaluators.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass67_0",
+    "selection": "<ExtractPositionTag>b__0,<ExtractPositionTag>b__1",
+    "sha256": "b767575b163afafc6e5679ac9bbcdd770c28b703f7332e937e5bf689658719f4",
+    "exitCode": 0
+  },
+  {
+    "output": "panel-evaluator.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass68_0",
+    "selection": "<ExtractPanelNumberTag>b__0",
+    "sha256": "73243ff755ee7b7d187ad4517f0e01dcca33572f45fdd938c55350a5b10e0ab2",
+    "exitCode": 0
+  },
+  {
+    "output": "picture-evaluator.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass69_0",
+    "selection": "<ExtractPicTag>b__0",
+    "sha256": "b21dd340b6e15d0da62229dab5ee0f6a8721b520b8449007ab92b05cce9a2abc",
+    "exitCode": 0
+  }
+]

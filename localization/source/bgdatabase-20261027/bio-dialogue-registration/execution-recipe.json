@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".venv-assets314/bin/python",
+    "-B",
+    "localization/source/bgdatabase-20261027/bio-dialogue-registration/verify_registration.py",
+    "--output",
+    "localization/source/bgdatabase-20261027/bio-dialogue-registration/readback"
+  ],
+  "verifierSha256": "d0e28232d89cbf4e9aab726f1132c18bd68733038fb79caf6d600ad2e1bd9834",
+  "decoderSha256": "5fe31906682c7f6619ac61bf709b4fbcccdfa50ddf045736218d6db25db9d0ef",
+  "initialAttempt": {
+    "exitCode": 0,
+    "output": "readback-initial",
+    "status": "passed-scoped-first-transcription",
+    "limitation": "Verifier received an additional static parent-order regression while first loaded Python module was running; no first-attempt verifier version binding is credited. Retained initial outputs. Final run uses frozen verifier hash and adds exact1201 relation targets plus the parent-order regression."
+  },
+  "priorRecheck": {
+    "exitCode": 0,
+    "command": ".venv-assets314/bin/python -B localization/source/bgdatabase-20261027/bio-note-kink/verify_notes_kinks.py --output localization/source/bgdatabase-20261027/bio-dialogue-registration/prior-recheck"
+  },
+  "freeze": "No edits to either helper or its dependencies while this final run is live"
+}

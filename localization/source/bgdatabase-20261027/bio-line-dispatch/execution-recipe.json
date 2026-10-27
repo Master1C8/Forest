@@ -1,0 +1,35 @@
+{
+  "verifyCommand": ".venv-assets314/bin/python -B localization/source/bgdatabase-20261027/bio-line-dispatch/verify_lines.py --output <new-directory>",
+  "priorCommands": [
+    {
+      "command": ".venv-assets314/bin/python -B localization/source/bgdatabase-20261027/bio-dialogue-registration/verify_registration.py --output localization/source/bgdatabase-20261027/bio-line-dispatch/registration-recheck",
+      "exitCode": 0,
+      "comparedOutputs": 10
+    },
+    {
+      "command": ".venv-assets314/bin/python -B localization/source/bgdatabase-20261027/bio-trigger-dispatch/verify_dispatch.py --output localization/source/bgdatabase-20261027/bio-line-dispatch/dispatch-recheck",
+      "exitCode": 0,
+      "comparedOutputs": 4
+    }
+  ],
+  "codeHashes": {
+    "localization/source/bgdatabase-20261027/bio-line-dispatch/verify_lines.py": "7017946eccb0b4bb35611f5c04930854d52788691cb4469578d0edbc7bd42b9f",
+    "localization/source/bgdatabase-20261027/bio-line-dispatch/baseline.json": "b92ce661b9a37af8c6f423eb5c7ec6c0ec3984b299d3ae3e75f25437361c3a23",
+    "localization/source/bgdatabase-20261027/bio-line-dispatch/il-commands.json": "2e2cb288cd4d696fa28aac8020366913fb9aa3696994c867358ee1410fd3991a",
+    "localization/source/bgdatabase-20261027/bio-dialogue-registration/verify_registration.py": "d0e28232d89cbf4e9aab726f1132c18bd68733038fb79caf6d600ad2e1bd9834",
+    "localization/source/bgdatabase-20261027/bio-trigger-dispatch/verify_dispatch.py": "352fd23d6b0bebdbdd7cda41097fefc5973db0f88d1b6e547debd2a60a7e9e13",
+    "tools/probe/bin/Debug/net8.0/InspectMethods.dll": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05",
+    "localization/source/bgdatabase-20261027/decode_inventory.py": "19b9c0a7cd2cb09b4d189bbe6bb14a40bf59b6b27b7e950641ae3c553f2e5124",
+    "localization/source/bgdatabase-20261027/bio-detail/verify_bio.py": "5085b46b51ea8a652d7d926df21bad8b8d63681a97603df0b14eb6ac79de877e",
+    "localization/source/bgdatabase-20261027/bio-detail/decode_bio.py": "737b13b9279a87a9cb77590c191dbaba35f85b17a97de4db4acfce9b3b854997",
+    "localization/source/bgdatabase-20261027/quest-progress/verify_quest.py": "d217a14d0175afb17b33777cdde3a43dd63e977ba0679769f55cce51fbbdbfef",
+    "localization/source/bgdatabase-20261027/quest-progress/decode_quest.py": "15c3a2be027da1437f6f41e5eb9268f4bc4bf0b463a65aa82d8fcec79d041ab5",
+    "localization/source/bgdatabase-20261027/quest-controls/decode_controls.py": "472a6c855d66330e1fc4018c8c00e4fbd79efeaa7307f1a34fbdefa72f8f1fd9",
+    "tools/extract_assets.py": "fa4c53829e81150dbc3d1b7e86e00252eeecea34947dc703c24863f964f7d2ae"
+  },
+  "acceptedReadback": "readback-v2",
+  "reproducedReadback": "readback-reproduced",
+  "supersededReadback": "readback: initial own-arc-only output retained; lacks complete cache bound/default selector qualifier",
+  "usesGameAssemblyMetadataOnly": true,
+  "doesNotExecuteGameAssemblies": true
+}

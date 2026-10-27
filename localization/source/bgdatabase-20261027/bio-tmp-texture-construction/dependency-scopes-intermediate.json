@@ -1,0 +1,408 @@
+{
+  "selectedMethods": [
+    {
+      "signature": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Assembly, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.Texture::.ctor()",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Family, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Assembly, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::IsCrunchFormat(UnityEngine.TextureFormat)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.Texture2D::Internal_Create(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Private, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.Texture::.ctor()",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.Texture::.ctor()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Family, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "offset": 10,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Assembly, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "offset": 30,
+      "opcode": "call",
+      "operand": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "offset": 47,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::IsCrunchFormat(UnityEngine.TextureFormat)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::IsCrunchFormat(UnityEngine.TextureFormat)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "offset": 70,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.Texture2D::Internal_Create(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.Texture2D::Internal_Create(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture::.ctor()",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.Object::.ctor()",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.Object::.ctor()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 2,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.SystemInfo::SupportsTextureFormat(UnityEngine.TextureFormat)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.SystemInfo::SupportsTextureFormat(UnityEngine.TextureFormat)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 17,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::IsCompressedTextureFormat(UnityEngine.TextureFormat)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::IsCompressedTextureFormat(UnityEngine.TextureFormat)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Assembly, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 26,
+      "opcode": "call",
+      "operand": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 31,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::CanDecompressFormat(UnityEngine.Experimental.Rendering.GraphicsFormat)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::CanDecompressFormat(UnityEngine.Experimental.Rendering.GraphicsFormat)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Assembly, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 73,
+      "opcode": "call",
+      "operand": "System.Void UnityEngine.Debug::LogError(System.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.Debug::LogError(System.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+      "offset": 3,
+      "opcode": "call",
+      "operand": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat_Native_TextureFormat(UnityEngine.TextureFormat,System.Boolean)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat_Native_TextureFormat(UnityEngine.TextureFormat,System.Boolean)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::Internal_Create(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+      "offset": 11,
+      "opcode": "call",
+      "operand": "System.Boolean UnityEngine.Texture2D::Internal_CreateImpl(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Boolean UnityEngine.Texture2D::Internal_CreateImpl(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::Internal_Create(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+      "offset": 28,
+      "opcode": "newobj",
+      "operand": "System.Void UnityEngine.UnityException::.ctor(System.String)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.UnityException::.ctor(System.String)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    }
+  ],
+  "fieldOperands": [],
+  "opaqueRuntimeOperands": [
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 62,
+      "operand": "System.String System.Object::ToString()",
+      "scope": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "offset": 67,
+      "operand": "System.String System.String::Format(System.String,System.Object)",
+      "scope": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "boundary": "BCL/runtime semantics not executed"
+    }
+  ],
+  "exceptionHandlers": [
+    {
+      "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture::.ctor()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Texture::ValidateFormat(UnityEngine.TextureFormat)",
+      "handlers": []
+    },
+    {
+      "caller": "UnityEngine.Experimental.Rendering.GraphicsFormat UnityEngine.Experimental.Rendering.GraphicsFormatUtility::GetGraphicsFormat(UnityEngine.TextureFormat,System.Boolean)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Boolean UnityEngine.Experimental.Rendering.GraphicsFormatUtility::IsCrunchFormat(UnityEngine.TextureFormat)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.Texture2D::Internal_Create(UnityEngine.Texture2D,System.Int32,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)",
+      "handlers": []
+    }
+  ],
+  "nextDeclarations": []
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "output": "global-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.GlobalTextTable",
+    "selection": "--list",
+    "exitCode": 0,
+    "sha256": "24abefe75c0b434ea517857c085b62fe3830903837de7dc9abb23e1efeaf62bd"
+  },
+  {
+    "output": "table-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.TextTable",
+    "selection": "--list",
+    "exitCode": 0,
+    "sha256": "eb98caa830554ee2280be3d35639ccb224e5b23f8ea33d7cc617c2ca582411d9"
+  },
+  {
+    "output": "global-forwarding.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.GlobalTextTable",
+    "selection": "get_instance,get_textTable,set_textTable,get_currentLanguage,set_currentLanguage,Lookup,Awake,OnDestroy,InitStaticVariables,.ctor,.cctor",
+    "exitCode": 0,
+    "sha256": "d868ce5de2e0dd5c7ca82b03f28e3027ad78e7035eecb9ced783bd81fa913298"
+  },
+  {
+    "output": "global-fields.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.GlobalTextTable",
+    "selection": "--fields",
+    "exitCode": 0,
+    "sha256": "20a3718deecd235679f084993c7b5bd4dc02b16c6f1a48e7619123ba1d1ab427"
+  },
+  {
+    "output": "table-lookup.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.TextTable",
+    "selection": "get_currentLanguageID,set_currentLanguageID,get_useDefaultLanguageForBlankTranslations,GetLanguageID,HasLanguage,GetFieldID,GetField,HasField,GetFieldTextForLanguage,GetFieldText",
+    "exitCode": 0,
+    "sha256": "9784b03a8f584d82ee05ae7009785db43add7fdb04d366924fc832bed80a48bb"
+  },
+  {
+    "output": "table-fields.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.TextTable",
+    "selection": "--fields",
+    "exitCode": 0,
+    "sha256": "333f89b2f495dd0061d74842ce65d229c46ea88262e1f76528935817f5a3be99"
+  },
+  {
+    "output": "field-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.TextTableField",
+    "selection": "--list",
+    "exitCode": 0,
+    "sha256": "75b76dd951254ee0a8f00f8913606f56d33353559700231c3aa494cf84fb38c6"
+  },
+  {
+    "output": "string-field-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.StringField",
+    "selection": "--list",
+    "exitCode": 0,
+    "sha256": "d0b68162f73c4e084eb5ca773c1f869cb681dfc17b26dc52cc11f607d0072bc4"
+  },
+  {
+    "output": "table-dependencies.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.TextTable",
+    "selection": "get_languages,get_fields,GetFieldName,set_useDefaultLanguageForBlankTranslations,.ctor,.cctor",
+    "exitCode": 0,
+    "sha256": "bc467552eade4e43edbe59d20277013e93b03ac6cfb9ace88a4cde6e19ecf2b1"
+  },
+  {
+    "output": "field-lookup.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.TextTableField",
+    "selection": "get_fieldName,get_texts,HasTextForLanguage,GetTextForLanguage",
+    "exitCode": 0,
+    "sha256": "110f02f6c4559bcb290a3b22f7424ad45d578cdecfadf7fb43984123c995bb25"
+  },
+  {
+    "output": "string-field-value.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.StringField",
+    "selection": "get_value",
+    "exitCode": 0,
+    "sha256": "b9d6f5627058f106036a11507bbfd088362b5fc7f00be7e538fe8555317d112b"
+  },
+  {
+    "output": "string-field-accessors.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.StringField",
+    "selection": "get_text,get_stringAsset,get_textTable,get_textTableFieldID",
+    "exitCode": 0,
+    "sha256": "7474c7039d88d4c3d0341a85e3feb679c0be0c56d728933df6d0faf2bb4073ae"
+  }
+]

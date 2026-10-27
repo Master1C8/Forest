@@ -1,0 +1,66 @@
+{
+  "phase": "0113-work",
+  "status": "passed-static-scoped",
+  "selectedMethods": [
+    {
+      "signature": "System.Void UnityEngine.TextCore.GlyphRect::.cctor()",
+      "module": "UnityEngine.TextCoreModule.dll",
+      "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+      "attributes": "Private, Static, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "coverage": {
+    "path": "initializer.il",
+    "sha256": "8d660fd392bbba8a57e7f188e655bcb205944129c2d4571f86b40b2f6d0e8f44",
+    "lines": 9,
+    "instructions": 7,
+    "modelReadLineRanges": [
+      [
+        1,
+        9
+      ]
+    ],
+    "unreadSelectedBodyRanges": [],
+    "selectedManagedBodies": 1,
+    "newDirectManagedBodies": 0,
+    "reusedDirectManagedBodies": 1
+  },
+  "provenanceCorrection": {
+    "evidence": "caller-reconciliation.json",
+    "finding": "Phase105 contains no GlyphRect zero field operand. Its exact four-Int32 constructor pins the declaring type/module; this is not a verified atlas-zero read. The initializer and field below are newly observed metadata, not a retained phase105 operand. Prior reports remain unchanged as history."
+  },
+  "rules": [
+    {
+      "id": "explicit-zero-initializer",
+      "evidence": "initializer.il lines1\u20139, IL_0000\u2013IL_000e; dependency-scopes.json",
+      "finding": "An explicit private static IL .cctor exists. Four ldc.i4.0 instructions precede newobj of the exact four-Int32 GlyphRect constructor at4, then stsfld to s_ZeroGlyphRect at9, then ret at14. By the hash-reused phase105 constructor result, normal completion writes a rectangle with x/y/width/height zero. No new direct managed dependency is left unread."
+    },
+    {
+      "id": "scoped-field-declaration",
+      "evidence": "dependency-scopes.json fieldOperands[0]",
+      "finding": "s_ZeroGlyphRect is Private, Static, InitOnly; this is an initializer store, not a literal constant or evidence of current runtime value. Actual initialization timing/trigger/completion, runtime type-initialization machinery, later writes/reflection and live consumer selection were not observed or searched."
+    },
+    {
+      "id": "no-local-branch-handler",
+      "evidence": "initializer.il full selected body; dependency-scopes.json exceptionHandlers",
+      "finding": "Seven instructions contain no branch, handler, catch, logger, native call or rollback. The only managed call is the previously read exact constructor. Failure before stsfld would not execute this store; runtime failure/caching/concurrency behavior and transitive runtime effects are unexecuted. No actual failure or live state claimed."
+    }
+  ],
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-texture-construction/source-trace.json",
+    "sha256": "6cf7dcd6268b7db2837587e6efc1b336a7f93d41d81eaa37732a4bbd3c226ee0",
+    "meaning": "Prior source/rendering/editorial/native/callback/reentrancy/serialized/reachability limits retained; bodies not reread."
+  },
+  "consumerBoundaries": "consumer-boundaries.json",
+  "verification": "metadata-verified/verification.json",
+  "nextConsumer": "next-consumer.json",
+  "limits": "Static metadata/IL only; no original/native execution, resource decoding, game/GUI/preview/images, Git/index/branch mutations, agents/nested model jobs, frozen source/glossary/configuration or parallel lane writes. No complete source/special-scene/renderer/editorial/resource/runtime/visual/delivery gate passed.",
+  "usage": null
+}

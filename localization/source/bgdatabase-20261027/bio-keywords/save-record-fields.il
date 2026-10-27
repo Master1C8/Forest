@@ -1,0 +1,3 @@
+TYPE TheForestOfLove.Services.Persistence.SavegameBioKeywordData BASE System.Object
+FIELD System.String TheForestOfLove.Services.Persistence.SavegameBioKeywordData::keywordSavekey
+FIELD System.Single TheForestOfLove.Services.Persistence.SavegameBioKeywordData::timeUnlocked

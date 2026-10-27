@@ -1,0 +1,40 @@
+{
+  "status": "passed-static-scoped",
+  "dotnetSDK": "8.0.131",
+  "recipe": "python3 -B localization/source/bgdatabase-20261027/bio-subtitle-invalidation/verify_invalidation.py --output localization/source/bgdatabase-20261027/bio-subtitle-invalidation/<new-output-directory>",
+  "codeHashes": {
+    "verify_invalidation.py": "c4768002f64d440ad645ace879c56515d220999e9e738bb1d330083fee0da7ee",
+    "InvalidationScopes.cs": "4695c298ef6d7b5e9613fce183552ab0b72f57df326dd14fcddca61d90879484",
+    "InvalidationScopes.csproj": "4cd8d9304b504741bdf007292841052ee9c397336d60dcca02f5b8ce33fcd170",
+    "helper-pins.json": "4011b2674a653fe7ad8fa5e96fc1841ee060f52109f263c5b3e133fd62d114dd",
+    "baseline.json": "1cb800905366cf947ee77fc21455ef02905baae96e8f09d35d84f1ed23af13d2",
+    "il-commands.json": "3832480cd6fdb421a6c863c879285d1a3521bc1fbaac238b1a0a961cbb27304e"
+  },
+  "outputHashes": {
+    "metadata-readback/canvas-constructor.il": "a9fae921058e24d318fc830ec556f878f2d93f1a74da58f2c6e505bf8cac7626",
+    "metadata-readback/canvas-event.il": "7cdbbd478d674110c784dbb1983beb48cf5cfb58f5680ec4561fa1c486d95dca",
+    "metadata-readback/canvas-layout-entry.il": "9c7cc32b44eaba55874eb98136af97e23e4542966dd84744091deab3e5b2a553",
+    "metadata-readback/canvas-layout-queue.il": "7a292e2161ef906792fbc162afe178fc12df0981fe968f725d61220e14815651",
+    "metadata-readback/canvas-queue.il": "2670c8ce422a11077d62ae36c7991b200585dc07ce2cb4db4aeffe2ff51513fe",
+    "metadata-readback/canvas-registration.il": "fb661e2473bff3f086218aebc9813d3abfccd2c1a75d74636c96d56b1a195a05",
+    "metadata-readback/dependency-scopes.json": "018d393a33c821e78c753ca017a781cf69690c217c4878c0bab6d5f1c1caf43e",
+    "metadata-readback/indexed-queue.il": "4f6b14901525fae916988f733c599982249d68eba265822433f03d15c63ee264",
+    "metadata-readback/layout-registration.il": "cbe957c21716c17750d3c8241f7539c82dbe80e20764fba27025b6fb4f18717e",
+    "metadata-readback/layout-root.il": "dbfe6bb51c79883110ad35d51d56c76ed043f577e886a6601e7f7b16e6e9317c",
+    "metadata-readback/native-active-boundary.il": "f12e8584d3fc39d6845f1a0fd9de765124076b7a1ac2514a8d3a1113bcb83b91",
+    "metadata-readback/panel-animator-access.il": "ee6762091aed1f46c4c348a9f0f0d8826d16e7caedc67802f3ae9611be89f2d8",
+    "metadata-readback/panel-prewrite.il": "ce898130f9a441ca69974afa820796a310a72255403884e81f7c8dfdc3ae8c5c",
+    "metadata-readback/tmp-dirty.il": "2655a84a30b38a3cd94e8a95c2246be7d09692c0b165fc12add0979722e6fc4f",
+    "metadata-readback/tmp-transform.il": "49c7f84ec2ff25385494be3844d2790c8216cef2f0fc08e4ca2138e7c93e56b0",
+    "metadata-readback/ui-active.il": "f2317af79fb0fd248e294890b951b1c97b8b89fceb6b23819f36cfd010a297c1",
+    "metadata-readback/verification.json": "edb514b00f4371e5b7d3c767a1d21dc30f2323aca4c06552969e76a3410a0c02"
+  },
+  "metadataSelections": 15,
+  "methodDeclarations": 25,
+  "methodBodies": 24,
+  "nativeDeclarations": 1,
+  "directResolvedMethodOperands": 72,
+  "originalResourceReads": 0,
+  "boundary": "Actual original Mono.Cecil metadata only; no mocks/game code/native callbacks/runtime/rendering execution.",
+  "usage": null
+}

@@ -1,0 +1,63 @@
+{
+  "boundary": "Only exact supplied operand fragments in four named DLLs. No absence claim for aliases, fields, reflection, scripts, dynamic/native paths, other DLLs or runtime callbacks.",
+  "searches": [
+    {
+      "assembly": "Assembly-CSharp.dll",
+      "operandFragment": "DialogueSystemController::add_initializationComplete",
+      "evidence": "game-initialization-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Assembly-CSharp-firstpass.dll",
+      "operandFragment": "DialogueSystemController::add_initializationComplete",
+      "evidence": "firstpass-initialization-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Auto-asmdef-SecondPass.dll",
+      "operandFragment": "DialogueSystemController::add_initializationComplete",
+      "evidence": "secondpass-initialization-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Auto-asmdef-FirstPass.dll",
+      "operandFragment": "DialogueSystemController::add_initializationComplete",
+      "evidence": "plugin-initialization-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Assembly-CSharp.dll",
+      "operandFragment": "Localization::set_useDefaultIfUndefined",
+      "evidence": "game-fallback-flag-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Assembly-CSharp-firstpass.dll",
+      "operandFragment": "Localization::set_useDefaultIfUndefined",
+      "evidence": "firstpass-fallback-flag-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Auto-asmdef-SecondPass.dll",
+      "operandFragment": "Localization::set_useDefaultIfUndefined",
+      "evidence": "secondpass-fallback-flag-callers.il",
+      "matchedInstructions": 0,
+      "matches": []
+    },
+    {
+      "assembly": "Auto-asmdef-FirstPass.dll",
+      "operandFragment": "Localization::set_useDefaultIfUndefined",
+      "evidence": "plugin-fallback-flag-callers.il",
+      "matchedInstructions": 1,
+      "matches": [
+        "System.Void PixelCrushers.DialogueSystem.Localization::set_UseDefaultIfUndefined(System.Boolean) | IL_0001: call System.Void PixelCrushers.DialogueSystem.Localization::set_useDefaultIfUndefined(System.Boolean)"
+      ]
+    }
+  ]
+}

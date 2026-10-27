@@ -1,0 +1,219 @@
+[
+  {
+    "output": "keyword-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioKeyword",
+    "selection": "--fields",
+    "sha256": "da112c1259f35b6766a2ae3290819a3e48a5f759af486796f0c7932d7bc4b52a"
+  },
+  {
+    "output": "keyword-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioKeyword",
+    "selection": "--list",
+    "sha256": "235af297cfaa13a3cef19f086269d6f9482f332544c602ed18b26efc8d969125"
+  },
+  {
+    "output": "actor-keyword-calls.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "BioKeyword",
+    "sha256": "88e75d48a53359f337205caa6016b86d3b0a274d45bfa3f160fce4f159d53855"
+  },
+  {
+    "output": "keyword-field-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "BioKeyword::",
+    "sha256": "db03124de8d6535dbd0d10ee7a4a3fd0782d3e3baf138902384e0be3bfa739d0"
+  },
+  {
+    "output": "keyword-data-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "::keywordData",
+    "sha256": "4432cd369759b11b1787da41441921a6e638c158c7b1a5623715bcddd207b32b"
+  },
+  {
+    "output": "keyword-types.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--types",
+    "selection": "BioKeyword",
+    "sha256": "b23533846e6c69e0f23af4b4fff5d2bc40fa234bc35d894ce22e49ec477f88fb"
+  },
+  {
+    "output": "trigger-types.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--types",
+    "selection": "Trigger",
+    "sha256": "7404136afa51c48e6353cab89e14738164bbdcafe1b38474f50d662e75902c39"
+  },
+  {
+    "output": "keyword-dictionary-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "::bioKeywordsBy",
+    "sha256": "a84fdfaf423e80215f160ca05a4db498acbe496efdf0ef5484e1eefb7624daaa"
+  },
+  {
+    "output": "actor-unlock-load.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Actor",
+    "selection": "UnlockBioKeyword,LoadBioKeywords,Load",
+    "sha256": "39b4aba8c216f592ff7d5df393750b639428c39da03d088d1532446528533c82"
+  },
+  {
+    "output": "trigger-loader.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "AddConversationTriggerUnlockBioFragment",
+    "sha256": "1c8441dc65589affe91769ca174bcdc4f7a9fb8b1530a4234af4ab662cf07f16"
+  },
+  {
+    "output": "save-record-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.SavegameBioKeywordData",
+    "selection": "--fields",
+    "sha256": "a7527f05f047eaa3c1d34222fd3c3ff8b313ca2be7afbba35f5f1e1fcce9f423"
+  },
+  {
+    "output": "save-record-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.SavegameBioKeywordData",
+    "selection": "--list",
+    "sha256": "f0478b8888eee0b6d51e163bf7765d65846c427a6d0113f0a8ca4bf06f736afd"
+  },
+  {
+    "output": "keyword-data-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioKeywordData",
+    "selection": "--fields",
+    "sha256": "ffda034ae92a01e8ee38fd6f3e2630c2ac2dbb6ccfd29466ad0fb2c669a0f532"
+  },
+  {
+    "output": "keyword-data-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.BioKeywordData",
+    "selection": "--list",
+    "sha256": "9153fc39a73f9f7b5ba83aab178818e301bdf1ecec754a71c48abac19842eae2"
+  },
+  {
+    "output": "trigger-calls.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "UnlockBioKeyword",
+    "sha256": "9a32e0f25722b4a71f7ccc6b7c1c4c539dc885999c17dab3f929d0082f6c096b"
+  },
+  {
+    "output": "trigger-loader-calls.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "AddConversationTriggerUnlockBioFragment",
+    "sha256": "8664b93b45874884fa32e87829f7074fff7c2bcaded9e869078dc3ed47c900a9"
+  },
+  {
+    "output": "loader-types.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--types",
+    "selection": "DisplayClass21",
+    "sha256": "9e7bcec3823b59ef37aa3d8bd40cd44caf081603ae3c35ea621b92ee59691ced"
+  },
+  {
+    "output": "notification.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.OverworldAllInOneNotification",
+    "selection": "OnBioUnlocked",
+    "sha256": "6f340ab65de1561274a46875c1d9162ece5df26d424fb39807f95178a4b09dbc"
+  },
+  {
+    "output": "keyword-lookups.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.DataService",
+    "selection": "GetBioKeywordBySavekey,GetBioKeywordByDbName,GetBioKeywordByPluginDbTriggerName,CreateBioKeywordData,SaveActor",
+    "sha256": "cf19767025e8de247888fec1d4fd0fe431a209a1d1f7ddd032640ffd19c13117"
+  },
+  {
+    "output": "narrative-unlock.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.NarrativeActions",
+    "selection": "UnlockBioKeyword",
+    "sha256": "b5cee14213fb7c775312b84ab10d1b225a5fcc9a0cbde4b72cc2b190935c14a8"
+  },
+  {
+    "output": "arc-trigger.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment",
+    "selection": "OnExecute",
+    "sha256": "f6d41a3e9a6ae36f44a109ba712a6f39f25a419a380fed4876d97b5881cfb684"
+  },
+  {
+    "output": "arc-trigger-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment",
+    "selection": "--fields",
+    "sha256": "25da5248b996505a67e68e99cbdee5eb347a6d5062de1df38119ee1485cab126"
+  },
+  {
+    "output": "save-record.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.SavegameBioKeywordData",
+    "selection": "DeepCopy,.ctor",
+    "sha256": "d74fd57e2f79f43827d9c9c807039a78d0b243c34d5f7d10a4323a42efce48ac"
+  },
+  {
+    "output": "actor-introduce.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Actor",
+    "selection": "Introduce",
+    "sha256": "ebf72b71a472d061e6f437aaafa884882b4732b90e6033b7b0916ee8315c6744"
+  },
+  {
+    "output": "save-record-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "SavegameBioKeywordData::",
+    "sha256": "23abdc0e1ce64ee3b18c55ffb208ad20703d090395ab7e5c146b768175fe823d"
+  },
+  {
+    "output": "keyword-unlocked-by-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "::unlockedByDialogueDbNames",
+    "sha256": "a8a642fe733f97e0c875b5d10483688330ce4ccca84a2768d1ec53e5606b2d49"
+  },
+  {
+    "output": "arc-dispatch.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "AddArcPreconditionsAndTriggers",
+    "sha256": "b61aa0072205428948a8e183343071a8097d137f71ae5724e844fe3fbad46cc4"
+  },
+  {
+    "output": "arc-constructor.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment",
+    "selection": ".ctor",
+    "sha256": "ae1cfb1f029a989f883d6117982a931f72fb7af04574ce6edc2b5a5e339c783c"
+  },
+  {
+    "output": "save-actor-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.SavegameActorData",
+    "selection": "--fields",
+    "sha256": "7601c560af705b3c51d43841b37766ac80244e29d3b4ec89e7d43dcefde1116e"
+  },
+  {
+    "output": "savestate-actor.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Services.Persistence.Savestate",
+    "selection": "LoadActorData,SaveActorData",
+    "sha256": "44d9210923363764af9b75ad84976b5ddc8af4c3697cff2f17e24cc7dac07987"
+  },
+  {
+    "output": "vslice-control.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.QuestTriggerHelper",
+    "selection": "InVsliceStoryInstance",
+    "sha256": "a158c9c3a1b95e32194ecfc6bdbb1734328a349857bfcb5f196be264cd76892e"
+  }
+]

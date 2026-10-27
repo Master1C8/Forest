@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "comparisons": [
+    {
+      "original": "panel-readback/verification.json",
+      "reproduced": "panel-reproduced/verification.json",
+      "sha256": "cbc1535e2e6b493cf5a86ca77bc40c65b1072669037f6978b6b103b34326c1d8",
+      "byteEqual": true
+    },
+    {
+      "original": "panel-readback/panel-binding.json",
+      "reproduced": "panel-reproduced/panel-binding.json",
+      "sha256": "c08733f8f4cfe4ad3d6bfe77ba837398963c59f90fb9d579697d12ee349a9f79",
+      "byteEqual": true
+    },
+    {
+      "original": "text-readback/verification.json",
+      "reproduced": "text-reproduced/verification.json",
+      "sha256": "5cb59f002848b2ffb0035b8bde2af857327a96026e890df1a3eb5cdcb4196be8",
+      "byteEqual": true
+    },
+    {
+      "original": "text-readback/direct-text-binding.json",
+      "reproduced": "text-reproduced/direct-text-binding.json",
+      "sha256": "94b41518c700b403c835a619f450f953a276cbd6df9a8c34137ea2ac301d8d5b",
+      "byteEqual": true
+    }
+  ],
+  "boundary": "Original resource bytes decoded twice through unchanged aligned reader; no game/native execution."
+}

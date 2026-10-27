@@ -1,0 +1,1 @@
+System.Void TheForestOfLove.Narrative.Dialogue::FireArcTriggers(TheForestOfLove.Narrative.Arc,System.Int32,System.Int32) | IL_0018: callvirt System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTrigger::CheckTrigger(TheForestOfLove.Narrative.Arc,System.Int32,System.Int32)

@@ -1,0 +1,78 @@
+{
+  "status": "passed-static-scoped",
+  "dotnetSDK": "8.0.131",
+  "selectedBodies": 3,
+  "instructions": 100,
+  "perBodyInstructions": [
+    71,
+    15,
+    14
+  ],
+  "fullReadCoverage": true,
+  "methodOperands": 4,
+  "fieldOperands": 22,
+  "opaqueRuntimeOperands": 4,
+  "handlers": 0,
+  "uniqueMethodDeclarations": 4,
+  "nativeDeclarations": 1,
+  "newDirectManagedBodies": 2,
+  "meaning": "Exact atlas setup/rectangle mutations and constructor forwarding only; no transitive constructor/native/resource/rendering acceptance",
+  "retained": {
+    "status": "passed-hash-parity",
+    "previousRetained": {
+      "status": "passed-hash-parity",
+      "previousRetained": {
+        "status": "passed-hash-parity",
+        "baselineFiles": 12,
+        "uniqueFilesVerified": 931,
+        "metadataDllsPinned": 150,
+        "phase102Files": 30,
+        "readerRebuilds": 0,
+        "originalResources": "hash parity only; not decoded"
+      },
+      "phase103Files": 29,
+      "originalResources": "hash parity only; not decoded",
+      "readerRebuilds": 0
+    },
+    "phase104Files": 25,
+    "originalResources": "hash parity only; not decoded",
+    "readerRebuilds": 0
+  },
+  "originalResourcesDecoded": 0,
+  "gameAssemblyExecuted": false,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "gitMutations": 0,
+  "readerRebuilds": 0,
+  "authoredTranslations": 0,
+  "noMocks": true,
+  "sourceAcceptance": "needs-review",
+  "editorial": "not-run",
+  "runtime": "not-run",
+  "visual": "not-run",
+  "delivery": "needs-review",
+  "usage": null,
+  "recipe": "python3 -B localization/source/bgdatabase-20261027/bio-tmp-atlas-setup/verify_atlas_setup.py --output localization/source/bgdatabase-20261027/bio-tmp-atlas-setup/<new-output-directory>",
+  "codeHashes": {
+    "verify_atlas_setup.py": "3ab4afc6bda4c28c24fd3e2eba80faa5c3c00258bb487f7f5ec56752294846e7",
+    "baseline.json": "db10d8f9196c06296d916f073f6fb67b93d605c0938293f441b4f358a58f063d",
+    "il-commands.json": "04fb422c8d3cbbb345efd970ecba47c86202c3f85e15021a1ef6e05a14cb5494",
+    "next-signatures.json": "5feb137a52207c01157d1d46944de063cbf0e4f541e016ef059f8b430b448a8b",
+    "execution-model.json": "fb37014e05c993a2eec9ed4f21dcfe4a1c101be9399cd109498167a75c4fd332",
+    "source-trace.json": "e06bab62985c2aef8103b7c5dceb5d3edd9f0cbe3c94fbbd0ec3a709f24779c5",
+    "consumer-boundaries.json": "4882f98f27cf97b240a5fd56e0191694e630c5e9263625126e5c38fabc1e23cf",
+    "next-consumer.json": "84c234d8dc49a5915564058397e6b278117a664b0a806bee7ff260ba57717a95",
+    "ADAPTER.md": "1da1f3e6d9ee6624aa6ca952a7d61533c6597bd3e3e2fcc77f1697151efc505c",
+    "verification-history.json": "be0966faeec7354290e44a14156ec1ac6a0e453292c367e7f4c341e79b26491f",
+    "process-reference-verification.json": "4e502eeba3435c905334f5cd7ef6a85b7accc128a9531ba43f2cef1345fd3a11"
+  },
+  "outputHashes": {
+    "metadata-verified/atlas-setup.il": "221854162a74b5b599d09a5f9d229717b5a00c26f02d7b18402d45faafbb4986",
+    "metadata-verified/dependency-scopes.json": "800bda8058a5ed0a8c8e99454eb3b07306bcda42513ef48e2f48055f647c4b65",
+    "metadata-verified/direct-dependencies.il": "d75a2e5e1d7721cb800e3cf5c62b078e9618cc3f0abaa1b2c24e83c731c9e340",
+    "metadata-verified/metadata-assertions.json": "cca93860c83002dc11fa29a962dfaa1b02a7c5156510ff5ab853092b5b5b8822",
+    "metadata-verified/retained-input-verification.json": "eff744c7f1932d1f5819c5266085c69f3e018b65ae0c453f320966eb7bce74f7",
+    "metadata-verified/verification.json": "40271878213e696c734f25635e59b7b6b6fe85a4f3321a1e018e10612b0904ef"
+  },
+  "validationMeaning": "Exact original metadata/IL reexport and branch/order assertions support complete selected reading; no native/constructor-transitive/resource/runtime/renderer/editorial acceptance."
+}

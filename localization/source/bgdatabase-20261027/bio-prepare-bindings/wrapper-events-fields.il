@@ -1,0 +1,1 @@
+TYPE PixelCrushers.DialogueSystem.Wrappers.DialogueSystemEvents BASE PixelCrushers.DialogueSystem.DialogueSystemEvents

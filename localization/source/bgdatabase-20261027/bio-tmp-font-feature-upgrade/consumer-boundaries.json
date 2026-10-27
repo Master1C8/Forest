@@ -1,0 +1,415 @@
+{
+  "consumers": [
+    {
+      "definition": {
+        "signature": "System.String UnityEngine.Object::get_name()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "managed-body-unread",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 6,
+          "opcode": "call",
+          "operand": "System.String UnityEngine.Object::get_name()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.Debug::Log(System.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "managed-body-unread",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 22,
+          "opcode": "call",
+          "operand": "System.Void UnityEngine.Debug::Log(System.Object,UnityEngine.Object)"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void TMPro.TMP_FontFeatureTable::.ctor()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 36,
+          "opcode": "newobj",
+          "operand": "System.Void TMPro.TMP_FontFeatureTable::.ctor()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.UInt32 TMPro.KerningPair::get_firstGlyph()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 114,
+          "opcode": "callvirt",
+          "operand": "System.UInt32 TMPro.KerningPair::get_firstGlyph()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.UInt32 TMPro.TMP_TextElement::get_glyphIndex()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "prior-complete-reading-reused-by-hash",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 130,
+          "opcode": "callvirt",
+          "operand": "System.UInt32 TMPro.TMP_TextElement::get_glyphIndex()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 162,
+          "opcode": "callvirt",
+          "operand": "System.UInt32 TMPro.TMP_TextElement::get_glyphIndex()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.UInt32 TMPro.KerningPair::get_secondGlyph()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 146,
+          "opcode": "callvirt",
+          "operand": "System.UInt32 TMPro.KerningPair::get_secondGlyph()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_firstGlyphAdjustments()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 171,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_firstGlyphAdjustments()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 182,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_firstGlyphAdjustments()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 193,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_firstGlyphAdjustments()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 204,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_firstGlyphAdjustments()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void TMPro.TMP_GlyphValueRecord::.ctor(System.Single,System.Single,System.Single,System.Single)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 214,
+          "opcode": "newobj",
+          "operand": "System.Void TMPro.TMP_GlyphValueRecord::.ctor(System.Single,System.Single,System.Single,System.Single)"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 272,
+          "opcode": "newobj",
+          "operand": "System.Void TMPro.TMP_GlyphValueRecord::.ctor(System.Single,System.Single,System.Single,System.Single)"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void TMPro.TMP_GlyphAdjustmentRecord::.ctor(System.UInt32,TMPro.TMP_GlyphValueRecord)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 219,
+          "opcode": "newobj",
+          "operand": "System.Void TMPro.TMP_GlyphAdjustmentRecord::.ctor(System.UInt32,TMPro.TMP_GlyphValueRecord)"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 277,
+          "opcode": "call",
+          "operand": "System.Void TMPro.TMP_GlyphAdjustmentRecord::.ctor(System.UInt32,TMPro.TMP_GlyphValueRecord)"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_secondGlyphAdjustments()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 229,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_secondGlyphAdjustments()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 240,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_secondGlyphAdjustments()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 251,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_secondGlyphAdjustments()"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 262,
+          "opcode": "callvirt",
+          "operand": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_secondGlyphAdjustments()"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void TMPro.TMP_GlyphPairAdjustmentRecord::.ctor(TMPro.TMP_GlyphAdjustmentRecord,TMPro.TMP_GlyphAdjustmentRecord)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "bodyStatus": "read-this-phase",
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+          "offset": 284,
+          "opcode": "newobj",
+          "operand": "System.Void TMPro.TMP_GlyphPairAdjustmentRecord::.ctor(TMPro.TMP_GlyphAdjustmentRecord,TMPro.TMP_GlyphAdjustmentRecord)"
+        }
+      ],
+      "dispatch": "exact nonvirtual declaration"
+    }
+  ],
+  "opaqueRuntimeOperands": [
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 16,
+      "operand": "System.String System.String::Concat(System.String,System.String,System.String)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 57,
+      "operand": "System.Int32 System.Collections.Generic.List`1<TMPro.KerningPair>::get_Count()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 70,
+      "operand": "System.Void System.Collections.Generic.List`1<TMPro.TMP_GlyphPairAdjustmentRecord>::.ctor(System.Int32)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 99,
+      "operand": "!0 System.Collections.Generic.List`1<TMPro.KerningPair>::get_Item(System.Int32)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 121,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::TryGetValue(!0,!1&)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 153,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::TryGetValue(!0,!1&)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "offset": 304,
+      "operand": "System.Void System.Collections.Generic.List`1<TMPro.TMP_GlyphPairAdjustmentRecord>::Add(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontFeatureTable::.ctor()",
+      "offset": 1,
+      "operand": "System.Void System.Object::.ctor()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontFeatureTable::.ctor()",
+      "offset": 7,
+      "operand": "System.Void System.Collections.Generic.List`1<TMPro.TMP_GlyphPairAdjustmentRecord>::.ctor()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontFeatureTable::.ctor()",
+      "offset": 18,
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_GlyphPairAdjustmentRecord>::.ctor()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_GlyphPairAdjustmentRecord::.ctor(TMPro.TMP_GlyphAdjustmentRecord,TMPro.TMP_GlyphAdjustmentRecord)",
+      "offset": 1,
+      "operand": "System.Void System.Object::.ctor()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    }
+  ],
+  "sharedRegistration": "No direct registration/material/native operands in nine selected bodies. Existing feature-table identity is retained and its list is replaced; shared owners observe replacement. Its old dictionary is untouched here and may be stale until the retained pair-dictionary rebuild. Actual aliases, callbacks and BCL/native/logging effects unexecuted.",
+  "partialState": "No handlers/rollback/lock. Logging precedes mutations. Conditional table creation, unconditional list replacement, ordered Add prefix, then legacy-list null followed by legacy-table null; failures may preserve each earlier mutation.",
+  "keyBoundary": "No packed pair-key construction/dictionary insertion in this method. Retained caller later builds UInt32 (second<<16)|first, first duplicate computed key wins; no mask or range guard. No observed game indices or collisions."
+}

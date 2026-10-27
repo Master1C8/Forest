@@ -1,0 +1,97 @@
+{
+  "nextMetadata": [
+    {
+      "signature": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]&,System.Int32,System.Int32&,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]&,System.Int32,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "remainingBackingAndClosing": [
+    {
+      "signature": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer&,System.Int32,System.Int32&,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer&,System.Int32,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "subsequentConcreteArrayConsumer": [
+    {
+      "signature": "System.Int32 TMPro.TextMeshProUGUI::SetArraySizes(TMPro.TMP_Text/UnicodeChar[])",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Assembly, Virtual, HideBySig, CheckAccessOnOverride",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": true,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "retainedConsumers": "retained-consumers.json",
+  "unknownInstalledState": [
+    "actual m_StyleSheet / m_StyleList / hashes and definitions",
+    "TMP Settings resource and m_defaultStyleSheet",
+    "ResourcesAPI override/default concrete object and initializer completion",
+    "concrete optional ITextPreprocessor and current inputSource",
+    "font3323/material7 identities retained; resources not decoded",
+    "actual output-array fields, write index and style-stack capacity/count/rollover/depth"
+  ],
+  "excluded": "No lookup/null/resource/parser/backing replay, full GenerateTextMesh, fonts/material decoding, game/GUI/preview/images, original assembly/native execution or competing overlay.",
+  "nextAction": "Read exact Int32[]& ReplaceOpeningStyleTag and ReplaceClosingStyleTag invoked by opening-definition expansion; follow only indispensable direct style-value/hash/stack managed dependencies. Then pin remaining TextBackingContainer/InsertClosingStyleTag and concrete TextMeshProUGUI.SetArraySizes boundary. Preserve the exact overload distinction and do not claim grammar/recursion bounds before relevant bodies."
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "attempt": 1,
+    "output": "readback",
+    "outcome": "failed",
+    "boundary": "External MonoScript file mapping: assumption resources.assets rejected; actual externalPath and resolved target are globalgamemanagers.assets.",
+    "sideEffects": "New empty output directory only; no game/source/Git changes.",
+    "recipe": "verify_binding.attempt1.py",
+    "baseline": "baseline.attempt1.json"
+  },
+  {
+    "attempt": 2,
+    "output": "readback-v2",
+    "changedHypothesis": "Use actual external globalgamemanagers.assets; verify newly pinned original source and exact four MonoScripts, not a resource-name guess.",
+    "outcome": "passed-static-scoped",
+    "verification": "readback-v2/verification.json"
+  }
+]

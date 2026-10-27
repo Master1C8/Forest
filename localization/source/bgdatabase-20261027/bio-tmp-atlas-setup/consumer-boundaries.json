@@ -1,0 +1,132 @@
+{
+  "consumers": [
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Boolean)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+          "offset": "IL_004d",
+          "opcode": "newobj"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.LowLevel.FontEngine::ResetAtlasTexture(UnityEngine.Texture2D)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Assembly, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+          "offset": "IL_0060",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "native-declaration-no-managed-body",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.GlyphRect::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+          "offset": "IL_009a",
+          "opcode": "newobj"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Assembly, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Boolean)",
+          "offset": "IL_0012",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "declaration-resolved-body-unread",
+      "dispatch": "exact nonvirtual declaration"
+    }
+  ],
+  "opaqueRuntimeOperands": [
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+      "offset": 46,
+      "operand": "System.Void System.Array::Resize<UnityEngine.Texture2D>(!!0[]&,System.Int32)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+      "offset": 125,
+      "operand": "System.Void System.Collections.Generic.List`1<UnityEngine.TextCore.GlyphRect>::Clear()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+      "offset": 159,
+      "operand": "System.Void System.Collections.Generic.List`1<UnityEngine.TextCore.GlyphRect>::Add(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+      "offset": 170,
+      "operand": "System.Void System.Collections.Generic.List`1<UnityEngine.TextCore.GlyphRect>::Clear()",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    }
+  ],
+  "additionalBoundary": "Texture2D wrapper also reads System.IntPtr::Zero; BCL field semantics not executed. Underlying six-argument constructor remains unread. No concrete texture/native behavior inferred.",
+  "meaning": "Exact declarations and three selected bodies only; native reset has no managed body."
+}

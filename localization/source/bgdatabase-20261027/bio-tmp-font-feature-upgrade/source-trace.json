@@ -1,0 +1,202 @@
+{
+  "phase": "0109-work",
+  "status": "passed-static-scoped",
+  "selectedMethods": [
+    {
+      "signature": "System.Void TMPro.TMP_FontAsset::UpgradeGlyphAdjustmentTableToFontFeatureTable()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_FontFeatureTable::.ctor()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.UInt32 TMPro.KerningPair::get_firstGlyph()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.UInt32 TMPro.KerningPair::get_secondGlyph()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_firstGlyphAdjustments()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_GlyphValueRecord::.ctor(System.Single,System.Single,System.Single,System.Single)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_GlyphAdjustmentRecord::.ctor(System.UInt32,TMPro.TMP_GlyphValueRecord)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "TMPro.GlyphValueRecord_Legacy TMPro.KerningPair::get_secondGlyphAdjustments()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_GlyphPairAdjustmentRecord::.ctor(TMPro.TMP_GlyphAdjustmentRecord,TMPro.TMP_GlyphAdjustmentRecord)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "coverage": {
+    "exportFiles": [
+      {
+        "path": "font-feature-upgrade.il",
+        "sha256": "4b5d0effac55c4be436f4dbbc2c3d109c99c405a228f38bc6f352e639b086045",
+        "lines": 112,
+        "modelReadLineRanges": [
+          [
+            1,
+            112
+          ]
+        ],
+        "ILInstructions": 110
+      },
+      {
+        "path": "direct-dependencies.il",
+        "sha256": "d621e7084533ece96cb3a61cc0754a65ff233445bb8e09ba648d5c94028a84b8",
+        "lines": 69,
+        "modelReadLineRanges": [
+          [
+            1,
+            69
+          ]
+        ],
+        "ILInstructions": 53
+      }
+    ],
+    "totalInstructions": 163,
+    "perBodyInstructions": [
+      110,
+      9,
+      3,
+      3,
+      3,
+      13,
+      7,
+      3,
+      12
+    ],
+    "unreadSelectedBodyRanges": [],
+    "newSelectedBodies": 9
+  },
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-font-upgrade/source-trace.json",
+    "sha256": "5f8fe4e6d52eead4410850c7af335c7ace36445d425f7e105d35cebed1e77e55"
+  },
+  "rules": [
+    {
+      "id": "logging-and-replacement",
+      "evidence": "font-feature-upgrade.il IL_0000\u2013IL_0052; direct-dependencies.il FontFeatureTable ctor",
+      "finding": "Object.name/Debug.Log wrappers run before all selected mutations and remain unread. If current feature table is managed-null, construct one: Object base ctor, empty records list, empty pair dictionary in order, then assign field. Regardless of existing/new table, snapshot legacy kerningPairs.Count once and REPLACE its records list with new List(capacity=count). Existing feature-table identity and its pair dictionary are retained; an existing populated dictionary may remain stale until caller rebuild. No null guard for legacy table/list. Constructor BCL allocation behavior unexecuted."
+    },
+    {
+      "id": "lookup-domain-and-missing-default",
+      "evidence": "font-feature-upgrade.il IL_0057\u2013IL_00a7; KerningPair getters; retained glyphIndex accessor",
+      "finding": "Visit source pairs in ascending positions using captured Count, reloading legacy table/list every indexed read. firstGlyph and secondGlyph getters directly return UInt32 fields. Each is used as a KEY to current character dictionary TryGetValue, not copied as a final glyph index. Each destination index starts0 and changes only on lookup success to direct TMP_TextElement.m_GlyphIndex. Missing keys retain0; no skip/warning/validation. Null dictionary/pair or a successful lookup returning null can fail; table readiness and true input identities are unverified. No character synthesis/registration/fallback lookup is performed here."
+    },
+    {
+      "id": "ordered-adjustment-copy",
+      "evidence": "font-feature-upgrade.il IL_00a9\u2013IL_0121; direct-dependencies.il full",
+      "finding": "Each side rereads its direct value-type legacy adjustment getter separately for xPlacement,yPlacement,xAdvance,yAdvance in that order. Four-argument TMP_GlyphValueRecord ctor directly stores all four values unchanged; no scale,clamp,finiteness/normalization or xAdvanceOffset field access. TMP_GlyphAdjustmentRecord ctor stores mapped index then value record. Pair ctor calls Object base then stores FIRST adjustment,SECOND adjustment and featureLookupFlags numeric0. Pair direction is preserved; no swap,sort,dedup or packed-key construction. No inferred equivalence between old firstGlyph/secondGlyph values and actual current indices."
+    },
+    {
+      "id": "append-then-destroy-legacy-links",
+      "evidence": "font-feature-upgrade.il IL_0123\u2013IL_0153",
+      "finding": "Append each new pair to the current feature table/list reloaded at Add. Captured source Count bounds loop, not live Count; no snapshot of source list identity. After EVERY iteration succeeds, set current legacy-table.kerningPairs=null, then font.m_KerningTable=null. This nulls a shared table field rather than clearing the old List object: an external old-list reference retains its elements under ordinary BCL semantics. An external legacy-table owner observes its list field becoming null. Actual aliases/concurrent changes remain unverified. Explicit rerun after success reaches a null table and has no local early-return guard; retained caller skips upgrade when legacy table/list is null or Count<=0."
+    },
+    {
+      "id": "caller-key-and-shared-partial-state",
+      "evidence": "all nine bodies; retained phase106 pair-rebuild-and-key",
+      "finding": "This method does not clear/rebuild current pair dictionary or register a resource/material. Retained caller subsequently allocate/Clears pair dictionary and inserts UInt32 keys (secondGlyphIndex<<16)|firstGlyphIndex with first computed key winning, preserving known collision risks and missing0 collapse. No lock/handler/rollback in nine bodies. If conversion/Add fails after list replacement, new list may contain only prefix while old legacy inputs remain and old dictionary stays stale; caller does not proceed to dictionary rebuild. The two tail stores are separate shared-state writes; there is no intervening call or ordinary single-thread throwing operation after the first tail store. Interruption/concurrent observation is not executed. Lazy-getter retry suppression and definition dirty/hash ordering remain prior evidence. Native/logging/BCL/transitive effects unexecuted, actual serialized aliases/values unknown."
+    }
+  ],
+  "directConsumers": "consumer-boundaries.json",
+  "retainedConsumers": "retained-consumers.json",
+  "nextConsumer": "next-consumer.json",
+  "verification": "metadata-verified-02/verification.json",
+  "limits": "Static IL and metadata only. No game/native execution,GenerateTextMesh,resource decoding,images,GUI/preview,Git or parallel-lane writes. No source/renderer/editorial/resource/runtime/visual/delivery gate passed.",
+  "usage": null
+}

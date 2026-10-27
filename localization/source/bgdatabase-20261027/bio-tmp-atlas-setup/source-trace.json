@@ -1,0 +1,129 @@
+{
+  "phase": "0105-work",
+  "status": "passed-static-scoped",
+  "selectedMethods": [
+    {
+      "signature": "System.Void TMPro.TMP_FontAsset::SetupNewAtlasTexture()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Boolean)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.TextCore.GlyphRect::.ctor(System.Int32,System.Int32,System.Int32,System.Int32)",
+      "module": "UnityEngine.TextCoreModule.dll",
+      "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+      "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "coverage": {
+    "exportFiles": [
+      {
+        "path": "atlas-setup.il",
+        "sha256": "221854162a74b5b599d09a5f9d229717b5a00c26f02d7b18402d45faafbb4986",
+        "lines": 73,
+        "modelReadLineRanges": [
+          [
+            1,
+            73
+          ]
+        ],
+        "ILInstructions": 71
+      },
+      {
+        "path": "direct-dependencies.il",
+        "sha256": "d75a2e5e1d7721cb800e3cf5c62b078e9618cc3f0abaa1b2c24e83c731c9e340",
+        "lines": 33,
+        "modelReadLineRanges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "ILInstructions": 29
+      }
+    ],
+    "totalInstructions": 100,
+    "perBodyInstructions": [
+      71,
+      15,
+      14
+    ],
+    "unreadSelectedBodyRanges": [],
+    "newDirectManagedDependencyBodiesRead": 2
+  },
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-add-character/source-trace.json",
+    "sha256": "b8ece763cfcb3fc76db0959afec1439cfc913aa3ee4c1d36688a395d6f3b82e7",
+    "meaning": "All phase79\u2013104 source/consumer/shared-state/native/resource limits retained; only formerly unread atlas-setup boundary narrowed."
+  },
+  "rules": [
+    {
+      "id": "index-before-capacity",
+      "evidence": "atlas-setup.il IL_0000\u2013IL_0032",
+      "finding": "First increment m_AtlasTextureIndex with unchecked add and store it. Only then dereference the atlas array length. Resize by reference to unchecked length*2 ONLY if length equals the new index; the bne branch skips resize for every unequal value, including index above length. No null, negative, overflow, maximum-atlas or nonempty-array guards, lock or rollback. A failed length read/Resize/allocation leaves the earlier index assignment. Typical valid-state doubling is conditional, not an all-input guarantee."
+    },
+    {
+      "id": "slot-before-reset",
+      "evidence": "atlas-setup.il IL_0033\u2013IL_0064",
+      "finding": "Reload array and current index, load stored width/height, construct Texture2D(width,height,numeric format1,mipChain=false), then stelem.ref; reload current texture and invoke exact InternalCall FontEngine.ResetAtlasTexture. New texture construction precedes slot bounds checking at stelem.ref. No existing slot test, release/Destroy, readability or dimension validation here. Underlying constructor is not accepted by its name. Texture installed before native reset; index/possible array resize and slot effects can survive reset exceptions. Native mutation/reentrancy is not known."
+    },
+    {
+      "id": "rectangle-sequence",
+      "evidence": "atlas-setup.il IL_0065\u2013IL_00af",
+      "finding": "After reset, compute local border0 when (m_AtlasRenderMode &16)==16, else1. Clear current free-list field; reload it and append GlyphRect(0,0,reloaded width-border,reloaded height-border) using unchecked sub; then clear current used-list field and return. Read GlyphRect constructor directly assigns m_X,m_Y,m_Width,m_Height without checks/calls. No clamp, positivity, padding adjustment or relation to actual created texture dimensions is checked. Rectangle dimensions are loaded after native reset; field identity/value changes are not excluded. If free/used fields alias the same List, the final Clear removes the appended rectangle; a universal final one-free-rectangle invariant would therefore be unsupported."
+    },
+    {
+      "id": "texture-wrapper-only",
+      "evidence": "direct-dependencies.il Texture2D four-argument ctor IL_0000\u2013IL_0019",
+      "finding": "Forward width,height,format unchanged; mipChain false selects mipCount1, true selects -1; pass linear=false and System.IntPtr.Zero into exact six-argument Texture2D constructor. That managed constructor body is resolved but unread. BCL IntPtr.Zero semantics and native texture allocation/validation/lifetime are not executed. No inference that construction or reset is safe or succeeds on the real asset."
+    },
+    {
+      "id": "normal-false-retry-preserves-setup",
+      "evidence": "atlas-setup.il full body + retained bio-tmp-add-character/source-trace.json second-add-and-failed-state",
+      "finding": "On a normally completed SetupNewAtlasTexture call, the caller immediately makes its single second TryAddGlyphToTexture attempt using post-setup fields. Its normal false branch returns false without reverting setup index, array/slot, reset or rectangle effects; out TMP_Character remains null as established in phase104. The glyph wrapper false path does not clear/copy rectangle lists, but shared-array/native effects are still possible. No successful character/glyph collection commit on that false branch. A failed add is therefore not evidence of unchanged font state. Exceptions are a separate partial-state boundary. No simulation or original execution was used."
+    },
+    {
+      "id": "guard-and-transaction-limits",
+      "evidence": "all three selected IL bodies / dependency-scopes.json",
+      "finding": "No local handlers or restoration path. Setup itself returns void and has no ordinary failure result or loop. Array Resize/List semantics remain opaque runtime boundaries; no distinct-list, collection-null or stable-state guard exists here. Direct native reset is InternalCall/no managed body. Definition initialization, forwarded constructor/native behavior, actual font3323/material7/resources, Unicode coverage, shaping, layout, source reachability and real rendering remain unaccepted."
+    }
+  ],
+  "directConsumers": "consumer-boundaries.json",
+  "nextConsumer": "next-consumer.json",
+  "verification": "metadata-verified/verification.json",
+  "limits": [
+    "Static original metadata/IL only. No original managed/native execution, game/GUI/preview/images, resource decoding, overlay, authored translation or Git mutation.",
+    "ReadFontAssetDefinition and forwarded six-argument Texture2D constructor remain resolved but unread. Prior TMP_Character forwarded setters/base, Glyph constructor, Mathf.Max, settings/features, Texture2D concrete readability/size/Resize and diagnostics bodies remain separate open dependencies; no transitive acceptance.",
+    "All inherited controller/DB/Lua/metatable/language/loading/save/global-script/callback/delivery/BIO/reachability,parser/style/reentrancy/serialized-state/native-selection and conditional panel/font/material limits remain. No source/special-scene/runtime manifest acceptance.",
+    "Serializer/nonlinear restore,Quest ordering/reflection/initial-unlock/counter,universal semantic/independent diff/delta,final fonts/licenses/resources/runtime/visual/delivery pending. Drafting/preliminary editorial exceptions pass no gate.",
+    "Accepted10/15/47/48 visuals/50 route unchanged;spawn/other3 intros/notebook/Bucky open. No53 replay/no54. All asset/editorial/Japanese lanes and actual preview independently authorized/read-only. Parent integrates;worker has no Git/index/HEAD authority."
+  ],
+  "usage": null
+}

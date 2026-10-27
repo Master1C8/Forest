@@ -1,0 +1,76 @@
+{
+  "phase": "0097-work",
+  "status": "passed-static-scoped",
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-tmp-input-parsing/source-trace.json",
+    "sha256": "69aca57ac277f039320ddf6ac030e257c3de6a59d81f86a88715a490df242ad3",
+    "coverageLimits": "All phase79\u201396 source/cache/format/Lua/language/serialized-state/conditional UI/notification/coroutine/queue/pre-render/parsing limits retained unchanged."
+  },
+  "rules": [
+    {
+      "id": "component-then-default",
+      "evidence": "style-lookup.il;dependency-scopes.json",
+      "finding": "GetStyle(Int32) initializes managed-null result; component sheet passes Unity-null check before Int32 lookup. Managed-nonnull style returns immediately. Otherwise settings default sheet is checked then read again for Int32 lookup. Two getter calls are not cached as one object. TMP_Style base is System.Object; its result null test is managed, distinct from Unity sheet/settings checks."
+    },
+    {
+      "id": "original-unity-null-check",
+      "evidence": "object-comparison.il;object-null-semantics.il",
+      "finding": "Original CompareBaseObjects checks managed null; with one null, uses IsNativeObjectAlive, which compares GetCachedPtr() against IntPtr.Zero. GetCachedPtr loads m_CachedPtr. No native liveness query appears in these selected bodies; current object/pointer state is unknown."
+    },
+    {
+      "id": "settings-resource-failure-before-normal",
+      "evidence": "settings-lookup.il;normal-style.il",
+      "finding": "defaultStyleSheet calls instance then directly ldfld m_defaultStyleSheet without a null guard. instance Unity-null-checks s_Instance, conditionally loads TMP Settings through Resources.Load<TMP_Settings>, stores/returns it with no success check. Managed-null load result can throw at the field read before caller reaches NormalStyle fallback; missing-resource safety and successful completion are not proved."
+    },
+    {
+      "id": "lazy-dictionary-and-first-hash",
+      "evidence": "sheet-lookup.il;sheet-initialize.il",
+      "finding": "Int32 lookup initializes only a managed-null dictionary then TryGetValue; miss returns null. Initialization creates/clears dictionary and visits style list in order; RefreshStyle executes on every element, then ContainsKey suppresses duplicate-hash insertion. First inserted hash wins; no name comparison/collision detection. Null/malformed elements or allocation failures can leave partial state. No actual list/collision/state read."
+    },
+    {
+      "id": "sheet-normal-versus-cached-normal",
+      "evidence": "sheet-initialize.il;normal-style.il;style-constructor.il",
+      "finding": "After list visitation, absent Normal hash creates Normal/empty/empty, appends to serialized list then dictionary. Existing same hash prevents addition independent of name/definitions. Separately NormalStyle lazy static cache constructs its own Normal/empty/empty on managed null. Neither proves that installed Normal definitions or cached object stay empty; both are managed mutable objects."
+    },
+    {
+      "id": "definition-code-unit-arrays",
+      "evidence": "style-constructor.il;style-refresh.il",
+      "finding": "Constructor stores name and definitions, hashes then RefreshStyle hashes again and allocates four arrays: Int32 and UInt32 opening/closing at each definition String.Length. Each gets UTF16 chars directly; no surrogate scalar conversion, tag validation or null guard in RefreshStyle. Empty initial Normal definitions lead to zero-length arrays after successful construction; original allocation never executed."
+    },
+    {
+      "id": "style-name-hash",
+      "evidence": "hash-name-selection.il;ascii-upper.il;metadata-readback/derived-hash.json",
+      "finding": "GetHashCode starts0 and uses shift5/add/XOR mapped UTF16 chars with unchecked Int32 IL operations. Char ToUpperASCIIFast uses literal128-slot mapping in range, otherwise returns input code unit. ASCII alphabet maps uppercase, not general Unicode case folding. Verifier-derived Normal is unsigned3111473395 / signed-1183493901, not actual runtime resource selection."
+    },
+    {
+      "id": "stack-default-is-not-clear",
+      "evidence": "style-stack-name-selection.il;../bio-tmp-input-parsing/backing-processing.il IL_0024-IL_0032",
+      "finding": "Static SetDefault iterates stack array; instance SetDefault allocates capacity4 and initobj m_DefaultItem only if itemStack null. Both paths store supplied value at slot0 and set index1; other slots/existing storage remain, with no repair for a nonnull zero-length array. Retained processing call supplies0 then separately resets style depth. Original stack mutation/allocation not executed."
+    },
+    {
+      "id": "virtual-resource-boundary",
+      "evidence": "resource-load.il;resource-api.il;resource-api-override.il;resource-native.il",
+      "finding": "Generic Resources.Load<T> passes typeof(T) to String/Type overload then unbox.any T. That overload calls ActiveAPI then virtual ResourcesAPI.Load. ActiveAPI returns managed-nonnull override field or s_DefaultAPI; base virtual Load calls ResourcesAPIInternal.Load String/Type InternalCall/no body. Actual API object/initializer/override/resource and successful load remain unknown; native call not executed. No resource decoded."
+    },
+    {
+      "id": "failure-and-runtime-limits",
+      "evidence": "dependency-scopes.json",
+      "finding": "23 selected managed bodies have zero local exception handlers/finally. No transactional rollback or completed outer call is proved; list/dictionary/cache/hash/arrays/stacks may be partially changed on failure. 26 BCL/runtime operands are explicitly opaque. No concrete callback/markup/array sizing/generation/glyph/layout/delivery acceptance."
+    },
+    {
+      "id": "exact-overload-regression",
+      "evidence": "il-commands.json;verify_style.py;metadata-readback/verification.json",
+      "finding": "16 exact selections retain24 declarations (23 bodies and1 native),31 resolved TMP/Unity method operands,55 field operands,3 type identities and8 unread next declarations. Raw exports retain but exact projection excludes String style lookup, UInt32 ToUpper and nongeneric one-arg Resources.Load. Three raw/exact positive controls verify exclusion; no alternate overload is substituted."
+    }
+  ],
+  "verification": "metadata-readback/verification.json",
+  "nextConsumer": "next-consumer.json",
+  "limits": [
+    "Static original metadata/IL only; no original managed/native execution, game/GUI/preview/images, Git mutation, overlay or authored translation.",
+    "Original panel3633/TMP4571 remain conditional consumers, not live UI proof. Concrete preprocessor/resources/styles/API/native selection/markup expansion/SetArraySizes/generation/typewriter/notifications/delivery remain unaccepted.",
+    "Actual controller/DB/Lua/metatables/language/loading/save/global scripts/callbacks/rendering/BIO/reachability and complete source/special-scene/runtime manifest unaccepted.",
+    "Serializer/nonlinear restore,Quest ordering/reflection/initial-unlock/counter,universal semantic/independent diff/delta,final fonts/licenses/resources/runtime/delivery pending.",
+    "Accepted10/15/47/48 visuals/50 route unchanged; spawn/other3 intros/notebook/Bucky open. No53 replay/no54. Parallel asset/editorial/Japanese lanes and actual preview independently authorized/read-only. Parent integrates; no Git ownership blocker."
+  ],
+  "usage": null
+}

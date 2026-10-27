@@ -1,0 +1,32 @@
+{
+  "executions": [
+    {
+      "recipe": "verify_panel.py -> panel-readback",
+      "observerExitCode": null,
+      "outcome": "Both complete output files present; observer session ID was not retained. Full outputs later reproduced byte-exactly with observed exit0; no initial exit code inferred."
+    },
+    {
+      "recipe": "verify_text.py -> text-readback",
+      "sessionId": 53932,
+      "exitCode": 0
+    },
+    {
+      "recipe": "verify_metadata.py -> metadata-readback",
+      "sessionId": 68138,
+      "exitCode": 0
+    },
+    {
+      "recipe": "verify_panel.py -> panel-reproduced",
+      "sessionId": 95373,
+      "exitCode": 0
+    },
+    {
+      "recipe": "verify_text.py -> text-reproduced",
+      "sessionId": 29680,
+      "exitCode": 0
+    }
+  ],
+  "model": "gpt-6.1-sol/high/OpenAI",
+  "modelTransport": "No nested model requests; parent measures this phase.",
+  "usage": null
+}

@@ -1,0 +1,33 @@
+{
+  "pid": 12412,
+  "optionPrefix": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+    "exec",
+    "--ignore-user-config",
+    "--model",
+    "gpt-6.1-sol",
+    "-c",
+    "model_provider=openai",
+    "-c",
+    "model_reasoning_effort=high",
+    "-c",
+    "approval_policy=never",
+    "--sandbox",
+    "danger-full-access",
+    "--disable",
+    "multi_agent",
+    "--cd",
+    "/Users/antonkrutov/Desktop/Forest",
+    "--json",
+    "--output-last-message",
+    "/Users/antonkrutov/Desktop/Forest/outputs/ru-serial-20261026/0094-work/last-message.txt"
+  ],
+  "verified": true,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "promptHistoryLoaded": false,
+  "boundary": "known --output-last-message option value before prompt; corrected bounded check",
+  "initialCheckCorrection": "The first ps/shlex check overran the known prompt boundary and echoed the current dispatch prompt. No parent/previous conversation was loaded. A corrected check bounded at --output-last-message value verified the options before metadata work.",
+  "regression": "When ps strips argv quotes, isolate the known option prefix before shlex; never parse the following prompt tokens as options."
+}

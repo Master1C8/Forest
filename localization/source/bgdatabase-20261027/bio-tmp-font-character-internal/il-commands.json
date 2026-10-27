@@ -1,0 +1,21 @@
+[
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_FontAssetUtilities",
+    "selection": "GetCharacterFromFontAsset_Internal",
+    "signatures": [
+      "TMPro.TMP_Character TMPro.TMP_FontAssetUtilities::GetCharacterFromFontAsset_Internal(System.UInt32,TMPro.TMP_FontAsset,System.Boolean,TMPro.FontStyles,TMPro.FontWeight,System.Boolean&)"
+    ]
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_FontAsset",
+    "selection": "get_fontWeightTable,get_characterLookupTable,get_atlasPopulationMode,get_fallbackFontAssetTable",
+    "signatures": [
+      "TMPro.AtlasPopulationMode TMPro.TMP_FontAsset::get_atlasPopulationMode()",
+      "System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character> TMPro.TMP_FontAsset::get_characterLookupTable()",
+      "System.Collections.Generic.List`1<TMPro.TMP_FontAsset> TMPro.TMP_FontAsset::get_fallbackFontAssetTable()",
+      "TMPro.TMP_FontWeightPair[] TMPro.TMP_FontAsset::get_fontWeightTable()"
+    ]
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "phase": "0096-work",
+  "status": "passed-static-scoped",
+  "inheritedTrace": {
+    "path": "localization/source/bgdatabase-20261027/bio-canvas-rebuild/source-trace.json",
+    "sha256": "9c38a73656c27324aa9b259ab32b4f43ecac756803ef67479efe30028695d48a",
+    "coverageLimits": "All phase79–95 source/cache/format/Lua/language/serialized-state/conditional UI/notification/coroutine/queue/renderer limits retained unchanged."
+  },
+  "rules": [
+    {
+      "id": "source-routing",
+      "evidence": "parse-input.il;dependency-scopes.json",
+      "finding": "Exact enum TextInputBox0/SetText1/SetTextArray2/TextString3. Switch routes0 and3 to optional preprocessing plus backing/processing conversion;1,2 and other values skip conversion and still call virtual SetArraySizes with the retained processing array. Retained setter writes source3; this is conditional static flow, not live panel initialization."
+    },
+    {
+      "id": "preprocessor-output-and-state",
+      "evidence": "parse-input.il;preprocessor-interface.il",
+      "finding": "Nonnull managed m_TextPreprocessor receives stored m_text through ITextPreprocessor.PreprocessText; its returned string goes directly to PopulateTextBackingArray. Null interface uses stored m_text directly. Neither parser nor selected direct conversion bodies store m_text, but callback may mutate object state, input source or throw/reenter. Actual implementation/installation is unknown; no callback purity or full stored-string preservation is proved. Interface is abstract/no body, never substituted with guessed implementation."
+    },
+    {
+      "id": "backing-array",
+      "evidence": "backing-processing.il;backing-container.il",
+      "finding": "String wrapper passes start0 and full String.Length (or null/length0). Slice overload calls exact managed Mathf.Clamp for range calculation (body unread), reserves capacity, copies individual UTF16 code units to UInt32 backing slots, writes a zero terminator then Count. Null input takes zero-length route. Capacity/Count/item accessors use stored array/count; setter resizes when index is at least capacity. No scalar decoding occurs during this copy. Array allocation/native/runtime semantics are not executed."
+    },
+    {
+      "id": "native-capacity-boundary",
+      "evidence": "backing-container.il;processing-managed.il;native-capacity-boundary.il;dependency-scopes.json",
+      "finding": "Backing Resize and both generic ResizeInternalArray overloads call Mathf.NextPowerOfTwo(size+1) (current length+1 for parameterless growth), then System.Array.Resize. Exact NextPowerOfTwo resolves original CoreModule as InternalCall/no managed body. No native call, original Array.Resize or allocation was executed; no capacity result/bounds under arbitrary overflow are certified."
+    },
+    {
+      "id": "processing-order",
+      "evidence": "backing-processing.il",
+      "finding": "Processing reads backing Count, grows as needed, calls generic stack SetDefault, resets style-stack depth, calls get_textStyle/hash then may insert opening style. It loops backing code units until Count or first zero. Afterwards resets stack depth, re-resolves text style/hash, may insert closing style, ensures one final slot, writes unicode0 terminator and only then stores m_InternalTextProcessingArraySize. A zero within the returned/preprocessed input ends this processing loop early; this does not establish whole-pipeline embedded-NUL behavior. No selected conversion body has a local exception handler/finally; partial writes can remain."
+    },
+    {
+      "id": "source3-escape-guard",
+      "evidence": "backing-processing.il IL_007b-IL_0429;dependency-scopes.json textInputSources",
+      "finding": "The backslash escape-dispatch block is entered only when current m_inputSource==0. Retained setter source3 bypasses this block, including n/r/t/v and u/U escape branches and parseCtrlCharacters checks, if callbacks have not changed source state. Literal two-code-unit backslash+n is therefore not converted to LF by this block for source3. Actual newline code units still travel through ordinary processing. This is not a claim about upstream formatter parsing or later rendering."
+    },
+    {
+      "id": "surrogate-conversion",
+      "evidence": "backing-processing.il IL_0429-IL_04e2;surrogate-conversion.il",
+      "finding": "After the source-specific escape block, high-surrogate55296..56319 followed within Count by low-surrogate56320..57343 is combined by ConvertToUTF32: (high-55296)*1024+(low-56320)+65536; output carries original backing stringIndex and length2 and consumes both units. Unpaired units fall through to later/default handling; no replacement/validation is claimed. Other default output records carry current code unit, stringIndex and length1. No shaping, bidi or glyph coverage is proved."
+    },
+    {
+      "id": "rich-text-and-styles",
+      "evidence": "backing-processing.il;processing-managed.il;dependency-scopes.json",
+      "finding": "With less-than code unit and m_isRichText, GetMarkupTagHashCode dispatches specific hashes to LF10/span4, NBSP160/span6, ZWSP8203/span6 or opening/closing style helpers. Unmatched/failing opening style falls through to default character copy. Style helper bodies/hash algorithm remain unread, so tag grammar/names/collision checks and expansion validity are not asserted. get_textStyle calls GetStyle(hash), stores result, falls back through NormalStyle and hash update if managed-null. These resource-selection bodies remain pinned/unread. Processing arrays may differ from stored/returned string; no current serialized style or preprocessing state was read."
+    },
+    {
+      "id": "concrete-array-dispatch",
+      "evidence": "parse-input.il IL_0053;dependency-scopes.json concreteSetArraySizes",
+      "finding": "Parser always invokes virtual SetArraySizes after any successful optional conversion; returned Int32 is discarded. Operand resolves base TMP_Text virtual/new-slot declaration, while exact conditional TextMeshProUGUI declares same-signature override (virtual/not new-slot). Concrete body is not read or replaced with base behavior; font/sprite/material selection, array allocations/counts and successful mesh/rendering remain unaccepted."
+    },
+    {
+      "id": "exact-overload-regression",
+      "evidence": "backing-processing-name-selection.il;backing-processing.il;il-commands.json;verify_input.py",
+      "finding": "Frozen inspector name selection incidentally exports StringBuilder and Char[] backing overloads. Preserve raw export but exact signatures exclude both from selected bodies and dependency operands. Positive raw/exact controls verify the exclusion. Their semantics are not substituted for String input."
+    }
+  ],
+  "verification": "metadata-readback/verification.json",
+  "nextConsumer": "next-consumer.json",
+  "limits": [
+    "Static metadata only; original managed/native code not executed; no game/GUI/preview/images/Git mutation/overlay/authored translation.",
+    "Original stored panel3633/TMP4571 remain conditional consumers, not verified live UI; prior currentSubtitle/animator coroutines/notifications/typewriter/native hierarchy/caches remain unexecuted.",
+    "Actual controller/DB/Lua/metatables/language/loading/save/global scripts/callbacks/delivery/rendering/BIO/reachability and complete source/special-scene/runtime manifest remain unaccepted.",
+    "Serializer/nonlinear restore,notification/rendering,Quest ordering/reflection/initial-unlock/counter,universal semantic/independent diff/delta,final fonts/licenses/resources/runtime/delivery remain pending.",
+    "Accepted10/15/47/48 visuals/50 route unchanged; spawn/other3 intros/notebook/Bucky open. No53 replay/no54. Parallel asset/editorial/Japanese lanes and actual preview independent/read-only."
+  ],
+  "usage": null
+}

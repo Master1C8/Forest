@@ -1,0 +1,24 @@
+[
+  {
+    "attempt": 1,
+    "output": "readback",
+    "exitCode": 1,
+    "boundary": "Pin-category preflight before resource decode",
+    "finding": "153 binding pins include 150 installed Managed DLLs and one tool-local Mono.Cecil.dll; suffix-only counting conflated categories.",
+    "correction": "Filter installed DLL pins by exact DATA/Managed parent; keep all153 hash checks.",
+    "resourceRead": false,
+    "gameAssemblyExecuted": false,
+    "usage": null
+  },
+  {
+    "attempt": 2,
+    "output": "readback-v2",
+    "exitCode": 0,
+    "boundary": "Original manager raw440-byte hash/header/full exported value parity",
+    "changedHypothesis": "Count installed DLL pins by exact Managed directory, excluding tool-local DLL from installed count while verifying its hash.",
+    "status": "passed-static-scoped",
+    "resourceObjectsRead": 1,
+    "gameAssemblyExecuted": false,
+    "usage": null
+  }
+]

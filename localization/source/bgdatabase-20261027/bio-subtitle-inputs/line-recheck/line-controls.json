@@ -1,0 +1,266 @@
+{
+  "boundary": "Synthetic Python transcription only; replaces original game execution and callback timing",
+  "cases": [
+    {
+      "name": "no-positive-actor-before-spoken",
+      "actual": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      },
+      "expected": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      }
+    },
+    {
+      "name": "none-sequence-positive-actor",
+      "actual": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      },
+      "expected": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      }
+    },
+    {
+      "name": "substring-none-is-not-command-parser",
+      "actual": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      },
+      "expected": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      }
+    },
+    {
+      "name": "first-resolved-spoken-changes-latch",
+      "actual": {
+        "encountered": true,
+        "lastActorId": 3,
+        "actorChangedEvent": true,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      },
+      "expected": {
+        "encountered": true,
+        "lastActorId": 3,
+        "actorChangedEvent": true,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      }
+    },
+    {
+      "name": "delay-does-not-skip-triggering-actor-check",
+      "actual": {
+        "encountered": true,
+        "lastActorId": 3,
+        "actorChangedEvent": true,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      },
+      "expected": {
+        "encountered": true,
+        "lastActorId": 3,
+        "actorChangedEvent": true,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      }
+    },
+    {
+      "name": "continue-does-not-skip-triggering-actor-check",
+      "actual": {
+        "encountered": true,
+        "lastActorId": 3,
+        "actorChangedEvent": true,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      },
+      "expected": {
+        "encountered": true,
+        "lastActorId": 3,
+        "actorChangedEvent": true,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      }
+    },
+    {
+      "name": "missing-manifest-actor-keeps-latch-false",
+      "actual": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      },
+      "expected": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      }
+    },
+    {
+      "name": "same-actor-keeps-latch-false",
+      "actual": {
+        "encountered": false,
+        "lastActorId": 3,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      },
+      "expected": {
+        "encountered": false,
+        "lastActorId": 3,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": true
+      }
+    },
+    {
+      "name": "after-spoken-no-implicit-even-none",
+      "actual": {
+        "encountered": true,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      },
+      "expected": {
+        "encountered": true,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": false,
+        "emitsArcCheck": false
+      }
+    },
+    {
+      "name": "null-dialogue-handler-no-event",
+      "actual": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": false
+      },
+      "expected": {
+        "encountered": false,
+        "lastActorId": -1,
+        "actorChangedEvent": false,
+        "callsLineEndHandler": true,
+        "emitsArcCheck": false
+      }
+    },
+    {
+      "name": "builder-no-skip",
+      "actual": {
+        "preplayed": null,
+        "destination": 10,
+        "error": null
+      },
+      "expected": {
+        "preplayed": null,
+        "destination": 10,
+        "error": null
+      }
+    },
+    {
+      "name": "builder-proxy-first-preplayed",
+      "actual": {
+        "preplayed": 10,
+        "destination": 12,
+        "error": null
+      },
+      "expected": {
+        "preplayed": 10,
+        "destination": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "builder-first-is-question-no-preplay",
+      "actual": {
+        "preplayed": null,
+        "destination": 12,
+        "error": null
+      },
+      "expected": {
+        "preplayed": null,
+        "destination": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "builder-null-question-still-preplays-first",
+      "actual": {
+        "preplayed": 10,
+        "destination": 12,
+        "error": null
+      },
+      "expected": {
+        "preplayed": 10,
+        "destination": 12,
+        "error": null
+      }
+    },
+    {
+      "name": "builder-nonplayer-still-preplays-but-retains-first",
+      "actual": {
+        "preplayed": 10,
+        "destination": 10,
+        "error": null
+      },
+      "expected": {
+        "preplayed": 10,
+        "destination": 10,
+        "error": null
+      }
+    },
+    {
+      "name": "builder-missing-link-after-event",
+      "actual": {
+        "preplayed": 10,
+        "destination": null,
+        "error": "player-first-link-missing"
+      },
+      "expected": {
+        "preplayed": 10,
+        "destination": null,
+        "error": "player-first-link-missing"
+      }
+    },
+    {
+      "name": "builder-missing-actor-after-event",
+      "actual": {
+        "preplayed": 10,
+        "destination": null,
+        "error": "actor-lookup-null-callvirt"
+      },
+      "expected": {
+        "preplayed": 10,
+        "destination": null,
+        "error": "actor-lookup-null-callvirt"
+      }
+    }
+  ]
+}

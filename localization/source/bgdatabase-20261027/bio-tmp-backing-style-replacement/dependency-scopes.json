@@ -1,0 +1,1326 @@
+{
+  "selectedMethods": [
+    {
+      "signature": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Private, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 6,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 14,
+      "opcode": "call",
+      "operand": "TMPro.TMP_Style TMPro.TMP_Text::GetStyle(System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.TMP_Style TMPro.TMP_Text::GetStyle(System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 61,
+      "opcode": "callvirt",
+      "operand": "System.Int32 TMPro.TMP_Style::get_hashCode()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Style::get_hashCode()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 66,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E::Push(T)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_TextProcessingStack\u00601::Push(T)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 72,
+      "opcode": "callvirt",
+      "operand": "System.Int32[] TMPro.TMP_Style::get_styleOpeningTagArray()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32[] TMPro.TMP_Style::get_styleOpeningTagArray()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 81,
+      "opcode": "callvirt",
+      "operand": "System.Int32[] TMPro.TMP_Style::get_styleOpeningTagArray()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32[] TMPro.TMP_Style::get_styleOpeningTagArray()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 215,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetUTF16(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetUTF16(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 244,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetUTF32(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetUTF32(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 273,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetMarkupTagHashCode(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetMarkupTagHashCode(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 366,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 421,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 479,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 532,
+      "opcode": "call",
+      "operand": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 554,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 580,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 19,
+      "opcode": "call",
+      "operand": "T TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E::Pop()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "T TMPro.TMP_TextProcessingStack\u00601::Pop()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 27,
+      "opcode": "call",
+      "operand": "TMPro.TMP_Style TMPro.TMP_Text::GetStyle(System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.TMP_Style TMPro.TMP_Text::GetStyle(System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 52,
+      "opcode": "callvirt",
+      "operand": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 61,
+      "opcode": "callvirt",
+      "operand": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 195,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetUTF16(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetUTF16(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 224,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetUTF32(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetUTF32(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 253,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetMarkupTagHashCode(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetMarkupTagHashCode(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 344,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 396,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 451,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 502,
+      "opcode": "call",
+      "operand": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 523,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 547,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "offset": 11,
+      "opcode": "call",
+      "operand": "System.UInt32 TMPro.TMP_Text/TextBackingContainer::get_Item(System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.UInt32 TMPro.TMP_Text/TextBackingContainer::get_Item(System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "offset": 22,
+      "opcode": "call",
+      "operand": "System.UInt32 TMPro.TMP_Text/TextBackingContainer::get_Item(System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.UInt32 TMPro.TMP_Text/TextBackingContainer::get_Item(System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "offset": 43,
+      "opcode": "call",
+      "operand": "System.UInt32 TMPro.TMP_Text/TextBackingContainer::get_Item(System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.UInt32 TMPro.TMP_Text/TextBackingContainer::get_Item(System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "offset": 49,
+      "opcode": "call",
+      "operand": "System.Char TMPro.TMP_TextParsingUtilities::ToUpperASCIIFast(System.Char)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Char TMPro.TMP_TextParsingUtilities::ToUpperASCIIFast(System.Char)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "offset": 62,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text/TextBackingContainer::get_Capacity()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/TextBackingContainer::get_Capacity()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 12,
+      "opcode": "call",
+      "operand": "T TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E::Pop()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "T TMPro.TMP_TextProcessingStack\u00601::Pop()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 20,
+      "opcode": "call",
+      "operand": "TMPro.TMP_Style TMPro.TMP_Text::GetStyle(System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "TMPro.TMP_Style TMPro.TMP_Text::GetStyle(System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 26,
+      "opcode": "callvirt",
+      "operand": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 34,
+      "opcode": "callvirt",
+      "operand": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 155,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetUTF16(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetUTF16(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 180,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetUTF32(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetUTF32(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 206,
+      "opcode": "call",
+      "operand": "System.Int32 TMPro.TMP_Text::GetMarkupTagHashCode(System.Int32[],System.Int32)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::GetMarkupTagHashCode(System.Int32[],System.Int32)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 293,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 339,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 385,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 429,
+      "opcode": "call",
+      "operand": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 447,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 468,
+      "opcode": "call",
+      "operand": "System.Void TMPro.TMP_Text::ResizeInternalArray\u003CTMPro.TMP_Text/UnicodeChar\u003E(T[]\u0026)",
+      "scope": "Unity.TextMeshPro.dll",
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Text::ResizeInternalArray(T[]\u0026)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 1,
+        "explicitOverrides": []
+      }
+    }
+  ],
+  "fieldOperands": [
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 31,
+      "opcode": "ldfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 38,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 44,
+      "opcode": "ldfld",
+      "operand": "TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E[] TMPro.TMP_Text::m_TextStyleStacks",
+      "definition": {
+        "signature": "TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E[] TMPro.TMP_Text::m_TextStyleStacks",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 50,
+      "opcode": "ldfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 384,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 442,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 500,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 598,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 627,
+      "opcode": "ldfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 634,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E[] TMPro.TMP_Text::m_TextStyleStacks",
+      "definition": {
+        "signature": "TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E[] TMPro.TMP_Text::m_TextStyleStacks",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 7,
+      "opcode": "ldfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 39,
+      "opcode": "ldfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 46,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 361,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 416,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 471,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 564,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 593,
+      "opcode": "ldfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 600,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 1,
+      "opcode": "ldfld",
+      "operand": "TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E[] TMPro.TMP_Text::m_TextStyleStacks",
+      "definition": {
+        "signature": "TMPro.TMP_TextProcessingStack\u00601\u003CSystem.Int32\u003E[] TMPro.TMP_Text::m_TextStyleStacks",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 309,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 358,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 404,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 484,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text/UnicodeChar::unicode",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public"
+      }
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "offset": 508,
+      "opcode": "stfld",
+      "operand": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+      "definition": {
+        "signature": "System.Int32 TMPro.TMP_Text::m_TextStyleStackDepth",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Family"
+      }
+    }
+  ],
+  "opaqueRuntimeOperands": [],
+  "exceptionHandlers": [
+    {
+      "caller": "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer\u0026,System.Int32,System.Int32\u0026)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]\u0026,System.Int32\u0026)",
+      "handlers": []
+    }
+  ],
+  "nextDeclarations": [
+    {
+      "signature": "System.Int32 TMPro.TextMeshProUGUI::SetArraySizes(TMPro.TMP_Text/UnicodeChar[])",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Assembly, Virtual, HideBySig, CheckAccessOnOverride",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": true,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ]
+}

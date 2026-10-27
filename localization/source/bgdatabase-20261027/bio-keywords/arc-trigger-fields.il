@@ -1,0 +1,3 @@
+TYPE TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment BASE TheForestOfLove.Narrative.ArcTriggers.ArcTrigger
+FIELD System.String TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment::targetActorDbName
+FIELD System.String TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment::pluginDbKeywordName

@@ -1,0 +1,338 @@
+{
+  "selectedMethods": [
+    {
+      "signature": "System.Single UnityEngine.Material::GetFloat(System.Int32)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.String UnityEngine.Object::get_name()",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.Debug::Log(System.Object,UnityEngine.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.Debug::Log(System.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.Debug::LogWarning(System.Object,UnityEngine.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Single UnityEngine.Material::GetFloatImpl(System.Int32)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Private, HideBySig",
+      "implementation": "InternalCall",
+      "hasBody": false,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.String UnityEngine.Object::GetName(UnityEngine.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Private, Static, HideBySig",
+      "implementation": "InternalCall",
+      "hasBody": false,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Static, HideBySig, SpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object,UnityEngine.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+      "implementation": "IL",
+      "hasBody": false,
+      "isVirtual": true,
+      "isNewSlot": true,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    },
+    {
+      "signature": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+      "implementation": "IL",
+      "hasBody": false,
+      "isVirtual": true,
+      "isNewSlot": true,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "directMethodOperands": [
+    {
+      "caller": "System.Single UnityEngine.Material::GetFloat(System.Int32)",
+      "offset": 3,
+      "opcode": "call",
+      "operand": "System.Single UnityEngine.Material::GetFloatImpl(System.Int32)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Single UnityEngine.Material::GetFloatImpl(System.Int32)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Private, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.String UnityEngine.Object::get_name()",
+      "offset": 2,
+      "opcode": "call",
+      "operand": "System.String UnityEngine.Object::GetName(UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.String UnityEngine.Object::GetName(UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::Log(System.Object,UnityEngine.Object)",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::Log(System.Object,UnityEngine.Object)",
+      "offset": 9,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::Log(System.Object)",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::Log(System.Object)",
+      "offset": 8,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::LogWarning(System.Object,UnityEngine.Object)",
+      "offset": 1,
+      "opcode": "call",
+      "operand": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::LogWarning(System.Object,UnityEngine.Object)",
+      "offset": 9,
+      "opcode": "callvirt",
+      "operand": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object,UnityEngine.Object)",
+      "scope": "UnityEngine.CoreModule.dll",
+      "definition": {
+        "signature": "System.Void UnityEngine.ILogger::Log(UnityEngine.LogType,System.Object,UnityEngine.Object)",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Public, Virtual, HideBySig, VtableLayoutMask, Abstract",
+        "implementation": "IL",
+        "hasBody": false,
+        "isVirtual": true,
+        "isNewSlot": true,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      }
+    }
+  ],
+  "fieldOperands": [
+    {
+      "caller": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+      "offset": 0,
+      "opcode": "ldsfld",
+      "operand": "UnityEngine.ILogger UnityEngine.Debug::s_Logger",
+      "definition": {
+        "signature": "UnityEngine.ILogger UnityEngine.Debug::s_Logger",
+        "module": "UnityEngine.CoreModule.dll",
+        "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+        "attributes": "Assembly, Static"
+      }
+    }
+  ],
+  "opaqueRuntimeOperands": [],
+  "exceptionHandlers": [
+    {
+      "caller": "System.Single UnityEngine.Material::GetFloat(System.Int32)",
+      "handlers": []
+    },
+    {
+      "caller": "System.String UnityEngine.Object::get_name()",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::Log(System.Object,UnityEngine.Object)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::Log(System.Object)",
+      "handlers": []
+    },
+    {
+      "caller": "System.Void UnityEngine.Debug::LogWarning(System.Object,UnityEngine.Object)",
+      "handlers": []
+    },
+    {
+      "caller": "UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()",
+      "handlers": []
+    }
+  ],
+  "nextDeclarations": []
+}

@@ -1,0 +1,193 @@
+{
+  "boundary": "Supplied Python transcription. Replaces Lua/.NET/Unity execution, real table/metatable lookup, language and lifecycle selection, mutation and ParseCode evaluation. Not runtime or editorial acceptance.",
+  "cases": [
+    {
+      "name": "null-key-becomes-empty",
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "name": "quote-space-hyphen-parens-slash-lf-cr-key",
+      "actual": "A___B__C_\\nDE",
+      "expected": "A___B__C_\\nDE"
+    },
+    {
+      "name": "slash-flag-off",
+      "actual": "A/B",
+      "expected": "A/B"
+    },
+    {
+      "name": "case-apostrophe-backslash-tab-retained",
+      "actual": "A'B\\C\tD",
+      "expected": "A'B\\C\tD"
+    },
+    {
+      "name": "default-language-null",
+      "actual": "Display_Name",
+      "expected": "Display_Name"
+    },
+    {
+      "name": "language-suffix-converted",
+      "actual": "Display_Name_pt_BR",
+      "expected": "Display_Name_pt_BR"
+    },
+    {
+      "name": "language-case-retained",
+      "actual": "Name_RU",
+      "expected": "Name_RU"
+    },
+    {
+      "name": "whitespace-language-is-not-default",
+      "actual": "Name__",
+      "expected": "Name__"
+    },
+    {
+      "name": "empty-field-no-suffix",
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "name": "missing-localized-use-base",
+      "actual": [
+        "string",
+        "BASE"
+      ],
+      "expected": [
+        "string",
+        "BASE"
+      ]
+    },
+    {
+      "name": "missing-localized-no-default",
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "nil-localized-falls-back",
+      "actual": [
+        "string",
+        "BASE"
+      ],
+      "expected": [
+        "string",
+        "BASE"
+      ]
+    },
+    {
+      "name": "empty-localized-falls-back",
+      "actual": [
+        "string",
+        "BASE"
+      ],
+      "expected": [
+        "string",
+        "BASE"
+      ]
+    },
+    {
+      "name": "null-string-localized-falls-back",
+      "actual": [
+        "string",
+        "BASE"
+      ],
+      "expected": [
+        "string",
+        "BASE"
+      ]
+    },
+    {
+      "name": "literal-nil-does-not-table-fallback",
+      "actual": [
+        "string",
+        "nil"
+      ],
+      "expected": [
+        "string",
+        "nil"
+      ]
+    },
+    {
+      "name": "space-does-not-table-fallback",
+      "actual": [
+        "string",
+        " "
+      ],
+      "expected": [
+        "string",
+        " "
+      ]
+    },
+    {
+      "name": "number-zero-does-not-table-fallback",
+      "actual": [
+        "number",
+        0
+      ],
+      "expected": [
+        "number",
+        0
+      ]
+    },
+    {
+      "name": "boolean-false-does-not-table-fallback",
+      "actual": [
+        "boolean",
+        false
+      ],
+      "expected": [
+        "boolean",
+        false
+      ]
+    },
+    {
+      "name": "display-name-precedes-name",
+      "actual": "DISPLAY",
+      "expected": "DISPLAY"
+    },
+    {
+      "name": "literal-nil-display-uses-name",
+      "actual": "BASE",
+      "expected": "BASE"
+    },
+    {
+      "name": "uppercase-NIL-is-not-nil",
+      "actual": "NIL",
+      "expected": "NIL"
+    },
+    {
+      "name": "whitespace-display-is-not-empty",
+      "actual": " ",
+      "expected": " "
+    },
+    {
+      "name": "no-default-field-consumer-still-uses-db-name",
+      "actual": "db",
+      "expected": "db"
+    },
+    {
+      "name": "empty-both-uses-original-db-name",
+      "actual": "db",
+      "expected": "db"
+    },
+    {
+      "name": "empty-localized-display-can-prefer-base-display-over-localized-name",
+      "actual": "BASE DISPLAY",
+      "expected": "BASE DISPLAY"
+    },
+    {
+      "name": "no-result-as-string-empty",
+      "actual": "",
+      "expected": ""
+    },
+    {
+      "name": "actual-nil-string-rendering",
+      "actual": "nil",
+      "expected": "nil"
+    },
+    {
+      "name": "dynamic-parsecode-rejected-at-intended-boundary",
+      "actual": "dynamic ParseCode input not accepted",
+      "expected": "dynamic ParseCode input not accepted"
+    }
+  ]
+}

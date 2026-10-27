@@ -1,0 +1,3 @@
+PixelCrushers.LocalizeUI
+PixelCrushers.DialogueSystem.LocalizeUIText
+PixelCrushers.Wrappers.LocalizeUI

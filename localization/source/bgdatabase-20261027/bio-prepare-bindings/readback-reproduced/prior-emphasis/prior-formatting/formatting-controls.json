@@ -1,0 +1,209 @@
+{
+  "boundary": "Synthetic Python controls with supplied ASCII inputs; replaces original .NET execution, Lua, variables, callbacks, settings and renderer. No runtime/parser acceptance.",
+  "cases": [
+    {
+      "name": "prompt-removes-one-trimmed-key",
+      "actual": [
+        "ab",
+        "name"
+      ],
+      "expected": [
+        "ab",
+        "name"
+      ]
+    },
+    {
+      "name": "prompt-scan-right-to-left-final-key-leftmost",
+      "actual": [
+        " / ",
+        "left"
+      ],
+      "expected": [
+        " / ",
+        "left"
+      ]
+    },
+    {
+      "name": "prompt-greedy-through-last-bracket-on-line",
+      "actual": [
+        "",
+        "name] x [pic=1"
+      ],
+      "expected": [
+        "",
+        "name] x [pic=1"
+      ]
+    },
+    {
+      "name": "prompt-dot-does-not-cross-LF",
+      "actual": [
+        "[var=?a\n]",
+        ""
+      ],
+      "expected": [
+        "[var=?a\n]",
+        ""
+      ]
+    },
+    {
+      "name": "prompt-does-not-trim-remaining-text",
+      "actual": [
+        "  ",
+        "name"
+      ],
+      "expected": [
+        "  ",
+        "name"
+      ]
+    },
+    {
+      "name": "empty-prompt-key-has-no-nonempty-prompt",
+      "actual": [
+        "",
+        ""
+      ],
+      "expected": [
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "prompt-case-sensitive",
+      "actual": [
+        "[VAR=?name]",
+        ""
+      ],
+      "expected": [
+        "[VAR=?name]",
+        ""
+      ]
+    },
+    {
+      "name": "prompt-reverse-scan-cap-is-not-exhaustive",
+      "actual": [
+        "[var=?x]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "x"
+      ],
+      "expected": [
+        "[var=?x]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "x"
+      ]
+    },
+    {
+      "name": "flag-removes-all-exact-tokens",
+      "actual": [
+        "a",
+        true
+      ],
+      "expected": [
+        "a",
+        true
+      ]
+    },
+    {
+      "name": "flag-case-and-spacing-preserved",
+      "actual": [
+        "[NoSubtitle] [nosubtitle ]",
+        false
+      ],
+      "expected": [
+        "[NoSubtitle] [nosubtitle ]",
+        false
+      ]
+    },
+    {
+      "name": "pipe-converts-to-LF",
+      "actual": "a\n\nb",
+      "expected": "a\n\nb"
+    },
+    {
+      "name": "numeric-pictures-removed-last-value-wins",
+      "actual": [
+        2,
+        0,
+        0
+      ],
+      "expected": [
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "picture-removal-does-not-trim",
+      "actual": " ",
+      "expected": " "
+    },
+    {
+      "name": "picture-only-is-empty-at-emphasis-entry",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "bracketed-prose-preserved",
+      "actual": "[A flower]",
+      "expected": "[A flower]"
+    },
+    {
+      "name": "noSubtitle-independent-of-nonempty-text",
+      "actual": [
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "spaces-LF-only-prefix-capitalizes",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "period-prefix-capitalizes",
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "letter-prefix-lowercases",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "CR-does-not-count-as-skipped-space",
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "lower-helper-single-char-original-ToUpper",
+      "actual": "A",
+      "expected": "A"
+    },
+    {
+      "name": "lower-helper-multiple-char-ToLower",
+      "actual": "aB",
+      "expected": "aB"
+    },
+    {
+      "name": "unsupported-boundary-[lua(x)]",
+      "actual": "dynamic evaluation is deliberately unsupported",
+      "expected": "dynamic evaluation is deliberately unsupported"
+    },
+    {
+      "name": "unsupported-boundary-[var=name]",
+      "actual": "dynamic evaluation is deliberately unsupported",
+      "expected": "dynamic evaluation is deliberately unsupported"
+    },
+    {
+      "name": "unsupported-boundary-[autocase=name]",
+      "actual": "dynamic evaluation is deliberately unsupported",
+      "expected": "dynamic evaluation is deliberately unsupported"
+    },
+    {
+      "name": "unsupported-boundary-[pic=Actor]",
+      "actual": "variable picture index is unaccepted",
+      "expected": "variable picture index is unaccepted"
+    }
+  ]
+}

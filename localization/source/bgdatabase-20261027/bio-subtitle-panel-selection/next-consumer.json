@@ -1,0 +1,84 @@
+{
+  "fromObject": "sharedassets0.assets:3633",
+  "originalTextConsumer": {
+    "sourceField": "/subtitleText/m_textMeshProUGUI",
+    "reference": {
+      "m_FileID": 0,
+      "m_PathID": 4571
+    },
+    "inventory": {
+      "id": "sharedassets0.assets:4571",
+      "asset": "sharedassets0.assets",
+      "sourceFile": "sharedassets0.assets",
+      "internalAsset": [],
+      "pathId": 4571,
+      "type": "MonoBehaviour",
+      "bytes": 640,
+      "rawSha256": "d2e97ca25cd56054f84ef68764cf99e7b58062029034577b9c34f9cb37b4c586",
+      "class": "TMPro.TextMeshProUGUI",
+      "assembly": "Unity.TextMeshPro.dll",
+      "tree": "trees/57009919ee-sharedassets0.assets-4571.json",
+      "treeSha256": "d8a72f6b15a61447a939e0341512ea66964dd396d2962411a1a9147ff1429571",
+      "metadataRecovery": "game-assemblies"
+    },
+    "status": "Original raw/full-export parity confirmed; runtime selection/rendering not established."
+  },
+  "nextMetadata": {
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.StandardUISubtitlePanel",
+    "method": "SetContent(PixelCrushers.DialogueSystem.Subtitle)",
+    "evidence": "ShowSubtitleNow calls virtual SetContent after SetUIElementsActive/Open/Focus; stored wrapper has constructor only.",
+    "then": "Trace exact UITextField content write/format/typewriter dispatch. Resolve owning module/dependencies from metadata rather than guessed assembly. Stop at the next material dependency."
+  },
+  "unreadResourceDependencies": [
+    {
+      "fromObject": "sharedassets0.assets:4571",
+      "sourceField": "/m_fontAsset",
+      "reference": {
+        "m_FileID": 0,
+        "m_PathID": 3323
+      },
+      "mapping": "fileID0 -> same sharedassets0.assets",
+      "inventory": {
+        "id": "sharedassets0.assets:3323",
+        "asset": "sharedassets0.assets",
+        "sourceFile": "sharedassets0.assets",
+        "internalAsset": [],
+        "pathId": 3323,
+        "type": "MonoBehaviour",
+        "bytes": 17876,
+        "rawSha256": "6b12c991f45f61f48370b841a10015b271f6cd1d2d2cfb95273bb5393d934b48",
+        "class": "TMPro.TMP_FontAsset",
+        "assembly": "Unity.TextMeshPro.dll",
+        "tree": "trees/57009919ee-sharedassets0.assets-3323.json",
+        "treeSha256": "3b662036a782cbb63d3381293009df2250570a90109b4d603a87d848ed72306f",
+        "metadataRecovery": "game-assemblies"
+      },
+      "status": "Inventory identity only; original bytes not read by this supplement."
+    },
+    {
+      "fromObject": "sharedassets0.assets:4571",
+      "sourceField": "/m_sharedMaterial",
+      "reference": {
+        "m_FileID": 0,
+        "m_PathID": 7
+      },
+      "mapping": "fileID0 -> same sharedassets0.assets",
+      "inventory": {
+        "id": "sharedassets0.assets:7",
+        "asset": "sharedassets0.assets",
+        "sourceFile": "sharedassets0.assets",
+        "internalAsset": [],
+        "pathId": 7,
+        "type": "Material",
+        "bytes": 472,
+        "rawSha256": "defa2640f7329dd2e725aae610b381848d11e5e426492ff65f10d4324e010ac2",
+        "tree": "trees/57009919ee-sharedassets0.assets-7.json",
+        "treeSha256": "56f994d088cd72c7a618e317be6b7e3956ed7f0f8d5080f8f318a8d447f14447"
+      },
+      "status": "Inventory identity only; original bytes not read by this supplement."
+    }
+  ],
+  "otherUnfollowedBindings": "Panel portraitName legacy3695, portraitImage4313, panel2742, button4572, GameObjects862/676 and their components, other default panels4525/4619, child2447 hierarchy; no dereference.",
+  "limits": "Default panel is not proven actual selection; forced/inline/actor-ID/Transform/PC-NPC/cache/Bark UI/native lifecycle overrides remain conditional. SetContent, UITextField dispatch, fonts/materials/effects/delivery/rendering remain unread/unexecuted."
+}

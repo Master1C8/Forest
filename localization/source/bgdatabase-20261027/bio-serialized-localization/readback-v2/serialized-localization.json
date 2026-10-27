@@ -1,0 +1,87 @@
+{
+  "boundary": "Original resource bytes decoded with unchanged header-aligned reader; full manager export parity, not runtime selection or initialization.",
+  "component": "sharedassets0.assets:4608",
+  "gameObject": "sharedassets0.assets:1297",
+  "rawBytes": 440,
+  "rawSha256": "0735ed27112b8b5cd6a76dfb00da0faac264953f0e2908bd97e29768f205746d",
+  "export": "assets/source-v2/trees/57009919ee-sharedassets0.assets-4608.json",
+  "exportSha256": "e62233be9ab3d34a2dc15619a69ef197aa12bf9ce543a0b4f0220b45f5eb4713",
+  "localizationSettings": {
+    "language": "",
+    "useSystemLanguage": 0,
+    "textTable": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    }
+  },
+  "textTableResolution": {
+    "fileID": 0,
+    "pathID": 0,
+    "fileMapping": "fileID 0 denotes the containing sharedassets0.assets; no external mapping is selected",
+    "target": "null pathID 0; no serialized table dependency to follow",
+    "dereferenced": false
+  },
+  "distinction": "Component-local DialogueSystemController displaySettings only; not LocalizeUI.m_textTable, UILocalizationManager singleton, GlobalTextTable, or an observed language/cache state.",
+  "conditionalConsequence": "If unchanged and this candidate is the receiver, selected GetLocalizedText follows the absent-settings-table input return. Native selection, later assignments and actual calls remain unaccepted.",
+  "nextConsumer": {
+    "sourceField": "/displaySettings/dialogueUI",
+    "reference": {
+      "m_FileID": 0,
+      "m_PathID": 744
+    },
+    "fileMapping": "same sharedassets0.assets (fileID 0)",
+    "inventory": {
+      "id": "sharedassets0.assets:744",
+      "asset": "sharedassets0.assets",
+      "sourceFile": "sharedassets0.assets",
+      "internalAsset": [],
+      "pathId": 744,
+      "type": "GameObject",
+      "bytes": 111,
+      "rawSha256": "d6ac324ff5a5a3b1b020693497761d4a26b80cddb6f0de23f65b48998706603e",
+      "tree": "trees/57009919ee-sharedassets0.assets-744.json",
+      "treeSha256": "41a37e7883301ee5d5a1eef18f09c25c582fc4d70f96210565707a55e076d25d"
+    },
+    "pinnedExportName": "OverworldDialogueCanvas",
+    "pinnedExportComponents": [
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 2454
+        }
+      },
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 2220
+        }
+      },
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 3796
+        }
+      },
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 3797
+        }
+      },
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 4193
+        }
+      },
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 4110
+        }
+      }
+    ],
+    "status": "Direct nonnull source binding; its original resource/component consumer readback is pending. No instantiated/active renderer claim."
+  },
+  "liveState": "not-run/unaccepted; null serialized table does not exclude dynamically created or later-loaded tables"
+}

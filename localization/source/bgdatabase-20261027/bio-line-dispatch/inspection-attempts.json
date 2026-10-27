@@ -1,0 +1,23 @@
+[
+  {
+    "assembly": "Assembly-CSharp-firstpass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "get_ActorID,get_subtitleText",
+    "exitCode": -6,
+    "result": "metadata type absent; no output or game execution; preceding four successful selections preserved; owning prior metadata identifies Auto-asmdef-FirstPass.dll"
+  },
+  {
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "OnEnable,Start,Handler_OnConversationStart,Handler_OnConversationEnd,Handler_OnConversationCancelled",
+    "exitCode": -6,
+    "result": "OnEnable absent from already pinned method list; no body output or game execution; corrected selection removes OnEnable"
+  },
+  {
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGFieldEnum",
+    "selection": "ValueFromBytes,ValueToBytes",
+    "exitCode": -6,
+    "result": "no such declared methods; original pinned BGFieldEnum-28.il method list identifies ToBytes/FromBytes/StoredValueToEnum; no body output or game execution"
+  }
+]

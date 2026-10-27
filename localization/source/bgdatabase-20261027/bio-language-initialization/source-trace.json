@@ -1,0 +1,67 @@
+{
+  "phase": "0086-work",
+  "status": "passed-static-scoped",
+  "rules": [
+    {
+      "id": "singleton-redirection",
+      "evidence": "ui-language.il; ui-singleton.il",
+      "locator": "set_currentLanguage IL_0000..0016; get_instance IL_0000..0059; textTable get/set",
+      "finding": "currentLanguage and textTable resolve singleton, not receiver; fallback/native creation unexecuted."
+    },
+    {
+      "id": "ui-order",
+      "evidence": "ui-language.il",
+      "locator": "UpdateUIs IL_0000..0054",
+      "finding": "Store language, conditional prefs write, active/inactive discovery, virtual UpdateText. No direct Localization setter in selected base path."
+    },
+    {
+      "id": "controller-two-traversals",
+      "evidence": "../bio-lua-initialization/controller-language-master.il; localization-language.il",
+      "locator": "SetLanguage IL_0067..008a; Localization.set_language IL_0000..005e",
+      "finding": "UI traversal before settings/global writes; global setter stores language/ID then conditionally invokes UI setter again. Two updates only on normal return with manager path; no atomicity/reentrancy/final-state claim."
+    },
+    {
+      "id": "prefs-lifecycle",
+      "evidence": "ui-language.il; ui-start-state.il",
+      "locator": "Awake IL_0000..0046; ctor IL_0000..002a; MoveNext IL_0017..0046",
+      "finding": "Awake may load this private field from prefs. Constructor defaults are not live settings. Iterator yields end-of-frame then singleton-language/receiver-update."
+    },
+    {
+      "id": "virtual-ui-boundary",
+      "evidence": "localize-ui-update.il",
+      "locator": "UpdateText IL_0000..0080,0185..0340; GetLocalizedText IL_0000..0034",
+      "finding": "Base method guards started/table/language, then virtual lookup/native UI writes. Global language/table accessors and derived overrides remain unresolved."
+    },
+    {
+      "id": "fallback-flags",
+      "evidence": "localization-language.il; localization-flags.il",
+      "locator": "set_language; InitStaticVariables; cctor; set_useDefaultIfUndefined; GetCurrentLanguageID",
+      "finding": "Language changes invalidate ID without resetting fallback flag. Defaults empty/-1/true; actual flag/current language unaccepted. Lazy table ID lookup returns0 if still -1."
+    },
+    {
+      "id": "event-search",
+      "evidence": "controller-event.il; readback/direct-call-searches.json",
+      "locator": "event add/remove; four exact operand searches",
+      "finding": "Event combine/remove CompareExchange. Zero matching subscriptions in four named DLLs; no all-handler absence claim."
+    },
+    {
+      "id": "flag-search",
+      "evidence": "readback/direct-call-searches.json; localization-flags.il",
+      "locator": "four set_useDefaultIfUndefined operand searches",
+      "finding": "Only uppercase forwarding alias in selected plugin; alias callers/fields/reflection/native/scripts outside scope."
+    },
+    {
+      "id": "identity-retention",
+      "evidence": "readback/prior-initialization/target-initialization-inputs.json",
+      "locator": "sixteen exact actor IDs, two copies,126 registrations/114 unique entries",
+      "finding": "Original conditional inputs unchanged; Name/Lua key/localized field/CharacterInfo.Name/TFOL NameplateName remain separate."
+    }
+  ],
+  "coverageLimits": [
+    "Original assemblies inspected with pinned Cecil helper, never executed. No game/GUI/images/Git/target overlay.",
+    "Only named method bodies and operand fragments covered; actual callback dispatch, singleton, prefs, coroutine and final language unaccepted.",
+    "No source, semantic, independent diff, resource, runtime or delivery gate promoted."
+  ],
+  "metadataCommands": "il-commands.json",
+  "usage": null
+}

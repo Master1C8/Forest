@@ -1,0 +1,34 @@
+{
+  "nextMetadata": [
+    {
+      "signature": "System.Void TMPro.TMP_FontAsset::ReadFontAssetDefinition()",
+      "module": "Unity.TextMeshPro.dll",
+      "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+      "attributes": "Public, HideBySig",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "separatelyUnread": [
+    {
+      "signature": "System.Void UnityEngine.Texture2D::.ctor(System.Int32,System.Int32,UnityEngine.TextureFormat,System.Int32,System.Boolean,System.IntPtr)",
+      "module": "UnityEngine.CoreModule.dll",
+      "sha256": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+      "attributes": "Assembly, HideBySig, SpecialName, RTSpecialName",
+      "implementation": "IL",
+      "hasBody": true,
+      "isVirtual": false,
+      "isNewSlot": false,
+      "isFinal": false,
+      "genericArity": 0,
+      "explicitOverrides": []
+    }
+  ],
+  "nextAction": "Read exact ReadFontAssetDefinition() and only indispensable new direct dependencies to establish lazy definition initialization. Keep forwarded six-argument Texture2D constructor separately unread unless indispensable; no font/texture resource decoding or native invocation.",
+  "limits": "Static metadata only. No original assembly/native invocation, GenerateTextMesh, resource decoding, game/GUI/preview/images, Git, frozen source/glossary/inventory/config or asset/editorial lane writes. Parent integrates. Existing source/renderer/editorial/resource/runtime/visual/delivery gates stay pending."
+}

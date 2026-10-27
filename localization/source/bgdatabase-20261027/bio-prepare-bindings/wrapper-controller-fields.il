@@ -1,0 +1,1 @@
+TYPE PixelCrushers.DialogueSystem.Wrappers.DialogueSystemController BASE PixelCrushers.DialogueSystem.DialogueSystemController

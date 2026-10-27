@@ -1,0 +1,57 @@
+[
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "ReplaceOpeningStyleTag",
+    "signatures": [
+      "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer&,System.Int32,System.Int32&,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "output": "backing-opening.il",
+    "rawOutput": "backing-opening-name-selection.il",
+    "excludedSignatures": [
+      "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]&,System.Int32,System.Int32&,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "rawSha256": "88be75df3f965e4c6783185d352eaaea0b9de1289545ada176181307b1d388a7",
+    "sha256": "0255c01d16deb1983871ef20acd511db90491a76910accdf7af6ac28932182ca"
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "ReplaceClosingStyleTag",
+    "signatures": [
+      "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer&,System.Int32,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "output": "backing-closing.il",
+    "rawOutput": "backing-closing-name-selection.il",
+    "excludedSignatures": [
+      "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]&,System.Int32,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "rawSha256": "4add497eea9813738b0a0e8310b0b920fefdd6830aa2e06bbcb3111be337f858",
+    "sha256": "1e0ebbc9e6764f25d0015c40cb7799bd6ce2625a4528a4a9010333f3f729623d"
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "GetStyleHashCode",
+    "signatures": [
+      "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer&,System.Int32,System.Int32&)"
+    ],
+    "output": "backing-value-hash.il",
+    "rawOutput": "backing-value-hash-name-selection.il",
+    "excludedSignatures": [
+      "System.Int32 TMPro.TMP_Text::GetStyleHashCode(System.Int32[]&,System.Int32,System.Int32&)"
+    ],
+    "rawSha256": "8d70e50b45c164381654206167c2ebd45097f42a25b27bd506bae605c12ef9e5",
+    "sha256": "2ff97f5d65076085f823e44e34626097887c94e2df9064ae1d886b8f41423e0a"
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "InsertClosingStyleTag",
+    "signatures": [
+      "System.Void TMPro.TMP_Text::InsertClosingStyleTag(TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "output": "insert-closing.il",
+    "sha256": "8e899fc0c06453420dd8d0be4e5681c3b4243f84a551a4b6d34400e72d2f20b9"
+  }
+]

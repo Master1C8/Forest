@@ -1,0 +1,6 @@
+System.Void TheForestOfLove.Narrative.DialogueService::Initialize() | IL_0066: call System.Void TheForestOfLove.Narrative.DialogueService::set_CurrentArc(TheForestOfLove.Narrative.Arc)
+System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String) | IL_0120: call System.Void TheForestOfLove.Narrative.DialogueService::set_CurrentArc(TheForestOfLove.Narrative.Arc)
+System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String) | IL_0211: call System.Void TheForestOfLove.Narrative.DialogueService::set_CurrentArc(TheForestOfLove.Narrative.Arc)
+System.Void TheForestOfLove.Narrative.DialogueService::PlayDialoguePlayerQuestion(System.String) | IL_0067: call System.Void TheForestOfLove.Narrative.DialogueService::set_CurrentArc(TheForestOfLove.Narrative.Arc)
+System.Void TheForestOfLove.Narrative.DialogueService::PlayDynamicFastTravelDialogue(System.Collections.Generic.List`1<System.String>,System.String) | IL_0036: call System.Void TheForestOfLove.Narrative.DialogueService::set_CurrentArc(TheForestOfLove.Narrative.Arc)
+System.Void TheForestOfLove.Narrative.DialogueService::Handler_OnLinkedConversationStart(UnityEngine.Transform) | IL_00ce: call System.Void TheForestOfLove.Narrative.DialogueService::set_CurrentArc(TheForestOfLove.Narrative.Arc)

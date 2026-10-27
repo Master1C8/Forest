@@ -1,0 +1,122 @@
+[
+  {
+    "output": "manager-default-reset.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DatabaseManager",
+    "selection": "get_defaultDatabase,set_defaultDatabase,get_masterDatabase,get_DefaultDatabase,set_DefaultDatabase,get_MasterDatabase,GetMasterDatabase,Reset,ResetToDefaultDatabase,ResetToLoadedDatabases",
+    "exitCode": 0,
+    "sha256": "23b4e0716a14049ad6fd033c6992eb9ae5c7cca0efd7bcf11e987d57a1b1d0bf"
+  },
+  {
+    "output": "database-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "--list",
+    "exitCode": 0,
+    "sha256": "61c6a31cc802ccbd30f66cff16bd613127a1403c8a4362d06c9f6a403dba7741"
+  },
+  {
+    "output": "utility-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DatabaseUtility",
+    "selection": "--list",
+    "exitCode": 0,
+    "sha256": "5017b1ef94f34e3bd600df5ab0845c97e4a515645f6c34751117598c4efeba7c"
+  },
+  {
+    "output": "reset-options.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DatabaseResetOptions",
+    "selection": "--fields",
+    "exitCode": 0,
+    "sha256": "846696cf9619bf1c461fbda9de96c040bdf083914b05323c119704f7f9279de9"
+  },
+  {
+    "output": "controller-initialization.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueSystemController",
+    "selection": "get_databaseManager,InitializeDatabase,InitializeLocalization,Start,AddDatabase,RemoveDatabase,ResetDatabase",
+    "exitCode": 0,
+    "sha256": "328bf9670c55c6f63485b31fee0b48d96faee45814ae6a973e7705baad48fd83"
+  },
+  {
+    "output": "database-merge.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "Add,AddAssets,AddGlobalUserScript,Clear,.ctor",
+    "exitCode": 0,
+    "sha256": "c9cebe523f771262db91c87a54acc14dcbfd2b716fb56c09a2ac2bba1f08fcf5"
+  },
+  {
+    "output": "utility-create.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DatabaseUtility",
+    "selection": "CreateDialogueDatabaseInstance",
+    "exitCode": 0,
+    "sha256": "6eaad72d24356c8cc12a3505e1ad0322b69f992329956af725371d7a1d4a9ca6"
+  },
+  {
+    "output": "name-set-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.DialogueLua::SetActorField",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "localized-name-set-callers.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.DialogueLua::SetLocalizedActorField",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "database-caches.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "SetupCaches,CreateCache,ResetCache",
+    "exitCode": 0,
+    "sha256": "87ad0b162f31513513612cc90722809228079241685d167209d45ea6c56ee5f0"
+  },
+  {
+    "output": "controller-language-master.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueSystemController",
+    "selection": "get_masterDatabase,SetLanguage",
+    "exitCode": 0,
+    "sha256": "bb57ef7753b021f61d627db7166662f29dd1c79975460521096730044237f944"
+  },
+  {
+    "output": "firstpass-actor-set-callers.il",
+    "assembly": "Assembly-CSharp-firstpass.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.DialogueLua::SetActorField",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "firstpass-localized-set-callers.il",
+    "assembly": "Assembly-CSharp-firstpass.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.DialogueLua::SetLocalizedActorField",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "secondpass-actor-set-callers.il",
+    "assembly": "Auto-asmdef-SecondPass.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.DialogueLua::SetActorField",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "secondpass-localized-set-callers.il",
+    "assembly": "Auto-asmdef-SecondPass.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.DialogueLua::SetLocalizedActorField",
+    "exitCode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "selection": "Dialogue.FireArcTriggers,ForceFireArcTriggers",
+    "outcome": "failed before assembly read",
+    "reason": "Mistyped install data directory tfol_Data; exact prior DATA recipe identifies The Forest of Love_Data",
+    "gameAssemblyExecuted": false,
+    "emptyOutput": "dialogue-dispatch.il",
+    "successfulSelections": 0
+  },
+  {
+    "selection": "ArcTrigger .ctor,Execute",
+    "outcome": "unknown method rejected before bodies",
+    "reason": "Original method list has CheckTrigger and ForceExecute; no Execute method",
+    "successfulOutputsBeforeFailure": [
+      "dialogue-dispatch.il",
+      "trigger-base-fields.il",
+      "trigger-base-methods.il"
+    ],
+    "gameAssemblyExecuted": false
+  }
+]

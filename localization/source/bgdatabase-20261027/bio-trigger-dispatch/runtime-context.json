@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "entry": "CurrentDialogue nonnull and actual line-end callback/event registration",
+    "arc": "same reference; BIO allowNullArc false",
+    "node": "original conversation ID and first-destination entry ID",
+    "state": "isExecuted false unless external repeat/reset",
+    "mark": "before action; persists across guard/no-op/exception on same instance"
+  },
+  "forced": {
+    "arc": "same reference for BIO ForceFire; direct MarkQuestStepAsPlayed(null) bypasses arc",
+    "node": "not checked",
+    "state": "neither checked nor changed",
+    "skipFlags": "original BIO false for skip/chapter/cheat"
+  },
+  "action": {
+    "guard": "Exact active tag Instanced Event Vslice returns before lookups",
+    "actor": "exact DB name; missing actor logs/null then unguarded callvirt",
+    "keyword": "exact plugin trigger key; missing logs/null",
+    "missingLegacy": "15 exact missing keys,16 registrations; no unlock for original nonnull lists",
+    "success": "at least one currently selected category contains exact object and lacks dbName key; stores StoryClock then event"
+  },
+  "preservedAnomalies": [
+    "108:118 double idle registration and i2 trailing newline",
+    "299:1006 Augustus/sizeplay no original category slot",
+    "458:391/392/393 outside original registry; global use unknown"
+  ],
+  "actualRuntime": "not-run; selected database/manifest/tags/actor cache/event lifetime/skip handler applicability/saved state/callback success/reachability remain pending",
+  "nextBoundedDependency": "HandleDialogueLineTriggering and BuildDynamicConversation callers of the original line-end handler; distinguish implicit/preplayed dispatch from displayed lines",
+  "otherPending": [
+    "complete source/special scenes",
+    "manifest callback dependencies and selection",
+    "save initialization/serializer/nonlinear restore",
+    "notification construction/rendering",
+    "Quest ordering/reflection/initial-unlock/counter uncertainties",
+    "full semantic/independent diff/delta",
+    "final fonts/licenses/resources/reinsertion/runtime/delivery"
+  ]
+}

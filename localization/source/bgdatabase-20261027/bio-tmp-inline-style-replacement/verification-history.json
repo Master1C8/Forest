@@ -1,0 +1,6 @@
+{
+  "initial": "metadata-readback/verification.json",
+  "final": "metadata-readback-final/verification.json",
+  "reason": "After first successful readback, additionally pin all actual new helper bin dependencies (including locally loaded Mono.Cecil and deps manifest), assert Cecil equality to frozen tool, then verify the strengthened recipe once.",
+  "failures": 0
+}

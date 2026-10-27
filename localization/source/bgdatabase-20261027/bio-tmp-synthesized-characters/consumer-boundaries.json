@@ -1,0 +1,616 @@
+{
+  "consumers": [
+    {
+      "definition": {
+        "signature": "UnityEngine.Font TMPro.TMP_FontAsset::get_sourceFontFile()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_000c",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "prior-complete-reading-reused",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Int32 UnityEngine.TextCore.FaceInfo::get_pointSize()",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0017",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "prior-complete-reading-reused",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "UnityEngine.TextCore.LowLevel.FontEngineError UnityEngine.TextCore.LowLevel.FontEngine::LoadFontFace(UnityEngine.Font,System.Int32)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_001c",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "prior-complete-reading-reused",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Private, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0029",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0033",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_003d",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0047",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0051",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_005e",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_006b",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0078",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0085",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0092",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_009f",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_00ac",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Single UnityEngine.TextCore.FaceInfo::get_capLine()",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_00b7",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "prior-complete-reading-reused",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.UInt32 TMPro.TMP_TextElement::get_glyphIndex()",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_00df",
+          "opcode": "callvirt"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0137",
+          "opcode": "callvirt"
+        }
+      ],
+      "bodyStatus": "prior-complete-reading-reused",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "UnityEngine.TextCore.GlyphMetrics UnityEngine.TextCore.Glyph::get_metrics()",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_00f7",
+          "opcode": "callvirt"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_014f",
+          "opcode": "callvirt"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Single UnityEngine.TextCore.GlyphMetrics::get_horizontalBearingY()",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_00ff",
+          "opcode": "call"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0157",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.FaceInfo::set_capLine(System.Single)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_0104",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Single UnityEngine.TextCore.FaceInfo::get_meanLine()",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_010f",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.FaceInfo::set_meanLine(System.Single)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+          "offset": "IL_015c",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.UInt32 UnityEngine.TextCore.LowLevel.FontEngine::GetGlyphIndex(System.UInt32)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Assembly, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_0013",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "native-no-managed-body",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Boolean UnityEngine.TextCore.LowLevel.FontEngine::TryGetGlyphWithUnicodeValue(System.UInt32,UnityEngine.TextCore.LowLevel.GlyphLoadFlags,UnityEngine.TextCore.Glyph&)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, Static, HideBySig",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_0033",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void TMPro.TMP_Character::.ctor(System.UInt32,TMPro.TMP_FontAsset,UnityEngine.TextCore.Glyph)",
+        "module": "Unity.TextMeshPro.dll",
+        "sha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_0044",
+          "opcode": "newobj"
+        },
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_0089",
+          "opcode": "newobj"
+        }
+      ],
+      "bodyStatus": "prior-complete-reading-reused",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.GlyphMetrics::.ctor(System.Single,System.Single,System.Single,System.Single,System.Single)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_0069",
+          "opcode": "newobj"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "UnityEngine.TextCore.GlyphRect UnityEngine.TextCore.GlyphRect::get_zero()",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, Static, HideBySig, SpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_006e",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.Glyph::.ctor(System.UInt32,UnityEngine.TextCore.GlyphMetrics,UnityEngine.TextCore.GlyphRect,System.Single,System.Int32)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Public, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+          "offset": "IL_0079",
+          "opcode": "newobj"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Boolean UnityEngine.TextCore.LowLevel.FontEngine::TryGetGlyphWithUnicodeValue_Internal(System.UInt32,UnityEngine.TextCore.LowLevel.GlyphLoadFlags,UnityEngine.TextCore.LowLevel.GlyphMarshallingStruct&)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Private, Static, HideBySig",
+        "implementation": "InternalCall",
+        "hasBody": false,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Boolean UnityEngine.TextCore.LowLevel.FontEngine::TryGetGlyphWithUnicodeValue(System.UInt32,UnityEngine.TextCore.LowLevel.GlyphLoadFlags,UnityEngine.TextCore.Glyph&)",
+          "offset": "IL_000d",
+          "opcode": "call"
+        }
+      ],
+      "bodyStatus": "native-no-managed-body",
+      "dispatch": "exact nonvirtual declaration"
+    },
+    {
+      "definition": {
+        "signature": "System.Void UnityEngine.TextCore.Glyph::.ctor(UnityEngine.TextCore.LowLevel.GlyphMarshallingStruct)",
+        "module": "UnityEngine.TextCoreModule.dll",
+        "sha256": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+        "attributes": "Assembly, HideBySig, SpecialName, RTSpecialName",
+        "implementation": "IL",
+        "hasBody": true,
+        "isVirtual": false,
+        "isNewSlot": false,
+        "isFinal": false,
+        "genericArity": 0,
+        "explicitOverrides": []
+      },
+      "calls": [
+        {
+          "caller": "System.Boolean UnityEngine.TextCore.LowLevel.FontEngine::TryGetGlyphWithUnicodeValue(System.UInt32,UnityEngine.TextCore.LowLevel.GlyphLoadFlags,UnityEngine.TextCore.Glyph&)",
+          "offset": "IL_0019",
+          "opcode": "newobj"
+        }
+      ],
+      "bodyStatus": "read-this-phase",
+      "dispatch": "exact nonvirtual declaration"
+    }
+  ],
+  "opaqueRuntimeOperands": [
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+      "offset": 203,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::ContainsKey(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+      "offset": 218,
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::get_Item(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+      "offset": 242,
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.UInt32,UnityEngine.TextCore.Glyph>::get_Item(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+      "offset": 291,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::ContainsKey(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+      "offset": 306,
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::get_Item(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharactersAndFaceMetrics()",
+      "offset": 330,
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.UInt32,UnityEngine.TextCore.Glyph>::get_Item(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+      "offset": 7,
+      "operand": "System.Boolean System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::ContainsKey(!0)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+      "offset": 73,
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::Add(!0,!1)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void TMPro.TMP_FontAsset::AddSynthesizedCharacter(System.UInt32,System.Boolean,System.Boolean)",
+      "offset": 142,
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>::Add(!0,!1)",
+      "scope": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void UnityEngine.TextCore.Glyph::.ctor(System.UInt32,UnityEngine.TextCore.GlyphMetrics,UnityEngine.TextCore.GlyphRect,System.Single,System.Int32)",
+      "offset": 1,
+      "operand": "System.Void System.Object::.ctor()",
+      "scope": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "boundary": "BCL/runtime semantics not executed"
+    },
+    {
+      "caller": "System.Void UnityEngine.TextCore.Glyph::.ctor(UnityEngine.TextCore.LowLevel.GlyphMarshallingStruct)",
+      "offset": 1,
+      "operand": "System.Void System.Object::.ctor()",
+      "scope": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "boundary": "BCL/runtime semantics not executed"
+    }
+  ],
+  "implicitInitializer": "GlyphRect.s_ZeroGlyphRect is Private Static InitOnly; get_zero only copies it. Static initializer and actual value unread; do not infer rectangle from member name.",
+  "sharedRegistration": "No direct registration operand in 12 selected bodies. Native, implicit initializer and inherited forwarded calls remain unexecuted/open."
+}

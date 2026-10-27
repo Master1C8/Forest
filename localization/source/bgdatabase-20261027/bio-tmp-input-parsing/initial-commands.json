@@ -1,0 +1,56 @@
+[
+  {
+    "output": "parse-input.il",
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "ParseInputText",
+    "exitCode": 0,
+    "stderr": "",
+    "sha256": "a90c66e0cca8ddfa8434eb675a688e47f2a4dda41510146e8343041bd17e42b0"
+  },
+  {
+    "output": "backing-processing-name-selection.il",
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "PopulateTextBackingArray,PopulateTextProcessingArray",
+    "exitCode": 0,
+    "stderr": "",
+    "sha256": "230b10b236e553c570f10453cc94e74c3782105ae377326515154762c8d63e34"
+  },
+  {
+    "output": "backing-container.il",
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text/TextBackingContainer",
+    "selection": "get_Capacity,get_Count,set_Count,get_Item,set_Item,Resize",
+    "exitCode": 0,
+    "stderr": "",
+    "sha256": "41857d13842dad5a68102c591231b91286ecff0501b8b5d084c872e04b394df6"
+  },
+  {
+    "output": "processing-managed.il",
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "ResizeInternalArray,get_textStyle",
+    "exitCode": 0,
+    "stderr": "",
+    "sha256": "0ea1714b145f66d41fec819f71c7fd00aa7d28ba2a406075039c7cbc5f0929b4"
+  },
+  {
+    "output": "surrogate-conversion.il",
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_TextParsingUtilities",
+    "selection": "ConvertToUTF32",
+    "exitCode": 0,
+    "stderr": "",
+    "sha256": "f34079c4348da7cc476f430cda8b177a7dbb505bc3dd92f9afe79ad069c10b39"
+  },
+  {
+    "output": "preprocessor-interface.il",
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.ITextPreprocessor",
+    "selection": "PreprocessText",
+    "exitCode": 0,
+    "stderr": "",
+    "sha256": "bb90deabc5c6d3daa849901d4712eeca44e66d5d3be63540faa27822da1e73fc"
+  }
+]

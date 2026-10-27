@@ -1,0 +1,310 @@
+[
+  {
+    "output": "subtitle-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Subtitle",
+    "selection": "--list",
+    "sha256": "5063cda712f4d197a5e86c2034937fcc4271fe017c5280511f8700f4179299bd"
+  },
+  {
+    "output": "subtitle-fields.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Subtitle",
+    "selection": "--fields",
+    "sha256": "64155d28ccc9a06ef3d9c59a31cfa7a37e19b1a6dcdb1fb4e483c9466260dd2e"
+  },
+  {
+    "output": "entry-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "--list",
+    "sha256": "b895cc6cf7596ce99cb122de54c774fb93b03776c22a72b5690efbc7a6943279"
+  },
+  {
+    "output": "subtitle-new-callers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-call-fragment",
+    "selection": "PixelCrushers.DialogueSystem.Subtitle::.ctor(",
+    "sha256": "632ef1d13c2b9d8402e3d0f7b4acda1ffaa526d777f234edd12e793cdcbc4d02"
+  },
+  {
+    "output": "subtitle-sequence-uses.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-field-fragment",
+    "selection": "PixelCrushers.DialogueSystem.Subtitle::sequence",
+    "sha256": "37de661d674cf922aa18d854abf592f351af34f07807049f36bcc9baa3b1b4d1"
+  },
+  {
+    "output": "line-begin-literal.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-literal",
+    "selection": "OnConversationLine",
+    "sha256": "ab3e0356e06486a10adfc596eb152b88cb9db8898f8414a59b36e23f56606936"
+  },
+  {
+    "output": "line-end-literal.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-literal",
+    "selection": "OnConversationLineEnd",
+    "sha256": "1fb09ded0c79b0095622f12c862d20f2da1e34e545502d665359b289e2561b61"
+  },
+  {
+    "output": "model-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": "--list",
+    "sha256": "7f9c8ed85d1b3f6225c40271cdd56417480299afcde756e1c6c22961e878b109"
+  },
+  {
+    "output": "view-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationView",
+    "selection": "--list",
+    "sha256": "624ff012d1f24a8edbd0049269f49247849c1a949cca0a46053f296dcb45c16a"
+  },
+  {
+    "output": "controller-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueSystemController",
+    "selection": "--list",
+    "sha256": "0d23595e2b6128c0b9b1b308686fb66f8ca6e7d5dd9d564c04e0448b4612bb6c"
+  },
+  {
+    "output": "field-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Field",
+    "selection": "--list",
+    "sha256": "cd45921ede571a8b44a60541ff75adaeb4197a1c2113c3d5c2ea7b791c62c295"
+  },
+  {
+    "output": "subtitle-ctor.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Subtitle",
+    "selection": ".ctor,CheckVariableInputPrompt",
+    "sha256": "7b78656f7ad00dd7594ec0f65bdf08a3a50348ecc69f1a36e80bfd5efe256b37"
+  },
+  {
+    "output": "entry-inputs.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueEntry",
+    "selection": "GetCurrentDialogueTextField,GetCurrentMenuTextField,GetCurrentSequenceField,get_currentSequence,get_subtitleText",
+    "sha256": "270bdc1d69f020c9a2b37940d10f3fdff56428fa10a7045055a1a3f9583fb842"
+  },
+  {
+    "output": "model-state.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": "GetState,FixFirstStateSequence",
+    "sha256": "00578cc623b26a863f9153adbbb739e2458318b8f66aa0d9ce005d066ee33a6b"
+  },
+  {
+    "output": "view-start.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationView",
+    "selection": "StartSubtitle,PreprocessSequence,ShouldShowSubtitle,FinishSubtitle,NotifyParticipantsOnConversationLine,NotifyParticipantsOnConversationLineEnd",
+    "sha256": "89cd2e5c423888fad53609809e3f72db30c0f54b6bf8e371b82a14412028195f"
+  },
+  {
+    "output": "field-selectors.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Field",
+    "selection": "FieldValue,AssignedField,Lookup,LocalizedTitle",
+    "sha256": "612a651f1b04474d3ed26195a2a50bfb3b43ea57416c751c717fb233b0b37955"
+  },
+  {
+    "output": "model-check-sequence.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": "CheckSequenceField",
+    "sha256": "30059efb82c49c6b1f5b37b42821fdd274effe0be085814fa44ca036a470c0f4"
+  },
+  {
+    "output": "view-notify.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationView",
+    "selection": "NotifyParticipants,GetDefaultSequence,OnCancelSubtitle",
+    "sha256": "e650b550e5754e28e4e1b9b5fa413463ee5c08e04ff89a1f9f6cbd72a85f09f3"
+  },
+  {
+    "output": "plugin-event-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueSystemEvents",
+    "selection": "--list",
+    "sha256": "0b7e9031e1db2482230703a8529b04c9e67d6196f8a39c3351607233a879b509"
+  },
+  {
+    "output": "service-listeners.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueService",
+    "selection": "AddEventListeners,RemoveEventListeners",
+    "sha256": "85d7362fb22ab36fc305e3123ad5909a8b3fa9ab904ed2ef7a591aaf84273a87"
+  },
+  {
+    "output": "controller-start.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueSystemController",
+    "selection": "StartConversation",
+    "sha256": "b7301d8c4fffaf0b1471c212a7cbf8604c4b6e725e7a40e046c281ffee589ed6"
+  },
+  {
+    "output": "prepare-receivers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-call-fragment",
+    "selection": "::OnPrepareConversationLine(",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "plugin-events-types.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--types",
+    "selection": "DialogueSystemEvents",
+    "sha256": "9279cd6e7c286326dcaf55fd028f3f52896f759cfeb52931c63aaced310e147e"
+  },
+  {
+    "output": "field-predicate-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Field/<>c__DisplayClass15_0",
+    "selection": "--list",
+    "sha256": "42d16eaf3c019023b1ccd8918b7b31da1c4321d71b792e6ecd0635bddfa234cd"
+  },
+  {
+    "output": "localization-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Localization",
+    "selection": "--list",
+    "sha256": "2a8de0eb1e09c5f14926483c5b0246ad439d4e2fd89fee5b113e0b9a840c695f"
+  },
+  {
+    "output": "events-dispatch.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueSystemEvents",
+    "selection": "OnConversationLine,OnConversationLineEnd",
+    "sha256": "ebf56c6ea007d9ccb3dbfcb1a139daa3ecf62174ecacc40310e4cbc340082670"
+  },
+  {
+    "output": "model-ctor.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationModel",
+    "selection": ".ctor",
+    "sha256": "a62fac4ab5f98b1f32d64ecb13ed73a17d04b271dc51469791a204ffd8f79282"
+  },
+  {
+    "output": "first-fix-callers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-call-fragment",
+    "selection": "ConversationModel::FixFirstStateSequence(",
+    "sha256": "02c1a7870f5d0929af32de700fa3c8a97c9db783f87b158738fc0024989c050e"
+  },
+  {
+    "output": "view-start-callers.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-call-fragment",
+    "selection": "ConversationView::StartSubtitle(",
+    "sha256": "0e6fd9c2fcebe95335180cb446af6e8a5531345c716bd8db7ef07715f412be22"
+  },
+  {
+    "output": "cross-assembly-sequence-uses.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "--find-field-fragment",
+    "selection": "PixelCrushers.DialogueSystem.Subtitle::sequence",
+    "sha256": "8f5893c8b8c61a37750e3f245d10b930d8b6c249a6b5ab88cfdeb7f259bf262a"
+  },
+  {
+    "output": "field-predicate.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Field/<>c__DisplayClass15_0",
+    "selection": "<Lookup>b__0",
+    "sha256": "e02fd2dfcbba83d1060c05ccd2ddb5661afdf8e3f0fd7eca139409923305090c"
+  },
+  {
+    "output": "localization-state.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Localization",
+    "selection": "get_language,get_isDefaultLanguage,.cctor,InitStaticVariables",
+    "sha256": "7469bc64faeb5584a6d39dea9c71d0af4d33d19e650daab45dc66ba1258dddf1"
+  },
+  {
+    "output": "conversation-controller-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationController",
+    "selection": "--list",
+    "sha256": "71bc25766e3b5dfce17a5cc75fd141e47ddb9713896606e0d5e4876abde111dc"
+  },
+  {
+    "output": "formatted-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText",
+    "selection": "--list",
+    "sha256": "2858e923ff792506f36cb1db523ff3d6e4458c3591428770e641cdc2af84c604"
+  },
+  {
+    "output": "view-transforms.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationView",
+    "selection": "CharacterInfoHasValidTransform",
+    "sha256": "2991de2ec6d34ac0053562d82b3d410930ff613498f14a242a430bd42790b162"
+  },
+  {
+    "output": "service-base-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Core.BaseBehavior",
+    "selection": "--list",
+    "sha256": "c2ae95fbc27030d7f9b6203cf9a1263a0d1a7c799290ec11057491ca27019b01"
+  },
+  {
+    "output": "controller-goto.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationController",
+    "selection": "GotoState",
+    "sha256": "85e14a192b4b5013e7ad0ffeef153fbaa405b53d33d23884c33eea02bc47adea"
+  },
+  {
+    "output": "formatted-parse.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.FormattedText",
+    "selection": "Parse,get_hasVariableInputPrompt",
+    "sha256": "77bbea16b4fa8bb54e51c01eb386fb6e65c794be70f37ed92f51d82a45c1ac61"
+  },
+  {
+    "output": "base-subscription.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Core.BaseBehavior",
+    "selection": "Awake,Start,OnEnable,OnDisable,OnDestroy,AddEventListeners_Internal,RemoveEventListeners_Internal,AddEventListeners,RemoveEventListeners",
+    "sha256": "fbb65f0c5db43c41b57f5885ac66953dd3e076a08cbff5529d15a00b8f5a4676"
+  },
+  {
+    "output": "view-current-subtitle-uses.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "--find-field-fragment",
+    "selection": "PixelCrushers.DialogueSystem.ConversationView::_subtitle",
+    "sha256": "c24ba0b5e59ea80b353bf17de1aab32ed10e279d1ba99e45582a583da2a7e73e"
+  },
+  {
+    "output": "view-initialize.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationView",
+    "selection": "Initialize",
+    "sha256": "50730229df366a461f7e1bad8344ca80d18a3b965b37b67d9eb921638caef348"
+  },
+  {
+    "output": "controller-finished.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationController",
+    "selection": "OnFinishedSubtitle",
+    "sha256": "0191e5791f60729f001bf13a2a285a06cf81107236cfa1f204d32771f8ef7e86"
+  },
+  {
+    "output": "view-finished.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationView",
+    "selection": "OnFinishedSubtitle",
+    "sha256": "068940d788701e3677083025ff9e594a299a501644c5c9082d900051541ebff4"
+  },
+  {
+    "output": "controller-initialize.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.ConversationController",
+    "selection": "Initialize",
+    "sha256": "ba1824d65bbdf41f8140924c5f3d5e1a863a0e83636b5e1fd3504f003093af67"
+  }
+]

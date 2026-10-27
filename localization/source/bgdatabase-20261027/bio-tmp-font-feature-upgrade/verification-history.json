@@ -1,0 +1,25 @@
+{
+  "attempts": [
+    {
+      "output": "metadata-verified",
+      "processExit": 1,
+      "stage": "scoped-validator-assertion",
+      "verifierSnapshot": "verify_feature_upgrade-attempt1.py",
+      "verifierSha256": "d57ea332d43c3fec182b9ab630c118b00f55522112dc2e93c5684e3cba6e28fd",
+      "reason": "Expected constructor token mistakenly used ::TMP_Type::.ctor; original exact Cecil format is TMPro.TMP_Type::.ctor. All exports and scopes had already reproduced byte-exactly. Fixed only the assertion spelling; preserved failed outputs.",
+      "metadataExportFailure": false
+    },
+    {
+      "output": "metadata-verified-02",
+      "processExit": 0,
+      "result": "passed-static-scoped",
+      "verifierSha256": "fd8a20d442e9465b6cadb846544dddae54ec365eec69856b2ebb84b0412c27c1",
+      "verificationSha256": "11ab19b121003c3abc495dff4d377b98c17f86cbd6602be602f59c5e7026b62e",
+      "changedHypothesis": "Correct assertion constructor spelling to exact Cecil output; original metadata/selected inputs unchanged."
+    }
+  ],
+  "failedMetadataExports": 0,
+  "failedScopedAssertionAttempts": 1,
+  "readerRebuilds": 0,
+  "newMetadataReaders": 0
+}

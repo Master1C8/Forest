@@ -1,0 +1,3 @@
+TYPE PixelCrushers.DialogueSystem.DialogueEntrySceneEvent BASE System.Object
+FIELD System.String PixelCrushers.DialogueSystem.DialogueEntrySceneEvent::guid
+FIELD PixelCrushers.GameObjectUnityEvent PixelCrushers.DialogueSystem.DialogueEntrySceneEvent::onExecute

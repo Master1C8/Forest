@@ -1,0 +1,17 @@
+TYPE TheForestOfLove.Services.Persistence.SavegameActorData BASE System.Object
+FIELD System.String TheForestOfLove.Services.Persistence.SavegameActorData::actorSavekey
+FIELD System.Single TheForestOfLove.Services.Persistence.SavegameActorData::timeSinceLastDialogue
+FIELD System.Single TheForestOfLove.Services.Persistence.SavegameActorData::timeOfLastDialogue
+FIELD System.Int32 TheForestOfLove.Services.Persistence.SavegameActorData::spawnedAreasCurrentCount
+FIELD System.Int32 TheForestOfLove.Services.Persistence.SavegameActorData::spawnedAreasRequiredCount
+FIELD System.Int32 TheForestOfLove.Services.Persistence.SavegameActorData::despawnedAreasCurrentCount
+FIELD System.Int32 TheForestOfLove.Services.Persistence.SavegameActorData::despawnedAreasRequiredCount
+FIELD System.Single TheForestOfLove.Services.Persistence.SavegameActorData::timeSinceLastDespawn
+FIELD System.Single TheForestOfLove.Services.Persistence.SavegameActorData::timeOfLastDespawn
+FIELD System.Boolean TheForestOfLove.Services.Persistence.SavegameActorData::isIntroduced
+FIELD System.Boolean TheForestOfLove.Services.Persistence.SavegameActorData::isEncounteredOnce
+FIELD System.Single TheForestOfLove.Services.Persistence.SavegameActorData::timeLastViewedInCritterLog
+FIELD System.Collections.Generic.List`1<TheForestOfLove.Services.Persistence.SavegameActorSpawnHistory> TheForestOfLove.Services.Persistence.SavegameActorData::spawnHistory
+FIELD System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Services.Persistence.SavegameBioKeywordData> TheForestOfLove.Services.Persistence.SavegameActorData::bioDetailKeywordData
+FIELD System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Services.Persistence.SavegameBioKeywordData> TheForestOfLove.Services.Persistence.SavegameActorData::bioNotesKeywordData
+FIELD System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Services.Persistence.SavegameBioKeywordData> TheForestOfLove.Services.Persistence.SavegameActorData::bioKinksKeywordData

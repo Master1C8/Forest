@@ -1,0 +1,67 @@
+[
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "ReplaceOpeningStyleTag",
+    "signatures": [
+      "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(System.Int32[]&,System.Int32,System.Int32&,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "output": "inline-opening.il",
+    "sha256": "5b3dd7d2eff752d8cdfe261c06aa12403040e83f6c0bf34e3fcb17b7d2ef157c",
+    "rawOutput": "inline-opening-name-selection.il",
+    "rawSha256": "88be75df3f965e4c6783185d352eaaea0b9de1289545ada176181307b1d388a7",
+    "excludedSignatures": [
+      "System.Boolean TMPro.TMP_Text::ReplaceOpeningStyleTag(TMPro.TMP_Text/TextBackingContainer&,System.Int32,System.Int32&,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ]
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "ReplaceClosingStyleTag",
+    "signatures": [
+      "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(System.Int32[]&,System.Int32,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ],
+    "output": "inline-closing.il",
+    "sha256": "147ab8cedccf291ce5de346d1e382c3d6a56576c3577554b1c878bd0ccecee11",
+    "rawOutput": "inline-closing-name-selection.il",
+    "rawSha256": "4add497eea9813738b0a0e8310b0b920fefdd6830aa2e06bbcb3111be337f858",
+    "excludedSignatures": [
+      "System.Void TMPro.TMP_Text::ReplaceClosingStyleTag(TMPro.TMP_Text/TextBackingContainer&,System.Int32,TMPro.TMP_Text/UnicodeChar[]&,System.Int32&)"
+    ]
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Text",
+    "selection": "GetStyleHashCode",
+    "signatures": [
+      "System.Int32 TMPro.TMP_Text::GetStyleHashCode(System.Int32[]&,System.Int32,System.Int32&)"
+    ],
+    "output": "inline-value-hash.il",
+    "sha256": "60c766ec9f5e9f5eaccfa12f19bf06597642233070c22aa68fb8f76ba1acc1d0",
+    "rawOutput": "inline-value-hash-name-selection.il",
+    "rawSha256": "8d70e50b45c164381654206167c2ebd45097f42a25b27bd506bae605c12ef9e5",
+    "excludedSignatures": [
+      "System.Int32 TMPro.TMP_Text::GetStyleHashCode(TMPro.TMP_Text/TextBackingContainer&,System.Int32,System.Int32&)"
+    ]
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_TextProcessingStack`1",
+    "selection": "Pop",
+    "signatures": [
+      "T TMPro.TMP_TextProcessingStack`1::Pop()"
+    ],
+    "output": "style-stack-pop.il",
+    "sha256": "3a9463cb9654f9b0ebb3878126d67fba2a992c331efa274ff24bc03dc80ac5c4"
+  },
+  {
+    "assembly": "Unity.TextMeshPro.dll",
+    "type": "TMPro.TMP_Style",
+    "selection": "get_styleClosingTagArray",
+    "signatures": [
+      "System.Int32[] TMPro.TMP_Style::get_styleClosingTagArray()"
+    ],
+    "output": "style-closing-array.il",
+    "sha256": "f5b664aec5a58d245d34f5adedaf35030c6c1e7d857143db1fc0adc08ef14833"
+  }
+]

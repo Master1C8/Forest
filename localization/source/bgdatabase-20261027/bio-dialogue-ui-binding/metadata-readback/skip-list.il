@@ -1,0 +1,5 @@
+System.Void TheForestOfLove.DialogueSkipProgressIndicator::AddEventListeners()
+System.Void TheForestOfLove.DialogueSkipProgressIndicator::RemoveEventListeners()
+System.Void TheForestOfLove.DialogueSkipProgressIndicator::OnDialogueSkipInProgress(System.Single)
+System.Void TheForestOfLove.DialogueSkipProgressIndicator::OnDialogueSkipSuccessful()
+System.Void TheForestOfLove.DialogueSkipProgressIndicator::.ctor()

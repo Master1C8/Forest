@@ -1,0 +1,100 @@
+{
+  "status": "passed-static-scoped",
+  "dotnetSDK": "8.0.131",
+  "selectedBodies": 12,
+  "instructions": 314,
+  "perBodyInstructions": [
+    130,
+    59,
+    7,
+    7,
+    5,
+    7,
+    5,
+    26,
+    17,
+    6,
+    20,
+    25
+  ],
+  "fullReadCoverage": true,
+  "methodOperands": 34,
+  "fieldOperands": 42,
+  "opaqueRuntimeOperands": 11,
+  "handlers": 0,
+  "uniqueMethodDeclarations": 19,
+  "nativeDeclarations": 2,
+  "meaning": "Exact synthesis/helper/metric/constructor bodies only; native, implicit initializer, resource and rendering remain unverified",
+  "retained": {
+    "status": "passed-hash-parity",
+    "previousRetained": {
+      "status": "passed-hash-parity",
+      "previousRetained": {
+        "status": "passed-hash-parity",
+        "previousRetained": {
+          "status": "passed-hash-parity",
+          "previousRetained": {
+            "status": "passed-hash-parity",
+            "baselineFiles": 12,
+            "uniqueFilesVerified": 931,
+            "metadataDllsPinned": 150,
+            "phase102Files": 30,
+            "readerRebuilds": 0,
+            "originalResources": "hash parity only; not decoded"
+          },
+          "phase103Files": 29,
+          "originalResources": "hash parity only; not decoded",
+          "readerRebuilds": 0
+        },
+        "phase104Files": 25,
+        "originalResources": "hash parity only; not decoded",
+        "readerRebuilds": 0
+      },
+      "phase105Files": 28,
+      "readerRebuilds": 0,
+      "originalResources": "hash parity only; not decoded"
+    },
+    "phase106Files": 35,
+    "readerRebuilds": 0
+  },
+  "originalResourcesDecoded": 0,
+  "gameAssemblyExecuted": false,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "gitMutations": 0,
+  "readerRebuilds": 0,
+  "authoredTranslations": 0,
+  "noMocks": true,
+  "sourceAcceptance": "needs-review",
+  "editorial": "not-run",
+  "runtime": "not-run",
+  "visual": "not-run",
+  "delivery": "needs-review",
+  "usage": null,
+  "recipe": "python3 -B localization/source/bgdatabase-20261027/bio-tmp-synthesized-characters/verify_synthesis.py --output localization/source/bgdatabase-20261027/bio-tmp-synthesized-characters/<new-output-directory>",
+  "codeHashes": {
+    "verify_synthesis.py": "0e0bdbf77c0a0c35aed9155086bca7dbc41a104671ce8b9a81f42a4e7d9a95c1",
+    "baseline.json": "7783cf543bcd2e5be5520f18c15dd0055a69520ad3be5a6d67ae49f0c0beac16",
+    "il-commands.json": "23b57468cc64afe390c682b5294f4035ec047b8295ece178916fc127da174bcb",
+    "next-signatures.json": "b8df97866b135e1e3adf77c2a196a9e72aebca175ffddbcf5531c4298c222fd3",
+    "execution-model.json": "6e00430cdec2097ae6b824e9f3c6e7c2358f51e54abbb270296affd6d5b4445b",
+    "source-trace.json": "154d49901aa6c3d135d526cab815015a5c58b98f26b956502db7fde0ff010222",
+    "consumer-boundaries.json": "e36ae74e27846504a9f2eab73cbe23942893907079167827e239f288e4942339",
+    "retained-consumers.json": "62143a8af8050844da9ecf2d5654d68fe2fb5dd4451c4cc397817cc31a416222",
+    "next-consumer.json": "b0c32c28f109dc4f5577ec4c9046d847c112e1e162ee7d650b3857845ff0070a",
+    "ADAPTER.md": "311a1353c95c1ada970a39f5b6f1369259af13acca3e2cb8ace9c8cad791223d",
+    "verification-history.json": "016ca0dc793991e987ae39e4a944ef2ef10a1608027f6c8db4d18a0ed59d3bf6",
+    "process-reference-verification.json": "c24c04098f72a96a89874f363d920c84d852a22f06803056ed9c30ee0b49e15a"
+  },
+  "outputHashes": {
+    "metadata-verified/dependency-scopes.json": "47510a674a01b4d5debd04eb9818e6ec988f4978160cc9510545dba50438f614",
+    "metadata-verified/direct-dependencies.il": "65328c2c59fdc8383abded71e2439414dec5eb362440a270e00d179c97df80e0",
+    "metadata-verified/glyph-dependencies.il": "7224f3d32876b44ec3d76b0d34084dae959efd186a0517e83872f64c12a89b2e",
+    "metadata-verified/marshalling-constructor.il": "376ca26960acf488b431dcb03bfde707833722410bd2d31bea990e5cdb5bf3c7",
+    "metadata-verified/metadata-assertions.json": "1e29c8306b3c5cca80d3e30193eb7f61d18d36d7c4cdf0d7a2024f681efd14b2",
+    "metadata-verified/retained-input-verification.json": "d805b08a0f6ca1e017f981007967517350c9645ff3143302abce0e760f87ee57",
+    "metadata-verified/synthesized-characters.il": "ba0c89ab82cc979a7f77f1af526a9fcdb5d7ec122da1a0dadef5fb55e8a70a36",
+    "metadata-verified/verification.json": "6ecc80fdf1a92186dbaeabf2a05fd06dafd812e83011d28bb3fd0aea238d2c58"
+  },
+  "validationMeaning": "Exact original metadata/IL reexport and ordering assertions plus separately recorded complete bounded IL reading; no original/native execution, mocks, transitive/resource/renderer/editorial acceptance."
+}

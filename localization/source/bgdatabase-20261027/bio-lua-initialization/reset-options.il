@@ -1,0 +1,4 @@
+TYPE PixelCrushers.DialogueSystem.DatabaseResetOptions BASE System.Enum
+FIELD System.Int32 PixelCrushers.DialogueSystem.DatabaseResetOptions::value__
+FIELD PixelCrushers.DialogueSystem.DatabaseResetOptions PixelCrushers.DialogueSystem.DatabaseResetOptions::KeepAllLoaded = 0
+FIELD PixelCrushers.DialogueSystem.DatabaseResetOptions PixelCrushers.DialogueSystem.DatabaseResetOptions::RevertToDefault = 1

@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "boundary": "Two separate final readbacks, each re-running unchanged phase79 metadata/source recipe and new helper metadata, synthetic controls and both frozen source copies; no game execution",
+  "comparedFiles": {
+    "arc-first-formatting.json": "7f4e9d74269bb58c4eb509954169ab3a9313dad77bbd70d084e00cc4be2c070f",
+    "formatting-controls.json": "c9af11651fb1d2db3fe6384d0faa06f30a4f72ed2baac4178746d305c00e35e4",
+    "prior-inputs/arc-first-inputs.json": "51f045dab1565d034ed820a3deb2295d2f5b90f16ea14f62edf5e96fd66565e0",
+    "prior-inputs/input-controls.json": "6cc710e722d22b598b2ab92fd4ec85f0c150eb76951f376cdc3f5695aed82c60",
+    "prior-inputs/source-copies.json": "2d7d4a332010907760fb0bb500d4f662a59f7984fadbd7d4654e2a6ff83ff052",
+    "prior-inputs/target-inputs.json": "886c0bc638b079fc6fa5332fc8319701ab67af0824aadfeffe7eea4f9cdaa0c9",
+    "prior-inputs/verification.json": "058b2a625f6ac64a64a30f9a2e4f99c2ba82add95e5996fee973a925de037943",
+    "source-copies.json": "7605c2e7a43002ac63892f84406a81c5f5b082b9e4a1d9c4410abccacd9f765f",
+    "target-formatting.json": "e3bb9286a8197b6240a177cd5c530f053039c9022c23de4f0076835c4a441c26",
+    "verification.json": "650f0b56e5291c3566b01c4208d9cde4bca0ea131cb6f063a945576c885cf50f"
+  },
+  "topLevelOutputsCompared": 5,
+  "priorOutputsCompared": 5,
+  "firstExitCode": null,
+  "firstObserverAccounting": "observer session identifier was not retained; process ended and complete verification artifact exists, no exit code fabricated; second identical reproduction is observed directly",
+  "reproducedVerifierExitCode": 0,
+  "codeHashes": {
+    "localization/source/bgdatabase-20261027/bio-subtitle-formatting/verify_formatting.py": "c2ac5b6d189132f5cb1eadef2c1110479c983c70be4fdbabc4f173e4606da6f0",
+    "localization/source/bgdatabase-20261027/bio-subtitle-formatting/baseline.json": "8f7944a416b116d3fba6c2d624423f6b56e39fad8a1ab067d641b52e5e6da857",
+    "localization/source/bgdatabase-20261027/bio-subtitle-formatting/il-commands.json": "c333104bfb7102823fafd3419c2bf68955e125cb371509e72260bd8c3f235bed",
+    "tools/probe/bin/Debug/net8.0/InspectMethods.dll": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05",
+    "localization/source/bgdatabase-20261027/bio-subtitle-inputs/verify_inputs.py": "9b5f5bc187e9e5aac6d1c360fbe47f25d5b56d9406914eb5e0dbf5da36a63bda"
+  },
+  "gameAssemblyExecuted": false,
+  "gitMutations": 0,
+  "imagesOpened": 0
+}

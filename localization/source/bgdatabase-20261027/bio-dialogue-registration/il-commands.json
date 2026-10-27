@@ -1,0 +1,191 @@
+[
+  {
+    "output": "loader-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "--list",
+    "sha256": "d80ccca62e3cb0fc89845a7c1949912130896b2e779611d78c0fcb4a31ad244d"
+  },
+  {
+    "output": "generate-dialogues.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "GenerateDialogues",
+    "sha256": "104696067b33ce00e332de568e0d491c2564a155791f1e723476d82c3ea9245e"
+  },
+  {
+    "output": "populate-arcs.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "PopulateDialogueArcs,RecursivelyPopulateDialogueEntries",
+    "sha256": "e230242d244028b484b4366f4bcab2567cd0b6a44e8d9449d2f12ff322125a6c"
+  },
+  {
+    "output": "loader-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "--fields",
+    "sha256": "85c61776470f029a16fe247bb5a98aa510a0b85a25b0c13ac09cbdab0d71e46e"
+  },
+  {
+    "output": "dialogue-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Dialogue",
+    "selection": "--list",
+    "sha256": "29f6d590d56c977b71b675fd1c86694ee1a6f8b13155d7e8db70ca7731cb7e23"
+  },
+  {
+    "output": "dialogue-fields.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Dialogue",
+    "selection": "--fields",
+    "sha256": "ad37ddb3890f6ad34e17410e939e7be8a1a4f4023130d0a80ed5309344f8a9fd"
+  },
+  {
+    "output": "generate-manifest.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "GenerateManifest",
+    "sha256": "508c01dadb5474d38b654a651836acdf891d72c0f959669966449df84114c55e"
+  },
+  {
+    "output": "generate-dialogue-callback.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0",
+    "selection": "<GenerateDialogues>b__0",
+    "sha256": "deb7e3be196bf42f8be8a39b4f48fc492f58a9d5cfe1689bc46347835535ed82"
+  },
+  {
+    "output": "db-dialogue-methods.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Dialogue",
+    "selection": "--list",
+    "sha256": "8cb00728daebd00214f28f087e2ce7e8189a38d20805af312ae08b10ad74997a"
+  },
+  {
+    "output": "dialogue-constructor.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.Dialogue",
+    "selection": ".ctor",
+    "sha256": "26f3b7e5462f34c85adfb808fc975102aaf90e0e3acfdffb5332e8da42e1f4e5"
+  },
+  {
+    "output": "db-dialogue-getters.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Dialogue",
+    "selection": "get_MetaDefault,ForEachEntity,get__name,get__savekey,get__plugin_db_name,get__type,get__primary_actor,get__initial_actor,get__has_player_initiated_question,get_name,get_savekey,get_plugin_db_name,get_type,get_primary_actor,get_initial_actor,get_has_player_initiated_question",
+    "sha256": "f1efd80422c81eb372600715ffb660ef2aa0a220710ce7c7a63d7c3bbc89fd32"
+  },
+  {
+    "output": "lookup-types.il",
+    "assembly": "Assembly-CSharp-firstpass.dll",
+    "type": "--types",
+    "selection": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "output": "meta-enumeration-methods.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGMetaEntity",
+    "selection": "--list",
+    "sha256": "05b1286e28da961f4b4db1d5c15a0f80056112457aae79b758cb26e5bd3c9bec"
+  },
+  {
+    "output": "trigger-parent-count.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader",
+    "selection": "PrioritizeArcTriggers_CountParentNodesRecursive,PrioritizeArcTriggers",
+    "sha256": "986095b1dfa9d971f8aae4b055867098a8de21c47d634c704d4bc1550b2d8d54"
+  },
+  {
+    "output": "database-lookup-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "--list",
+    "sha256": "61c6a31cc802ccbd30f66cff16bd613127a1403c8a4362d06c9f6a403dba7741"
+  },
+  {
+    "output": "conversation-methods.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation",
+    "selection": "--list",
+    "sha256": "c568636f0c5bbcac19e29cbeab34dd14dd2a9a2975938e958361fe4f00a1514c"
+  },
+  {
+    "output": "meta-enumeration.il",
+    "assembly": "BGDatabase.dll",
+    "type": "BansheeGz.BGDatabase.BGMetaEntity",
+    "selection": "ForEachEntity",
+    "sha256": "596353dca7a918fd831ea72d6b57e531c8d3025a78bf2d5270d99d1e8e1f5b24"
+  },
+  {
+    "output": "loader-comparisons.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.Narrative.DialogueSystemLoader/<>c",
+    "selection": "<GenerateDialogues>b__24_1,<GenerateDialogues>b__24_2,<PrioritizeArcTriggers>b__52_0",
+    "sha256": "1fbbc4fc5577c7261aef0e9ff8bf58effa51700166cc9a7eaa33529f72e5f9d3"
+  },
+  {
+    "output": "database-lookups.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "GetConversation,GetDialogueEntry",
+    "sha256": "025dd6d93c22e7b75902a81d1541e1c8d476a7ab0bd6c409252d61dc26296326"
+  },
+  {
+    "output": "conversation-lookups.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation",
+    "selection": "GetDialogueEntry",
+    "sha256": "61b6b1594c206171ea6d8bfa1159473437fb93d3c8f4d0a953dce7103c7f85b2"
+  },
+  {
+    "output": "db-dialogue-enumeration-callback.il",
+    "assembly": "Assembly-CSharp.dll",
+    "type": "TheForestOfLove.DB.Dialogue/<>c__DisplayClass1388_0",
+    "selection": "<ForEachEntity>b__0",
+    "sha256": "d06fdc5c7024fa0b3ace849201ab5befe7488e6efe32829d6a2fa035a9510fbc"
+  },
+  {
+    "output": "lookup-cache.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "SetupCaches",
+    "sha256": "4a931bc231abdf70b5c57957f3acc83c9c90995dcf888bf25bc707b973ab6e47"
+  },
+  {
+    "output": "lookup-name-predicate.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass37_0",
+    "selection": "<GetConversation>b__0",
+    "sha256": "270ecd1fe4a3c25bad15762645f843e28a73d2d5b0585142f9c6d228b30a37cd"
+  },
+  {
+    "output": "lookup-link-predicate.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass40_0",
+    "selection": "<GetDialogueEntry>b__0",
+    "sha256": "4c3e2fc2fad8f5eb90f83084d8980aa82b4b1bb14174accb85f360f902930811"
+  },
+  {
+    "output": "entry-title-predicate.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation/<>c__DisplayClass20_0",
+    "selection": "<GetDialogueEntry>b__0",
+    "sha256": "2d93e24941c7ba6fa140b7cd059b87892abdfae6399dac90f09e71e6c3ef8746"
+  },
+  {
+    "output": "entry-id-predicate.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.Conversation/<>c__DisplayClass21_0",
+    "selection": "<GetDialogueEntry>b__0",
+    "sha256": "38c1c2d6e0157f00223fee093bf4ebb7550cfcb091affa59c8c8f93347d458da"
+  },
+  {
+    "output": "lookup-create-cache.il",
+    "assembly": "Auto-asmdef-FirstPass.dll",
+    "type": "PixelCrushers.DialogueSystem.DialogueDatabase",
+    "selection": "CreateCache",
+    "sha256": "a95ef79406bd506c69a65f5cd31343ffcbbe36b0e43d77efb0e702051b67cb6e"
+  }
+]

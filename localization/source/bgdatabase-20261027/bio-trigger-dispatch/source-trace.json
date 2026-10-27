@@ -1,0 +1,94 @@
+{
+  "game": "The Forest of Love",
+  "version": "0.45",
+  "locale": "ru",
+  "phase": "0077-work",
+  "status": "passed-static-scoped",
+  "boundary": "Original IL metadata/body trace and unchanged registry readback; not game execution",
+  "originalAssembly": {
+    "path": "/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf"
+  },
+  "findings": [
+    {
+      "id": "line-end-event",
+      "evidence": "line-end-dispatch.il",
+      "location": "Handler_OnConversationLineEnd integer overload IL_0000..0034",
+      "consequence": "CurrentDialogue guard; emit original source IDs with current Dialogue/Arc before actor/text event; not callback timing proof"
+    },
+    {
+      "id": "normal",
+      "evidence": "trigger-base.il",
+      "location": "CheckTrigger IL_0000..003b; IsConditionSatisfied IL_0000..0014",
+      "consequence": "Arc/state/two exact IDs; mark executed before OnExecute; no skip-mode guard"
+    },
+    {
+      "id": "forced",
+      "evidence": "trigger-base.il",
+      "location": "ForceExecute IL_0000..0036",
+      "consequence": "Three opt-out flags; no node/executed guard or mark"
+    },
+    {
+      "id": "force-arc-filter",
+      "evidence": "dialogue-dispatch.il",
+      "location": "ForceFireArcTriggers IL_0016..0062",
+      "consequence": "Registered-null opt-in differs from normal incoming-null opt-in"
+    },
+    {
+      "id": "skip",
+      "evidence": "skip-conversation.il",
+      "location": "SkipConversation IL_0000..00dd",
+      "consequence": "Skip handler passes then nonnull-arc force; optional complete-step null-name replay; downstream effects/save unaccepted"
+    },
+    {
+      "id": "mark-all",
+      "evidence": "story-dispatch.il",
+      "location": "MarkQuestStepAsPlayed IL_0000..006e",
+      "consequence": "Null customName directly forces all triggers; nonnull exact arc customName branch separately filtered"
+    },
+    {
+      "id": "substring-dispatch",
+      "evidence": "story-listeners.il",
+      "location": "MarkConversationsAsPlayed IL_0017..005a",
+      "consequence": "Dialogue dbName String.Contains matching; prior DisableTriggeredEffects saved/restored on normal completion"
+    },
+    {
+      "id": "lookup-miss",
+      "evidence": "exact-lookups.il",
+      "location": "GetBioKeywordByPluginDbTriggerName IL_0000..0034",
+      "consequence": "ContainsKey/get_Item else LogError and null; no remapping"
+    },
+    {
+      "id": "null-detail",
+      "evidence": "detail-unlock.il",
+      "location": "TryUnlockKeyword IL_0000..0004",
+      "consequence": "Explicit null return false"
+    },
+    {
+      "id": "null-note-kink",
+      "evidence": "notes-unlock.il",
+      "location": "TryUnlockKeyword IL_000e..0024, plus kinks-unlock.il same offsets",
+      "consequence": "Compare reference before dbName; no early null guard; no null member in accepted original loader lists"
+    }
+  ],
+  "priorActionEvidence": {
+    "narrative-unlock.il": "b5cee14213fb7c775312b84ab10d1b225a5fcc9a0cbde4b72cc2b190935c14a8",
+    "arc-trigger.il": "f6d41a3e9a6ae36f44a109ba712a6f39f25a419a380fed4876d97b5881cfb684",
+    "arc-constructor.il": "ae1cfb1f029a989f883d6117982a931f72fb7af04574ce6edc2b5a5e339c783c",
+    "actor-unlock-load.il": "39b4aba8c216f592ff7d5df393750b639428c39da03d088d1532446528533c82",
+    "vslice-control.il": "a158c9c3a1b95e32194ecfc6bdbb1734328a349857bfcb5f196be264cd76892e"
+  },
+  "priorLoader": {
+    "path": "localization/source/bgdatabase-20261027/actor-identity/bio-loader-callback.il",
+    "sha256": "be639c16c48c0d2a4c454d615dcbf4eaf32b8eb355b293e806febc4fed3ff18b",
+    "scope": "Only existing nonnull relation branches populate category keyword lists; runtime mutations not accepted"
+  },
+  "classification": "All trigger identities, arguments, IDs, arc names, flags and keys preserve-exactly; no new display candidates",
+  "inputBinding": "baseline.json",
+  "ilBinding": "il-commands.json",
+  "verification": "readback/verification.json",
+  "targets": "readback/dispatch-targets.json",
+  "noSourceGlossaryOrTargetEdits": true,
+  "gameAssemblyExecuted": false,
+  "gitMutations": 0
+}
