@@ -74,3 +74,69 @@ corrections, independent review and runtime. New/changed source, parsing, invent
 glossary meaning or unverifiable mapping invalidates evidence under the universal
 protocol. Do not promise reuse before checking those dependencies. No six-language
 overall CLEAN status is issued by this initial-pass supervisor.
+
+## Compact CLI execution and live upgrade
+
+The October27 optimization changes transport and bookkeeping, not the universal
+semantic acceptance algorithm. Fresh independent sessions, gpt-6.1-sol/high/OpenAI,
+all12246 IDs, exact source/target/glossary pins, complete model-authored per-ID
+verdicts, full read coverage and the remaining adjudication/delta gates are retained.
+
+The coordinator validates input/model pins and writes an exact dispatch receipt.
+Workers receive known paths and read each mandatory document and both complete
+compact glossaries once through bounded bootstrap parts. Additional mandatory
+references still apply. No environment, process-tree or chat-history search is
+needed to rediscover the task. Source scene evidence is consulted for concrete
+context questions. A read receipt never establishes semantic understanding.
+
+`read-compact` emits up to60 rows/24000 UTF8 bytes in lossless fixed-field arrays.
+Only repeated JSON key names and source/target hash copies are omitted from model
+transport; complete source/target strings, IDs, actor/conversant, title, conditions,
+sequences, scripts, links and classifications remain. The finalizer joins the exact
+pinned hashes. Oversized units keep the original complete-part fallback. Decisions
+are authored explicitly by the model, stored in chunks through `record`, and must
+still cover every ID with an objective rationale. The helper never generates
+wording or verdicts. A missing, duplicated, foreign or unread ID fails finalization.
+
+On one actual350-ID Russian packet, equivalent transport required35 legacy reads
+and260135 emitted bytes versus7 compact reads and142537 bytes. Every ID appeared
+exactly once, with complete fields. This deterministic measurement establishes
+fewer calls/bytes, not a fivefold model speedup or semantic acceptance. Measure
+actual new CLI duration and usage separately on completed bound sessions.
+
+For an already running lane use the canonical helper's `upgrade --job <absolute>
+--execution-name execution-<unique-version>`. It freezes the new helper AND support
+module before launching one replacement observer. The existing model child and
+all old later-read files stay unchanged. The replacement verifies the old observer's
+PID/lifetime/argv, terminates only that observer, re-reads the actual checkpoint,
+preserves every accepted prefix hash and drains the exact surviving child. Historical
+interrupted attempts are retained and excluded from the active-slot selector.
+An existing creation receipt is reconciled, never duplicated. Ambiguous/orphan
+submission outcomes fail closed before another model request.
+
+After the old child exits, terminal model usage, emitted-read coverage, explicit
+verdicts and packet/review hashes are revalidated before the next fresh compact
+batch. The old child's OS exit code is unavailable after observer replacement;
+record it as unknown, not zero. Model terminal completion and independent structural
+validation are separate evidence. No server, game, technical-source or other-locale
+worker is stopped. A normal batch boundary replaces only the editorial observer.
+
+The first live upgrade detected historical storage-interrupted attempts in the
+phase list after stopping the observer; its current model child survived. That
+attempt and its receipt remain immutable. A separately bound recovery reconciled
+the dead observer, unchanged checkpoint/old helpers, accepted prefix and surviving
+child before resuming. The regression now covers this exact history. Further
+regressions cover real child survival, wrong-PID rejection before signaling,
+lossless full350-ID transport, missing-read rejection, atomic decision-chunk
+validation, complete Unicode bootstrap parts and Astra rejection before work.
+
+The first completed compact sessions each reviewed350 IDs. Russian phase25 used
+28 shell commands and1,261,489 input tokens (1,138,560 cached), versus67 commands
+and4,661,666 input (4,455,680 cached) in legacy phase22. Chinese phase29 used22
+commands and1,531,112 input (1,423,104 cached), versus48 commands and4,810,728 input
+(4,638,976 cached) in legacy phase26. Observed session durations were7.84 versus8.15
+minutes for Russian and5.79 versus7.80 for Chinese. Dialogue content/context needs
+differ, so these observations are not a controlled same-input speed ratio. Per-ID
+rationales/findings, full coverage and actual usage remain in the immutable jobs.
+The final startup prompt also gives the first exact read command before the brief,
+preventing task discovery before the worker has opened its instructions.
