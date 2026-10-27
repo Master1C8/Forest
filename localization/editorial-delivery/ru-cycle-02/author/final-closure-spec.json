@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "scope": "The Forest of Love 0.45 preliminary ready Dialogue Text/Menu Text family, en→ru; independent correction review, not whole-game acceptance",
+  "ordering": "Canonical dialogue-candidates.jsonl order; UTF-8, LF after every ID/JSONL row",
+  "mandatoryRegressions": [
+    {
+      "name": "hidden-neutral-and-collective-speakers",
+      "conversation": "(?:CumSpaStory|cumSpaStory|mabelCumSpaStory)|act3/mice|act3/mouse|act3/wolfQuest|sidequests/glitchRascal/",
+      "reason": "Unestablished mouse/spa speakers, collective agreement, wolf name reveal and external-player gender. Broader named scene groups are used because actor IDs are reused."
+    },
+    {
+      "name": "save-load-menu-title-credit-ui",
+      "source": "\\b(?:save|load|chapter select|gallery|quest log|critter log|inventory|credits?|press|click|button|menu|notebook)\\b",
+      "conversation": "^system/",
+      "reason": "Dialogue-family save/load, labels, menus, input/tutorial and credits surfaces. Other game/UI/image families remain outside this preliminary inventory."
+    },
+    {
+      "name": "mixed-controls-and-layout",
+      "source": "\\[lua\\(|\\[var=|\\[autocase=|\\[/?em[0-9]+\\]|<color=|<size=|<slow>|<speed=|<waitfor=|\\{|\\||\\\\[.,^<>]",
+      "reason": "All matching visible/control units, markup span semantics, timing, placeholders, dynamic joins, exact-symbol and layout-sensitive fields. Full protected values are also checked deterministically for all 12246 IDs."
+    },
+    {
+      "name": "source-dispositions",
+      "dispositions": true,
+      "reason": "Complete existing source-bound preserve manifest, unknown bracket syntax, constructed language and six OPEN literal source placeholders; retained classifications are proposals, not source acceptance."
+    }
+  ],
+  "limits": [
+    "Static original consumer code and serialized graph only: the game, actual Lua variable values, BGDatabase caller state, direct external node calls, fonts, wrapping and renderer were not run.",
+    "The finite ready dialogue inventory is exact; complete-game/UI/image coverage is not accepted. Cross-family and external runtime dependencies remain bounded uncertainty. The complete selected source scene topology is supplied as context, not a demand for a new full-scene audit. The different fresh peer reviews exactly delta-ids.txt and the linked context needed for those IDs; unchanged version-matching closure judgments and mandatory regression/poem receipts are retained.",
+    "Do not silently accept held source/consumer questions or credit this author's preflight as independent review. Any newly discovered dependency must repair this specification/selector in a new immutable cycle."
+  ],
+  "cycle": "cycle-final-02",
+  "contextPolicy": "For each changed unit walk the actual graph in both directions until two display-bearing units per branch; skip empty passthrough/cue nodes without inventing translation IDs. Keep full raw selected scene topology in a separate hashed context component. For class/wording/repetition/regression hits add the nearest real predecessor/successor through nontext nodes.",
+  "classSelectors": "class-spec.json; exact authored regex bounds and all emitted class reads",
+  "repetitionPolicy": "Exact source and old/new complete target repetitions plus portrait-stripped NFKC/case/apostrophe/dash/whitespace-normalized source variants",
+  "wordingPolicy": "Actual changed contiguous old/new spans of at least two words; shorter grammatical differences are bounded by the explicit complete class enumeration and object/exchange context",
+  "explicitInvalidation": "Changed exchanges minimal current context, three rejected independent findings and all source/target/context mismatches. Other prior support is retained only after exact version checks; no blanket full-support reread.",
+  "deltaFormula": "changed IDs union(current closure minus exact complete 11295 prior support IDs) union explicitly invalidated old evidence",
+  "removedDependencies": "Prior 11295 support is retained version-wise wherever valid. Historical broader whole-conversation/concept selections not selected by these current finite predicates are recorded as removed from the required current closure, not deleted from prior coverage."
+}

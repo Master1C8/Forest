@@ -1,0 +1,12 @@
+{
+  "canonicalApplications": 1,
+  "requiredNormalCanonicalBuilds": 2,
+  "scratchBuilds": 2,
+  "applicationObserver": "Initial exec returned a running session but its session_id was inadvertently omitted from the displayed output. The original application was reconciled by exact PID 53033, launch time and actual argv, then its completion receipt and final hashes. No second canonical application was submitted. Original observer exit status is unavailable, not inferred to be zero.",
+  "diagnosticScratchAttempt": "A redundant scratch-boundary diagnostic was launched after an erroneous process filter failed to recognize the capitalized Python executable. It used the same immutable staged corpus code and unchanged scratch inputs, and completed successfully. The original was found still alive before any retry or helper rewrite. Both scratch overlays and poetry reports were identical to the required canonical builds.",
+  "diagnosticEvidence": "scratch-boundary-diagnostic.log and staged/corpus.py",
+  "processIdentityLesson": "Reconcile a known task by exact PID, lifetime and argument path. Match executable identity without assuming lowercase python3: macOS can report Python.app/.../Python. A missing observer output or a failed textual process filter is not proof of process exit.",
+  "regression": "An exec returns a session; its output is empty while macOS ps reports /Library/.../Python -B <exact application helper>. Preserve the accepted invocation and inspect its receipt/PID instead of submitting another application. A redundant scratch diagnostic must be recorded separately from canonical application/build counts.",
+  "modelRequests": "Only this verified gpt-6.1-sol/high/OpenAI worker. No nested worker, service or alternate model was used.",
+  "tokenUsage": {"input":null,"cachedInput":null,"output":null,"total":null,"reason":"Unavailable on the permitted metadata-only session read surface. Parent may collect terminal telemetry. Unknown is not zero; no session messages were read."}
+}

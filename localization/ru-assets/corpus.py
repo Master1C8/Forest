@@ -140,6 +140,9 @@ def build():
     progress['draftOutcome']='draft-complete' if draft_complete else 'continue'
     progress['resume']={'nextAction':next_action}
     dump(OUT/'progress.json',progress)
+    if len(ordered)==len(ROWS):
+        import subprocess
+        subprocess.run([sys.executable, '-B', str(HERE/'check_poetry.py')], check=True)
     artifacts=[{'path':str(p.relative_to(ROOT)),'sha256':sha(p.read_bytes())} for p in sorted(HERE.rglob('*')) if p.is_file() and not p.name.endswith('.tmp')]
     dump(OUT/'result.json',{'outcome':progress['draftOutcome'],'authoredIds':len(ordered),'editedIds':len(ordered),'translatedWordingIds':progress['translatedWordingIds'],'reviewedUnchangedPunctuationIds':progress['reviewedUnchangedPunctuationIds'],'reviewedUnchangedNonproseIds':progress['reviewedUnchangedNonproseIds'],'technicalPreservedIds':progress['technicalPreservedIds'],'reviewedUnchangedConstructedLanguageIds':progress['reviewedUnchangedConstructedLanguageIds'],'savedTargetIds':progress['savedTargetIds'],'preservedSourcePlaceholderIds':progress['preservedSourcePlaceholderIds'],'sourceWarnings':progress['sourceWarnings'],'coverageBreakdown':progress['coverageBreakdown'],'countingNote':progress['countingNote'],'sourceFamilyCounts':progress['sourceFamily'],'heldIds':len(held),'remainingUnauthoredIds':progress['remainingUnauthoredIds'],'outputs':artifacts,'syntaxValidation':progress['syntaxValidation'],'remainingGates':progress['acceptance'],'continuation':next_action,'usage':progress['usage']})
     assert pins()==PINS

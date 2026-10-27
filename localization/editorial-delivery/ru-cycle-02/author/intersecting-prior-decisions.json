@@ -1,0 +1,94 @@
+[
+  {
+    "file": "correction-completion-v1/ru/context-decisions.authored.json",
+    "id": "ds:494:858:Dialogue Text",
+    "decision": "accepted",
+    "proposedTarget": "<color=#838383>—Нет, погодите! Я же только всё привёл в порядок—!",
+    "rationale": "The actual 854-860 chain threatens another load after aiming the cannon. Привёл всё в порядок preserves Rascal's completed cleanup objection while allowing either his body or surroundings as its object, rather than selecting room cleaning with убрался. Keep the source's open color tag and interrupted utterance unchanged.",
+    "evidence": [
+      "494:854→855→856→857→858→860",
+      "494:859→860",
+      "tfol-001"
+    ]
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:152:182:Dialogue Text",
+    "sourceSha256": "3bde8f50c73ca98b8cbe8ca8f7648c1cc9e1fa8ca90500458c24a59826584d1e",
+    "targetSha256": "4aed58aac4733e3ad129d8453255b60c8ce2b48db9c27a66b7c314a1fc47a80b",
+    "decision": "reject-finding",
+    "rationale": "The paired item is naturally called надувные нарукавники in Russian; the plural in this exchange retains the same item rather than changing its quantity.",
+    "proposedTarget": null,
+    "dependencyNotes": "tfol-077; retain toy-for-floaties direction and correspondence to 122:158."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:76:99:Dialogue Text",
+    "sourceSha256": "58b1783f729c8e5207c4eb8ced5c644d71942c52f9a7431e46df7addb917aa92",
+    "targetSha256": "b909a3635618b47f085d45b75643480a831dbaf01f5d15b1b9114d78009951a4",
+    "decision": "accept-correction",
+    "rationale": "Чтобы НЕ ПОХОЖЕ lacks the finite copula needed in this construction; source requires an object that does not look like a toy.",
+    "proposedTarget": "[pic=1]Что-нибудь для такой большой девочки, как я, но чтобы НЕ БЫЛО ПОХОЖЕ на игрушку… Хм…",
+    "dependencyNotes": "Legacy female bear self-reference and disguised-toy constraint; emphatic negation retained."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:86:108:Dialogue Text",
+    "sourceSha256": "5091fb39b5d336c2d7f1d5d6a4b813fea239ab8859d5a9c360eef0c471f4e7e2",
+    "targetSha256": "75abeca06cb1786b03bae52890cb111071b80c3e9c08e89694082027663ad605",
+    "decision": "accept-correction",
+    "rationale": "Some strap-ons to spare explicitly refers to plural spare harnesses; target predicts a single one.",
+    "proposedTarget": "[pic=4]Спрашивал у крольчихи? Уверен, найдутся у неё лишние страпоны!",
+    "dependencyNotes": "Repetition with 86:101; keep male addressee and speaker agreement as in existing unit, subject to scene closure."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:307:511:Dialogue Text",
+    "sourceSha256": "6c38344666a6605d4849a136d00cb024bd1279c110311bfe0027482810c9fa98",
+    "targetSha256": "6656a8956c2d20ab4cdf8c7a695a9d23b65a9d1778afc8d6356357309ee7206c",
+    "decision": "accept-correction",
+    "rationale": "Хозяйство conventionally points to genitals, whereas the linked rear-sex callback concerns Finley's assets more broadly and his rear in particular.",
+    "proposedTarget": "[pic=2]Да, видимо, Плут оценил мои достоинства и захотел попробовать меня сзади.",
+    "dependencyNotes": "Read 307:509-512,517; retain Finley as recipient and Rascal as actor; no coyote identity substitutions."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:322:130:Dialogue Text",
+    "sourceSha256": "baf94c4907f6f6e6fd50ebc1efb40f757d05a95ff5a523a8bdbbd11da85ade8a",
+    "targetSha256": "8015267ff8ec4662a26a937cb2bacb214efd211025d33be72c658042cb0ac3af",
+    "decision": "accept-correction",
+    "rationale": "Мы очень ценим reads as an incomplete transitive clause; это supplies the source's explicit object, the help just thanked.",
+    "proposedTarget": "[pic=2]Ещё раз спасибо за помощь, Плут, мы это очень ценим!",
+    "dependencyNotes": "Collective gratitude and approved Rascal name retained; minimal grammatical repair."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:391:275:Dialogue Text",
+    "sourceSha256": "b95cab1216c77b00130312e5d08e00afd89514e7cff3604d889bc251372c7232",
+    "targetSha256": "fba7bd6ad73dff68a8118f7f8f26f8dada7a974d9b05ebe867f186058e95ee3c",
+    "decision": "accept-correction",
+    "rationale": "Generic fairness omits that Augustus specifically concedes a point to Penny, and не припомню shifts his report of not having seen records toward memory failure.",
+    "proposedTarget": "[pic=2]Надо отдать Пенни должное: я не могу сказать, что видел свидетельства об участии «Святого» в Благословении…",
+    "dependencyNotes": "tfol-004,065,067; retain qualified lack of documentary evidence rather than proving absence."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:952:812:Dialogue Text",
+    "sourceSha256": "60d606b92e4fe9950a545bc8c952f1036bc40c85c3f301ba2e69c56810835fa5",
+    "targetSha256": "aaadc17f7712fabbdc38a91c3ef97398df98dc4c9bdfbda497d507b45ed39ff3",
+    "decision": "accept-correction",
+    "rationale": "Penny's preceding excuse remark makes it wasn't a denial of pretext. Это не повод does not express that denial clearly.",
+    "proposedTarget": "Ха-ха, это был не предлог! Я правда хотел показать Плуту, что твоих прелестей нечего бояться.",
+    "dependencyNotes": "Read 952:810→811→812; Finley male, genuine demonstration motive, Penny's anatomy and both sentences retained."
+  },
+  {
+    "file": "ru/adjudication-v2/decisions.jsonl",
+    "id": "ds:494:858:Dialogue Text",
+    "sourceSha256": "79a1c3254070e3cfb0e7643dae2bdc22da99df3460823be5e1a7eb0792a0a0ab",
+    "targetSha256": "72d8a49a89c760cc4d877f7298a2c44c6ec3ee154e0fc304b7929323c03bc7b4",
+    "decision": "needs-context",
+    "rationale": "The read aimed-next-load exchange does not specify whether Rascal just cleaned himself or the surrounding area. Убрался selects the latter; text alone does not close that choice.",
+    "proposedTarget": null,
+    "dependencyNotes": "OPEN cleaned-up referent; read 494:854-858,860; preserve open color tag and interruption punctuation pending consumer/scene evidence, no guessed replacement."
+  }
+]

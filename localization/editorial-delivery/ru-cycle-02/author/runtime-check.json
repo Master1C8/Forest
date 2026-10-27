@@ -1,0 +1,96 @@
+{
+  "runtimeVerified": true,
+  "records": [
+    {
+      "type": "session_meta",
+      "fields": {
+        "id": "01a17c95-dc6c-7e91-b508-510391aced1b",
+        "source": "exec",
+        "model_provider": "openai",
+        "parent_thread_id": null
+      }
+    },
+    {
+      "type": "turn_context",
+      "fields": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "launchArgv": "51640 51637 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/last-message.txt First read /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/brief.md, /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/dispatch.json and /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/runtime-verification.json. The current-runtime evidence path is explicitly authorized; verify it and then proceed. All paths are known. Execute exactly this authorized correction-completion assignment, including safe authored locale TSV fixes and reproducible builds. No history/project discovery, other model or nested worker. Model gpt-6.1-sol/high/OpenAI, fresh no-history.\n",
+  "inputPins": [
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl",
+      "expected": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+      "actual": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json",
+      "expected": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+      "actual": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/dialogue.ru.jsonl",
+      "expected": "fe095667472a4abcfb2d6e97ee29f31881e0f2df7f743fcc08cabc43f1572dac",
+      "actual": "fe095667472a4abcfb2d6e97ee29f31881e0f2df7f743fcc08cabc43f1572dac",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json",
+      "expected": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+      "actual": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/glossary/ru.json",
+      "expected": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0",
+      "actual": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-batches-v1/ru/source-context.json",
+      "expected": "c59e770ac9ec1033201dc55a5c407cd95765b36d8a47dee475834645c73d188d",
+      "actual": "c59e770ac9ec1033201dc55a5c407cd95765b36d8a47dee475834645c73d188d",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-batches-v1/ru/full-pairs.jsonl",
+      "expected": "d08ed8226968e8ec0847f568d9e8f9bb08ec75e1ae5851e68fa0704376513616",
+      "actual": "d08ed8226968e8ec0847f568d9e8f9bb08ec75e1ae5851e68fa0704376513616",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/merged-reviews.jsonl",
+      "expected": "67735fecc02cd4fcd12dca76ae625050f29948065bbe08e522cfd0683d9e9882",
+      "actual": "67735fecc02cd4fcd12dca76ae625050f29948065bbe08e522cfd0683d9e9882",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/findings.jsonl",
+      "expected": "3f097a153075a966638d15b4771190b92334286c2e891824004ef04a5b583dfb",
+      "actual": "3f097a153075a966638d15b4771190b92334286c2e891824004ef04a5b583dfb",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/prior-reviewed-ids.txt",
+      "expected": "1dc65f9eacddbeea0dbcfa81b289c1ef2674ce8e47134b4b115c4606cf0e6bb9",
+      "actual": "1dc65f9eacddbeea0dbcfa81b289c1ef2674ce8e47134b4b115c4606cf0e6bb9",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-ru-v1/ru/merge-verification.json",
+      "expected": "a0a6fa5e662a6e5b3242f7f72d78c20fa7022923700dd98710057d72a5b95e02",
+      "actual": "a0a6fa5e662a6e5b3242f7f72d78c20fa7022923700dd98710057d72a5b95e02",
+      "match": true
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/correction-completion-v1/ru/result.json",
+      "expected": "53ff24a2e74e62b8a550100776cead934586d630e5bd7f8df9dd7a64a93185ea",
+      "actual": "53ff24a2e74e62b8a550100776cead934586d630e5bd7f8df9dd7a64a93185ea",
+      "match": true
+    }
+  ]
+}

@@ -1,0 +1,1397 @@
+{
+  "outcome": "corrections-applied-awaiting-independent-review",
+  "game": "The Forest of Love",
+  "build": "0.45",
+  "sourceLocale": "en",
+  "locale": "ru",
+  "scope": "Completed owner-authorized correction assignment for the PRELIMINARY ready dialogue/Menu Text family; no whole-game, source, renderer/resource, runtime or release acceptance.",
+  "runtimeIdentity": {
+    "status": "verified",
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "provider": "openai",
+    "freshExecNoInheritedHistory": true,
+    "ignoreUserConfig": true,
+    "threadId": "01a17c95-dc6c-7e91-b508-510391aced1b",
+    "evidence": "runtime-check.json",
+    "nestedWorkersAlternateModelsOrTranslationServices": false
+  },
+  "correctionSummary": {
+    "allOriginalFindingsAdjudicated": 27,
+    "acceptedFindings": 24,
+    "rejectedFindings": 3,
+    "newWordingHolds": 0,
+    "additionalDemonstratedClassFixes": 3,
+    "appliedFieldChanges": 27,
+    "existingAuthoredTsvFilesChanged": 19,
+    "newOrDuplicateTranslationIds": 0,
+    "completeDemonstratedClassRowsReadWithLinkedContext": 295,
+    "preceding176CorrectionsPreservedExactly": true
+  },
+  "all27Adjudications": [
+    {
+      "id": "ds:122:170:Dialogue Text",
+      "sourceSha256": "9b926ce5437ed8d0ed020a4f216a40a23ec5c1851d4efb64aa84d4eb4d04c87e",
+      "targetSha256": "7726a528657ccf8bfd3c6dcb3269462268ec6973fd048ef565271a54a7b26e42",
+      "verdict": "finding",
+      "rationale": "Maverick says he does not do sexual favors as business transactions; the Russian instead refuses to receive sexual favors as payment. This reverses provider/recipient roles in the wood misunderstanding. No prior accepted decision for this ID was found in the pinned adjudication cases/decisions.",
+      "proposedTarget": "[pic=3]Рыжик, дружище. Я не оказываю сексуальных услуг в рамках деловых сделок!",
+      "decision": "accepted",
+      "finalTarget": "[pic=3]Рыжик, дружище. Я не оказываю сексуальных услуг в рамках деловых сделок!",
+      "reason": "122:169→170→171→172: Maverick refuses to provide sexual favors as a transaction; taking favors as payment reverses the stated provider. Literal wood and floaties exchange remain unchanged.",
+      "source": "[pic=3]Red, my guy. I do not do sexual favors as business transactions!",
+      "oldTarget": "[pic=3]Рыжик, дружище. Я не принимаю сексуальные услуги в качестве оплаты!"
+    },
+    {
+      "id": "ds:136:143:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Enthusiastic guests become special experts (знатоков); enthusiasm does not establish expertise. Retain the proposed meetings and guests' actual qualification.",
+      "proposedTarget": "[pic=5]О, отличная мысль! Можно устраивать встречи для любителей самых популярных фетишей! И даже приглашать гостей, увлечённых этими фетишами!",
+      "sourceSha256": "48927ca438b6b96354c7d7bda14a507eec898e83b1dc1ee99344f8a1a65530e3",
+      "targetSha256": "4432a6f6454b26f2a974840466cb61ce7681f87e792d398a197a8959b9406ca3",
+      "decision": "accepted",
+      "finalTarget": "[pic=5]О, отличная мысль! Можно устраивать встречи для любителей самых популярных фетишей! И даже приглашать гостей, увлечённых этими фетишами!",
+      "reason": "136:141→143→145: enthusiasts are keen participants, not established experts. Preserve meetings, popular fetishes and featured guests without unsupported expertise.",
+      "source": "[pic=5]Oh that’s good stuff right there! Perhaps we could set up meets for the more popular kinks! We can even feature guests who’re enthusiasts!",
+      "oldTarget": "[pic=5]О, отличная мысль! Можно устраивать встречи для любителей самых популярных фетишей! И даже приглашать особых знатоков!"
+    },
+    {
+      "id": "ds:136:161:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Genitive Любви is an unattached case form when naming the trend in answer to 159; nominative is needed for the elliptical identification.",
+      "proposedTarget": "[pic=4]Любовь, конечно!",
+      "sourceSha256": "52f20df006be71cb83ac31c8fe6a3d1132656e680215bb89c4530e0406c9fd86",
+      "targetSha256": "5e2a162b91b6028348bd5d5040f93f556d1044a54bf76c5de400ec2b73b1526e",
+      "decision": "accepted",
+      "finalTarget": "[pic=4]Любовь, конечно!",
+      "reason": "136:158→159→161 names the trend. Любви is not a valid case complement of увлечении; nominative names Love in the elliptical reply.",
+      "source": "[pic=4]Why the Love of course!",
+      "oldTarget": "[pic=4]Любви, конечно!"
+    },
+    {
+      "id": "ds:24:20:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "The anonymous planter is rendered with avoidable personal masculine тот/посадил. Linked scene leaves identity/gender unspecified; noun-based зверушка wording preserves one anonymous planter and scent comparison.",
+      "proposedTarget": "Наверное, от посадившей их зверушки тоже приятно пахнет.",
+      "sourceSha256": "1f4c4867590126652c9aa4f093a6d27132fde14b2f43e365146b3a362f12f51f",
+      "targetSha256": "28acbea062c0be9eaa2e9c891fd593a92a97c11f4acb1791f427a98409919614",
+      "decision": "accepted",
+      "finalTarget": "Наверное, от посадившей их зверушки тоже приятно пахнет.",
+      "reason": "24:18→19→20 compares the bluebells smell with one unidentified planter. Feminine agreement belongs to the generic noun зверушка, without assigning the person a gender or name; probability remains explicit.",
+      "source": "Probably like whoever planted them.",
+      "oldTarget": "Наверное, как и тот, кто их посадил."
+    },
+    {
+      "id": "ds:23:20:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Наверное adds uncertainty absent from the direct beauty comparison, and тот/посадил adds avoidable masculine person marking to the anonymous planter. Verified linked scene supplies no gender.",
+      "proposedTarget": "Как и посадившая её зверушка.",
+      "sourceSha256": "e61b413dde4170d68ff9f107ca8720509acd951e3db820af12ab2a7792611abc",
+      "targetSha256": "07b0f632c06a2c2f5fec559a4bbc5e59aaeda1d516e5d9fcb5b0ce811a53c16f",
+      "decision": "accepted",
+      "finalTarget": "Как и посадившая его зверушка.",
+      "reason": "23:18→19→20 gives a direct beauty comparison, not a conjecture. Generic зверушка avoids personal gender. Его agrees with the actual head noun дерево in the previously accepted Дерево сирени; the reviewer proposal её would retain a mismatched antecedent.",
+      "source": "Much like whoever planted it.",
+      "oldTarget": "Наверное, как и тот, кто её посадил."
+    },
+    {
+      "id": "ds:258:136:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Target specifically says male player did not last long; source leaves event unspecified. Full conversation258 routes introduction via133/270 to136 and follows with Claire praising him and requesting a turn, so a player-stamina claim is unsupported. Keep neutral duration rather than add an orgasm/stamina fact.",
+      "proposedTarget": "Ну вот, много времени не понадобилось…",
+      "sourceSha256": "5873f39fcf3b43d2e2556a6c9420d0f55b68aafa3b0fcdbdb12e7c564f9c013a",
+      "targetSha256": "5fe7349110ac03c8802d29b01ee4efdbab7b20a99af7adc33cf61dce2a61a29b",
+      "decision": "accepted",
+      "finalTarget": "Ну вот, много времени не понадобилось…",
+      "reason": "Introduction 133→270→136 follows the coyotes tongue exploration in 282–285. The source does not identify the quick event as the player failing to last; retain neutral event duration.",
+      "source": "Well that didn’t take long…",
+      "oldTarget": "Недолго же ты продержался…"
+    },
+    {
+      "id": "ds:258:137:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "GOT it is a broad approving assessment in the oral-scene introduction; ЗНАЕТ толк adds a specific expertise claim while player is recipient. Full scene nodes282-285 and introduction133/270 support preserving the compliment without inventing skill.",
+      "proposedTarget": "Говорила же, Ви, этот парень — ЧТО НАДО…",
+      "sourceSha256": "794ee01ae64fb04e03ecd987682a7dc5c993437e81204bdef09b8848141c9a51",
+      "targetSha256": "0a0276ff46d760c1b7beae4dadfd21dcdd65c062326eef22374e2a62f79fb059",
+      "decision": "accepted",
+      "finalTarget": "Говорила же, Ви, этот парень — ЧТО НАДО…",
+      "reason": "136→137→138 gives Claire’s emphatic approval of the recipient, not proof of his technique. Preserve broad compliment, Vi address and emphasis.",
+      "source": "Told ya Vi, this guy’s GOT it…",
+      "oldTarget": "Говорила же, Ви, этот парень ЗНАЕТ толк…"
+    },
+    {
+      "id": "ds:243:135:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Russian correlative то, что надо requires comma separating subordinate clause; current wording omits it. All speech and mate address can remain intact.",
+      "proposedTarget": "*тяжело дышит* А-а-ах, то, что надо, приятель!",
+      "sourceSha256": "931d99f82c33076dddc2225db219cf2c3e29da37f38b053a363fbbf6f0bde9c3",
+      "targetSha256": "85e790e5cbd9121253da9bddc642fea10b70f4212c3214960d39c8bb9a4b5788",
+      "decision": "rejected",
+      "finalTarget": "*тяжело дышит* А-а-ах, то что надо, приятель!",
+      "reason": "То что надо here is the fixed evaluative expression meaning excellent/just right, not a freely built demonstrative plus relative clause. Comma-free use is valid; adding punctuation is an optional editorial variant, not an objective correction. Panting, mate address and whole unit are retained.",
+      "source": "*Pant pant* Ahhh- That’s the stuff, mate!",
+      "oldTarget": "*тяжело дышит* А-а-ах, то что надо, приятель!"
+    },
+    {
+      "id": "ds:94:97:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Changes tentative belief that the fluid is saliva into a hope; preserve the speaker's stated inference.",
+      "proposedTarget": "[pic=2]Смотри, на журнале ещё слюна… По крайней мере, думаю, это слюна…",
+      "sourceSha256": "ba7c679044e145adf7de099abc6d38f79ebf1983e384319955ebe745bd149a5a",
+      "targetSha256": "86fec9e67b9f6f6cec93c06c92646c2a2037e509d6cf4a993f61a189a9bf2921",
+      "decision": "accepted",
+      "finalTarget": "[pic=2]Смотри, на журнале ещё слюна… По крайней мере, думаю, это слюна…",
+      "reason": "94:96→97→99: speaker states a tentative inference about fluid, rather than a wish that it be saliva. Keep the joking uncertainty without changing its evidential kind.",
+      "source": "[pic=2]See, there’s still saliva on this magazine… I think it’s saliva at least…",
+      "oldTarget": "[pic=2]Смотри, на журнале ещё слюна… По крайней мере, надеюсь, это слюна…"
+    },
+    {
+      "id": "ds:91:100:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Source specifically says the woman found it cute; target replaces that judgment with general liking. Context 89:110 establishes his female friend, so the possessive alone is not an independent defect.",
+      "proposedTarget": "[pic=5]Моя подруга тоже сочла это милым, и, дружище, давно я так не кончал!",
+      "sourceSha256": "b2907fdcbeb06c69268202298f6eae52db624c5692de872055dbf5a6f4c305fc",
+      "targetSha256": "a899aadac5d57a20b9cf795afc2e6cefcb863eef6fd06dc271aac0fab86bb482",
+      "decision": "accepted",
+      "finalTarget": "[pic=5]Моей даме это тоже показалось милым, и, дружище, давно я так не кончал!",
+      "reason": "89:110 establishes the lady friend; 91:99→100→101 concerns the sounding experience. Restore her specific cute assessment and preserve the entire orgasm statement and existing address/register.",
+      "source": "[pic=5]Yo the lady thought it was cute too, and like, man I haven’t cum like that in a long while!",
+      "oldTarget": "[pic=5]Моей даме тоже понравилось, и, дружище, давно я так не кончал!"
+    },
+    {
+      "id": "ds:305:306:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Source offers to clean player afterward without specifying a method; target adds an explicit promise to lick him clean.",
+      "proposedTarget": "[pic=3]Могли бы потом и убрать всё это с тебя…",
+      "sourceSha256": "c4bbf92f1387a76fdef119a1b94f19cea75102c70008da5c03d6c0e7c5027151",
+      "targetSha256": "c6c993bd330114992a044047563641d8263e97ba90959c4268313de29cdc574c",
+      "decision": "accepted",
+      "finalTarget": "[pic=3]Могли бы потом и привести тебя в порядок…",
+      "reason": "305:298→300→301→303→304→306→308 anticipates cleaning after a possible group encounter. Unlike 377/376 and 477, these linked lines supply no explicit tongue-cleaning callback. Keep the offer, possibility, recipient and after relation without specifying a method.",
+      "source": "[pic=3]We could even clean you off afterward…",
+      "oldTarget": "[pic=3]Могли бы потом тебя и вылизать…"
+    },
+    {
+      "id": "ds:322:209:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "The standalone мы очень ценим leaves transitive ценим without its object, producing an incomplete Russian gratitude formula; retain the explicit it reference.",
+      "proposedTarget": "[pic=2]Ещё раз спасибо за помощь, Плут, мы это очень ценим!",
+      "sourceSha256": "baf94c4907f6f6e6fd50ebc1efb40f757d05a95ff5a523a8bdbbd11da85ade8a",
+      "targetSha256": "8015267ff8ec4662a26a937cb2bacb214efd211025d33be72c658042cb0ac3af",
+      "decision": "accepted",
+      "finalTarget": "[pic=2]Ещё раз спасибо за помощь, Плут, мы это очень ценим!",
+      "reason": "The source-identical 322:130 already has an accepted object repair. Apply that exact complete wording at 209 as well; preserve collective gratitude, Rascal address and help reference.",
+      "source": "[pic=2]Thanks again for helping out Rascal, we really appreciate it!",
+      "oldTarget": "[pic=2]Ещё раз спасибо за помощь, Плут, мы очень ценим!"
+    },
+    {
+      "id": "ds:377:709:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Linked748 calls toy эта штука and749 её; abrupt Он has no masculine antecedent. Keep toy agreement feminine. No intersecting prior adjudication found.",
+      "proposedTarget": "Хе, ага! Она довольно легко входит до основания.",
+      "sourceSha256": "258a6fc43081046745e7c713df9464281dd86a2850bf8c90b632c33d523793c8",
+      "targetSha256": "5f801fcc12f5239a38e3e570912733792b253ffee6ac3c7166216517ac8e4b4b",
+      "decision": "accepted",
+      "finalTarget": "Хе, ага! Могу без труда принять её до основания.",
+      "reason": "748→749→709 establishes feminine штука/её for the dildo. Preserve Oliver’s ability and ease in receiving it to the hilt, in addition to correcting agreement.",
+      "source": "Heh yeah! I can hilt it pretty easily.",
+      "oldTarget": "Хе, ага! Он довольно легко входит до основания."
+    },
+    {
+      "id": "ds:377:712:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Same toy established as штука/её in linked748-749; его continues unsupported masculine switch. Preserve feminine object agreement.",
+      "proposedTarget": "Ну тогда давай её вставим!",
+      "sourceSha256": "9b95b0330f373727ab105b7962242da3b2798a5b56027befccac44f4977e8773",
+      "targetSha256": "728d0719fb177c44c597ef969f9c183068815f5d8eed52069a474184e272b81b",
+      "decision": "accepted",
+      "finalTarget": "Ну тогда давай её вставим!",
+      "reason": "709→711→712→714 retains the same feminine toy, the proposed insertion and collective invitation.",
+      "source": "In that case, let’s get this baby in!",
+      "oldTarget": "Ну тогда давай его вставим!"
+    },
+    {
+      "id": "ds:377:716:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Instrumental им refers to the same feminine штука/игрушка without new masculine noun; use feminine instrumental while retaining pumping request.",
+      "proposedTarget": "Слушай, Плут, можешь подвигать ею туда-сюда?",
+      "sourceSha256": "0adc7f45df43270cab98c1e31e66b5cea7a937055391be1e44da863afeead5e4",
+      "targetSha256": "c9dfe11aa8f4c90e6febd7ef0aacea620282b7b8d6215003be5e6ad3f47b10ce",
+      "decision": "accepted",
+      "finalTarget": "Слушай, Плут, можешь подвигать ею туда-сюда?",
+      "reason": "752→715→716→718: ею agrees with штука/игрушка while preserving Oliver as recipient, Rascal as requested mover and reciprocal pumping motion.",
+      "source": "Say Rascal, can ya pump it in?",
+      "oldTarget": "Слушай, Плут, можешь подвигать им туда-сюда?"
+    },
+    {
+      "id": "ds:377:722:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Должен войти continues masculine toy agreement despite штука/её antecedent. Retain force instruction and full-depth meaning with feminine agreement.",
+      "proposedTarget": "Хорошенько надави, должна войти до основания.",
+      "sourceSha256": "e20d1eb8f934f882d936d14ba8d223c2c615f0b5d191b15cc6a0a527886e268f",
+      "targetSha256": "b5d4629e4f1ca52467f246f120d28c84b3da9557fddac5c9db9e9772e5c631b8",
+      "decision": "accepted",
+      "finalTarget": "Хорошенько надави, должна войти до основания.",
+      "reason": "721→722→724 retains force, predicted full depth and feminine toy agreement; do not replace the toy with the player’s penis.",
+      "source": "Give it a good push, should be able to hilt it.",
+      "oldTarget": "Хорошенько надави, должен войти до основания."
+    },
+    {
+      "id": "ds:377:731:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Его refers to same inserted toy introduced as feminine штука/её in linked748-749; no masculine noun intervenes. Preserve feminine object agreement. No intersecting prior decision found.",
+      "proposedTarget": "Ого! Не верится, что ты её вместил!",
+      "sourceSha256": "d7ffed9918aa0af69f5cd70162d792d51608381abf921b6ce6823aebf2f5820d",
+      "targetSha256": "f76b3c9cb42d9d2edab6f22961a52ac071b9a8e2b38589e776428b8c61de52a1",
+      "decision": "accepted",
+      "finalTarget": "Ого! Не верится, что ты её вместил!",
+      "reason": "729→693→757→731→732 expresses Rascal’s surprise that Oliver received the same toy. Feminine object agreement follows the established antecedent.",
+      "source": "Wow! I can’t believe you took that!",
+      "oldTarget": "Ого! Не верится, что ты его вместил!"
+    },
+    {
+      "id": "ds:391:283:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Source explicitly describes anonymous giving of some gifts as a second custom; target instead says some people also give anonymously, losing that custom’s normative status and shifting the quantifier.",
+      "proposedTarget": "[pic=2]В этот праздник принято дарить друг другу подарки, а некоторые подарки принято дарить совершенно анонимно, продолжая тем самым традицию «Святого».",
+      "sourceSha256": "c07f7dac230ff2d04eecc2180394e566fcf11ecc4afa794edbc21f472c80f604",
+      "targetSha256": "6d9fe04924e94f60d6c1bbb32177b37f7802e183cab51c28d33801e3923a5303",
+      "decision": "accepted",
+      "finalTarget": "[pic=2]В этот праздник принято дарить друг другу подарки, а некоторые подарки принято дарить совершенно анонимно, продолжая тем самым дело «Святого».",
+      "reason": "280–287: both reciprocal giving and anonymous giving of some gifts are customs. Explicit подарки avoids quantifying only some people. Retain the established дело Святого formulation and the qualified myth framing of adjacent lines.",
+      "source": "[pic=2]It’s customary to give each other gifts during this holiday, but it’s also customary to give some gifts in total anonymity, thus continuing on the spirit of \"The Saint\".",
+      "oldTarget": "[pic=2]В этот праздник принято дарить друг другу подарки, но некоторые также дарят совершенно анонимно, продолжая тем самым дело «Святого»."
+    },
+    {
+      "id": "ds:445:37:Dialogue Text",
+      "sourceSha256": "2fe11c68216634513ae60f2df960a20bc76ae028de89d0648b5e41d54373adbc",
+      "targetSha256": "776ae47bcce3d92ba1b3c1abf7dffbef1d2ff210d4d41f65a631465b4b061bf9",
+      "verdict": "finding",
+      "rationale": "The hypothetical panties would probably be cute; наверняка strengthens probability to certainty. The exact preceding conditional branch supplies panties as referent. This field has no prior accepted correction in the pinned cases/decisions.",
+      "proposedTarget": "Они, наверное, были бы очень миленькими…",
+      "decision": "rejected",
+      "finalTarget": "Они наверняка были бы очень миленькими…",
+      "reason": "Наверняка within the explicit if-they-did counterfactual is a colloquial confident supposition about imagined panties, not a categorical claim that actual panties exist or are certainly cute. It is an admissible rendering of probably here; наверное would be another valid preference. Retain the conditional 36→37→38 and all speculative details.",
+      "source": "They would probably be pretty cute…",
+      "oldTarget": "Они наверняка были бы очень миленькими…"
+    },
+    {
+      "id": "ds:446:597:Dialogue Text",
+      "sourceSha256": "c3d55957f022a34f2d3efdddd5f11bc7ea7dc5b0b4061c333f2cc665773dfec4",
+      "targetSha256": "cd2b0d2fa77182d0dc84e5b37216c324bbb40cf33ac24f389d00b262bf2aa9de",
+      "verdict": "finding",
+      "rationale": "Charlotte explicitly says Soon I'm sure; Думаю, скоро weakens her expressed confidence. Preserve her assurance and female self-reference while keeping the short hesitant answer. No prior accepted correction for this ID appears in the pinned adjudication files.",
+      "proposedTarget": "[pic=1]Ах! Да-да… Уверена, скоро.",
+      "decision": "accepted",
+      "finalTarget": "[pic=1]Ах! Да-да… Уверена, скоро.",
+      "reason": "595→597→598: Charlotte explicitly reassures herself that readiness will be soon. Restore her stated confidence with feminine self-reference and retain hesitant delivery.",
+      "source": "[pic=1]Ah! Yes yes… Soon I’m sure.",
+      "oldTarget": "[pic=1]Ах! Да-да… Думаю, скоро."
+    },
+    {
+      "id": "ds:446:638:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "The source lists stretching and tight fits as two pleasures; чтобы instead makes tight entry the purpose of stretching, adding an unsupported causal relation.",
+      "proposedTarget": "Нет, то есть это тоже здорово. Я имел в виду,\nну, игрушку или что-то такое. Мне нравится\nрастягиваться и ощущать, как всё входит туго!",
+      "sourceSha256": "057248e34d7ac678d7ffb00f70b20a950ee605d65c6b6cc284c46634aef730ce",
+      "targetSha256": "1985cc822ac5072c6b67a34257956149d07c7f686370faf220a6589b8be6c432",
+      "decision": "accepted",
+      "finalTarget": "Нет, то есть это тоже здорово. Я имел в виду,\nну, игрушку или что-то такое. Мне нравится\nрастягиваться и ощущать, как всё входит туго!",
+      "reason": "636→637→638→639: two enjoyed sensations (stretching and tight fits) are coordinated, not a claim that stretching causes tightness. Preserve every sentence, toys versus semen distinction, male player self-reference and exact two LF boundaries.",
+      "source": "No, I mean, that’s cool too. I just meant\nwith like, a toy or something. I like\nstretching and getting those tight fits!",
+      "oldTarget": "Нет, то есть это тоже здорово. Я имел в виду,\nну, игрушку или что-то такое. Мне нравится\nрастягиваться, чтобы всё входило туго!"
+    },
+    {
+      "id": "ds:938:720:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "The added вскоре asserts that Penny's spying began soon afterward; the source confirms later sightings but gives no short interval.",
+      "proposedTarget": "[pic=6]Но потом я и правда несколько раз замечала, как она за мной подглядывает.",
+      "sourceSha256": "7a3c2853200556d7d7827ecb2f48bf61243656e5c1d97585731e2472b2fa02b7",
+      "targetSha256": "21e74ad693dd4327756eb5a216cea6884ba05e4f947930c3f191a108adbe4525",
+      "decision": "accepted",
+      "finalTarget": "[pic=6]Но потом я и правда несколько раз замечала, как она за мной подглядывает.",
+      "reason": "715–723 establishes later sightings and eventual escalation, without saying the first sightings began soon. Remove only the unsupported short interval; preserve repeated spying and female roles.",
+      "source": "[pic=6]But sure enough, I’d actually catch her spying on me a few times.",
+      "oldTarget": "[pic=6]Но вскоре я и правда несколько раз замечала, как она за мной подглядывает."
+    },
+    {
+      "id": "ds:956:462:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Source places Oliver's imagined thoughts after collection; target places them during collection. Preserve the temporal relation in the full unit.",
+      "proposedTarget": "[pic=3]Но блин… Лучше бы он что-нибудь сказал. Даже не представляю, что он думал после того, как я собирал…",
+      "sourceSha256": "ea0d99eee1e01bfbcea15be8c8f215ce5991f1660d1d5699c6bf6bccb1120c4c",
+      "targetSha256": "08811a4e30ed4b5110fbae269b38ea7b3e989fe54925233a7e5dd4288e1af571",
+      "decision": "accepted",
+      "finalTarget": "[pic=3]Но блин… Лучше бы он что-нибудь сказал. Даже не представляю, что он думал после того, как я собирал…",
+      "reason": "461→462→463→464: Oliver’s imagined thoughts follow Maverick’s collection, not its simultaneous duration. Preserve speaker wish, provider/collector roles, unfinished object and the following gallons punchline.",
+      "source": "[pic=3]Dang though… I wish he’d have said something. I can’t imagine what he was thinking after I’d collect…",
+      "oldTarget": "[pic=3]Но блин… Лучше бы он что-нибудь сказал. Даже не представляю, что он думал, когда я собирал…"
+    },
+    {
+      "id": "ds:479:770:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Countable a light means a usable light source for the upcoming trip. Раздобыть тебе свет is an unnatural calque using abstract illumination; name the concrete source while retaining the whole unit and delay.",
+      "proposedTarget": "Ага, когда знаешь дорогу, не так уж страшно… <waitfor=0.5>Но ты прав, надо бы раздобыть тебе источник света.",
+      "sourceSha256": "331794ff2c95b1188d4516b518d60c4080bce096627bd01f9970f2bbeeb6078c",
+      "targetSha256": "bc2e7c828d9813e18ae7ad7950fc05ee27005352e9e76dd17793d13114ea5328",
+      "decision": "accepted",
+      "finalTarget": "Ага, когда знаешь дорогу, не так уж страшно… <waitfor=0.5>Но ты прав, надо бы раздобыть тебе источник света.",
+      "reason": "768→769→770→771→772: the needed countable light is a portable source, subsequently considered as fireflies in a jar or lantern. Restore natural concrete reference without choosing a particular item; wait and whole first sentence stay exact.",
+      "source": "Yeah, it’s not so bad once you know the way… <waitfor=0.5>But you’re right, we should probably get you a light.",
+      "oldTarget": "Ага, когда знаешь дорогу, не так уж страшно… <waitfor=0.5>Но ты прав, надо бы раздобыть тебе свет."
+    },
+    {
+      "id": "ds:492:832:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Сам напросился loses the death/funeral cue that triggers the immediately linked sacrifice question833; preserve the warning's death imagery. No intersecting accepted rationale was found in the named decision inputs.",
+      "proposedTarget": "[pic=3]Ну ла-а-адно, <waitfor=0.5>сам себе могилу роешь!",
+      "sourceSha256": "78fe250fab31b63f58a4ce1f23bd7352bd5cf13abddac97a7f6c84528e833e5b",
+      "targetSha256": "466f8f510825177afa9270b0387a7edea3390eeaeac07f292d0e13b504a6dfe0",
+      "decision": "accepted",
+      "finalTarget": "[pic=3]Ну ла-а-адно, <waitfor=0.5>сам себе могилу роешь!",
+      "reason": "831→832→833→834: death imagery is necessary for the immediate sacrifice joke. Restore it as an idiomatic warning, not a literal event or certain future death; preserve wait and teasing register.",
+      "source": "[pic=3]Alriiiight, <waitfor=0.5>your funeral!",
+      "oldTarget": "[pic=3]Ну ла-а-адно, <waitfor=0.5>сам напросился!"
+    },
+    {
+      "id": "ds:509:941:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Current question asks what they are asking, while source asks their reason; the next answer explains the reason.",
+      "proposedTarget": "[pic=3]А почему вы спрашиваете?",
+      "sourceSha256": "eb63d2fb7de96d62fd884cf582c16897da480d2428a5a948268ed79c6a58e8c6",
+      "targetSha256": "1431f6f9428d15275b83bbf11ff6549bcad80228351fc0c7d77c0f81c94f6d66",
+      "decision": "rejected",
+      "finalTarget": "[pic=3]А что вы спрашиваете?",
+      "reason": "А что вы спрашиваете? in the actual question→answer exchange is a colloquial reason-for-asking question, equivalent to why do you ask?, not a request to repeat the question. The next explanation at 942 fits that reading. А почему would be clearer but is not required to fix an objective meaning error.",
+      "source": "[pic=3]Why do ya ask?",
+      "oldTarget": "[pic=3]А что вы спрашиваете?"
+    },
+    {
+      "id": "ds:525:975:Dialogue Text",
+      "verdict": "finding",
+      "rationale": "Target reduces terrified to only a little afraid, weakening the reason her people cannot invite him; preserve strong fear with the hesitant delivery.",
+      "proposedTarget": "[pic=7]Прости, я бы тебя пригласила! <pause>Но моё племя, э-э… <pause>жутко тебя боится…",
+      "sourceSha256": "0fb0ade030f4fec79826ef085b1a72067132c0c77d2e0e21d83ee618c5a70f01",
+      "targetSha256": "54b910897489d9cda26e8d3640f47722cbe33af050e80d2cac6c003ebf599267",
+      "decision": "accepted",
+      "finalTarget": "[pic=7]Прости, я бы тебя пригласила! <pause>Но моё племя, э-э… <pause>как бы в ужасе от тебя…",
+      "reason": "974→975→976: terrified is strong fear, while kinda and the pauses hedge the socially awkward admission. Как бы в ужасе preserves both intensity and hesitant qualification instead of changing it to mild fear or removing the hedge.",
+      "source": "[pic=7]Sorry, I’d just invite you! <pause>But my people are uh… <pause>kinda terrified of you…",
+      "oldTarget": "[pic=7]Прости, я бы тебя пригласила! <pause>Но моё племя, э-э… <pause>немного тебя боится…"
+    }
+  ],
+  "additionalDemonstratedClassFixes": [
+    {
+      "id": "ds:41:239:Dialogue Text",
+      "decision": "accepted",
+      "oldTarget": "[pic=4]Вот это разговор! Ты посмотри на него: этот парень ЗНАЕТ толк.",
+      "finalTarget": "[pic=4]Вот это разговор! Ты посмотри на него: этот парень — ЧТО НАДО.",
+      "source": "[pic=4]That’s what I’m talking about! Look at him, this guy’s GOT it.",
+      "reason": "237→239→241 praises the player after he says he does not scare easily. Source-identical GOT-it wording risk does not establish technique/expertise. Preserve broad approval and every sentence."
+    },
+    {
+      "id": "ds:70:97:Dialogue Text",
+      "decision": "accepted",
+      "oldTarget": "[pic=2]Ещё раз спасибо, что вызвался сегодня помочь. Мы со зверушками очень ценим!",
+      "finalTarget": "[pic=2]Ещё раз спасибо, что вызвался сегодня помочь. Мы со зверушками это очень ценим!",
+      "source": "[pic=2]Thanks again for volunteering to help out today, the critters and I really appreciate it!",
+      "reason": "96→97→98 contains the same bare transitive gratitude defect as 322:130/209. Restore explicit it/help object while retaining volunteers, today, collective participants and both sentences."
+    },
+    {
+      "id": "ds:930:905:Dialogue Text",
+      "decision": "accepted",
+      "oldTarget": "Просто немного подразни головку, думаю, этого хватит.",
+      "finalTarget": "Просто немного подразни головку, уверен, этого хватит.",
+      "source": "Just tease the tip a bit, I’m sure that’ll do it.",
+      "reason": "903→904→905→906→907 has Peter’s explicit confidence in a minimal stimulation instruction; думаю weakens that statement. Source-identical 935:1053 already uses уверен, corroborating the safe same-class repair without changing tip, amount or roles."
+    }
+  ],
+  "safeAppliedIds": [
+    "ds:122:170:Dialogue Text",
+    "ds:41:239:Dialogue Text",
+    "ds:136:143:Dialogue Text",
+    "ds:136:161:Dialogue Text",
+    "ds:24:20:Dialogue Text",
+    "ds:23:20:Dialogue Text",
+    "ds:258:136:Dialogue Text",
+    "ds:258:137:Dialogue Text",
+    "ds:94:97:Dialogue Text",
+    "ds:70:97:Dialogue Text",
+    "ds:91:100:Dialogue Text",
+    "ds:305:306:Dialogue Text",
+    "ds:322:209:Dialogue Text",
+    "ds:377:709:Dialogue Text",
+    "ds:377:712:Dialogue Text",
+    "ds:377:716:Dialogue Text",
+    "ds:377:722:Dialogue Text",
+    "ds:377:731:Dialogue Text",
+    "ds:391:283:Dialogue Text",
+    "ds:446:597:Dialogue Text",
+    "ds:446:638:Dialogue Text",
+    "ds:930:905:Dialogue Text",
+    "ds:938:720:Dialogue Text",
+    "ds:956:462:Dialogue Text",
+    "ds:479:770:Dialogue Text",
+    "ds:492:832:Dialogue Text",
+    "ds:525:975:Dialogue Text"
+  ],
+  "newHeldWordingIds": [],
+  "retainedOpenSourceContextEvidence": {
+    "uniqueIds": [
+      "ds:143:160:Dialogue Text",
+      "ds:145:228:Dialogue Text",
+      "ds:170:200:Dialogue Text",
+      "ds:176:154:Dialogue Text",
+      "ds:199:180:Dialogue Text",
+      "ds:199:181:Dialogue Text",
+      "ds:199:182:Dialogue Text",
+      "ds:227:180:Dialogue Text",
+      "ds:228:161:Dialogue Text",
+      "ds:265:273:Dialogue Text",
+      "ds:374:27:Dialogue Text",
+      "ds:409:790:Dialogue Text",
+      "ds:422:754:Dialogue Text",
+      "ds:422:756:Dialogue Text",
+      "ds:428:737:Dialogue Text",
+      "ds:444:698:Dialogue Text",
+      "ds:444:703:Dialogue Text",
+      "ds:445:26:Dialogue Text",
+      "ds:445:30:Dialogue Text",
+      "ds:445:35:Dialogue Text",
+      "ds:445:41:Dialogue Text",
+      "ds:445:45:Dialogue Text",
+      "ds:453:711:Dialogue Text",
+      "ds:455:696:Dialogue Text",
+      "ds:463:736:Dialogue Text",
+      "ds:496:20:Dialogue Text",
+      "ds:50:82:Dialogue Text",
+      "ds:50:87:Dialogue Text",
+      "ds:511:939:Dialogue Text",
+      "ds:512:938:Dialogue Text",
+      "ds:513:947:Dialogue Text",
+      "ds:522:902:Dialogue Text",
+      "ds:522:914:Dialogue Text",
+      "ds:523:1013:Dialogue Text",
+      "ds:523:1039:Dialogue Text",
+      "ds:52:128:Dialogue Text",
+      "ds:52:129:Dialogue Text",
+      "ds:543:763:Dialogue Text",
+      "ds:569:788:Dialogue Text",
+      "ds:569:792:Dialogue Text",
+      "ds:941:726:Dialogue Text"
+    ],
+    "uniqueCount": 41,
+    "priorCorrectionCompletionHolds": {
+      "count": 31,
+      "byReason": {
+        "source-glossary-species-conflict": 1,
+        "source-test-content": 1,
+        "source-literal-placeholder": 6,
+        "source-act-conflict": 1,
+        "protected-tfol-010-roommate-conflict": 6,
+        "source-tense-conflict": 1,
+        "source-unfinished-authoring-direction": 1,
+        "source-stray-bracket": 1,
+        "consumer-binding-unverified": 2,
+        "plant-anatomy-unverified": 1,
+        "authoring-direction-classification": 8,
+        "anatomical-sense-unverified": 1,
+        "idle-trigger-sense-unverified": 1
+      },
+      "records": [
+        {
+          "id": "ds:145:228:Dialogue Text",
+          "sourceSha256": "c5bc09db546a9c4911a2c61b53a6b48984d234e2fa35027960e07ea8f0006331",
+          "targetSha256": "ce401712733156c4808819588993bee079f02475a977fb43df3de94899696b33",
+          "decision": "source-defect",
+          "rationale": "Dialogue calls the rescuer a hawk, conflicting with approved tfol-004's peregrine falcon. Target follows the approved species while preserving the anonymous female rescuer, sunset patrol and discovery.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source/glossary species discrepancy; do not rename the rescuer before the reveal or alter protected glossary.",
+          "status": "OPEN",
+          "reasonCode": "source-glossary-species-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:143:160:Dialogue Text",
+          "sourceSha256": "3c6ad2426606d8bc63cf8e0af280315d833f4ec06bbfe0489671a01932b51bc4",
+          "targetSha256": "10721876f62ea2c19c12081368e5e819524e9c44d145c86f49e8e18249a4c59c",
+          "decision": "source-defect",
+          "rationale": "This is a test is a test placeholder rather than missing Russian translation; Это тест faithfully renders the available source and supplies no invented story.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN authored source content; initial report identifies 159 trigger link, not independently re-traced here.",
+          "status": "OPEN",
+          "reasonCode": "source-test-content",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:265:273:Dialogue Text",
+          "sourceSha256": "15d4bb2cf4b83f8eba15081e845b3ab7fa07172377944edcc6df961bfef45297",
+          "targetSha256": "15d4bb2cf4b83f8eba15081e845b3ab7fa07172377944edcc6df961bfef45297",
+          "decision": "source-defect",
+          "rationale": "The source is literally dummy text and contains no authored story to translate. Existing exact retention is provisional, not a linguistic error.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source placeholder; None() does not settle all response/callback visibility; no invented dialogue.",
+          "status": "OPEN",
+          "reasonCode": "source-literal-placeholder",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:176:154:Dialogue Text",
+          "sourceSha256": "8b3634d2892ac1996c3baa29de736a3e7d301ce8a415b1802e76d3e8f7f00169",
+          "targetSha256": "13468f008c1d0dcbdeb49d996fffcb2618c134771d2ccedbdc3d224dcb10eb81",
+          "decision": "source-defect",
+          "rationale": "Going down on me normally means receiving oral sex, which Russian renders faithfully. The linked anal-topic exchange about inserting deeply points to a conflicting intended act, so changing the target alone would guess the source intention.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source act discrepancy; read 176:152-156; initial BIO binding not independently inspected in this bounded read.",
+          "status": "OPEN",
+          "reasonCode": "source-act-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:199:180:Dialogue Text",
+          "sourceSha256": "42ebbd160b3e9742983993bad1b449b809436436c04266905556972ca9e07e68",
+          "targetSha256": "9aeaf114c96f9f910d07d81330d29972ea5a39fe6d5644f690634d8758894b46",
+          "decision": "source-defect",
+          "rationale": "The question itself is faithful. Linked fox/bear roommates and the Charlotte/Melody cohabitation scene conflict with tfol-010's Claire/Violet background.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN protected source-glossary contradiction; read 199:180-183 and 409:788-794; retain primary scene identities.",
+          "status": "OPEN",
+          "reasonCode": "protected-tfol-010-roommate-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:50:82:Dialogue Text",
+          "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "decision": "source-defect",
+          "rationale": "The complete source is a literal placeholder, without story wording. Exact provisional retention is authorized and is not a Russian correction.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN ram introduction authored content; preserve pic=1 and literal placeholder; no invisibility claim.",
+          "status": "OPEN",
+          "reasonCode": "source-literal-placeholder",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:50:87:Dialogue Text",
+          "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "decision": "source-defect",
+          "rationale": "This separate source field also contains only the literal placeholder and cannot support an invented idle line.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN ram idle authored content; separate ID from 50:82 despite identical bytes.",
+          "status": "OPEN",
+          "reasonCode": "source-literal-placeholder",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:52:128:Dialogue Text",
+          "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "decision": "source-defect",
+          "rationale": "The squirrel introduction field contains a literal source placeholder; target preserves it exactly under the provisional exception.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source content at this specific ID; no technical-exclusion credit.",
+          "status": "OPEN",
+          "reasonCode": "source-literal-placeholder",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:52:129:Dialogue Text",
+          "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+          "decision": "source-defect",
+          "rationale": "The squirrel idle field has no authored dialogue beyond the literal placeholder. Exact retention does not resolve that defect.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN separate idle source field; keep its identity distinct from 52:128.",
+          "status": "OPEN",
+          "reasonCode": "source-literal-placeholder",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:409:790:Dialogue Text",
+          "sourceSha256": "a0930493a6d3aff623c7c9191a1e6f500c1bfac48e3603876a4fc769273e679e",
+          "targetSha256": "395b014575dbfda20f619fcef8773fd89d72273c9f5dbf25200399b6e2d8f3cb",
+          "decision": "source-defect",
+          "rationale": "The Russian cohabitation statement is faithful. This Charlotte/Melody scene conflicts with tfol-010's claim that Claire/Violet were Finley's former roommates.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN protected glossary background; read 409:788-794 and 422/428 corroboration; retain primary dialogue.",
+          "status": "OPEN",
+          "reasonCode": "protected-tfol-010-roommate-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:422:754:Dialogue Text",
+          "sourceSha256": "109a7d159d0ced576165ee60ab2aec19741676f966192f7fcf09f2baf5907df2",
+          "targetSha256": "464b5dc283859096dc75672ac0d81dbce2ff6313a9479b0904f3d5548efe4a77",
+          "decision": "source-defect",
+          "rationale": "The target faithfully renders former cohabitation. The read exchange identifies Charlotte/Melody as them, contradicting tfol-010's Claire/Violet background.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source-glossary contradiction; read 422:747-757; no incidental protected-source correction.",
+          "status": "OPEN",
+          "reasonCode": "protected-tfol-010-roommate-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:422:756:Dialogue Text",
+          "sourceSha256": "c7568876346933fc359754c43a7be94e50165a91e75cdd60ca40ab17df1623ca",
+          "targetSha256": "8ed5bad775eb60a75ce64f16dc9f9b1bc925341a1b2b8d3d8a4a11016a8c4172",
+          "decision": "source-defect",
+          "rationale": "We'll join has a future or habitual reading, but linked those were, we'd go and if we ever go again frame past excursions. Target past follows that account; intended source tense is unresolved.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN tense discrepancy; read 422:753-757,760,766; do not impose a future rewrite without resolving the account.",
+          "status": "OPEN",
+          "reasonCode": "source-tense-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:428:737:Dialogue Text",
+          "sourceSha256": "ccb08b38cfe40247dabc55bc9b37a2d47d00ec96f2cdd360334ab8af80a06aeb",
+          "targetSha256": "4182cb045c7f3cc8289f3211cb73a0436215bbb30bf01b97aa4a911fb8663bbe",
+          "decision": "source-defect",
+          "rationale": "The apology accurately admits the women were difficult roommates. Its Charlotte/Melody scene conflicts with protected tfol-010 background, not with this translation.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source/glossary roommate contradiction; read 428:735-739 and 409 cohabitation exchange.",
+          "status": "OPEN",
+          "reasonCode": "protected-tfol-010-roommate-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:455:696:Dialogue Text",
+          "sourceSha256": "312c9892cea997ed05936b49b0840120e5eb786a30fe1fa3ec98e2910b0365c4",
+          "targetSha256": "4b45f4fd2f5065b54f81949e769264e3cdb2a1e3b19594a4a776825158276b3c",
+          "decision": "source-defect",
+          "rationale": "The source contains an unfinished authorial parenthesis and unresolved optional production transition, rather than settled player-facing narration. Russian retains that uncertainty and the stated illustration facts.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN authoring/classification decision; preserve illustration 3, Bucky climax and possible Rascal-only post-scene transition; no invented closing content.",
+          "status": "OPEN",
+          "reasonCode": "source-unfinished-authoring-direction",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:496:20:Dialogue Text",
+          "sourceSha256": "4b044ed22c20ef26cd90003454ad312ac1998ea35883e4c0366528de13aa1472",
+          "targetSha256": "4b044ed22c20ef26cd90003454ad312ac1998ea35883e4c0366528de13aa1472",
+          "decision": "source-defect",
+          "rationale": "TBD is a source placeholder, not authored dialogue. Exact provisional retention cannot supply missing story content.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source authoring; retain pic=1 and literal TBD without inventing text or claiming invisibility.",
+          "status": "OPEN",
+          "reasonCode": "source-literal-placeholder",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:512:938:Dialogue Text",
+          "sourceSha256": "555448324c981de6fbce3dcdd464122cfd354b23634af6dc063f3a4a9e8d042f",
+          "targetSha256": "2d1f824ce53cab7575fc95187d71d4eab28aa62c18a00822419efd2169c08053",
+          "decision": "source-defect",
+          "rationale": "Both source and target have an extra closing bracket directly after pic=6. This is a source-formatting issue, so silently normalizing only Russian would bypass adjudication.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN literal bracket/consumer contract; Mabel's ride wording otherwise intelligible; preserve pause and approved name.",
+          "status": "OPEN",
+          "reasonCode": "source-stray-bracket",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:569:788:Dialogue Text",
+          "sourceSha256": "3bfdde4db2fe950a3753795bbd11bd8fbed873c1dd7c0eb292398a7b14d07f65",
+          "targetSha256": "bc2a6be01b77182454ee74f15521773e49d69133acbce1a48512ffea3ebbfdeb",
+          "decision": "source-defect",
+          "rationale": "The question about living with Finley is faithful and corroborated by the read Charlotte/bear exchange, conflicting with tfol-010's former-roommate background.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN protected glossary contradiction; read 569:788-793 plus Charlotte/Melody cohabitation scenes; retain primary question.",
+          "status": "OPEN",
+          "reasonCode": "protected-tfol-010-roommate-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:569:792:Dialogue Text",
+          "sourceSha256": "86a4b19dacdd0ff8c642f2ef610956e194d9a2708a147609c9c048f100918cbd",
+          "targetSha256": "3a5ebbb967f6467a8a8a45be9c9961661ce6ce4ad47a540ff922d5525f878598",
+          "decision": "source-defect",
+          "rationale": "The wish for Finley to move back is faithfully translated. The same read cohabitation exchange is part of the unresolved Charlotte/Melody versus tfol-010 background conflict.",
+          "proposedTarget": null,
+          "dependencyNotes": "OPEN source-glossary contradiction; read 569:788-793; no substitution of Claire/Violet or protected glossary edits.",
+          "status": "OPEN",
+          "reasonCode": "protected-tfol-010-roommate-conflict",
+          "disposition": "Existing faithful/source-artifact target retained; no source or glossary mutation."
+        },
+        {
+          "id": "ds:228:161:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "consumer-binding-unverified",
+          "rationale": "The complete 228:131→161→162 chain supports the existing gossip question. FormattedText.Parse has no ADVICE removal rule; the source-bound disposition therefore preserves ADVICE plus its space. This legacy conversation has no suffix, and actual game-manifest use is not established by these consumers. Retain the faithful question and protected prefix; shared consumer acceptance remains open.",
+          "evidence": [
+            "228:131-179",
+            "FormattedText.cs:Parse",
+            "source-dispositions.json:ds:228:161:Dialogue Text"
+          ],
+          "sourceSha256": "8bca5fff8da363b10c5f48b84938e1330af8aba9fca59561fedb583a19714775",
+          "targetSha256": "8180b8fda674eaf81670787e92daabf1ba361cfdefdc589c53788ea55870d292",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:227:180:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "consumer-binding-unverified",
+          "rationale": "The linked question→Scarlett explanation at 227:180-186 supports Кто тут главный. The exact ADVICE prefix is deliberately preserved in the existing source-bound disposition. Neither Parse nor subtitle/menu fallback strips it. Missing manifest binding prevents a visibility claim, and supplies no safe linguistic change.",
+          "evidence": [
+            "227:180-186",
+            "DialogueEntry.il:get_responseButtonText",
+            "source-dispositions.json:ds:227:180:Dialogue Text"
+          ],
+          "sourceSha256": "a606eb24d1af679007bc56a887b5da12dac1f08d4fcde5613680a4507ca3e9cf",
+          "targetSha256": "a9ac1068c412c268c0a9b28ea6d1efa7dd788083642d4368bd99e2492526c4a2",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:170:200:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "plant-anatomy-unverified",
+          "rationale": "The full 170:197-215 exchange distinguishes rubbing below an uncertain chin/bulb from a later receptacle and insertion. 590:294-299 describes purple bulbs opening, supporting budlike structures but not uniquely identifying this chin structure. Keep the existing tentative parenthesis and cooing/purring; choosing a botanical bulb or another organ requires absent primary anatomical evidence.",
+          "evidence": [
+            "170:197-215",
+            "590:294→295→296→297→298→299"
+          ],
+          "sourceSha256": "243f304963ad047c84d0e17adcb58ab6e9dd6200fa377e971e582bec41bd691e",
+          "targetSha256": "9a7c8d7d665d8e116e21a4803b2f9d44fd7694065891706edf818dfb362805fa",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:444:698:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "The actual idle entry reaches 575→699, bypassing 698; 702→696→697→704 also bypasses 703. The direction translation is faithful. The static graph does not establish arbitrary external direct-node calls or a shared preserve-exact classification, so retain the existing target and keep technical disposition open.",
+          "evidence": [
+            "444:131→575→699",
+            "444:698→699",
+            "444:702→696→697→704",
+            "LoaderRecursion.il"
+          ],
+          "sourceSha256": "1806ae566a02b4635e0455c112cf548d89c558c821e927bb617010b1638dee53",
+          "targetSha256": "10ccf0002ea684e6522a58144ea9022a0f9ae67e7e0f1dd9843ec2b5dab02e4b",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:444:703:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "The live serialized passage reaches 704 through 697, while 703 only points to 704 without an incoming scene path. Следующее изображение correctly translates the available direction. Bypass evidence is static, with external entry unverified; do not silently reclassify or rewrite the source artifact.",
+          "evidence": [
+            "444:697→704",
+            "444:703→704",
+            "444:131→575→699"
+          ],
+          "sourceSha256": "6411a586c5bd4133d0da0ce52a8be6a605b4d4fb1f56d9c7a54e1c767ebb1ef4",
+          "targetSha256": "8527daf990d1470d9cbf4f540586fe6affc31b2302f750ff3bd4a2f322c47048",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:445:26:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "PRIMARY 16 enters 27 directly; detached 26 also points at 27. 1-я попытка is linguistically correct. The bypass supports an authoring-label hypothesis, but the permitted evidence does not bind every external caller; no approved source-disposition change is supplied.",
+          "evidence": [
+            "445:16→27",
+            "445:26→27",
+            "445:27→28→29"
+          ],
+          "sourceSha256": "e8051dc8d4dc5e5d856ed39680678acae532c31b8fc6a6f93136063c38c5e8b9",
+          "targetSha256": "f3fb859a1e2ed035522fb3ddfcb2f0b657d54b408fdb449187f9893b7c9ae218",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:445:30:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "PRIMARY 16 enters 31 directly, bypassing 30; the second-attempt label is accurately translated. External direct-node use remains unverified, so leave this classification question open rather than replacing faithful wording or declaring runtime invisibility.",
+          "evidence": [
+            "445:16→31",
+            "445:30→31",
+            "445:31-34"
+          ],
+          "sourceSha256": "68ceaf46f49fb2e0a17726c42d6b57f25d7156324ed1f1fdd59c9aa61f9f5e8e",
+          "targetSha256": "8db1365de0c830719fc51ee91fadcb64e71b721e25551138040da5ded830f77d",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:445:35:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "PRIMARY 16 enters 36 directly, while detached 35 points there. 3-я попытка preserves the third-attempt label. The source topology supports bypass, but lacks the full external-entry contract required to reclassify it.",
+          "evidence": [
+            "445:16→36",
+            "445:35→36",
+            "445:36-40"
+          ],
+          "sourceSha256": "93f97d23f8ec7e9b23a74d8e26bfc2165d0a6e7da2e85b67d6732cdf6b6c94ad",
+          "targetSha256": "a7dea4bfd15eda076b7b6d7699a634830c174691c3d2d3bfdade8cc768b65d7b",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:445:41:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "PRIMARY 16 enters 42 directly and detached 41 precedes that same destination. 4-я retains the source's elliptical ordinal. Preserve it pending a shared disposition; local bypass does not establish all caller behavior.",
+          "evidence": [
+            "445:16→42",
+            "445:41→42",
+            "445:42→43→44"
+          ],
+          "sourceSha256": "136ef4431c42aa1bc554e274e04396ee317a1e94ebb91116a697d90e60d103d4",
+          "targetSha256": "554850b65bb204073f3a5d46b2bbd5a7ad19175380ba13ea285b796b8481eb42",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:445:45:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "PRIMARY 16 enters 46 directly, bypassing the fifth-and-looped label; IDLE 17 separately enters repeated refusal 47. Existing 5-я и далее по кругу preserves both ordinal and loop instruction. The actual external entry contract is absent, so retain the classification hold.",
+          "evidence": [
+            "445:16→46",
+            "445:45→46",
+            "445:17→47"
+          ],
+          "sourceSha256": "8dbfe970818b254b419718d2ce3e6cf593b2795c4495adf288ac41c3e2c22a5b",
+          "targetSha256": "b675e69bab609ae2b0e57c77ee7658545ec7e036cae483bc5906b1e797d807b5",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:453:711:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "authoring-direction-classification",
+          "rationale": "The actual exchange runs 706→708→710→712, bypassing 711, which independently points to 712. The Russian direction is faithful and mirrors the source's one leading asterisk. Do not invent a closing delimiter or claim an unverified all-consumer exclusion.",
+          "evidence": [
+            "453:706→708→710→712",
+            "453:711→712",
+            "453:131→575→658"
+          ],
+          "sourceSha256": "1d2d0dfe05374a07d1b30614dd40f090db224909a91b089b4e311f5fa996177c",
+          "targetSha256": "86e464c580226512dea7f2cdae5a1415a28f78418ab15ca1bbce661ef8c6ddbd",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:941:726:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "anatomical-sense-unverified",
+          "rationale": "941:723-727 identifies the holiday cards and their two women, but does not disambiguate the dialectal anatomy in fannys. No image inspection is permitted. Keep the existing broad wording as unresolved rather than fabricate buttock versus genital specificity from profession, species or voice.",
+          "evidence": [
+            "941:723→724→725→726→727"
+          ],
+          "sourceSha256": "c61932fc316645842a277811623cc71a8c6f3a1ba52cbdda087eea059a31bd9c",
+          "targetSha256": "b0c411a2a3e4222aac64716e027df2b66f1cfa7141ab59813743433f0178a9c8",
+          "status": "OPEN"
+        },
+        {
+          "id": "ds:463:736:Dialogue Text",
+          "decision": "held",
+          "reasonCode": "idle-trigger-sense-unverified",
+          "rationale": "IDLE 19 enters passthroughs 750/751 and their branches, while 736 has no incoming source link. The source supplies no condition or event binding selecting photography, discharge or another shooting sense. Preserve the target pending that actual trigger evidence; Maverick's occupation is insufficient.",
+          "evidence": [
+            "463:19→750→752",
+            "463:19→751→757",
+            "463:736"
+          ],
+          "sourceSha256": "e8f8630afa27fddcf472d6f3e013309bdf0a44daa508dde82f772d31fa645a88",
+          "targetSha256": "40e180dfd18d8265df2faed018ba04b9189c45ebdd78afeac720fb2719261c6d",
+          "status": "OPEN"
+        }
+      ]
+    },
+    "completeIndependentSourceContextVerdicts": [
+      {
+        "id": "ds:145:228:Dialogue Text",
+        "sourceSha256": "c5bc09db546a9c4911a2c61b53a6b48984d234e2fa35027960e07ea8f0006331",
+        "targetSha256": "ce401712733156c4808819588993bee079f02475a977fb43df3de94899696b33",
+        "verdict": "source-defect",
+        "rationale": "The exact source says hawk while approved tfol-004 says peregrine falcon; Russian follows the glossary without naming the anonymous female rescuer. The primary-source species conflict remains OPEN.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:143:160:Dialogue Text",
+        "sourceSha256": "3c6ad2426606d8bc63cf8e0af280315d833f4ec06bbfe0489671a01932b51bc4",
+        "targetSha256": "10721876f62ea2c19c12081368e5e819524e9c44d145c86f49e8e18249a4c59c",
+        "verdict": "source-defect",
+        "rationale": "159 has an actual outgoing link to this test statement; Это тест is faithful but supplies no missing authored story. Sequence/reachability acceptance remains separate.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:265:273:Dialogue Text",
+        "sourceSha256": "15d4bb2cf4b83f8eba15081e845b3ab7fa07172377944edcc6df961bfef45297",
+        "targetSha256": "15d4bb2cf4b83f8eba15081e845b3ab7fa07172377944edcc6df961bfef45297",
+        "verdict": "source-defect",
+        "rationale": "The entire source and target are dummy text; None() and an outgoing link do not provide authored wording or prove universal invisibility.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:228:161:Dialogue Text",
+        "sourceSha256": "8bca5fff8da363b10c5f48b84938e1330af8aba9fca59561fedb583a19714775",
+        "targetSha256": "8180b8fda674eaf81670787e92daabf1ba361cfdefdc589c53788ea55870d292",
+        "verdict": "needs-context",
+        "rationale": "PRIMARY 131 reaches the complete gossip question and its response. ADVICE plus a space is preserved; Parse has no rule stripping it, and the actual external manifest binding is absent from this review.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:227:180:Dialogue Text",
+        "sourceSha256": "a606eb24d1af679007bc56a887b5da12dac1f08d4fcde5613680a4507ca3e9cf",
+        "targetSha256": "a9ac1068c412c268c0a9b28ea6d1efa7dd788083642d4368bd99e2492526c4a2",
+        "verdict": "needs-context",
+        "rationale": "The complete question and Scarlett's 181-186 answer are faithful. The exact ADVICE prefix survives Parse/fallback; actual external binding/visibility is still unverified.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:176:154:Dialogue Text",
+        "sourceSha256": "8b3634d2892ac1996c3baa29de736a3e7d301ce8a415b1802e76d3e8f7f00169",
+        "targetSha256": "13468f008c1d0dcbdeb49d996fffcb2618c134771d2ccedbdc3d224dcb10eb81",
+        "verdict": "source-defect",
+        "rationale": "The source idiom denotes receiving oral sex, which Russian preserves; the anal scene and deeper-insertion successor conflict with the intended act. No target-only guess resolves that source conflict.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:170:200:Dialogue Text",
+        "sourceSha256": "243f304963ad047c84d0e17adcb58ab6e9dd6200fa377e971e582bec41bd691e",
+        "targetSha256": "9a7c8d7d665d8e116e21a4803b2f9d44fd7694065891706edf818dfb362805fa",
+        "verdict": "needs-context",
+        "rationale": "Chin/bulb is tentative in the source; 590:296 shows opening purple bulbs but does not identify this specific chin structure. Preserve uncertainty; no anatomical choice can be concluded from these text paths.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:199:180:Dialogue Text",
+        "sourceSha256": "42ebbd160b3e9742983993bad1b449b809436436c04266905556972ca9e07e68",
+        "targetSha256": "9aeaf114c96f9f910d07d81330d29972ea5a39fe6d5644f690634d8758894b46",
+        "verdict": "source-defect",
+        "rationale": "The roommate question is faithful, but the following female fox/bear and 409's Charlotte/Melody scene contradict protected tfol-010. Preserve those primary identities; background remains OPEN.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:199:181:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Target faithfully preserves unnamed former-roommate pair; checked node182 identifies fox and bear, conflicting with protected tfol-010's Claire/Violet coyotes. Preserve primary scene facts; glossary background decision remains open.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "dee3171b78df86778ed8b6ebd382f4d68157414d29c661ab2a24c8da01e94fe7",
+        "targetSha256": "08d098af885a72fac766c7f6ae28c1666c74cdf234c6b4304ddbf86e32f89676"
+      },
+      {
+        "id": "ds:199:182:Dialogue Text",
+        "sourceSha256": "c71b39b3f92dc8ac4960e55ce1eb0ca009ee6f601168b22760edcdeed8ac2d75",
+        "targetSha256": "85bbadf7e2c1c891bc0600fa4f15550b611cc5a6a5af5f0b8ff332e192a58e91",
+        "verdict": "source-defect",
+        "rationale": "The anonymous female fox and bear are preserved without names; primary Charlotte/Melody scenes contradict protected tfol-010, which remains OPEN.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:50:82:Dialogue Text",
+        "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "verdict": "source-defect",
+        "rationale": "The introduction's complete source is pic=1 plus literal placeholder; exact target retention is provisional and cannot count as authored Russian dialogue.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:50:87:Dialogue Text",
+        "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "verdict": "source-defect",
+        "rationale": "This distinct idle field also contains only the literal placeholder; identical bytes do not merge its identity with 50:82 or resolve missing source text.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:52:128:Dialogue Text",
+        "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "verdict": "source-defect",
+        "rationale": "The squirrel introduction preserves pic=1 and the literal placeholder exactly. No source story exists here to translate.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:52:129:Dialogue Text",
+        "sourceSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "targetSha256": "b18479db46a6edbc980b7957981bc1158d4cc7fba420603394c5b7af34ae51f6",
+        "verdict": "source-defect",
+        "rationale": "The separate squirrel idle is a literal source placeholder; exact preservation leaves its authoring gate OPEN.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:374:27:Dialogue Text",
+        "sourceSha256": "860869697e5cf9747aed884ba1efe7bf2dc64c8f0d8d98bcb1402f719f3fb592",
+        "targetSha256": "18e9bb29c7f5afda0f3a0f5288b8f1441cc2335636562680134513998d3eb321",
+        "verdict": "source-defect",
+        "rationale": "Neutral first-person gladness preserves the stopped glowing; Peter scene/actor versus detached Scarlett label remains a source metadata conflict.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:409:790:Dialogue Text",
+        "sourceSha256": "a0930493a6d3aff623c7c9191a1e6f500c1bfac48e3603876a4fc769273e679e",
+        "targetSha256": "395b014575dbfda20f619fcef8773fd89d72273c9f5dbf25200399b6e2d8f3cb",
+        "verdict": "source-defect",
+        "rationale": "Melody's plural cohabitation statement and Charlotte's linked response establish their actual roommate history with Finley, contradicting tfol-010. The Russian scene is faithful.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:422:754:Dialogue Text",
+        "sourceSha256": "109a7d159d0ced576165ee60ab2aec19741676f966192f7fcf09f2baf5907df2",
+        "targetSha256": "464b5dc283859096dc75672ac0d81dbce2ff6313a9479b0904f3d5548efe4a77",
+        "verdict": "source-defect",
+        "rationale": "The coyotes explicitly distinguish themselves from Charlotte/Melody and say Finley lived with them. Russian retains that history; protected tfol-010 remains contradictory.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:422:756:Dialogue Text",
+        "sourceSha256": "c7568876346933fc359754c43a7be94e50165a91e75cdd60ca40ab17df1623ca",
+        "targetSha256": "8ed5bad775eb60a75ce64f16dc9f9b1bc925341a1b2b8d3d8a4a11016a8c4172",
+        "verdict": "source-defect",
+        "rationale": "We'll join is future/habitual while the linked excursions use those were, we'd go and if we ever go again. Existing past follows that account, but the source tense inconsistency is unresolved.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:428:737:Dialogue Text",
+        "sourceSha256": "ccb08b38cfe40247dabc55bc9b37a2d47d00ec96f2cdd360334ab8af80a06aeb",
+        "targetSha256": "4182cb045c7f3cc8289f3211cb73a0436215bbb30bf01b97aa4a911fb8663bbe",
+        "verdict": "source-defect",
+        "rationale": "Melody and Charlotte apologize to Finley as former female roommates. Russian preserves that primary fact, while protected tfol-010 names different former roommates.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:444:698:Dialogue Text",
+        "sourceSha256": "1806ae566a02b4635e0455c112cf548d89c558c821e927bb617010b1638dee53",
+        "targetSha256": "10ccf0002ea684e6522a58144ea9022a0f9ae67e7e0f1dd9843ec2b5dab02e4b",
+        "verdict": "needs-context",
+        "rationale": "The normal 131→575→699 entry bypasses 698; the translated fade direction is faithful, but arbitrary external node callers and an approved preserve disposition remain unverified.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:444:703:Dialogue Text",
+        "sourceSha256": "6411a586c5bd4133d0da0ce52a8be6a605b4d4fb1f56d9c7a54e1c767ebb1ef4",
+        "targetSha256": "8527daf990d1470d9cbf4f540586fe6affc31b2302f750ff3bd4a2f322c47048",
+        "verdict": "needs-context",
+        "rationale": "702→696→697→704 bypasses the separate next-image node; Russian translates its direction accurately. Static bypass does not prove exclusion from every consumer.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:445:26:Dialogue Text",
+        "sourceSha256": "e8051dc8d4dc5e5d856ed39680678acae532c31b8fc6a6f93136063c38c5e8b9",
+        "targetSha256": "f3fb859a1e2ed035522fb3ddfcb2f0b657d54b408fdb449187f9893b7c9ae218",
+        "verdict": "needs-context",
+        "rationale": "PRIMARY 16 enters 27 without this first-attempt label; 1-я попытка is faithful. External-entry/source-disposition classification remains OPEN.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:445:30:Dialogue Text",
+        "sourceSha256": "68ceaf46f49fb2e0a17726c42d6b57f25d7156324ed1f1fdd59c9aa61f9f5e8e",
+        "targetSha256": "8db1365de0c830719fc51ee91fadcb64e71b721e25551138040da5ded830f77d",
+        "verdict": "needs-context",
+        "rationale": "PRIMARY 16 enters 31 directly, bypassing this accurately translated second-attempt label. External direct-node use remains unverified.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:445:35:Dialogue Text",
+        "sourceSha256": "93f97d23f8ec7e9b23a74d8e26bfc2165d0a6e7da2e85b67d6732cdf6b6c94ad",
+        "targetSha256": "a7dea4bfd15eda076b7b6d7699a634830c174691c3d2d3bfdade8cc768b65d7b",
+        "verdict": "needs-context",
+        "rationale": "The third-attempt label points to 36 while PRIMARY also reaches 36 directly. The ordinal is faithful but all-consumer exclusion is unproved.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:445:41:Dialogue Text",
+        "sourceSha256": "136ef4431c42aa1bc554e274e04396ee317a1e94ebb91116a697d90e60d103d4",
+        "targetSha256": "554850b65bb204073f3a5d46b2bbd5a7ad19175380ba13ea285b796b8481eb42",
+        "verdict": "needs-context",
+        "rationale": "The elliptical fourth ordinal is faithfully retained; PRIMARY enters 42 directly. No blanket invisibility or source reclassification is justified.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:445:45:Dialogue Text",
+        "sourceSha256": "8dbfe970818b254b419718d2ce3e6cf593b2795c4495adf288ac41c3e2c22a5b",
+        "targetSha256": "b675e69bab609ae2b0e57c77ee7658545ec7e036cae483bc5906b1e797d807b5",
+        "verdict": "needs-context",
+        "rationale": "The fifth-and-looped instruction is faithfully rendered, while PRIMARY bypasses it to 46 and IDLE reaches 47. Shared caller/disposition acceptance remains OPEN.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:453:711:Dialogue Text",
+        "sourceSha256": "1d2d0dfe05374a07d1b30614dd40f090db224909a91b089b4e311f5fa996177c",
+        "targetSha256": "86e464c580226512dea7f2cdae5a1415a28f78418ab15ca1bbce661ef8c6ddbd",
+        "verdict": "needs-context",
+        "rationale": "710 goes directly to 712, bypassing the separate fade node. Russian retains the full direction and single leading asterisk; arbitrary external callers remain unverified.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:455:696:Dialogue Text",
+        "sourceSha256": "312c9892cea997ed05936b49b0840120e5eb786a30fe1fa3ec98e2910b0365c4",
+        "targetSha256": "4b45f4fd2f5065b54f81949e769264e3cdb2a1e3b19594a4a776825158276b3c",
+        "verdict": "source-defect",
+        "rationale": "The source is an unfinished illustration instruction with an unclosed parenthesis and a proposed optional transition. Russian preserves its numbers, people and uncertainty; no settled display/source classification follows.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:941:726:Dialogue Text",
+        "sourceSha256": "c61932fc316645842a277811623cc71a8c6f3a1ba52cbdda087eea059a31bd9c",
+        "targetSha256": "b0c411a2a3e4222aac64716e027df2b66f1cfa7141ab59813743433f0178a9c8",
+        "verdict": "needs-context",
+        "rationale": "The two women and holiday cards are established, but fannys remains dialectally ambiguous between anatomical senses. Text alone does not settle the image content; broad прелести remains unresolved.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:463:736:Dialogue Text",
+        "sourceSha256": "e8f8630afa27fddcf472d6f3e013309bdf0a44daa508dde82f772d31fa645a88",
+        "targetSha256": "40e180dfd18d8265df2faed018ba04b9189c45ebdd78afeac720fb2719261c6d",
+        "verdict": "needs-context",
+        "rationale": "The idle root reaches 750/751 rather than this detached nice-shooting line. No selecting trigger fixes photography versus discharge; occupation alone cannot validate съёмка.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:496:20:Dialogue Text",
+        "sourceSha256": "4b044ed22c20ef26cd90003454ad312ac1998ea35883e4c0366528de13aa1472",
+        "targetSha256": "4b044ed22c20ef26cd90003454ad312ac1998ea35883e4c0366528de13aa1472",
+        "verdict": "source-defect",
+        "rationale": "The entire field is pic=1 plus TBD and remains byte-exact. The visible authored content and direct-call contract are unresolved.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:511:939:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Meaning and Oliver's hesitation are faithful, but source has a second opening slow tag where a closing tag is expected; target preserves this source markup defect.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "817513eb35e8ea6679210e1803d7944c31f7c66205c9f0dfcdedfe0d4e790ead",
+        "targetSha256": "5a840660195bc8093b272d993f9244742a7470a20c6d9e5b4a78b68dcd7f762d"
+      },
+      {
+        "id": "ds:512:938:Dialogue Text",
+        "sourceSha256": "555448324c981de6fbce3dcdd464122cfd354b23634af6dc063f3a4a9e8d042f",
+        "targetSha256": "2d1f824ce53cab7575fc95187d71d4eab28aa62c18a00822419efd2169c08053",
+        "verdict": "source-defect",
+        "rationale": "The extra closing bracket follows pic=6 in both source and target; Parse removes the portrait tag but does not itself justify deleting this extra literal bracket. Preserve pending source classification.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:513:947:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Nickname joke and rejection are faithful, but source repeats an opening wave tag instead of closing it; target preserves that malformed span.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "89e11f9dd3d0ca7598c7236bd9e5f8f83b035bed349991fca3e72289ce1265a9",
+        "targetSha256": "8c0577ef376cd715580e90161217865709ba89fe3f541c1e3a3ec81f6d2414bb"
+      },
+      {
+        "id": "ds:522:902:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Ride offer and exactly two trips are faithful; source size/color tags close in crossed order, which target preserves.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "144373a8ba94ffdba579d48d897c76b7ce4930e10c982216f87eb575dc62040c",
+        "targetSha256": "7a50fee63a1cfb84a8c9d79315eede85044241c18356e478d4a391acfb3e058b"
+      },
+      {
+        "id": "ds:522:914:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Aside, Scarlett recommendation and ride innuendo are faithful; source color/size closures cross their opening order and target preserves that defect.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "2945427968e0a442fc72802661d5a1631d7b20da77721474a655c422a1615328",
+        "targetSha256": "8793b76d4810b641f09e7514a213152b45a0f48fd065c83076f2d86c8344b4a6"
+      },
+      {
+        "id": "ds:523:1013:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Goal of making male Fen orgasm is accurate, but source repeats an opening slow tag after bounce closure; target preserves the malformed tag.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "fbdaa972c7c955cd63db8f616bd17bc945ae62d3f21e1c174f74439b2a3df1b7",
+        "targetSha256": "a5643eb28b00e4a2484926c22bd0b88a622525bd3d9c9cdb847bfb1f54f07c8f"
+      },
+      {
+        "id": "ds:523:1039:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Mabel's suggestion to overhear the conversation is accurate; source color/size tags have crossed closures preserved in target.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "568c5b600cbb143a5312de1d36bb0066d5fdaaa02abb307e94601c9266a359d6",
+        "targetSha256": "008bc18f79be604ca5c257f3eb133943f7bd35f6dad12b9fe9291924469eea4a"
+      },
+      {
+        "id": "ds:543:763:Dialogue Text",
+        "verdict": "source-defect",
+        "rationale": "Aside that photos were beautiful is faithful, but source opens size/color spans without closing either; target preserves the incomplete markup.",
+        "requiresSourceDecision": true,
+        "sourceSha256": "620f93c2d49dd4c15668ebaf1fc04fb43e3d1ac3138a80151081c5f83e720512",
+        "targetSha256": "9c86075a4d32d5189a9eaefa7c023ca3067ea1bedee21360e16b3ecb8aa2c969"
+      },
+      {
+        "id": "ds:569:788:Dialogue Text",
+        "sourceSha256": "3bfdde4db2fe950a3753795bbd11bd8fbed873c1dd7c0eb292398a7b14d07f65",
+        "targetSha256": "bc2a6be01b77182454ee74f15521773e49d69133acbce1a48512ffea3ebbfdeb",
+        "verdict": "source-defect",
+        "rationale": "The question asks Charlotte about living with Finley; her ensuing account corroborates the primary scene and conflicts with protected tfol-010. Russian question is faithful.",
+        "proposedTarget": null
+      },
+      {
+        "id": "ds:569:792:Dialogue Text",
+        "sourceSha256": "86a4b19dacdd0ff8c642f2ef610956e194d9a2708a147609c9c048f100918cbd",
+        "targetSha256": "3a5ebbb967f6467a8a8a45be9c9961661ce6ce4ad47a540ff922d5525f878598",
+        "verdict": "source-defect",
+        "rationale": "Charlotte's wish for Finley to move back and the room-shortage successor preserve former cohabitation; tfol-010's different roommate background remains OPEN.",
+        "proposedTarget": null
+      }
+    ],
+    "policy": "Unchanged prior source/technical holds and independent source/context findings are retained without new adjudication or invented text. Separate lists may overlap; never sum them as distinct defects."
+  },
+  "protectedSourceStatus": {
+    "sourceInventory": "unchanged; full-game acceptance OPEN",
+    "glossaries": "unchanged protected snapshots, both compact 171-entry glossaries read",
+    "tfol-010": "OPEN/unpromoted; primary Charlotte/Melody/Finley facts and approved names/pronouns retained",
+    "sixLiteralPlaceholders": {
+      "status": "OPEN",
+      "ids": [
+        "ds:265:273:Dialogue Text",
+        "ds:50:82:Dialogue Text",
+        "ds:50:87:Dialogue Text",
+        "ds:52:128:Dialogue Text",
+        "ds:52:129:Dialogue Text",
+        "ds:496:20:Dialogue Text"
+      ]
+    }
+  },
+  "authoredAndDerivedPreservation": {
+    "evidence": "safety-and-preservation-verification.json",
+    "fullBeforeAfterRows": "before-after-complete-rows.jsonl",
+    "authoredLocators": "authored-row-locators.json",
+    "untouchedTargetsAndMetadata": 12219,
+    "allPhysicalUnchangedTsvLinesCommentsKeysAndPositionsExact": true,
+    "sourceIds": 12246,
+    "sourcePointersBothCopies": 24492,
+    "orderedProtectedTokens": 7101,
+    "preserveDispositionAndHoldReceiptRecords": 1793,
+    "receiptHashBindingsMaintained": 193,
+    "receiptTargetSourceDispositionOrLocatorChanges": 0,
+    "prior176CompleteRowsUnchanged": true
+  },
+  "application": {
+    "canonicalApplications": 1,
+    "preflight": "passed full scratch 12246 corpus before canonical writes",
+    "backups": "before/ and before-fingerprints.json",
+    "recipe": "apply_batch.py",
+    "firstPostcondition": "first-application-postcondition.json",
+    "safeReplay": "verified exact final state with no writes",
+    "rollback": "passed failure after first of two actual candidate input payload replacements, exact old-byte restoration",
+    "atomicity": "Per-file atomic replacement followed by exact backup rollback on detected failure; not an atomic multi-file transaction. A process/machine crash between writes requires parent recovery from before/ and fingerprints before any build.",
+    "attemptAccounting": "execution-accounting.json",
+    "preflightAdapterVersionBinding": "preflight-adapter-binding.json"
+  },
+  "canonicalValidation": {
+    "inlineGuard": "23 tests passed; canonical-inline-guard-tests.log",
+    "poetry": "unchanged canonical check_poetry.py passed on both complete canonical builds",
+    "preserveExactlyHoldsAndSpans": "All full-corpus guard checks passed; complete preserve/hold records and source-linked markup/timing/LF/CR boundaries retained. Unchanged semantic span judgments retain matching support; no rendered-runtime claim.",
+    "fullCorpus": "cycle-final-02/full-corpus-verification.json",
+    "neighboringFailureBoundaries": "Canonical tests exercise intended command/operand, placeholder, source evidence/span, preserved whole-field, separator, resolved-hold and partial-output recovery rejection boundaries with positive controls. Pure static fixtures do not establish the replaced game runtime."
+  },
+  "buildReproducibility": {
+    "status": "passed",
+    "command": "python3 -B localization/ru-assets/corpus.py build",
+    "normalCanonicalBuilds": 2,
+    "allDerivedFilesPoetryReportAndOwningJobOutputsByteIdentical": true,
+    "scratchOverlayAndPoetryReportMatchCanonical": true,
+    "firstAppliedPostconditionVerifiedBeforeRepeat": true,
+    "overlaySha256": "462c91c948c3564225aeaf71da972c7426e5b5c068eaca7bab64e22e70e36587",
+    "canonicalManifestAssetsVerified": 188,
+    "onlyBuilderChange": "Regenerate the unchanged canonical poetry checker report on complete builds before its artifact hash is captured; no text/parser/ID/runtime changes.",
+    "logs": [
+      "canonical-build-01.log",
+      "canonical-build-02.log"
+    ],
+    "artifactVerification": "delivered-artifact-verification.json"
+  },
+  "poetryAndScansion": {
+    "actualSourceLinkedSelectableProductsRead": 27,
+    "actualGraphSlotPredicatesVerified": true,
+    "sourceRolesFactsAndCallbacksRead": true,
+    "naturalRussianScansionAuthoredJudgments": "poem-judgments.authored.json",
+    "exactVerification": "poem-and-scansion-verification.json",
+    "unchangedBoundPoemCallbackIds": 21,
+    "matchingPriorIndependentReceiptsRetained": 21,
+    "canonicalAssertionsRelaxed": false,
+    "runtimeSelectionRenderingTiming": "not-run"
+  },
+  "independentCycle": {
+    "cycle": "cycle-final-02",
+    "manifest": "cycle-final-02/manifest.json",
+    "manifestSha256": "aa8b664b4d8eda32748557de427b9d94d49fdfa28886236934b9686a0cc07987",
+    "selector": "build_final_cycle.py",
+    "specification": "final-closure-spec.json",
+    "reconstruction": "all 31 files byte-exact; final-closure-reconstruction.log",
+    "changedIds": 27,
+    "currentClosureIds": 5224,
+    "completePriorIndependentSupport": 11295,
+    "retainedExactVersionJudgments": 11164,
+    "explicitlyInvalidatedOldEvidence": 131,
+    "newDependenciesWithoutPriorSupport": 33,
+    "exactFinalDeltaIds": 164,
+    "counting": "The 27 changed IDs are included in the 131 invalidated old-support IDs, not added again. Exact union = 164.",
+    "formula": "changed IDs union(current closure minus exact complete 11295 prior support IDs) union explicitly invalidated old evidence",
+    "deltaIds": "cycle-final-02/delta-ids.txt",
+    "deltaRows": "cycle-final-02/delta-review-rows.jsonl",
+    "realLinkedContext": "cycle-final-02/delta-linked-context.jsonl",
+    "separateNontranslationContext": "cycle-final-02/components/nontranslation-context.jsonl",
+    "retainedJudgments": "cycle-final-02/retained-reviews.jsonl",
+    "removedPriorDependencies": {
+      "count": 6104,
+      "ids": "cycle-final-02/removed-prior-dependencies-ids.txt",
+      "reason": "Prior 11295 support is retained version-wise wherever valid. Historical broader whole-conversation/concept selections not selected by these current finite predicates are recorded as removed from the required current closure, not deleted from prior coverage."
+    },
+    "priorCyclePreservation": "cycle-final-01 preserved; corrected bounds/hash bindings in final-02; semantic sets and delta rows byte-identical, see cycle-recipe-reconciliation.json",
+    "limits": [
+      "Static original consumer code and serialized graph only: the game, actual Lua variable values, BGDatabase caller state, direct external node calls, fonts, wrapping and renderer were not run.",
+      "The finite ready dialogue inventory is exact; complete-game/UI/image coverage is not accepted. Cross-family and external runtime dependencies remain bounded uncertainty. The complete selected source scene topology is supplied as context, not a demand for a new full-scene audit. The different fresh peer reviews exactly delta-ids.txt and the linked context needed for those IDs; unchanged version-matching closure judgments and mandatory regression/poem receipts are retained.",
+      "Do not silently accept held source/consumer questions or credit this author's preflight as independent review. Any newly discovered dependency must repair this specification/selector in a new immutable cycle."
+    ],
+    "freshPeerAcceptance": "pending; different fresh verified worker required; no author self-acceptance"
+  },
+  "acceptance": {
+    "authorCorrectionAssignment": "complete",
+    "independentFinalDelta": "pending different fresh peer",
+    "fullGameInventory": "OPEN; preliminary family exception only",
+    "rendererFontsResourcesReinsertion": "not accepted/not-run",
+    "gameRuntimeVisualInstaller": "not-run",
+    "originalInstallSaves": "not modified",
+    "otherLanguagesGlossaryAndTechnicalJobs": "not resumed or spawned",
+    "gitIntegration": "Parent sole Git/index/HEAD coordinator; worker performed no Git writes. Parent integration remains separate.",
+    "publicationDeploymentServerActions": "not performed"
+  },
+  "independentReviewBrief": "independent-review-brief.md",
+  "nextPermittedAction": "Parent hands exactly the immutable final 164-ID delta to a DIFFERENT fresh verified gpt-6.1-sol/high/OpenAI peer. Preserve matching unaffected judgments, poem/regression receipts and all source/consumer holds; do not restart other stopped lanes.",
+  "usage": {
+    "inputTokens": null,
+    "cachedInputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "status": "unknown on the permitted metadata-only read surface; parent may collect terminal worker telemetry. No history/message records were read for accounting; no nested agents were launched."
+  },
+  "deliveryManifest": {
+    "path": "delivery-manifest.json",
+    "sha256": "7c92960abb8b9bd1ea0ee5c1004bb2dfbfdc7a7cafb47e02bd22f709d80dd0b8",
+    "ownedEvidenceAndRecoveryFiles": 250
+  },
+  "canonicalFinalHashes": {
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/corpus.py": "2742310e7db6eaa46dac4675d6f3b513786d04a2b1cd0208181241ee0aba048b",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0001.tsv": "6127de26fd3b25d19c69fcc154cf0226346af30a732d01d1791ffefc1c85006b",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0004.tsv": "ee28442ca878bda305b5e4e2b0cfacd44567fa806046baebbf2607eb28e0c1c8",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0007.tsv": "f1e4b2fe19d180d5f9615683863244c2484ca692a799b589d201831ffc16ed8a",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0009.tsv": "591c1adef9b6105c4868a355d857266561d54f034f40e653f8e2d7e12819c059",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0016.tsv": "d06313e906f45fb966974c9b52ef9b2af1fb0c3add38bd43e9843939b0fe6be9",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0019.tsv": "6eef1b74447aa1887c81135964d389e00d20bf77b7c00d0d286f14f2a0020ecc",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0020.tsv": "38b73979208162177709babec2a9221ecca416e50b685f61a186283705075bd2",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0021.tsv": "203db1dbbcf45437379c317cb15c296c49a64a52b840d44c4ccb740b64fc7681",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0026.tsv": "b07b8da7bb7725aafd873dbac26d047bd5209bd2ae73966cb28affa8147f6595",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0028.tsv": "2712462fff22163067cfa285cc565528c07178a11fe95a7aec56a8748bfaa785",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0033.tsv": "21b7aa9df63e3948df99e5f38a0245ca652136c12067f16d55f034a9871b33f4",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0036.tsv": "5f552742589c7fa36649e1a69f1b6af2155edf7349837ffc79bb0a165b5b3785",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0051.tsv": "b07602cae036a22ac9d3ef1466644678a050bf935c70b955773f8312d5f21223",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0057.tsv": "f9c60dba6be06f96e65db4acce4793b723dbf79b0ea8751dd564109b43f1e063",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0060.tsv": "f1188b1628fedb125a7ddcfa00a5113c9a4ee1988408647e4de230d6e2683093",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0068.tsv": "3b77dcc4825fae9daaa6f950e8aae946e087c2b0a7ee4e03bbbb0b35064ff997",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0073.tsv": "7bfa3c6bcac264e69010f59de18e9dcacfd1cc55609053b61605fb9c7a275627",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0077.tsv": "9560b0917276359ee7f3054b79228608fe8530eb436063c8d5913fae381408bb",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/batches/0084.tsv": "e0bf0187ea3e2c9093176721674a6322998750d839cac952aad61bcda7c197a5",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/resolved-holds.json": "5700dc3f2332a31bd556d0a2d09ba16671a6efd9119d862b161e4de7039a0c54",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/dialogue.ru.jsonl": "462c91c948c3564225aeaf71da972c7426e5b5c068eaca7bab64e22e70e36587",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/unresolved.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/poetry-validation.json": "636ee07a9b3ba292e8cbfd96ebea7290dc0ff2d18d2fbdb8677cbd6b76c1a1b2",
+    "/Users/antonkrutov/Desktop/Forest/outputs/ru-assets-parallel-20261026/progress.json": "bc801194b9cde84dfb9f4d2cea89231578069da33747527677aa429bbbb21584",
+    "/Users/antonkrutov/Desktop/Forest/outputs/ru-assets-parallel-20261026/result.json": "97a12160e35f75fd1ab168fd93ce52a9adb589f6d9039d092e2e62c4e383206b",
+    "/Users/antonkrutov/Desktop/Forest/outputs/ru-assets-parallel-20261026/continuation.md": "c36e8a94abcbe36c6f608e14dfa1f73ee6075fdfeb0d2dbfe8536b639109700b"
+  }
+}
