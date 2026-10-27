@@ -23,7 +23,12 @@ parse, variable_cells = load_bg_parser()
 
 PROJECT = Path('/Users/antonkrutov/Desktop/Forest')
 from russian_preview_support import validate_overlay, apply_overlay, clone_file, clone_ignore, CLONE_RECEIPTS, ROOT as INPUT_ROOT
-MENU_ACTUAL = {'Play':'Играть', 'Press any key':'Нажмите любую клавишу', 'Start New Game':'Новая игра', 'Start New Game\n':'Новая игра\n'}
+MENU_ACTUAL = {
+    'Play':'Играть', 'Press any key':'Нажмите любую клавишу',
+    'Start New Game':'Новая игра', 'Start New Game\n':'Новая игра\n',
+    'Gallery':'Галерея', 'Options':'Настройки', 'Options\n':'Настройки\n',
+    'Controls':'Управление', 'Quit':'Выйти', 'Report a Bug':'Сообщить об ошибке',
+}
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA_NAME = 'The Forest of Love_Data'
 BUNDLE = 'StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle'

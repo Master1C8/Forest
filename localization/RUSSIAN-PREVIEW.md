@@ -26,12 +26,25 @@ plugin names, savekeys, schema and every other column remain exact. A repeated o
 ambiguous old/new state rejects. The ordinary introduction mask and engine's
 existing override behavior are preserved. Source actors are never globally renamed.
 
+The owner's main-menu screenshot additionally identified five untranslated labels.
+The builder now translates Gallery, Options, Controls, Quit and Report a Bug across
+all36 actual level1 text/glow/container fields. Options retains its original terminal
+newline. The official title and TFoL.info are retained names/domain labels. Artifact05
+readback verifies all36 target fields; actual menu layout still requires native review.
+
 Six focused tests exercise real original warning bindings, an unrelated-font
 negative, real BGDatabase projection/preservation, overlapping old/new states,
 the font equation and cache selection. They establish static boundaries, not
 actual rendering or dialogue advance. Every repaired native frame still needs
 fresh bounded original-resolution inspection; normal input progression needs
 actual guarded before/after semantic states and delivered event edges.
+
+Artifact04's native warning original has passed a fresh independent review for body
+content, glyphs, spacing/underlines, layout and contamination. This scope explicitly
+retains the baked English WARNING heading. The owner confirmed manually closing04;
+its exit is not a demonstrated crash. No input edges or dialogue advance were credited.
+Artifact05 retains this warning/name recipe and adds the owner's menu labels; source,
+renderer, viewport and frame bindings must be verified for any reused evidence.
 
 ## Storage and interrupted work
 
