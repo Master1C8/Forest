@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -25,7 +26,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--preview', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--surface', choices=['settings', 'report'], default='settings')
+    parser.add_argument('--surface', choices=['settings', 'report', 'names'], default='settings')
     args = parser.parse_args()
     preview, run = args.preview.resolve(), args.output.resolve()
     assert preview.parent == ROOT / 'localization/previews'
@@ -35,6 +36,8 @@ def main():
     assert report['settingsRepair']['texturePixelsChanged'] is False
     if args.surface == 'report':
         assert len(report['reportTranslations']) == 20 and report['reportRepair']['texturePixelsChanged'] is False
+    if args.surface == 'names':
+        assert len(report['actorDisplayProjection']) == 46 and report['actorNamesRepair']['texturePixelsChanged'] is False
     for row in report['files']:
         assert sha(preview / 'game' / DATA / row['path']) == row['probeSha256']
     old = ROOT / 'localization/probes/ru-20261026-15'
@@ -121,6 +124,31 @@ def main():
         shutil.copy2(ROOT / 'tools/probe/capture_settings.py', run / 'capture_settings.py')
         shutil.copy2(ROOT / 'tools/probe/capture_russian_report.py', run / 'capture-report.py')
         capture_recipe = run / 'capture-report.py'
+    if args.surface == 'names':
+        snapshot = run / 'bridge-source'
+        shutil.copy2(ROOT / 'localization/source/actor-display-ru-20261027/plan.json', run / 'actor-display-plan.json')
+        source = (snapshot / 'ForestProbe.cs').read_text()
+        assert source.count('public sealed class ForestProbe : MonoBehaviour') == 1
+        assert source.count('if(text=="dump") Dump();') == 1
+        source = source.replace('public sealed class ForestProbe : MonoBehaviour', 'public sealed partial class ForestProbe : MonoBehaviour')
+        source = source.replace('if(text=="dump") Dump();', 'if(text=="actor-names") InspectActorNames();\n            else if(text=="dump") Dump();')
+        (snapshot / 'ForestProbe.cs').write_text(source)
+        shutil.copy2(ROOT / 'tools/probe/ActorNameProbe.cs', snapshot / 'ActorNameProbe.cs')
+        compiler = Path(bridge['compiler'])
+        assert sha(compiler) == bridge['compilerSha256']
+        managed = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest') / DATA / 'Managed'
+        refs = [managed / name for name in bridge['originalManagedReferences']]
+        subprocess.run(['dotnet', str(compiler), '-nologo', '-target:library', '-nostdlib+',
+                        '-out:' + str(run / 'ForestProbe.dll')] + ['-r:' + str(p) for p in refs] +
+                       [str(snapshot / 'ForestProbe.cs'), str(snapshot / 'ActorNameProbe.cs')], check=True)
+        shutil.copy2(run / 'ForestProbe.dll', target / 'Managed/ForestProbe.dll')
+        bridge['bridgeSha256'] = sha(target / 'Managed/ForestProbe.dll')
+        bridge['sourceSnapshots'] = {p.name: sha(p) for p in snapshot.glob('*.cs*')}
+        bridge['actorNamesBoundary'] = 'Read all 39 actual runtime actor getters; invoke and restore original nameplate consumer in StartMenu; no dialogue/reveal/identity mutation'
+        (run / 'bridge-build.json').write_text(json.dumps(bridge, indent=2) + '\n')
+        shutil.copy2(ROOT / 'tools/probe/capture_settings.py', run / 'capture_settings.py')
+        shutil.copy2(ROOT / 'tools/probe/capture_russian_names.py', run / 'capture-names.py')
+        capture_recipe = run / 'capture-names.py'
     shutil.copy2(__file__, run / 'prepare-qa.py')
     receipt = {'preview': str(preview), 'previewBuildSha256': sha(preview / 'build.json'),
                'reusedBridgeReceipt': str(old / 'bridge-build.json'),

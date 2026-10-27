@@ -1,12 +1,13 @@
 """Source-bound Russian preview display fields and TMP face-metric compensation.
 
 No identity substitutions or per-string whitespace normalization. BGDatabase framing
-is parsed by the existing pinned v5 reader. Only two Actor display cells are edited;
+is parsed by the existing pinned v5 reader. The complete two-column Actor display map is applied;
 every other column blob and all schema/row identities are compared after decoding.
 """
 import copy
 import hashlib
 import struct
+from russian_actor_names import project_actor_display, verify_actor_projection
 
 WARNING_TEXT = {
  'This is an <u>ADULT GAME</u> featuring a ton\nof <u>EXPLICIT CONTENT.</u>':
@@ -18,9 +19,6 @@ WARNING_TEXT = {
  'If you are a kid, <color=#EE1005><u>GET OUTA HERE!</u></color>\nIf not, please enjoy!':
  'Если ты ребёнок, <color=#EE1005><u>УХОДИ ОТСЮДА!</u></color>\nА если нет — приятной игры!',
 }
-ACTOR_ID = 'A5FQ9EyucE2xuZaKCq62yA'
-DISPLAY_VALUES = {'nameplate_name': ('Scarlett', 'Скарлетт'),
-                  'full_name': ('Scarlett Tenderpaw', 'Скарлетт Нежнолапка')}
 PRESS_PROMPT = ('Press any key', 'Нажмите любую клавишу')
 LOADING = ('<color=#ffffff66>...Loading, please wait...</color></size>',
            '<color=#ffffff66>...Загрузка, пожалуйста, подождите...</color></size>')
@@ -142,52 +140,6 @@ def replace_exact(value, before, after):
  assert before != after, 'ambiguous-replacement'
  assert value == before, 'unexpected-before-value'
  return after
-
-def project_actor_display(data, parse, variable_cells):
- env=parse(data); sheet=next(s for s in env['sheets'] if s['name']=='Actor')
- assert sheet['rowIds'].count(ACTOR_ID)==1, 'actor-identity-ambiguous'
- row=sheet['rowIds'].index(ACTOR_ID); edits=[]; receipts=[]
- for f in sheet['fields']:
-  if f['name'] not in DISPLAY_VALUES: continue
-  before,after=DISPLAY_VALUES[f['name']]
-  start,size=f['valuesOffset'],f['valuesBytes']; blob=data[start:start+size]
-  values,_=variable_cells(dict(f,valuesHex=blob.hex()),len(sheet['rowIds']))
-  wanted=replace_exact(values[row].decode('utf-8'),before,after).encode('utf-8')
-  n=struct.unpack_from('<i',blob)[0];pairs=[struct.unpack_from('<ii',blob,4+8*i) for i in range(n)]
-  assert len({i for i,_ in pairs})==n and row in [i for i,_ in pairs]
-  values[row]=wanted;total=0;newpairs=[];payload=b''
-  for i,_ in pairs:
-   assert values[i] is not None
-   payload+=values[i];total+=len(values[i]);newpairs.append(struct.pack('<ii',i,total))
-  newblob=struct.pack('<i',n)+b''.join(newpairs)+payload
-  edits.append((start-4,start+size,struct.pack('<i',len(newblob))+newblob))
-  receipts.append({'sheetId':sheet['id'],'rowId':ACTOR_ID,'rowIndex':row,'fieldId':f['id'],'field':f['name'],'source':before,'target':after})
- assert len(edits)==2, 'missing-display-field'
- result=data
- for a,b,v in sorted(edits,reverse=True):result=result[:a]+v+result[b:]
- verify_actor_projection(data,result,parse,variable_cells)
- return result,receipts
-
-def verify_actor_projection(before,after,parse,variable_cells):
- a,b=parse(before),parse(after)
- assert len(a['sheets'])==len(b['sheets'])
- count=0
- for s,t in zip(a['sheets'],b['sheets']):
-  assert {k:v for k,v in s.items() if k not in ('offset','endOffset','rowIdsOffset','fields')} == {k:v for k,v in t.items() if k not in ('offset','endOffset','rowIdsOffset','fields')}, 'schema-changed'
-  assert len(s['fields'])==len(t['fields'])
-  for f,g in zip(s['fields'],t['fields']):
-   excluded={'offset','valuesOffset','valuesBytes','valuesSha256','valuesHex'}
-   assert {k:v for k,v in f.items() if k not in excluded}=={k:v for k,v in g.items() if k not in excluded}, 'field-schema-changed'
-   left=before[f['valuesOffset']:f['valuesOffset']+f['valuesBytes']];right=after[g['valuesOffset']:g['valuesOffset']+g['valuesBytes']]
-   if s['name']=='Actor' and f['name'] in DISPLAY_VALUES:
-    lv,_=variable_cells(dict(f,valuesHex=left.hex()),len(s['rowIds']));rv,_=variable_cells(dict(g,valuesHex=right.hex()),len(t['rowIds']))
-    row=s['rowIds'].index(ACTOR_ID);old,new=DISPLAY_VALUES[f['name']]
-    assert lv[row]==old.encode() and rv[row]==new.encode(), 'display-projection-mismatch'
-    rv[row]=lv[row];assert rv==lv,'other-actor-display-changed';count+=1
-   else:assert left==right,'unselected-column-changed'
- assert count==2
- return True
-
 
 def load_bg_parser():
  from pathlib import Path

@@ -99,6 +99,8 @@ def main():
     shutil.copy2(Path(__file__).parent / 'settings_glow.py', out / 'settings_glow.py')
     shutil.copy2(Path(__file__).parent / 'russian_settings_ui.py', out / 'russian_settings_ui.py')
     shutil.copy2(Path(__file__).parent / 'russian_report_ui.py', out / 'russian_report_ui.py')
+    shutil.copy2(Path(__file__).parent / 'russian_actor_names.py', out / 'russian_actor_names.py')
+    shutil.copy2(PROJECT / 'localization/source/actor-display-ru-20261027/plan.json', out / 'actor-display-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
         candidate = Path(__file__).parent / helper

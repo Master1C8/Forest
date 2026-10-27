@@ -80,11 +80,24 @@ class DisplayBoundaryTests(unittest.TestCase):
   with self.assertRaisesRegex(AssertionError,'ambiguous-replacement'):replace_exact('A','A','A')
  def test_real_actor_columns_and_rejection(self):
   original=SOURCE.read_bytes();target,receipt=project_actor_display(original,parse,variable_cells)
-  self.assertEqual(len(receipt),2);self.assertTrue(verify_actor_projection(original,target,parse,variable_cells))
+  self.assertEqual(len(receipt),46);self.assertTrue(verify_actor_projection(original,target,parse,variable_cells))
+  self.assertEqual(len({r['rowId'] for r in receipt}),28)
+  self.assertEqual(next(r['target'] for r in receipt if r['source']=='Maverick'),'Маверик')
   with self.assertRaisesRegex(AssertionError,'unexpected-before-value'):project_actor_display(target,parse,variable_cells)
   env=parse(target);actor=next(s for s in env['sheets'] if s['name']=='Actor');f=next(f for f in actor['fields'] if f['name']=='savekey')
   corrupt=bytearray(target);corrupt[f['valuesOffset']+f['valuesBytes']-1]^=1
   with self.assertRaisesRegex(AssertionError,'unselected-column-changed'):verify_actor_projection(original,bytes(corrupt),parse,variable_cells)
+  # Continue from the actual earlier preview, where only Scarlett was localized.
+  import UnityPy
+  from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+  from extract_assets import read_tree
+  base=ROOT/'localization/previews/ru-20261027-report-fix-02/game/The Forest of Love_Data'
+  gen=TypeTreeGenerator('2020.3.24f1');gen.load_local_dll_folder(str(base/'Managed'))
+  obj=next(o for o in UnityPy.load(str(base/'resources.assets')).objects if o.path_id==320)
+  partial=read_tree(obj,gen)['m_Script'].encode('utf-8',errors='surrogateescape')
+  continued,rows=project_actor_display(partial,parse,variable_cells,before_state='scarlett-preview')
+  self.assertEqual(continued,target);self.assertEqual(sum(r['changed'] for r in rows),44)
+  self.assertTrue(verify_actor_projection(partial,continued,parse,variable_cells,before_state='scarlett-preview'))
  def test_metric_preserves_authored_line_distance(self):
   a={'m_LineHeight':192.,'m_PointSize':176.,'m_Scale':1.}
   b={'m_LineHeight':98.8916015625,'m_PointSize':86.,'m_Scale':(77/176)/(59/86)}
