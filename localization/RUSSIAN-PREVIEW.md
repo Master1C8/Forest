@@ -6,7 +6,7 @@ independent-diff, resource, runtime or release gates. Six preliminary dialogue
 audits keep their original source/target/glossary inputs unchanged.
 
 `tools/build_russian_preview.py` takes an explicit unique `--qa-product`, such as
-`ForestRuActual20261027_04`, and a new `--output` directory. It refuses an existing
+`ForestRuActual20261027_06`, and a new `--output` directory. It refuses an existing
 output or a non-QA product. The original install and owner saves are read-only.
 Every new run must verify the QA profile is unused before launch. The builder
 preserves complete original no-op/readback equality and unselected object bytes.
@@ -29,10 +29,11 @@ existing override behavior are preserved. Source actors are never globally renam
 The owner's main-menu screenshot additionally identified five untranslated labels.
 The builder now translates Gallery, Options, Controls, Quit and Report a Bug across
 all36 actual level1 text/glow/container fields. Options retains its original terminal
-newline. The official title and TFoL.info are retained names/domain labels. Artifact05
-readback verifies all36 target fields; actual menu layout still requires native review.
+newline. The official title and TFoL.info are retained names/domain labels. Artifact06
+readback verifies the complete fields. Fresh native reviews passed all six Russian
+menu controls, the selected New Game submenu, and its translated Назад control.
 
-Six focused tests exercise real original warning bindings, an unrelated-font
+Eight focused tests exercise real original warning bindings, an unrelated-font
 negative, real BGDatabase projection/preservation, overlapping old/new states,
 the font equation and cache selection. They establish static boundaries, not
 actual rendering or dialogue advance. Every repaired native frame still needs
@@ -43,8 +44,35 @@ Artifact04's native warning original has passed a fresh independent review for b
 content, glyphs, spacing/underlines, layout and contamination. This scope explicitly
 retains the baked English WARNING heading. The owner confirmed manually closing04;
 its exit is not a demonstrated crash. No input edges or dialogue advance were credited.
-Artifact05 retains this warning/name recipe and adds the owner's menu labels; source,
-renderer, viewport and frame bindings must be verified for any reused evidence.
+Artifact06 retains this warning/name recipe and adds the owner's menu labels.
+It translates all36 Back TMP fields and the two exact loading TMP bindings in
+level5/level6. Original rich-text tags, including an unmatched source </size>,
+remain unchanged. These two scene resources are explicit build inputs.
+
+The clipped press-any-key prompt comes from the invisible NameContainer TMP
+ILayoutElement and an existing ContentSizeFitter that fitted only height. It
+has no legacy Text synchronization producer. The repair fits preferred width
+and aligns each container to its actual outer root pivot, including parent-width
+compensation. All18 TMP face/glow layers and three hidden native source fields
+across the scene and two page prefabs stay coherent. Source font367 remains
+unchanged; the three hidden fields bind the existing embedded font369. There
+are no prompt copies in the selected bundle. The native artifact06 prompt was
+reviewed at2880x1800: the complete Нажмите любую клавишу fits, with its final
+character and descender visible. No font-width guess or string shortening is used.
+
+The original controller-support raster artwork still contains English text,
+including Supports Game Controllers and English only (for now). That artwork
+and the baked WARNING heading are outside these serialized-text repairs; this
+preview is not complete texture localization.
+
+Artifact06 build SHA-256 is
+7b8c18868f1a7538ff33f35e0a232bf67aa974e2a45103f511c8bd437624765a.
+The source Assembly-CSharp.dll is unchanged. Same-instance ordinary Return
+input passed the original post-credits handler, opened the actual main menu,
+opened the New Game submenu and reached the Russian loading screen. No callback,
+scene jump or game-state injection was used. Dialogue advance and the unmasked
+Скарлетт nameplate remain pending until actual guarded runtime evidence exists.
+Source, renderer, viewport and frame bindings must be verified for reused evidence.
 
 ## Storage and interrupted work
 

@@ -18,7 +18,7 @@ from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
-from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser
+from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
 
 PROJECT = Path('/Users/antonkrutov/Desktop/Forest')
@@ -28,6 +28,7 @@ MENU_ACTUAL = {
     'Start New Game':'Новая игра', 'Start New Game\n':'Новая игра\n',
     'Gallery':'Галерея', 'Options':'Настройки', 'Options\n':'Настройки\n',
     'Controls':'Управление', 'Quit':'Выйти', 'Report a Bug':'Сообщить об ошибке',
+    'Back':'Назад',
 }
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
 DATA_NAME = 'The Forest of Love_Data'
@@ -85,7 +86,7 @@ def main():
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
     assert (SOURCE / DATA_NAME / 'Managed/Assembly-CSharp.dll').is_file()
     expected = json.loads((INPUT_ROOT / 'assets/source-v2/source-files.json').read_text())
-    required = ['globalgamemanagers', 'resources.assets', 'level1', 'sharedassets0.assets', BUNDLE]
+    required = ['globalgamemanagers', 'resources.assets', 'level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]
     for name in required:
         assert sha(SOURCE / DATA_NAME / name) == expected[name]['sha256'], name
     overlay, validation = validate_overlay()
@@ -190,18 +191,23 @@ def main():
             if args.repair_settings_value_images:
                 image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
                 selected.update({pid: objects[pid] for pid in image_repairs})
-        if args.coherent_tmp_face and name in ['level1', 'sharedassets0.assets', BUNDLE]:
+        if args.coherent_tmp_face and name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
             font_id = -1127281652424575413 if name == BUNDLE else 3323
-            if name == 'level1':
+            if name in ['level1', 'level5', 'level6']:
                 face_env = UnityPy.load(str(SOURCE / DATA_NAME / 'sharedassets0.assets'))
                 old_face = read_tree(next(o for o in face_env.objects if o.path_id == 3323), generator)['m_FaceInfo']
             else:
                 old_face = read_tree(objects[font_id], generator)['m_FaceInfo']
             new_face = copy.deepcopy(tmp_fallback['m_FaceInfo'])
             new_face['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
-            ui_repairs, ui_receipt = typography_plan(objects, generator, old_face, new_face, font_id, 5 if name == 'level1' else 0)
+            ui_repairs, ui_receipt = typography_plan(objects, generator, old_face, new_face, font_id, 5 if name == 'level1' else 4 if name in ('level5','level6') else 0)
             report.setdefault('typographyRepair', {})[name] = ui_receipt
             selected.update({pid: objects[pid] for pid in ui_repairs})
+        if name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
+            bindings, receipt = exact_ui_plan(objects, generator, name, ui_repairs)
+            ui_repairs.update(bindings)
+            report.setdefault('exactUiBindings', {})[name] = receipt
+            selected.update({pid: objects[pid] for pid in bindings})
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
         raw_hashes = {pid: hashlib.sha256(obj.get_raw_data()).hexdigest() for pid, obj in objects.items()}
@@ -250,7 +256,7 @@ def main():
                 tree = copy.deepcopy(ui_repairs[pid])
                 if name == 'level1' and tree.get('m_text') in report['menuSamples']:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
-                if name != 'level1' and tree.get('m_GameObject'):
+                if name != 'level1' and obj.type.name == 'MonoBehaviour' and tree.get('m_GameObject'):
                     if obj.parse_monobehaviour_head().m_GameObject.deref().read().m_Name == 'Subtitle Text':
                         tree['m_enableAutoSizing'] = True
                         tree['m_fontSizeMin'] = min(10.0, tree['m_fontSize'])

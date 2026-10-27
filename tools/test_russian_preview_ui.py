@@ -60,4 +60,64 @@ class DisplayBoundaryTests(unittest.TestCase):
   for before,after in WARNING_TEXT.items():
    self.assertEqual(re.findall('<[^>]+>',before),re.findall('<[^>]+>',after))
    self.assertEqual(before.count('\n'),after.count('\n'))
+ def test_real_prompt_provider_layout_and_binding_rejections(self):
+  import UnityPy
+  from unittest.mock import patch
+  from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+  import extract_assets
+  from russian_preview_ui import exact_ui_plan,PRESS_PROMPT
+  source=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data')
+  gen=TypeTreeGenerator('2020.3.24f1');gen.load_local_dll_folder(str(source/'Managed'))
+  for name,groups in [('level1',1),('sharedassets0.assets',2)]:
+   objs={o.path_id:o for o in UnityPy.load(str(source/name)).objects}
+   plan,receipt=exact_ui_plan(objs,gen,name)
+   self.assertEqual(len(receipt),groups)
+   for r in receipt:
+    self.assertEqual(len(r['layers']),6)
+    for pid in r['layers']:self.assertEqual(plan[pid]['m_text'],PRESS_PROMPT[1])
+    self.assertEqual(plan[r['nativeText']]['m_Text'],PRESS_PROMPT[1])
+    self.assertEqual(plan[r['fitter']]['m_HorizontalFit'],2)
+    rect=plan[r['containerRect']];pivot=r['rootPivot']
+    self.assertEqual(rect['m_Pivot']['x'],pivot)
+    # Unity fitter grows about pivot. Child origins follow the container's
+    # left edge: right bound stays at root right for any preferred width;
+    # centered pages remain centered. Widths exercise English and Russian.
+    for width in (72.,150.,220.):
+     center=rect['m_AnchoredPosition']['x']+(pivot-.5)*108
+     left=center-pivot*width;right=left+width
+     if pivot==1:self.assertEqual(right,50.)
+     else:self.assertEqual((left+right)/2,0.)
+   if name=='level1':
+    real=extract_assets.read_tree
+    for pid,key,value,reason in [(9204,'m_Text','unrelated','prompt-legacy-text'),(7807,'m_enableWordWrapping',1,'prompt-preferred-width-wrapping')]:
+     def changed(obj,g):
+      t=copy.deepcopy(real(obj,g))
+      if obj.path_id==pid:t[key]=value
+      return t
+     with patch.object(extract_assets,'read_tree',side_effect=changed):
+      with self.assertRaisesRegex(AssertionError,reason):exact_ui_plan(objs,gen,name)
+ def test_real_loading_and_back_fields(self):
+  import UnityPy,re,json
+  from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+  from extract_assets import read_tree,canonical
+  from russian_preview_ui import exact_ui_plan,LOADING
+  source=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data')
+  gen=TypeTreeGenerator('2020.3.24f1');gen.load_local_dll_folder(str(source/'Managed'))
+  for name,pid,prefix in [('level5',169,'7b48a89633'),('level6',205,'9af90235c7')]:
+   objs={o.path_id:o for o in UnityPy.load(str(source/name)).objects}
+   original=read_tree(objs[pid],gen)
+   self.assertEqual(canonical(original),json.loads((ROOT/f'assets/source-v2/trees/{prefix}-{name}-{pid}.json').read_text()))
+   plan,receipt=exact_ui_plan(objs,gen,name)
+   self.assertEqual(set(plan),{pid});self.assertEqual(plan[pid]['m_text'],LOADING[1])
+   restored=copy.deepcopy(plan[pid]);restored['m_text']=LOADING[0];self.assertEqual(restored,original)
+   self.assertEqual(re.findall('<[^>]+>',LOADING[0]),re.findall('<[^>]+>',LOADING[1]))
+  from build_russian_preview import MENU_ACTUAL
+  self.assertEqual(MENU_ACTUAL['Back'],'Назад')
+  objs={o.path_id:o for o in UnityPy.load(str(source/'level1')).objects}
+  actual=[]
+  for obj in objs.values():
+   if obj.type.name=='MonoBehaviour' and obj.parse_monobehaviour_head().m_Script.deref().read().m_ClassName=='TextMeshProUGUI':
+    t=read_tree(obj,gen)
+    if t.get('m_text')=='Back':actual.append(obj.path_id)
+  self.assertEqual(len(actual),36)
 if __name__=='__main__':unittest.main()
