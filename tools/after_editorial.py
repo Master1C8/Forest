@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """One-shot, no-model polling for the owner-authorized localization continuation."""
 import argparse
+import hashlib
 import datetime
 import json
 import os
@@ -33,12 +34,21 @@ def readiness(root, jobs):
             if phase['status']!='batch-reviewed':continue
             p=Path(phase['directory']); result=json.loads((p/'result.json').read_text())
             assert digest(p/'pairs.jsonl')==phase['packetSha256']
+            assert result == phase['result'], 'Final result differs from accepted checkpoint'
             assert digest(p/'reviews.jsonl')==result['reviewsSha256']
             reviewed=[json.loads(line) for line in (p/'reviews.jsonl').read_text().splitlines()]
             assert len(reviewed)==result['reviewedIds']
+            packet=[json.loads(line) for line in (p/'pairs.jsonl').read_text().splitlines()]
+            by_id={r['id']:r for r in packet}
+            assert len(by_id)==len(packet)==len(reviewed), 'Duplicate or missing packet/review IDs'
+            assert len({r['id'] for r in reviewed})==len(reviewed), 'Duplicate review IDs'
+            assert {r['id'] for r in reviewed}==by_id.keys(), 'Foreign or missing review IDs'
+            for row in reviewed:
+                assert all(row[k]==by_id[row['id']][k] for k in ['sourceSha256','targetSha256']), 'Reviewed source/target version differs'
             observed.extend(r['id'] for r in reviewed)
             versions[str(p/'reviews.jsonl')]=result['reviewsSha256']
-        assert observed==expected and len(set(observed))==config['candidateIds']==state['reviewedIds']
+        assert len(observed)==len(expected)==len(set(observed))==config['candidateIds']==state['reviewedIds'], 'Incomplete or duplicate full-pass coverage'
+        assert set(observed)==set(expected), 'Full-pass stable ID set differs'
         complete.append(locale)
         versions[str(directory/'config.json')]=digest(directory/'config.json')
         versions[str(directory/'findings.jsonl')]=digest(directory/'findings.jsonl')
@@ -55,12 +65,26 @@ def command(plan, directory):
         '. First read that file; do not search histories or discover unrelated projects. Fresh no-history '+MODEL+
         '/high/OpenAI. NEVER Astra/default/fallback. At most six locale streams, existing technical CLI untouched.']
 
-def run(directory, interval=30):
-    directory=directory.resolve();plan=json.loads((directory/'plan.json').read_text())
+def recover_observer(directory, receipt):
+    value=json.loads(receipt.read_text())
+    assert value['kind']=='ordered-review-guard-recovery'
+    assert digest(directory/'status.json')==value['statusSha256']
+    assert json.loads((directory/'status.json').read_text())['status']=='held'
+    claim=directory/'watcher.claim';assert json.loads(claim.read_text())['pid']==value['priorWatcherPid']
+    process=subprocess.run(['ps','-p',str(value['priorWatcherPid']),'-o','pid='],capture_output=True,text=True)
+    assert process.returncode!=0, 'Prior observer still running'
+    assert not (directory/'submission-intent.json').exists(), 'Prior model submission needs separate reconciliation'
+    claim.rename(receipt.parent/'prior-watcher.claim')
+
+
+def run(directory, interval=30, reconciliation=None):
+    directory=directory.resolve();plan_bytes=(directory/'plan.json').read_bytes()
+    plan=json.loads(plan_bytes);plan_sha=hashlib.sha256(plan_bytes).hexdigest()
     validate_model(plan['model'],plan['reasoning'],'openai')
     assert set(plan['jobs'])==set(LOCALES)
     assert not (directory/'submission-intent.json').exists(),'Prior submission outcome needs reconciliation; never resubmit'
     for path,want in plan['executionPins'].items():assert digest(path)==want,'Frozen continuation dependency changed'
+    if reconciliation:recover_observer(directory,reconciliation)
     claim=directory/'watcher.claim'
     with claim.open('x') as f:json.dump({'pid':os.getpid(),'at':now()},f)
     prior=None
@@ -74,7 +98,8 @@ def run(directory, interval=30):
             if result['ready']:break
             time.sleep(interval)
         for path,want in plan['executionPins'].items():assert digest(path)==want,'Continuation changed while waiting'
-        save(directory/'trigger.json',{'at':now(),**result})
+        assert digest(directory/'plan.json')==plan_sha, 'Continuation plan changed while waiting'
+        save(directory/'trigger.json',{'at':now(),'planSha256':plan_sha,**result})
         argv=command(plan,directory)
         # An unknown create outcome is never retried. One intent precedes one Popen.
         with (directory/'submission-intent.json').open('x') as f:
@@ -93,4 +118,5 @@ def run(directory, interval=30):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--job',type=Path,required=True)
-    args=p.parse_args();run(args.job)
+    p.add_argument('--reconcile',type=Path)
+    args=p.parse_args();run(args.job,reconciliation=args.reconcile)

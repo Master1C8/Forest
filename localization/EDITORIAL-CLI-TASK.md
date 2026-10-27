@@ -177,3 +177,28 @@ The owner's stopped game testing remains stopped; no GUI/runtime launch is grant
 Technical-owned root checkpoint/docs, original install/saves and existing snapshots
 remain protected. Publication, deployment, server lifecycle and source-glossary
 changes retain their separate authorization requirements.
+
+### Review-order recovery and Japanese next stage
+
+The first completed pass exposed a queue-only defect: its complete350-row decisions
+were sometimes serialized in a different order from the canonical packet. Coverage
+requires the exact unique stable-ID set and versions, not the incidental order of
+review receipts. The corrected trigger verifies each accepted result against the
+checkpoint, exact packet/review hashes, unique per-packet and full-pass IDs, and
+per-ID source/target hashes. Canonical source/branch order remains in the unchanged
+packets. Duplicate, missing, foreign and wrong-version rows still reject, including
+negative controls whose file hashes and counters have been updated.
+
+The failed observer had submitted no model request. Recovery preserves its exact
+status/log/plan/request and queue claim, verifies its PID is absent and no submission
+intent exists, then starts a newly frozen observer. Unknown outcomes are not retried.
+The plan fingerprint is rechecked before submission and bound into the trigger.
+
+Japanese's existing complete draft now enters the same preliminary editorial runner
+on a genuinely free slot; it is not a new target-language draft. Its accepted171-entry
+glossary index/snapshot hashes and all12246 source/target IDs are verified. Original
+six-stream scope, same per-ID review requirements and all pending full-game gates
+are retained. The successor must count the live Japanese job toward its six-worker
+limit and preserve it, rather than launch a duplicate or put a new language ahead
+of this unfinished existing locale. Technical-owned files and stopped game testing
+remain untouched.

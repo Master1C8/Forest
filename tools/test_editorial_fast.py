@@ -9,6 +9,16 @@ from test_editorial_lane import row
 import test_editorial_lane as fixtures
 
 class CompactTransport(unittest.TestCase):
+ def test_japanese_existing_draft_can_enter_the_same_preliminary_editorial_runner(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp).resolve();old,home=fixtures.EditorialStorage().fixture(root)
+   import shutil
+   shutil.copy2(root/'localization/glossary/ru.json',root/'localization/glossary/ja.json')
+   target=root/'localization/ja-assets';target.mkdir()
+   shutil.copy2(root/'localization/ru-assets/dialogue.ru.jsonl',target/'dialogue.ja.jsonl')
+   config=audit.prepare(root,root/'outputs/japanese-fixture','ja','Japanese')
+   self.assertEqual(config['locale'],'ja');self.assertEqual(config['candidateIds'],2)
+   with self.assertRaisesRegex(AssertionError,'Explicit authorized'):audit.prepare(root,root/'outputs/unauthorized','ko','Korean')
  def test_lossless_complete_coverage_and_batched_decisions(self):
   with tempfile.TemporaryDirectory() as tmp:
    phase=Path(tmp);packet=[]

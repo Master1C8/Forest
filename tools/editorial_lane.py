@@ -43,7 +43,7 @@ def check_pins(config):
 
 def prepare(root, directory, locale, language):
     root, directory = root.resolve(), directory.resolve()
-    assert root in directory.parents and locale in {'ru', 'zh', 'es', 'es-419', 'pt-BR', 'de'}, 'Explicit authorized editorial locale/root required'
+    assert root in directory.parents and locale in {'ru', 'zh', 'es', 'es-419', 'pt-BR', 'de', 'ja'}, 'Explicit authorized editorial locale/root required'
     assert not directory.exists(), 'Reconcile an existing lane before preparation'
     overlay = root / f'localization/{locale}-assets/dialogue.{locale}.jsonl'
     source = root / 'localization/source/dialogue-candidates.jsonl'
