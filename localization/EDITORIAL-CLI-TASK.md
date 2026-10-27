@@ -202,3 +202,31 @@ are retained. The successor must count the live Japanese job toward its six-work
 limit and preserve it, rather than launch a duplicate or put a new language ahead
 of this unfinished existing locale. Technical-owned files and stopped game testing
 remain untouched.
+
+### Prepared source-bound adjudication inputs
+
+Before rebuilding finding inputs, inspect
+`outputs/editorial-20261027/continuation/adjudication-inputs.json` and each locale's
+`adjudication-inputs-v1/manifest.json`. The parent prepared these for the five
+completed non-Russian initial passes. They are read-only inputs, not active model
+jobs or accepted corrections. Reuse only after verifying their exact source-job,
+packet, review, config and current source/target pins. Russian gets the same inputs
+only after its full initial reading finishes; do not skip its remaining rows.
+
+`tools/editorial_adjudication_inputs.py --job <locale-job> --output <new-child-dir>`
+selects existing finding/needs-context/source-defect verdicts in canonical source
+order, joins complete original source/target/topology and the untouched model's
+initial proposal/rationale, and retains already reviewed technical-preservation
+receipts separately. It does not generate semantic verdicts or apply target edits.
+Counts in the broad findings file include those technical receipts: do not report
+all of them as translation errors or reread them merely to raise a pass counter.
+Retain unchanged evidence; revisit any concrete invalidated dependency under the
+universal protocol. Each actual case still needs model adjudication against source,
+approved terminology and real context. All accepted complete replacements require
+full-batch preflight, application to authored inputs, immutable dependency closure
+and a fresh independent diff/delta audit. Source problems remain explicit decisions,
+not invented replacement wording or incidental protected-source edits.
+The prepared-input manifest is written last. Its two data files and manifest are
+not a multi-file transaction: failure before manifest publication leaves an
+unaccepted partial directory. Preserve it and use a new attempt after reconciliation;
+never treat partial files or a rerun counter as adjudication evidence.
