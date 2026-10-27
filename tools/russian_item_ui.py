@@ -25,7 +25,7 @@ def load_inputs():
         catalog=json.loads((PACKET/'source-catalog.json').read_text())
         assert sha(SOURCE/'inventory.json')==catalog['sourcePins'][str((SOURCE/'inventory.json').relative_to(ROOT))]
         records=[json.loads(line) for line in (PACKET/'ru.jsonl').read_text().splitlines()]
-        assert len(records) in (556,712)
+        assert len(records) in (556,712,911,935)
     targets={r['id']:r for r in records if r['id'] in {u['id'] for u in inv['units']}}
     assert len(targets)==len(inv['units'])==110
     assert all(targets[u['id']]['source']==u['source'] for u in inv['units'])

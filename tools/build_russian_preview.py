@@ -24,6 +24,8 @@ from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
 from russian_item_ui import project_item_display, snapshot as snapshot_items, patch_items
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
+from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
+from russian_quest_family import project_quest_family, snapshot as snapshot_quest_family, patch_quest_code
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -115,6 +117,9 @@ def main():
     snapshot_item_layout(out)
     shutil.copy2(Path(__file__).parent/'russian_notebook_ui.py',out/'russian_notebook_ui.py')
     snapshot_notebook(out)
+    shutil.copy2(Path(__file__).parent/'russian_quest_family.py',out/'russian_quest_family.py')
+    snapshot_quest_family(out)
+    snapshot_journal_headers(out)
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
@@ -174,6 +179,8 @@ def main():
         elif name=='sharedassets2.assets':
             face_env=UnityPy.load(str(target/'sharedassets0.assets'));face_obj=next(o for o in face_env.objects if o.path_id==3323)
             notebook_repairs,report['notebookTranslations']=notebook_plan(objects,generator,read_tree(face_obj,generator)['m_FaceInfo'])
+            header_repairs,report['journalHeaderProjection']=journal_header_plan(objects,generator)
+            assert not (notebook_repairs.keys()&header_repairs.keys());notebook_repairs.update(header_repairs)
             selected={pid:objects[pid] for pid in notebook_repairs}
         elif name=='sharedassets1.assets':
             item_layout_repairs, report['itemNotificationLayout'] = layout_plan(objects,generator)
@@ -278,6 +285,7 @@ def main():
                     data, quest_receipt = project_quest_display(data, parse, variable_cells)
                     report['questDisplayProjection'] = quest_receipt
                     data, report['itemDisplayProjection'] = project_item_display(data,parse,variable_cells)
+                    data, report['questFamilyProjection'] = project_quest_family(data,parse,variable_cells)
                     tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
                     report['actorDisplayProjection'] = receipt
                 elif pid == 1020:
@@ -393,8 +401,12 @@ def main():
                                'originalAppIdentityUnchanged': True, 'copiedPlayerFiles': False}
     report['galleryCodeRepair'] = patch_gallery(target/'Managed',out,out/'gallery-code-readback.json')
     report['itemCodeRepair'] = patch_items(target/'Managed',out,out/'item-code-readback.json')
+    report['questCodeRepair'] = patch_quest_code(target/'Managed/Assembly-CSharp.dll',out/'Assembly-CSharp.quest.dll',out/'quest-code-readback.json',out)
+    shutil.copy2(out/'Assembly-CSharp.quest.dll',target/'Managed/Assembly-CSharp.dll')
+    (out/'Assembly-CSharp.quest.dll').unlink()
+    report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
-                            'probeSha256':report['itemCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
+                            'probeSha256':report['questCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
     (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 
 

@@ -46,7 +46,7 @@ class NotebookTests(unittest.TestCase):
  def test_all30_prefixes_headers_and_control_literals(self):
   base=ROOT/'localization/supplemental-ui/20261027';inv,words=supplement.inputs();scope=json.loads((base/'locale-scope.json').read_text())
   for locale in scope['targetLocales']:
-   data=(base/(locale+'.jsonl')).read_bytes();old=(base/'history/before-notebook'/(locale+'.jsonl')).read_bytes();self.assertTrue(data.startswith(old));rows=[json.loads(l) for l in data.splitlines()];self.assertEqual(len(rows),712);tail={r['id']:r for r in rows[556:]};gloss=json.loads((ROOT/f'localization/glossary/{locale}.json').read_text())
+   data=(base/(locale+'.jsonl')).read_bytes();old=(base/'history/before-notebook'/(locale+'.jsonl')).read_bytes();self.assertTrue(data.startswith(old));rows=[json.loads(l) for l in data.splitlines()];self.assertEqual(len(rows),935);tail={r['id']:r for r in rows[556:712]};gloss=json.loads((ROOT/f'localization/glossary/{locale}.json').read_text())
    for row in inv['rows']:
     if row['classification']!='display':continue
     unit=dict(row,lineEndings=row['lineEndings']);target=tail[row['id']]['target'];supplement.validate(unit,target,words[locale],gloss)

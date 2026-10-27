@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "scopeCorrection": "30 total target locales including Russian; prior six were only a supplemental execution subset",
   "coordinator": {
     "actualModel": "gpt-6.1-sol",
@@ -13,7 +13,7 @@
     }
   },
   "supplement": {
-    "sourceCatalogSha256": "dfb90b8ea14aee610a02a842d5c4591f18a539329e54bb8e00827bf6dc370616",
+    "sourceCatalogSha256": "560667aa58bbe8f0429ee1020db0ff8170338017c7c576e494951d0f0a2fedd0",
     "localeScopeSha256": "6b46f9603b35bd414824448e851e120f6f4792eb297e10ee4a842e1a77e58eda",
     "locales": [
       "zh",
@@ -48,8 +48,8 @@
       "he"
     ],
     "localeCount": 30,
-    "fieldsPerLocale": 712,
-    "targets": 21360,
+    "fieldsPerLocale": 935,
+    "targets": 28050,
     "completeGeneratedFileComparison": "passed",
     "russianActorAndTutorialTargetsMatchExistingRepairPlans": 52,
     "importedGlossaries": 23,
@@ -63,19 +63,24 @@
     "runtime": "not-run",
     "visual": "not-run",
     "wholeGameAccepted": false,
-    "manifestSha256": "fe1799a2534f004e6bec27dccfbb7ee006283f3d4c47ae50d14dea7739c779a5",
+    "manifestSha256": "187adaa6736c53f7e908a1f1a41d4f13f67eba5166913d73e76fdb71d8c6f510",
     "authorFindingsSha256": "45e9e9c155747ce44c0c386fe876016c238fd4d80a927e491e8f1c08d0367376",
     "prior212RecordsRetainedByteExactlyPerLocale": true,
-    "appendedSourceUnitsPerLocale": 500,
-    "runtimeAndVisualScope": "Separate bounded Russian menu,item and five-page Notebook receipts only;no30-locale runtime acceptance",
+    "appendedSourceUnitsPerLocale": 723,
+    "runtimeAndVisualScope": "Separate bounded Russian menu,item,Notebook and Quest/header/HUD receipts;no30-locale runtime acceptance",
     "russianRepairValidation": "localization/source/menu-remaining-ui-20261027/validation.json",
-    "sourceInventoryChange": "Append-only156 Notebook fields after556;prior556/550/446/212 records remain byte-exact prefixes",
+    "sourceInventoryChange": "Append199 complete Quest units after712,then24 approved journal TMP headers after911;prior prefixes byte-exact",
     "prior446RecordsRetainedByteExactlyPerLocale": true,
     "appendedItemSourceUnitsPerLocale": 110,
     "russianItemRepairValidation": "localization/source/item-notifications-20261027/validation.json",
     "prior556RecordsRetainedByteExactlyPerLocale": true,
     "appendedNotebookSourceUnitsPerLocale": 156,
-    "russianNotebookRepairValidation": "localization/source/notebook-tutorial-ui-20261027/validation.json"
+    "russianNotebookRepairValidation": "localization/source/notebook-tutorial-ui-20261027/validation.json",
+    "prior712RecordsRetainedByteExactlyPerLocale": true,
+    "prior911RecordsRetainedByteExactlyPerLocale": true,
+    "appendedQuestCoreUnitsPerLocale": 199,
+    "appendedJournalHeaderUnitsPerLocale": 24,
+    "russianQuestRepairValidation": "localization/source/quest-family-ui-20261028/validation.json"
   },
   "preservation": {
     "priorValidation": "history/six-locales-validation.json",
@@ -83,7 +88,8 @@
     "activeJobInputsEdited": false,
     "frozenDialogueInputsEdited": false,
     "originalSevenGlossaryFilesEdited": false,
-    "rootTechnicalGuideAndCheckpointEdited": false
+    "rootTechnicalGuideAndCheckpointEdited": false,
+    "scope": "Original active frozen dialogue/editorial manifests and technical root guide/checkpoint. Quest author input source/glossary and selected wording functions remained stable;future runs freeze all helper files."
   },
   "texturesProducedOrReplaced": false,
   "publicationOrDeployment": false,
@@ -128,5 +134,12 @@
       "path": "localization/source/notebook-tutorial-ui-20261027/validation.json",
       "sha256": "8232861c7627aa4d014810b77e38c6562ae354a0c72b77253aae613549ae78ec"
     }
+  },
+  "questRepair": {
+    "validation": "localization/source/quest-family-ui-20261028/validation.json",
+    "validationSha256": "7d3c213ddc1be945634ac14a227ea4a338c9af7d62278c51f290029500f025c0",
+    "nativeFrames": 6,
+    "staticTests": 45,
+    "otherLocales": "Data prepared;independent editorial/resources/fonts/bidi/runtime/visual pending"
   }
 }

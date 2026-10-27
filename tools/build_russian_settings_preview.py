@@ -24,6 +24,8 @@ from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
 from russian_item_ui import project_item_display, snapshot as snapshot_items, patch_items
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
+from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
+from russian_quest_family import project_quest_family, snapshot as snapshot_quest_family, patch_quest_code
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 DATA = 'The Forest of Love_Data'
@@ -47,7 +49,7 @@ def main():
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--qa-product', required=True)
-    parser.add_argument('--surface', choices=['settings', 'report', 'names', 'quests', 'menu', 'items', 'item-layout', 'notebook'], default='settings')
+    parser.add_argument('--surface', choices=['settings', 'report', 'names', 'quests', 'menu', 'items', 'item-layout', 'notebook', 'quest-family', 'journal-headers'], default='settings')
     args = parser.parse_args()
     base, out = args.base.resolve(), args.output.resolve()
     assert (ROOT / 'localization/previews') in base.parents
@@ -57,13 +59,13 @@ def main():
     base_hash = sha(base / 'build.json')
     assert report['siteLocale'] == 'ru' and report['sampleSurface'] == 'actual-saved-dialogue'
     assert report['saveIsolation']['companyName'] == 'VNRevivalQA'
-    assert len(report['files']) == (9 if args.surface=='notebook' else 8 if args.surface in ('items','item-layout') else 7) and report['coherentTmpFace']
+    assert len(report['files']) == (11 if args.surface=='journal-headers' else 10 if args.surface=='quest-family' else 9 if args.surface=='notebook' else 8 if args.surface in ('items','item-layout') else 7) and report['coherentTmpFace']
     if args.surface=='items':assert report.get('remainingMenuRepair') and report.get('galleryCodeRepair')
-    translations_key = {'settings': 'settingsTranslations', 'report': 'reportTranslations', 'names': 'actorNamesRepair', 'quests': 'questRepair', 'menu':'remainingMenuRepair','items':'itemNotificationRepair','item-layout':'itemNotificationLayoutRepair','notebook':'notebookTutorialRepair'}[args.surface]
+    translations_key = {'settings': 'settingsTranslations', 'report': 'reportTranslations', 'names': 'actorNamesRepair', 'quests': 'questRepair', 'menu':'remainingMenuRepair','items':'itemNotificationRepair','item-layout':'itemNotificationLayoutRepair','notebook':'notebookTutorialRepair','quest-family':'questFamilyRepair','journal-headers':'journalHeaderRepair'}[args.surface]
     assert not report.get(translations_key), 'Already repaired: do not duplicate a repair cycle'
     for row in report['files']:
         assert sha(base / 'game' / DATA / row['path']) == row['probeSha256'], row['path']
-    expected_managed=report['itemCodeRepair']['targetSha256'] if args.surface in ('item-layout','notebook') else 'c41ae1394482f65f5ee27790e63969ef96357e68153fedee8a8dde1a69182065' if args.surface=='items' else '46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf'
+    expected_managed=report['questCodeRepair']['targetSha256'] if args.surface=='journal-headers' else report['itemCodeRepair']['targetSha256'] if args.surface in ('item-layout','notebook','quest-family') else 'c41ae1394482f65f5ee27790e63969ef96357e68153fedee8a8dde1a69182065' if args.surface=='items' else '46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf'
     if args.surface=='item-layout':assert report.get('itemNotificationRepair')
     assert sha(base / 'game' / DATA / 'Managed/Assembly-CSharp.dll')==expected_managed
     overlay = report['overlay']['overlayAndGuardHashes']
@@ -78,7 +80,7 @@ def main():
     snapshots = out / 'recipe'
     snapshots.mkdir()
     for name in ['build_russian_settings_preview.py', 'build_russian_preview.py',
-                 'russian_settings_ui.py', 'russian_report_ui.py', 'russian_actor_names.py', 'russian_quest_ui.py', 'russian_menu_ui.py', 'russian_item_ui.py', 'item_notification_layout.py', 'russian_notebook_ui.py', 'settings_glow.py', 'extract_assets.py',
+                 'russian_settings_ui.py', 'russian_report_ui.py', 'russian_actor_names.py', 'russian_quest_ui.py', 'russian_menu_ui.py', 'russian_item_ui.py', 'item_notification_layout.py', 'russian_notebook_ui.py', 'russian_quest_family.py', 'settings_glow.py', 'extract_assets.py',
                  'russian_preview_ui.py', 'russian_preview_support.py',
                  'addressables_catalog.py', 'tmp_dialogue_font.py', 'legacy_choice_font.py']:
         shutil.copy2(ROOT / 'tools' / name, snapshots / name)
@@ -88,6 +90,8 @@ def main():
     snapshot_items(snapshots)
     snapshot_item_layout(snapshots)
     snapshot_notebook(snapshots)
+    snapshot_quest_family(snapshots)
+    snapshot_journal_headers(snapshots)
     receipts = []
 
     def clone(source, target):
@@ -109,7 +113,7 @@ def main():
     generator = TypeTreeGenerator('2020.3.24f1')
     generator.load_local_dll_folder(str(target / 'Managed'))
     incremental = {}
-    changed_resource = 'sharedassets2.assets' if args.surface=='notebook' else 'sharedassets1.assets' if args.surface=='item-layout' else 'resources.assets' if args.surface in ['names', 'quests', 'items'] else 'level1'
+    changed_resource = 'sharedassets2.assets' if args.surface in ('notebook','journal-headers') else 'sharedassets1.assets' if args.surface=='item-layout' else 'resources.assets' if args.surface in ['names', 'quests', 'items', 'quest-family'] else 'level1'
     for name in [changed_resource, 'globalgamemanagers']:
         env = UnityPy.load(str(target / name))
         objects = {o.path_id: o for o in env.objects}
@@ -118,7 +122,9 @@ def main():
             assert tree['m_Name'] == 'bansheegz_database'
             raw = tree['m_Script'].encode('utf-8', errors='surrogateescape')
             parse, variable_cells = load_bg_parser()
-            if args.surface == 'names':
+            if args.surface == 'quest-family':
+                projected, report['questFamilyProjection'] = project_quest_family(raw, parse, variable_cells)
+            elif args.surface == 'names':
                 projected, report['actorDisplayProjection'] = project_actor_display(raw, parse, variable_cells, before_state='scarlett-preview')
             elif args.surface=='items':
                 projected, report['itemDisplayProjection'] = project_item_display(raw,parse,variable_cells)
@@ -126,6 +132,8 @@ def main():
                 projected, report['questDisplayProjection'] = project_quest_display(raw, parse, variable_cells)
             tree['m_Script'] = projected.decode('utf-8', errors='surrogateescape')
             plan = {320: tree}
+        elif name=='sharedassets2.assets' and args.surface=='journal-headers':
+            plan,report['journalHeaderProjection']=journal_header_plan(objects,generator)
         elif name=='sharedassets2.assets':
             face_env=UnityPy.load(str(target/'sharedassets0.assets'));face_obj=next(o for o in face_env.objects if o.path_id==3323)
             face=read_tree(face_obj,generator)['m_FaceInfo']
@@ -189,8 +197,17 @@ def main():
         allowed.add(DATA+'/Managed/Assembly-CSharp.dll')
         row=next(r for r in report['files'] if r['path']=='Managed/Assembly-CSharp.dll')
         row['probeSha256']=report['itemCodeRepair']['targetSha256'];row['itemCodeWholeMethodReadback']='passed'
+    if args.surface=='quest-family':
+        managed=target/'Managed/Assembly-CSharp.dll';patched=snapshots/'Assembly-CSharp.quest.dll'
+        report['questCodeRepair']=patch_quest_code(managed,patched,out/'quest-code-readback.json',snapshots)
+        shutil.copy2(patched,managed);patched.unlink()
+        allowed.add(DATA+'/Managed/Assembly-CSharp.dll')
+        row=next(r for r in report['files'] if r['path']=='Managed/Assembly-CSharp.dll')
+        row['probeSha256']=report['questCodeRepair']['targetSha256'];row['questCodeWholeMethodReadback']='passed'
+        allowed.add(DATA+'/Managed/VNRevivalQuestLayout.dll')
+        report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest detail wrapping/flow;existing ScrollRect;source font and size retained'))
     final_paths = {str(p.relative_to(out / 'game')) for p in (out / 'game').rglob('*') if p.is_file()}
-    assert final_paths == {row['path'] for row in receipts}
+    assert final_paths == {row['path'] for row in receipts} | ({DATA+'/Managed/VNRevivalQuestLayout.dll'} if args.surface=='quest-family' else set())
     for row in receipts:
         assert sha(base / 'game' / row['path']) == row['sha256'], ('baseline-mutated', row['path'])
         if row['path'] not in allowed:
@@ -199,7 +216,7 @@ def main():
     assert not list((out / 'game').rglob('tfol.*'))
     assert all(sha(base / 'game' / path) == expected for path, expected in excluded.items())
     report['saveIsolation']['productName'] = args.qa_product
-    repair_key = {'settings': 'settingsRepair', 'report': 'reportRepair', 'names': 'actorNamesRepair', 'quests': 'questRepair', 'menu':'remainingMenuRepair','items':'itemNotificationRepair','item-layout':'itemNotificationLayoutRepair','notebook':'notebookTutorialRepair'}[args.surface]
+    repair_key = {'settings': 'settingsRepair', 'report': 'reportRepair', 'names': 'actorNamesRepair', 'quests': 'questRepair', 'menu':'remainingMenuRepair','items':'itemNotificationRepair','item-layout':'itemNotificationLayoutRepair','notebook':'notebookTutorialRepair','quest-family':'questFamilyRepair','journal-headers':'journalHeaderRepair'}[args.surface]
     report[repair_key] = {'base': str(base), 'baseBuildSha256': base_hash,
                                 'recipeHashes': {str(p.relative_to(snapshots)): sha(p) for p in snapshots.rglob('*') if p.is_file()},
                                 'files': incremental, 'onlyChangedGameFiles': sorted(allowed),

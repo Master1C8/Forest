@@ -50,7 +50,7 @@ class RemainingMenuTests(unittest.TestCase):
             self.assertEqual(b'\n'.join(current.splitlines()[:212])+b'\n',old,locale)
             self.assertEqual(len(before),212)
             self.assertEqual(after[:212],before,locale)
-            self.assertEqual(len(after),712,locale)
+            self.assertEqual(len(after),935,locale)
 
 
 if __name__=='__main__':unittest.main()

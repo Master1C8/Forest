@@ -2,7 +2,7 @@
 
 For an owner-requested Russian game launch, use the repaired player preview and
 preserve the owner's last actual progress across preview updates. The currently
-selected updated preview is `ru-20261028-notebook-final/game/`.
+selected updated preview is `ru-20261028-quests-headers/game/`.
 The last owner-played preview remains `ru-20261027-quest-fix/game/`; while it is
 running, preserve that session and do not copy its live save or launch a replacement.
 After it exits normally, use its then-current progress for the updated preview.

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-russian-quest-header-renderer-verified;30-locale-data-prepared",
+  "source": {
+    "questRows": 38,
+    "progressRows": 119,
+    "displayStates": 195,
+    "nonemptyCells": 177,
+    "nullStates": 18,
+    "technicalColumns": 15,
+    "compiledDisplayOperands": 28,
+    "journalHeaderTMPFields": 24,
+    "headerTerms": [
+      "tfol-053",
+      "tfol-054"
+    ],
+    "coreInventorySha256": "e7a5916249ff4eff9c9bfae4a366833c1eb76268b248407313c295dcd03d5f92",
+    "headerInventorySha256": "4d0a0729524aafec687f3110add68ad33b5777a18acb2b10748f3c7934bd4593"
+  },
+  "data": {
+    "locales": 30,
+    "unitsPerLocale": 935,
+    "totalTargets": 28050,
+    "newCoreUnitsPerLocale": 199,
+    "newHeaderUnitsPerLocale": 24,
+    "prior712And911PrefixesByteExact": true,
+    "manifestSha256": "187adaa6736c53f7e908a1f1a41d4f13f67eba5166913d73e76fdb71d8c6f510",
+    "sourceCatalogSha256": "560667aa58bbe8f0429ee1020db0ff8170338017c7c576e494951d0f0a2fedd0",
+    "independentEditorial": "pending",
+    "otherLocaleResourcesFontsBidiRuntimeVisual": "not-run",
+    "frozenDialogueInventory": "12246 IDs unchanged"
+  },
+  "artifact": {
+    "path": "localization/previews/ru-20261028-quests-headers",
+    "buildSha256": "a425fdb5bf84cbdae1dee6bff4eb407d43f24b30547da75a7ba086e8cc8733c8",
+    "product": "ForestRuActual20261028_15",
+    "files": 11,
+    "incrementalBuild": "passed exact selected/unselected readback",
+    "fullRebuildRecipe": "updated,not-run"
+  },
+  "verification": {
+    "staticTests": 45,
+    "managedHistoryScenarios": 1040,
+    "managedCounterAssertions": 12480,
+    "managedReuse": "Final CSharp byte-identical to tested ready artifact",
+    "loadedQuestStates": 195,
+    "loadedHeaderFields": 24,
+    "photoMasks": 512,
+    "photoPaneCountSlotStates": 60,
+    "regionalStatusStates": 64,
+    "titleStates": 38,
+    "nonemptyTitleNativeBounds": 30,
+    "emptyTitleUIStrings": 8,
+    "nativeFrames": 6,
+    "visual": "passed all actual per-image judgments",
+    "headerFiveRenderedLayersPlusTransparentProvider": true,
+    "hudLayers": 16,
+    "emptyPriorLayers": 8,
+    "programmaticScroll": "actual cached view==viewport;paired stable top/bottom",
+    "physicalInputAndNaturalProgression": "not-run"
+  },
+  "preservation": {
+    "ownerSaveFilesUsed": false,
+    "qaFixtureBeforeEqualsAfter": true,
+    "taskGameStopped": true,
+    "bridgeRemoved": true,
+    "parentArtifactUnchanged": true,
+    "texturePixelsChanged": false,
+    "saveSchemaChanged": false,
+    "publicationOrDeployment": false
+  },
+  "knownSourceAndScopeLimits": [
+    "Active/Completed remain painted source labels by owner instruction;L/R remain source navigation sprites",
+    "Quest Log/Critter Log are actual TMP,corrected classification and all variants translated",
+    "Source all-regions-complete-but-active anomaly retained",
+    "Map/Inventory header terms absent from approved glossary;separate native text outside bounded approved header application",
+    "No complete-game,other-locale runtime,mouse/gamepad,award,queue,owner-save-continuation,hosted or release acceptance"
+  ],
+  "nextPermittedActions": [
+    "Use PLAYER-LAUNCH.md only for a separately requested owner launch with compatible save continuity",
+    "Independent semantic/diff audit of all supplemental IDs,then locale-specific font/resource/bidi/native integration",
+    "Do not edit source textures or active editorial jobs"
+  ]
+}

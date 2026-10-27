@@ -19,6 +19,8 @@ from decode_inventory import parse, variable_cells
 from menu_supplement import PHRASES as MENU_PHRASES, source_addendum, render
 import item_supplement as items
 import notebook_supplement as notebook
+import quest_supplement as quests
+import journal_header_ui as headers
 
 
 def sha(data):
@@ -146,8 +148,16 @@ def products():
     notebook_units,notebook_protected,notebook_pins=notebook.source_addendum(units)
     units+=notebook_units;protected+=notebook_protected;pins.update(notebook_pins)
     _,notebook_words=notebook.inputs()
-    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22 plus complete item notification and five-page notebook tutorial repairs; additive to the frozen dialogue inventory',
-                   sourcePins=pins, phraseOrder=[dict(key=k, source=s) for k,s in phrase_sources], units=units,
+    quest_units,quest_protected,quest_pins=quests.source_addendum(units)
+    # All prior selected tutorial cells remain retained;new complete family supersedes old outside-scope cell guards.
+    selected_quest_ids={r['id'] for r in quests.inventory()['sourceStates'] if r['source'] is not None}
+    protected=[p for p in protected if p.get('id') not in selected_quest_ids]
+    units+=quest_units;protected+=quest_protected;pins.update(quest_pins)
+    assert len(units)==911 and len({u['id'] for u in units})==911
+    header_units,header_protected,header_pins=headers.addendum(units);units+=header_units;protected+=header_protected;pins.update(header_pins)
+    assert len(units)==935 and len({u['id'] for u in units})==935
+    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22 plus complete item notification,five-page notebook tutorial and complete Quest display family repairs; additive to the frozen dialogue inventory',
+                   sourcePins=pins, phraseOrder=[dict(key=k, source=s) for k,s in phrase_sources]+quests.inventory()['phrases'], units=units,
                    preserveExactly=protected, processBinding=quest['processBinding'],
                    applicationContract={
                        'textLayers':'Apply every ID, including all six TMP face/glow copies. Retain existing layout bindings; validate target-specific fitting.',
@@ -158,9 +168,11 @@ def products():
                        'notebook':'All156 TMP fields of the five-page GossipTutorialRedux15851 are selected. Preserve paired native action labels and all Image/Sprite artwork, including the English control identifiers cited by the translated instructions. Adapt title emphasis to the first target grapheme plus the complete approved Notebook term; preserve size22/36 syntax and exact CR/LF sequences. Use the existing complete-title variant on all five pages instead of English manually separated title segments (ten guarded GameObject active states). Apply common face-metric spacing compensation to all selected TMP layers;30 multiline face/glow child rects inherit the preferred height of their parent. No texture redraw.',
                        'items':'Patch the 96 pinned title/notification_phrase cells and eight display operands; preserve descriptions, IDs, enum/save keys, item ownership and all other columns. See item-notifications-20261027/inventory.json.',
                        'actor':'Patch only nameplate_name/full_name. Compare all unselected columns, null cells and full payload restoration as in russian_actor_names.py.',
-                       'tutorial':'Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.',
+                       'tutorial':'Six original tutorial cells retained;all remaining Quest display cells are selected by quest-family.',
+                       'quests':'Patch177 nonempty DB cells plus28 compiled display operands;retain18 null states,15 technical columns,original branches,identities,formats and ordering. Use exact selected log identity for the three lost-photo counter slots,including completion shift. Preserve greetings,storm and32 regional masks x2 statuses. Validate preferred-height wrapping/scroll layout and actual HUD per locale;Russian evidence is not other-locale acceptance.',
                        'fonts':'Resolve actual native/TMP roles per locale before packaging; preserve fictional-language font mapping. Russian font acceptance does not cover other scripts.',
                        'textures':'Notify the owner of texture-only omissions; do not produce or replace textures.',
+                       'journalHeaders':'All24 actual Quest Log/Critter Log TMP layers/variants use approved terms. Preserve16/20 base sizes and22/30 first-grapheme emphasis;adapt source two-cap formatting to complete target term. Their legacy Images are disabled,not visible texture exceptions. L/R navigation icons are source sprites386/381 and remain unchanged. Active/Completed are painted sprites544/593.',
                        'reportOnlyArtwork':'The Forest of Love title and the separate Gallery heading are reported-only for all30 locales; see localization/source/menu-remaining-ui-20261027/graphics-findings.json and its exact Gallery Image/Sprite binding.',
                        'dynamicReportData':'These are form captions, not proof of localization of generated diagnostic payloads.',
                        'galleryCode':'Apply only the six pinned display ldstr operands in four original gallery-label methods. Preserve all branches, counter operands, unlock logic, placeholders and tags. Verify whole-method readback and restoration.',
@@ -181,6 +193,8 @@ def products():
         assert sha(glossary_path.read_bytes()) == scope['approvedGlossaries']['locales'][locale]['sha256']
         glossary = json.loads(glossary_path.read_text())
         authored = wording[locale]
+        quest_words=quests.words(locale)
+        authored_pins['quest-wording/'+locale+'.json']=sha((OUT/'quest-wording'/(locale+'.json')).read_bytes())
         assert not (set(authored['phrases']) & set(items.KEYS))
         authored['phrases'].update(items.wording()[locale])
         assert set(authored['phrases']) == {k for k,s in phrase_sources}
@@ -188,7 +202,11 @@ def products():
         assert phrases['tutorial.bio_title'] == glossary['tfol-119']['term']
         records = []
         for unit in units:
-            if unit['family']=='notebook':
+            if unit['family']=='journal-header':
+                target=headers.render(unit,glossary,locale)
+            elif unit['family'] in ('quest-family','quest-code'):
+                target=glossary[unit['glossaryId']]['term'] if 'glossaryId' in unit else quest_words[unit['phrase']]
+            elif unit['family']=='notebook':
                 target=notebook.render(unit,notebook_words[locale],glossary)
             elif unit['family'] in ('item','item-code','item-prefab'):
                 target=items.render(unit,phrases,glossary)
@@ -203,6 +221,7 @@ def products():
             assert target.count('tfol.info') == unit['source'].count('tfol.info')
             assert sorted(re.findall(r'\{[0-9]+\}', target)) == sorted(re.findall(r'\{[0-9]+\}', unit['source']))
             if unit['family']=='notebook':notebook.validate(unit,target,notebook_words[locale],glossary)
+            elif unit['family']=='journal-header':headers.validate(unit,target,glossary,locale)
             else:assert re.findall(r'</?size(?:=[0-9]+)?>', target) == re.findall(r'</?size(?:=[0-9]+)?>', unit['source'])
             if unit.get('phrase')=='item.plank':
                 assert target.endswith('<.<') and target.count('<.<')==unit['source'].count('<.<'), 'item-emoticon-preservation'
@@ -211,11 +230,11 @@ def products():
             record = dict(id=unit['id'], source=unit['source'], target=target)
             if target == unit['source']:
                 native_no = locale in ('es', 'es-419', 'it') and unit.get('phrase') == 'report.no'
-                glossary_unchanged=unit['family']=='item' and 'glossaryId' in unit and target==glossary[unit['glossaryId']]['term']
+                glossary_unchanged=unit['family'] in ('item','quest-family') and 'glossaryId' in unit and target==glossary[unit['glossaryId']]['term']
                 plank_unchanged=locale=='nl' and unit.get('phrase')=='item.plank'
                 notebook_same=unit['family']=='notebook' and (unit['phrase']=='caption' or unit['phrase']=='title-first')
                 assert unit['family']=='actor' or native_no or glossary_unchanged or plank_unchanged or notebook_same, (locale, unit['id'], target)
-                record['unchangedReason'] = ('Native tutorial cognate or matching approved title grapheme' if notebook_same else 'approved glossary term' if glossary_unchanged else 'Dutch word Plank and original emoticon' if plank_unchanged else 'approved proper name' if unit['family']=='actor' else
+                record['unchangedReason'] = ('Approved glossary title' if unit['family']=='quest-family' and glossary_unchanged else 'Native tutorial cognate or matching approved title grapheme' if notebook_same else 'approved glossary term' if glossary_unchanged else 'Dutch word Plank and original emoticon' if plank_unchanged else 'approved proper name' if unit['family']=='actor' else
                     'Spanish negative response is also No' if locale in ('es','es-419') else
                     'Italian negative response is also No')
             records.append(record)
@@ -228,6 +247,11 @@ def products():
         assert len(prior.splitlines())==446 and files[filename].startswith(prior), ('prior-446-record-drift',locale)
         old_notebook=(OUT/'history/before-notebook'/filename).read_bytes()
         assert len(old_notebook.splitlines())==556 and files[filename].startswith(old_notebook),('prior-556-drift',locale)
+        before_quest=(OUT/'history/before-quests'/filename).read_bytes()
+        assert len(before_quest.splitlines())==712 and files[filename].startswith(before_quest),('prior-712-drift',locale)
+        assert records[712:911]==quests.new_records(locale),('quest-record-render-drift',locale)
+        old_headers=(OUT/'history/before-journal-headers'/filename).read_bytes();assert len(old_headers.splitlines())==911 and files[filename].startswith(old_headers)
+        assert records[911:]==headers.records(locale)
         locale_receipts[locale] = dict(file=filename, sha256=sha(files[filename]), units=len(records),
                                        glossaryPath=str(glossary_path.relative_to(ROOT)), glossarySha256=sha(glossary_path.read_bytes()),
                                        direction='rtl' if locale in ('ar','fa','he') else 'ltr',
