@@ -5,6 +5,30 @@ ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 sys.path.insert(0,str(ROOT/'localization/source/bgdatabase-20261027'))
 from decode_inventory import SOURCE,parse,variable_cells
 class DisplayBoundaryTests(unittest.TestCase):
+ def test_real_report_form_preserves_handlers_and_control_syntax(self):
+  import UnityPy
+  from unittest.mock import patch
+  from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+  from extract_assets import read_tree
+  import russian_report_ui
+  source=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data')
+  gen=TypeTreeGenerator('2020.3.24f1');gen.load_local_dll_folder(str(source/'Managed'))
+  objs={o.path_id:o for o in UnityPy.load(str(source/'level1')).objects}
+  plan,receipt=russian_report_ui.report_text_plan(objs,gen)
+  self.assertEqual(len(plan),100);self.assertEqual(len(receipt),20)
+  self.assertNotIn(9796,plan);self.assertNotIn(9797,plan)
+  for row in receipt:
+   self.assertEqual(row['source'].count('\n'),row['target'].count('\n'))
+   for pid in row['textIds']:
+    restored=copy.deepcopy(plan[pid]);self.assertEqual(restored['m_text'],row['target'])
+    restored['m_text']=row['source'];self.assertEqual(restored,read_tree(objs[pid],gen))
+  pid=receipt[0]['textIds'][0]
+  def changed(obj,g):
+   value=copy.deepcopy(read_tree(obj,g))
+   if obj.path_id==pid:value['m_text']='unrelated'
+   return value
+  with patch.object(russian_report_ui,'read_tree',side_effect=changed):
+   with self.assertRaisesRegex(AssertionError,'report-before-text'):russian_report_ui.report_text_plan(objs,gen)
  def test_real_settings_families_and_duplicate_image(self):
   import UnityPy
   from unittest.mock import patch

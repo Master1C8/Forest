@@ -18,6 +18,7 @@ from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
 from russian_settings_ui import settings_text_plan
+from russian_report_ui import report_text_plan
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -97,6 +98,7 @@ def main():
     shutil.copy2(Path(__file__).parent / 'tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
     shutil.copy2(Path(__file__).parent / 'settings_glow.py', out / 'settings_glow.py')
     shutil.copy2(Path(__file__).parent / 'russian_settings_ui.py', out / 'russian_settings_ui.py')
+    shutil.copy2(Path(__file__).parent / 'russian_report_ui.py', out / 'russian_report_ui.py')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
         candidate = Path(__file__).parent / helper
@@ -140,6 +142,7 @@ def main():
         glow_repairs = {}
         image_repairs = {}
         settings_repairs = {}
+        report_repairs = {}
         choice_repairs = {}
         ui_repairs = {}
         if name == 'globalgamemanagers':
@@ -191,8 +194,9 @@ def main():
                 glow_repairs, report['settingsGlowRepair'] = settings_glow_plan(objects, generator)
                 selected.update({pid: objects[pid] for pid in glow_repairs})
             settings_repairs, report['settingsTranslations'] = settings_text_plan(objects, generator)
+            report_repairs, report['reportTranslations'] = report_text_plan(objects, generator)
             image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
-            selected.update({pid: objects[pid] for pid in settings_repairs | image_repairs})
+            selected.update({pid: objects[pid] for pid in settings_repairs | report_repairs | image_repairs})
         if args.coherent_tmp_face and name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
             font_id = -1127281652424575413 if name == BUNDLE else 3323
             if name in ['level1', 'level5', 'level6']:
@@ -258,6 +262,8 @@ def main():
                 tree = copy.deepcopy(ui_repairs[pid])
                 if pid in settings_repairs:
                     tree['m_text'] = settings_repairs[pid]['m_text']
+                if pid in report_repairs:
+                    tree['m_text'] = report_repairs[pid]['m_text']
                 if name == 'level1' and tree.get('m_text') in report['menuSamples']:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
                 if name != 'level1' and obj.type.name == 'MonoBehaviour' and tree.get('m_GameObject'):
@@ -272,6 +278,8 @@ def main():
                     tree = copy.deepcopy(image_repairs[pid])
                 elif pid in settings_repairs:
                     tree = copy.deepcopy(settings_repairs[pid])
+                elif pid in report_repairs:
+                    tree = copy.deepcopy(report_repairs[pid])
                 else:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif pid in choice_repairs:

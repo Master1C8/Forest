@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the settings repair to a verified dialogue preview without rebuilding dialogue."""
+"""Apply a bounded menu repair to a verified preview without rebuilding dialogue."""
 import argparse
 import copy
 import ctypes
@@ -16,6 +16,7 @@ from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
 from build_russian_preview import fields_changed, save_tree
 from extract_assets import canonical, read_tree
 from russian_settings_ui import settings_text_plan
+from russian_report_ui import report_text_plan
 from settings_glow import settings_value_image_plan
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
@@ -40,6 +41,7 @@ def main():
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--qa-product', required=True)
+    parser.add_argument('--surface', choices=['settings', 'report'], default='settings')
     args = parser.parse_args()
     base, out = args.base.resolve(), args.output.resolve()
     assert (ROOT / 'localization/previews') in base.parents
@@ -50,7 +52,8 @@ def main():
     assert report['siteLocale'] == 'ru' and report['sampleSurface'] == 'actual-saved-dialogue'
     assert report['saveIsolation']['companyName'] == 'VNRevivalQA'
     assert len(report['files']) == 7 and report['coherentTmpFace']
-    assert not report.get('settingsTranslations'), 'Already repaired: do not duplicate a repair cycle'
+    translations_key = 'settingsTranslations' if args.surface == 'settings' else 'reportTranslations'
+    assert not report.get(translations_key), 'Already repaired: do not duplicate a repair cycle'
     for row in report['files']:
         assert sha(base / 'game' / DATA / row['path']) == row['probeSha256'], row['path']
     assert sha(base / 'game' / DATA / 'Managed/Assembly-CSharp.dll') == '46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf'
@@ -66,7 +69,7 @@ def main():
     snapshots = out / 'recipe'
     snapshots.mkdir()
     for name in ['build_russian_settings_preview.py', 'build_russian_preview.py',
-                 'russian_settings_ui.py', 'settings_glow.py', 'extract_assets.py',
+                 'russian_settings_ui.py', 'russian_report_ui.py', 'settings_glow.py', 'extract_assets.py',
                  'russian_preview_ui.py', 'russian_preview_support.py',
                  'addressables_catalog.py', 'tmp_dialogue_font.py', 'legacy_choice_font.py']:
         shutil.copy2(ROOT / 'tools' / name, snapshots / name)
@@ -95,10 +98,13 @@ def main():
         env = UnityPy.load(str(target / name))
         objects = {o.path_id: o for o in env.objects}
         if name == 'level1':
-            plan, report['settingsTranslations'] = settings_text_plan(objects, generator)
-            images, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
-            assert not (plan.keys() & images.keys())
-            plan.update(images)
+            if args.surface == 'settings':
+                plan, report['settingsTranslations'] = settings_text_plan(objects, generator)
+                images, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
+                assert not (plan.keys() & images.keys())
+                plan.update(images)
+            else:
+                plan, report['reportTranslations'] = report_text_plan(objects, generator)
         else:
             plan = {}
             for obj in objects.values():
@@ -143,7 +149,8 @@ def main():
     assert not list((out / 'game').rglob('tfol.*'))
     assert all(sha(base / 'game' / path) == expected for path, expected in excluded.items())
     report['saveIsolation']['productName'] = args.qa_product
-    report['settingsRepair'] = {'base': str(base), 'baseBuildSha256': base_hash,
+    repair_key = 'settingsRepair' if args.surface == 'settings' else 'reportRepair'
+    report[repair_key] = {'base': str(base), 'baseBuildSha256': base_hash,
                                 'recipeHashes': {p.name: sha(p) for p in snapshots.iterdir()},
                                 'files': incremental, 'onlyChangedGameFiles': sorted(allowed),
                                 'texturePixelsChanged': False,

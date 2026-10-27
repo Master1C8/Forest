@@ -25,6 +25,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--preview', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--surface', choices=['settings', 'report'], default='settings')
     args = parser.parse_args()
     preview, run = args.preview.resolve(), args.output.resolve()
     assert preview.parent == ROOT / 'localization/previews'
@@ -32,6 +33,8 @@ def main():
     report = json.loads((preview / 'build.json').read_text())
     assert len(report['files']) == 7 and len(report['settingsTranslations']) == 9
     assert report['settingsRepair']['texturePixelsChanged'] is False
+    if args.surface == 'report':
+        assert len(report['reportTranslations']) == 20 and report['reportRepair']['texturePixelsChanged'] is False
     for row in report['files']:
         assert sha(preview / 'game' / DATA / row['path']) == row['probeSha256']
     old = ROOT / 'localization/probes/ru-20261026-15'
@@ -113,6 +116,11 @@ def main():
     # Intro visibility is bypassed by the existing FinishShowingMenu inspection command.
     # Only the actual Options, Stretch, Fullscreen and Back handlers are exercised.
     (run / 'capture-settings.py').write_text(template)
+    capture_recipe = run / 'capture-settings.py'
+    if args.surface == 'report':
+        shutil.copy2(ROOT / 'tools/probe/capture_settings.py', run / 'capture_settings.py')
+        shutil.copy2(ROOT / 'tools/probe/capture_russian_report.py', run / 'capture-report.py')
+        capture_recipe = run / 'capture-report.py'
     shutil.copy2(__file__, run / 'prepare-qa.py')
     receipt = {'preview': str(preview), 'previewBuildSha256': sha(preview / 'build.json'),
                'reusedBridgeReceipt': str(old / 'bridge-build.json'),
@@ -120,7 +128,8 @@ def main():
                'allOriginalManagedReferencesVerified': True,
                'bridgeSha256': sha(target / 'Managed/ForestProbe.dll'),
                'hookSha256': sha(target / 'Managed/Assembly-CSharp.dll'),
-               'captureRecipeSha256': sha(run / 'capture-settings.py'),
+               'captureRecipeSha256': sha(capture_recipe),
+               'captureSurface': args.surface,
                'commandHelperSha256': sha(run / 'command.py'),
                'introInput': 'not exercised; existing FinishShowingMenu inspection command',
                'captureMethod': 'project bridge ScreenCapture; deterministic exact game frame without desktop focus',

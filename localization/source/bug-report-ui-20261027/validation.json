@@ -1,0 +1,74 @@
+{
+  "scope": "Report form only; previous settings repair retained",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "workersLaunched": 0,
+  "artifact": "/Users/antonkrutov/Desktop/Forest/localization/previews/ru-20261027-report-fix-02",
+  "artifactBuildSha256": "f0820998efcd2dcc3c6ecc79f4286426b47afd78fe07851fb06ece21ca5e0707",
+  "tests": {
+    "passed": 10,
+    "failed": 0,
+    "command": ".venv-assets314/bin/python -B -m unittest discover -s tools -p test_russian_preview_ui.py"
+  },
+  "sourceInventory": {
+    "path": "/Users/antonkrutov/Desktop/Forest/localization/source/bug-report-ui-20261027/inventory.json",
+    "sha256": "dd7e3382ef8c2e0a3ef59106d7ed3c550a2e14e3fff34cdd0f202acf12cc48f3",
+    "fields": 131,
+    "translatedFields": 100,
+    "translatedFamilies": 20,
+    "preservedFields": 31,
+    "preserved": "Back x6; +/++/+++/++++ x24; U+200B x1"
+  },
+  "static": {
+    "selectedCompleteTreeReadback": "passed",
+    "unselectedRawBytesEquality": "passed",
+    "allOtherGameFilesByteIdentical": true,
+    "texturePixelsChanged": false,
+    "previousSettingsBindingsIdentical": true,
+    "actualNewlinesPreserved": true
+  },
+  "runtime": {
+    "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-report-20261027-01/runtime-result.json",
+    "sha256": "bdb8a3530877e3cb00e0add1932f18d9edbc61fcce15d87c196d86cd99bf8368",
+    "result": "passed",
+    "submittedReport": false,
+    "typedInput": false,
+    "scope": "Landing page only; command log has show-menu/dump/open/capture/quit, no Send action"
+  },
+  "cleanup": {
+    "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-report-20261027-01/cleanup.json",
+    "sha256": "db34d0808a0a3114bbc483822b6e6ccc5b3538e4ff71f1ee23a70a97b6ee93f0",
+    "result": "passed"
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-report-form.png",
+      "sha256": "d7aec932d63c6c5d552eff46b6f2e9333712a905540fabe402057a8b7c11ce45",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "visualReview": "pending; automated checks do not establish semantic visual acceptance",
+  "notExercised": [
+    "hidden status and confirmation dialogs",
+    "text entry",
+    "report submission",
+    "runtime-generated diagnostic column localization"
+  ],
+  "attempts": [
+    {
+      "path": "localization/previews/ru-20261027-report-fix",
+      "status": "rejected source guard before patched resources; baseline copied; no build receipt or launch",
+      "cause": "raw string literals represented backslash-n instead of source U+000A; fixed before accepted build"
+    },
+    {
+      "path": "localization/previews/ru-20261027-report-fix-02",
+      "status": "accepted static and automated runtime checks"
+    }
+  ],
+  "broaderGates": "unchanged; source/editorial/font/release acceptance not waived"
+}
