@@ -7,13 +7,13 @@ import argparse
 import collections
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'localization/supplemental-ui/20261027'
-LOCALES = ('zh', 'de', 'es', 'es-419', 'pt-BR', 'ja')
 sys.path.insert(0, str(ROOT / 'localization/source/bgdatabase-20261027'))
 from decode_inventory import parse, variable_cells
 
@@ -31,7 +31,24 @@ def selector(sheet, row, field):
         *[quote(x, safe='') for x in (sheet, row, field)])
 
 
+def validate_locale_scope(scope, catalog):
+    locales = scope['targetLocales']
+    assert len(locales) == scope['targetCount'] == 30, 'target-locale-count'
+    assert len(set(locales)) == 30, 'duplicate-target-locale'
+    assert scope['sourceLocale'] == 'en' and 'en' not in locales, 'source-is-not-target'
+    assert sha(catalog) == scope['catalog']['sha256'], 'canonical-locale-catalog-pin'
+    match = re.search(r'export const SITE_LOCALE_CODES\s*=\s*\[(.*?)\]\s*as const;', catalog.decode(), re.S)
+    assert match, 'canonical-locale-catalog-syntax'
+    codes = re.findall(r'"([^"]+)"', match.group(1))
+    assert len(codes) == len(set(codes)) == 31 and codes[0] == 'en', 'canonical-locale-catalog-shape'
+    assert locales == [code for code in codes if code != 'en'], 'canonical-target-locale-coverage'
+    assert set(locales) == set(scope['approvedGlossaries']['locales']), 'approved-glossary-locale-coverage'
+    return locales
+
+
 def products():
+    scope = json.loads((OUT / 'locale-scope.json').read_text())
+    locales = validate_locale_scope(scope, Path(scope['catalog']['path']).read_bytes())
     inputs = [
         'localization/previews/ru-20261027-settings-fix/build.json',
         'localization/source/bug-report-ui-20261027/inventory.json',
@@ -129,10 +146,17 @@ def products():
                        'liveLanes':'Do not modify running briefs, immutable manifests, frozen 12246-ID dialogue inputs or prior dialogue-only receipts.'})
     files = {'source-catalog.json': encoded(catalog)}
     wording = json.loads((OUT / 'wording.json').read_text())
-    assert set(wording) == set(LOCALES)
+    authored_pins = {'wording.json': sha((OUT / 'wording.json').read_bytes())}
+    for path in sorted((OUT / 'wording').glob('*.json')):
+        locale = path.stem
+        assert locale not in wording, ('duplicate-authored-locale', locale)
+        wording[locale] = json.loads(path.read_text())
+        authored_pins[str(path.relative_to(OUT))] = sha(path.read_bytes())
+    assert set(wording) == set(locales), ('authored-locale-coverage', sorted(set(locales)-set(wording)))
     locale_receipts = {}
-    for locale in LOCALES:
+    for locale in locales:
         glossary_path = ROOT / f'localization/glossary/{locale}.json'
+        assert sha(glossary_path.read_bytes()) == scope['approvedGlossaries']['locales'][locale]['sha256']
         glossary = json.loads(glossary_path.read_text())
         authored = wording[locale]
         assert set(authored['phrases']) == {k for k,s in phrase_sources}
@@ -151,18 +175,24 @@ def products():
             assert target.count('tfol.info') == unit['source'].count('tfol.info')
             record = dict(id=unit['id'], source=unit['source'], target=target)
             if target == unit['source']:
-                native_no = locale in ('es', 'es-419') and unit.get('phrase') == 'report.no'
+                native_no = locale in ('es', 'es-419', 'it') and unit.get('phrase') == 'report.no'
                 assert unit['family']=='actor' or native_no, (locale, unit['id'], target)
-                record['unchangedReason'] = 'approved proper name' if unit['family']=='actor' else 'Spanish negative response is also No'
+                record['unchangedReason'] = ('approved proper name' if unit['family']=='actor' else
+                    'Spanish negative response is also No' if locale in ('es','es-419') else
+                    'Italian negative response is also No')
             records.append(record)
         assert [r['id'] for r in records] == [u['id'] for u in units]
         filename = locale + '.jsonl'
         files[filename] = ''.join(json.dumps(r,ensure_ascii=False) + '\n' for r in records).encode()
         locale_receipts[locale] = dict(file=filename, sha256=sha(files[filename]), units=len(records),
                                        glossaryPath=str(glossary_path.relative_to(ROOT)), glossarySha256=sha(glossary_path.read_bytes()),
+                                       direction='rtl' if locale in ('ar','fa','he') else 'ltr',
+                                       shapingAndBidi='needs-review' if locale in ('ar','fa','he','hi','th') else 'not-run',
                                        independentEditorial='pending', resourceApplication='not-run', runtime='not-run', visual='not-run', releaseAccepted=False)
     files['manifest.json'] = encoded(dict(schemaVersion=1, sourceCatalogSha256=sha(files['source-catalog.json']),
-                                         wordingSha256=sha((OUT/'wording.json').read_bytes()),
+                                         authoredInputs=authored_pins,
+                                         localeScopeSha256=sha((OUT/'locale-scope.json').read_bytes()),
+                                         targetCount=len(locales),
                                          generatorSha256=sha(Path(__file__).read_bytes()),
                                          status='author-edited supplemental translation inputs; deterministic validation passed',
                                          locales=locale_receipts, completeGameAccepted=False,
@@ -176,6 +206,11 @@ def main():
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
     files = products()
+    expected_targets = {name for name in files if name.endswith('.jsonl')}
+    existing_targets = {path.name for path in OUT.glob('*.jsonl')}
+    assert not existing_targets - expected_targets, 'unknown-target-output'
+    if args.check:
+        assert existing_targets == expected_targets, 'target-output-file-coverage'
     for name, contents in files.items():
         path = OUT / name
         if args.check:
@@ -184,7 +219,8 @@ def main():
             temporary = path.with_suffix(path.suffix + '.pending')
             temporary.write_bytes(contents)
             temporary.replace(path)
-    print(json.dumps(dict(status='checked' if args.check else 'written', locales=6, unitsPerLocale=212, totalTargets=1272, files=len(files))))
+    manifest = json.loads(files['manifest.json'])
+    print(json.dumps(dict(status='checked' if args.check else 'written', locales=manifest['targetCount'], unitsPerLocale=212, totalTargets=212*manifest['targetCount'], files=len(files))))
 
 
 if __name__ == '__main__':

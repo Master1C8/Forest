@@ -1,53 +1,75 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "scopeCorrection": "30 total target locales including Russian; prior six were only a supplemental execution subset",
   "coordinator": {
     "actualModel": "gpt-6.1-sol",
     "reasoning": "high",
-    "verifiedFrom": "current session turn_context",
     "additionalModelWorkersLaunched": 0
   },
   "supplement": {
     "sourceCatalogSha256": "ac93c0b84659fb09cfe14e427f5ab60e88b1bf66a55e5b95ef8d14bdb49f9f61",
+    "localeScopeSha256": "6b46f9603b35bd414824448e851e120f6f4792eb297e10ee4a842e1a77e58eda",
     "locales": [
       "zh",
-      "de",
+      "ru",
       "es",
       "es-419",
       "pt-BR",
-      "ja"
+      "ja",
+      "de",
+      "ko",
+      "fr",
+      "tr",
+      "pl",
+      "zh-TW",
+      "it",
+      "th",
+      "vi",
+      "id",
+      "uk",
+      "ar",
+      "cs",
+      "hu",
+      "nl",
+      "fa",
+      "ro",
+      "hi",
+      "fil",
+      "el",
+      "bg",
+      "sr",
+      "sw",
+      "he"
     ],
+    "localeCount": 30,
     "fieldsPerLocale": 212,
-    "targets": 1272,
-    "allGeneratedFilesExactCheck": "passed",
-    "sourceCoverage": {
-      "settings": 54,
-      "reportIncludingBack": 106,
-      "actorDisplay": 46,
-      "tutorialQuest": 6
-    },
-    "preserveExactlyEntries": 251,
-    "editorial": "author edit complete; independent semantic/diff review pending",
-    "runtimeAndVisual": "not-run",
-    "priorDialogueInputsEdited": false,
-    "activeJobInputsEdited": false
-  },
-  "russianQuest": {
-    "artifact": "localization/previews/ru-20261027-quest-fix/game",
-    "actualResourcePayloadEqualsGuardedProjection": true,
-    "allSevenBuildResourceFingerprintsVerified": true,
+    "targets": 6360,
+    "completeGeneratedFileComparison": "passed",
+    "sourceCatalogUnchanged": true,
+    "priorSixLocaleTargetsUnchanged": true,
+    "russianActorAndTutorialTargetsMatchExistingRepairPlans": 52,
+    "importedGlossaries": 23,
+    "allThirtyGlossaryFingerprintsMatchAcceptedCanonicalLayers": true,
     "tests": {
-      "command": ".venv-assets314/bin/python -B -m unittest discover -s tools -p test_russian_preview_ui.py",
-      "passed": 11
+      "command": "python3 -B -m unittest discover -s tools -p test_supplemental_ui_scope.py",
+      "passed": 5
     },
+    "independentEditorial": "pending",
+    "resourceApplication": "not-run",
     "runtime": "not-run",
     "visual": "not-run",
-    "wholeGameAcceptance": "unchanged"
+    "wholeGameAccepted": false,
+    "manifestSha256": "03325bd29efe958521a875728f13a181f62e160d73994b1718daca45ac8a6dcf",
+    "authorFindingsSha256": "45e9e9c155747ce44c0c386fe876016c238fd4d80a927e491e8f1c08d0367376"
+  },
+  "preservation": {
+    "priorValidation": "history/six-locales-validation.json",
+    "priorManifest": "history/six-locales-manifest.json",
+    "activeJobInputsEdited": false,
+    "frozenDialogueInputsEdited": false,
+    "originalSevenGlossaryFilesEdited": false,
+    "rootTechnicalGuideAndCheckpointEdited": false
   },
   "texturesProducedOrReplaced": false,
-  "publicationOrDeployment": false,
-  "limitations": [
-    "Lost-photo counter still requires identity-based logic before full quest-family localization.",
-    "Other-locale data needs independent editorial and locale-specific font/resource/runtime acceptance before packaging.",
-    "No screenshot or gameplay-frame visual pass is claimed."
-  ]
+  "publicationOrDeployment": false
 }

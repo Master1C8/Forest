@@ -35,7 +35,7 @@ requires exact restoration of the complete original payload.
 
 Independent diff review, runtime and visual acceptance of this particular repair
 remain pending. Static resource readback is not a replay of the owner's gameplay
-frame. The six other locales receive the same finite source scope in the shared
+frame. All 29 other target locales receive the same finite source scope in the shared
 supplemental packet; their runtime/font acceptance is separate.
 
 Regression: translated dialogue must not imply that HUD objectives or Actor names
