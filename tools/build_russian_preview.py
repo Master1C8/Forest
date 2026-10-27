@@ -21,6 +21,8 @@ from russian_settings_ui import settings_text_plan
 from russian_report_ui import report_text_plan
 from russian_quest_ui import project_quest_display
 from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
+from russian_item_ui import project_item_display, snapshot as snapshot_items, patch_items
+from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -89,7 +91,7 @@ def main():
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
     assert (SOURCE / DATA_NAME / 'Managed/Assembly-CSharp.dll').is_file()
     expected = json.loads((INPUT_ROOT / 'assets/source-v2/source-files.json').read_text())
-    required = ['globalgamemanagers', 'resources.assets', 'level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]
+    required = ['globalgamemanagers', 'resources.assets', 'level1', 'level5', 'level6', 'sharedassets0.assets', 'sharedassets1.assets', BUNDLE]
     for name in required:
         assert sha(SOURCE / DATA_NAME / name) == expected[name]['sha256'], name
     overlay, validation = validate_overlay()
@@ -106,6 +108,10 @@ def main():
     shutil.copy2(Path(__file__).parent / 'russian_quest_ui.py', out / 'russian_quest_ui.py')
     shutil.copy2(Path(__file__).parent / 'russian_menu_ui.py', out / 'russian_menu_ui.py')
     snapshot_menu(out)
+    shutil.copy2(Path(__file__).parent / 'russian_item_ui.py', out / 'russian_item_ui.py')
+    snapshot_items(out)
+    shutil.copy2(Path(__file__).parent/'item_notification_layout.py',out/'item_notification_layout.py')
+    snapshot_item_layout(out)
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
@@ -154,12 +160,16 @@ def main():
         menu_repairs = {}
         choice_repairs = {}
         ui_repairs = {}
+        item_layout_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
             selected = {1020: objects[1020], 320: objects[320]}
             if args.repair_cyrillic_metrics:
                 selected[1017] = objects[1017]
+        elif name=='sharedassets1.assets':
+            item_layout_repairs, report['itemNotificationLayout'] = layout_plan(objects,generator)
+            selected={pid:objects[pid] for pid in item_layout_repairs}
         elif name in ['sharedassets0.assets', BUNDLE]:
             pid = 3336 if name == 'sharedassets0.assets' else -9011735310751668748
             selected = {pid: objects[pid]}
@@ -259,6 +269,7 @@ def main():
                     data, receipt = project_actor_display(data, parse, variable_cells)
                     data, quest_receipt = project_quest_display(data, parse, variable_cells)
                     report['questDisplayProjection'] = quest_receipt
+                    data, report['itemDisplayProjection'] = project_item_display(data,parse,variable_cells)
                     tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
                     report['actorDisplayProjection'] = receipt
                 elif pid == 1020:
@@ -271,6 +282,8 @@ def main():
                     # Keep Latin glyphs in their original font and preserve the
                     # existing glyph/atlas tables of this dynamic fallback.
                     tree['m_FaceInfo']['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
+            elif pid in item_layout_repairs:
+                tree=copy.deepcopy(item_layout_repairs[pid])
             elif pid in ui_repairs:
                 tree = copy.deepcopy(ui_repairs[pid])
                 if pid in settings_repairs:
@@ -369,8 +382,9 @@ def main():
     report['saveIsolation'] = {'companyName': 'VNRevivalQA', 'productName': product,
                                'originalAppIdentityUnchanged': True, 'copiedPlayerFiles': False}
     report['galleryCodeRepair'] = patch_gallery(target/'Managed',out,out/'gallery-code-readback.json')
+    report['itemCodeRepair'] = patch_items(target/'Managed',out,out/'item-code-readback.json')
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
-                            'probeSha256':report['galleryCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
+                            'probeSha256':report['itemCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
     (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 
 

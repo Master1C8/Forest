@@ -17,6 +17,7 @@ OUT = ROOT / 'localization/supplemental-ui/20261027'
 sys.path.insert(0, str(ROOT / 'localization/source/bgdatabase-20261027'))
 from decode_inventory import parse, variable_cells
 from menu_supplement import PHRASES as MENU_PHRASES, source_addendum, render
+import item_supplement as items
 
 
 def sha(data):
@@ -138,12 +139,19 @@ def products():
     pins.update(menu_pins)
     phrase_sources += MENU_PHRASES
     assert len(dict(phrase_sources)) == len(phrase_sources) == 51
-    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22; additive to the frozen dialogue inventory',
+    item_units,item_protected,item_pins=items.source_addendum(units)
+    units+=item_units; protected.append(dict(sheetId='0BzeuogxqUOTnLWmTpBxVw',columns=item_protected,reason='All 16 unselected InventoryItem columns remain byte-exact'))
+    pins.update(item_pins); phrase_sources+=items.PHRASES
+    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22 plus complete item notification repair; additive to the frozen dialogue inventory',
                    sourcePins=pins, phraseOrder=[dict(key=k, source=s) for k,s in phrase_sources], units=units,
                    preserveExactly=protected, processBinding=quest['processBinding'],
                    applicationContract={
                        'textLayers':'Apply every ID, including all six TMP face/glow copies. Retain existing layout bindings; validate target-specific fitting.',
                        'duplicateImage':{'id':'level1:9708/m_Enabled','before':1,'after':0,'reason':'duplicate Off sprite already replaced by six TMP layers; disable the Image, do not redraw its texture'},
+                       'glitchNotification':'Branch1 uses the glitch prefab without invoking the Configure methods. Apply all six pinned serialized found-label values and preserve the six question marks and line break.',
+                       'itemNotificationLayout':'Both normal and glitch controllers share sharedassets1 prefabs1284/1279. Wrap all12 TMP fields and constrain2 outer rects to210 units inside320-unit right-anchored groups with8-unit right padding, move their2 icon rects to reserve space, and stretch10 nested face/glow rects to matching widths; preserve fonts, sizes and stroke offsets. Validate each locale; see item-notifications-20261027/layout.json.',
+                       'retainedWebsite':'TFoL.info is the exact website/domain identifier in six main-menu TMP fields, retained verbatim in every locale; website-consumer.il binds Application.OpenURL.',
+                       'items':'Patch the 96 pinned title/notification_phrase cells and eight display operands; preserve descriptions, IDs, enum/save keys, item ownership and all other columns. See item-notifications-20261027/inventory.json.',
                        'actor':'Patch only nameplate_name/full_name. Compare all unselected columns, null cells and full payload restoration as in russian_actor_names.py.',
                        'tutorial':'Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.',
                        'fonts':'Resolve actual native/TMP roles per locale before packaging; preserve fictional-language font mapping. Russian font acceptance does not cover other scripts.',
@@ -155,7 +163,7 @@ def products():
                        'liveLanes':'Do not modify running briefs, immutable manifests, frozen 12246-ID dialogue inputs or prior dialogue-only receipts.'})
     files = {'source-catalog.json': encoded(catalog)}
     wording = json.loads((OUT / 'wording.json').read_text())
-    authored_pins = {'wording.json': sha((OUT / 'wording.json').read_bytes())}
+    authored_pins = {'wording.json': sha((OUT / 'wording.json').read_bytes()), 'item-wording.json': sha((OUT/'item-wording.json').read_bytes())}
     for path in sorted((OUT / 'wording').glob('*.json')):
         locale = path.stem
         assert locale not in wording, ('duplicate-authored-locale', locale)
@@ -168,35 +176,47 @@ def products():
         assert sha(glossary_path.read_bytes()) == scope['approvedGlossaries']['locales'][locale]['sha256']
         glossary = json.loads(glossary_path.read_text())
         authored = wording[locale]
+        assert not (set(authored['phrases']) & set(items.KEYS))
+        authored['phrases'].update(items.wording()[locale])
         assert set(authored['phrases']) == {k for k,s in phrase_sources}
         phrases = authored['phrases']
         assert phrases['tutorial.bio_title'] == glossary['tfol-119']['term']
         records = []
         for unit in units:
-            if unit['family'] != 'actor':
+            if unit['family'] in ('item','item-code','item-prefab'):
+                target=items.render(unit,phrases,glossary)
+            elif unit['family'] != 'actor':
                 target = render(unit, phrases)
             elif unit['field'] == 'full_name':
                 target = glossary[unit['glossaryId']]['term']
             else:
                 target = authored['shortNames'][unit['source']]
-            assert isinstance(target, str) and target and target == target.strip(' \t\r')
+            assert isinstance(target, str) and target and (target == target.strip(' \t\r') or unit.get('lineEnding')=='space' and target.endswith(' ') and target[:-1]==target[:-1].strip(' \t\r'))
             assert target.count('\n') == unit['source'].count('\n'), (locale,unit['id'],'line breaks')
             assert target.count('tfol.info') == unit['source'].count('tfol.info')
             assert sorted(re.findall(r'\{[0-9]+\}', target)) == sorted(re.findall(r'\{[0-9]+\}', unit['source']))
             assert re.findall(r'</?size(?:=[0-9]+)?>', target) == re.findall(r'</?size(?:=[0-9]+)?>', unit['source'])
+            if unit.get('phrase')=='item.plank':
+                assert target.endswith('<.<') and target.count('<.<')==unit['source'].count('<.<'), 'item-emoticon-preservation'
             if unit.get('formatArgs'):
                 assert re.findall(r'[0-9]+', target) == re.findall(r'[0-9]+', unit['source'])
             record = dict(id=unit['id'], source=unit['source'], target=target)
             if target == unit['source']:
                 native_no = locale in ('es', 'es-419', 'it') and unit.get('phrase') == 'report.no'
-                assert unit['family']=='actor' or native_no, (locale, unit['id'], target)
-                record['unchangedReason'] = ('approved proper name' if unit['family']=='actor' else
+                glossary_unchanged=unit['family']=='item' and 'glossaryId' in unit and target==glossary[unit['glossaryId']]['term']
+                plank_unchanged=locale=='nl' and unit.get('phrase')=='item.plank'
+                assert unit['family']=='actor' or native_no or glossary_unchanged or plank_unchanged, (locale, unit['id'], target)
+                record['unchangedReason'] = ('approved glossary term' if glossary_unchanged else 'Dutch word Plank and original emoticon' if plank_unchanged else 'approved proper name' if unit['family']=='actor' else
                     'Spanish negative response is also No' if locale in ('es','es-419') else
                     'Italian negative response is also No')
             records.append(record)
         assert [r['id'] for r in records] == [u['id'] for u in units]
         filename = locale + '.jsonl'
         files[filename] = ''.join(json.dumps(r,ensure_ascii=False) + '\n' for r in records).encode()
+        prior=(OUT/'history/thirty-locales-before-items'/filename).read_bytes()
+        prior_item=(OUT/'history/items-before-glitch'/filename).read_bytes()
+        assert len(prior_item.splitlines())==550 and files[filename].startswith(prior_item),('prior-item-104-drift',locale)
+        assert len(prior.splitlines())==446 and files[filename].startswith(prior), ('prior-446-record-drift',locale)
         locale_receipts[locale] = dict(file=filename, sha256=sha(files[filename]), units=len(records),
                                        glossaryPath=str(glossary_path.relative_to(ROOT)), glossarySha256=sha(glossary_path.read_bytes()),
                                        direction='rtl' if locale in ('ar','fa','he') else 'ltr',

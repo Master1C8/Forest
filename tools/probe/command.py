@@ -40,7 +40,9 @@ print(receipt)
 if args.command in ['dump', 'dump-intro']:
     state_path = run / ('intro-state.json' if args.command == 'dump-intro' else 'state.json')
     state = json.loads(state_path.read_text())
-    assert state['company'] == 'VNRevivalQA' and state['product'] == 'ForestRuRendererProbe', 'Unexpected QA identity in acknowledged dump'
+    expected = json.loads((run/'build.json').read_text())['saveIsolation']
+    assert expected['companyName']=='VNRevivalQA' and expected['productName'].startswith('ForestRu') and 'Probe' in expected['productName'], 'Expected identity is not isolated QA'
+    assert state['company'] == expected['companyName'] and state['product'] == expected['productName'], 'Unexpected QA identity in acknowledged dump'
     if args.snapshot:
         output = run / args.snapshot
         assert output.parent == run and not output.exists()
