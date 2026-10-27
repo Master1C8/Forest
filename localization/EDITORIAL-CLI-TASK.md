@@ -140,3 +140,40 @@ differ, so these observations are not a controlled same-input speed ratio. Per-I
 rationales/findings, full coverage and actual usage remain in the immutable jobs.
 The final startup prompt also gives the first exact read command before the brief,
 preventing task discovery before the worker has opened its instructions.
+
+## Owner-authorized continuation after proofreading
+
+On October27 the owner requested starting new localizations when the current
+proofreading finishes, retaining six parallel linguistic streams and the separate
+technical CLI. The existing editorial group's one-shot continuation is recorded at
+`outputs/editorial-20261027/continuation/plan.json`. Its observer reads job state only;
+it sends no model requests while the six initial readings are incomplete.
+
+A trigger requires all six supervisors to report their complete preliminary
+initial pass, exact canonical ID coverage, unchanged source/target/glossary pins
+and actual review/result hashes. Counters or an exited process alone cannot trigger.
+Historical interrupted attempts are retained. Source changes hold the observer
+instead of launching work on invalidated reviews. Submission intent is exclusive;
+a lost observer or unknown submission result must be reconciled, never duplicated.
+The observer and all later-read support/prompt files are frozen in its recipe.
+
+The trigger wakes one fresh explicitly pinned gpt-6.1-sol/high/OpenAI coordinator;
+it does NOT turn initial reading into finished editorial acceptance. The successor
+must preserve/adjudicate findings, apply accepted corrections and complete required
+independent dependency/delta checks before calling proofreading finished. It then
+takes the next eligible locales from the canonical catalog, with at most six
+linguistic streams. The requested next selection begins ko,fr,tr,pl,zh-TW,it and
+continues through the remaining23 not-started locales; verify official exclusions
+and canonical glossary review receipts before content work. This is a selection
+referencing the shared catalog, not a second locale catalog.
+
+Current source/feasibility gates remain unresolved, including the recorded
+massTranslationAllowed=false. New localization authorization permits useful static
+scope/prerequisite preparation, not false gate acceptance or mass translation before
+readiness. Reuse accepted glossary layers only with their actual versioned reviews;
+structural completeness is insufficient. No repeated unchanged model probes or
+model polling. A blocking source/renderer issue gets one exact resumable handoff.
+The owner's stopped game testing remains stopped; no GUI/runtime launch is granted.
+Technical-owned root checkpoint/docs, original install/saves and existing snapshots
+remain protected. Publication, deployment, server lifecycle and source-glossary
+changes retain their separate authorization requirements.
