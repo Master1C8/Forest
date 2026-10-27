@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "locale": "zh",
+  "recordedAt": "2026-10-27T06:19:05.193534+00:00",
+  "status": "preliminary-dialogue-corrections-verified-with-classified-source-context-holds",
+  "wholeGameAccepted": false,
+  "source": {
+    "family": "Dialogue Text/Menu Text only",
+    "candidateIds": 12246,
+    "physicalOccurrences": 24492,
+    "sha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+    "manifestSha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de"
+  },
+  "target": {
+    "path": "localization/zh-assets/dialogue.zh.jsonl",
+    "sha256": "e6f77d01699583c12125c7cabb1deab2ca059e2c164993656115eccaf4f8d0e8",
+    "changedIdsFromInitial": 81,
+    "firstBatchChangedIds": 79,
+    "finalBatchChangedIds": 2
+  },
+  "editorial": {
+    "initialSemanticIds": 12246,
+    "completeIndependentClosureIds": 2445,
+    "retainedCurrentIndependentIds": 2439,
+    "finalDeltaIds": 37,
+    "finalDeltaPasses": 37,
+    "newClosureIds": 2476,
+    "finalDeltaFindings": 0,
+    "separateNewContextNodesRead": 6,
+    "unchangedMandatoryRegressionReceiptsRetained": 155,
+    "finalNormalBuild": "passed after independent review; identical exact corpus SHA256",
+    "runtime": "not-run; owner stopped game testing"
+  },
+  "remainingGates": {
+    "checklist": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-repairs-v1/zh/acceptance-checklist.json",
+      "sha256": "b210fc3217e9f4399e02981c60416023400e8551f99bc9897d5fc1cbc753ce24"
+    },
+    "sourceContextHolds": 24,
+    "fullGameSourceInventory": "OPEN",
+    "protectedSourceGlossary": "OPEN",
+    "rendererResourcesRuntimeRelease": "OPEN/not-run",
+    "GitIntegration": "parent-only; not performed by worker"
+  },
+  "evidence": {
+    "archive": "localization/editorial-delivery/zh-cycle-02",
+    "indexSha256": "37fa8a3d5048b6bd3b0647a91e732b9bf68c9cb252f6e856832d22309328611a"
+  },
+  "usage": {
+    "finalRepair": {
+      "input_tokens": 3320516,
+      "cached_input_tokens": 3196800,
+      "output_tokens": 23180,
+      "reasoning_output_tokens": 4657,
+      "total_tokens": 3343696
+    },
+    "finalIndependentDelta": {
+      "input_tokens": 1673701,
+      "cached_input_tokens": 1565824,
+      "output_tokens": 10051,
+      "reasoning_output_tokens": 1910,
+      "total_tokens": 1683752
+    },
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "counting": "Measured complete requests. Cache subset of input and reasoning subset of output; source/global review usage is recorded separately."
+  },
+  "limits": "This accepts the completed preliminary correction work and exact final delta only. Source, glossary, full-game inventory, font-role, images, layout, runtime, packaging and release gates are not silently passed."
+}

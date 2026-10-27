@@ -1,0 +1,204 @@
+{
+  "cycle": "final-repairs-v1-zh",
+  "scope": "The Forest of Love 0.45 en→zh PRELIMINARY dialogue/Menu Text final repair cycle",
+  "changedCount": 2,
+  "closureCount": 2476,
+  "previousReviewedCount": 2445,
+  "newDependenciesCount": 31,
+  "explicitlyInvalidatedPriorCount": 4,
+  "deltaReviewCount": 37,
+  "retainedPriorCount": 2439,
+  "retiredDependenciesCount": 0,
+  "formula": "changed + (current closure - previous reviewed2445) + explicitly invalidated prior IDs",
+  "nontranslationContextCount": 290,
+  "newNontranslationContextCount": 6,
+  "components": {
+    "prior-reviewed-closure": {
+      "count": 2445,
+      "file": "prior-reviewed-closure-ids.txt",
+      "sha256": "9094629625244fdc7bfb109bc58b79f4eadc17273d6458d857b4d8c8ef30dddf"
+    },
+    "changed": {
+      "count": 2,
+      "file": "changed-ids.txt",
+      "sha256": "b0f6f7361717fdfad8c4cdd7b04562d245c8f65c66e119a7b3492ed1a03b9af8"
+    },
+    "containing-exchanges": {
+      "count": 103,
+      "file": "containing-exchanges-ids.txt",
+      "sha256": "7501d1c44f0eebbfce731dbabf9dfb5e2141920e8f534c17554b99d04e14d636"
+    },
+    "exact-normalized-repetitions": {
+      "count": 3,
+      "file": "exact-normalized-repetitions-ids.txt",
+      "sha256": "7400e8a1a63705dd7250a02e9e2b8857c1ed30275ef724bf0e7878bae9d68e8f"
+    },
+    "wording-concepts-referents": {
+      "count": 14,
+      "file": "wording-concepts-referents-ids.txt",
+      "sha256": "6d7d9908f0620a3f226c95335e1044a39585741352057935062b6f3cf0536c19"
+    },
+    "runtime-bindings-layout": {
+      "count": 38,
+      "file": "runtime-bindings-layout-ids.txt",
+      "sha256": "d9320b753d1ee7e4910bbc3d471b65c9ec8d4e68b576359d8f010da72f65aa47"
+    },
+    "supplement-context": {
+      "count": 61,
+      "file": "supplement-context-ids.txt",
+      "sha256": "d46c8c240c1431da384c024bdbc86e181c359d0059dd56be7ac2639d5286885f"
+    },
+    "mandatory-regressions": {
+      "count": 155,
+      "file": "mandatory-regressions-ids.txt",
+      "sha256": "d58d211d6f33b1c376f436e6159e93115e344570f0e4d122961b7db7ef325e0c"
+    }
+  },
+  "previousClosure": {
+    "path": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/zh/reviewed-closure-v2-ids.txt",
+    "sha256": "9094629625244fdc7bfb109bc58b79f4eadc17273d6458d857b4d8c8ef30dddf"
+  },
+  "newlineConvention": "UTF-8; physical LF with terminal LF; embedded source/target LF/CR preserved as JSON values",
+  "independentReview": "pending different fresh CLI; no new pass rows",
+  "selector": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-repairs-v1/zh/build_cycle.py",
+  "spec": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-repairs-v1/zh/closure-spec.json",
+  "bounds": "Selectors cover the pinned12246 dialogue/Menu Text candidates and serialized topology. External callers, poem collector joins, executable flight-counter convention, full-game source/image inventory, renderer and runtime remain unverified. Linked strings are serialized as ordered consumer fields, never claimed to be concatenated.",
+  "files": {
+    "prior-reviewed-closure-ids.txt": {
+      "sha256": "9094629625244fdc7bfb109bc58b79f4eadc17273d6458d857b4d8c8ef30dddf",
+      "bytes": 61250
+    },
+    "changed-ids.txt": {
+      "sha256": "b0f6f7361717fdfad8c4cdd7b04562d245c8f65c66e119a7b3492ed1a03b9af8",
+      "bytes": 49
+    },
+    "containing-exchanges-ids.txt": {
+      "sha256": "7501d1c44f0eebbfce731dbabf9dfb5e2141920e8f534c17554b99d04e14d636",
+      "bytes": 2551
+    },
+    "exact-normalized-repetitions-ids.txt": {
+      "sha256": "7400e8a1a63705dd7250a02e9e2b8857c1ed30275ef724bf0e7878bae9d68e8f",
+      "bytes": 74
+    },
+    "wording-concepts-referents-ids.txt": {
+      "sha256": "6d7d9908f0620a3f226c95335e1044a39585741352057935062b6f3cf0536c19",
+      "bytes": 347
+    },
+    "runtime-bindings-layout-ids.txt": {
+      "sha256": "d9320b753d1ee7e4910bbc3d471b65c9ec8d4e68b576359d8f010da72f65aa47",
+      "bytes": 934
+    },
+    "supplement-context-ids.txt": {
+      "sha256": "d46c8c240c1431da384c024bdbc86e181c359d0059dd56be7ac2639d5286885f",
+      "bytes": 1524
+    },
+    "mandatory-regressions-ids.txt": {
+      "sha256": "d58d211d6f33b1c376f436e6159e93115e344570f0e4d122961b7db7ef325e0c",
+      "bytes": 3814
+    },
+    "closure-ids.txt": {
+      "sha256": "d177e510fdf414680fa95ce24d42d1a8e454080cdc41b3f9643da7f076a49d49",
+      "bytes": 62015
+    },
+    "delta-review-ids.txt": {
+      "sha256": "ed4ec00b758ae2da539a223a7627c802cb72524cdb15b20527f20dc88e64e312",
+      "bytes": 912
+    },
+    "new-dependencies-ids.txt": {
+      "sha256": "3d7f219b3436e9a32f03ced17a5ce4212e372a4b9b9bb558e15948c454c53391",
+      "bytes": 765
+    },
+    "invalidated-prior-ids.txt": {
+      "sha256": "639ffc86af00202448726691acb27b2156dc44f678bef59d2db77ae087dc2f71",
+      "bytes": 98
+    },
+    "retained-prior-ids.txt": {
+      "sha256": "f13ccf4d9090e2870052f87027b41f0ce79f2e3c4ea84e4ff67e8f906db13fc0",
+      "bytes": 61103
+    },
+    "retired-dependencies-ids.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "retained-review-rows.jsonl": {
+      "sha256": "18668e5391d4b00b45df1bd545b22ffc6119bd1e4e91c66aeb753e18d9c8a9ab",
+      "bytes": 705359
+    },
+    "retained-read-receipts.jsonl": {
+      "sha256": "8f23e50a493b3c8184f5cb1cf1c3eb748e20c97a159f64333eb55294a7e46af0",
+      "bytes": 1430294
+    },
+    "retained-evidence-links.jsonl": {
+      "sha256": "cb7ff237e0d86c97b870c90c18fd92aa4c1cab540baaf0120513bcdd051a5dcd",
+      "bytes": 1351526
+    },
+    "retained-context-read-receipts.jsonl": {
+      "sha256": "f7547ff8321971f54641d887228153d7b29c46f5850342057943807d53794f7c",
+      "bytes": 50252
+    },
+    "retained-regression-review-rows.jsonl": {
+      "sha256": "96f1f88e15c67c5f49d43024daa5a9cc198934b9050d619306cafe46bcc799eb",
+      "bytes": 46546
+    },
+    "nontranslation-context.jsonl": {
+      "sha256": "75b2e05c5cc0d7a835e00a92829c2af4e7e31ead3273949c6935da0adf799e09",
+      "bytes": 494439
+    },
+    "new-nontranslation-context.jsonl": {
+      "sha256": "522b0e22c19a7c98cef2fae305d02d1ca1b465492dbda1b56704675975320ee7",
+      "bytes": 10182
+    },
+    "source-topology.jsonl": {
+      "sha256": "32828049b903cf827a1023a771bcba82e26ea9275e500634ccf242f3a1b2bf92",
+      "bytes": 1666309
+    },
+    "containing-arcs.json": {
+      "sha256": "e3b3a94bc05204b81f35867364383252bd32ff599e8a4d529b2166bc00b30853",
+      "bytes": 2391
+    },
+    "semantic-rule-hits.json": {
+      "sha256": "5b063114a0ae06f4952e393879d2e015aa3b16e5a68bde83a02c187af698ca94",
+      "bytes": 597
+    },
+    "delta-review-rows.jsonl": {
+      "sha256": "5b699c01fe6597afb26333efd6601ed43246e1c984603381de6cb4977bc69643",
+      "bytes": 54203
+    },
+    "closure-review-rows.jsonl": {
+      "sha256": "8d4c2644888625288fa0b6f5867bafdff0093a712f3383bed57d0f6804eea43c",
+      "bytes": 3950599
+    },
+    "changed-context-edges.json": {
+      "sha256": "5f396a411b7947e252da16f4b7b5f513122747b554e28d3795f6554e669a454a",
+      "bytes": 1002
+    },
+    "poem-branch-combinations.json": {
+      "sha256": "04813279b348348d57fe0381e77551f74433181207023e64031e148da10da091",
+      "bytes": 15888
+    },
+    "image-plan-inventory.json": {
+      "sha256": "1edbd9ce06a3ec9746eafa3120f83c20e77c8cda77340553c997a61b73845cf5",
+      "bytes": 135
+    },
+    "protected-value-comparison.jsonl": {
+      "sha256": "420b579213ae577044c22a0e6319723e81becb37881b35a86d3e620876d6e7ec",
+      "bytes": 2227001
+    },
+    "regression-validation.json": {
+      "sha256": "d11c325298e31f896ba66c1bdd92e53390ba035d8e7b19968f62e838f1114ecb",
+      "bytes": 1146
+    },
+    "prior-correction-preservation.json": {
+      "sha256": "4a92034719dfccc49d3cb199555d50d4423908ef469830a67b50a6ac088a5735",
+      "bytes": 2781
+    },
+    "input-fingerprints.json": {
+      "sha256": "a9968586a9b9497f615ac217246c0779c463fe4f4738ffdaf42527a0f5d404c7",
+      "bytes": 34955
+    },
+    "authored-derived-fingerprints.json": {
+      "sha256": "da8a82be8080875320aae5fdbe446de4b4c204bba2dd615f16de77b4175d928d",
+      "bytes": 37513
+    }
+  }
+}
