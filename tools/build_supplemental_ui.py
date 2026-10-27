@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / 'localization/source/bgdatabase-20261027'))
 from decode_inventory import parse, variable_cells
 from menu_supplement import PHRASES as MENU_PHRASES, source_addendum, render
 import item_supplement as items
+import notebook_supplement as notebook
 
 
 def sha(data):
@@ -142,7 +143,10 @@ def products():
     item_units,item_protected,item_pins=items.source_addendum(units)
     units+=item_units; protected.append(dict(sheetId='0BzeuogxqUOTnLWmTpBxVw',columns=item_protected,reason='All 16 unselected InventoryItem columns remain byte-exact'))
     pins.update(item_pins); phrase_sources+=items.PHRASES
-    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22 plus complete item notification repair; additive to the frozen dialogue inventory',
+    notebook_units,notebook_protected,notebook_pins=notebook.source_addendum(units)
+    units+=notebook_units;protected+=notebook_protected;pins.update(notebook_pins)
+    _,notebook_words=notebook.inputs()
+    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22 plus complete item notification and five-page notebook tutorial repairs; additive to the frozen dialogue inventory',
                    sourcePins=pins, phraseOrder=[dict(key=k, source=s) for k,s in phrase_sources], units=units,
                    preserveExactly=protected, processBinding=quest['processBinding'],
                    applicationContract={
@@ -151,6 +155,7 @@ def products():
                        'glitchNotification':'Branch1 uses the glitch prefab without invoking the Configure methods. Apply all six pinned serialized found-label values and preserve the six question marks and line break.',
                        'itemNotificationLayout':'Both normal and glitch controllers share sharedassets1 prefabs1284/1279. Wrap all12 TMP fields and constrain2 outer rects to210 units inside320-unit right-anchored groups with8-unit right padding, move their2 icon rects to reserve space, and stretch10 nested face/glow rects to matching widths; preserve fonts, sizes and stroke offsets. Validate each locale; see item-notifications-20261027/layout.json.',
                        'retainedWebsite':'TFoL.info is the exact website/domain identifier in six main-menu TMP fields, retained verbatim in every locale; website-consumer.il binds Application.OpenURL.',
+                       'notebook':'All156 TMP fields of the five-page GossipTutorialRedux15851 are selected. Preserve paired native action labels and all Image/Sprite artwork, including the English control identifiers cited by the translated instructions. Adapt title emphasis to the first target grapheme plus the complete approved Notebook term; preserve size22/36 syntax and exact CR/LF sequences. Use the existing complete-title variant on all five pages instead of English manually separated title segments (ten guarded GameObject active states). Apply common face-metric spacing compensation to all selected TMP layers;30 multiline face/glow child rects inherit the preferred height of their parent. No texture redraw.',
                        'items':'Patch the 96 pinned title/notification_phrase cells and eight display operands; preserve descriptions, IDs, enum/save keys, item ownership and all other columns. See item-notifications-20261027/inventory.json.',
                        'actor':'Patch only nameplate_name/full_name. Compare all unselected columns, null cells and full payload restoration as in russian_actor_names.py.',
                        'tutorial':'Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.',
@@ -163,7 +168,7 @@ def products():
                        'liveLanes':'Do not modify running briefs, immutable manifests, frozen 12246-ID dialogue inputs or prior dialogue-only receipts.'})
     files = {'source-catalog.json': encoded(catalog)}
     wording = json.loads((OUT / 'wording.json').read_text())
-    authored_pins = {'wording.json': sha((OUT / 'wording.json').read_bytes()), 'item-wording.json': sha((OUT/'item-wording.json').read_bytes())}
+    authored_pins = {'wording.json': sha((OUT / 'wording.json').read_bytes()), 'item-wording.json': sha((OUT/'item-wording.json').read_bytes()), 'notebook-wording.json': sha((OUT/'notebook-wording.json').read_bytes())}
     for path in sorted((OUT / 'wording').glob('*.json')):
         locale = path.stem
         assert locale not in wording, ('duplicate-authored-locale', locale)
@@ -183,7 +188,9 @@ def products():
         assert phrases['tutorial.bio_title'] == glossary['tfol-119']['term']
         records = []
         for unit in units:
-            if unit['family'] in ('item','item-code','item-prefab'):
+            if unit['family']=='notebook':
+                target=notebook.render(unit,notebook_words[locale],glossary)
+            elif unit['family'] in ('item','item-code','item-prefab'):
                 target=items.render(unit,phrases,glossary)
             elif unit['family'] != 'actor':
                 target = render(unit, phrases)
@@ -191,11 +198,12 @@ def products():
                 target = glossary[unit['glossaryId']]['term']
             else:
                 target = authored['shortNames'][unit['source']]
-            assert isinstance(target, str) and target and (target == target.strip(' \t\r') or unit.get('lineEnding')=='space' and target.endswith(' ') and target[:-1]==target[:-1].strip(' \t\r'))
+            assert isinstance(target, str) and target and (target == target.strip(' \t\r') or unit['family']=='notebook' and target.endswith(('\r','\n')) or unit.get('lineEnding')=='space' and target.endswith(' ') and target[:-1]==target[:-1].strip(' \t\r'))
             assert target.count('\n') == unit['source'].count('\n'), (locale,unit['id'],'line breaks')
             assert target.count('tfol.info') == unit['source'].count('tfol.info')
             assert sorted(re.findall(r'\{[0-9]+\}', target)) == sorted(re.findall(r'\{[0-9]+\}', unit['source']))
-            assert re.findall(r'</?size(?:=[0-9]+)?>', target) == re.findall(r'</?size(?:=[0-9]+)?>', unit['source'])
+            if unit['family']=='notebook':notebook.validate(unit,target,notebook_words[locale],glossary)
+            else:assert re.findall(r'</?size(?:=[0-9]+)?>', target) == re.findall(r'</?size(?:=[0-9]+)?>', unit['source'])
             if unit.get('phrase')=='item.plank':
                 assert target.endswith('<.<') and target.count('<.<')==unit['source'].count('<.<'), 'item-emoticon-preservation'
             if unit.get('formatArgs'):
@@ -205,8 +213,9 @@ def products():
                 native_no = locale in ('es', 'es-419', 'it') and unit.get('phrase') == 'report.no'
                 glossary_unchanged=unit['family']=='item' and 'glossaryId' in unit and target==glossary[unit['glossaryId']]['term']
                 plank_unchanged=locale=='nl' and unit.get('phrase')=='item.plank'
-                assert unit['family']=='actor' or native_no or glossary_unchanged or plank_unchanged, (locale, unit['id'], target)
-                record['unchangedReason'] = ('approved glossary term' if glossary_unchanged else 'Dutch word Plank and original emoticon' if plank_unchanged else 'approved proper name' if unit['family']=='actor' else
+                notebook_same=unit['family']=='notebook' and (unit['phrase']=='caption' or unit['phrase']=='title-first')
+                assert unit['family']=='actor' or native_no or glossary_unchanged or plank_unchanged or notebook_same, (locale, unit['id'], target)
+                record['unchangedReason'] = ('Native tutorial cognate or matching approved title grapheme' if notebook_same else 'approved glossary term' if glossary_unchanged else 'Dutch word Plank and original emoticon' if plank_unchanged else 'approved proper name' if unit['family']=='actor' else
                     'Spanish negative response is also No' if locale in ('es','es-419') else
                     'Italian negative response is also No')
             records.append(record)
@@ -217,6 +226,8 @@ def products():
         prior_item=(OUT/'history/items-before-glitch'/filename).read_bytes()
         assert len(prior_item.splitlines())==550 and files[filename].startswith(prior_item),('prior-item-104-drift',locale)
         assert len(prior.splitlines())==446 and files[filename].startswith(prior), ('prior-446-record-drift',locale)
+        old_notebook=(OUT/'history/before-notebook'/filename).read_bytes()
+        assert len(old_notebook.splitlines())==556 and files[filename].startswith(old_notebook),('prior-556-drift',locale)
         locale_receipts[locale] = dict(file=filename, sha256=sha(files[filename]), units=len(records),
                                        glossaryPath=str(glossary_path.relative_to(ROOT)), glossarySha256=sha(glossary_path.read_bytes()),
                                        direction='rtl' if locale in ('ar','fa','he') else 'ltr',

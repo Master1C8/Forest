@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "b9133e0bf95a6cf605db3d063363c08846ef68ddf7cea415c309254f4e546ddc",
+    "provenance:sourceManifest": "407767ebe4c0fa64c9d57b717b90006ecf84dabfc4b39a8d5bc684ad787d84e6",
+    "provenance:source:build": "12de8248dae4aa6928d14d748bb4e5356b5cf95f75be9250c917de60206a4ba7",
+    "provenance:source:runtime": "9aec599a68ab43550a7cebce19bf6ae40396c4e26d7cae18bad43bdd52660bf0",
+    "provenance:source:cleanup": "648b8c677aa18b2ebc8d0c737e000d64bf46cf72d3d4e819a47c5d766d70a313",
+    "provenance:source:preparation": "24e53f35139bbdfe7dae10c184c4d92dd9183d115097d2995924e78f855826a7",
+    "provenance:source:loaded": "6109b98780ba6c1bb64aa5174b4fad0cd146fe8176268514a8f56459a44cfb2c",
+    "provenance:source:expected": "be97ecb6ac818d0742e63a941cc2a4528774ccc69db9d78f5b6266f05b495487",
+    "provenance:source:backgroundStaging": "585b21d02b23c32318dca2aa1d868d94665f6b4b044c7afdbac88f5a17c26cf9",
+    "provenance:source:artworkPreservation": "2187c4ebce22ef2f9488b9c93b2fc49f0583b0908d60898f34c9394bd18b3bd2",
+    "provenance:source:crop": "76aaa47944c80b1a6a8c975f39f67e112bd7b7a294c7dde3e76df40766c73b15",
+    "provenance:source:context": "094ddf1ccaa01ed7f93c6c32ab4c8313a88670bc4475f384abae5cd2774cb1a2",
+    "provenance:source-image:ru-01-notebook-page-1.png": "7677d4322dcd49a958d6f2b0ac348baa0ab2bf7cd8b542d8c4ae451cea9d7e17",
+    "provenance:source-image:ru-02-notebook-page-2.png": "17f624e4b31362f811e06ade222b5d2cf449797fbfa5b15c44dee1a9ad7d55bc",
+    "provenance:source-image:ru-03-notebook-page-3.png": "8e75f199478544a3f6075a2c6ed8aad39ef4111384b82e579faec03054bac930",
+    "provenance:source-image:ru-04-notebook-page-4.png": "8733c7abeece474127902d694570c38d041652b54709382b4682ef0e23103bec",
+    "provenance:source-image:ru-05-notebook-page-5.png": "a6e3a230eb9be2d7c335a1d1b96c6725088c4c528c5ab5ff0550a0e017a7dc62",
+    "provenance:source-image:ru-06-page5-detail.webp": "79df7079fbd0f6d8c05067183914197368e3235bc9570a7a53cf0954f1ba81c6",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "116a1a55ae8dbe700c7cc5c4b2b9f3a718d60bb48ca4cb5c9c3020b831620b7a"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "7677d4322dcd49a958d6f2b0ac348baa0ab2bf7cd8b542d8c4ae451cea9d7e17.webp",
+      "sha256": "f2bab15f38e388d2468b667363fde900d549676331798ad932f0bc533209b4cf",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-27T18:04:32.935521+00:00",
+      "observations": "Inspected the entire supplied 1280×800 prepared frame, page 1. БЛОКНОТ reads as one complete word with ordinary spacing and a larger initial. Russian body text is readable, matches the authored introduction, and has clear line separation without clipping or overlap. Caption is correctly absent. No unexpected English, literal markup, added locale label or external overlay is visible. Only slot 0 was supplied; this receipt does not establish acceptance of pages 2–5 or the supplementary crop, nor native-pixel precision.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "17f624e4b31362f811e06ade222b5d2cf449797fbfa5b15c44dee1a9ad7d55bc.webp",
+      "sha256": "780f776896b28b4719a0c8ff7c293a63d8ac0221db4491fecb4004e8f0495adb",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-27T18:04:58.495263+00:00",
+      "observations": "Reviewed the entire supplied 1280×800 prepared frame, tutorial page 2. The complete БЛОКНОТ title reads as one word with ordinary spacing and a larger initial. Caption and both Russian instruction blocks are readable, match the authored text, and show no clipping, overlap, missing spaces or literal markup. Retained GOSSIP artwork, L/R prompts and TALK/GOSSIP body identifiers are authorized source literals. No added locale label or external overlay is visible. This receipt covers only the supplied page 2 frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "8e75f199478544a3f6075a2c6ed8aad39ef4111384b82e579faec03054bac930.webp",
+      "sha256": "91bff59f4b1997a72252277491a9165df9c34166e37d73eb1b09befe45d668e9",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-10-27T18:05:26.232716+00:00",
+      "observations": "Reviewed the entire supplied 1280×800 prepared frame, page 3. «БЛОКНОТ» is complete with ordinary spacing and a larger initial; «(Обучение)» and both Russian paragraphs are readable and match the authored text. No clipping, overlapping lines, missing glyphs, literal markup or added overlays observed. Intentional body identifier GOSSIP is preserved. Exempt source artwork retains Gossip, What's up?, NEW, You mentioned your Husband!, What did you mean by “naughty farming”?, What's your favorite position?, What's the kinkiest thing you've done?, ??? and Continue. Acceptance is limited to this prepared native-bound frame; no other pages or runtime scenarios were supplied for inspection.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 4,
+      "direction": "ltr",
+      "filename": "8733c7abeece474127902d694570c38d041652b54709382b4682ef0e23103bec.webp",
+      "sha256": "850f6cca9e0bf2c6552e21246683f6da2c444c87c87b9779aea6d203ec2abaee",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-10-27T18:05:53.486634+00:00",
+      "observations": "Reviewed the entire supplied 1280×800 prepared frame, page 4. БЛОКНОТ reads as one complete word with ordinary spacing and a larger initial. Caption (Обучение) and all three Russian body lines are readable, match the authored quest instructions, and show no clipping or overlap. Retained artwork includes Continue and baked English quest examples such as ACTIVE, COMPLETED and The Perfect \"Fit\". The illustration’s lower rows intentionally fade into transparency under the documented source-art exception. No overlays or added locale labels are visible. Acceptance covers this supplied frame only.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 5,
+      "direction": "ltr",
+      "filename": "a6e3a230eb9be2d7c335a1d1b96c6725088c4c528c5ab5ff0550a0e017a7dc62.webp",
+      "sha256": "4c77ba7c648c8187b02025e7f40f7c90db57a1807b1b7e45b9a5ce4b93fce7fe",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-27T18:08:17.617334+00:00",
+      "observations": "Reviewed the entire page5 prepared frame at 1280×800, SHA-256 4c77ba7c648c8187b02025e7f40f7c90db57a1807b1b7e45b9a5ce4b93fce7fe, together with its supplied detail crop. БЛОКНОТ reads as one complete word with ordinary spacing and the larger initial. Caption (Обучение) and both Russian paragraphs are readable, match the authored text, and show no clipping, overlap, missing spaces or broken glyphs. No added locale label or unrelated overlay is visible. Continue and the illustration’s baked English are declared preserved artwork. The lower illustration intentionally fades into transparency; the supplied crop resolves the previously missing evidence. Acceptance covers these supplied page5 images only.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "79df7079fbd0f6d8c05067183914197368e3235bc9570a7a53cf0954f1ba81c6.webp",
+      "sha256": "0dc6ca830c9b8184dc053713fdbab9b2e4effc84a21ec9ad1d4c9b588405f018",
+      "width": 620,
+      "height": 292,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-27T18:08:17.617367+00:00",
+      "observations": "Reviewed the complete 620×292 supplementary image, SHA-256 0dc6ca830c9b8184dc053713fdbab9b2e4effc84a21ec9ad1d4c9b588405f018, declared as page5 native crop X140 Y344 WIDTH620 HEIGHT292 without upscaling. Visible retained artwork includes Residents, Scarlet TenderPaw, Bunny, Middle Aged, Gardener, Notes, Mother, Kinks, Scarlett, Barnaby, Charlotte, Mabel and question-mark placeholders. The bottom rows progressively disappear into the declared source alpha fade; this is consistent with the full frame and presents no additional defect. This crop contains no Russian text or RTL content and is supplementary evidence, not another page.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

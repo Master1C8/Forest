@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "sourceLanguage": "en",
-  "scope": "All screenshot omissions through 2026-10-27 20:22 plus complete item notification repair; additive to the frozen dialogue inventory",
+  "scope": "All screenshot omissions through 2026-10-27 20:22 plus complete item notification and five-page notebook tutorial repairs; additive to the frozen dialogue inventory",
   "sourcePins": {
     "localization/previews/ru-20261027-settings-fix/build.json": "b947226767d4595cd3c50102f438c1ef2fa22d6ed9135ba42417b1aec6401783",
     "localization/source/bug-report-ui-20261027/inventory.json": "dd7e3382ef8c2e0a3ef59106d7ed3c550a2e14e3fff34cdd0f202acf12cc48f3",
@@ -35,7 +35,15 @@
     "localization/source/item-notifications-20261027/width-providers.json": "15f95d9248a26171950dced9663f539c7eeb0532d87180510f2d59335486b03f",
     "localization/source/item-notifications-20261027/placement.json": "63aefe45b319bc1c277131af3bd587b5ed051fa4d9f78a2fe9a7f2c9b2347a63",
     "tools/item_notification_layout.py": "a5743e0df47568744e732ef5266398465c043aa1cbf1913b5d0d759f8d3743d9",
-    "tools/inspect_item_notification_layout.py": "ae7b2bf2f30a99ebdecfe52fb480fd31dd78ad722b5eb179c910a64134addbaf"
+    "tools/inspect_item_notification_layout.py": "ae7b2bf2f30a99ebdecfe52fb480fd31dd78ad722b5eb179c910a64134addbaf",
+    "localization/source/notebook-tutorial-ui-20261027/inventory.json": "68f5d03c2683aaf96d2feeaf0915cb7bb6d0eec18cdb243a81f0b36a81fa96dd",
+    "localization/source/notebook-tutorial-ui-20261027/layout.json": "ba8000d39f6eb78470470c4fada21e7577d23188583ef45b5fb1b9939ee07ca7",
+    "localization/source/notebook-tutorial-ui-20261027/paged-consumers.il": "03c32e6b6e2fc8bbc3706cb6c370ba48376038152336cf5dc457ae2993423597",
+    "localization/source/notebook-tutorial-ui-20261027/consumer.il": "f70b4f708a32648e0b7fe3a90d56b56a1f6be99be0619c495db31c9973d1fc2f",
+    "localization/source/notebook-tutorial-ui-20261027/artwork-bindings.json": "0afceb16ee276baa5c8ed12a6179377f579a1c32a355ec586b811f601af566a9",
+    "tools/notebook_supplement.py": "c98d083e3d887245b92325b58f19f42223e083d86e6a319458ef469f0bce0dd9",
+    "tools/inspect_notebook_tutorial.py": "4fe5b77d97828df364693e8958e34ad5d2e174605e48522dfa901beee091a985",
+    "tools/russian_notebook_ui.py": "a0b20fe6c5b5231997c1f7842003502469230fab7517cef0d3a5158af475a7a4"
   },
   "phraseOrder": [
     {
@@ -4771,6 +4779,1512 @@
       "context": "Glitch notification branch1 skips Configure methods; these six serialized TMP values are displayed directly",
       "pathId": 1290,
       "prefab": 1279
+    },
+    {
+      "id": "sharedassets2.assets:18054/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (2)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15846/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (2)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17738/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (2)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15786/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (2)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16497/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (2)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15308/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (2)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15673/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (3)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15422/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (3)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14630/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (3)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15626/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (3)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16271/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (3)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17127/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/TitleWKerning/Title (3)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16621/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-small",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title (1)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18780/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-small",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title (1)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18017/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-small",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title (1)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17879/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-small",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title (1)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14907/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-small",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title (1)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15363/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-small",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title (1)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17327/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16924/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14738/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16376/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15743/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15505/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page1/Title/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17448/m_text",
+      "family": "notebook",
+      "source": "You've obtained The Notebook!\nYou now have access to the Critter Log, the Quest Log, and Gossiping with Critters!",
+      "phrase": "intro",
+      "lineEndings": [
+        "\n"
+      ],
+      "context": "GossipTutorialRedux/Page1/NameContainer",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16431/m_text",
+      "family": "notebook",
+      "source": "You've obtained The Notebook!\nYou now have access to the Critter Log, the Quest Log, and Gossiping with Critters!",
+      "phrase": "intro",
+      "lineEndings": [
+        "\n"
+      ],
+      "context": "GossipTutorialRedux/Page1/NameContainer/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14053/m_text",
+      "family": "notebook",
+      "source": "You've obtained The Notebook!\nYou now have access to the Critter Log, the Quest Log, and Gossiping with Critters!",
+      "phrase": "intro",
+      "lineEndings": [
+        "\n"
+      ],
+      "context": "GossipTutorialRedux/Page1/NameContainer/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18415/m_text",
+      "family": "notebook",
+      "source": "You've obtained The Notebook!\nYou now have access to the Critter Log, the Quest Log, and Gossiping with Critters!",
+      "phrase": "intro",
+      "lineEndings": [
+        "\n"
+      ],
+      "context": "GossipTutorialRedux/Page1/NameContainer/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18144/m_text",
+      "family": "notebook",
+      "source": "You've obtained The Notebook!\nYou now have access to the Critter Log, the Quest Log, and Gossiping with Critters!",
+      "phrase": "intro",
+      "lineEndings": [
+        "\n"
+      ],
+      "context": "GossipTutorialRedux/Page1/NameContainer/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15003/m_text",
+      "family": "notebook",
+      "source": "You've obtained The Notebook!\nYou now have access to the Critter Log, the Quest Log, and Gossiping with Critters!",
+      "phrase": "intro",
+      "lineEndings": [
+        "\n"
+      ],
+      "context": "GossipTutorialRedux/Page1/NameContainer/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18177/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (2)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16371/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (2)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15461/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (2)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15360/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (2)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17320/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (2)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18190/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (2)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17007/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (3)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17138/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (3)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17100/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (3)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14652/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (3)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18072/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (3)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17943/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/TitleWKerning/Title (3)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17906/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Title",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17221/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Title/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14987/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Title/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18825/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Title/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14336/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Title/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15029/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Title/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18213/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Caption",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14003/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Caption/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14986/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Caption/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14353/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Caption/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14265/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Caption/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17764/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page2/Caption/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16503/m_text",
+      "family": "notebook",
+      "source": "The Critters of the forest love to talk!\r\nToggle the GOSSIP button and see what they have to say!",
+      "phrase": "switch",
+      "lineEndings": [
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17732/m_text",
+      "family": "notebook",
+      "source": "The Critters of the forest love to talk!\r\nToggle the GOSSIP button and see what they have to say!",
+      "phrase": "switch",
+      "lineEndings": [
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16816/m_text",
+      "family": "notebook",
+      "source": "The Critters of the forest love to talk!\r\nToggle the GOSSIP button and see what they have to say!",
+      "phrase": "switch",
+      "lineEndings": [
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16382/m_text",
+      "family": "notebook",
+      "source": "The Critters of the forest love to talk!\r\nToggle the GOSSIP button and see what they have to say!",
+      "phrase": "switch",
+      "lineEndings": [
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14192/m_text",
+      "family": "notebook",
+      "source": "The Critters of the forest love to talk!\r\nToggle the GOSSIP button and see what they have to say!",
+      "phrase": "switch",
+      "lineEndings": [
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14057/m_text",
+      "family": "notebook",
+      "source": "The Critters of the forest love to talk!\r\nToggle the GOSSIP button and see what they have to say!",
+      "phrase": "switch",
+      "lineEndings": [
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17741/m_text",
+      "family": "notebook",
+      "source": "The TALK button is for quests and general interactions.\r\nGOSSIP will bring up its own UI for more specific information!\r\n",
+      "phrase": "talk",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer (1)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17035/m_text",
+      "family": "notebook",
+      "source": "The TALK button is for quests and general interactions.\r\nGOSSIP will bring up its own UI for more specific information!\r\n",
+      "phrase": "talk",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer (1)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18355/m_text",
+      "family": "notebook",
+      "source": "The TALK button is for quests and general interactions.\r\nGOSSIP will bring up its own UI for more specific information!\r\n",
+      "phrase": "talk",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer (1)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16782/m_text",
+      "family": "notebook",
+      "source": "The TALK button is for quests and general interactions.\r\nGOSSIP will bring up its own UI for more specific information!\r\n",
+      "phrase": "talk",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer (1)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17623/m_text",
+      "family": "notebook",
+      "source": "The TALK button is for quests and general interactions.\r\nGOSSIP will bring up its own UI for more specific information!\r\n",
+      "phrase": "talk",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer (1)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17135/m_text",
+      "family": "notebook",
+      "source": "The TALK button is for quests and general interactions.\r\nGOSSIP will bring up its own UI for more specific information!\r\n",
+      "phrase": "talk",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page2/NameContainer (1)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18120/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (2)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17117/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (2)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17421/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (2)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17118/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (2)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15302/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (2)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17014/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (2)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18482/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (3)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15364/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (3)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18686/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (3)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16824/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (3)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14063/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (3)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17573/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/TitleWKerning/Title (3)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16334/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Title",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17707/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Title/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15320/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Title/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15303/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Title/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18466/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Title/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18790/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Title/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14372/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Caption",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17671/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Caption/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16651/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Caption/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18418/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Caption/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18411/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Caption/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16253/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page3/Caption/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17191/m_text",
+      "family": "notebook",
+      "source": "GOSSIP will reveal a lot about the critters. There may be some hidden quests and scenes unlocked this way too!\r\n\r\nOver time, more options will be available. Be sure to check back often!\r",
+      "phrase": "details",
+      "lineEndings": [
+        "\r\n",
+        "\r\n",
+        "\r"
+      ],
+      "context": "GossipTutorialRedux/Page3/NameContainer",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16548/m_text",
+      "family": "notebook",
+      "source": "GOSSIP will reveal a lot about the critters. There may be some hidden quests and scenes unlocked this way too!\r\n\r\nOver time, more options will be available. Be sure to check back often!\r",
+      "phrase": "details",
+      "lineEndings": [
+        "\r\n",
+        "\r\n",
+        "\r"
+      ],
+      "context": "GossipTutorialRedux/Page3/NameContainer/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17639/m_text",
+      "family": "notebook",
+      "source": "GOSSIP will reveal a lot about the critters. There may be some hidden quests and scenes unlocked this way too!\r\n\r\nOver time, more options will be available. Be sure to check back often!\r",
+      "phrase": "details",
+      "lineEndings": [
+        "\r\n",
+        "\r\n",
+        "\r"
+      ],
+      "context": "GossipTutorialRedux/Page3/NameContainer/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16805/m_text",
+      "family": "notebook",
+      "source": "GOSSIP will reveal a lot about the critters. There may be some hidden quests and scenes unlocked this way too!\r\n\r\nOver time, more options will be available. Be sure to check back often!\r",
+      "phrase": "details",
+      "lineEndings": [
+        "\r\n",
+        "\r\n",
+        "\r"
+      ],
+      "context": "GossipTutorialRedux/Page3/NameContainer/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14395/m_text",
+      "family": "notebook",
+      "source": "GOSSIP will reveal a lot about the critters. There may be some hidden quests and scenes unlocked this way too!\r\n\r\nOver time, more options will be available. Be sure to check back often!\r",
+      "phrase": "details",
+      "lineEndings": [
+        "\r\n",
+        "\r\n",
+        "\r"
+      ],
+      "context": "GossipTutorialRedux/Page3/NameContainer/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18246/m_text",
+      "family": "notebook",
+      "source": "GOSSIP will reveal a lot about the critters. There may be some hidden quests and scenes unlocked this way too!\r\n\r\nOver time, more options will be available. Be sure to check back often!\r",
+      "phrase": "details",
+      "lineEndings": [
+        "\r\n",
+        "\r\n",
+        "\r"
+      ],
+      "context": "GossipTutorialRedux/Page3/NameContainer/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17967/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (2)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17078/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (2)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17039/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (2)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15831/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (2)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15279/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (2)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15306/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (2)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17698/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (3)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15565/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (3)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18510/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (3)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15435/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (3)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15273/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (3)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15538/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/TitleWKerning/Title (3)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14923/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Title",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17080/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Title/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14037/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Title/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14670/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Title/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14890/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Title/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17987/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Title/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18787/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Caption",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18363/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Caption/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14447/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Caption/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14006/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Caption/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16847/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Caption/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16410/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page4/Caption/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14440/m_text",
+      "family": "notebook",
+      "source": "All of your current and finished quests will be stored in the Quest Log!\r\nYou can select a quest and it’ll be tracked \r\non the top-left of the screen!",
+      "phrase": "quests",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page4/NameContainer",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15815/m_text",
+      "family": "notebook",
+      "source": "All of your current and finished quests will be stored in the Quest Log!\r\nYou can select a quest and it’ll be tracked \r\non the top-left of the screen!",
+      "phrase": "quests",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page4/NameContainer/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14154/m_text",
+      "family": "notebook",
+      "source": "All of your current and finished quests will be stored in the Quest Log!\r\nYou can select a quest and it’ll be tracked \r\non the top-left of the screen!",
+      "phrase": "quests",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page4/NameContainer/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15264/m_text",
+      "family": "notebook",
+      "source": "All of your current and finished quests will be stored in the Quest Log!\r\nYou can select a quest and it’ll be tracked \r\non the top-left of the screen!",
+      "phrase": "quests",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page4/NameContainer/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18807/m_text",
+      "family": "notebook",
+      "source": "All of your current and finished quests will be stored in the Quest Log!\r\nYou can select a quest and it’ll be tracked \r\non the top-left of the screen!",
+      "phrase": "quests",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page4/NameContainer/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18027/m_text",
+      "family": "notebook",
+      "source": "All of your current and finished quests will be stored in the Quest Log!\r\nYou can select a quest and it’ll be tracked \r\non the top-left of the screen!",
+      "phrase": "quests",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page4/NameContainer/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17443/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (2)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17371/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (2)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15229/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (2)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16393/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (2)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14850/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (2)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17204/m_text",
+      "family": "notebook",
+      "source": "<size=22>T</size>",
+      "phrase": "title-first",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (2)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16636/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (3)",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15559/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (3)/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16873/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (3)/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14123/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (3)/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18659/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (3)/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14768/m_text",
+      "family": "notebook",
+      "source": "HE <size=22>N</size>OTEBOOK",
+      "phrase": "title-rest",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/TitleWKerning/Title (3)/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14552/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Title",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17915/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Title/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18198/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Title/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16501/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Title/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17425/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Title/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16771/m_text",
+      "family": "notebook",
+      "source": "<size=36>T</size>HE <size=36>N</size>OTEBOOK",
+      "phrase": "title-large",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Title/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16441/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Caption",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14051/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Caption/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16351/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Caption/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16466/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Caption/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17029/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Caption/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14187/m_text",
+      "family": "notebook",
+      "source": "(Tutorial)",
+      "phrase": "caption",
+      "lineEndings": [],
+      "context": "GossipTutorialRedux/Page5/Caption/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:17930/m_text",
+      "family": "notebook",
+      "source": "As you meet more and more critters, their information will be jotted down in the Critter Log!\r\n\r\nLots of details are hidden. Talk with the critters and explore the world to reveal them!",
+      "phrase": "critters",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page5/NameContainer",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:18796/m_text",
+      "family": "notebook",
+      "source": "As you meet more and more critters, their information will be jotted down in the Critter Log!\r\n\r\nLots of details are hidden. Talk with the critters and explore the world to reveal them!",
+      "phrase": "critters",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page5/NameContainer/NameGlowLeft",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16985/m_text",
+      "family": "notebook",
+      "source": "As you meet more and more critters, their information will be jotted down in the Critter Log!\r\n\r\nLots of details are hidden. Talk with the critters and explore the world to reveal them!",
+      "phrase": "critters",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page5/NameContainer/NameGlowLeft/NameGlowRight",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:16481/m_text",
+      "family": "notebook",
+      "source": "As you meet more and more critters, their information will be jotted down in the Critter Log!\r\n\r\nLots of details are hidden. Talk with the critters and explore the world to reveal them!",
+      "phrase": "critters",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page5/NameContainer/NameGlowLeft/NameGlowTop",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:14489/m_text",
+      "family": "notebook",
+      "source": "As you meet more and more critters, their information will be jotted down in the Critter Log!\r\n\r\nLots of details are hidden. Talk with the critters and explore the world to reveal them!",
+      "phrase": "critters",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page5/NameContainer/NameGlowLeft/NameGlowBottom",
+      "kind": "TextMeshProUGUI"
+    },
+    {
+      "id": "sharedassets2.assets:15735/m_text",
+      "family": "notebook",
+      "source": "As you meet more and more critters, their information will be jotted down in the Critter Log!\r\n\r\nLots of details are hidden. Talk with the critters and explore the world to reveal them!",
+      "phrase": "critters",
+      "lineEndings": [
+        "\r\n",
+        "\r\n"
+      ],
+      "context": "GossipTutorialRedux/Page5/NameContainer/NameGlowLeft/Name",
+      "kind": "TextMeshProUGUI"
     }
   ],
   "preserveExactly": [
@@ -6119,6 +7633,156 @@
         }
       ],
       "reason": "All 16 unselected InventoryItem columns remain byte-exact"
+    },
+    {
+      "id": "sharedassets2.assets:15250/m_Text",
+      "expected": "Talk",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:17021/m_Text",
+      "expected": "Talk",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16414/m_Text",
+      "expected": "Talk",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:18658/m_Text",
+      "expected": "Talk",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:17105/m_Text",
+      "expected": "Talk",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14122/m_Text",
+      "expected": "Talk",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14448/m_Text",
+      "expected": "Tell Me More",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14059/m_Text",
+      "expected": "Tell Me More",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16576/m_Text",
+      "expected": "Tell Me More",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:18689/m_Text",
+      "expected": "Tell Me More",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:17938/m_Text",
+      "expected": "Tell Me More",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16912/m_Text",
+      "expected": "Tell Me More",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:15789/m_Text",
+      "expected": "(This critter has more to say!)",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16710/m_Text",
+      "expected": "(This critter has more to say!)",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:17323/m_Text",
+      "expected": "(This critter has more to say!)",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:17177/m_Text",
+      "expected": "(This critter has more to say!)",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:15813/m_Text",
+      "expected": "(This critter has more to say!)",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:18432/m_Text",
+      "expected": "(This critter has more to say!)",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14232/m_Text",
+      "expected": "Gossip",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16741/m_Text",
+      "expected": "Gossip",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16844/m_Text",
+      "expected": "Gossip",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:18684/m_Text",
+      "expected": "Gossip",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14525/m_Text",
+      "expected": "Gossip",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:16375/m_Text",
+      "expected": "Gossip",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14068/m_Text",
+      "expected": "Examine",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:17026/m_Text",
+      "expected": "Examine",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14883/m_Text",
+      "expected": "Examine",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14761/m_Text",
+      "expected": "Examine",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14491/m_Text",
+      "expected": "Examine",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
+    },
+    {
+      "id": "sharedassets2.assets:14494/m_Text",
+      "expected": "Examine",
+      "reason": "report-only paired legacy label; visible action name is a preserved sprite"
     }
   ],
   "processBinding": {
@@ -6145,6 +7809,7 @@
     "glitchNotification": "Branch1 uses the glitch prefab without invoking the Configure methods. Apply all six pinned serialized found-label values and preserve the six question marks and line break.",
     "itemNotificationLayout": "Both normal and glitch controllers share sharedassets1 prefabs1284/1279. Wrap all12 TMP fields and constrain2 outer rects to210 units inside320-unit right-anchored groups with8-unit right padding, move their2 icon rects to reserve space, and stretch10 nested face/glow rects to matching widths; preserve fonts, sizes and stroke offsets. Validate each locale; see item-notifications-20261027/layout.json.",
     "retainedWebsite": "TFoL.info is the exact website/domain identifier in six main-menu TMP fields, retained verbatim in every locale; website-consumer.il binds Application.OpenURL.",
+    "notebook": "All156 TMP fields of the five-page GossipTutorialRedux15851 are selected. Preserve paired native action labels and all Image/Sprite artwork, including the English control identifiers cited by the translated instructions. Adapt title emphasis to the first target grapheme plus the complete approved Notebook term; preserve size22/36 syntax and exact CR/LF sequences. Use the existing complete-title variant on all five pages instead of English manually separated title segments (ten guarded GameObject active states). Apply common face-metric spacing compensation to all selected TMP layers;30 multiline face/glow child rects inherit the preferred height of their parent. No texture redraw.",
     "items": "Patch the 96 pinned title/notification_phrase cells and eight display operands; preserve descriptions, IDs, enum/save keys, item ownership and all other columns. See item-notifications-20261027/inventory.json.",
     "actor": "Patch only nameplate_name/full_name. Compare all unselected columns, null cells and full payload restoration as in russian_actor_names.py.",
     "tutorial": "Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.",

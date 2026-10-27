@@ -36,8 +36,8 @@ class ItemTests(unittest.TestCase):
   folder=ROOT/'localization/supplemental-ui/20261027';scope=json.loads((folder/'locale-scope.json').read_text());inv,_=item.load_inputs()
   for locale in scope['targetLocales']:
    raw=(folder/(locale+'.jsonl')).read_bytes();old=(folder/'history/thirty-locales-before-items'/(locale+'.jsonl')).read_bytes()
-   self.assertTrue(raw.startswith(old),locale);records=[json.loads(x) for x in raw.splitlines()];self.assertEqual(len(records),556)
-   tail={r['id']:r for r in records[446:]};gloss=json.loads((ROOT/f'localization/glossary/{locale}.json').read_text())
+   self.assertTrue(raw.startswith(old),locale);records=[json.loads(x) for x in raw.splitlines()];self.assertEqual(len(records),712)
+   tail={r['id']:r for r in records[446:556]};gloss=json.loads((ROOT/f'localization/glossary/{locale}.json').read_text())
    self.assertEqual(set(tail),{u['id'] for u in inv['units']})
    for u in inv['units']:
     if 'glossaryId' in u:self.assertEqual(tail[u['id']]['target'],gloss[u['glossaryId']]['term'],(locale,u['id']))

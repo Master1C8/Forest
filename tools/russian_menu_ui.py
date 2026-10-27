@@ -30,7 +30,7 @@ def load_inputs():
         assert sha(SOURCE/'menu-inventory.json') == '128a0cdec222e929d7217ec9520674c7f8c025febaf3d5bd1963f0e936173f08'
         records = [json.loads(line) for line in (PACKET/'ru.jsonl').read_text().splitlines()]
     targets = {r['id']:r for r in records}
-    assert len(targets)==len(records) and len(records) in (446,550,556)
+    assert len(targets)==len(records) and len(records) in (446,550,556,712)
     return inventory, targets
 
 

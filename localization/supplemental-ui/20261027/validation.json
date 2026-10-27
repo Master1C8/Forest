@@ -5,10 +5,15 @@
     "actualModel": "gpt-6.1-sol",
     "reasoning": "high",
     "additionalModelWorkersLaunched": 12,
-    "workerScope": "Prior twelve menu image-review workers retained in history; item visual review is separately measured in its source validation. No translation model, Astra or worker default used."
+    "workerScope": "Prior twelve menu image-review workers retained in history; item visual review is separately measured in its source validation. No translation model, Astra or worker default used.",
+    "notebookReviewWorkersLaunched": 12,
+    "notebookReviewUsage": {
+      "path": "localization/source/notebook-tutorial-ui-20261027/review-usage.json",
+      "sha256": "ffb00b32645da3aa4d3be70063a1dd81e31f69ab73ca0889e5e3a2fb2a3ea354"
+    }
   },
   "supplement": {
-    "sourceCatalogSha256": "c62005eb741d3ffc15a8c3da9d0c8228193c1cdb3fd1632cce219689b45acf50",
+    "sourceCatalogSha256": "dfb90b8ea14aee610a02a842d5c4591f18a539329e54bb8e00827bf6dc370616",
     "localeScopeSha256": "6b46f9603b35bd414824448e851e120f6f4792eb297e10ee4a842e1a77e58eda",
     "locales": [
       "zh",
@@ -43,8 +48,8 @@
       "he"
     ],
     "localeCount": 30,
-    "fieldsPerLocale": 556,
-    "targets": 16680,
+    "fieldsPerLocale": 712,
+    "targets": 21360,
     "completeGeneratedFileComparison": "passed",
     "russianActorAndTutorialTargetsMatchExistingRepairPlans": 52,
     "importedGlossaries": 23,
@@ -58,16 +63,19 @@
     "runtime": "not-run",
     "visual": "not-run",
     "wholeGameAccepted": false,
-    "manifestSha256": "ae2c2bd001d0cb2e1fec4740e015f247baecd7c2011f41f930a5f883ca2bc960",
+    "manifestSha256": "fe1799a2534f004e6bec27dccfbb7ee006283f3d4c47ae50d14dea7739c779a5",
     "authorFindingsSha256": "45e9e9c155747ce44c0c386fe876016c238fd4d80a927e491e8f1c08d0367376",
     "prior212RecordsRetainedByteExactlyPerLocale": true,
-    "appendedSourceUnitsPerLocale": 344,
-    "runtimeAndVisualScope": "Separate bounded Russian menu and item repair receipts only; no 30-locale runtime acceptance",
+    "appendedSourceUnitsPerLocale": 500,
+    "runtimeAndVisualScope": "Separate bounded Russian menu,item and five-page Notebook receipts only;no30-locale runtime acceptance",
     "russianRepairValidation": "localization/source/menu-remaining-ui-20261027/validation.json",
-    "sourceInventoryChange": "Append-only110 item units after446; previous446 and intermediate550 records retained as byte-exact prefixes",
+    "sourceInventoryChange": "Append-only156 Notebook fields after556;prior556/550/446/212 records remain byte-exact prefixes",
     "prior446RecordsRetainedByteExactlyPerLocale": true,
     "appendedItemSourceUnitsPerLocale": 110,
-    "russianItemRepairValidation": "localization/source/item-notifications-20261027/validation.json"
+    "russianItemRepairValidation": "localization/source/item-notifications-20261027/validation.json",
+    "prior556RecordsRetainedByteExactlyPerLocale": true,
+    "appendedNotebookSourceUnitsPerLocale": 156,
+    "russianNotebookRepairValidation": "localization/source/notebook-tutorial-ui-20261027/validation.json"
   },
   "preservation": {
     "priorValidation": "history/six-locales-validation.json",
@@ -100,6 +108,25 @@
     "validation": {
       "path": "localization/source/item-notifications-20261027/validation.json",
       "sha256": "52f91ec1e83252a4e131d6c6ef160326a8445bbb8a979f05b699e1981e45465f"
+    }
+  },
+  "notebookRepair": {
+    "sourceUnits": 156,
+    "pages": 5,
+    "protectedNativeLabels": 30,
+    "stretchedChildRects": 30,
+    "existingTitleVariantActiveStates": 10,
+    "allThirtyPrefixesPreserved": true,
+    "independentEditorial": "pending",
+    "russianRuntime": "passed;156 fields/all5 pages;live award,input and save continuation unexercised",
+    "russianNativeVisual": "passed;5 frames+1 detail;all prior findings preserved",
+    "artifact": {
+      "path": "localization/previews/ru-20261028-notebook-final/build.json",
+      "sha256": "12de8248dae4aa6928d14d748bb4e5356b5cf95f75be9250c917de60206a4ba7"
+    },
+    "validation": {
+      "path": "localization/source/notebook-tutorial-ui-20261027/validation.json",
+      "sha256": "8232861c7627aa4d014810b77e38c6562ae354a0c72b77253aae613549ae78ec"
     }
   }
 }

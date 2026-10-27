@@ -23,6 +23,7 @@ from russian_quest_ui import project_quest_display
 from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
 from russian_item_ui import project_item_display, snapshot as snapshot_items, patch_items
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
+from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -91,7 +92,7 @@ def main():
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
     assert (SOURCE / DATA_NAME / 'Managed/Assembly-CSharp.dll').is_file()
     expected = json.loads((INPUT_ROOT / 'assets/source-v2/source-files.json').read_text())
-    required = ['globalgamemanagers', 'resources.assets', 'level1', 'level5', 'level6', 'sharedassets0.assets', 'sharedassets1.assets', BUNDLE]
+    required = ['globalgamemanagers', 'resources.assets', 'level1', 'level5', 'level6', 'sharedassets0.assets', 'sharedassets1.assets', 'sharedassets2.assets', BUNDLE]
     for name in required:
         assert sha(SOURCE / DATA_NAME / name) == expected[name]['sha256'], name
     overlay, validation = validate_overlay()
@@ -112,6 +113,8 @@ def main():
     snapshot_items(out)
     shutil.copy2(Path(__file__).parent/'item_notification_layout.py',out/'item_notification_layout.py')
     snapshot_item_layout(out)
+    shutil.copy2(Path(__file__).parent/'russian_notebook_ui.py',out/'russian_notebook_ui.py')
+    snapshot_notebook(out)
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
@@ -161,12 +164,17 @@ def main():
         choice_repairs = {}
         ui_repairs = {}
         item_layout_repairs = {}
+        notebook_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
             selected = {1020: objects[1020], 320: objects[320]}
             if args.repair_cyrillic_metrics:
                 selected[1017] = objects[1017]
+        elif name=='sharedassets2.assets':
+            face_env=UnityPy.load(str(target/'sharedassets0.assets'));face_obj=next(o for o in face_env.objects if o.path_id==3323)
+            notebook_repairs,report['notebookTranslations']=notebook_plan(objects,generator,read_tree(face_obj,generator)['m_FaceInfo'])
+            selected={pid:objects[pid] for pid in notebook_repairs}
         elif name=='sharedassets1.assets':
             item_layout_repairs, report['itemNotificationLayout'] = layout_plan(objects,generator)
             selected={pid:objects[pid] for pid in item_layout_repairs}
@@ -282,6 +290,8 @@ def main():
                     # Keep Latin glyphs in their original font and preserve the
                     # existing glyph/atlas tables of this dynamic fallback.
                     tree['m_FaceInfo']['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
+            elif pid in notebook_repairs:
+                tree=copy.deepcopy(notebook_repairs[pid])
             elif pid in item_layout_repairs:
                 tree=copy.deepcopy(item_layout_repairs[pid])
             elif pid in ui_repairs:

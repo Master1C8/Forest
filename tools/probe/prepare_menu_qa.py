@@ -11,13 +11,15 @@ DATA='The Forest of Love_Data'
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--preview',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--reuse-native',type=Path);parser.add_argument('--item-probe',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--preview',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--reuse-native',type=Path);parser.add_argument('--item-probe',action='store_true');parser.add_argument('--notebook-probe',action='store_true');args=parser.parse_args()
     preview=args.preview.resolve();run=args.output.resolve();assert preview.parent==ROOT/'localization/previews' and run.parent==ROOT/'localization/probes' and not run.exists()
-    build=json.loads((preview/'build.json').read_text());assert len(build['files']) in (8,9) and len(build['menuTranslations'])==282
+    build=json.loads((preview/'build.json').read_text());assert len(build['files']) in (8,9,10) and len(build['menuTranslations'])==282
     for row in build['files']:assert sha(preview/'game'/DATA/row['path'])==row['probeSha256']
-    assert re.fullmatch(r'ru-(?:menu|items)-[0-9]{8}-[0-9]{2}',run.name)
+    assert re.fullmatch(r'ru-(?:menu|items|notebook)-[0-9]{8}-[0-9]{2}',run.name)
+    assert not (args.item_probe and args.notebook_probe)
+    assert run.name.startswith('ru-notebook-')==args.notebook_probe
     assert run.name.startswith('ru-items-')==args.item_probe, 'Run identity must match the selected probe'
-    product=('ForestRuItemProbe' if args.item_probe else 'ForestRuMenuProbe')+run.name.split('-',2)[2].replace('-','_')
+    product=('ForestRuNotebookProbe' if args.notebook_probe else 'ForestRuItemProbe' if args.item_probe else 'ForestRuMenuProbe')+run.name.split('-',2)[2].replace('-','_')
     run.mkdir();system=ctypes.CDLL('/usr/lib/libSystem.B.dylib',use_errno=True)
     def clone(source,target):
         if system.clonefile(os.fsencode(source),os.fsencode(target),0):shutil.copy2(source,target)
@@ -51,9 +53,13 @@ def main():
             expected.append(dict(itemType=row['cells']['item_type'],title=values[row['cells']['title']],phrase=values[row['cells']['notification_phrase']]))
         write(run/'item-expectations.json',dict(rows=expected))
         (run/'item-expectations.tsv').write_text(''.join(str(r['itemType'])+'\t'+base64.b64encode(r['title'].encode()).decode()+'\t'+base64.b64encode(r['phrase'].encode()).decode()+'\n' for r in expected))
+    if args.notebook_probe:
+        source=source.replace('if(text.StartsWith("menu-panel "))', 'if(text=="notebook-ensure") NotebookEnsure();\n            else if(text=="notebook-open") NotebookOpen();\n            else if(text.StartsWith("notebook-page ")) NotebookPage(int.Parse(text.Substring(14)));\n            else if(text=="notebook-geometry") NotebookGeometry();\n            else if(text.StartsWith("menu-panel "))')
+        shutil.copy2(ROOT/'tools/probe/NotebookUiProbe.cs',snapshot/'NotebookUiProbe.cs')
+        write(run/'notebook-expectations.json',build['notebookTranslations'])
     (snapshot/'ForestProbe.cs').write_text(source);shutil.copy2(ROOT/'tools/probe/MenuUiProbe.cs',snapshot/'MenuUiProbe.cs')
     compiler=Path(bridge['compiler']);assert sha(compiler)==bridge['compilerSha256'];refs=[managed/name for name in bridge['originalManagedReferences']]
-    subprocess.run(['dotnet',str(compiler),'-nologo','-target:library','-nostdlib+','-out:'+str(run/'ForestProbe.dll')]+['-r:'+str(p) for p in refs]+[str(snapshot/'ForestProbe.cs'),str(snapshot/'MenuUiProbe.cs')]+([str(snapshot/'ItemUiProbe.cs')] if args.item_probe else []),check=True)
+    subprocess.run(['dotnet',str(compiler),'-nologo','-target:library','-nostdlib+','-out:'+str(run/'ForestProbe.dll')]+['-r:'+str(p) for p in refs]+[str(snapshot/'ForestProbe.cs'),str(snapshot/'MenuUiProbe.cs')]+([str(snapshot/'ItemUiProbe.cs')] if args.item_probe else [])+([str(snapshot/'NotebookUiProbe.cs')] if args.notebook_probe else []),check=True)
     shutil.copy2(run/'ForestProbe.dll',managed/'ForestProbe.dll')
     injector=run/'injector';injector.mkdir();source=(ROOT/'tools/probe/InjectProbe.cs').read_text();assert source.count('46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf')==1
     source=source.replace('46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf',sha(managed/'Assembly-CSharp.dll'));(injector/'InjectProbe.cs').write_text(source);shutil.copy2(ROOT/'tools/probe/InjectProbe.csproj',injector/'InjectProbe.csproj')
@@ -75,7 +81,7 @@ def main():
         for row in captures:
             assert sha(prior/row['filename'])==row['sha256'];shutil.copy2(prior/row['filename'],run/row['filename'])
         write(run/'reused-captures.json',{'sourceRun':str(prior),'sourceResultSha256':sha(prior/'runtime-result.json'),'captures':captures,'reason':'Only geometry observer units changed; same immutable parent artifact, original formatter, fixture and renderer. Retain valid Play/Gallery captures.'})
-    for name in ['capture_settings.py','command.py','capture_menu_ui.py','capture_play_menu_ui.py','capture_item_ui.py']:shutil.copy2(ROOT/'tools/probe'/name,run/name)
+    for name in ['capture_settings.py','command.py','capture_menu_ui.py','capture_play_menu_ui.py','capture_item_ui.py','capture_notebook_ui.py']:shutil.copy2(ROOT/'tools/probe'/name,run/name)
     shutil.copy2(__file__,run/'prepare-menu.py')
     write(run/'qa-preparation.json',{'parentBuild':str(preview),'parentBuildSha256':sha(preview/'build.json'),'localizedAssemblyPreservedBeforeHook':sha(run/'Assembly-CSharp.localized-original.dll'),'bridgeSha256':sha(managed/'ForestProbe.dll'),'hookSha256':sha(managed/'Assembly-CSharp.dll'),'ownerFilesUsed':False,'fixtureManifestSha256':sha(fixture/'manifest.json'),'boundary':'Original menu resources/gallery formatter and actual layout; panel inspection bypasses first-time tutorial navigation, without replacement text or flags'})
     print('Prepared immutable isolated menu QA:',run)
