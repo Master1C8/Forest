@@ -3,49 +3,310 @@
   "status": "provisional author scansion; independent semantic review pending",
   "method": "Each slash-delimited group is one author-reviewed Spanish metrical syllable. Underscores mark sinalefa; final aguda adjustments are explicit. This is a human-authored receipt, not automatic syllabification.",
   "lines": [
-    {"text":"Dos bellas damas","scan":"Dos/be/llas/da/mas","adjustment":0,"expected":5},
-    {"text":"con un garañón guapo","scan":"con/un/ga/ra/ñón/gua/po","adjustment":0,"expected":7},
-    {"text":"tiempo de cría","scan":"tiem/po/de/crí/a","adjustment":0,"expected":5},
-    {"text":"Brota del culo","scan":"Bro/ta/del/cu/lo","adjustment":0,"expected":5},
-    {"text":"chorrea por tus piernas","scan":"cho/rre/a/por/tus/pier/nas","adjustment":0,"expected":7},
-    {"text":"riega la tierra","scan":"rie/ga/la/tie/rra","adjustment":0,"expected":5},
-    {"text":"Lame con mimo","scan":"La/me/con/mi/mo","adjustment":0,"expected":5},
-    {"text":"limpia lo que ensucié","scan":"lim/pia/lo/que_en/su/cié","adjustment":1,"expected":7},
-    {"text":"duro otra vez","scan":"du/ro_o/tra/vez","adjustment":1,"expected":5},
-    {"text":"Buen trago, amigos","scan":"Buen/tra/go_a/mi/gos","adjustment":0,"expected":5,"note":"Read as an enumerative comma without a metrical pause; sinalefa go_a is required."},
-    {"text":"tarde sin hacer nada","scan":"tar/de/sin/ha/cer/na/da","adjustment":0,"expected":7},
-    {"text":"¡qué afortunado!","scan":"qué_a/for/tu/na/do","adjustment":0,"expected":5},
-    {"text":"¡Qué afortunados!","scan":"Qué_a/for/tu/na/dos","adjustment":0,"expected":5},
-    {"text":"Avanza siempre","scan":"A/van/za/siem/pre","adjustment":0,"expected":5},
-    {"text":"viaje que no termina","scan":"via/je/que/no/ter/mi/na","adjustment":0,"expected":7},
-    {"text":"el río fluye","scan":"el/rí/o/flu/ye","adjustment":0,"expected":5},
-    {"text":"Formamos tierra","scan":"For/ma/mos/tie/rra","adjustment":0,"expected":5},
-    {"text":"sobre las aguas bravas","scan":"so/bre/las/a/guas/bra/vas","adjustment":0,"expected":7},
-    {"text":"para reunirnos","scan":"pa/ra/reu/nir/nos","adjustment":0,"expected":5},
-    {"text":"Oh, bello halcón","scan":"Oh/be/llo_hal/cón","adjustment":1,"expected":5},
-    {"text":"llévame sobre nubes","scan":"llé/va/me/so/bre/nu/bes","adjustment":0,"expected":7},
-    {"text":"donde nadie fue","scan":"don/de/na/die/fue","adjustment":0,"expected":5},
-    {"text":"Bicho chiquito","scan":"Bi/cho/chi/qui/to","adjustment":0,"expected":5},
-    {"text":"¿qué juzgas importante?","scan":"qué/juz/gas/im/por/tan/te","adjustment":0,"expected":7},
-    {"text":"¿por qué ese afán?","scan":"por/qué_e/se_a/fán","adjustment":1,"expected":5}
+    {
+      "text": "Dos bellas damas",
+      "scan": "Dos/be/llas/da/mas",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "con un garañón guapo",
+      "scan": "con/un/ga/ra/ñón/gua/po",
+      "adjustment": 0,
+      "expected": 7
+    },
+    {
+      "text": "tiempo de cría",
+      "scan": "tiem/po/de/crí/a",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "Brota del culo",
+      "scan": "Bro/ta/del/cu/lo",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "chorrea por tus piernas",
+      "scan": "cho/rre/a/por/tus/pier/nas",
+      "adjustment": 0,
+      "expected": 7
+    },
+    {
+      "text": "riega la tierra",
+      "scan": "rie/ga/la/tie/rra",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "Lame con mimo",
+      "scan": "La/me/con/mi/mo",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "limpia lo que ensucié",
+      "scan": "lim/pia/lo/que_en/su/cié",
+      "adjustment": 1,
+      "expected": 7
+    },
+    {
+      "text": "duro otra vez",
+      "scan": "du/ro_o/tra/vez",
+      "adjustment": 1,
+      "expected": 5
+    },
+    {
+      "text": "Buen trago, amigos",
+      "scan": "Buen/tra/go_a/mi/gos",
+      "adjustment": 0,
+      "expected": 5,
+      "note": "Read as an enumerative comma without a metrical pause; sinalefa go_a is required."
+    },
+    {
+      "text": "queridos, tarde de ocio",
+      "scan": "que/ri/dos/tar/de/de_o/cio",
+      "adjustment": 0,
+      "expected": 7,
+      "note": "Queridos qualifies amigos across the verse boundary; de_ocio uses ordinary sinalefa."
+    },
+    {
+      "text": "¡qué afortunado!",
+      "scan": "qué_a/for/tu/na/do",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "¡Qué afortunados!",
+      "scan": "Qué_a/for/tu/na/dos",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "Avanza siempre",
+      "scan": "A/van/za/siem/pre",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "viaje que no termina",
+      "scan": "via/je/que/no/ter/mi/na",
+      "adjustment": 0,
+      "expected": 7
+    },
+    {
+      "text": "el río fluye",
+      "scan": "el/rí/o/flu/ye",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "Formamos tierra",
+      "scan": "For/ma/mos/tie/rra",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "sobre las aguas bravas",
+      "scan": "so/bre/las/a/guas/bra/vas",
+      "adjustment": 0,
+      "expected": 7
+    },
+    {
+      "text": "para reunirnos",
+      "scan": "pa/ra/reu/nir/nos",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "Oh, bello halcón",
+      "scan": "Oh/be/llo_hal/cón",
+      "adjustment": 1,
+      "expected": 5
+    },
+    {
+      "text": "llévame sobre nubes",
+      "scan": "llé/va/me/so/bre/nu/bes",
+      "adjustment": 0,
+      "expected": 7
+    },
+    {
+      "text": "donde nadie fue",
+      "scan": "don/de/na/die/fue",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "Bicho chiquito",
+      "scan": "Bi/cho/chi/qui/to",
+      "adjustment": 0,
+      "expected": 5
+    },
+    {
+      "text": "¿qué juzgas importante?",
+      "scan": "qué/juz/gas/im/por/tan/te",
+      "adjustment": 0,
+      "expected": 7
+    },
+    {
+      "text": "¿por qué ese afán?",
+      "scan": "por/qué_e/se_a/fán",
+      "adjustment": 1,
+      "expected": 5
+    }
   ],
   "poems": [
-    {"id":"rascal-coyotes-equine","keys":["302:504","302:581","302:580"],"lines":["Dos bellas damas","con un garañón guapo","tiempo de cría"]},
-    {"id":"oliver-claire","keys":["302:516"],"lines":["Brota del culo","chorrea por tus piernas","riega la tierra"]},
-    {"id":"oliver-violet","keys":["302:559"],"lines":["Lame con mimo","limpia lo que ensucié","duro otra vez"]},
-    {"id":"oliver-friends","keys":["303:350"],"lines":["Buen trago, amigos","tarde sin hacer nada","¡qué afortunado!"]},
-    {"id":"violet-quotes-oliver","keys":["303:343"],"lines":["Buen trago, amigos","tarde sin hacer nada","¡qué afortunado!"]},
-    {"id":"violet-river","keys":["303:376"],"lines":["Avanza siempre","viaje que no termina","el río fluye"]},
-    {"id":"rascal-bridge","keys":["303:325","303:326","303:327"],"lines":["Formamos tierra","sobre las aguas bravas","para reunirnos"]},
-    {"id":"rascal-penny","keys":["303:406","303:407","303:408"],"lines":["Oh, bello halcón","llévame sobre nubes","donde nadie fue"]},
-    {"id":"rascal-bug","keys":["303:410","303:411","303:412"],"lines":["Bicho chiquito","¿qué juzgas importante?","¿por qué ese afán?"]}
+    {
+      "id": "rascal-coyotes-equine",
+      "keys": [
+        "302:504",
+        "302:581",
+        "302:580"
+      ],
+      "lines": [
+        "Dos bellas damas",
+        "con un garañón guapo",
+        "tiempo de cría"
+      ]
+    },
+    {
+      "id": "oliver-claire",
+      "keys": [
+        "302:516"
+      ],
+      "lines": [
+        "Brota del culo",
+        "chorrea por tus piernas",
+        "riega la tierra"
+      ]
+    },
+    {
+      "id": "oliver-violet",
+      "keys": [
+        "302:559"
+      ],
+      "lines": [
+        "Lame con mimo",
+        "limpia lo que ensucié",
+        "duro otra vez"
+      ]
+    },
+    {
+      "id": "oliver-friends",
+      "keys": [
+        "303:350"
+      ],
+      "lines": [
+        "Buen trago, amigos",
+        "queridos, tarde de ocio",
+        "¡qué afortunado!"
+      ]
+    },
+    {
+      "id": "violet-quotes-oliver",
+      "keys": [
+        "303:343"
+      ],
+      "lines": [
+        "Buen trago, amigos",
+        "queridos, tarde de ocio",
+        "¡qué afortunado!"
+      ]
+    },
+    {
+      "id": "violet-river",
+      "keys": [
+        "303:376"
+      ],
+      "lines": [
+        "Avanza siempre",
+        "viaje que no termina",
+        "el río fluye"
+      ]
+    },
+    {
+      "id": "rascal-bridge",
+      "keys": [
+        "303:325",
+        "303:326",
+        "303:327"
+      ],
+      "lines": [
+        "Formamos tierra",
+        "sobre las aguas bravas",
+        "para reunirnos"
+      ]
+    },
+    {
+      "id": "rascal-penny",
+      "keys": [
+        "303:406",
+        "303:407",
+        "303:408"
+      ],
+      "lines": [
+        "Oh, bello halcón",
+        "llévame sobre nubes",
+        "donde nadie fue"
+      ]
+    },
+    {
+      "id": "rascal-bug",
+      "keys": [
+        "303:410",
+        "303:411",
+        "303:412"
+      ],
+      "lines": [
+        "Bicho chiquito",
+        "¿qué juzgas importante?",
+        "¿por qué ese afán?"
+      ]
+    }
   ],
   "callbacks": [
-    {"key":"300:483","exact":"\"Brota del culo"},
-    {"key":"300:484","exact":"chorrea por tus piernas\""},
-    {"key":"302:520","exact":"¡RIEGA LA TIERRA, CARAJO!"},
-    {"key":"303:330","exact":"Yo lo cambiaría por: \"¡Qué afortunados!\""}
+    {
+      "key": "300:483",
+      "exact": "\"Brota del culo"
+    },
+    {
+      "key": "300:484",
+      "exact": "chorrea por tus piernas\""
+    },
+    {
+      "key": "302:520",
+      "exact": "¡RIEGA LA TIERRA, CARAJO!"
+    },
+    {
+      "key": "303:330",
+      "exact": "Yo lo cambiaría por: \"¡Qué afortunados!\""
+    }
   ],
-  "combinationColumns": [["303:325","303:406","303:410"],["303:326","303:407","303:411"],["303:327","303:408","303:412"]],
-  "combinationBoundary": "All 27 selectable text combinations retain 5-7-5 under these author scans. The three coherent families and the intentionally mixed feedback are preserved. This checks text assembly only; engine trigger execution is not-run."
+  "combinationColumns": [
+    [
+      "303:325",
+      "303:406",
+      "303:410"
+    ],
+    [
+      "303:326",
+      "303:407",
+      "303:411"
+    ],
+    [
+      "303:327",
+      "303:408",
+      "303:412"
+    ]
+  ],
+  "combinationBoundary": "All 27 selectable text combinations retain 5-7-5 under these author scans. The three coherent families and the intentionally mixed feedback are preserved. This checks text assembly only; engine trigger execution is not-run.",
+  "correctionProvenance": {
+    "run": "outputs/editorial-20261027/correction-completion-v1/es-419",
+    "ids": [
+      "ds:303:343:Dialogue Text",
+      "ds:303:350:Dialogue Text"
+    ],
+    "reason": "Restore good friends in the paired complete quotations. Other scansion entries remain historical author evidence, not independent acceptance."
+  }
 }

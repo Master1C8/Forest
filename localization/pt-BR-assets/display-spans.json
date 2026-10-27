@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "locale": "pt-BR",
+  "sourceInventory": {
+    "path": "localization/source/dialogue-candidates.jsonl",
+    "sha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f"
+  },
+  "decisionSnapshot": {
+    "path": "outputs/locale-assets-20261026/pt-BR/source-repair-phase30-221137/shared-consumer-decisions.json",
+    "sha256": "497df6f10ee1e229da120a8807f131e2127aa5eb76d78928a7f886fda7300821",
+    "provenanceCommit": "1ba1fb7301e734532e3106d8c27ccdead18c4e4a"
+  },
+  "consumerEvidence": [
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/FormattedText.cs",
+      "sha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306",
+      "origin": "localization/source/consumers/FormattedText.cs"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/DialogueEntry.il",
+      "sha256": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0",
+      "origin": "localization/source/dialogue-held-consumers-20261026/DialogueEntry.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/ConversationModel.il",
+      "sha256": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d",
+      "origin": "localization/source/dialogue-held-consumers-20261026/ConversationModel.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/ConversationView.il",
+      "sha256": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70",
+      "origin": "localization/source/dialogue-held-consumers-20261026/ConversationView.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/SubtitlePanel.il",
+      "sha256": "716fd2b8f8c715b54c3eff2c365af6ea52f79b99eaf611ebfe0ab06397be043c",
+      "origin": "localization/source/dialogue-held-consumers-20261026/SubtitlePanel.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/UITools.il",
+      "sha256": "b14f721694fede616f6a5b97ec2445c098196e49eef675e646b6421d39423d21",
+      "origin": "localization/ru-assets/consumer-evidence-0024/UITools.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/UITextField.il",
+      "sha256": "ceb4b6e67b950e43652716eb11bd2fc68430bd133bffeba9473b6465757a880a",
+      "origin": "localization/ru-assets/consumer-evidence-0024/UITextField.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/LegacyTypewriter.il",
+      "sha256": "489b9f0ef3498b464d3c48df4776b72cb1bb9eae9b041474a52f65db1fc3240c",
+      "origin": "localization/ru-assets/consumer-evidence-0024/LegacyTypewriter.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/TmpTypewriter.il",
+      "sha256": "f8ab82efe2f5d1714bd08525cccd0382f7da6dbd20ac488dc88298f08597cc2c",
+      "origin": "localization/ru-assets/consumer-evidence-0024/TmpTypewriter.il"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/0031-translation/consumer-evidence/verification.json",
+      "sha256": "23f2787ce5637a2eec25cec830b3bf083a2c5f3e8efff49be47d3d213c21780e",
+      "origin": "localization/source/dialogue-held-consumers-20261026/verification.json"
+    }
+  ],
+  "records": [
+    {
+      "id": "ds:131:153:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "pointer": "/conversations/15/dialogueEntries/2/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/15/dialogueEntries/2/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/15/dialogueEntries/2/fields/6/value"
+      ],
+      "disposition": "translatable-bracketed-display",
+      "ordinaryBracketOrdinals": [
+        0
+      ],
+      "spans": [
+        {
+          "ordinal": 0,
+          "start": 0,
+          "end": 58,
+          "source": "[A particularly large flower. It’s… moving… Is it asleep?]",
+          "delimiters": [
+            "[",
+            "]"
+          ]
+        }
+      ],
+      "reason": "Actor 7 narrator, keyed n1, linked from titled/keyed source entries. The full bracket is ordinary flower narration: it matches none of the concrete FormattedText families and the UI/typewriter chain retains square brackets. Translate the wording while keeping both delimiters and any protected nested spans. Runtime rendering is unrun."
+    },
+    {
+      "id": "ds:540:232:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "pointer": "/conversations/569/dialogueEntries/9/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/569/dialogueEntries/9/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/569/dialogueEntries/9/fields/6/value"
+      ],
+      "disposition": "translatable-bracketed-display",
+      "ordinaryBracketOrdinals": [
+        0
+      ],
+      "spans": [
+        {
+          "ordinal": 0,
+          "start": 0,
+          "end": 58,
+          "source": "[A particularly large flower. It’s… moving… Is it asleep?]",
+          "delimiters": [
+            "[",
+            "]"
+          ]
+        }
+      ],
+      "reason": "Actor 7 narrator, keyed n1, linked from titled/keyed source entries. The full bracket is ordinary flower narration: it matches none of the concrete FormattedText families and the UI/typewriter chain retains square brackets. Translate the wording while keeping both delimiters and any protected nested spans. Runtime rendering is unrun."
+    }
+  ],
+  "limits": "Only these exact two source/occurrence-bound display spans. Unknown brackets remain opaque; nested engine syntax stays byte-exact. Static evidence is not runtime acceptance."
+}

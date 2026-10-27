@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "locale": "pt-BR",
+  "resolutions": [
+    {
+      "id": "ds:131:153:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "previousReason": "Visible bracketed flower description is classified as one exact protected bracket token by corpus.py; source/consumer classification must distinguish display prose before a translated target can validate. Source: [A particularly large flower. It’s… moving… Is it asleep?]",
+      "heldBatch": "localization/pt-BR-assets/batches/0006-plant-finley.tsv",
+      "heldBatchSha256": "27c89985302cd6801dd5b737886d2f0e152dd44b01fa544d4ae4c2a328836dce",
+      "previousHeldLine": "131:153\t!HOLD Visible bracketed flower description is classified as one exact protected bracket token by corpus.py; source/consumer classification must distinguish display prose before a translated target can validate. Source: [A particularly large flower. It’s… moving… Is it asleep?]",
+      "proposal": {
+        "path": "outputs/locale-assets-20261026/pt-BR/0030-translation/source-findings.json",
+        "sha256": "aa1aeff33bc05f5558347f103120bb540ba46d390e1ec0f14ba8bfa99ba5c69c"
+      },
+      "target": "[Uma flor especialmente grande. Está… se mexendo… Será que está dormindo?]",
+      "targetSha256": "19c88f010d3d8e0bb83910c4d752e63aab0ef38737be0093cd8adacb85c5fa01",
+      "targetBatch": "localization/pt-BR-assets/batches/0124-flower-hold-resolution.tsv",
+      "targetBatchSha256": "ec0c45c6f512a00008a597fcdac3896674f6d4149c91093f5048665e287d13df",
+      "displayManifest": {
+        "path": "localization/pt-BR-assets/display-spans.json",
+        "sha256": "4d83fa767c83a8f82a019c43f6a3717a49d141680acc8d48820251c14dc4e272"
+      },
+      "reason": "Adjudicated against actual narrator/plant scene and approved glossary. Preserve the previous direct-author wording and uncertainty about sleep; flor is grammatical feminine and assigns no canonical gender to Planta. The exact source-bound adapter now preserves bracket delimiters and nested syntax while permitting visible narration."
+    },
+    {
+      "id": "ds:540:232:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "previousReason": "Entire apparent visible narration is bracket-enclosed; corpus.py treats the whole bracket as preserve-exactly control. Needs shared source/consumer classification, parallel to ds:131:153; no English placeholder target saved.",
+      "heldBatch": "localization/pt-BR-assets/batches/0117-plant-scene-and-photo-quest.tsv",
+      "heldBatchSha256": "826165a161268e9bfd9390731a770725135c5c95351dbb8bc255eddadef8c165",
+      "previousHeldLine": "540:232\t!HOLD Entire apparent visible narration is bracket-enclosed; corpus.py treats the whole bracket as preserve-exactly control. Needs shared source/consumer classification, parallel to ds:131:153; no English placeholder target saved.",
+      "proposal": {
+        "path": "outputs/locale-assets-20261026/pt-BR/0030-translation/source-findings.json",
+        "sha256": "aa1aeff33bc05f5558347f103120bb540ba46d390e1ec0f14ba8bfa99ba5c69c"
+      },
+      "target": "[Uma flor especialmente grande. Está… se mexendo… Será que está dormindo?]",
+      "targetSha256": "19c88f010d3d8e0bb83910c4d752e63aab0ef38737be0093cd8adacb85c5fa01",
+      "targetBatch": "localization/pt-BR-assets/batches/0124-flower-hold-resolution.tsv",
+      "targetBatchSha256": "ec0c45c6f512a00008a597fcdac3896674f6d4149c91093f5048665e287d13df",
+      "displayManifest": {
+        "path": "localization/pt-BR-assets/display-spans.json",
+        "sha256": "4d83fa767c83a8f82a019c43f6a3717a49d141680acc8d48820251c14dc4e272"
+      },
+      "reason": "Adjudicated against actual narrator/plant scene and approved glossary. Preserve the previous direct-author wording and uncertainty about sleep; flor is grammatical feminine and assigns no canonical gender to Planta. The exact source-bound adapter now preserves bracket delimiters and nested syntax while permitting visible narration."
+    }
+  ]
+}

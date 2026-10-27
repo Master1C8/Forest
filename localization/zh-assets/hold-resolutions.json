@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 1,
+  "locale": "zh",
+  "scope": "Consume immutable original !HOLD rows only when source, occurrences, evidence, batch and target hashes match",
+  "records": [
+    {
+      "id": "ds:131:153:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "pointer": "/conversations/15/dialogueEntries/2/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/15/dialogueEntries/2/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/15/dialogueEntries/2/fields/6/value"
+      ],
+      "evidence": [
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/shared-consumer-decisions.json",
+          "sha256": "497df6f10ee1e229da120a8807f131e2127aa5eb76d78928a7f886fda7300821"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/FormattedText.cs",
+          "sha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/DialogueEntry.il",
+          "sha256": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationModel.il",
+          "sha256": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationView.il",
+          "sha256": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/SubtitlePanel.il",
+          "sha256": "716fd2b8f8c715b54c3eff2c365af6ea52f79b99eaf611ebfe0ab06397be043c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/source-topology.json",
+          "sha256": "81a97ab2717380078235081cbe653812e80d0275973060043e701bbfa692265a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITools.il",
+          "sha256": "b14f721694fede616f6a5b97ec2445c098196e49eef675e646b6421d39423d21"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITextField.il",
+          "sha256": "ceb4b6e67b950e43652716eb11bd2fc68430bd133bffeba9473b6465757a880a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LegacyTypewriter.il",
+          "sha256": "489b9f0ef3498b464d3c48df4776b72cb1bb9eae9b041474a52f65db1fc3240c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/TmpTypewriter.il",
+          "sha256": "f8ab82efe2f5d1714bd08525cccd0382f7da6dbd20ac488dc88298f08597cc2c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ArcEntryReferences.il",
+          "sha256": "3ad742b0b97bc334f27a3fd146637fb6841e4d606982243115402ccca68744e6"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LoaderRecursion.il",
+          "sha256": "b6ac1f755541a2a57cabeb176185dba5aaa3c32dedd2942d1335663ee781e738"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/GenerateDialogueEntity.il",
+          "sha256": "e601193db70c24a0be34bbcd44f65374b8e09cb3a5ef1f64c1e1747b3c5f09e4"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/BuildDynamicConversation.il",
+          "sha256": "ada150f7a1b4ef53e08738a9695eb3c3e178fa9d1ce6198c62218b4d73a0edfd"
+        }
+      ],
+      "originalHold": {
+        "batch": "localization/zh-assets/batches/0004-plant-quest.tsv",
+        "batchSha256": "d38d16dec640446bc700d95753ed4a8b5f865f6e791f81b9a1595640c5ce7755",
+        "line": "131:153\t!HOLD Source is a complete visible English narrative inside square brackets; corpus validator protects the entire bracket as an exact control. Requires owning source/parser classification before safe translation; do not copy English for coverage.",
+        "lineSha256": "9ce5d2d6ae86cc700724e1f479a892d65660ccfca09aa6858e43ca1e38c6c106",
+        "reason": "Source is a complete visible English narrative inside square brackets; corpus validator protects the entire bracket as an exact control. Requires owning source/parser classification before safe translation; do not copy English for coverage."
+      },
+      "targetBatch": "localization/zh-assets/batches/0115-source-bound-hold-resolutions.tsv",
+      "targetSha256": "fdc28606f89e2c5f7a1792e175529b4d3ae6e52f7da1b6a544c4cb67a657d43d",
+      "disposition": "translatable-bracketed-display",
+      "reason": "accepted prior zh proposal after source-consumer reconciliation; immediately edited against full plant scene and approved tfol-043; impersonal narration preserves uncertain sleep state and literal square brackets",
+      "priorProposalEvidence": {
+        "path": "outputs/locale-assets-20261026/zh/0031-translation/held-source-resolution.json",
+        "sha256": "56f559491f9f7125bebc6643797afde2a40da7a8bf1edaab199c22c72ec4bb79"
+      }
+    },
+    {
+      "id": "ds:458:340:Dialogue Text",
+      "sourceSha256": "b233fcb4d55261d76cf860e1da92e3553d936de68a6b18b6a36d50418978a631",
+      "pointer": "/conversations/457/dialogueEntries/117/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/457/dialogueEntries/117/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/457/dialogueEntries/117/fields/6/value"
+      ],
+      "evidence": [
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/shared-consumer-decisions.json",
+          "sha256": "497df6f10ee1e229da120a8807f131e2127aa5eb76d78928a7f886fda7300821"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/FormattedText.cs",
+          "sha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/DialogueEntry.il",
+          "sha256": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationModel.il",
+          "sha256": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationView.il",
+          "sha256": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/SubtitlePanel.il",
+          "sha256": "716fd2b8f8c715b54c3eff2c365af6ea52f79b99eaf611ebfe0ab06397be043c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/source-topology.json",
+          "sha256": "81a97ab2717380078235081cbe653812e80d0275973060043e701bbfa692265a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITools.il",
+          "sha256": "b14f721694fede616f6a5b97ec2445c098196e49eef675e646b6421d39423d21"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITextField.il",
+          "sha256": "ceb4b6e67b950e43652716eb11bd2fc68430bd133bffeba9473b6465757a880a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LegacyTypewriter.il",
+          "sha256": "489b9f0ef3498b464d3c48df4776b72cb1bb9eae9b041474a52f65db1fc3240c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/TmpTypewriter.il",
+          "sha256": "f8ab82efe2f5d1714bd08525cccd0382f7da6dbd20ac488dc88298f08597cc2c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ArcEntryReferences.il",
+          "sha256": "3ad742b0b97bc334f27a3fd146637fb6841e4d606982243115402ccca68744e6"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LoaderRecursion.il",
+          "sha256": "b6ac1f755541a2a57cabeb176185dba5aaa3c32dedd2942d1335663ee781e738"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/GenerateDialogueEntity.il",
+          "sha256": "e601193db70c24a0be34bbcd44f65374b8e09cb3a5ef1f64c1e1747b3c5f09e4"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/BuildDynamicConversation.il",
+          "sha256": "ada150f7a1b4ef53e08738a9695eb3c3e178fa9d1ce6198c62218b4d73a0edfd"
+        }
+      ],
+      "originalHold": {
+        "batch": "localization/zh-assets/batches/0079-fast-travel-template.tsv",
+        "batchSha256": "1cc42ddde885ac2a0aba48b72e3e534d82e8f7233d2e064a873bed95f8380566",
+        "line": "458:340\t!HOLD Entire source is bracket-only [SHOW TUTORIAL SPLASH?], classified as an exact protected control by the pinned parser. Source owner must classify its display status before a real target can be authored; no English-copy target or weakened validator.",
+        "lineSha256": "7e7139bb34c37b0f773e6e9e3a2037ddc3514a2bc54004dee32b70007cafc7fe",
+        "reason": "Entire source is bracket-only [SHOW TUTORIAL SPLASH?], classified as an exact protected control by the pinned parser. Source owner must classify its display status before a real target can be authored; no English-copy target or weakened validator."
+      },
+      "targetBatch": "localization/zh-assets/batches/0115-source-bound-hold-resolutions.tsv",
+      "targetSha256": "b233fcb4d55261d76cf860e1da92e3553d936de68a6b18b6a36d50418978a631",
+      "disposition": "preserved-detached-source",
+      "reason": "earlier tentative zh rendering not adopted: source evidence supports exact detached technical preservation, not a translated player instruction. Prior wording and source-bound evidence remain immutable in phase0031",
+      "priorProposalEvidence": {
+        "path": "outputs/locale-assets-20261026/zh/0031-translation/held-source-resolution.json",
+        "sha256": "56f559491f9f7125bebc6643797afde2a40da7a8bf1edaab199c22c72ec4bb79"
+      },
+      "originalHoldBatchProvenance": [
+        {
+          "run": "outputs/editorial-20261027/correction-completion-v1/zh",
+          "oldBatchSha256": "cc9c8b9fbb3a68ff0ed0a4d48dad01750f0b519bb1e0355098b1958b29226807",
+          "newBatchSha256": "1cc42ddde885ac2a0aba48b72e3e534d82e8f7233d2e064a873bed95f8380566",
+          "oldBatchBackup": "outputs/editorial-20261027/correction-completion-v1/zh/backup/localization/zh-assets/batches/0079-fast-travel-template.tsv",
+          "holdLineSha256": "7e7139bb34c37b0f773e6e9e3a2037ddc3514a2bc54004dee32b70007cafc7fe",
+          "holdLineUnchanged": true,
+          "reason": "Unrelated accepted dialogue rows in the same authored TSV changed; original hold line, reason, source bindings and evidence remain exact."
+        }
+      ]
+    },
+    {
+      "id": "ds:458:346:Dialogue Text",
+      "sourceSha256": "b233fcb4d55261d76cf860e1da92e3553d936de68a6b18b6a36d50418978a631",
+      "pointer": "/conversations/457/dialogueEntries/123/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/457/dialogueEntries/123/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/457/dialogueEntries/123/fields/6/value"
+      ],
+      "evidence": [
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/shared-consumer-decisions.json",
+          "sha256": "497df6f10ee1e229da120a8807f131e2127aa5eb76d78928a7f886fda7300821"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/FormattedText.cs",
+          "sha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/DialogueEntry.il",
+          "sha256": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationModel.il",
+          "sha256": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationView.il",
+          "sha256": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/SubtitlePanel.il",
+          "sha256": "716fd2b8f8c715b54c3eff2c365af6ea52f79b99eaf611ebfe0ab06397be043c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/source-topology.json",
+          "sha256": "81a97ab2717380078235081cbe653812e80d0275973060043e701bbfa692265a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITools.il",
+          "sha256": "b14f721694fede616f6a5b97ec2445c098196e49eef675e646b6421d39423d21"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITextField.il",
+          "sha256": "ceb4b6e67b950e43652716eb11bd2fc68430bd133bffeba9473b6465757a880a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LegacyTypewriter.il",
+          "sha256": "489b9f0ef3498b464d3c48df4776b72cb1bb9eae9b041474a52f65db1fc3240c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/TmpTypewriter.il",
+          "sha256": "f8ab82efe2f5d1714bd08525cccd0382f7da6dbd20ac488dc88298f08597cc2c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ArcEntryReferences.il",
+          "sha256": "3ad742b0b97bc334f27a3fd146637fb6841e4d606982243115402ccca68744e6"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LoaderRecursion.il",
+          "sha256": "b6ac1f755541a2a57cabeb176185dba5aaa3c32dedd2942d1335663ee781e738"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/GenerateDialogueEntity.il",
+          "sha256": "e601193db70c24a0be34bbcd44f65374b8e09cb3a5ef1f64c1e1747b3c5f09e4"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/BuildDynamicConversation.il",
+          "sha256": "ada150f7a1b4ef53e08738a9695eb3c3e178fa9d1ce6198c62218b4d73a0edfd"
+        }
+      ],
+      "originalHold": {
+        "batch": "localization/zh-assets/batches/0079-fast-travel-template.tsv",
+        "batchSha256": "1cc42ddde885ac2a0aba48b72e3e534d82e8f7233d2e064a873bed95f8380566",
+        "line": "458:346\t!HOLD Entire source is bracket-only [SHOW TUTORIAL SPLASH?], classified as an exact protected control by the pinned parser. Source owner must classify its display status before a real target can be authored; no English-copy target or weakened validator.",
+        "lineSha256": "b410dd2c26b4df57d594e3449f832ae62a6c0dc26c9fdf6827b654e998fd8ba7",
+        "reason": "Entire source is bracket-only [SHOW TUTORIAL SPLASH?], classified as an exact protected control by the pinned parser. Source owner must classify its display status before a real target can be authored; no English-copy target or weakened validator."
+      },
+      "targetBatch": "localization/zh-assets/batches/0115-source-bound-hold-resolutions.tsv",
+      "targetSha256": "b233fcb4d55261d76cf860e1da92e3553d936de68a6b18b6a36d50418978a631",
+      "disposition": "preserved-detached-source",
+      "reason": "earlier tentative zh rendering not adopted: source evidence supports exact detached technical preservation, not a translated player instruction. Prior wording and source-bound evidence remain immutable in phase0031",
+      "priorProposalEvidence": {
+        "path": "outputs/locale-assets-20261026/zh/0031-translation/held-source-resolution.json",
+        "sha256": "56f559491f9f7125bebc6643797afde2a40da7a8bf1edaab199c22c72ec4bb79"
+      },
+      "originalHoldBatchProvenance": [
+        {
+          "run": "outputs/editorial-20261027/correction-completion-v1/zh",
+          "oldBatchSha256": "cc9c8b9fbb3a68ff0ed0a4d48dad01750f0b519bb1e0355098b1958b29226807",
+          "newBatchSha256": "1cc42ddde885ac2a0aba48b72e3e534d82e8f7233d2e064a873bed95f8380566",
+          "oldBatchBackup": "outputs/editorial-20261027/correction-completion-v1/zh/backup/localization/zh-assets/batches/0079-fast-travel-template.tsv",
+          "holdLineSha256": "b410dd2c26b4df57d594e3449f832ae62a6c0dc26c9fdf6827b654e998fd8ba7",
+          "holdLineUnchanged": true,
+          "reason": "Unrelated accepted dialogue rows in the same authored TSV changed; original hold line, reason, source bindings and evidence remain exact."
+        }
+      ]
+    },
+    {
+      "id": "ds:540:232:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "pointer": "/conversations/569/dialogueEntries/9/fields/6/value",
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/569/dialogueEntries/9/fields/6/value",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/569/dialogueEntries/9/fields/6/value"
+      ],
+      "evidence": [
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/shared-consumer-decisions.json",
+          "sha256": "497df6f10ee1e229da120a8807f131e2127aa5eb76d78928a7f886fda7300821"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/FormattedText.cs",
+          "sha256": "4a94423503a16b3712b217bf38c3820fb4b85e4eb086e1cbc8bb5063a8632306"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/DialogueEntry.il",
+          "sha256": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationModel.il",
+          "sha256": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ConversationView.il",
+          "sha256": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/SubtitlePanel.il",
+          "sha256": "716fd2b8f8c715b54c3eff2c365af6ea52f79b99eaf611ebfe0ab06397be043c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/source-topology.json",
+          "sha256": "81a97ab2717380078235081cbe653812e80d0275973060043e701bbfa692265a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITools.il",
+          "sha256": "b14f721694fede616f6a5b97ec2445c098196e49eef675e646b6421d39423d21"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/UITextField.il",
+          "sha256": "ceb4b6e67b950e43652716eb11bd2fc68430bd133bffeba9473b6465757a880a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LegacyTypewriter.il",
+          "sha256": "489b9f0ef3498b464d3c48df4776b72cb1bb9eae9b041474a52f65db1fc3240c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/TmpTypewriter.il",
+          "sha256": "f8ab82efe2f5d1714bd08525cccd0382f7da6dbd20ac488dc88298f08597cc2c"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/ArcEntryReferences.il",
+          "sha256": "3ad742b0b97bc334f27a3fd146637fb6841e4d606982243115402ccca68744e6"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/LoaderRecursion.il",
+          "sha256": "b6ac1f755541a2a57cabeb176185dba5aaa3c32dedd2942d1335663ee781e738"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/GenerateDialogueEntity.il",
+          "sha256": "e601193db70c24a0be34bbcd44f65374b8e09cb3a5ef1f64c1e1747b3c5f09e4"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/zh/0032-translation/source-evidence/BuildDynamicConversation.il",
+          "sha256": "ada150f7a1b4ef53e08738a9695eb3c3e178fa9d1ce6198c62218b4d73a0edfd"
+        }
+      ],
+      "originalHold": {
+        "batch": "localization/zh-assets/batches/0108-plant-alternate-and-melody-photo-quest.tsv",
+        "batchSha256": "08a3e3bb3403fb27ed873cda47a585c0d2e3e4b02b01ba2b6bb93fadb04b482b",
+        "line": "540:232\t!HOLD Entirely bracketed visible narration is parsed as one exact control token by the pinned corpus.py. Source classification/parser correction belongs to the source lane; preserve the source and do not fabricate an unchanged English target. Evidence: outputs/locale-assets-20261026/zh/0030-translation/source-568-575.txt, conversation540 entry232.",
+        "lineSha256": "52aac1f20a7071530eaab665bebd547fe0ed6a9bb12646bbbe6ecfd1f5d70389",
+        "reason": "Entirely bracketed visible narration is parsed as one exact control token by the pinned corpus.py. Source classification/parser correction belongs to the source lane; preserve the source and do not fabricate an unchanged English target. Evidence: outputs/locale-assets-20261026/zh/0030-translation/source-568-575.txt, conversation540 entry232."
+      },
+      "targetBatch": "localization/zh-assets/batches/0115-source-bound-hold-resolutions.tsv",
+      "targetSha256": "fdc28606f89e2c5f7a1792e175529b4d3ae6e52f7da1b6a544c4cb67a657d43d",
+      "disposition": "translatable-bracketed-display",
+      "reason": "accepted prior zh proposal after source-consumer reconciliation; immediately edited against full plant scene and approved tfol-043; impersonal narration preserves uncertain sleep state and literal square brackets",
+      "priorProposalEvidence": {
+        "path": "outputs/locale-assets-20261026/zh/0031-translation/held-source-resolution.json",
+        "sha256": "56f559491f9f7125bebc6643797afde2a40da7a8bf1edaab199c22c72ec4bb79"
+      }
+    }
+  ]
+}
