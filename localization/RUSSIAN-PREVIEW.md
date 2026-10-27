@@ -70,9 +70,41 @@ Artifact06 build SHA-256 is
 The source Assembly-CSharp.dll is unchanged. Same-instance ordinary Return
 input passed the original post-credits handler, opened the actual main menu,
 opened the New Game submenu and reached the Russian loading screen. No callback,
-scene jump or game-state injection was used. Dialogue advance and the unmasked
-Скарлетт nameplate remain pending until actual guarded runtime evidence exists.
+scene jump or game-state injection was used. The same instance also passed
+ordinary dialogue transitions from145:265 (А?)
+to145:259 (the familiar rock), then145:260 (the familiar tree). The full route,
+choice-to-next-state transition and unmasked Скарлетт nameplate remain pending.
+Both actual259/260 native originals passed fresh full-resolution visual review
+for complete Russian text, wrapping, glyphs and contamination. No single rendered
+frame is credited as full dialogue progression.
 Source, renderer, viewport and frame bindings must be verified for reused evidence.
+
+## Native input and focus
+
+The current QA instance is parent-owned. Keep one operator and bind its exact
+PID lifetime, command line, window ID, dimensions and native source state before
+input. NSRunningApplication activation returning true does not establish actual
+focus; on this macOS SDK activateIgnoringOtherApps is deprecated and has no effect.
+System Events activation of the exact existing process can establish focus, but
+must still be followed by exact AX owner/geometry and top-window verification at
+the event boundary. Wait for the compositor rather than weakening those checks.
+If another app takes focus after an earlier observation, reject before key-down.
+Never release physical owner input or send a global event to make the test pass.
+
+The source Continue Button is sharedassets0.assets4572, first-selected GameObject944,
+bound to the unchanged OnFastForward component4633. The source handler completes
+typing first or calls normal OnContinue. Use ordinary input, never invoke that
+callback directly. A documented CGEventPostToPid background-only probe delivered
+one DOWN/UP pair while the145:259 subtitle remained unchanged. It established
+only OS event delivery; it did not establish game input acceptance or advancement.
+Preserve it separately from successful focused inputs.
+
+Regression: the game is recognized at145:260, exact AX/top-window focus is observed,
+then Codex or another app becomes foreground before the native event check. The
+attempt must emit no DOWN edge, retain the native frame and stop; do not call this
+a localization/typewriter hang, relaunch, or repeatedly steal focus. Resume the
+remaining route only when the desktop is available or a proven scoped backend
+can accept the original input. Original install and owner saves remain unchanged.
 
 ## Storage and interrupted work
 
