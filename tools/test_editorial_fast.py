@@ -104,7 +104,7 @@ with (p/'events.jsonl').open('w') as f:
    supervisor=directory/'supervisor.py';supervisor.write_text('''import subprocess,sys,json,time
 from pathlib import Path
 p=subprocess.Popen([sys.executable,sys.argv[1],sys.argv[2],sys.argv[3],'--model','gpt-6.1-sol','--output-last-message',str(Path(sys.argv[3])/'last-message.txt')],stdout=subprocess.DEVNULL)
-Path(sys.argv[4]).write_text(str(p.pid));p.wait()
+target=Path(sys.argv[4]);temporary=target.with_suffix('.pending');temporary.write_text(str(p.pid));temporary.replace(target);p.wait()
 ''')
    parent=subprocess.Popen([sys.executable,str(supervisor),str(worker),str(Path(audit.__file__).parent),str(phase),str(directory/'child.pid')])
    try:
