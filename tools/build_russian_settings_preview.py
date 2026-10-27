@@ -19,6 +19,7 @@ from russian_settings_ui import settings_text_plan
 from russian_report_ui import report_text_plan
 from settings_glow import settings_value_image_plan
 from russian_preview_ui import project_actor_display, load_bg_parser
+from russian_quest_ui import project_quest_display
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 DATA = 'The Forest of Love_Data'
@@ -42,7 +43,7 @@ def main():
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--qa-product', required=True)
-    parser.add_argument('--surface', choices=['settings', 'report', 'names'], default='settings')
+    parser.add_argument('--surface', choices=['settings', 'report', 'names', 'quests'], default='settings')
     args = parser.parse_args()
     base, out = args.base.resolve(), args.output.resolve()
     assert (ROOT / 'localization/previews') in base.parents
@@ -53,7 +54,7 @@ def main():
     assert report['siteLocale'] == 'ru' and report['sampleSurface'] == 'actual-saved-dialogue'
     assert report['saveIsolation']['companyName'] == 'VNRevivalQA'
     assert len(report['files']) == 7 and report['coherentTmpFace']
-    translations_key = {'settings': 'settingsTranslations', 'report': 'reportTranslations', 'names': 'actorNamesRepair'}[args.surface]
+    translations_key = {'settings': 'settingsTranslations', 'report': 'reportTranslations', 'names': 'actorNamesRepair', 'quests': 'questRepair'}[args.surface]
     assert not report.get(translations_key), 'Already repaired: do not duplicate a repair cycle'
     for row in report['files']:
         assert sha(base / 'game' / DATA / row['path']) == row['probeSha256'], row['path']
@@ -70,11 +71,12 @@ def main():
     snapshots = out / 'recipe'
     snapshots.mkdir()
     for name in ['build_russian_settings_preview.py', 'build_russian_preview.py',
-                 'russian_settings_ui.py', 'russian_report_ui.py', 'russian_actor_names.py', 'settings_glow.py', 'extract_assets.py',
+                 'russian_settings_ui.py', 'russian_report_ui.py', 'russian_actor_names.py', 'russian_quest_ui.py', 'settings_glow.py', 'extract_assets.py',
                  'russian_preview_ui.py', 'russian_preview_support.py',
                  'addressables_catalog.py', 'tmp_dialogue_font.py', 'legacy_choice_font.py']:
         shutil.copy2(ROOT / 'tools' / name, snapshots / name)
     shutil.copy2(ROOT / 'localization/source/actor-display-ru-20261027/plan.json', snapshots / 'actor-display-plan.json')
+    shutil.copy2(ROOT / 'localization/source/tutorial-quest-ru-20261027/plan.json', snapshots / 'tutorial-quest-plan.json')
     receipts = []
 
     def clone(source, target):
@@ -96,7 +98,7 @@ def main():
     generator = TypeTreeGenerator('2020.3.24f1')
     generator.load_local_dll_folder(str(target / 'Managed'))
     incremental = {}
-    changed_resource = 'resources.assets' if args.surface == 'names' else 'level1'
+    changed_resource = 'resources.assets' if args.surface in ['names', 'quests'] else 'level1'
     for name in [changed_resource, 'globalgamemanagers']:
         env = UnityPy.load(str(target / name))
         objects = {o.path_id: o for o in env.objects}
@@ -105,7 +107,10 @@ def main():
             assert tree['m_Name'] == 'bansheegz_database'
             raw = tree['m_Script'].encode('utf-8', errors='surrogateescape')
             parse, variable_cells = load_bg_parser()
-            projected, report['actorDisplayProjection'] = project_actor_display(raw, parse, variable_cells, before_state='scarlett-preview')
+            if args.surface == 'names':
+                projected, report['actorDisplayProjection'] = project_actor_display(raw, parse, variable_cells, before_state='scarlett-preview')
+            else:
+                projected, report['questDisplayProjection'] = project_quest_display(raw, parse, variable_cells)
             tree['m_Script'] = projected.decode('utf-8', errors='surrogateescape')
             plan = {320: tree}
         elif name == 'level1':
@@ -146,7 +151,7 @@ def main():
                              'unselectedRawBytesEquality': 'passed'}
         row = next(r for r in report['files'] if r['path'] == name)
         row['probeSha256'] = sha(target / name)
-        row['incrementalActorNamesChanges' if args.surface == 'names' else 'incrementalSettingsChanges'] = changes
+        row['incrementalQuestChanges' if args.surface == 'quests' else 'incrementalActorNamesChanges' if args.surface == 'names' else 'incrementalSettingsChanges'] = changes
         print(name, 'exact selected/unselected readback passed', flush=True)
     (target / 'app.info').write_text('VNRevivalQA\n' + args.qa_product)
     allowed = {DATA + '/' + changed_resource, DATA + '/globalgamemanagers', DATA + '/app.info'}
@@ -160,7 +165,7 @@ def main():
     assert not list((out / 'game').rglob('tfol.*'))
     assert all(sha(base / 'game' / path) == expected for path, expected in excluded.items())
     report['saveIsolation']['productName'] = args.qa_product
-    repair_key = {'settings': 'settingsRepair', 'report': 'reportRepair', 'names': 'actorNamesRepair'}[args.surface]
+    repair_key = {'settings': 'settingsRepair', 'report': 'reportRepair', 'names': 'actorNamesRepair', 'quests': 'questRepair'}[args.surface]
     report[repair_key] = {'base': str(base), 'baseBuildSha256': base_hash,
                                 'recipeHashes': {p.name: sha(p) for p in snapshots.iterdir()},
                                 'files': incremental, 'onlyChangedGameFiles': sorted(allowed),

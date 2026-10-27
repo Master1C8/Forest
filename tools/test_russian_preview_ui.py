@@ -5,6 +5,21 @@ ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 sys.path.insert(0,str(ROOT/'localization/source/bgdatabase-20261027'))
 from decode_inventory import SOURCE,parse,variable_cells
 class DisplayBoundaryTests(unittest.TestCase):
+ def test_tutorial_quest_keeps_other_logs_and_counters(self):
+  from russian_quest_ui import project_quest_display
+  original=SOURCE.read_bytes();names,_=project_actor_display(original,parse,variable_cells)
+  target,receipt=project_quest_display(names,parse,variable_cells)
+  self.assertEqual(len(receipt),6)
+  self.assertEqual(next(r['target'] for r in receipt if r['identity']=='Act1_TutorialQuest_2'),'Отнести «сахар» Скарлетт.')
+  with self.assertRaisesRegex(AssertionError,'quest-unexpected-before-state'):project_quest_display(target,parse,variable_cells)
+  before,after=parse(names),parse(target)
+  for a,b in zip(before['sheets'],after['sheets']):
+   for f,g in zip(a['fields'],b['fields']):
+    if a['name']=='QuestProgressLogText' and f['name']=='log_text':
+     left,_=variable_cells(dict(f,valuesHex=names[f['valuesOffset']:f['valuesOffset']+f['valuesBytes']].hex()),119)
+     right,_=variable_cells(dict(g,valuesHex=target[g['valuesOffset']:g['valuesOffset']+g['valuesBytes']].hex()),119)
+     self.assertEqual(sum(x!=y for x,y in zip(left,right)),4)
+     self.assertEqual(left[117],b'Find all the lost photos.');self.assertEqual(right[117],left[117])
  def test_real_report_form_preserves_handlers_and_control_syntax(self):
   import UnityPy
   from unittest.mock import patch

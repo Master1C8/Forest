@@ -19,6 +19,7 @@ from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
 from russian_settings_ui import settings_text_plan
 from russian_report_ui import report_text_plan
+from russian_quest_ui import project_quest_display
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -101,6 +102,8 @@ def main():
     shutil.copy2(Path(__file__).parent / 'russian_report_ui.py', out / 'russian_report_ui.py')
     shutil.copy2(Path(__file__).parent / 'russian_actor_names.py', out / 'russian_actor_names.py')
     shutil.copy2(PROJECT / 'localization/source/actor-display-ru-20261027/plan.json', out / 'actor-display-plan.json')
+    shutil.copy2(Path(__file__).parent / 'russian_quest_ui.py', out / 'russian_quest_ui.py')
+    shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
         candidate = Path(__file__).parent / helper
@@ -248,6 +251,8 @@ def main():
                     assert tree['m_Name'] == 'bansheegz_database'
                     data = tree['m_Script'].encode('utf-8', errors='surrogateescape')
                     data, receipt = project_actor_display(data, parse, variable_cells)
+                    data, quest_receipt = project_quest_display(data, parse, variable_cells)
+                    report['questDisplayProjection'] = quest_receipt
                     tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
                     report['actorDisplayProjection'] = receipt
                 elif pid == 1020:

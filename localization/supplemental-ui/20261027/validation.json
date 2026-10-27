@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "coordinator": {
+    "actualModel": "gpt-6.1-sol",
+    "reasoning": "high",
+    "verifiedFrom": "current session turn_context",
+    "additionalModelWorkersLaunched": 0
+  },
+  "supplement": {
+    "sourceCatalogSha256": "ac93c0b84659fb09cfe14e427f5ab60e88b1bf66a55e5b95ef8d14bdb49f9f61",
+    "locales": [
+      "zh",
+      "de",
+      "es",
+      "es-419",
+      "pt-BR",
+      "ja"
+    ],
+    "fieldsPerLocale": 212,
+    "targets": 1272,
+    "allGeneratedFilesExactCheck": "passed",
+    "sourceCoverage": {
+      "settings": 54,
+      "reportIncludingBack": 106,
+      "actorDisplay": 46,
+      "tutorialQuest": 6
+    },
+    "preserveExactlyEntries": 251,
+    "editorial": "author edit complete; independent semantic/diff review pending",
+    "runtimeAndVisual": "not-run",
+    "priorDialogueInputsEdited": false,
+    "activeJobInputsEdited": false
+  },
+  "russianQuest": {
+    "artifact": "localization/previews/ru-20261027-quest-fix/game",
+    "actualResourcePayloadEqualsGuardedProjection": true,
+    "allSevenBuildResourceFingerprintsVerified": true,
+    "tests": {
+      "command": ".venv-assets314/bin/python -B -m unittest discover -s tools -p test_russian_preview_ui.py",
+      "passed": 11
+    },
+    "runtime": "not-run",
+    "visual": "not-run",
+    "wholeGameAcceptance": "unchanged"
+  },
+  "texturesProducedOrReplaced": false,
+  "publicationOrDeployment": false,
+  "limitations": [
+    "Lost-photo counter still requires identity-based logic before full quest-family localization.",
+    "Other-locale data needs independent editorial and locale-specific font/resource/runtime acceptance before packaging.",
+    "No screenshot or gameplay-frame visual pass is claimed."
+  ]
+}

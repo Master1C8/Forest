@@ -1,0 +1,191 @@
+"""Build/check the shared screenshot-omission addendum without touching live lanes.
+
+This creates translation inputs, not game packages or editorial acceptance receipts.
+Run with --check to compare the complete generated file set and exact contents.
+"""
+import argparse
+import collections
+import hashlib
+import json
+import sys
+from pathlib import Path
+from urllib.parse import quote
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'localization/supplemental-ui/20261027'
+LOCALES = ('zh', 'de', 'es', 'es-419', 'pt-BR', 'ja')
+sys.path.insert(0, str(ROOT / 'localization/source/bgdatabase-20261027'))
+from decode_inventory import parse, variable_cells
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def encoded(value):
+    return (json.dumps(value, ensure_ascii=False, indent=2) + '\n').encode()
+
+
+def selector(sheet, row, field):
+    return 'bgdb:resources.assets:320/sheet/{}/row/{}/field/{}'.format(
+        *[quote(x, safe='') for x in (sheet, row, field)])
+
+
+def products():
+    inputs = [
+        'localization/previews/ru-20261027-settings-fix/build.json',
+        'localization/source/bug-report-ui-20261027/inventory.json',
+        'localization/source/actor-display-ru-20261027/plan.json',
+        'localization/source/tutorial-quest-ru-20261027/plan.json',
+        'localization/source/bgdatabase-20261027/actor-identity/decoded.json',
+        'localization/source/bgdatabase-20261027/quest-progress/decoded.json',
+        'localization/source/bgdatabase-20261027/quest-progress/readback/counter-dependency.json',
+        'assets/source-v2/text-assets/90744c19ec-resources.assets-320.bin',
+    ]
+    pins = {p: sha((ROOT / p).read_bytes()) for p in inputs}
+    settings, report, actor, quest = [json.loads((ROOT / p).read_text()) for p in inputs[:4]]
+    assert pins[inputs[0]] == 'b947226767d4595cd3c50102f438c1ef2fa22d6ed9135ba42417b1aec6401783'
+    assert pins[inputs[1]] == 'dd7e3382ef8c2e0a3ef59106d7ed3c550a2e14e3fff34cdd0f202acf12cc48f3'
+    assert pins[inputs[2]] == 'a09e06f91f8d95b0e4a03f4ee4da3d56d0ad9758daed8469f48d7611ea3c55cb'
+    assert pins[inputs[3]] == '9a94aa6a554bed1a7e6f9b30196004da63b724ece5651da6e8e2e54a11b65e73'
+    assert pins[inputs[7]] == '41834cda2f3ea6f010234f3ca2332e31b95b990ab38a8940b0d92f000477fda9'
+    for evidence in [actor['sourceReadback'], quest['sourceReadback']]:
+        assert pins[evidence['path']] == evidence['sha256']
+    assert pins[quest['excludedDependency']['source']] == quest['excludedDependency']['sha256']
+    phrase_sources = [
+        ('settings.music', 'Music'), ('settings.effects', 'Effects'),
+        ('settings.fullscreen', 'Fullscreen:'), ('settings.stretch', 'Stretch:'),
+        ('settings.scale', 'Scale:'), ('settings.on', 'On'), ('settings.off', 'Off'),
+        ('report.system-info-label', 'System Info:'), ('report.edit-text', 'Edit Text'),
+        ('report.send', 'Send\nReport'),
+        ('report.instructions', "Select ''Edit Text'' to let us know what happened!\n\nThe report tool will gather the other information we need.\nYou can adjust the detail level of system information sent."),
+        ('report.keyboard', 'You can type your report with a physical keyboard.\nOr use our virtual keyboard. It supports touch and gamepad controls!'),
+        ('report.success', 'The bug report was sent successfully!\nThank you for your feedback.'),
+        ('report.empty', 'The bug report text is empty!\nPlease add some text and try again.'),
+        ('report.confirm-send', 'Send the bug report?'),
+        ('report.confirm-cancel', 'Cancel the bug report?\nThe text you entered will be erased.'),
+        ('report.unsupported', "The bug report cannot be sent on this platform.\nPlease share your feedback from a Desktop build\nor on the game's website tfol.info"),
+        ('report.yes', 'Yes'), ('report.no', 'No'), ('report.ok', 'Ok'),
+        ('report.data-heading', 'The following information will be sent:'),
+        ('report.application-info', 'Application Info'), ('report.system-info', 'System Info'),
+        ('report.back', 'Back'),
+    ] + [('tutorial.' + u['field'] if u['sheet'] == 'Quest' else 'tutorial.' + u['identity'].rsplit('_', 1)[1], u['source']) for u in quest['units']]
+    assert len(phrase_sources) == 30 and len(dict(phrase_sources)) == 30
+    source_keys = {source: key for key, source in phrase_sources}
+    units, protected = [], []
+    for group in settings['settingsTranslations']:
+        for pid in group['textIds']:
+            units.append(dict(id=f'level1:{pid}/m_text', family='settings', source=group['source'],
+                              phrase=source_keys[group['source']], context=group['hierarchy']))
+    for row in report['rows']:
+        ident = f"{row['id']}/m_text"
+        if row['source'] in source_keys:
+            units.append(dict(id=ident, family='report', source=row['source'],
+                              phrase=source_keys[row['source']], context=row['hierarchy']))
+        else:
+            assert row['source'] in ('+', '++', '+++', '++++', '\u200b')
+            protected.append(dict(id=ident, expected=row['source'], reason='control marker, not prose'))
+    for row in actor['rows']:
+        for field, source in row['source'].items():
+            ident = selector(actor['sheetId'], row['rowId'], actor['fieldIds'][field])
+            if source is None:
+                protected.append(dict(id=ident, expected=None, reason='absent display override'))
+            else:
+                units.append(dict(id=ident, family='actor', source=source,
+                                  field=field, glossaryId=row['glossaryId'], context=row['identity']))
+    for unit in quest['units']:
+        units.append(dict(id=selector(unit['sheetId'], unit['rowId'], unit['fieldId']),
+                          family='tutorial', source=unit['source'], phrase=source_keys[unit['source']],
+                          context=unit['identity'], glossaryId='tfol-119' if unit['field']=='bio_title' else None))
+    assert len(units) == 212 and len({u['id'] for u in units}) == 212
+    assert collections.Counter(u['family'] for u in units) == {'settings':54, 'report':106, 'actor':46, 'tutorial':6}
+    # Keep all technical Actor blobs and every other Quest display cell exact.
+    data = (ROOT / inputs[7]).read_bytes()
+    env = parse(data)
+    for sheet in env['sheets']:
+        for field in sheet['fields']:
+            blob = data[field['valuesOffset']:field['valuesOffset'] + field['valuesBytes']]
+            if sheet['name'] == 'Actor' and field['name'] not in actor['fieldIds']:
+                protected.append(dict(sheetId=sheet['id'], fieldId=field['id'], expectedBlobHex=blob.hex(),
+                                      reason='technical Actor column; 39 states'))
+            if (sheet['name'], field['name']) in [('Quest','bio_title'), ('Quest','bio_description'), ('QuestProgressLogText','log_text')]:
+                cells, _ = variable_cells(dict(field, valuesHex=blob.hex()), len(sheet['rowIds']))
+                for row_id, cell in zip(sheet['rowIds'], cells):
+                    ident = selector(sheet['id'], row_id, field['id'])
+                    if ident not in {u['id'] for u in units}:
+                        protected.append(dict(id=ident, expectedValueHex=cell.hex() if cell is not None else None,
+                                              reason='outside bounded tutorial repair; includes lost-photo comparison'))
+    catalog = dict(schemaVersion=1, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27; additive to the frozen dialogue inventory',
+                   sourcePins=pins, phraseOrder=[dict(key=k, source=s) for k,s in phrase_sources], units=units,
+                   preserveExactly=protected, processBinding=quest['processBinding'],
+                   applicationContract={
+                       'textLayers':'Apply every ID, including all six TMP face/glow copies. Retain existing layout bindings; validate target-specific fitting.',
+                       'duplicateImage':{'id':'level1:9708/m_Enabled','before':1,'after':0,'reason':'duplicate Off sprite already replaced by six TMP layers; disable the Image, do not redraw its texture'},
+                       'actor':'Patch only nameplate_name/full_name. Compare all unselected columns, null cells and full payload restoration as in russian_actor_names.py.',
+                       'tutorial':'Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.',
+                       'fonts':'Resolve actual native/TMP roles per locale before packaging; preserve fictional-language font mapping. Russian font acceptance does not cover other scripts.',
+                       'textures':'Notify the owner of texture-only omissions; do not produce or replace textures.',
+                       'dynamicReportData':'These are form captions, not proof of localization of generated diagnostic payloads.',
+                       'liveLanes':'Do not modify running briefs, immutable manifests, frozen 12246-ID dialogue inputs or prior dialogue-only receipts.'})
+    files = {'source-catalog.json': encoded(catalog)}
+    wording = json.loads((OUT / 'wording.json').read_text())
+    assert set(wording) == set(LOCALES)
+    locale_receipts = {}
+    for locale in LOCALES:
+        glossary_path = ROOT / f'localization/glossary/{locale}.json'
+        glossary = json.loads(glossary_path.read_text())
+        authored = wording[locale]
+        assert set(authored['phrases']) == {k for k,s in phrase_sources}
+        phrases = authored['phrases']
+        assert phrases['tutorial.bio_title'] == glossary['tfol-119']['term']
+        records = []
+        for unit in units:
+            if unit['family'] != 'actor':
+                target = phrases[unit['phrase']]
+            elif unit['field'] == 'full_name':
+                target = glossary[unit['glossaryId']]['term']
+            else:
+                target = authored['shortNames'][unit['source']]
+            assert isinstance(target, str) and target and target == target.strip()
+            assert target.count('\n') == unit['source'].count('\n'), (locale,unit['id'],'line breaks')
+            assert target.count('tfol.info') == unit['source'].count('tfol.info')
+            record = dict(id=unit['id'], source=unit['source'], target=target)
+            if target == unit['source']:
+                native_no = locale in ('es', 'es-419') and unit.get('phrase') == 'report.no'
+                assert unit['family']=='actor' or native_no, (locale, unit['id'], target)
+                record['unchangedReason'] = 'approved proper name' if unit['family']=='actor' else 'Spanish negative response is also No'
+            records.append(record)
+        assert [r['id'] for r in records] == [u['id'] for u in units]
+        filename = locale + '.jsonl'
+        files[filename] = ''.join(json.dumps(r,ensure_ascii=False) + '\n' for r in records).encode()
+        locale_receipts[locale] = dict(file=filename, sha256=sha(files[filename]), units=len(records),
+                                       glossaryPath=str(glossary_path.relative_to(ROOT)), glossarySha256=sha(glossary_path.read_bytes()),
+                                       independentEditorial='pending', resourceApplication='not-run', runtime='not-run', visual='not-run', releaseAccepted=False)
+    files['manifest.json'] = encoded(dict(schemaVersion=1, sourceCatalogSha256=sha(files['source-catalog.json']),
+                                         wordingSha256=sha((OUT/'wording.json').read_bytes()),
+                                         generatorSha256=sha(Path(__file__).read_bytes()),
+                                         status='author-edited supplemental translation inputs; deterministic validation passed',
+                                         locales=locale_receipts, completeGameAccepted=False,
+                                         preservedDialogueInventory='12246 source IDs; unchanged scope and existing receipts',
+                                         atomicity='All outputs prepared and validated in memory before writing. Per-file replacement only; interruption requires a complete --check before consuming any output.'))
+    return files
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true')
+    args = parser.parse_args()
+    files = products()
+    for name, contents in files.items():
+        path = OUT / name
+        if args.check:
+            assert path.read_bytes() == contents, ('generated-file-drift', name)
+        else:
+            temporary = path.with_suffix(path.suffix + '.pending')
+            temporary.write_bytes(contents)
+            temporary.replace(path)
+    print(json.dumps(dict(status='checked' if args.check else 'written', locales=6, unitsPerLocale=212, totalTargets=1272, files=len(files))))
+
+
+if __name__ == '__main__':
+    main()
