@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "targetLocales": [
+    "zh",
+    "ru",
+    "es",
+    "es-419",
+    "pt-BR",
+    "ja",
+    "de",
+    "ko",
+    "fr",
+    "tr",
+    "pl",
+    "zh-TW",
+    "it",
+    "th",
+    "vi",
+    "id",
+    "uk",
+    "ar",
+    "cs",
+    "hu",
+    "nl",
+    "fa",
+    "ro",
+    "hi",
+    "fil",
+    "el",
+    "bg",
+    "sr",
+    "sw",
+    "he"
+  ],
+  "ownerRule": "Texture-only wording is report-only; do not modify or produce localized textures.",
+  "texturePixelsChanged": false,
+  "items": [
+    {
+      "id": "painted-game-title",
+      "text": "The Forest of Love",
+      "status": "reported-only",
+      "evidence": "All owner-provided menu screenshots; incoming review ledger image1/image3",
+      "action": "Preserve artwork under owner instruction"
+    },
+    {
+      "id": "painted-gallery-heading",
+      "text": "Gallery",
+      "status": "reported-only",
+      "sourceBinding": {
+        "component": "level1:8975",
+        "hierarchy": "Canvas/GalleryMenu/Logo",
+        "spriteSource": "sharedassets1.assets:442",
+        "spriteName": "gallery_logo",
+        "spriteType": "Sprite",
+        "rect": {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 280.0,
+          "height": 77.0
+        },
+        "imageEnabled": 1,
+        "assetSha256": "77acee82f11d77dcb610538a0c03c3709b0b3708fe1c6ada04a1e021eaefde66"
+      },
+      "runtimeEvidence": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-menu-20261027-05/gallery-active-images.tsv",
+        "sha256": "8a839d39d849b9a165d73a77f5998c09a0b725ad48676878b3f086242d705625"
+      },
+      "action": "Preserve gallery_logo Sprite and underlying texture under owner instruction; source native labels are independently localized"
+    }
+  ]
+}

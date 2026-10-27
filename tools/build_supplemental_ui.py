@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'localization/supplemental-ui/20261027'
 sys.path.insert(0, str(ROOT / 'localization/source/bgdatabase-20261027'))
 from decode_inventory import parse, variable_cells
+from menu_supplement import PHRASES as MENU_PHRASES, source_addendum, render
 
 
 def sha(data):
@@ -132,7 +133,12 @@ def products():
                     if ident not in {u['id'] for u in units}:
                         protected.append(dict(id=ident, expectedValueHex=cell.hex() if cell is not None else None,
                                               reason='outside bounded tutorial repair; includes lost-photo comparison'))
-    catalog = dict(schemaVersion=1, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27; additive to the frozen dialogue inventory',
+    menu_units, menu_pins = source_addendum(units)
+    units += menu_units
+    pins.update(menu_pins)
+    phrase_sources += MENU_PHRASES
+    assert len(dict(phrase_sources)) == len(phrase_sources) == 51
+    catalog = dict(schemaVersion=2, sourceLanguage='en', scope='All screenshot omissions through 2026-10-27 20:22; additive to the frozen dialogue inventory',
                    sourcePins=pins, phraseOrder=[dict(key=k, source=s) for k,s in phrase_sources], units=units,
                    preserveExactly=protected, processBinding=quest['processBinding'],
                    applicationContract={
@@ -142,7 +148,10 @@ def products():
                        'tutorial':'Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.',
                        'fonts':'Resolve actual native/TMP roles per locale before packaging; preserve fictional-language font mapping. Russian font acceptance does not cover other scripts.',
                        'textures':'Notify the owner of texture-only omissions; do not produce or replace textures.',
+                       'reportOnlyArtwork':'The Forest of Love title and the separate Gallery heading are reported-only for all30 locales; see localization/source/menu-remaining-ui-20261027/graphics-findings.json and its exact Gallery Image/Sprite binding.',
                        'dynamicReportData':'These are form captions, not proof of localization of generated diagnostic payloads.',
+                       'galleryCode':'Apply only the six pinned display ldstr operands in four original gallery-label methods. Preserve all branches, counter operands, unlock logic, placeholders and tags. Verify whole-method readback and restoration.',
+                       'settingsCaptionLayout':'Use preferred-width ContentSizeFitter and right pivot on both pinned caption containers; keep left origins of state values fixed, retain the six-layer renderer and validate actual glyph separation. See menu-inventory.json captionLayout.',
                        'liveLanes':'Do not modify running briefs, immutable manifests, frozen 12246-ID dialogue inputs or prior dialogue-only receipts.'})
     files = {'source-catalog.json': encoded(catalog)}
     wording = json.loads((OUT / 'wording.json').read_text())
@@ -165,14 +174,18 @@ def products():
         records = []
         for unit in units:
             if unit['family'] != 'actor':
-                target = phrases[unit['phrase']]
+                target = render(unit, phrases)
             elif unit['field'] == 'full_name':
                 target = glossary[unit['glossaryId']]['term']
             else:
                 target = authored['shortNames'][unit['source']]
-            assert isinstance(target, str) and target and target == target.strip()
+            assert isinstance(target, str) and target and target == target.strip(' \t\r')
             assert target.count('\n') == unit['source'].count('\n'), (locale,unit['id'],'line breaks')
             assert target.count('tfol.info') == unit['source'].count('tfol.info')
+            assert sorted(re.findall(r'\{[0-9]+\}', target)) == sorted(re.findall(r'\{[0-9]+\}', unit['source']))
+            assert re.findall(r'</?size(?:=[0-9]+)?>', target) == re.findall(r'</?size(?:=[0-9]+)?>', unit['source'])
+            if unit.get('formatArgs'):
+                assert re.findall(r'[0-9]+', target) == re.findall(r'[0-9]+', unit['source'])
             record = dict(id=unit['id'], source=unit['source'], target=target)
             if target == unit['source']:
                 native_no = locale in ('es', 'es-419', 'it') and unit.get('phrase') == 'report.no'
@@ -220,7 +233,9 @@ def main():
             temporary.write_bytes(contents)
             temporary.replace(path)
     manifest = json.loads(files['manifest.json'])
-    print(json.dumps(dict(status='checked' if args.check else 'written', locales=manifest['targetCount'], unitsPerLocale=212, totalTargets=212*manifest['targetCount'], files=len(files))))
+    counts = [row['units'] for row in manifest['locales'].values()]
+    assert len(set(counts)) == 1
+    print(json.dumps(dict(status='checked' if args.check else 'written', locales=manifest['targetCount'], unitsPerLocale=counts[0], totalTargets=sum(counts), files=len(files))))
 
 
 if __name__ == '__main__':

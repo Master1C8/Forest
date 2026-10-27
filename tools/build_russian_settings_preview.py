@@ -20,6 +20,7 @@ from russian_report_ui import report_text_plan
 from settings_glow import settings_value_image_plan
 from russian_preview_ui import project_actor_display, load_bg_parser
 from russian_quest_ui import project_quest_display
+from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 DATA = 'The Forest of Love_Data'
@@ -43,7 +44,7 @@ def main():
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--qa-product', required=True)
-    parser.add_argument('--surface', choices=['settings', 'report', 'names', 'quests'], default='settings')
+    parser.add_argument('--surface', choices=['settings', 'report', 'names', 'quests', 'menu'], default='settings')
     args = parser.parse_args()
     base, out = args.base.resolve(), args.output.resolve()
     assert (ROOT / 'localization/previews') in base.parents
@@ -54,7 +55,7 @@ def main():
     assert report['siteLocale'] == 'ru' and report['sampleSurface'] == 'actual-saved-dialogue'
     assert report['saveIsolation']['companyName'] == 'VNRevivalQA'
     assert len(report['files']) == 7 and report['coherentTmpFace']
-    translations_key = {'settings': 'settingsTranslations', 'report': 'reportTranslations', 'names': 'actorNamesRepair', 'quests': 'questRepair'}[args.surface]
+    translations_key = {'settings': 'settingsTranslations', 'report': 'reportTranslations', 'names': 'actorNamesRepair', 'quests': 'questRepair', 'menu':'remainingMenuRepair'}[args.surface]
     assert not report.get(translations_key), 'Already repaired: do not duplicate a repair cycle'
     for row in report['files']:
         assert sha(base / 'game' / DATA / row['path']) == row['probeSha256'], row['path']
@@ -71,12 +72,13 @@ def main():
     snapshots = out / 'recipe'
     snapshots.mkdir()
     for name in ['build_russian_settings_preview.py', 'build_russian_preview.py',
-                 'russian_settings_ui.py', 'russian_report_ui.py', 'russian_actor_names.py', 'russian_quest_ui.py', 'settings_glow.py', 'extract_assets.py',
+                 'russian_settings_ui.py', 'russian_report_ui.py', 'russian_actor_names.py', 'russian_quest_ui.py', 'russian_menu_ui.py', 'settings_glow.py', 'extract_assets.py',
                  'russian_preview_ui.py', 'russian_preview_support.py',
                  'addressables_catalog.py', 'tmp_dialogue_font.py', 'legacy_choice_font.py']:
         shutil.copy2(ROOT / 'tools' / name, snapshots / name)
     shutil.copy2(ROOT / 'localization/source/actor-display-ru-20261027/plan.json', snapshots / 'actor-display-plan.json')
     shutil.copy2(ROOT / 'localization/source/tutorial-quest-ru-20261027/plan.json', snapshots / 'tutorial-quest-plan.json')
+    snapshot_menu(snapshots)
     receipts = []
 
     def clone(source, target):
@@ -119,6 +121,8 @@ def main():
                 images, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
                 assert not (plan.keys() & images.keys())
                 plan.update(images)
+            elif args.surface == 'menu':
+                plan, report['menuTranslations'] = menu_plan(objects,generator)
             else:
                 plan, report['reportTranslations'] = report_text_plan(objects, generator)
         else:
@@ -155,6 +159,11 @@ def main():
         print(name, 'exact selected/unselected readback passed', flush=True)
     (target / 'app.info').write_text('VNRevivalQA\n' + args.qa_product)
     allowed = {DATA + '/' + changed_resource, DATA + '/globalgamemanagers', DATA + '/app.info'}
+    if args.surface == 'menu':
+        report['galleryCodeRepair']=patch_gallery(target/'Managed',snapshots,out/'gallery-code-readback.json')
+        allowed.add(DATA+'/Managed/Assembly-CSharp.dll')
+        report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
+                                'probeSha256':report['galleryCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
     final_paths = {str(p.relative_to(out / 'game')) for p in (out / 'game').rglob('*') if p.is_file()}
     assert final_paths == {row['path'] for row in receipts}
     for row in receipts:
@@ -165,9 +174,9 @@ def main():
     assert not list((out / 'game').rglob('tfol.*'))
     assert all(sha(base / 'game' / path) == expected for path, expected in excluded.items())
     report['saveIsolation']['productName'] = args.qa_product
-    repair_key = {'settings': 'settingsRepair', 'report': 'reportRepair', 'names': 'actorNamesRepair', 'quests': 'questRepair'}[args.surface]
+    repair_key = {'settings': 'settingsRepair', 'report': 'reportRepair', 'names': 'actorNamesRepair', 'quests': 'questRepair', 'menu':'remainingMenuRepair'}[args.surface]
     report[repair_key] = {'base': str(base), 'baseBuildSha256': base_hash,
-                                'recipeHashes': {p.name: sha(p) for p in snapshots.iterdir()},
+                                'recipeHashes': {str(p.relative_to(snapshots)): sha(p) for p in snapshots.rglob('*') if p.is_file()},
                                 'files': incremental, 'onlyChangedGameFiles': sorted(allowed),
                                 'texturePixelsChanged': False,
                                 'allOtherGameFilesByteIdentical': True,

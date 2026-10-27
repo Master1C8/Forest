@@ -2,7 +2,10 @@
 
 For an owner-requested Russian game launch, use the repaired player preview and
 preserve the owner's last actual progress across preview updates. The currently
-selected preview is `ru-20261027-quest-fix/game/`.
+selected updated preview is `ru-20261027-menu-fix/game/`.
+The last owner-played preview remains `ru-20261027-quest-fix/game/`; while it is
+running, preserve that session and do not copy its live save or launch a replacement.
+After it exits normally, use its then-current progress for the updated preview.
 
 The shipped save helper first reads `The Forest of Love_Data/tfol.savegame` next
 to the game, then falls back to the Unity persistent-data location. It writes to

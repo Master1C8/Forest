@@ -20,6 +20,7 @@ from settings_glow import settings_glow_plan, settings_value_image_plan
 from russian_settings_ui import settings_text_plan
 from russian_report_ui import report_text_plan
 from russian_quest_ui import project_quest_display
+from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -103,6 +104,8 @@ def main():
     shutil.copy2(Path(__file__).parent / 'russian_actor_names.py', out / 'russian_actor_names.py')
     shutil.copy2(PROJECT / 'localization/source/actor-display-ru-20261027/plan.json', out / 'actor-display-plan.json')
     shutil.copy2(Path(__file__).parent / 'russian_quest_ui.py', out / 'russian_quest_ui.py')
+    shutil.copy2(Path(__file__).parent / 'russian_menu_ui.py', out / 'russian_menu_ui.py')
+    snapshot_menu(out)
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
@@ -148,6 +151,7 @@ def main():
         image_repairs = {}
         settings_repairs = {}
         report_repairs = {}
+        menu_repairs = {}
         choice_repairs = {}
         ui_repairs = {}
         if name == 'globalgamemanagers':
@@ -202,6 +206,8 @@ def main():
             report_repairs, report['reportTranslations'] = report_text_plan(objects, generator)
             image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
             selected.update({pid: objects[pid] for pid in settings_repairs | report_repairs | image_repairs})
+            menu_repairs, report['menuTranslations'] = menu_plan(objects, generator)
+            selected.update({pid:objects[pid] for pid in menu_repairs})
         if args.coherent_tmp_face and name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
             font_id = -1127281652424575413 if name == BUNDLE else 3323
             if name in ['level1', 'level5', 'level6']:
@@ -271,6 +277,8 @@ def main():
                     tree['m_text'] = settings_repairs[pid]['m_text']
                 if pid in report_repairs:
                     tree['m_text'] = report_repairs[pid]['m_text']
+                if pid in menu_repairs:
+                    tree['m_text'] = menu_repairs[pid]['m_text']
                 if name == 'level1' and tree.get('m_text') in report['menuSamples']:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
                 if name != 'level1' and obj.type.name == 'MonoBehaviour' and tree.get('m_GameObject'):
@@ -287,6 +295,8 @@ def main():
                     tree = copy.deepcopy(settings_repairs[pid])
                 elif pid in report_repairs:
                     tree = copy.deepcopy(report_repairs[pid])
+                elif pid in menu_repairs:
+                    tree = copy.deepcopy(menu_repairs[pid])
                 else:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif pid in choice_repairs:
@@ -358,6 +368,9 @@ def main():
         SOURCE / DATA_NAME / BUNDLE, target / BUNDLE)
     report['saveIsolation'] = {'companyName': 'VNRevivalQA', 'productName': product,
                                'originalAppIdentityUnchanged': True, 'copiedPlayerFiles': False}
+    report['galleryCodeRepair'] = patch_gallery(target/'Managed',out,out/'gallery-code-readback.json')
+    report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
+                            'probeSha256':report['galleryCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
     (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 
 

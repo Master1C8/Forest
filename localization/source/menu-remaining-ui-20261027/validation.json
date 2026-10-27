@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourceArtifact": "localization/previews/ru-20261027-menu-fix/build.json",
+  "sourceArtifactSha256": "270941b8c4974b625bbc93678c1390b762dc8056cd41ca770a77ff3796f54e2b",
+  "actualResourceHashesCompared": 8,
+  "actualMenuTextFieldsCompared": 282,
+  "newRussianTextChanges": 204,
+  "managedDisplayOperandsChanged": 6,
+  "modifiedManagedMethods": 4,
+  "unselectedObjectsAndMethodsPreserved": true,
+  "texturesChanged": false,
+  "runtime": {
+    "sixPanels": "passed",
+    "conditionalAct1Captions": "passed with visibility-only inspection staging after original Start",
+    "chapterUnlockProgression": "not-tested",
+    "geometry": "positive fixed layout and original-layout negative control passed; root-Canvas units"
+  },
+  "visual": {
+    "scope": "six native Russian menu/confirmation frames",
+    "status": "passed with source-backed owner artwork exceptions",
+    "compositeReceipt": "/Users/antonkrutov/Desktop/Forest/outputs/menu-ui-20261027-2022/final-native-acceptance.json",
+    "compositeReceiptSha256": "4bcca95d2c948d20c70f98da63e38a8edcf4443f39db039aff35e0ec7ca7a4ea",
+    "hostedUpload": "not-run",
+    "fullGame": "not-established"
+  },
+  "tests": {
+    "preview": 11,
+    "remainingMenu": 3,
+    "localeScope": 5
+  },
+  "locales": {
+    "targets": 30,
+    "fieldsPerLocale": 446,
+    "totalTargets": 13380,
+    "previous212RecordsRetainedExactlyPerLocale": true,
+    "independentEditorial": "pending",
+    "otherLocaleResourcesRuntimeVisual": "not-run"
+  },
+  "ownerGameplay": {
+    "runningPreview": "ru-20261027-quest-fix",
+    "closedOrControlled": false,
+    "saveFilesUsedForQA": false,
+    "nextLaunchRecipe": "localization/previews/PLAYER-LAUNCH.md"
+  },
+  "usage": {
+    "privateReceipt": "/Users/antonkrutov/Desktop/Forest/outputs/menu-ui-20261027-2022/final-review-usage.json",
+    "privateReceiptSha256": "b05f414eeeacdec838792e13bc240c5fccd6b2bc3a4646243d34cc81fc7a5b4f",
+    "measuredWorkerTotals": {
+      "input": 443438,
+      "cached": 244224,
+      "output": 9676,
+      "total": 453114
+    },
+    "coordinatorMixedDelta": {
+      "input_tokens": 23401760,
+      "cached_input_tokens": 23327872,
+      "output_tokens": 138445,
+      "total_tokens": 23540205
+    },
+    "measurementLimit": "after all 12 image-review jobs, before this tool call; initial pre-baseline work and remaining reporting/commit tail unmeasured"
+  }
+}

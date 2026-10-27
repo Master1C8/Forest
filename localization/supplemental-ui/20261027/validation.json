@@ -1,13 +1,14 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "scopeCorrection": "30 total target locales including Russian; prior six were only a supplemental execution subset",
   "coordinator": {
     "actualModel": "gpt-6.1-sol",
     "reasoning": "high",
-    "additionalModelWorkersLaunched": 0
+    "additionalModelWorkersLaunched": 12,
+    "workerScope": "Image review only; no translation worker or Astra launched"
   },
   "supplement": {
-    "sourceCatalogSha256": "ac93c0b84659fb09cfe14e427f5ab60e88b1bf66a55e5b95ef8d14bdb49f9f61",
+    "sourceCatalogSha256": "6c467683db688aff6645bfe7d6a51172c9e508d9219880b9cd90edfbc6027657",
     "localeScopeSha256": "6b46f9603b35bd414824448e851e120f6f4792eb297e10ee4a842e1a77e58eda",
     "locales": [
       "zh",
@@ -42,11 +43,9 @@
       "he"
     ],
     "localeCount": 30,
-    "fieldsPerLocale": 212,
-    "targets": 6360,
+    "fieldsPerLocale": 446,
+    "targets": 13380,
     "completeGeneratedFileComparison": "passed",
-    "sourceCatalogUnchanged": true,
-    "priorSixLocaleTargetsUnchanged": true,
     "russianActorAndTutorialTargetsMatchExistingRepairPlans": 52,
     "importedGlossaries": 23,
     "allThirtyGlossaryFingerprintsMatchAcceptedCanonicalLayers": true,
@@ -59,8 +58,13 @@
     "runtime": "not-run",
     "visual": "not-run",
     "wholeGameAccepted": false,
-    "manifestSha256": "03325bd29efe958521a875728f13a181f62e160d73994b1718daca45ac8a6dcf",
-    "authorFindingsSha256": "45e9e9c155747ce44c0c386fe876016c238fd4d80a927e491e8f1c08d0367376"
+    "manifestSha256": "75a3a0530a4421ca0d7f23f47d1dc913993152ef8928024cb1f23170d849827e",
+    "authorFindingsSha256": "45e9e9c155747ce44c0c386fe876016c238fd4d80a927e491e8f1c08d0367376",
+    "prior212RecordsRetainedByteExactlyPerLocale": true,
+    "appendedSourceUnitsPerLocale": 234,
+    "runtimeAndVisualScope": "Russian six-frame repair only; see linked source validation",
+    "russianRepairValidation": "localization/source/menu-remaining-ui-20261027/validation.json",
+    "sourceInventoryChange": "Append-only 234 new IDs per locale; prior 212 source/target records retained byte-exactly"
   },
   "preservation": {
     "priorValidation": "history/six-locales-validation.json",

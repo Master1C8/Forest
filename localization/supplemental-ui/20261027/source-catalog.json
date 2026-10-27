@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "sourceLanguage": "en",
-  "scope": "All screenshot omissions through 2026-10-27; additive to the frozen dialogue inventory",
+  "scope": "All screenshot omissions through 2026-10-27 20:22; additive to the frozen dialogue inventory",
   "sourcePins": {
     "localization/previews/ru-20261027-settings-fix/build.json": "b947226767d4595cd3c50102f438c1ef2fa22d6ed9135ba42417b1aec6401783",
     "localization/source/bug-report-ui-20261027/inventory.json": "dd7e3382ef8c2e0a3ef59106d7ed3c550a2e14e3fff34cdd0f202acf12cc48f3",
@@ -10,7 +10,21 @@
     "localization/source/bgdatabase-20261027/actor-identity/decoded.json": "87a4051dcf5a3631568ed64471bc642f845fcf3b392cfe010cae573d18e1e82e",
     "localization/source/bgdatabase-20261027/quest-progress/decoded.json": "b311611c705966e636cd4328c4e7d65595be7ed4dfeab58fad7bc69e2528bff1",
     "localization/source/bgdatabase-20261027/quest-progress/readback/counter-dependency.json": "c044cc5be368bf789d7f9c98d976a57224df600fe0fa7a58c48e08ac3464a5d6",
-    "assets/source-v2/text-assets/90744c19ec-resources.assets-320.bin": "41834cda2f3ea6f010234f3ca2332e31b95b990ab38a8940b0d92f000477fda9"
+    "assets/source-v2/text-assets/90744c19ec-resources.assets-320.bin": "41834cda2f3ea6f010234f3ca2332e31b95b990ab38a8940b0d92f000477fda9",
+    "localization/source/menu-remaining-ui-20261027/menu-inventory.json": "128a0cdec222e929d7217ec9520674c7f8c025febaf3d5bd1963f0e936173f08",
+    "localization/source/menu-remaining-ui-20261027/gallery-code.json": "cf9c996d6f4bddc723accda2fb7842af4817d0cb48c46bbf6351ecca34c02635",
+    "localization/source/menu-remaining-ui-20261027/controller-bindings.json": "12551ecc6a7e1a28a544428eec2f648e3f3895ed8decaa304eb0e08d8798912d",
+    "localization/source/menu-remaining-ui-20261027/gallery-labels.il": "206403c96ec667abdbc7ccc633fde4df9829de76360e1d5c746e52b71cd648eb",
+    "localization/source/menu-remaining-ui-20261027/gallery-setters.il": "9295f93358c3c9288b5b569d377bd96f92383b6e1d38904a2487fd38501e232b",
+    "localization/source/menu-remaining-ui-20261027/menu-navigation.il": "c099c0605b5bc6802123b46439f08b432d6f3845697eb6eb36e6b4321d0f1228",
+    "localization/source/menu-remaining-ui-20261027/menu-confirmations.il": "e16ed0d2e15a59a312f0a478cf29e8b0eaeb7d92a88fb784d0e3022ea85e1342",
+    "localization/source/menu-remaining-ui-20261027/play-fast-forward.il": "71e784514451aaac5a8438ad26ec6cb093ef5027522fad9f236a38da54ea95d2",
+    "localization/source/menu-remaining-ui-20261027/play-fast-forward-init.il": "b554b70e2714cd3a7d8eb05d8ec10851094cef36000a76f7e48c8b373f44524e",
+    "localization/source/menu-remaining-ui-20261027/graphics-findings.json": "72c731bd1de23a5a86146b7f12765976d6a47575cae9edd61bf8cbeae202aa02",
+    "tools/menu_supplement.py": "61e01b0847d4cb6673857e3b35799163115a88689c15b797c01ffea0cb61e978",
+    "tools/inspect_remaining_menu_ui.py": "948a0f888f7d39eb82cbf16bc1bfc1f2e72cbd422dbdc9448d8953ee520b1d3b",
+    "tools/menu_patch/Program.cs": "9c1b2f719966be0f20e3e8e201eeef52cf49f48d43bfee3f2f76cbeacda97660",
+    "tools/menu_patch/MenuPatch.csproj": "b4c8f595be77773c236807e44de4b047174eb7ad4dd3a56e2cd398b44e2df71b"
   },
   "phraseOrder": [
     {
@@ -132,6 +146,90 @@
     {
       "key": "tutorial.3",
       "source": "Meet all the nearby critters."
+    },
+    {
+      "key": "menu.continue",
+      "source": "Continue Saved Game\n"
+    },
+    {
+      "key": "menu.start-from",
+      "source": "Start from:"
+    },
+    {
+      "key": "menu.act",
+      "source": "Act {0}"
+    },
+    {
+      "key": "menu.act-heading",
+      "source": "ACT {0}"
+    },
+    {
+      "key": "menu.latest",
+      "source": "Latest"
+    },
+    {
+      "key": "menu.soon",
+      "source": "Coming Soon..."
+    },
+    {
+      "key": "menu.dialogue",
+      "source": "Dialogue:"
+    },
+    {
+      "key": "menu.unlock-all",
+      "source": "Unlock All (Cheat)"
+    },
+    {
+      "key": "menu.help",
+      "source": "Help"
+    },
+    {
+      "key": "menu.movie-item",
+      "source": "Movie {0}/{1}"
+    },
+    {
+      "key": "menu.story-item",
+      "source": "Story {0}/{1}"
+    },
+    {
+      "key": "menu.delete",
+      "source": "Delete\nSavegame"
+    },
+    {
+      "key": "menu.new-game",
+      "source": "Start New Game\n"
+    },
+    {
+      "key": "menu.confirm-new",
+      "source": "This will erase your earlier progress. Are you sure?"
+    },
+    {
+      "key": "menu.confirm-delete",
+      "source": "Are you sure you want to delete your savegame?"
+    },
+    {
+      "key": "menu.confirm-quit",
+      "source": "Are you sure you want to quit?"
+    },
+    {
+      "key": "menu.unsaved",
+      "source": "Unsaved progress will be lost!"
+    },
+    {
+      "key": "gallery.movies",
+      "source": "Movies"
+    },
+    {
+      "key": "gallery.stories",
+      "source": "Stories"
+    },
+    {
+      "key": "gallery.movies-count",
+      "source": "Movies\n<size=12>({0}/{1} unlocked)</size>"
+    },
+    {
+      "key": "gallery.stories-count",
+      "source": "Stories\n<size=12>({0}/{1} unlocked)</size>"
     }
   ],
   "units": [
@@ -1670,6 +1768,1866 @@
       "phrase": "tutorial.3",
       "context": "Act1_TutorialQuest_3",
       "glossaryId": null
+    },
+    {
+      "id": "level1:7354/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/GalleryMenu/Controls/Column/Back/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7358/m_text",
+      "family": "menu",
+      "source": "Act 1",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 1/NameGlowLeft/Name",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7361/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/DarknessFade/ComingSoon/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7362/m_text",
+      "family": "menu",
+      "source": "Dialogue:",
+      "phrase": "menu.dialogue",
+      "context": "Canvas/GalleryMenu/Dialogue/Dialogue/NameContainer (1)/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7367/m_text",
+      "family": "menu",
+      "source": "Unlock All (Cheat)",
+      "phrase": "menu.unlock-all",
+      "context": "Canvas/GalleryMenu/CheatUnlockAll/Label/NameContainer (1)/NameGlowLeft"
+    },
+    {
+      "id": "level1:7369/m_text",
+      "family": "menu",
+      "source": "ACT 3",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct3/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7371/m_text",
+      "family": "menu",
+      "source": "On",
+      "phrase": "settings.on",
+      "context": "Canvas/GalleryMenu/Dialogue/On/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7377/m_text",
+      "family": "menu",
+      "source": "Delete\nSavegame",
+      "phrase": "menu.delete",
+      "context": "Canvas/OptionsMenu/Delete Savegame/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7382/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct1/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7386/m_text",
+      "family": "menu",
+      "source": "Latest",
+      "phrase": "menu.latest",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Latest/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7388/m_text",
+      "family": "menu",
+      "source": "Latest",
+      "phrase": "menu.latest",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Latest/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7390/m_text",
+      "family": "menu",
+      "source": "ACT 4",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct4/NameContainer",
+      "formatArgs": [
+        4
+      ]
+    },
+    {
+      "id": "level1:7391/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/DarknessFade/ComingSoon/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7400/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct1/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7401/m_text",
+      "family": "menu",
+      "source": "Continue Saved Game\n",
+      "phrase": "menu.continue",
+      "context": "Canvas/PlayMenu/Controls/Continue/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7404/m_text",
+      "family": "menu",
+      "source": "Unlock All (Cheat)",
+      "phrase": "menu.unlock-all",
+      "context": "Canvas/GalleryMenu/CheatUnlockAll/Label/NameContainer (1)/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7405/m_text",
+      "family": "menu",
+      "source": "ACT 5",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct5/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        5
+      ]
+    },
+    {
+      "id": "level1:7411/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct1/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7416/m_text",
+      "family": "menu",
+      "source": "Dialogue:",
+      "phrase": "menu.dialogue",
+      "context": "Canvas/GalleryMenu/Dialogue/Dialogue/NameContainer (1)/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7420/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsStoriesLegends/NameContainer",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7422/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/DarknessFade (1)/ComingSoon/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7423/m_text",
+      "family": "menu",
+      "source": "ACT 5",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct5/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        5
+      ]
+    },
+    {
+      "id": "level1:7427/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/DarknessFade (1)/ComingSoon/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7429/m_text",
+      "family": "menu",
+      "source": "Help",
+      "phrase": "menu.help",
+      "context": "Canvas/GalleryMenu/Controls/Column/Help/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7433/m_text",
+      "family": "menu",
+      "source": "Start New Game\n",
+      "phrase": "menu.new-game",
+      "context": "Canvas/PlayMenu/Controls/New/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7440/m_text",
+      "family": "menu",
+      "source": "Movie 1/8",
+      "phrase": "menu.movie-item",
+      "context": "Canvas/GalleryMenu/MoviesSelectionLabel/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7448/m_text",
+      "family": "menu",
+      "source": "ACT 2",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7450/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/GalleryMenu/Controls/Column/Back/NameContainer"
+    },
+    {
+      "id": "level1:7455/m_text",
+      "family": "menu",
+      "source": "ACT 4",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct4/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        4
+      ]
+    },
+    {
+      "id": "level1:7458/m_text",
+      "family": "menu",
+      "source": "Off",
+      "phrase": "settings.off",
+      "context": "Canvas/GalleryMenu/Dialogue/Off/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7459/m_text",
+      "family": "menu",
+      "source": "ACT 5",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct5/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        5
+      ]
+    },
+    {
+      "id": "level1:7460/m_text",
+      "family": "menu",
+      "source": "On",
+      "phrase": "settings.on",
+      "context": "Canvas/GalleryMenu/Dialogue/On/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7475/m_text",
+      "family": "menu",
+      "source": "Story 1/8",
+      "phrase": "menu.story-item",
+      "context": "Canvas/GalleryMenu/StoriesSelectionLabel/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7477/m_text",
+      "family": "menu",
+      "source": "Delete\nSavegame",
+      "phrase": "menu.delete",
+      "context": "Canvas/OptionsMenu/Delete Savegame/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7478/m_text",
+      "family": "menu",
+      "source": "Off",
+      "phrase": "settings.off",
+      "context": "Canvas/GalleryMenu/Dialogue/Off/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7482/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsStoriesLegends/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7487/m_text",
+      "family": "menu",
+      "source": "Continue Saved Game\n",
+      "phrase": "menu.continue",
+      "context": "Canvas/PlayMenu/Controls/Continue/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7495/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsStoriesLegends/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7501/m_text",
+      "family": "menu",
+      "source": "Latest",
+      "phrase": "menu.latest",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Latest/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7502/m_text",
+      "family": "menu",
+      "source": "Unlock All (Cheat)",
+      "phrase": "menu.unlock-all",
+      "context": "Canvas/GalleryMenu/CheatUnlockAll/Label/NameContainer (1)/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7504/m_text",
+      "family": "menu",
+      "source": "ACT 5",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct5/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        5
+      ]
+    },
+    {
+      "id": "level1:7507/m_text",
+      "family": "menu",
+      "source": "Continue Saved Game\n",
+      "phrase": "menu.continue",
+      "context": "Canvas/PlayMenu/Controls/Continue/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7516/m_text",
+      "family": "menu",
+      "source": "Help",
+      "phrase": "menu.help",
+      "context": "Canvas/GalleryMenu/Controls/Column/Help/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7518/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/DarknessFade/ComingSoon/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7519/m_text",
+      "family": "menu",
+      "source": "Movie 1/8",
+      "phrase": "menu.movie-item",
+      "context": "Canvas/GalleryMenu/MoviesSelectionLabel/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7521/m_text",
+      "family": "menu",
+      "source": "Help",
+      "phrase": "menu.help",
+      "context": "Canvas/GalleryMenu/Controls/Column/Help/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7523/m_text",
+      "family": "menu",
+      "source": "Act 2",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 2/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7525/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/DarknessFade (1)/ComingSoon/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7531/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsStoriesLegends/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7532/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct1/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7536/m_text",
+      "family": "menu",
+      "source": "Dialogue:",
+      "phrase": "menu.dialogue",
+      "context": "Canvas/GalleryMenu/Dialogue/Dialogue/NameContainer (1)"
+    },
+    {
+      "id": "level1:7541/m_text",
+      "family": "menu",
+      "source": "Off",
+      "phrase": "settings.off",
+      "context": "Canvas/GalleryMenu/Dialogue/Off/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7543/m_text",
+      "family": "menu",
+      "source": "Unlock All (Cheat)",
+      "phrase": "menu.unlock-all",
+      "context": "Canvas/GalleryMenu/CheatUnlockAll/Label/NameContainer (1)/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7545/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsStoriesLegends/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7546/m_text",
+      "family": "menu",
+      "source": "Latest",
+      "phrase": "menu.latest",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Latest/NameGlowLeft"
+    },
+    {
+      "id": "level1:7553/m_text",
+      "family": "menu",
+      "source": "Act 1",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 1/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7558/m_text",
+      "family": "menu",
+      "source": "ACT 4",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct4/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        4
+      ]
+    },
+    {
+      "id": "level1:7564/m_text",
+      "family": "menu",
+      "source": "Act 1",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 1",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7565/m_text",
+      "family": "menu",
+      "source": "Start New Game\n",
+      "phrase": "menu.new-game",
+      "context": "Canvas/PlayMenu/Controls/New/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7567/m_text",
+      "family": "menu",
+      "source": "ACT 2",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7569/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/DarknessFade (1)/ComingSoon/NameContainer"
+    },
+    {
+      "id": "level1:7573/m_text",
+      "family": "menu",
+      "source": "ACT 3",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct3/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7574/m_text",
+      "family": "menu",
+      "source": "Start New Game\n",
+      "phrase": "menu.new-game",
+      "context": "Canvas/PlayMenu/Controls/New/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7583/m_text",
+      "family": "menu",
+      "source": "Dialogue:",
+      "phrase": "menu.dialogue",
+      "context": "Canvas/GalleryMenu/Dialogue/Dialogue/NameContainer (1)/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7590/m_text",
+      "family": "menu",
+      "source": "Delete\nSavegame",
+      "phrase": "menu.delete",
+      "context": "Canvas/OptionsMenu/Delete Savegame/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7591/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/GalleryMenu/Controls/Column/Back/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7597/m_text",
+      "family": "menu",
+      "source": "Act 3",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 3/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7598/m_text",
+      "family": "menu",
+      "source": "Start New Game\n",
+      "phrase": "menu.new-game",
+      "context": "Canvas/PlayMenu/Controls/New/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7602/m_text",
+      "family": "menu",
+      "source": "On",
+      "phrase": "settings.on",
+      "context": "Canvas/GalleryMenu/Dialogue/On/NameContainer"
+    },
+    {
+      "id": "level1:7611/m_text",
+      "family": "menu",
+      "source": "On",
+      "phrase": "settings.on",
+      "context": "Canvas/GalleryMenu/Dialogue/On/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7612/m_text",
+      "family": "menu",
+      "source": "Start New Game\n",
+      "phrase": "menu.new-game",
+      "context": "Canvas/PlayMenu/Controls/New/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7614/m_text",
+      "family": "menu",
+      "source": "Movie 1/8",
+      "phrase": "menu.movie-item",
+      "context": "Canvas/GalleryMenu/MoviesSelectionLabel/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7616/m_text",
+      "family": "menu",
+      "source": "ACT 5",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct5/NameContainer",
+      "formatArgs": [
+        5
+      ]
+    },
+    {
+      "id": "level1:7619/m_text",
+      "family": "menu",
+      "source": "On",
+      "phrase": "settings.on",
+      "context": "Canvas/GalleryMenu/Dialogue/On/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7628/m_text",
+      "family": "menu",
+      "source": "ACT 2",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/NameContainer",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7631/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/GalleryMenu/Controls/Column/Back/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7633/m_text",
+      "family": "menu",
+      "source": "ACT 2",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7637/m_text",
+      "family": "menu",
+      "source": "ACT 3",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct3/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7642/m_text",
+      "family": "menu",
+      "source": "Continue Saved Game\n",
+      "phrase": "menu.continue",
+      "context": "Canvas/PlayMenu/Controls/Continue/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7643/m_text",
+      "family": "menu",
+      "source": "Story 1/8",
+      "phrase": "menu.story-item",
+      "context": "Canvas/GalleryMenu/StoriesSelectionLabel/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7646/m_text",
+      "family": "menu",
+      "source": "Act 2",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 2/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7652/m_text",
+      "family": "menu",
+      "source": "Continue Saved Game\n",
+      "phrase": "menu.continue",
+      "context": "Canvas/PlayMenu/Controls/Continue/NameContainer"
+    },
+    {
+      "id": "level1:7658/m_text",
+      "family": "menu",
+      "source": "Act 3",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 3/NameGlowLeft",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7659/m_text",
+      "family": "menu",
+      "source": "Movie 1/8",
+      "phrase": "menu.movie-item",
+      "context": "Canvas/GalleryMenu/MoviesSelectionLabel/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7661/m_text",
+      "family": "menu",
+      "source": "Act 3",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 3/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7665/m_text",
+      "family": "menu",
+      "source": "ACT 3",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct3/NameContainer",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7676/m_text",
+      "family": "menu",
+      "source": "Act 1",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 1/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7679/m_text",
+      "family": "menu",
+      "source": "Act 3",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 3",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7680/m_text",
+      "family": "menu",
+      "source": "Help",
+      "phrase": "menu.help",
+      "context": "Canvas/GalleryMenu/Controls/Column/Help/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7684/m_text",
+      "family": "menu",
+      "source": "Act 2",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 2/NameGlowLeft",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7687/m_text",
+      "family": "menu",
+      "source": "On",
+      "phrase": "settings.on",
+      "context": "Canvas/GalleryMenu/Dialogue/On/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7694/m_text",
+      "family": "menu",
+      "source": "Movie 1/8",
+      "phrase": "menu.movie-item",
+      "context": "Canvas/GalleryMenu/MoviesSelectionLabel/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7695/m_text",
+      "family": "menu",
+      "source": "Unlock All (Cheat)",
+      "phrase": "menu.unlock-all",
+      "context": "Canvas/GalleryMenu/CheatUnlockAll/Label/NameContainer (1)"
+    },
+    {
+      "id": "level1:7697/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct1/NameContainer",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7712/m_text",
+      "family": "menu",
+      "source": "Help",
+      "phrase": "menu.help",
+      "context": "Canvas/GalleryMenu/Controls/Column/Help/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7715/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/DarknessFade/ComingSoon/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7719/m_text",
+      "family": "menu",
+      "source": "Act 2",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 2/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7721/m_text",
+      "family": "menu",
+      "source": "ACT 3",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct3/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7723/m_text",
+      "family": "menu",
+      "source": "Dialogue:",
+      "phrase": "menu.dialogue",
+      "context": "Canvas/GalleryMenu/Dialogue/Dialogue/NameContainer (1)/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7728/m_text",
+      "family": "menu",
+      "source": "ACT 4",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct4/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        4
+      ]
+    },
+    {
+      "id": "level1:7741/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/DarknessFade/ComingSoon/NameContainer"
+    },
+    {
+      "id": "level1:7751/m_text",
+      "family": "menu",
+      "source": "Continue Saved Game\n",
+      "phrase": "menu.continue",
+      "context": "Canvas/PlayMenu/Controls/Continue/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7753/m_text",
+      "family": "menu",
+      "source": "Off",
+      "phrase": "settings.off",
+      "context": "Canvas/GalleryMenu/Dialogue/Off/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7755/m_text",
+      "family": "menu",
+      "source": "Act 2",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 2/NameGlowLeft/Name",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7758/m_text",
+      "family": "menu",
+      "source": "Act 3",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 3/NameGlowLeft/Name",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7760/m_text",
+      "family": "menu",
+      "source": "ACT 5",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct5/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        5
+      ]
+    },
+    {
+      "id": "level1:7762/m_text",
+      "family": "menu",
+      "source": "Act 1",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 1/NameGlowLeft",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7763/m_text",
+      "family": "menu",
+      "source": "Delete\nSavegame",
+      "phrase": "menu.delete",
+      "context": "Canvas/OptionsMenu/Delete Savegame/NameContainer"
+    },
+    {
+      "id": "level1:7767/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/DarknessFade/ComingSoon/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7769/m_text",
+      "family": "menu",
+      "source": "ACT 3",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct3/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7771/m_text",
+      "family": "menu",
+      "source": "Story 1/8",
+      "phrase": "menu.story-item",
+      "context": "Canvas/GalleryMenu/StoriesSelectionLabel/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7773/m_text",
+      "family": "menu",
+      "source": "Latest",
+      "phrase": "menu.latest",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Latest"
+    },
+    {
+      "id": "level1:7776/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/GalleryMenu/Controls/Column/Back/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7777/m_text",
+      "family": "menu",
+      "source": "Unlock All (Cheat)",
+      "phrase": "menu.unlock-all",
+      "context": "Canvas/GalleryMenu/CheatUnlockAll/Label/NameContainer (1)/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7780/m_text",
+      "family": "menu",
+      "source": "Off",
+      "phrase": "settings.off",
+      "context": "Canvas/GalleryMenu/Dialogue/Off/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7783/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/DarknessFade (1)/ComingSoon/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7785/m_text",
+      "family": "menu",
+      "source": "Dialogue:",
+      "phrase": "menu.dialogue",
+      "context": "Canvas/GalleryMenu/Dialogue/Dialogue/NameContainer (1)/NameGlowLeft"
+    },
+    {
+      "id": "level1:7787/m_text",
+      "family": "menu",
+      "source": "Act 3",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 3/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        3
+      ]
+    },
+    {
+      "id": "level1:7788/m_text",
+      "family": "menu",
+      "source": "Start New Game\n",
+      "phrase": "menu.new-game",
+      "context": "Canvas/PlayMenu/Controls/New/NameContainer"
+    },
+    {
+      "id": "level1:7791/m_text",
+      "family": "menu",
+      "source": "Help",
+      "phrase": "menu.help",
+      "context": "Canvas/GalleryMenu/Controls/Column/Help/NameContainer"
+    },
+    {
+      "id": "level1:7792/m_text",
+      "family": "menu",
+      "source": "Story 1/8",
+      "phrase": "menu.story-item",
+      "context": "Canvas/GalleryMenu/StoriesSelectionLabel/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7794/m_text",
+      "family": "menu",
+      "source": "ACT 4",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct4/NameContainer/NameGlowLeft/Name",
+      "formatArgs": [
+        4
+      ]
+    },
+    {
+      "id": "level1:7795/m_text",
+      "family": "menu",
+      "source": "Latest",
+      "phrase": "menu.latest",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Latest/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7801/m_text",
+      "family": "menu",
+      "source": "Delete\nSavegame",
+      "phrase": "menu.delete",
+      "context": "Canvas/OptionsMenu/Delete Savegame/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7804/m_text",
+      "family": "menu",
+      "source": "Story 1/8",
+      "phrase": "menu.story-item",
+      "context": "Canvas/GalleryMenu/StoriesSelectionLabel/NameContainer",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7809/m_text",
+      "family": "menu",
+      "source": "ACT 4",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct4/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        4
+      ]
+    },
+    {
+      "id": "level1:7811/m_text",
+      "family": "menu",
+      "source": "Act 1",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 1/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7813/m_text",
+      "family": "menu",
+      "source": "Movie 1/8",
+      "phrase": "menu.movie-item",
+      "context": "Canvas/GalleryMenu/MoviesSelectionLabel/NameContainer",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7818/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct1/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7824/m_text",
+      "family": "menu",
+      "source": "Story 1/8",
+      "phrase": "menu.story-item",
+      "context": "Canvas/GalleryMenu/StoriesSelectionLabel/NameContainer/NameGlowLeft/NameGlowTop",
+      "formatArgs": [
+        1,
+        8
+      ]
+    },
+    {
+      "id": "level1:7828/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/GalleryMenu/Controls/Column/Back/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7835/m_text",
+      "family": "menu",
+      "source": "Coming Soon...",
+      "phrase": "menu.soon",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/DarknessFade (1)/ComingSoon/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7840/m_text",
+      "family": "menu",
+      "source": "ACT 2",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/NameContainer/NameGlowLeft/NameGlowBottom",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7843/m_text",
+      "family": "menu",
+      "source": "Act 2",
+      "phrase": "menu.act",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Destinations/Act 2",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7844/m_text",
+      "family": "menu",
+      "source": "ACT 2",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsAct2/NameContainer/NameGlowLeft",
+      "formatArgs": [
+        2
+      ]
+    },
+    {
+      "id": "level1:7845/m_text",
+      "family": "menu",
+      "source": "Delete\nSavegame",
+      "phrase": "menu.delete",
+      "context": "Canvas/OptionsMenu/Delete Savegame/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7846/m_text",
+      "family": "menu",
+      "source": "Off",
+      "phrase": "settings.off",
+      "context": "Canvas/GalleryMenu/Dialogue/Off/NameContainer"
+    },
+    {
+      "id": "level1:7850/m_text",
+      "family": "menu",
+      "source": "ACT 1",
+      "phrase": "menu.act-heading",
+      "context": "Canvas/GalleryMenu/ThumbsStoriesLegends/NameContainer/NameGlowLeft/NameGlowRight",
+      "formatArgs": [
+        1
+      ]
+    },
+    {
+      "id": "level1:7851/m_text",
+      "family": "menu",
+      "source": "This will erase your earlier progress. Are you sure?",
+      "phrase": "menu.confirm-new",
+      "context": "Canvas/NewGameConfirmation/Confirmation/NameContainer"
+    },
+    {
+      "id": "level1:7855/m_text",
+      "family": "menu",
+      "source": "Start from:",
+      "phrase": "menu.start-from",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Label/NameContainer"
+    },
+    {
+      "id": "level1:7856/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/OptionsMenu/Controls/Back/NameContainer"
+    },
+    {
+      "id": "level1:7859/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7863/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to quit?",
+      "phrase": "menu.confirm-quit",
+      "context": "Canvas/QuitConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7869/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/PlayMenu/Controls/Back/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7873/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/QuitConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7881/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/DeleteSavegameConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7883/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/PlayMenu/Controls/Back/NameContainer"
+    },
+    {
+      "id": "level1:7885/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/NewGameConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7886/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to delete your savegame?",
+      "phrase": "menu.confirm-delete",
+      "context": "Canvas/DeleteSavegameConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7890/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/OptionsMenu/Controls/Back/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7891/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/QuitConfirmation/Controls/Yes/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7894/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/NewGameConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7897/m_text",
+      "family": "menu",
+      "source": "Start from:",
+      "phrase": "menu.start-from",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Label/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7898/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/DeleteSavegameConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7899/m_text",
+      "family": "menu",
+      "source": "This will erase your earlier progress. Are you sure?",
+      "phrase": "menu.confirm-new",
+      "context": "Canvas/NewGameConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7905/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/PlayMenu/Controls/Back/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7906/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/NewGameConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7910/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to quit?",
+      "phrase": "menu.confirm-quit",
+      "context": "Canvas/QuitConfirmation/Confirmation/NameContainer"
+    },
+    {
+      "id": "level1:7912/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7923/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/NewGameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7928/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/OptionsMenu/Controls/Back/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7930/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to delete your savegame?",
+      "phrase": "menu.confirm-delete",
+      "context": "Canvas/DeleteSavegameConfirmation/Confirmation/NameContainer"
+    },
+    {
+      "id": "level1:7931/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/QuitConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7935/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/QuitConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7936/m_text",
+      "family": "menu",
+      "source": "Start from:",
+      "phrase": "menu.start-from",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Label/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7937/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/Yes/NameContainer"
+    },
+    {
+      "id": "level1:7940/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/PlayMenu/Controls/Back/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7941/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/DeleteSavegameConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7942/m_text",
+      "family": "menu",
+      "source": "This will erase your earlier progress. Are you sure?",
+      "phrase": "menu.confirm-new",
+      "context": "Canvas/NewGameConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7943/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7945/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to delete your savegame?",
+      "phrase": "menu.confirm-delete",
+      "context": "Canvas/DeleteSavegameConfirmation/Confirmation/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7946/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/NewGameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7947/m_text",
+      "family": "menu",
+      "source": "Start from:",
+      "phrase": "menu.start-from",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Label/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7948/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/QuitConfirmation/SaveWarning/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7950/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7952/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/QuitConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7954/m_text",
+      "family": "menu",
+      "source": "This will erase your earlier progress. Are you sure?",
+      "phrase": "menu.confirm-new",
+      "context": "Canvas/NewGameConfirmation/Confirmation/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7957/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7958/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/DeleteSavegameConfirmation/SaveWarning/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7959/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/QuitConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7961/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/NewGameConfirmation/SaveWarning/NameContainer"
+    },
+    {
+      "id": "level1:7962/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to quit?",
+      "phrase": "menu.confirm-quit",
+      "context": "Canvas/QuitConfirmation/Confirmation/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7964/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/QuitConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:7965/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/NewGameConfirmation/Controls/Yes/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7966/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/OptionsMenu/Controls/Back/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7967/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/NewGameConfirmation/Controls/No/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7968/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/QuitConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7969/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/NewGameConfirmation/Controls/No/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7971/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/NewGameConfirmation/SaveWarning/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7973/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/NewGameConfirmation/Controls/No/NameContainer"
+    },
+    {
+      "id": "level1:7974/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/QuitConfirmation/Controls/Yes/NameContainer"
+    },
+    {
+      "id": "level1:7976/m_text",
+      "family": "menu",
+      "source": "This will erase your earlier progress. Are you sure?",
+      "phrase": "menu.confirm-new",
+      "context": "Canvas/NewGameConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7977/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/NewGameConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7980/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/No/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7984/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/Yes/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7985/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/OptionsMenu/Controls/Back/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7987/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/QuitConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7988/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/OptionsMenu/Controls/Back/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7989/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/DeleteSavegameConfirmation/SaveWarning/NameContainer"
+    },
+    {
+      "id": "level1:7991/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/NewGameConfirmation/SaveWarning/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:7993/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to quit?",
+      "phrase": "menu.confirm-quit",
+      "context": "Canvas/QuitConfirmation/Confirmation/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:7994/m_text",
+      "family": "menu",
+      "source": "Start from:",
+      "phrase": "menu.start-from",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Label/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7995/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/NewGameConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7997/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to delete your savegame?",
+      "phrase": "menu.confirm-delete",
+      "context": "Canvas/DeleteSavegameConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:7998/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:7999/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/No/NameContainer"
+    },
+    {
+      "id": "level1:8002/m_text",
+      "family": "menu",
+      "source": "Start from:",
+      "phrase": "menu.start-from",
+      "context": "Canvas/PlayMenu/Controls/FastForward/Label/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:8003/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/DeleteSavegameConfirmation/SaveWarning/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:8004/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/No/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:8005/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to quit?",
+      "phrase": "menu.confirm-quit",
+      "context": "Canvas/QuitConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:8006/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/QuitConfirmation/Controls/No/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:8007/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to delete your savegame?",
+      "phrase": "menu.confirm-delete",
+      "context": "Canvas/DeleteSavegameConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "level1:8008/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/PlayMenu/Controls/Back/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:8009/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/NewGameConfirmation/SaveWarning/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:8013/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/QuitConfirmation/SaveWarning/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:8015/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/QuitConfirmation/Controls/No/NameContainer"
+    },
+    {
+      "id": "level1:8016/m_text",
+      "family": "menu",
+      "source": "Back",
+      "phrase": "report.back",
+      "context": "Canvas/PlayMenu/Controls/Back/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:8018/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/NewGameConfirmation/Controls/Yes/NameContainer"
+    },
+    {
+      "id": "level1:8021/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/QuitConfirmation/Controls/No/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:8022/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to quit?",
+      "phrase": "menu.confirm-quit",
+      "context": "Canvas/QuitConfirmation/Confirmation/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:8023/m_text",
+      "family": "menu",
+      "source": "Are you sure you want to delete your savegame?",
+      "phrase": "menu.confirm-delete",
+      "context": "Canvas/DeleteSavegameConfirmation/Confirmation/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:8027/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/NewGameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowRight"
+    },
+    {
+      "id": "level1:8028/m_text",
+      "family": "menu",
+      "source": "Unsaved progress will be lost!",
+      "phrase": "menu.unsaved",
+      "context": "Canvas/QuitConfirmation/SaveWarning/NameContainer"
+    },
+    {
+      "id": "level1:8030/m_text",
+      "family": "menu",
+      "source": "This will erase your earlier progress. Are you sure?",
+      "phrase": "menu.confirm-new",
+      "context": "Canvas/NewGameConfirmation/Confirmation/NameContainer/NameGlowLeft/Name"
+    },
+    {
+      "id": "level1:8031/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/DeleteSavegameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowTop"
+    },
+    {
+      "id": "level1:8033/m_text",
+      "family": "menu",
+      "source": "No",
+      "phrase": "report.no",
+      "context": "Canvas/QuitConfirmation/Controls/No/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:8035/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/QuitConfirmation/Controls/Yes/NameContainer/NameGlowLeft"
+    },
+    {
+      "id": "level1:8036/m_text",
+      "family": "menu",
+      "source": "Yes",
+      "phrase": "report.yes",
+      "context": "Canvas/NewGameConfirmation/Controls/Yes/NameContainer/NameGlowLeft/NameGlowBottom"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultStorySelectionText()/IL_0030",
+      "family": "gallery-code",
+      "source": "Stories\n<size=12>({0}/{1} unlocked)</size>",
+      "phrase": "gallery.stories-count",
+      "context": "System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultStorySelectionText()",
+      "instructionIndex": 25,
+      "ilOffset": 48
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultStorySelectionText()/IL_0052",
+      "family": "gallery-code",
+      "source": "Stories",
+      "phrase": "gallery.stories",
+      "context": "System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultStorySelectionText()",
+      "instructionIndex": 35,
+      "ilOffset": 82
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.StartScreenGalleryMenu::UpdateStorySelectionText(System.Int32)/IL_0022",
+      "family": "gallery-code",
+      "source": "Stories\n<size=12>({0}/{1} unlocked)</size>",
+      "phrase": "gallery.stories-count",
+      "context": "System.Void TheForestOfLove.StartScreenGalleryMenu::UpdateStorySelectionText(System.Int32)",
+      "instructionIndex": 20,
+      "ilOffset": 34
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultMovieSelectionText()/IL_000f",
+      "family": "gallery-code",
+      "source": "Movies\n<size=12>({0}/{1} unlocked)</size>",
+      "phrase": "gallery.movies-count",
+      "context": "System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultMovieSelectionText()",
+      "instructionIndex": 6,
+      "ilOffset": 15
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultMovieSelectionText()/IL_0038",
+      "family": "gallery-code",
+      "source": "Movies",
+      "phrase": "gallery.movies",
+      "context": "System.Void TheForestOfLove.StartScreenGalleryMenu::ShowDefaultMovieSelectionText()",
+      "instructionIndex": 19,
+      "ilOffset": 56
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.StartScreenGalleryMenu::UpdateMovieSelectionText(System.Int32)/IL_0001",
+      "family": "gallery-code",
+      "source": "Movies\n<size=12>({0}/{1} unlocked)</size>",
+      "phrase": "gallery.movies-count",
+      "context": "System.Void TheForestOfLove.StartScreenGalleryMenu::UpdateMovieSelectionText(System.Int32)",
+      "instructionIndex": 1,
+      "ilOffset": 1
     }
   ],
   "preserveExactly": [
@@ -2959,7 +4917,10 @@
     "tutorial": "Patch only these six cells. Preserve lost-photo text/counter operands. Full quest localization requires identity-based counter logic first.",
     "fonts": "Resolve actual native/TMP roles per locale before packaging; preserve fictional-language font mapping. Russian font acceptance does not cover other scripts.",
     "textures": "Notify the owner of texture-only omissions; do not produce or replace textures.",
+    "reportOnlyArtwork": "The Forest of Love title and the separate Gallery heading are reported-only for all30 locales; see localization/source/menu-remaining-ui-20261027/graphics-findings.json and its exact Gallery Image/Sprite binding.",
     "dynamicReportData": "These are form captions, not proof of localization of generated diagnostic payloads.",
+    "galleryCode": "Apply only the six pinned display ldstr operands in four original gallery-label methods. Preserve all branches, counter operands, unlock logic, placeholders and tags. Verify whole-method readback and restoration.",
+    "settingsCaptionLayout": "Use preferred-width ContentSizeFitter and right pivot on both pinned caption containers; keep left origins of state values fixed, retain the six-layer renderer and validate actual glyph separation. See menu-inventory.json captionLayout.",
     "liveLanes": "Do not modify running briefs, immutable manifests, frozen 12246-ID dialogue inputs or prior dialogue-only receipts."
   }
 }
