@@ -34,6 +34,21 @@ Each proposed next phase must identify a concrete deliverable and postcondition.
 If useful authorized static work is exhausted, record the actual runtime or
 source decision needed rather than generating unchanged continuation work.
 
+The parent has now completed the whole BGDatabase value inventory in
+`localization/source/bgdatabase-complete-values-20261027/`. Both normal runs,
+independent cell readback and exact whole-payload restoration pass: all51,572
+states, including the previously missing43,759, are enumerated. Existing7,813
+values and selector identities match. This supersedes the old missing-value
+count, not consumer acceptance. After the bounded phase already in progress,
+prioritize classifying its remaining3,279 text states across29 columns
+(3,263 stored strings;3,959 words). Use `readback-validation.json` for the exact
+field list and `verified/cells.jsonl` for complete values and source spans.
+Resolve this whole finite text-column scope using existing game-consumer
+evidence; preserve unresolved cases explicitly. Do not change frozen dialogue
+inputs or rerun extraction unchanged. Further sprite/material/framework tracing
+needs a named predicate that actually blocks this game deliverable. A hypothetical
+frame-coordinate discrepancy alone must not displace the remaining text inventory.
+
 Regression: corpus evidence proves missing CJK coverage while successive phases
 keep following font collection internals without resolving a game font role or
 source-family gap. Retain those valid method traces, then select the next finite
