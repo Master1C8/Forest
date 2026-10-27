@@ -17,6 +17,7 @@ from extract_assets import read_tree, canonical
 from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
+from russian_settings_ui import settings_text_plan
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -70,13 +71,12 @@ def main():
     parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
     parser.add_argument('--coherent-choice-face', action='store_true', help='Rebind only native response-label Text fonts to the already coherent embedded face')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
-    parser.add_argument('--repair-settings-value-images', action='store_true', help='Disable legacy baked Images with complete six-layer TMP replacements in OptionsMenu')
+    parser.add_argument('--repair-settings-value-images', action='store_true', help='Compatibility flag: actual Russian previews always disable duplicate settings Images with complete TMP replacements')
     args = parser.parse_args()
     assert re.fullmatch(r'ForestRuActual[0-9]{8}_[0-9]{2,}', args.qa_product), 'Explicit isolated QA identity required'
     product = args.qa_product
     assert shutil.disk_usage(PROJECT).free >= 512 * 1024**2, 'Insufficient disk reserve before preview build'
     assert not args.repair_settings_glow or args.sample_surface == 'menu-settings'
-    assert not args.repair_settings_value_images or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     assert not args.coherent_choice_face or args.coherent_legacy_face
@@ -96,6 +96,7 @@ def main():
     shutil.copy2(Path(__file__), out / 'build_russian_preview.py')
     shutil.copy2(Path(__file__).parent / 'tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
     shutil.copy2(Path(__file__).parent / 'settings_glow.py', out / 'settings_glow.py')
+    shutil.copy2(Path(__file__).parent / 'russian_settings_ui.py', out / 'russian_settings_ui.py')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
         candidate = Path(__file__).parent / helper
@@ -138,6 +139,7 @@ def main():
         selected = {}
         glow_repairs = {}
         image_repairs = {}
+        settings_repairs = {}
         choice_repairs = {}
         ui_repairs = {}
         if name == 'globalgamemanagers':
@@ -188,9 +190,9 @@ def main():
             if args.repair_settings_glow:
                 glow_repairs, report['settingsGlowRepair'] = settings_glow_plan(objects, generator)
                 selected.update({pid: objects[pid] for pid in glow_repairs})
-            if args.repair_settings_value_images:
-                image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
-                selected.update({pid: objects[pid] for pid in image_repairs})
+            settings_repairs, report['settingsTranslations'] = settings_text_plan(objects, generator)
+            image_repairs, report['settingsValueImageRepair'] = settings_value_image_plan(objects, generator)
+            selected.update({pid: objects[pid] for pid in settings_repairs | image_repairs})
         if args.coherent_tmp_face and name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
             font_id = -1127281652424575413 if name == BUNDLE else 3323
             if name in ['level1', 'level5', 'level6']:
@@ -254,6 +256,8 @@ def main():
                     tree['m_FaceInfo']['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
             elif pid in ui_repairs:
                 tree = copy.deepcopy(ui_repairs[pid])
+                if pid in settings_repairs:
+                    tree['m_text'] = settings_repairs[pid]['m_text']
                 if name == 'level1' and tree.get('m_text') in report['menuSamples']:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
                 if name != 'level1' and obj.type.name == 'MonoBehaviour' and tree.get('m_GameObject'):
@@ -266,6 +270,8 @@ def main():
                     tree = copy.deepcopy(glow_repairs[pid])
                 elif pid in image_repairs:
                     tree = copy.deepcopy(image_repairs[pid])
+                elif pid in settings_repairs:
+                    tree = copy.deepcopy(settings_repairs[pid])
                 else:
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif pid in choice_repairs:

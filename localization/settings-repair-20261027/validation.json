@@ -1,0 +1,70 @@
+{
+  "scope": "Russian settings repair only",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "workersLaunched": 0,
+  "artifact": "/Users/antonkrutov/Desktop/Forest/localization/previews/ru-20261027-settings-fix",
+  "artifactBuildSha256": "b947226767d4595cd3c50102f438c1ef2fa22d6ed9135ba42417b1aec6401783",
+  "tests": {
+    "command": ".venv-assets314/bin/python -B -m unittest discover -s tools -p test_russian_preview_ui.py",
+    "passed": 9,
+    "failures": 0
+  },
+  "staticReadback": {
+    "logicalFamilies": 9,
+    "textComponents": 54,
+    "changedImageIds": [
+      9708
+    ],
+    "texturesChanged": false,
+    "allOtherGameFilesByteIdentical": true
+  },
+  "runtime": {
+    "receipt": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-settings-20261027-01/runtime-result.json",
+    "sha256": "4cd87b3527c755d0211d74c9a78f39275fee57ae49716a78f14a76dfa02e7622",
+    "result": "passed",
+    "boundaries": [
+      "Options",
+      "Stretch On/Off",
+      "Fullscreen On/Off",
+      "Back"
+    ],
+    "notExercised": [
+      "intro OS input",
+      "scale up/down input",
+      "other game screens"
+    ]
+  },
+  "cleanup": {
+    "receipt": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-settings-20261027-01/cleanup.json",
+    "sha256": "8d314a11a7023357e1b2a44bbba453749d85f29dd5c49d634b946e817651ea23",
+    "passed": true
+  },
+  "nativeImages": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ru-01-settings-fullscreen.png",
+      "sha256": "c7027c6410e48af29e1e88c2302ec584335573e0489628057d5224d78c725893",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "ru-02-settings-windowed.png",
+      "sha256": "c43297f9b1baf334e44256a667472590bf93d79484536ea1336df23218748ea0",
+      "width": 960,
+      "height": 540
+    }
+  ],
+  "visualReview": {
+    "status": "pending",
+    "boundary": "No new model image-review context was launched. Automated assertions are not semantic visual acceptance."
+  },
+  "broaderSourceEditorialFontReleaseGates": "unchanged; not passed by this repair"
+}

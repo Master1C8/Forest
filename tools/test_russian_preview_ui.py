@@ -5,6 +5,38 @@ ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 sys.path.insert(0,str(ROOT/'localization/source/bgdatabase-20261027'))
 from decode_inventory import SOURCE,parse,variable_cells
 class DisplayBoundaryTests(unittest.TestCase):
+ def test_real_settings_families_and_duplicate_image(self):
+  import UnityPy
+  from unittest.mock import patch
+  from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+  from extract_assets import read_tree
+  import russian_settings_ui
+  from settings_glow import settings_value_image_plan
+  source=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data')
+  gen=TypeTreeGenerator('2020.3.24f1');gen.load_local_dll_folder(str(source/'Managed'))
+  objs={o.path_id:o for o in UnityPy.load(str(source/'level1')).objects}
+  plan,receipt=russian_settings_ui.settings_text_plan(objs,gen)
+  self.assertEqual(len(plan),54);self.assertEqual(len(receipt),9)
+  for row in receipt:
+   self.assertEqual(len(row['textIds']),6)
+   for pid in row['textIds']:
+    original=read_tree(objs[pid],gen);restored=copy.deepcopy(plan[pid])
+    self.assertEqual(restored['m_text'],row['target'])
+    restored['m_text']=row['source'];self.assertEqual(restored,original)
+  images,bindings=settings_value_image_plan(objs,gen)
+  self.assertEqual(set(images),{9708});self.assertEqual(len(bindings),11)
+  self.assertEqual(images[9708]['m_Enabled'],0)
+  restored=copy.deepcopy(images[9708]);restored['m_Enabled']=1
+  self.assertEqual(restored,read_tree(objs[9708],gen))
+  pid=receipt[0]['textIds'][0]
+  for key,value,reason in [('m_text','unrelated','settings-before-text'),
+                           ('m_fontAsset',{'m_FileID':99,'m_PathID':3323},'settings-font-binding')]:
+   def changed(obj,g):
+    tree=copy.deepcopy(read_tree(obj,g))
+    if obj.path_id==pid:tree[key]=value
+    return tree
+   with patch.object(russian_settings_ui,'read_tree',side_effect=changed):
+    with self.assertRaisesRegex(AssertionError,reason):russian_settings_ui.settings_text_plan(objs,gen)
  def test_clone_cache_only_reuses_exact_original_bytes(self):
   from russian_preview_support import select_clone_source
   with tempfile.TemporaryDirectory() as folder:
