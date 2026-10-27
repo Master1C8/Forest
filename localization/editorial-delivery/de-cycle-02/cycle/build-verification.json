@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/antonkrutov/Desktop/Forest/localization/de-assets/corpus.py",
+    "build"
+  ],
+  "runs": [
+    {
+      "iteration": 1,
+      "exitCode": 0,
+      "stdout": "{\"authoredEdited\": 12246, \"held\": 0, \"processedConversations\": 617, \"next\": null, \"sha256\": \"77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89\"}",
+      "overlaySha256": "77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89"
+    },
+    {
+      "iteration": 2,
+      "exitCode": 0,
+      "stdout": "{\"authoredEdited\": 12246, \"held\": 0, \"processedConversations\": 617, \"next\": null, \"sha256\": \"77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89\"}",
+      "overlaySha256": "77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89"
+    }
+  ],
+  "allSixDerivedOutputsByteIdentical": true,
+  "firstApplicationPostcondition": "all seven expected complete targets, all 12239 unchanged targets exact; checked after first build before repeat",
+  "canonicalPoetry": "passed on both builds, 27 combinations and callbacks",
+  "generatedOutputHashes": {
+    "/Users/antonkrutov/Desktop/Forest/localization/de-assets/dialogue.de.jsonl": "77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89",
+    "/Users/antonkrutov/Desktop/Forest/localization/de-assets/unresolved.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "/Users/antonkrutov/Desktop/Forest/localization/de-assets/poetry-validation.json": "30c8f787051e95f19489e3d6e2db36fa1e073a70a88cb3bfb88404a20629dde4",
+    "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/progress.json": "5f077c1fc52c68eee7e6e6babb02dff91eeb0b2a6f0e35f84e002ba9192bbe81",
+    "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/result.json": "0e72bfb8bb0a579d5f23463a4bfc5ec29f593125bc73523cc58923155857f9ea",
+    "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/continuation.md": "1d3a333f87aa6ad4f12a7fb7d9b84ea142bb414c570071389502ad92470fa5d8"
+  }
+}

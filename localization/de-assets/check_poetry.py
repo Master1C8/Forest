@@ -28,8 +28,18 @@ scans={
  '303:407':['Trag/mich/hoch/ü/bers/Ge/wölk'],
  '303:408':['Wo/noch/nie/mand/war'],
  '303:410':['Re/ges/Kä/fer/lein'],
- '303:411':['Was/ist/dir/denn/wich/tig/hier'],
+ '303:411':['Was/ist/dir/wirk/lich/wich/tig'],
  '303:412':['Wa/rum/jetzt/schuf/ten']}
+# Accepted-version maintenance is explicit and exact, never a permissive fallback.
+provenance=json.loads((HERE/'poetry-scansion-provenance.json').read_text())
+assert provenance['schemaVersion']==1 and provenance['locale']=='de'
+for fact in provenance['sourceFacts']:
+    r=rows[fact['id']]
+    assert r['source']==fact['source'],(fact['id'],'poetry source changed')
+    assert r['target']==fact['target'],(fact['id'],'accepted poetry target changed')
+    assert hashlib.sha256(r['source'].encode()).hexdigest()==fact['sourceSha256']
+    assert hashlib.sha256(r['target'].encode()).hexdigest()==fact['targetSha256']
+assert scans['303:411']==provenance['maintenance']['newScansion']
 checked={}
 for key,scan in scans.items():
     c,e=map(int,key.split(':'));lines=get(c,e).split('\n')
@@ -61,5 +71,6 @@ for ids in itertools.product([325,406,410],[326,407,411],[327,408,412]):
     combinations.append({'ids':[f'ds:303:{e}:Dialogue Text' for e in ids],'target':'\n'.join(get(303,e) for e in ids),'syllables':counts,'family':next(iter(cats)) if len(cats)==1 else 'mixed'})
 assert len(combinations)==27
 report={'status':'passed declared-scansion, structure and static callback checks; semantic/independent/runtime acceptance pending','locale':'de','overlaySha256':hashlib.sha256(raw).hexdigest(),'scansion':checked,'poemGroups':checks,'combinations':combinations,'selectableCombinationCount':len(combinations),'callbackEquality':'passed: 300:483/484 to 302:516, and 302:516 to 302:520','personCorrection':'303:343/350 stay first-person singular; 303:330 proposes first-person plural','limits':['The author supplied syllable divisions; this is no independent phonological or semantic review.','Poetic apocope in 303:343/350 and 303:327 is deliberate and must remain audible as declared.','All 27 static line combinations checked; real selection, timing, display, branching and resource binding not exercised.','No source, scene links, runtime commands or shared registry modified.']}
+report['acceptedVersionProvenance']={'path':'poetry-scansion-provenance.json','sha256':hashlib.sha256((HERE/'poetry-scansion-provenance.json').read_bytes()).hexdigest(),'scope':'Exact source/target facts and declared scansion; independent receipt applicability is checked separately.'}
 (HERE/'poetry-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'status':'passed','poemGroups':len(checks),'combinations':len(combinations),'callbacks':'passed','overlaySha256':report['overlaySha256']}))

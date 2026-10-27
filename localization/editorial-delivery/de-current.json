@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-27T07:24:31.829120+00:00",
+  "locale": "de",
+  "status": "preliminary-dialogue-corrections-verified-with-classified-source-context-holds",
+  "scope": "Ready12246-ID dialogue/Menu Text family only;not full game/release",
+  "sourceSha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+  "sourceGlossarySha256": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+  "localeGlossarySha256": "8cdc2773ee99674f6cacb4f3ea4b66050a74482eab295a76e9baaf90461c6d51",
+  "currentCorpus": {
+    "path": "localization/de-assets/dialogue.de.jsonl",
+    "sha256": "77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89",
+    "ids": 12246,
+    "physicalOccurrences": 24492
+  },
+  "distinctTargetsChangedFromOriginalDraft": 100,
+  "latestCorrectionApplications": 7,
+  "originalDraftTargetRestoredWithPrimaryEvidence": [
+    "ds:481:749:Dialogue Text"
+  ],
+  "priorAcceptedChangeReversedWithConcretePrimaryEvidence": [
+    "ds:481:749:Dialogue Text"
+  ],
+  "initialFullAuditIds": 12246,
+  "independentFullClosureIds": 5377,
+  "latestIndependentDelta": {
+    "ids": 30,
+    "findings": 0,
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "actualUsage": {
+      "input_tokens": 4141115,
+      "cached_input_tokens": 3983744,
+      "output_tokens": 16107,
+      "reasoning_output_tokens": 3413,
+      "total_tokens": 4157222
+    }
+  },
+  "retainedIndependentPerIdReceipts": 5369,
+  "remainingHolds": {
+    "needsContext": 633,
+    "sourceDefect": 80,
+    "notNewlyResolved": true
+  },
+  "canonicalPoetryChecker": "Current exact scansion/source/target provenance;27 source-linked products passed. Original guards retained. Independent check confirms unchanged poetry receipt applicability.",
+  "postPeerNormalFullCorpusBuild": "passed;same SHA",
+  "postPeerCanonicalPoetry": "passed;27 products",
+  "evidence": {
+    "localization/editorial-delivery/de-cycle-02/initial/reviews.jsonl": {
+      "sha256": "8240388122f43aa3e69668df5b61c742acc477f91d0870ca908450fb2a7d4723",
+      "original": "Exact35 successful phase receipts,12246 unique IDs;interrupted attempt preserved in job history,not credited as coverage",
+      "bytes": 3709545
+    },
+    "localization/editorial-delivery/de-cycle-02/initial/job.json": {
+      "sha256": "e085e09eed371951cf5611e1c3ce4a9f2d195ee5732091b6ab2aaad4fd4f05e8",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/de/job.json",
+      "bytes": 69880
+    },
+    "localization/editorial-delivery/de-cycle-02/author/result.json": {
+      "sha256": "77c31a40468e0803dbe427795700ae4177301d7fb65c0da14964adb2947bf22a",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/result.json",
+      "bytes": 23312
+    },
+    "localization/editorial-delivery/de-cycle-02/author/adjudication.jsonl": {
+      "sha256": "19dcb80cf4c645694edd00da6418017d1d538710e1541a86a803f5a39594c758",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/adjudication.jsonl",
+      "bytes": 6696
+    },
+    "localization/editorial-delivery/de-cycle-02/author/runtime-check.json": {
+      "sha256": "49611ceb7599883c895ef142459b16a98a3d19eea11ebb42fe23b0833f458e9b",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/runtime-check.json",
+      "bytes": 3340
+    },
+    "localization/editorial-delivery/de-cycle-02/author/selector.json": {
+      "sha256": "b72504eacc65046d5fd250295bd37c6bb672d1dbd5f75585407479083ee0b498",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/selector.json",
+      "bytes": 2224
+    },
+    "localization/editorial-delivery/de-cycle-02/author/output-manifest.json": {
+      "sha256": "534b4c92558dcb3081053913c018f3cdae38dc3d7f25d84184ee58af94897d10",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/output-manifest.json",
+      "bytes": 4340
+    },
+    "localization/editorial-delivery/de-cycle-02/author/build-verification.json": {
+      "sha256": "2594869d586f853c5b1cafbe819003f0465fecb886e8598283860008afc804c4",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/build-verification.json",
+      "bytes": 2109
+    },
+    "localization/editorial-delivery/de-cycle-02/author/runtime-verification.json": {
+      "sha256": "55f38971e6b2936d9d1e4d48eec0743eb46dbb7ec3b0a751890b435aef2d2602",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/runtime-verification.json",
+      "bytes": 1722
+    },
+    "localization/editorial-delivery/de-cycle-02/author/application.py": {
+      "sha256": "8f703bd535deaf07008feccc764026db8579754ae29a43f1019108cd28779a27",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/application.py",
+      "bytes": 6242
+    },
+    "localization/editorial-delivery/de-cycle-02/author/poetry-regression.json": {
+      "sha256": "3d6d5e5a1168fe2efaf9408391feae959b1b652b7d35e914eb8099b6fd0db442",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/poetry-regression.json",
+      "bytes": 860
+    },
+    "localization/editorial-delivery/de-cycle-02/author/job.json": {
+      "sha256": "c8770f32a7765d57b922fad700ae65891cf9095f898c6e211b3fd96294f5e8e5",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/job.json",
+      "bytes": 1886
+    },
+    "localization/editorial-delivery/de-cycle-02/author/build-cycle.py": {
+      "sha256": "cf2fa43fe2fab8ca457daf74d862dccd66b1d862e08c1be20f909ca329611a86",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/build-cycle.py",
+      "bytes": 14385
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/input-fingerprints.json": {
+      "sha256": "b6f4103cb4d56b7c70e67bcd4f79d975d3a02d0b395d51490b9b49b4978d02d2",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/input-fingerprints.json",
+      "bytes": 25432
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/removed-dependencies-ids.txt": {
+      "sha256": "d07208f150b497bbcf473dc2aa40c58bfb916a16bf60fd20ec84de82b087cf97",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/removed-dependencies-ids.txt",
+      "bytes": 81041
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/exchanges-ids.txt": {
+      "sha256": "b070f1cb96efa33d6880e9ffc32f0a75ddae2b7edc876d6072064883435c1758",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/exchanges-ids.txt",
+      "bytes": 725
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/changed-ids.txt": {
+      "sha256": "dd3c8be127ebda08127a7a506319bcfee2ae4aaf58eeaac60f2a5548021a8d4b",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/changed-ids.txt",
+      "bytes": 175
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/closure-ids.txt": {
+      "sha256": "18ab5dde32d31a4fe3e55d9cd2fca532061a5f4c8ffb133a04dc31b2e0035a21",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/closure-ids.txt",
+      "bytes": 53663
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/old-new-wording-ids.txt": {
+      "sha256": "7402c030856b2e34e3b4c765f5d6cbc2970a03e139731e8bc061363f24416372",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/old-new-wording-ids.txt",
+      "bytes": 395
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/delta-ids.txt": {
+      "sha256": "6533cfc589ddb7de6c377c6074a22412da82a036834c9ce9176dc1f9d06ce784",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/delta-ids.txt",
+      "bytes": 747
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/adjudication.jsonl": {
+      "sha256": "19dcb80cf4c645694edd00da6418017d1d538710e1541a86a803f5a39594c758",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/adjudication.jsonl",
+      "bytes": 6696
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/closure-review-rows.jsonl": {
+      "sha256": "38208e9230d6aea93bbd1805d3c78dc23b661edeed0779b4ad793b83aaeeebc3",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/closure-review-rows.jsonl",
+      "bytes": 2974590
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/context-runtime.jsonl": {
+      "sha256": "0e7d1dd7cd765a8a7aa67c962b8b81ef0fd40a919fc45f7d21d49bba9fd27a4f",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/context-runtime.jsonl",
+      "bytes": 5144468
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/mandatory-regressions-ids.txt": {
+      "sha256": "507b034dc45d41c33c916a3d520c273625c81d6460b6fff2db474b07d4f6dba8",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/mandatory-regressions-ids.txt",
+      "bytes": 31165
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/concept-components.json": {
+      "sha256": "c7f728edf9ec1bed42cd947bae8661f53a3c1ee2649c0973ea190bd4afe6f008",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/concept-components.json",
+      "bytes": 4400
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/delta-context-nodes.jsonl": {
+      "sha256": "89e73244b1cf6da3e4745fa17305f5334c38eddc4faea671744a28a2a1af4915",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/delta-context-nodes.jsonl",
+      "bytes": 192820
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/runtime-check.json": {
+      "sha256": "49611ceb7599883c895ef142459b16a98a3d19eea11ebb42fe23b0833f458e9b",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/runtime-check.json",
+      "bytes": 3340
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/selector.json": {
+      "sha256": "b72504eacc65046d5fd250295bd37c6bb672d1dbd5f75585407479083ee0b498",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/selector.json",
+      "bytes": 2224
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/retained-per-id-reviews.jsonl": {
+      "sha256": "71573092f9c9c05bef6e3298ca5197d70380e9a722ad36467393e0fb7d8d3929",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/retained-per-id-reviews.jsonl",
+      "bytes": 1794365
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/build-verification.json": {
+      "sha256": "2594869d586f853c5b1cafbe819003f0465fecb886e8598283860008afc804c4",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/build-verification.json",
+      "bytes": 2109
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/delta-review-rows.jsonl": {
+      "sha256": "fa56632f6d8d809250aee68b8bf332c6b33de6d398fddb4a9c338841b76d2c5a",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/delta-review-rows.jsonl",
+      "bytes": 43118
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/retained-source-context-holds.jsonl": {
+      "sha256": "a77d865ffec746c77534ed7b6d797a686909296bee739af0a5005d230832d793",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/retained-source-context-holds.jsonl",
+      "bytes": 250333
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/runtime-binding-ids.txt": {
+      "sha256": "d84f942a23b51a69db910208980cbd73c1d84ff11350f2272baee04b2796256f",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/runtime-binding-ids.txt",
+      "bytes": 23886
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/repetitions-ids.txt": {
+      "sha256": "0be92f599edfcc17752f9757fd1b7af1ef8141f83931ba81f6d56d53e527308d",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/repetitions-ids.txt",
+      "bytes": 296
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/retained-context-receipts.jsonl": {
+      "sha256": "6b06b8676235a1c25c4f2ac86f5eb4aca6080689b4b8d79b27e32844de321b69",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/retained-context-receipts.jsonl",
+      "bytes": 74028
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/explicit-invalidation.json": {
+      "sha256": "db75d4ef121adfb7d9b72acf97079f401d84508cf4bf24b5ca62c8d6a5a475c1",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/explicit-invalidation.json",
+      "bytes": 322
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/poetry-actual-branch-combinations.jsonl": {
+      "sha256": "b6267bf9cb7ab6803812dd5fc0792a0fec7d51943f0c80e2ca51e966eba16a71",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/poetry-actual-branch-combinations.jsonl",
+      "bytes": 6813
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/delta-supporting-reviewed-rows.jsonl": {
+      "sha256": "4455661ec27c4cb990f14c4dcbcaf1f8af6ce8179ef78f33ef24134fb8bf764d",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/delta-supporting-reviewed-rows.jsonl",
+      "bytes": 58501
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/wordplay-callbacks-ids.txt": {
+      "sha256": "e707aa82f9e317942bd0999c1dbcfee6490c19e45a090edc7b3bd7df86ea64ec",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/wordplay-callbacks-ids.txt",
+      "bytes": 2475
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/rollback-regression.json": {
+      "sha256": "025db21c266477dc396ba5d3168d43e5f1a0bb1ec963d4b7551bfb7f321ff2f6",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/rollback-regression.json",
+      "bytes": 899
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/poetry-regression.json": {
+      "sha256": "3d6d5e5a1168fe2efaf9408391feae959b1b652b7d35e914eb8099b6fd0db442",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/poetry-regression.json",
+      "bytes": 860
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/manifest.json": {
+      "sha256": "db6e54fc367dd4de0c7e5851217e711310743ec729fe3a385a1ee735dc8b614f",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/manifest.json",
+      "bytes": 5273
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/new-dependencies-ids.txt": {
+      "sha256": "0cb64d6771569b0140ab099d15286367a503cc234ba3c00fd57fb05111db7054",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/new-dependencies-ids.txt",
+      "bytes": 547
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/previous-reviewed-ids.txt": {
+      "sha256": "780d8c4e440e60f033e44bd7e17345ac0fc02408822930fd4bcf21b30d32771e",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/previous-reviewed-ids.txt",
+      "bytes": 134157
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/concept-referents-ids.txt": {
+      "sha256": "e707aa82f9e317942bd0999c1dbcfee6490c19e45a090edc7b3bd7df86ea64ec",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/concept-referents-ids.txt",
+      "bytes": 2475
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/explicitly-invalidated-ids.txt": {
+      "sha256": "dfa8cce58d66bac449099d09c5391202e32c56dd1c450dfea4dcc893927306be",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/explicitly-invalidated-ids.txt",
+      "bytes": 25
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/selector-regressions.json": {
+      "sha256": "ed49afc926d8570b77ebee43b8a21e80506aa99b828189e5b93d54be796cf343",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/selector-regressions.json",
+      "bytes": 396
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/retained-poetry-reviews.jsonl": {
+      "sha256": "ecb6080c854ed7be945e82eda279566d842dba3a23cde6ec135c38fba6a342db",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/retained-poetry-reviews.jsonl",
+      "bytes": 12063
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/preflight.json": {
+      "sha256": "789408a80b27639a86022288a0cfaff1f9d47995deda20ec059e33a388ce0d3d",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/preflight.json",
+      "bytes": 783
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/application-receipt.json": {
+      "sha256": "c77f913d7d8c952e92b8f18672fcc2bb757d2d1b8d362085b295c056dd72a6c6",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/application-receipt.json",
+      "bytes": 6029
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/consumer-preflight.jsonl": {
+      "sha256": "82fbb4379d22372bfb05396b5cb05dd195f87da7fa2c2b036e77e9f434f9935c",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/consumer-preflight.jsonl",
+      "bytes": 23941
+    },
+    "localization/editorial-delivery/de-cycle-02/cycle/poetry-topology.json": {
+      "sha256": "180786ce54d493aed681da1baa7507d5e511d2f84ea308bb134d2bedac55f704",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/cycle-02-final/poetry-topology.json",
+      "bytes": 21082
+    },
+    "localization/editorial-delivery/de-cycle-02/independent-full/result.json": {
+      "sha256": "523b104775737a8ef12006cd7f35a98b295cf2218963d2b624665afada1a4fff",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/de/result.json",
+      "bytes": 5190
+    },
+    "localization/editorial-delivery/de-cycle-02/independent-full/reviews.jsonl": {
+      "sha256": "4439770a05ce5fc256f3104eba0f27220c728f20768fc1ef47cb27e546badf65",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/de/reviews.jsonl",
+      "bytes": 1798681
+    },
+    "localization/editorial-delivery/de-cycle-02/independent-full/repaired-closure-ids.txt": {
+      "sha256": "780d8c4e440e60f033e44bd7e17345ac0fc02408822930fd4bcf21b30d32771e",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/de/repaired-closure-ids.txt",
+      "bytes": 134157
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/delta-ids.txt": {
+      "sha256": "6533cfc589ddb7de6c377c6074a22412da82a036834c9ce9176dc1f9d06ce784",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/delta-ids.txt",
+      "bytes": 747
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/parent-verification.json": {
+      "sha256": "c2273eeedf64ff2057b9996f8858034d70188b6e2f3067f48876fd88e1205810",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/parent-verification.json",
+      "bytes": 808
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/config.json": {
+      "sha256": "2bcf46a4328e6982f29175fc067fddf5a5fc4362084bb4367c17bc5689c48223",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/config.json",
+      "bytes": 12079
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/contract.md": {
+      "sha256": "228e7a642f2248757df771d69ec50a2768af5465033420cc7965f9d201ddde9c",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/contract.md",
+      "bytes": 6199
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/job.json": {
+      "sha256": "5619f0fd75df8ae32d42c47eee3a30a4795b30060d4576507e71957ef3055240",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/job.json",
+      "bytes": 2940
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/result.json": {
+      "sha256": "8c49f025b28922f5f024cbefdddcf2134eaa0622a95f786a31c5434eb6940e56",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/result.json",
+      "bytes": 276
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/reviews.jsonl": {
+      "sha256": "f40ef6f65d8d4e1de525f5f94cca849a4d8e02da6f5bf54330c10e07c7017ca1",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/reviews.jsonl",
+      "bytes": 14905
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/pairs.jsonl": {
+      "sha256": "09462a0b37c29babfc6df3ba5ad304e54b2ce41daddb24ee1e3788b97fcbe217",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/pairs.jsonl",
+      "bytes": 21410
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/runtime-verification.json": {
+      "sha256": "10b459cf8b65750bfe7b54082a19faa8013a0c165ae2b9bd6a72b9339cf4c51f",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/runtime-verification.json",
+      "bytes": 1619
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/dispatch.json": {
+      "sha256": "c189fc6b5465090e4bfe28ec7c2937b66063149a835520ef0010608c9498dac7",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/dispatch.json",
+      "bytes": 3492
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/decisions.jsonl": {
+      "sha256": "463f2a41a605633688e333cfbd4e5788ea55633053779ff1d4d3f9c9b6972668",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/decisions.jsonl",
+      "bytes": 9985
+    },
+    "localization/editorial-delivery/de-cycle-02/peer/0001-semantic/reads/compact-0000-0030.json": {
+      "sha256": "867c702f2c58d78bfb389e64be7c08ab23c701faafffcd84d3667587f3001054",
+      "original": "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-delta-v1/de/0001-semantic/reads/compact-0000-0030.json",
+      "bytes": 1461
+    }
+  },
+  "fullGameSourceFontLayoutRendererRuntimeRelease": "OPEN/UNRUN;no gate waived",
+  "gameTesting": "Stopped by owner;not resumed",
+  "integration": "Parent-coordinated canonical main",
+  "archivePreparationAttempt": "First packaging assertion exposed an already-recorded historical interrupted-storage-full attempt. Its partial rows received no coverage credit; this script verifies the35 successful receipt hashes and12246 unique IDs. A subsequent count assertion distinguished seven edit applications from six newly changed IDs and the one restoration of the exact original-draft target;final unique changed count is100. No locale writes,new model request or successful Git stage/commit occurred during those packaging failures."
+}

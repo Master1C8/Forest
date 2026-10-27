@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "betweenWriteFailures": [
+    {
+      "afterWrite": 1,
+      "rollback": "exact prior bytes and absence verified"
+    },
+    {
+      "afterWrite": 2,
+      "rollback": "exact prior bytes and absence verified"
+    },
+    {
+      "afterWrite": 3,
+      "rollback": "exact prior bytes and absence verified"
+    },
+    {
+      "afterWrite": 4,
+      "rollback": "exact prior bytes and absence verified"
+    },
+    {
+      "afterWrite": 5,
+      "rollback": "exact prior bytes and absence verified"
+    },
+    {
+      "afterWrite": 6,
+      "rollback": "exact prior bytes and absence verified"
+    }
+  ],
+  "positiveControl": "all seven exact new byte strings",
+  "overlapGuards": "passed both directions",
+  "boundary": "Disposable files exercise the actual atomic/rollback function; this is process-exception recovery, not crash-atomic or cross-file transactional storage."
+}

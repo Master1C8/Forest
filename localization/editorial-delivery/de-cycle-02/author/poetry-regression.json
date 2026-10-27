@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "negativeControls": [
+    {
+      "field": "target",
+      "value": "Was ist dir denn wichtig hier",
+      "expectedRejection": "accepted poetry target changed",
+      "passed": true
+    },
+    {
+      "field": "target",
+      "value": "Was ist dir eigentlich wichtig?",
+      "expectedRejection": "accepted poetry target changed",
+      "passed": true
+    },
+    {
+      "field": "source",
+      "value": "What is important here?",
+      "expectedRejection": "poetry source changed",
+      "passed": true
+    }
+  ],
+  "positiveControl": {
+    "status": "passed",
+    "poemGroups": 9,
+    "combinations": 27,
+    "callbacks": "passed",
+    "overlaySha256": "77a92e56eaff70f6191caffbff4abb0e26783d533d1b19094edbd520bf926f89"
+  },
+  "scope": "Runs the maintained canonical helper bytes on complete scratch overlay; not game runtime."
+}

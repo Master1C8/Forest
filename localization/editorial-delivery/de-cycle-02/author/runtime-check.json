@@ -1,0 +1,49 @@
+{
+  "verifiedAt": "2026-10-27T06:50:27.686016+00:00",
+  "runtimeReceipt": {
+    "threadId": "01a17c1f-8655-73d0-9b55-d32452a789dc",
+    "sessionMetadataPath": "/Users/antonkrutov/.codex/sessions/2026/10/27/rollout-2026-10-27T13-50-03-01a17c1f-8655-73d0-9b55-d32452a789dc.jsonl",
+    "actualRuntime": {
+      "session": {
+        "id": "01a17c1f-8655-73d0-9b55-d32452a789dc",
+        "source": "exec",
+        "model_provider": "openai",
+        "parent_thread_id": null
+      },
+      "turn": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      }
+    },
+    "pid": 7193,
+    "actualArgvEvidence": " 7193  7190 Tue Oct 27 13:50:03 2026     /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/last-message.txt First read /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/brief.md, /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/dispatch.json and /Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/final-de-v1/de/runtime-verification.json. The current-runtime evidence path is explicitly authorized; verify it and then proceed. All paths are known. Execute exactly this authorized correction-completion assignment, including safe authored locale TSV fixes and reproducible builds. No history/project discovery, other model or nested worker. Model gpt-6.1-sol/high/OpenAI, fresh no-history.\n",
+    "verifiedAt": "2026-10-27T06:50:06.792998+00:00",
+    "freshExecNoResumeNoFork": true
+  },
+  "checks": {
+    "session": true,
+    "source": true,
+    "provider": true,
+    "no_parent": true,
+    "model": true,
+    "effort": true,
+    "argv": true,
+    "no_resume_fork": true,
+    "dispatch": true
+  },
+  "inputPins": {
+    "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": true,
+    "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": true,
+    "/Users/antonkrutov/Desktop/Forest/localization/de-assets/dialogue.de.jsonl": true,
+    "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": true,
+    "/Users/antonkrutov/Desktop/Forest/localization/glossary/de.json": true,
+    "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/de/reviews.jsonl": true,
+    "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/de/result.json": true,
+    "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/independent-correction-review-v1/de/repaired-closure-ids.txt": true,
+    "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/de/source-context.json": true,
+    "/Users/antonkrutov/Desktop/Forest/outputs/editorial-20261027/de/pairs.jsonl": true,
+    "/Users/antonkrutov/Desktop/Forest/assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json": true,
+    "/Users/antonkrutov/Desktop/Forest/assets/source-v2/trees/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--9011735310751668748.json": true
+  },
+  "status": "verified"
+}
