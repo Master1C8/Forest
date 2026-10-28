@@ -1,0 +1,27 @@
+{
+  "time": "2026-10-28T04:26:58.834602+00:00",
+  "status": "passed-policy-boundary-controls",
+  "builder": "tools/build_renderer_probe.py",
+  "builderSha256": "574a4d9a79e7cb04b0f9ae55f3b42854c35ee8d2a45f6d526277860e893ce031",
+  "positive": {
+    "coherentTmpFace": false,
+    "result": "accepted by the actual pure guard; renderer/build/source I/O not exercised"
+  },
+  "negative": {
+    "coherentTmpFace": true,
+    "actualCliExit": 2,
+    "reason": "rewrites the original font atlas",
+    "outputDirectoryCreated": false,
+    "unrelatedEarlierGuards": "all coherent option dependencies satisfied"
+  },
+  "gameLaunches": 0,
+  "builds": 0,
+  "originalInstallRead": false,
+  "textureChanges": false,
+  "limitation": "No delivered-artifact texture equality, font feasibility or runtime acceptance; those remain pending.",
+  "priorBuilderSha256": "6e28065e91a061a9821293842f042949b4b164ef0673996882acf6839bcdb681",
+  "evidence": "outputs/pause-inventory-bio-completion-20261028/no-texture-guard/verification.json",
+  "evidenceSha256": "29e459dec983db85482a73fa5abc9a3a185b0f442ed64453b114b26f83a588d8",
+  "historicalProbes": "Preserved unchanged; the new guard applies to new invocations of the canonical builder.",
+  "guardScope": "Only the known coherent-TMP atlas mutation path is rejected. Other build paths still require complete original Texture2D/raw stream comparison."
+}

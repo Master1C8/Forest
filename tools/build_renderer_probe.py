@@ -48,6 +48,12 @@ def fields_changed(before, after, pointer=''):
     return [] if before == after else [pointer]
 
 
+def validate_texture_policy(coherent_tmp_face):
+    """New probes must preserve original texture assets under the owner scope."""
+    if coherent_tmp_face:
+        raise ValueError('--coherent-tmp-face rewrites the original font atlas and is disabled for the current texture-preserving workflow')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
@@ -60,6 +66,10 @@ def main():
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Disable legacy baked Images with complete six-layer TMP replacements in OptionsMenu')
     args = parser.parse_args()
+    try:
+        validate_texture_policy(args.coherent_tmp_face)
+    except ValueError as error:
+        parser.error(str(error))
     assert not args.repair_settings_glow or args.sample_surface == 'menu-settings'
     assert not args.repair_settings_value_images or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
