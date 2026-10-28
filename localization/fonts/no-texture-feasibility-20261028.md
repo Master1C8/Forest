@@ -1,15 +1,20 @@
 # Font feasibility under the owner's no-texture constraint
 
-This is a source-bound preparation note for the 30-locale omission repair.
+This is a source-bound preparation note and build-policy record for the 30-locale omission repair.
 No font, texture, game package, target wording, installation, or save was changed.
 No game or screenshot review was run. It does not pass renderer feasibility.
 
 The existing renderer builder has two materially different paths. Its normal
 fallback path changes TMP Settings to reference the existing dynamic fallback
-asset 1017 and adjusts face metrics. Its `--coherent-tmp-face` path also selects
+asset 1017 and adjusts face metrics. The historical `--coherent-tmp-face` branch selects
 the primary font's atlas Texture2D, marks it readable, changes its filter mode,
 replaces its image data with zero bytes, and clears stream information. Therefore
 that option must not be reused for this task's texture-preserving builds.
+Both canonical preview builders now call the shared `tools/texture_policy.py`
+guard and reject this option before their main bodies read the original install
+or create an output directory. Exact positive/CLI-negative controls and current
+recipe hashes are in `no-texture-guard-20261028.json`. This is a policy-boundary
+check; no actual font package or texture-equality check has run.
 Earlier accepted Russian previews remain immutable historical artifacts; this
 instruction does not retrofit or undo them.
 
@@ -30,7 +35,7 @@ an original atlas as a shortcut.
 
 | Predicate | Current evidence | Exact next action |
 | --- | --- | --- |
-| Reject texture edits before build writes | Existing coherent-TMP branch explicitly changes Texture2D | Add a texture-preserving build plan/guard before using that branch; reject an incompatible plan before creating outputs. |
+| Reject the known atlas-editing mode before build writes | Shared guard in both canonical builders; actual CLI rejects with all other option prerequisites satisfied and creates no output | Complete for this known mode. Other resource changes still require the full texture-object/stream comparison below. |
 | Original font-image bytes survive | No new package built | Compare every original Texture2D raw object and texture-stream file against source after the affected resource build. A font name or selected-object count is insufficient. |
 | Actual native/TMP face and binding | Existing original role matrix and custom-nameplate binding; 30-packet static character report | Bind each affected role to its actual face/resource, then use a minimal isolated native probe with the exact required scripts. |
 | Character and glyph requirements | `font-checks/supplemental-30-20261028.json` covers only the old 935-unit packets | Recompute affected requirements after source admission and target edits; keep raw/NFC/NFD results separate. |
