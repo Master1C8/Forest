@@ -1,0 +1,1270 @@
+{
+  "schemaVersion": 1,
+  "phase": "0134-work",
+  "model": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "OpenAI",
+    "ignoreUserConfig": true,
+    "verifiedAncestorPid": 2513
+  },
+  "priorDecisions": "source-decisions.json",
+  "priorSha256": "c2815041ac80d00a1777fdf37aea8f39b96b67dfa610a13884a0e63ed1e4401a",
+  "boundary": "Typed source roles only. Potential labels are retained with actual binding unknown, not excluded or approved for application. No source/editorial/renderer gate is passed.",
+  "serialized": {
+    "keyboardLayout": {
+      "role": "preserve-control",
+      "reason": "Generate splits layout on ASCII space, handles LF/Skip width, looks up chartoKeycode or Enum.Parse(KeyCode). Preserve all four complete strings, delimiters and emitted character identities."
+    },
+    "keyboardActionLabel": {
+      "role": "display-source",
+      "values": [
+        "ENTER",
+        "SHIFT"
+      ],
+      "reason": "specialKeys matched by numeric keycode; name is Assign argument3 -> TMP set_text, while KeyCall dispatches keycode. Exact callbacks/layout stay protected. Relabel(null) can restore Awake defaultLabelText; final recipe must keep its source/cache coherent."
+    },
+    "keyboardSymbolLabel": {
+      "role": "preserve-display-symbol",
+      "values": [
+        "+",
+        "«",
+        "ABC",
+        "123",
+        " "
+      ],
+      "reason": "Navigation/layout-switch/space symbols label separately keyed special actions. Retain exact symbols and callback identities; do not translate keyboard alphabet or change emitted input."
+    },
+    "rewiredResourceIdentity": {
+      "role": "preserve-resource-identity",
+      "reason": "Explicit GUID/class/exported-constant/tag fields and numeric special-element JSON carry resource or editor/dispatch identities; preserve original bytes."
+    },
+    "rewiredPotentialLabel": {
+      "role": "potential-display-resource-label",
+      "reason": "Controller descriptions/names and element sign labels are human-readable resource labels. Keep every exact original under potential display scope, including hardware product names. No direct Rewired name getter is called in the full supported Assembly-CSharp index; this does not exclude vendor/external/dynamic UI. Alias binding/reachability remains unverified.",
+      "consumerBindingPredicate": "Identify any supported game/vendor control UI that selects this map/element/sign/name; preserve original lookup field and localize through a separately proved display alias."
+    },
+    "rewiredDualIdentity": {
+      "role": "potential-display-control-identity",
+      "reason": "Rewired _name/name fields identify actions/players/categories/layouts/custom axes by name and may also be displayed. Preserve original lookup value; retain potential label under a separate display-alias contract, never overwrite the key.",
+      "consumerBindingPredicate": "Bind actual control-name display use, if any, separately from lookup/dispatch; no absence inference from the game-only call index."
+    }
+  },
+  "managedImmediateConsumers": [
+    {
+      "target": "System.Boolean TheForestOfLove.QuestTriggerHelper::IsConversationPlayed(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "System.Boolean TheForestOfLove.QuestTriggerHelper::IsTriggerSet(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "System.Void TheForestOfLove.QuestTriggerHelper::SetTrigger(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "System.Boolean TheForestOfLove.QuestTriggerHelper::IsTriggerFired(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "TheForestOfLove.Narrative.Tag TheForestOfLove.Services.Persistence.DataService::GetTagByDbName(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "System.String TheForestOfLove.Services.Persistence.DataService::GetVariable(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "TheForestOfLove.Narrative.Actor TheForestOfLove.Services.Persistence.DataService::GetActorByDbName(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "System.Boolean TheForestOfLove.Services.Persistence.DataService::IsTagActive(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "TheForestOfLove.Narrative.Quest TheForestOfLove.Services.Persistence.DataService::GetQuestByDbName(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "TheForestOfLove.Narrative.Dialogue TheForestOfLove.Services.Persistence.DataService::GetDialogueByDbName(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    },
+    {
+      "target": "TheForestOfLove.Narrative.Trigger TheForestOfLove.Services.Persistence.DataService::GetTriggerByName(System.String)",
+      "role": "preserve-database-or-control-key",
+      "reason": "Complete exact game body and terminal dictionary/state consumers read in phase134. Only immediate sole-string argument is classified; not other literals or returned display values."
+    }
+  ],
+  "managedStoredFields": [
+    {
+      "target": "System.String TheForestOfLove.QuestConversationHelper::targetActorName",
+      "role": "preserve-database-or-control-key",
+      "reason": "StartConversation_Internal copies this into ConversationSettings; DialogueSettings.CopyFrom stores matching database-name/tag identities. StoryManager/DialogueService selects DB dialogue/arc/actor using these keys; it does not localize them."
+    },
+    {
+      "target": "System.String TheForestOfLove.QuestConversationHelper::targetConversationName",
+      "role": "preserve-database-or-control-key",
+      "reason": "StartConversation_Internal copies this into ConversationSettings; DialogueSettings.CopyFrom stores matching database-name/tag identities. StoryManager/DialogueService selects DB dialogue/arc/actor using these keys; it does not localize them."
+    },
+    {
+      "target": "System.String TheForestOfLove.QuestConversationHelper::targetDialogueArcName",
+      "role": "preserve-database-or-control-key",
+      "reason": "StartConversation_Internal copies this into ConversationSettings; DialogueSettings.CopyFrom stores matching database-name/tag identities. StoryManager/DialogueService selects DB dialogue/arc/actor using these keys; it does not localize them."
+    },
+    {
+      "target": "System.String TheForestOfLove.QuestConversationHelper::preferredConversantActorName",
+      "role": "preserve-database-or-control-key",
+      "reason": "StartConversation_Internal copies this into ConversationSettings; DialogueSettings.CopyFrom stores matching database-name/tag identities. StoryManager/DialogueService selects DB dialogue/arc/actor using these keys; it does not localize them."
+    }
+  ],
+  "exactMethodLiterals": [
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 265,
+      "sourceValueSha256": "9d5e4440db18e477c11fa231a7a2e7e0cc69cfb647bbb90987ed83bb4a5b26cd",
+      "role": "preserve-control-grammar",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 280,
+      "sourceValueSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "role": "preserve-control-grammar",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 506,
+      "sourceValueSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "role": "preserve-control-grammar",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 541,
+      "sourceValueSha256": "ec2017d5496abcafbc99601b6c234858fa3fa479fccf64a3823040ddf74e2cfe",
+      "role": "preserve-control-grammar",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 639,
+      "sourceValueSha256": "c753dfd648537387a36ee576c15879632797ca0eb5b2c00134002378ff8ed75e",
+      "role": "preserve-diagnostic",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 648,
+      "sourceValueSha256": "e30d76773bff2c926be949d57d65c6e3c04fe1fdea1e062ba7d67a30ad95ecb4",
+      "role": "preserve-diagnostic",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 730,
+      "sourceValueSha256": "f304265870dce5a5454b62d88b96464f275285833e2dff857b62f6fd2994c8b4",
+      "role": "preserve-object-identity",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 742,
+      "sourceValueSha256": "c7dc944fc9c6a1cbe50d02a3db6001a908565a245c7e6d9ab638c82a30fd6357",
+      "role": "preserve-diagnostic",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 765,
+      "sourceValueSha256": "764f7e30b7d957f7dc7400e809b347a2f0549cbf79feb048c5bade38acfde77b",
+      "role": "preserve-diagnostic",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 1141,
+      "sourceValueSha256": "f304265870dce5a5454b62d88b96464f275285833e2dff857b62f6fd2994c8b4",
+      "role": "preserve-object-identity",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 1153,
+      "sourceValueSha256": "60153b6f971f23c13f8b0ac00ddea6ec32d03aa5f355fd96a8676b30e35dfe1b",
+      "role": "preserve-diagnostic",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 1202,
+      "sourceValueSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "role": "preserve-control-grammar",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 1772,
+      "sourceValueSha256": "f46abeeb133b7e308ade57249e07ee5d430bbbe18ea4d61e74409de622793132",
+      "role": "preserve-control",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::Generate()",
+      "offset": 1785,
+      "sourceValueSha256": "0d67d3ea6467c286883b2a9fe5fc2b028fae0b669514ea7678299b2d5a0a3164",
+      "role": "preserve-control",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::ShiftUp()",
+      "offset": 17,
+      "sourceValueSha256": "f46abeeb133b7e308ade57249e07ee5d430bbbe18ea4d61e74409de622793132",
+      "role": "preserve-control",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard_TFOL::ShiftDown()",
+      "offset": 17,
+      "sourceValueSha256": "0d67d3ea6467c286883b2a9fe5fc2b028fae0b669514ea7678299b2d5a0a3164",
+      "role": "preserve-control",
+      "evidence": "keyboard-generate.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Key::Click()",
+      "offset": 15,
+      "sourceValueSha256": "b27f4753fcc42843e998ce37f77aa29ca9e1262c1e39c39efc6f54be3a4d03e4",
+      "role": "preserve-control",
+      "evidence": "key-click.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard::KeySpace()",
+      "offset": 1,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "role": "preserve-display-symbol",
+      "evidence": "keyboard-callback.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard::KeyShift()",
+      "offset": 24,
+      "sourceValueSha256": "f46abeeb133b7e308ade57249e07ee5d430bbbe18ea4d61e74409de622793132",
+      "role": "preserve-control",
+      "evidence": "keyboard-callback.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void viperOSK.OSK_Keyboard::KeyShift()",
+      "offset": 36,
+      "sourceValueSha256": "0d67d3ea6467c286883b2a9fe5fc2b028fae0b669514ea7678299b2d5a0a3164",
+      "role": "preserve-control",
+      "evidence": "keyboard-callback.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.QuestConversationHelper::ValidateInputs()",
+      "offset": 14,
+      "sourceValueSha256": "329a99d04547d2feff5bc5c3f3f0104501e2296ae8ce2837f35b4f2f03e7eecf",
+      "role": "preserve-diagnostic",
+      "evidence": "conversation-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.QuestConversationHelper::ValidateInputs()",
+      "offset": 38,
+      "sourceValueSha256": "c5944cd5dc2d9b550c10d80eb1bb187fc00baab00190d3bff73412bd08668161",
+      "role": "preserve-diagnostic",
+      "evidence": "conversation-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestConversationHelper::StartConversation()",
+      "offset": 7,
+      "sourceValueSha256": "07093d192a321734e55ebddeb9f681b7c1b40b0fa59e91293e719a683a5c9ce0",
+      "role": "preserve-diagnostic",
+      "evidence": "conversation-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsNormal()",
+      "offset": 6,
+      "sourceValueSha256": "9a9f70f779052a4c586033c2217855f0d8cb6bfe4415b05bfc13ef4b4fbafd8b",
+      "role": "preserve-animation-key",
+      "evidence": "plant-label-producer.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsNormal()",
+      "offset": 22,
+      "sourceValueSha256": "82fbb169e798324839513347c048ecc9c91a6574588e1760f13d6b9650c328bf",
+      "role": "preserve-animation-key",
+      "evidence": "plant-label-producer.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsNormal()",
+      "offset": 38,
+      "sourceValueSha256": "82fbb169e798324839513347c048ecc9c91a6574588e1760f13d6b9650c328bf",
+      "role": "preserve-animation-key",
+      "evidence": "plant-label-producer.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsOozingAlert()",
+      "offset": 6,
+      "sourceValueSha256": "9a9f70f779052a4c586033c2217855f0d8cb6bfe4415b05bfc13ef4b4fbafd8b",
+      "role": "preserve-animation-key",
+      "evidence": "plant-label-producer.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsOozingAlert()",
+      "offset": 22,
+      "sourceValueSha256": "82fbb169e798324839513347c048ecc9c91a6574588e1760f13d6b9650c328bf",
+      "role": "preserve-animation-key",
+      "evidence": "plant-label-producer.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsOozingAlert()",
+      "offset": 38,
+      "sourceValueSha256": "9a9f70f779052a4c586033c2217855f0d8cb6bfe4415b05bfc13ef4b4fbafd8b",
+      "role": "preserve-animation-key",
+      "evidence": "plant-label-producer.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.Tag TheForestOfLove.Services.Persistence.DataService::GetTagByDbName(System.String)",
+      "offset": 35,
+      "sourceValueSha256": "90c18b691ba65fc5bb986b77db47ed0f20d7aefd69c45a9597f44595ecca9a9f",
+      "role": "preserve-diagnostic",
+      "evidence": "data-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.Actor TheForestOfLove.Services.Persistence.DataService::GetActorByDbName(System.String)",
+      "offset": 35,
+      "sourceValueSha256": "6368211de459c6e33002a57f6365e0fab57378573b2853e9f8ffdd8f91e6347a",
+      "role": "preserve-diagnostic",
+      "evidence": "data-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.Quest TheForestOfLove.Services.Persistence.DataService::GetQuestByDbName(System.String)",
+      "offset": 35,
+      "sourceValueSha256": "267e739d4e39985c97ef900b969afbbd41981160b8b372574ba27b671de09016",
+      "role": "preserve-diagnostic",
+      "evidence": "data-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)",
+      "offset": 35,
+      "sourceValueSha256": "b853256996f32e94fc157f3135f9c5b4dbc50706161c11392f541becce61338b",
+      "role": "preserve-diagnostic",
+      "evidence": "data-key-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.Dialogue TheForestOfLove.Services.Persistence.DataService::GetDialogueByDbName(System.String)",
+      "offset": 35,
+      "sourceValueSha256": "2adb7f69082ae9fbcabefd537937bda1ee5b7e8a7e0e97e2fe74684ef16a3d39",
+      "role": "preserve-diagnostic",
+      "evidence": "key-terminal-consumers.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1,
+      "sourceValueSha256": "07ffad65b2a1361d0843ecd38980f16536e34881c87573364cf37a402a7e9861",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 22,
+      "sourceValueSha256": "9f59ab89eca38ecca3260e34440f505f51869db503b559c62c1682e25c68b31a",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 43,
+      "sourceValueSha256": "d8c2bb0e38f6bf1ef5f5254b480835bd04155039b944103b0b0d53c30c445a8e",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 64,
+      "sourceValueSha256": "7ffac3597570b70e5a86c7c38de54e20253614204e430f753d3031e137c6485e",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 85,
+      "sourceValueSha256": "a134c6fdd293da9e5fa144b26af3ff4ef1e62ac4dde5a69ed2f789041bd704d4",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 106,
+      "sourceValueSha256": "035be546241049a547f3d37f71392688de16647b2db894d8091d30224567d5ac",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 215,
+      "sourceValueSha256": "ed3cc66021ebd509f61d891c1b132a20603b82a572b82ee66f1538531650b6bd",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 322,
+      "sourceValueSha256": "edab3adcc2f678fa21f6b3c95d9da16287c23c4e1eb9b3acb73141db3a6226ac",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 395,
+      "sourceValueSha256": "2cf65674a4eb655d40c619fe665cb9f346bcbe3933f05d879eeca2cd68fab3b4",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 468,
+      "sourceValueSha256": "a3f16521836d5427e7dc5a2d2c3229dbb02ebeb100bdda76b4f7f636262ac859",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 541,
+      "sourceValueSha256": "6baa9c8f844233700fe11f5f4a32c775a5ebd227c777926a5b7d31d71fec666c",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 638,
+      "sourceValueSha256": "25e89e77abe82b000db106f94eb587b5e8f4f5ec6af575a18aeecf3cfd61c2e6",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 660,
+      "sourceValueSha256": "add2a0c91c7a7e754c20e9094a735520315b8541472b0038051d64925d169abe",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 682,
+      "sourceValueSha256": "526836c3bc0279cfb032fe0b7f64a76045b6f47a66f06e43d0f396eca61d6492",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 695,
+      "sourceValueSha256": "062245d48410abbc36e32e83d413093cbac2a5b2b56fcccb33078ff8163c7048",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 720,
+      "sourceValueSha256": "6278d6a70da8f1867c222eef310991e11ea9d948bafc0f45701bc6802b5b607d",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 742,
+      "sourceValueSha256": "b57c4299afe3cda154124bdb96ceaf618a9d8d9cd8d2c8f6580ff26faa5fe5ca",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 764,
+      "sourceValueSha256": "ae0629bebb631637fca9ede07dbbe47200c5cc81f8c090684fb3b3908876c70d",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 777,
+      "sourceValueSha256": "5197a916ea6db7d021331ae9a6395c51ce8dce6e14b404650b9e24d82b31adb4",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 799,
+      "sourceValueSha256": "49969723b32e2e0953f49e9e3cb8d1284dc6f297717e86f9d15bb65203f94ae9",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 821,
+      "sourceValueSha256": "b85782cc1f41a2815ade7c945d160157aa2b4ff01e0943a48b27ec2ec8f3aa5d",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 843,
+      "sourceValueSha256": "dd3e8955d3a5ffeb7a7d3db22f06e294f71f57f1b717e9ae0ac76566e1a317da",
+      "role": "comparison-on-display",
+      "evidence": "haiku-handler.il",
+      "reason": "Case-folded selected display-text keyword decides the haiku ending; requires locale-independent identity adapter, not ordinary prose replacement."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 856,
+      "sourceValueSha256": "82f5e8f26c95d34c7057530962857c4724308ea3231bf874c46438c8ef79ef0f",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 869,
+      "sourceValueSha256": "faf918b530f04de45cbab270673ebaacc8103f0795c1cbb1633ab38a26021563",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 912,
+      "sourceValueSha256": "a979dd3eeb2e29281fa1317ed0eedf4c16927efb444597f89f2b4aa9a218c1fd",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 925,
+      "sourceValueSha256": "4c7b283d29a4038def0a851cf785f91484be0615fd47a12e17095f8ea237b388",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 938,
+      "sourceValueSha256": "94cc6010c27f2281fe7660b47a08152745b39895a8a185f06f41e9abe6e88465",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 986,
+      "sourceValueSha256": "912da364a5ca5629a48d775c98ce4cfdf8056e23cc900264a301605f1920c2e0",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1046,
+      "sourceValueSha256": "495e182680fbd92fb82c4060519b438647efdbd455fdaa28d673b3d38ada9c60",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1067,
+      "sourceValueSha256": "210c2b3d6e629cd8792888e65ca66cfe7af91520590d85bf1268173ddf484d8b",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1088,
+      "sourceValueSha256": "0d9b0c225cf3a365d5d5799113ad5a348c86ab41819b37f32b02d0dcb72138e0",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1109,
+      "sourceValueSha256": "1796d0de63c61a2428e44347058e570a1ec63c992785d332c2d163d73d0cd7d0",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1130,
+      "sourceValueSha256": "f4b91a0838bc4886d3dc5539080e804a46a1d456cef6b295f4828eab36200fc2",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1151,
+      "sourceValueSha256": "f5d3e846ea7f76ec57f80eea98b04bd948e0ba560345574beb426f816865b610",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1172,
+      "sourceValueSha256": "ec8ded59d5425c71a974c45ecd83533bccb02506ac26713f54903a591e74ca4d",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1193,
+      "sourceValueSha256": "1d82d666fb7bc82764fc5112b30ee2a5209d4a49e8a06a4d7487e1b520126a29",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1214,
+      "sourceValueSha256": "91171357b23b65ba924db01f3d8f7bd67a03248151f572a5a8cd37831339e1f1",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1235,
+      "sourceValueSha256": "06a132679f857d7afe92dbdd985ada0c8d461adfc42530f594655d2c2ba33954",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1323,
+      "sourceValueSha256": "efb842a5e6650290c6956b2f2cb604a2fa2ea0a9bccdd798a25fad67c8efc4e8",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1344,
+      "sourceValueSha256": "52ee724f2e90295e5ff622e5d088adea6eafcb072bdeebd8061e6bad162161dd",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1373,
+      "sourceValueSha256": "4d32418065f91905e8f39487276bfc8d32340e8f0e4596960827fca4c1b720f4",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1387,
+      "sourceValueSha256": "c5a7891d29253d3c6c66bb438188f8b9ad4326c62ba0b409e3e3e3caa413fefb",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1392,
+      "sourceValueSha256": "c5a7891d29253d3c6c66bb438188f8b9ad4326c62ba0b409e3e3e3caa413fefb",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1408,
+      "sourceValueSha256": "d88e7196dbddaa4e0d2de61dd9014b72f0302676ebf23e148d0a4ae506631ae8",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1429,
+      "sourceValueSha256": "c7802cc3c393e12961f857f980a149cfc4a3865c283ccf34b73e569de6cdd8bc",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1450,
+      "sourceValueSha256": "6fc031428b643eed47b44a70b23e12229c8992079411107d71fc588589da27ca",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1471,
+      "sourceValueSha256": "25673cd72db32259ce74ff547cd48489d7ff66a33564a594e2c8d8a52959567c",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1492,
+      "sourceValueSha256": "30f66c5e046114dc93d660147c05a8865829ad04666c1898b84450cf4e3ca2b9",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1550,
+      "sourceValueSha256": "0c27aa65266dca83df3da1df52b6d08b2c2eb5fd0b9dbfb8436bbb1d03638bac",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1608,
+      "sourceValueSha256": "66fe0b0fe377125a96621b3ac4483d4845a80901785da473189189a207c4d1f7",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates::ExecuteTrigger(System.String)",
+      "offset": 1666,
+      "sourceValueSha256": "56d86c058e5698129849621ce1b58e57197f554616b33d528389bb363b72ac6a",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-handler.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates/<>c__DisplayClass5_0::<ExecuteTrigger>b__2()",
+      "offset": 0,
+      "sourceValueSha256": "d23a86a3eb8002311803199db34f5eeb914c0eba02fc3f55214658dc2156a2e9",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-continuation.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerDates/<>c__DisplayClass5_0::<ExecuteTrigger>b__2()",
+      "offset": 10,
+      "sourceValueSha256": "b9423ad66b67202f3727793536c7c231e97bf0387f9740ce234fff35518b525b",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-continuation.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry)",
+      "offset": 35,
+      "sourceValueSha256": "78eb5a2780def98af0e145a6eb0fe75e72615816c4e7330bd720c639c688e4c9",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-trigger-binding.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry)",
+      "offset": 81,
+      "sourceValueSha256": "271f3d797140bcb0942447c9add1552c207d629aef74054a26ea75f4d417bc74",
+      "role": "preserve-diagnostic",
+      "evidence": "haiku-trigger-binding.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry)",
+      "offset": 92,
+      "sourceValueSha256": "ce7cb67b5bedf8b15917526799e809975b0cc1e31401d42b749465a8da28984f",
+      "role": "preserve-diagnostic",
+      "evidence": "haiku-trigger-binding.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry)",
+      "offset": 398,
+      "sourceValueSha256": "271f3d797140bcb0942447c9add1552c207d629aef74054a26ea75f4d417bc74",
+      "role": "preserve-diagnostic",
+      "evidence": "haiku-trigger-binding.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry)",
+      "offset": 409,
+      "sourceValueSha256": "ce7cb67b5bedf8b15917526799e809975b0cc1e31401d42b749465a8da28984f",
+      "role": "preserve-diagnostic",
+      "evidence": "haiku-trigger-binding.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger_Single(TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry,PixelCrushers.DialogueSystem.DialogueEntry,TheForestOfLove.Narrative.Arc,System.Boolean)",
+      "offset": 12,
+      "sourceValueSha256": "2c8b6d4a8b88a4444dd3bdd5c32520a3bd5fbd4a3033d97c50f5a3eb1651e0e4",
+      "role": "preserve-control-grammar",
+      "evidence": "haiku-trigger-single.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger_Single(TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry,PixelCrushers.DialogueSystem.DialogueEntry,TheForestOfLove.Narrative.Arc,System.Boolean)",
+      "offset": 41,
+      "sourceValueSha256": "2c8b6d4a8b88a4444dd3bdd5c32520a3bd5fbd4a3033d97c50f5a3eb1651e0e4",
+      "role": "preserve-control-grammar",
+      "evidence": "haiku-trigger-single.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger_Single(TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry,PixelCrushers.DialogueSystem.DialogueEntry,TheForestOfLove.Narrative.Arc,System.Boolean)",
+      "offset": 68,
+      "sourceValueSha256": "b4ae1e32b94627129795d1f75bcd2564ca7310069326a9a74013871fef2be564",
+      "role": "preserve-diagnostic",
+      "evidence": "haiku-trigger-single.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationFireNamedTrigger_Single(TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry,PixelCrushers.DialogueSystem.DialogueEntry,TheForestOfLove.Narrative.Arc,System.Boolean)",
+      "offset": 137,
+      "sourceValueSha256": "78eb5a2780def98af0e145a6eb0fe75e72615816c4e7330bd720c639c688e4c9",
+      "role": "preserve-database-or-control-key",
+      "evidence": "haiku-trigger-single.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 23,
+      "sourceValueSha256": "a705affa5c0f2a3571eb9a3e7cb6b349e02cad83089d3bfe690ad4628ec90f9e",
+      "role": "preserve-database-or-control-key",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 72,
+      "sourceValueSha256": "9e5264d410a977c82c64ce0b6e9b3acf66a30bda6c186494cc90a74583b57036",
+      "role": "preserve-database-or-control-key",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 87,
+      "sourceValueSha256": "52f3d1318317586482ae39b13884c90cc089ae2ac424c94f017e5ccb946d3cdb",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 93,
+      "sourceValueSha256": "72e08482d57dfb4e254d96fc59083a51a96ee50d6c31d541cc95863bcd0bc9a3",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 162,
+      "sourceValueSha256": "52f3d1318317586482ae39b13884c90cc089ae2ac424c94f017e5ccb946d3cdb",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 168,
+      "sourceValueSha256": "2509aeaf17dc168a65c55deb286e6745f53e7ac9fb8b4e63968a23454876e3ef",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 400,
+      "sourceValueSha256": "52f3d1318317586482ae39b13884c90cc089ae2ac424c94f017e5ccb946d3cdb",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 406,
+      "sourceValueSha256": "c0d261ca2fa1cf2e392750951006e33084a81b0c565b944c125851e75f22cc17",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 435,
+      "sourceValueSha256": "52f3d1318317586482ae39b13884c90cc089ae2ac424c94f017e5ccb946d3cdb",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 441,
+      "sourceValueSha256": "0a50f0541b685db64381543c635e10158a9eced5ff11198e42a11e5861a5b9a7",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 476,
+      "sourceValueSha256": "52f3d1318317586482ae39b13884c90cc089ae2ac424c94f017e5ccb946d3cdb",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDialogue(System.String,System.String)",
+      "offset": 482,
+      "sourceValueSha256": "a972f559c533d8f154e1548666dd539124aa741c73ed77df52385b34bc096882",
+      "role": "preserve-diagnostic",
+      "evidence": "dialogue-key-selection.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 9,
+      "sourceValueSha256": "c760c9e3f2bd867b9196c3bcb3f7a6bec65bac809d6fd5e808cf25e8463aa591",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 58,
+      "sourceValueSha256": "c9855e29841a369e10d92c7bd1bce89084ac47d220115e274a1619d6599b3b6c",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 147,
+      "sourceValueSha256": "78eb5a2780def98af0e145a6eb0fe75e72615816c4e7330bd720c639c688e4c9",
+      "role": "preserve-database-or-control-key",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 303,
+      "sourceValueSha256": "02030eb29c5694e48d3117bc02f1cb1967a698fb1d2b31e82a7bae06e020fb50",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 334,
+      "sourceValueSha256": "bcfa006d7a211a2d33bfd6d560f6e4934bc29418936e87e5a1f0094391010a89",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 351,
+      "sourceValueSha256": "c4486db926deacd825c133d54c376f6fa2c729ab2c4b9dd1c6fe6efacefa6b00",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 368,
+      "sourceValueSha256": "87cc3b88a0c3d6bd4a9a7329e05b838dd76f240c01f60bce3ff80626c7392a47",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    },
+    {
+      "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+      "offset": 527,
+      "sourceValueSha256": "674959ea25336bd140fe92def381b2cea321432cc2abffc8898ba2d7fa6b200e",
+      "role": "preserve-diagnostic",
+      "evidence": "story-playdialogue.il",
+      "reason": "Exact argument/store/branch use read in the complete pinned original body; no inference for unread literals."
+    }
+  ],
+  "evidence": {
+    "activate-trigger.il": "29437e7f241afbbf01ade87933a66f55fdd6a2bee3821c053f7cc60c88e8f071",
+    "conversation-key-consumers.il": "b43678015432ef7af2ce15aea50d42b553b51c138a0afd8b3132efe2c24e0a75",
+    "conversation-settings.il": "528b4a9ee781dbaaf3abfa50dd89ad27d03e16c3def7ebb6112982ffb3f9fc1e",
+    "data-key-consumers.il": "7ca238e639ec5f01c5972b6e75672509b856539fdcd404d18c3f2e82053f25e0",
+    "dialogue-key-selection.il": "9f521278085899ae3d980e85b81fda3332fe27a5670dcc2b89521942d7522a19",
+    "haiku-continuation.il": "f65923b91fef07e775ec890fe88cfd18d9a83566434151f74092989e5223ae4a",
+    "haiku-handler.il": "1e4d22f0bf305911f419bcf46f2e0926df6b6ad83f52d11a6f6833e6a30b250d",
+    "haiku-selected-text.il": "05ed3618180419fde846c5be91d2f7be40edadb10f4aa6bec8ae88d9948a9da3",
+    "haiku-trigger-binding.il": "a45d74d98ad31b8200e8ba31417ff2f17530397fa1287e86af738c9f5b7ff506",
+    "haiku-trigger-single.il": "61e77d07c14151ed510d5e2d1743dad7ec42d7805b2bb80fb8ee15e7c886f8cc",
+    "key-behavior.il": "02fdc3a00619fba3e1974c5ac84b3cd279a2f8f1bfc0bb5f5cca92d3025e725a",
+    "key-click.il": "0846dbe2c426bf3dd1eb15da1f3422d667b7279b1c5ddcccadc5847883401df8",
+    "key-dispatch.il": "993725dfb3dbda0ee998a0938b01141cfcd120b57542673364a3f529be40810b",
+    "key-terminal-consumers.il": "6476341cca5c0b30dda910e57b30491ca7888e4b93f368306624fcf7f558a868",
+    "keyboard-callback.il": "fbd296061ad87085d396999a2dbf88239d5ae6e15d1522958cc52c849ce1d4ee",
+    "keyboard-dispatch.il": "2be862f5999232836e9a5f383b98c941c816858a4175bb9ae221e7768bc7deb6",
+    "keyboard-find.il": "64f74c3142ec2f94f19c4056bc765da91ecde1d54425b341503968a2866ada2d",
+    "keyboard-generate.il": "df93fa68aa2639c74a39e397486a6c2b194b2bae2524a22bda48b527ec07e88b",
+    "load-variable.il": "3233dac7b689dc554a21aad91f51cbce049570abd4b62dc2cbc97381af5b8da9",
+    "minigame-labels.il": "8e67a9e70681ad44e94bba567f97aa7623afdf7362a74545143b2c2bcc69bf95",
+    "plant-label-producer.il": "fdcab3e9d2c4fdbd551a8867a22370eecb3990074773d53fd3f3081a220a4813",
+    "preferred-actor-identity.il": "ef4b9748ef288be5ac82377e7a81a61bb05f1920ffde115ce91f96be5195b93b",
+    "story-playdialogue.il": "7d1f1c993e491f334c0e8ba829d2c5032b0daecabf950680960f6c4a883f5a6c",
+    "trigger-key-consumers.il": "165d171f1b417a63e285a64e23dc90589314b2b7e681f231f20cea2f48b05481"
+  },
+  "notRun": [
+    "runtime",
+    "visual",
+    "reinsertion",
+    "target-authoring",
+    "editorial"
+  ],
+  "old935SelectorAliases": [
+    {
+      "oldId": "sharedassets2:15502/m_text",
+      "sourceId": "sharedassets2.assets:15502/m_text",
+      "sourceValueSha256": "c5182d2ae3c1e2aaf277d379acceb5808859345d61f1a40cc92614a6ef31f941",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer/NameGlowLeft/NameGlowBottom",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:18295/m_text",
+      "sourceId": "sharedassets2.assets:18295/m_text",
+      "sourceValueSha256": "c3fe7f3251c36091065eae6e1f4781c50a1e70ecd754d1d0ce6f69611912b618",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer (1)/NameGlowLeft/NameGlowBottom",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:14477/m_text",
+      "sourceId": "sharedassets2.assets:14477/m_text",
+      "sourceValueSha256": "c5182d2ae3c1e2aaf277d379acceb5808859345d61f1a40cc92614a6ef31f941",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer/NameGlowLeft",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:17908/m_text",
+      "sourceId": "sharedassets2.assets:17908/m_text",
+      "sourceValueSha256": "bdb4687819562593131bc0b8e9b64158c7f8e579c40f63dec07aaf23c861dfb6",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer (1)/NameGlowLeft/NameGlowTop",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:16737/m_text",
+      "sourceId": "sharedassets2.assets:16737/m_text",
+      "sourceValueSha256": "c3fe7f3251c36091065eae6e1f4781c50a1e70ecd754d1d0ce6f69611912b618",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer (1)/NameGlowLeft/NameGlowRight",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:15641/m_text",
+      "sourceId": "sharedassets2.assets:15641/m_text",
+      "sourceValueSha256": "bdb4687819562593131bc0b8e9b64158c7f8e579c40f63dec07aaf23c861dfb6",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer (1)/NameGlowLeft",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:15060/m_text",
+      "sourceId": "sharedassets2.assets:15060/m_text",
+      "sourceValueSha256": "c5182d2ae3c1e2aaf277d379acceb5808859345d61f1a40cc92614a6ef31f941",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer/NameGlowLeft/NameGlowRight",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:14881/m_text",
+      "sourceId": "sharedassets2.assets:14881/m_text",
+      "sourceValueSha256": "c3fe7f3251c36091065eae6e1f4781c50a1e70ecd754d1d0ce6f69611912b618",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer (1)/NameGlowLeft/Name",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:14141/m_text",
+      "sourceId": "sharedassets2.assets:14141/m_text",
+      "sourceValueSha256": "c5182d2ae3c1e2aaf277d379acceb5808859345d61f1a40cc92614a6ef31f941",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:14688/m_text",
+      "sourceId": "sharedassets2.assets:14688/m_text",
+      "sourceValueSha256": "bcb39d0bbde0cc99d9db35c976379d10a56ec8a5436b50a71dd75f8b03064839",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:15316/m_text",
+      "sourceId": "sharedassets2.assets:15316/m_text",
+      "sourceValueSha256": "c3fe7f3251c36091065eae6e1f4781c50a1e70ecd754d1d0ce6f69611912b618",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer (1)",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:14831/m_text",
+      "sourceId": "sharedassets2.assets:14831/m_text",
+      "sourceValueSha256": "c5182d2ae3c1e2aaf277d379acceb5808859345d61f1a40cc92614a6ef31f941",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer/NameGlowLeft/Name",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:16971/m_text",
+      "sourceId": "sharedassets2.assets:16971/m_text",
+      "sourceValueSha256": "bdb4687819562593131bc0b8e9b64158c7f8e579c40f63dec07aaf23c861dfb6",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer (1)",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:15763/m_text",
+      "sourceId": "sharedassets2.assets:15763/m_text",
+      "sourceValueSha256": "bcb39d0bbde0cc99d9db35c976379d10a56ec8a5436b50a71dd75f8b03064839",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer/NameGlowLeft/NameGlowTop",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:17160/m_text",
+      "sourceId": "sharedassets2.assets:17160/m_text",
+      "sourceValueSha256": "bdb4687819562593131bc0b8e9b64158c7f8e579c40f63dec07aaf23c861dfb6",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer (1)/NameGlowLeft/NameGlowBottom",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:14378/m_text",
+      "sourceId": "sharedassets2.assets:14378/m_text",
+      "sourceValueSha256": "c3fe7f3251c36091065eae6e1f4781c50a1e70ecd754d1d0ce6f69611912b618",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer (1)/NameGlowLeft",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:16943/m_text",
+      "sourceId": "sharedassets2.assets:16943/m_text",
+      "sourceValueSha256": "bcb39d0bbde0cc99d9db35c976379d10a56ec8a5436b50a71dd75f8b03064839",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer/NameGlowLeft/NameGlowBottom",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:17335/m_text",
+      "sourceId": "sharedassets2.assets:17335/m_text",
+      "sourceValueSha256": "bcb39d0bbde0cc99d9db35c976379d10a56ec8a5436b50a71dd75f8b03064839",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer/NameGlowLeft",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:18370/m_text",
+      "sourceId": "sharedassets2.assets:18370/m_text",
+      "sourceValueSha256": "bcb39d0bbde0cc99d9db35c976379d10a56ec8a5436b50a71dd75f8b03064839",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer/NameGlowLeft/NameGlowRight",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:16437/m_text",
+      "sourceId": "sharedassets2.assets:16437/m_text",
+      "sourceValueSha256": "bdb4687819562593131bc0b8e9b64158c7f8e579c40f63dec07aaf23c861dfb6",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer (1)/NameGlowLeft/NameGlowRight",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:15107/m_text",
+      "sourceId": "sharedassets2.assets:15107/m_text",
+      "sourceValueSha256": "c3fe7f3251c36091065eae6e1f4781c50a1e70ecd754d1d0ce6f69611912b618",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer (1)/NameGlowLeft/NameGlowTop",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:15115/m_text",
+      "sourceId": "sharedassets2.assets:15115/m_text",
+      "sourceValueSha256": "bcb39d0bbde0cc99d9db35c976379d10a56ec8a5436b50a71dd75f8b03064839",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer/NameGlowLeft/Name",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:18660/m_text",
+      "sourceId": "sharedassets2.assets:18660/m_text",
+      "sourceValueSha256": "c5182d2ae3c1e2aaf277d379acceb5808859345d61f1a40cc92614a6ef31f941",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/CritterLog/NameContainer/NameGlowLeft/NameGlowTop",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    },
+    {
+      "oldId": "sharedassets2:16338/m_text",
+      "sourceId": "sharedassets2.assets:16338/m_text",
+      "sourceValueSha256": "bdb4687819562593131bc0b8e9b64158c7f8e579c40f63dec07aaf23c861dfb6",
+      "hierarchy": "LevelSingletons/MasterLog/Canvas/Container/Labels/QuestLog/NameContainer (1)/NameGlowLeft/Name",
+      "reason": "Historical journal recipe omits .assets in this exact serialized asset ID only. Numeric object/path, complete value and full hierarchy all match; neither wording deduplication nor broad ID rewriting."
+    }
+  ]
+}

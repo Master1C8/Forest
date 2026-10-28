@@ -30,7 +30,7 @@ from phase141.expand_roles import expanded as expanded_arc, validate_rule as val
 from phase142.expand_roles import expanded as expanded_loader, validate_rule as validate_loader_rule
 from phase143.reconcile_bindings import refine as refine_binding, analyze_lua, validate_selector as validate_binding_selector
 from build_inventory import NEXT_SOURCE
-from phase144.validate_roles import validate as validate_remaining
+from phase145.validate_roles import validate as validate_tail
 
 
 def same_identity_values(before, after):
@@ -125,7 +125,8 @@ def main():
     assert partitions['phase134:keyboardLayout'] == 4
 
     current_managed = list(lines(OUT / 'managed-literal-inventory.jsonl'))
-    phase144_result = validate_remaining(current_managed)
+    phase145_result = validate_tail(current_managed)
+    phase144_result = phase145_result['historicalPhase144']
     # Historical phase-specific assertions exercise the fingerprinted exact prior
     # products; current delta and current products are checked independently above.
     managed = list(lines(phase144 / 'baseline/managed-literal-inventory.jsonl'))
@@ -777,14 +778,14 @@ def main():
     else:
         raise AssertionError('equal-wording-occurrence-loss-accepted')
     assert manifest['commonSourceAccepted'] is False and manifest['translationEntryAllowed'] is False
-    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0144-work',
+    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0145-work',
                    reusedParentReadback=dict(path=str((baseline/'readback-validation.json').relative_to(ROOT)),
                        sha256=sha(baseline/'readback-validation.json'), originalManifestSha256=prior['manifestSha256'],
                        boundary='Original parent full source/tree/span readback, reused on exactly unchanged values/IDs/context; not rerun or relabeled as independent semantic judgment.'),
                    currentManifestSha256=sha(OUT/'manifest.json'), builderSha256=sha(OUT/'build_inventory.py'),
                    validatorSha256=sha(Path(__file__)), generatedProducts=len(generated),
                    preservedProducts=unchanged_products, sourceDeltas=counts, mixedLeafPartitions=dict(partitions),
-                   unknownCompiledStates=569, potentialControlLabelBindingStates=1389,
+                   unknownCompiledStates=251, potentialControlLabelBindingStates=1389,
                    phase137CompiledDelta=dict(changedRoles=817,displayOperands=20,preservedOperands=797,
                        parentAdventureOperands=44,remainingMethods=543,priorWholeProductReconstructedExactly=True,
                        nextCommandSelectors=255,knownWordingOperands=91,allProtectedOperands=6914,
@@ -821,6 +822,7 @@ def main():
     receipt['phase143DatabaseBindings']=dict(assignedLogicalValues=1655,physicalSelectors=3310,retainedProvedKeys=5,remainingLogicalValues=1655,serializedInstances=39,originalLuaSlotsPerCopy=32793,nonemptyLuaExpressions=41,distinctExpressions=8,directGameApiCalls=6,wholePriorCompiledProductUnchanged=True,priorUnaffectedProductsUnchanged=len(previous_products)-len(changed_products),nextCompiledOccurrences=1251,nextCompiledMethods=443,sourcePolicyAndExternalBoundary='unresolved;finite-static-assignment-complete',completeSourceAccepted=False)
     receipt['negativeControls'].update(changedDatabaseBindingSourceRejected=True,changedDatabaseBindingOccurrenceRejected=True,unsupportedDatabaseAdmissionRejected=True,missingDatabaseBindingEvidenceRejected=True,unknownLuaSyntaxHeldWithoutAbsenceClaim=True)
     receipt['phase144CompiledDelta']=phase144_result
+    receipt['phase145CompiledDelta']=phase145_result
     receipt['negativeControls'].update(phase144ExactSourceRoleArgumentBodyAndOutputMembership=True,phase144WholePriorProductReconstructed=True,rawMultilineLiteralTransportVerified=True)
     receipt['writeBoundary']=dict(actualBuildWriteLoop='passed-second-write-failure-and-positive-control',planning='synthetic-products-only;real-source-generation-verified-separately',firstProductSurvives=True,laterProductsAbsentAtFailure=True,rollback=False,multiFileTransaction=False)
     (OUT/'continuation-validation.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')

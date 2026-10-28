@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "phase": "0145-work",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "OpenAI",
+  "ignoreUserConfig": true,
+  "actualProcessPid": 19797,
+  "verification": "Actual ps argv contains codex exec --ignore-user-config --model gpt-6.1-sol, model_provider=openai and model_reasoning_effort=high; no conversation history read.",
+  "assemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "inspectorSha256": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05",
+  "originalProducerSnapshot": "../phase144/producer-bodies.jsonl",
+  "originalProducerSnapshotsReused": 443,
+  "captureRepairs": [
+    {
+      "attempt": "OSK_Receiver requested UpdateText",
+      "outcome": "Inspector SIGABRT: method is absent; --list established AddText, then exact changed selection captured. No model/runtime request."
+    },
+    {
+      "attempt": "Ordinal receiver filenames after selection insertion",
+      "outcome": "Detected evidence path/hash collision; repaired capture recipe to hash-derived owner/selection names and revalidated actual receiver bytes."
+    }
+  ],
+  "builderObserverReconciliation": {
+    "originalPid": 21297,
+    "duplicatePid": 21472,
+    "duplicateStopExit": 143,
+    "boundary": "First session ID was omitted from tool-output forwarding. Exact duplicate verified task-owned builder was terminated; original retained. Generated tree must pass reproduction and exact delta checks before acceptance."
+  },
+  "gitCoordinator": "parent",
+  "workerGitMutations": false,
+  "agents": 0,
+  "nestedModelJobs": 0,
+  "originalInstallAccess": false,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "targetEdits": 0,
+  "fontEdits": 0,
+  "textureEdits": 0,
+  "serverActions": 0,
+  "publication": false,
+  "deployment": false,
+  "parallelLanes": "untouched",
+  "usage": {
+    "input": null,
+    "cachedInput": null,
+    "output": null,
+    "total": null,
+    "boundary": "Worker telemetry unavailable; parent measures actual per-request usage. No estimates."
+  },
+  "namedReceiverSnapshotBodies": 32
+}

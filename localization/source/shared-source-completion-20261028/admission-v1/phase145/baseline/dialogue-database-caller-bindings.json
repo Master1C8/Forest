@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "phase": "0143-work",
+  "assignedResidualValues": 1655,
+  "physicalResidualSelectors": 3310,
+  "priorProvedControlKeysRetained": 5,
+  "unresolvedLogicalValues": 1655,
+  "countsByField": {
+    "TfolUniqueDataKeySuffix": 523,
+    "Title": 934,
+    "TfolConversationType": 193,
+    "Description": 5
+  },
+  "exactDispositionArtifact": "dialogue-database-consumer-dispositions.json",
+  "exactRemainingArtifact": "dialogue-database-unresolved.json",
+  "serializedBoundary": {
+    "artifact": "../serialized-title-events/verification.json",
+    "instances": 39,
+    "absentFields": [
+      "onDialogueEmptyWithTitledLine",
+      "onDialogueLine"
+    ],
+    "absentIsNotNull": true,
+    "positiveControl": "onAdvanceMoment.m_PersistentCalls.m_Calls present39 times, empty lists",
+    "derivedTypes": 0,
+    "metadata": "StringPrimitiveEvent lacks Serializable flag/attribute; service event static; HideInInspector alone is not the exclusion reason",
+    "rosterSha256": "5415ebafdce52ccc8884223c36527324f4acc8553085fab06681ba02ecd66b88",
+    "verificationSha256": "b390a14ad205c657e2adfcc61382972804c3954c2ec33397084021a929f618f8"
+  },
+  "codeTitleBoundary": {
+    "evidence": [
+      "phase136/title-ui-subscribers.txt",
+      "phase136/title-service-subscribers.txt",
+      "phase136/rascal-listener.il",
+      "phase136/rascal-title-handler.il",
+      "phase136/story-title-consumer.il"
+    ],
+    "namedSubscriber": "RascalSoloBearStory.AddEventListeners/RemoveEventListeners",
+    "actualReceiver": "OnDialogueEmptyWithTitledLine -> Contains(show ending screen) -> timer -> TriggerAdvanceMoment",
+    "remaining934ExactPredicateMatches": 0,
+    "serviceOriginalDirectSubscribers": 0,
+    "retainedBoundary": "Only original game field-use/direct-code scope; arbitrary external/reflection/native runtime subscribers not excluded. Formatted whitespace and scene reachability not executed."
+  },
+  "luaArtifact": "phase143/lua-inputs.json",
+  "callerArtifact": "phase143/game-callers.json",
+  "finiteStaticAssignment": "complete-for-all1655;uncertainty-retained",
+  "remainingDecision": "Source admission must explicitly accept original-value preservation under the named bounded external/API contracts, or supply a concrete additional reader/sink. This phase neither excludes retained values nor waives full-game gates.",
+  "nextFiniteDeliverable": "phase143/next-compiled-selectors.json",
+  "nextAction": "Complete the consolidated1251 original compiled-role selectors across443 methods in phase143/next-compiled-selectors.json, reusing all prior typed immediate-argument/full-body evidence. Database1655 has a finished finite serialized/caller packet; preserve its exact residual source-policy/external boundaries. Do not repeat the closed persistent-event search, unchanged Lua expressions, loader/arc/playback methods or generic framework absence work. 1389 Rewired alias bindings and real source/renderer/editorial/runtime gates remain separate.",
+  "commonSourceAccepted": false,
+  "translationEntryAllowed": false,
+  "editorial": "not-run",
+  "runtime": "not-run",
+  "visual": "not-run"
+}
