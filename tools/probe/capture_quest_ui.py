@@ -28,9 +28,7 @@ def main():
  try:
   with (RUN/'wine.log').open('wb') as log:child=subprocess.Popen(args,cwd=GAME,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
   write('launch.json',dict(pid=child.pid,command=args,recipeSha256=sha(Path(__file__)),scope='Actual loaded Quest data,photo counters and region/pane consumers;disposable in-memory fixture;no owner saves or award/navigation acceptance'))
-  deadline=time.monotonic()+1800
-  while not (RUN/'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN/'player.log').read_text(errors='replace'):
-   assert time.monotonic()<deadline,'startup-marker-timeout';time.sleep(1)
+  shared.wait_for_probe(child,1800)
   command('show-menu');deadline=time.monotonic()+180
   while True:
    command('quest-ensure');status=(RUN/'notebook-ready.txt').read_text()
@@ -52,7 +50,7 @@ def main():
   command('quest-cases');case=(RUN/'quest-case-result.txt').read_text();assert case=='photoMasks=512|photoSlots=60|regionStatusStates=64|sourceAllCompleteActiveAnomalyRetained=true'
   if (RUN/'journal-header-expectations.tsv').exists():command('quest-header-geometry')
   command('quest-title-cases');assert len((RUN/'quest-title-cases.tsv').read_text().splitlines())==38
-  surfaces=[('photo-active','top'),('photo-active','bottom'),('photo-completed','bottom'),('regions','top'),('regions','bottom')]
+  surfaces=[('photo-active','top'),('photo-active','bottom'),('photo-completed','top'),('photo-completed','bottom'),('regions','top'),('regions','bottom')]
   for i,(scene,end) in enumerate([] if '--diagnostics-only' in sys.argv else surfaces,1):
    surface=scene+'-'+end;command('quest-show '+scene);command('quest-scroll '+end);expected=(RUN/'quest-shown.txt').read_text().split('|')[1:];deadline=time.monotonic()+30;stable=0
    while True:
@@ -64,6 +62,11 @@ def main():
     assert r['characters']>=r['expected'],('quest-truncated',r)
     assert all(.005<=v<=.995 for v in r['bounds'][:2]),('quest-horizontal-overflow',r)
     if not r['body']:assert all(.005<=v<=.995 for v in r['bounds']),('quest-header-offscreen',r)
+   # This finite acceptance fixture must fit at the bounded native size. Do not
+   # spend a visual request on a mechanically severed first/last line.
+   layout=list(map(float,(RUN/'quest-layout.txt').read_text().split('|')))
+   assert layout[-3]<=layout[-2]+.1,('finite-quest-fixture-still-scrolls',surface,layout)
+   assert all(r['bounds'][2]>=layout[6]-.001 and r['bounds'][3]<=layout[7]+.001 for r in rows if r['body']),('quest-body-ink-outside-viewport',surface,rows,layout)
    title=next(r for r in rows if r['path'].endswith('/Title'));assert base64.b64encode(title['text'].encode()).decode()==expected[0],('quest-selection-changed',scene,title)
    shutil.copy2(RUN/'quest-layout.txt',RUN/f'layout-{surface}.txt');shutil.copy2(RUN/'quest-geometry.tsv',RUN/f'geometry-{surface}.tsv');shutil.copy2(RUN/'quest-shown.txt',RUN/f'shown-{surface}.txt');seen.append(dict(surface=surface,generatedFields=len(rows),visibleFields=sum(r['visible'] for r in rows)))
    name=f'ru-{i:02d}-quest-{surface}.png';command('capture '+name);p=RUN/name;width,height=struct.unpack('>II',p.read_bytes()[16:24])
@@ -81,7 +84,8 @@ def main():
      assert int(v[3])>=int(v[4]),('hud-truncated',v)
      assert all(.005<=float(x)<=.995 for x in v[5:9]),('hud-ink-offscreen',v)
    assert len(hud)==16 and sum(float(v[2])>.95 for v in hud)>=4,'HUD workload invisible'
-   name='ru-06-quest-hud.png';command('capture '+name);p=RUN/name;width,height=struct.unpack('>II',p.read_bytes()[16:24]);captures.append(dict(filename=name,sha256=sha(p),width=width,height=height))
+   name='ru-07-quest-hud.png';command('capture '+name);p=RUN/name;width,height=struct.unpack('>II',p.read_bytes()[16:24]);captures.append(dict(filename=name,sha256=sha(p),width=width,height=height))
+  command('display-diagnostics')
   success=True
  except BaseException as ex:error=repr(ex);print(error,flush=True)
  finally:

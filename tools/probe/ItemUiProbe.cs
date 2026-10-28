@@ -1,6 +1,18 @@
 // Isolated readback and actual notification display calls. Never award or remove items.
 public sealed partial class ForestProbe {
     TheForestOfLove.OverworldAllInOneNotificationItem itemStaged;
+    bool itemGameplayRequested;
+    void ItemsGameplay() {
+        if(!TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene&&!itemGameplayRequested&&UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="StartMenu") {
+            TheForestOfLove.PlayMenu menu=null;
+            foreach(var candidate in UnityEngine.Resources.FindObjectsOfTypeAll<TheForestOfLove.PlayMenu>())
+                if(candidate.gameObject.scene.IsValid()){if(menu!=null)throw new System.Exception("Ambiguous item menu route");menu=candidate;}
+            if(menu==null)throw new System.Exception("Original Continue route unavailable");
+            itemGameplayRequested=true;menu.OnClickContinue();
+        }
+        System.IO.File.WriteAllText(System.IO.Path.Combine(root,"items-gameplay.txt"),
+            TheForestOfLove.Services.SceneManagement.SceneHelper.inGameplayScene+"|"+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
     void ItemsGeometry(string action) {
         if(itemStaged==null)throw new System.Exception("No staged notification");
         UnityEngine.Canvas.ForceUpdateCanvases();
@@ -11,6 +23,24 @@ public sealed partial class ForestProbe {
         report.Append("animator|").Append(state.normalizedTime).Append("|transition=").Append(animator.IsInTransition(0));
         foreach(var clip in animator.GetCurrentAnimatorClipInfo(0))report.Append("|").Append(clip.clip.name).Append(":").Append(clip.clip.length);
         report.Append('\n');
+        // Bind questionable icon regions to the actual staged source sprite,
+        // texture and material. These are observations, never a visual pass.
+        foreach(var image in itemStaged.GetComponentsInChildren<UnityEngine.UI.Image>(true)) {
+            var sprite=image.overrideSprite;var rect=image.rectTransform;
+            report.Append("icon-image|").Append(image.name).Append("|active=").Append(image.gameObject.activeInHierarchy)
+                .Append("|enabled=").Append(image.enabled).Append("|sprite=").Append(sprite==null?"<null>":sprite.name)
+                .Append("|texture=").Append(sprite==null?"<null>":sprite.texture.name)
+                .Append("|material=").Append(image.material==null?"<null>":image.material.name)
+                .Append("|color=").Append(image.color).Append("|rect=").Append(rect.rect).Append('\n');
+        }
+        foreach(var image in itemStaged.GetComponentsInChildren<UnityEngine.SpriteRenderer>(true)) {
+            var sprite=image.sprite;
+            report.Append("icon-renderer|").Append(image.name).Append("|active=").Append(image.gameObject.activeInHierarchy)
+                .Append("|enabled=").Append(image.enabled).Append("|sprite=").Append(sprite==null?"<null>":sprite.name)
+                .Append("|texture=").Append(sprite==null?"<null>":sprite.texture.name)
+                .Append("|material=").Append(image.sharedMaterial==null?"<null>":image.sharedMaterial.name)
+                .Append("|color=").Append(image.color).Append("|bounds=").Append(image.bounds).Append('\n');
+        }
         foreach(var text in itemStaged.GetComponentsInChildren<TMPro.TextMeshProUGUI>()) {
             if(text.color.r<.9f || text.color.a<.9f)continue;
             text.ForceMeshUpdate();
@@ -71,10 +101,14 @@ public sealed partial class ForestProbe {
         var notification=UnityEngine.Object.Instantiate(prefab,container);itemStaged=notification;
         int itemType=action=="received"?190:30;
         var item=TheForestOfLove.Services.Persistence.DataService.GetInventoryItemByItemType((TheForestOfLove.Inventory.InventoryItemType)itemType);
+        var sourceSprite=item.sprite;
+        System.IO.File.WriteAllText(System.IO.Path.Combine(root,"item-icon-source-"+action+".txt"),
+            itemType+"\t"+(sourceSprite==null?"<null>":sourceSprite.name)+"\n");
+        if(action!="glitch"&&sourceSprite==null)throw new System.Exception("Actual item sprite unavailable in staged workload: "+itemType);
         if(action=="glitch") { /* Original branch1 displays the serialized prefab text directly. */ }
-        else if(action=="received")notification.ConfigureItemGetNotification(item.sprite,item.title);
-        else if(action=="found")notification.ConfigureItemFoundNotification(item.sprite,item.title);
-        else if(action=="delivered")notification.ConfigureItemLostNotification(item.sprite,item.title);
+        else if(action=="received")notification.ConfigureItemGetNotification(sourceSprite,item.title);
+        else if(action=="found")notification.ConfigureItemFoundNotification(sourceSprite,item.title);
+        else if(action=="delivered")notification.ConfigureItemLostNotification(sourceSprite,item.title);
         else throw new System.Exception("Unsupported notification action");
         notification.FadeIn();
         UnityEngine.Canvas.ForceUpdateCanvases();

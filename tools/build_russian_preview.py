@@ -27,6 +27,8 @@ from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
 from russian_quest_family import project_quest_family, snapshot as snapshot_quest_family, patch_quest_code
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
+from russian_native_font_roles import native_role_plan, apply_native_role
+from tmp_uniform_fallback import uniform_fallback_primary
 from texture_policy import validate_texture_policy
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
@@ -78,6 +80,7 @@ def main():
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
     parser.add_argument('--coherent-tmp-face', action='store_true', help='Disabled in the current workflow: this option rewrites atlas textures')
+    parser.add_argument('--uniform-tmp-fallback', action='store_true', help='Route all ordinary TMP glyphs through the existing dynamic fallback without changing serialized textures')
     parser.add_argument('--coherent-choice-face', action='store_true', help='Rebind only native response-label Text fonts to the already coherent embedded face')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Compatibility flag: actual Russian previews always disable duplicate settings Images with complete TMP replacements')
@@ -91,6 +94,7 @@ def main():
     assert shutil.disk_usage(PROJECT).free >= 512 * 1024**2, 'Insufficient disk reserve before preview build'
     assert not args.repair_settings_glow or args.sample_surface == 'menu-settings'
     assert not args.coherent_tmp_face or args.coherent_legacy_face
+    assert not args.uniform_tmp_fallback or args.repair_cyrillic_metrics
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     assert not args.coherent_choice_face or args.coherent_legacy_face
     assert args.sample_surface != 'tutorial-choices' or args.coherent_choice_face
@@ -128,6 +132,8 @@ def main():
     snapshot_journal_headers(out)
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
+    shutil.copy2(Path(__file__).parent / 'russian_native_font_roles.py', out / 'russian_native_font_roles.py')
+    shutil.copy2(Path(__file__).parent / 'tmp_uniform_fallback.py', out / 'tmp_uniform_fallback.py')
     for helper in ['russian_preview_support.py', 'russian_preview_ui.py', 'decode_inventory.py', 'extract_assets.py', 'addressables_catalog.py']:
         candidate = Path(__file__).parent / helper
         if helper == 'decode_inventory.py' and not candidate.is_file():
@@ -155,6 +161,7 @@ def main():
               'cyrillicMetricsRepair': args.repair_cyrillic_metrics,
               'coherentLegacyFace': args.coherent_legacy_face,
               'coherentTmpFace': args.coherent_tmp_face,
+              'uniformTmpFallback': args.uniform_tmp_fallback,
               'coherentChoiceFace': args.coherent_choice_face,
               'choiceSamples': {},
               'markSamples': mark_samples,
@@ -176,6 +183,7 @@ def main():
         ui_repairs = {}
         item_layout_repairs = {}
         notebook_repairs = {}
+        coherent_spacings = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
@@ -204,9 +212,10 @@ def main():
                 if args.coherent_legacy_face:
                     primary_id = 369 if name == 'sharedassets0.assets' else 525290011395715274
                     selected[primary_id] = objects[primary_id]
-                if args.coherent_tmp_face:
+                if args.coherent_tmp_face or args.uniform_tmp_fallback:
                     tmp_id = 3323 if name == 'sharedassets0.assets' else -1127281652424575413
                     selected[tmp_id] = objects[tmp_id]
+                if args.coherent_tmp_face:
                     atlas_ref = read_tree(objects[tmp_id], generator)['m_AtlasTextures'][0]
                     assert atlas_ref['m_FileID'] == 0
                     selected[atlas_ref['m_PathID']] = objects[atlas_ref['m_PathID']]
@@ -239,16 +248,24 @@ def main():
             selected.update({pid: objects[pid] for pid in settings_repairs | report_repairs | image_repairs})
             menu_repairs, report['menuTranslations'] = menu_plan(objects, generator)
             selected.update({pid:objects[pid] for pid in menu_repairs})
-        if args.coherent_tmp_face and name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
+        if (args.coherent_tmp_face or args.uniform_tmp_fallback) and name in ['level1', 'level5', 'level6', 'sharedassets0.assets', 'sharedassets1.assets', 'sharedassets2.assets', BUNDLE]:
             font_id = -1127281652424575413 if name == BUNDLE else 3323
-            if name in ['level1', 'level5', 'level6']:
+            if name in ['level1', 'level5', 'level6', 'sharedassets1.assets', 'sharedassets2.assets']:
                 face_env = UnityPy.load(str(SOURCE / DATA_NAME / 'sharedassets0.assets'))
                 old_face = read_tree(next(o for o in face_env.objects if o.path_id == 3323), generator)['m_FaceInfo']
             else:
                 old_face = read_tree(objects[font_id], generator)['m_FaceInfo']
             new_face = copy.deepcopy(tmp_fallback['m_FaceInfo'])
             new_face['m_Scale'] = struct.unpack('<f', struct.pack('<f', (77 / 176) / (59 / 86)))[0]
-            ui_repairs, ui_receipt = typography_plan(objects, generator, old_face, new_face, font_id, 5 if name == 'level1' else 4 if name in ('level5','level6') else 0)
+            if name in ['sharedassets1.assets', 'sharedassets2.assets']:
+                external_ids=[i+1 for i,ref in enumerate(next(iter(objects.values())).assets_file.externals) if ref.path.replace('\\','/').split('/')[-1]=='sharedassets0.assets']
+                assert len(external_ids)==1, ('shared-TMP-dependency',name)
+                tmp_file_id=external_ids[0]
+            else:
+                tmp_file_id=5 if name=='level1' else 4 if name in ('level5','level6') else 0
+            ui_repairs, ui_receipt = typography_plan(objects, generator, old_face, new_face, font_id, tmp_file_id,
+                                                   minimum_spacing=0.0 if args.uniform_tmp_fallback else None)
+            coherent_spacings={pid:tree['m_lineSpacing'] for pid,tree in ui_repairs.items()}
             report.setdefault('typographyRepair', {})[name] = ui_receipt
             selected.update({pid: objects[pid] for pid in ui_repairs})
         if name in ['level1', 'level5', 'level6', 'sharedassets0.assets', BUNDLE]:
@@ -256,6 +273,12 @@ def main():
             ui_repairs.update(bindings)
             report.setdefault('exactUiBindings', {})[name] = receipt
             selected.update({pid: objects[pid] for pid in bindings})
+        native_role_repairs = {}
+        if args.coherent_legacy_face:
+            native_role_repairs, receipt = native_role_plan(objects, generator, name)
+            if receipt:
+                report.setdefault('nativeFontRoleRepair', []).extend(receipt)
+                selected.update({pid: objects[pid] for pid in native_role_repairs})
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
         raw_hashes = {pid: hashlib.sha256(obj.get_raw_data()).hexdigest() for pid, obj in objects.items()}
@@ -300,6 +323,11 @@ def main():
                     tree['m_fallbackFontAssets'] = [{'m_FileID': 0, 'm_PathID': 1017}]
                 else:
                     assert tree['m_Name'] == 'LiberationSans SDF - Fallback'
+                    # The complete UI workload exhausts the single 512px dynamic
+                    # atlas at the stored point size. Permit additional runtime
+                    # pages without changing any serialized Texture2D or stream.
+                    assert tree['m_IsMultiAtlasTexturesEnabled'] is False or tree['m_IsMultiAtlasTexturesEnabled'] == 0
+                    tree['m_IsMultiAtlasTexturesEnabled'] = True
                     # Match the primary font's cap-height / point-size ratio.
                     # Keep Latin glyphs in their original font and preserve the
                     # existing glyph/atlas tables of this dynamic fallback.
@@ -338,6 +366,9 @@ def main():
                     tree['m_text'] = report['menuSamples'][tree['m_text']]
             elif pid in choice_repairs:
                 tree = copy.deepcopy(choice_repairs[pid])
+            elif pid in native_role_repairs:
+                # Pointer repair is applied below after any other selected edits.
+                pass
             elif obj.type.name == 'Font':
                 assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
                 # The default repair extends the existing fallback only. The
@@ -360,6 +391,9 @@ def main():
                 tree['m_TextureSettings']['m_FilterMode'] = 1
                 tree['image data'] = bytes(tree['m_Width'] * tree['m_Height'])
                 tree['m_StreamData'] = {'offset': 0, 'size': 0, 'path': ''}
+            elif args.uniform_tmp_fallback and tree.get('m_Name') == 'MatchupPro_TFOL_SDF':
+                tree, evidence = uniform_fallback_primary(tree, tmp_fallback, native_fallback)
+                report.setdefault('uniformTmpFallbackRepair', {})[name] = evidence
             elif args.coherent_tmp_face and tree.get('m_Name') == 'MatchupPro_TFOL_SDF':
                 native_font_id = 369 if name == 'sharedassets0.assets' else 525290011395715274
                 tree, pair_evidence = coherent_tmp_face(tree, tmp_fallback, native_font_id, native_fallback['m_FontData'])
@@ -372,6 +406,12 @@ def main():
             else:
                 tree, receipt = apply_overlay(tree, overlay, name)
                 (out / ('dialogue-readback-plan-'+ ('shared' if name=='sharedassets0.assets' else 'bundle')+'.json')).write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
+            if pid in native_role_repairs:
+                tree = apply_native_role(tree, native_role_repairs[pid])
+            if pid in coherent_spacings:
+                # Owner-specific wording/wrapping plans must not restore the old
+                # bitmap spacing after the shared face-metric plan ran.
+                tree['m_lineSpacing'] = coherent_spacings[pid]
             paths = fields_changed(before, canonical(tree))
             changes.append({'pathId': pid, 'changedFieldPaths': paths})
             # ObjectReader.read_typetree reads its original reader stream after

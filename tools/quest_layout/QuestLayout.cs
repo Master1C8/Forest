@@ -12,6 +12,8 @@ public static class VNRevivalQuestLayout {
         public Image portrait;
         public Text[] history;
         public float descX,portraitX,portraitDeltaY,titleY;
+        public int descriptionPointSize;
+        public int[] historyPointSizes;
         public string signature;
     }
     static readonly Dictionary<int,State> states=new Dictionary<int,State>();
@@ -30,6 +32,8 @@ public static class VNRevivalQuestLayout {
         var s=new State();s.root=(RectTransform)pane.transform;s.title=Field<Text>(pane,"title");s.description=Field<Text>(pane,"description");s.portrait=Field<Image>(pane,"portrait");s.scroll=pane.GetComponent<ScrollRect>();
         if(s.scroll==null||s.scroll.content!=null||s.scroll.viewport!=null)throw new InvalidOperationException("Unexpected source Quest ScrollRect state");
         s.history=new[]{Field<Text>(pane,"stepHistory4Back"),Field<Text>(pane,"stepHistory3Back"),Field<Text>(pane,"stepHistory2Back"),Field<Text>(pane,"stepHistory1Back"),Field<Text>(pane,"stepHistoryCurrent")};
+        s.descriptionPointSize=s.description.fontSize;s.historyPointSizes=Array.ConvertAll(s.history,t=>t.fontSize);
+        RussianStatusHeadings(pane,s.title.font);
         s.descX=s.description.rectTransform.anchoredPosition.x;s.portraitX=s.portrait.rectTransform.anchoredPosition.x;s.portraitDeltaY=s.portrait.rectTransform.anchoredPosition.y-s.description.rectTransform.anchoredPosition.y;s.titleY=s.title.rectTransform.anchoredPosition.y;
         s.viewport=Child("VNRevivalQuestViewport",s.root,typeof(RectMask2D),typeof(Image));
         var raycaster=s.viewport.GetComponent<Image>();raycaster.color=new Color(0,0,0,0);raycaster.raycastTarget=true;raycaster.canvasRenderer.cullTransparentMesh=false;
@@ -41,6 +45,25 @@ public static class VNRevivalQuestLayout {
         // so the source viewport setter otherwise returns before clearing m_ViewRect.
         s.scroll.content=s.content;s.scroll.viewport=s.viewport;s.scroll.horizontal=false;s.scroll.vertical=true;s.scroll.movementType=ScrollRect.MovementType.Clamped;s.scroll.scrollSensitivity=12;s.scroll.inertia=true;
         return s;
+    }
+    // Russian preview-only caption replacement. The source sprites, textures and
+    // stream payloads remain unchanged; replace their visible Image components.
+    static void RussianStatusHeadings(Component pane,Font font) {
+        if(font==null||!font.HasCharacter('Ё')||!font.HasCharacter('А'))throw new InvalidOperationException("Quest heading font lacks Cyrillic");
+        var selected=new List<Image>();
+        foreach(var image in Resources.FindObjectsOfTypeAll<Image>())
+            if(image.gameObject.scene.IsValid()&&image.gameObject.scene==pane.gameObject.scene&&image.sprite!=null&&
+               (image.sprite.name=="QuestLog_Label_Active"||image.sprite.name=="QuestLog_Label_Completed"))selected.Add(image);
+        if(selected.Count!=2)throw new InvalidOperationException("Quest status image inventory changed");
+        foreach(var image in selected) {
+            string value=image.sprite.name=="QuestLog_Label_Active"?"Активные":"Завершённые";
+            var old=image.transform.Find("VNRevivalRussianStatusLabel");Text text;
+            if(old==null){var rect=Child("VNRevivalRussianStatusLabel",image.transform,typeof(Text));rect.anchorMin=Vector2.zero;rect.anchorMax=Vector2.one;rect.offsetMin=rect.offsetMax=Vector2.zero;text=rect.GetComponent<Text>();}
+            else text=old.GetComponent<Text>();
+            text.font=font;text.fontSize=18;text.resizeTextForBestFit=true;text.resizeTextMinSize=12;text.resizeTextMaxSize=18;
+            text.alignment=TextAnchor.MiddleCenter;text.horizontalOverflow=HorizontalWrapMode.Wrap;text.verticalOverflow=VerticalWrapMode.Overflow;
+            text.color=image.color;text.raycastTarget=false;text.supportRichText=false;text.text=value;image.enabled=false;
+        }
     }
     static float Wrap(Text text,float width) {
         if(width<=0||text.rectTransform.localScale.x<=0||text.rectTransform.localScale.y<=0)throw new InvalidOperationException("Invalid Quest layout scale");
@@ -63,6 +86,26 @@ public static class VNRevivalQuestLayout {
     static float Place(Text text,RectTransform relative,float top) {
         var ink=InkY(text,relative);var p=text.rectTransform.anchoredPosition;p.y+=top-ink.y;text.rectTransform.anchoredPosition=p;return ink.y-ink.x;
     }
+    static float LayoutBody(State s,float width,int reduction,bool reservePortraitColumn) {
+        s.description.fontSize=Math.Min(s.descriptionPointSize,Math.Max(12,s.descriptionPointSize-reduction));
+        for(int i=0;i<s.history.Length;i++)s.history[i].fontSize=Math.Min(s.historyPointSizes[i],Math.Max(12,s.historyPointSizes[i]-reduction));
+        float cursor=4;
+        var dr=s.description.rectTransform;dr.anchorMin=dr.anchorMax=new Vector2(0,1);dr.pivot=new Vector2(0,1);dr.anchoredPosition=new Vector2(s.descX,-cursor);
+        Wrap(s.description,Mathf.Min(148,width-s.descX-12));float descHeight=Place(s.description,s.content,-cursor);
+        var pr=s.portrait.rectTransform;
+        float portraitHeight=s.portrait.enabled&&s.portrait.gameObject.activeInHierarchy?pr.rect.height*pr.localScale.y-s.portraitDeltaY:0;
+        cursor+=Mathf.Max(descHeight,portraitHeight)+10;
+        foreach(var text in s.history) {
+            var r=text.rectTransform;var row=(RectTransform)r.parent;
+            bool present=!String.IsNullOrWhiteSpace(text.text);row.gameObject.SetActive(present);if(!present)continue;
+            row.anchorMin=row.anchorMax=new Vector2(0,1);row.pivot=new Vector2(0,1);row.anchoredPosition=new Vector2(10,-cursor);row.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,width-22);
+            r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(r.anchoredPosition.x,0);
+            float leftColumnWidth=s.descX+148-10-r.anchoredPosition.x;
+            float available=width-26-r.anchoredPosition.x;
+            Wrap(text,reservePortraitColumn?Mathf.Min(leftColumnWidth,available):available);float h=Place(text,s.content,-cursor);row.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,h);cursor+=h+5;
+        }
+        return cursor+4;
+    }
     public static void Apply(Component pane) {
         if(pane==null)return;State s;int id=pane.GetInstanceID();
         if(!states.TryGetValue(id,out s)){s=Initialize(pane);states[id]=s;}
@@ -72,22 +115,14 @@ public static class VNRevivalQuestLayout {
         var tr=s.title.rectTransform;tr.anchorMin=tr.anchorMax=new Vector2(.5f,1);tr.pivot=new Vector2(.5f,1);tr.anchoredPosition=new Vector2(-5,s.titleY);
         Wrap(s.title,width-16);float titleHeight=Place(s.title,s.root,s.root.rect.yMax+s.titleY);float header=Mathf.Abs(s.titleY)+titleHeight+8;
         s.viewport.offsetMin=new Vector2(0,4);s.viewport.offsetMax=new Vector2(0,-header);
-        float cursor=4;
-        var dr=s.description.rectTransform;dr.anchorMin=dr.anchorMax=new Vector2(0,1);dr.pivot=new Vector2(0,1);dr.anchoredPosition=new Vector2(s.descX,-cursor);
-        Wrap(s.description,Mathf.Min(148,width-s.descX-12));float descHeight=Place(s.description,s.content,-cursor);
-        var pr=s.portrait.rectTransform; // Preserve its original parent,anchors,pivot and position.
-        float portraitHeight=s.portrait.enabled&&s.portrait.gameObject.activeInHierarchy?pr.rect.height*pr.localScale.y-s.portraitDeltaY:0;
-        cursor+=Mathf.Max(descHeight,portraitHeight)+10;
-        foreach(var text in s.history) {
-            var r=text.rectTransform;var row=(RectTransform)r.parent;
-            bool present=!String.IsNullOrWhiteSpace(text.text);row.gameObject.SetActive(present);if(!present)continue;
-            row.anchorMin=row.anchorMax=new Vector2(0,1);row.pivot=new Vector2(0,1);row.anchoredPosition=new Vector2(10,-cursor);row.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,width-22);
-            r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(r.anchoredPosition.x,0);
-            // Reserve the whole portrait/backing column even while text is scrolled upward.
-            float leftColumnWidth=s.descX+148-10-r.anchoredPosition.x;
-            Wrap(text,Mathf.Min(leftColumnWidth,width-26-r.anchoredPosition.x));float h=Place(text,s.content,-cursor);row.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,h);cursor+=h+5;
-        }
-        s.content.sizeDelta=new Vector2(0,Mathf.Max(cursor+4,s.viewport.rect.height));
+        // History begins below both description and portrait. Use the full row
+        // width when the whole body fits, rather than reserving an empty column.
+        // A genuinely scrolling body retains the narrower column so text cannot
+        // move underneath the fixed portrait.
+        int maxReduction=Math.Max(s.descriptionPointSize,Mathf.Max(s.historyPointSizes))-12;float needed=0;
+        for(int reduction=0;reduction<=Math.Max(0,maxReduction);reduction++){needed=LayoutBody(s,width,reduction,false);if(needed<=s.viewport.rect.height)break;}
+        if(needed>s.viewport.rect.height)needed=LayoutBody(s,width,Math.Max(0,maxReduction),true);
+        s.content.sizeDelta=new Vector2(0,Mathf.Max(needed,s.viewport.rect.height));
         Canvas.ForceUpdateCanvases();if(changed)s.scroll.StopMovement();s.scroll.verticalNormalizedPosition=oldScroll;s.signature=signature;Canvas.ForceUpdateCanvases();
     }
     sealed class HudLabel {public Text text;public Vector2 leftTop;}

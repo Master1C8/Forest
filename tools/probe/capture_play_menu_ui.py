@@ -14,9 +14,7 @@ def main():
     try:
         with (RUN/'wine.log').open('wb') as log:child=subprocess.Popen(args,cwd=GAME,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         write('launch.json',{'pid':child.pid,'command':args,'captureRecipeSha256':sha(Path(__file__)),'scope':'Act 1 row visibility staged; original text/renderer, no unlock data or save flag changes'})
-        deadline=time.monotonic()+300
-        while not (RUN/'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN/'player.log').read_text(errors='replace'):
-            assert time.monotonic()<deadline,'startup-marker-timeout';time.sleep(1)
+        shared.wait_for_probe(child,300)
         menu.command('show-menu');menu.command('menu-panel gallery');time.sleep(.8)
         images=(RUN/'gallery-active-images.tsv').read_text();assert 'gallery_act1' in images
         menu.command('menu-panel play');time.sleep(.8);menu.command('menu-play-act1');time.sleep(.2);state,rows=menu.geometry()

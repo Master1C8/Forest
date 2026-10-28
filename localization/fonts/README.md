@@ -134,3 +134,14 @@ any source/editorial/font/resource/runtime/visual/delivery gate.
 No original install, game, image, builder or font parser is opened. Next static
 work binds the10 profiles to currently available immutable editorial deliveries
 for the seven saved locales; missing/active and unbound role states stay explicit.
+
+## Russian runtime supplement, 2026-10-28
+
+`russian-runtime-20261028/CURRENT.md` and `current-status.json` record the current boundary: six candidate05 menu frames pass visual review, item icon contamination remains unresolved, and the candidate06 quest proposal has not run because startup crashes before probe readiness. All original1,385 texture objects and complete streams compare exact. The earlier README/verification.json retain the initial dynamic multi-atlas repair evidence. Three native367 pointer changes pass static checks; individual live fields remain untested. Existing role/resource packets retain historical fingerprints; old builder pins are superseded, not refreshed.
+
+
+## Immutable editorial applicability, phase150
+
+[The verified finite handoff](final-corpus-bindings-20261028/ADAPTER.md) completes the70-cell source/target applicability reconciliation and reuses existing149 data outputs. Three exact current corpora have12,246 IDs/24,492 occurrences each; four locales lack a final immutable editorial delivery. Existing935 projections contribute2,093 exact role/locale target joins without filling48 item descriptions or four compiled empty-cell omissions. Saved dialogue hashes for ru/zh/de are superseded. Russian NFD U+0306/U+0308 and German NFD U+0300/U+0308 exceed the old report universe and cannot inherit font coverage. No font scans or new resources were produced.
+
+Parent recovered the original pinned bind.py bytes after the accidental phase150 replacement; the original --check reproduces all preserved outputs. Both later revisions remain separately preserved. verify_phase150.py --recovered-recipe --check verifies55 current pins and13 rejection controls; use parent-recovery-verification.json for the current state. Historical phase150 receipts retain their original recovery gap. No unchanged static continuation is proposed. Exact role allocation/omitted-source target deliveries and the existing source-policy/native decisions remain the next owning actions. Preserve the separate Russian runtime supplement and every full-game acceptance gate.

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "0aa538aed49c4b99a77716367f99aad23a43bbaf93505de7c8cadc5bcac0ece6",
+    "provenance:sourceManifest": "3f8842d28c322348cfa70ca801aefe531ec740b7577d60a5b579f9afe863b9c8",
+    "provenance:source:localization/previews/ru-20261028-texture-preserving-05/build.json": "15ffddc52b8e14cf2c342d198c302c36d1200c220b83d3b4426f751777186033",
+    "provenance:source:localization/previews/ru-20261028-texture-preserving-05/texture-preservation.json": "7b1e8b0990c7f26265e045879242cc3981c6daefce45b36e1473e200770f6bc1",
+    "provenance:source:localization/probes/ru-items-20261028-08/qa-preparation.json": "cb405748e62bd4546f1bf3c8e9d1f489efa324ab01c920d4ff0edfba96770537",
+    "provenance:source:localization/probes/ru-items-20261028-08/runtime-result.json": "a36acaca4c72984c5f124b5a3d0a1cd0dab908458726c4ff4c25301f4a18da06",
+    "provenance:source:localization/probes/ru-items-20261028-08/cleanup.json": "0e50ab577ef1f62162c060079163492b51701997192a0252eab87c5a94cb4cc9",
+    "provenance:source:localization/probes/ru-items-20261028-08/player.log": "afb5946e62209ffcef5526511ae715ce8de4a870ff6206fdf582fbdd1bc7c8fa",
+    "provenance:source:localization/visual-qa/ru-items-20261028-08/fixture-preservation.json": "962469747cad0a85cca30681457d1d840d444d37cc3ff3ea1c446e739e3d2c77",
+    "provenance:source:tools/probe/fixture_preservation.py": "40237b4a960278884ad5ecd9190cc333765a79f355b9042ec4161f0dfa824dfb",
+    "provenance:source-image:ru-01-item-received.png": "516cfaef70c07070004d14bc97bdd2d15f09e0c70ab65bb788edd2f888403dfe",
+    "provenance:source-image:ru-02-glitch-item.png": "03612c4ea539dd818470324e335d059f650838700b7184702cbf67f8679f80db",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "81b5a59a4863992a9dd005e3ae9e731152f1341e86fff4cf6a1a5f23e20fd7ad"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "516cfaef70c07070004d14bc97bdd2d15f09e0c70ab65bb788edd2f888403dfe.webp",
+      "sha256": "a5f2d3f17faddd18b95e25f22ddba5eeaa34ff1ef04bf9413f4a8af015a29af9",
+      "width": 1024,
+      "height": 768,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T09:59:08.233255+00:00",
+      "observations": "Inspected the complete delivered 1024×768 prepared WebP. Russian menu labels and the received notification are readable, with complete text and separated lines. No visible clipping, missing glyphs, printed tags or external banners. English logo artwork is within the stated exemption.",
+      "findings": [
+        {
+          "check": "contamination",
+          "severity": "minor",
+          "region": "Approximately x333–430, y304–402, over the left-center logo",
+          "observed": "An opaque white patch obscures part of the logo; recognizable item detail is absent. Its intended appearance cannot be established from the supplied text context.",
+          "expected": "The notification graphic matches its authored item artwork, without unintended opaque overlays.",
+          "nextAction": "Compare this region with the bound original and authored bell sprite to establish whether the white appearance is intentional; recapture if it is a rendering artifact."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "needs-review",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "03612c4ea539dd818470324e335d059f650838700b7184702cbf67f8679f80db.webp",
+      "sha256": "41f7a12ed791314cbf7bf9602e53b9c22d6dd842a06bba54d7eb219e33901d36",
+      "width": 1024,
+      "height": 768,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T09:59:08.233365+00:00",
+      "observations": "Inspected the complete delivered 1024×768 prepared WebP. Russian menu labels and “Найдено:” are readable without visible clipping or glyph defects. The six question marks match the supplied glitch fixture. No printed tags or external banners are visible.",
+      "findings": [
+        {
+          "check": "contamination",
+          "severity": "minor",
+          "region": "Approximately x350–419, y243–289, over the upper-left logo lettering",
+          "observed": "A rectangular black-and-white noise graphic covers part of the logo. The glitch text is explicitly expected, but the packet does not establish the intended appearance of this graphic.",
+          "expected": "The displayed graphic matches the authored glitch-item artwork.",
+          "nextAction": "Verify the region against the bound original and authored glitch-item sprite; retain it if intentional, or repair and recapture if unintended."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "needs-review",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

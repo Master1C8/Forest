@@ -1,5 +1,42 @@
 // Disposable staging and geometry inspection. No replacement text or save flags.
 public sealed partial class ForestProbe {
+    void DisplayDiagnostics() {
+        var mode=UnityEngine.Screen.currentResolution;
+        System.IO.File.WriteAllText(System.IO.Path.Combine(root,"display-diagnostics.tsv"),
+            UnityEngine.Screen.width+"\t"+UnityEngine.Screen.height+"\t"+mode.width+"\t"+mode.height+"\t"+UnityEngine.Screen.fullScreen+"\n");
+    }
+    void MenuFontDiagnostics() {
+        // Runtime-injected compound types are absent from Unity's generated
+        // serialization metadata. Use explicit fields rather than JsonUtility,
+        // which silently returned {} for the nested diagnostic array.
+        var rows=new System.Text.StringBuilder("name\tfamily\tsourceFont\tpopulation\tmultiAtlas\tglyphs\tcharacters\tatlasCount\tatlasWidth\tatlasHeight\n");
+        System.Func<string,string> b64=value=>System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(value??""));
+        foreach(var font in TMPro.TMP_Settings.fallbackFontAssets) {
+            if(font==null)throw new System.Exception("Null global fallback");
+            rows.Append(b64(font.name)).Append('\t').Append(b64(font.faceInfo.familyName)).Append('\t')
+                .Append(b64(font.sourceFontFile==null?null:font.sourceFontFile.name)).Append('\t')
+                .Append(b64(font.atlasPopulationMode.ToString())).Append('\t').Append(font.isMultiAtlasTexturesEnabled).Append('\t')
+                .Append(font.glyphTable.Count).Append('\t').Append(font.characterTable.Count).Append('\t')
+                .Append(font.atlasTextures.Length).Append('\t').Append(font.atlasWidth).Append('\t').Append(font.atlasHeight).Append('\n');
+        }
+        System.IO.File.WriteAllText(System.IO.Path.Combine(root,"font-diagnostics.tsv"),rows.ToString());
+    }
+    void MenuGlyphDiagnostics() {
+        var rows=new System.Text.StringBuilder("path\tcodepoint\tvisible\tfont\tfamily\tglyph\tadvance\n");
+        System.Func<string,string> b64=value=>System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(value??""));
+        foreach(var text in UnityEngine.Resources.FindObjectsOfTypeAll<TMPro.TextMeshProUGUI>()) {
+            if(!text.enabled || !text.gameObject.activeInHierarchy || text.color.a<.01f)continue;
+            text.ForceMeshUpdate();
+            for(int i=0;i<text.textInfo.characterCount;i++) {
+                var ch=text.textInfo.characterInfo[i];
+                rows.Append(b64(MenuPath(text.transform))).Append('\t').Append((int)ch.character).Append('\t').Append(ch.isVisible).Append('\t')
+                    .Append(b64(ch.fontAsset==null?null:ch.fontAsset.name)).Append('\t')
+                    .Append(b64(ch.fontAsset==null?null:ch.fontAsset.faceInfo.familyName)).Append('\t')
+                    .Append(ch.textElement==null?0:ch.textElement.glyphIndex).Append('\t').Append(ch.xAdvance-ch.origin).Append('\n');
+            }
+        }
+        System.IO.File.WriteAllText(System.IO.Path.Combine(root,"glyph-diagnostics.tsv"),rows.ToString());
+    }
     [System.Serializable] public sealed class MenuProbeState {
         public string scene,company,product,geometrySpace;public int width,height;
         public bool fullscreen,stretch,hasSavedSession;

@@ -8,7 +8,7 @@ PANELS=['play','gallery','options','delete','new','quit']
 PRODUCT=json.loads((RUN/'build.json').read_text())['saveIsolation']['productName']
 
 def command(value):
-    allowed={'show-menu','dump','menu-geometry','menu-layout-baseline','menu-play-act1','quit',
+    allowed={'show-menu','dump','menu-geometry','menu-font-diagnostics','menu-glyph-diagnostics','menu-layout-baseline','menu-play-act1','quit',
         'click Canvas/OptionsMenu/Controls/Fullscreen','click Canvas/OptionsMenu/Controls/FullscreenStretch'}
     allowed.update('menu-panel '+p for p in PANELS)
     allowed.update('capture ru-%02d-%s.png'%(i,p) for i,p in enumerate(PANELS,1))
@@ -28,7 +28,12 @@ def geometry():
 
 def main():
     assert not shared.processes() and not (RUN/'launch.json').exists()
-    build=json.loads((RUN/'build.json').read_text());assert len(build['files'])==8
+    assert not [r for r in subprocess.check_output(['ps','-axo','pid,command'],text=True).splitlines() if 'The Forest of Love.exe' in r], 'Another game is active'
+    build=json.loads((RUN/'build.json').read_text())
+    required={'globalgamemanagers','resources.assets','level1','level5','level6','sharedassets0.assets','sharedassets1.assets','sharedassets2.assets',
+        'StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle',
+        'Managed/VNRevivalQuestLayout.dll','Managed/Assembly-CSharp.dll'}
+    assert len(build['files'])==len(required) and {r['path'] for r in build['files']}==required, 'Changed candidate file inventory'
     original=RUN/'Assembly-CSharp.localized-original.dll';assert sha(original)==next(r['probeSha256'] for r in build['files'] if r['path']=='Managed/Assembly-CSharp.dll')
     parent=Path(json.loads((RUN/'qa-preparation.json').read_text())['parentBuild'])
     parent_hashes={r['path']:sha(parent/'game'/DATA/r['path']) for r in build['files']}
@@ -43,9 +48,7 @@ def main():
         with (RUN/'wine.log').open('wb') as log:
             child=subprocess.Popen(args,cwd=GAME,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         write('launch.json',{'pid':child.pid,'command':args,'bridgeSha256':sha(GAME/DATA/'Managed/ForestProbe.dll'),'buildSha256':sha(RUN/'build.json'),'captureRecipeSha256':sha(Path(__file__))})
-        deadline=time.monotonic()+300
-        while not (RUN/'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN/'player.log').read_text(errors='replace'):
-            assert time.monotonic()<deadline,'startup-marker-timeout';time.sleep(1)
+        shared.wait_for_probe(child,300)
         command('show-menu');time.sleep(.7)
         for i,panel in enumerate(PANELS,1):
             if any(r['filename']=='ru-%02d-%s.png'%(i,panel) for r in captures):continue
@@ -94,9 +97,27 @@ def main():
                 assert any(r['text']=='Фильмы\n<size=12>(открыто: 0/11)</size>' for r in rows)
                 assert any(r['text']=='Истории\n<size=12>(открыто: 0/46)</size>' for r in rows)
             shutil.copy2(RUN/'menu-geometry.tsv',RUN/('geometry-'+panel+'.tsv'));write('state-'+panel+'.json',state)
+            command('menu-font-diagnostics');font_rows=[]
+            for line in (RUN/'font-diagnostics.tsv').read_text().splitlines()[1:]:
+                v=line.split('\t');assert len(v)==10,('font-diagnostics-columns',v)
+                row={k:base64.b64decode(v[i],validate=True).decode() for i,k in enumerate(['name','family','sourceFont','population'])}
+                assert v[4] in ('True','False');row['multiAtlas']=v[4]=='True'
+                row.update({k:int(v[i+5]) for i,k in enumerate(['glyphs','characters','atlasCount','atlasWidth','atlasHeight'])});font_rows.append(row)
+            fonts={'fallbacks':font_rows}
+            assert any(f['family']=='Liberation Sans' and f['sourceFont']=='LiberationSans' and f['multiAtlas'] and f['glyphs']>0 for f in fonts['fallbacks']), ('dynamic-fallback-not-loaded', fonts)
+            write('font-diagnostics-'+panel+'.json',fonts)
+            if build.get('uniformTmpFallback'):
+                command('menu-glyph-diagnostics');glyphs=[]
+                for line in (RUN/'glyph-diagnostics.tsv').read_text().splitlines()[1:]:
+                    v=line.split('\t');assert len(v)==7,('glyph-diagnostics-columns',v)
+                    if v[2]=='True':glyphs.append((int(v[1]),base64.b64decode(v[4],validate=True).decode()))
+                assert glyphs and all(family=='Liberation Sans' for _,family in glyphs),('mixed-visible-glyph-families',glyphs)
+                shutil.copy2(RUN/'glyph-diagnostics.tsv',RUN/('glyph-diagnostics-'+panel+'.tsv'))
             filename='ru-%02d-%s.png'%(i,panel);command('capture '+filename)
             data=(RUN/filename).read_bytes();assert data[:8]==b'\x89PNG\r\n\x1a\n';width,height=struct.unpack('>II',data[16:24])
             captures.append({'filename':filename,'sha256':sha(RUN/filename),'width':width,'height':height,'runtimeCaptionsCompared':matched})
+        missing=[line for line in (RUN/'player.log').read_text(errors='replace').splitlines() if 'was not found' in line or 'MissingCharacter' in line]
+        assert not missing,('missing-glyph-runtime-warnings',len(missing),missing[:3])
         success=True
     except BaseException as ex:
         error=repr(ex);print(error,flush=True)

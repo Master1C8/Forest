@@ -18,9 +18,7 @@ def main():
     try:
         with (RUN/'wine.log').open('wb') as log:child=subprocess.Popen(args,cwd=GAME,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         write('launch.json',dict(pid=child.pid,command=args,recipeSha256=sha(Path(__file__)),scope='Original notification prefab staged in the fully visible StartMenu; no continuation or item-award event'))
-        deadline=time.monotonic()+180
-        while not (RUN/'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN/'player.log').read_text(errors='replace'):
-            assert time.monotonic()<deadline,'startup-marker-timeout';time.sleep(1)
+        shared.wait_for_probe(child,300)
         command('show-menu')
         command('dump');state=json.loads((RUN/'state.json').read_text());assert state['scene']=='StartMenu'
         write('staged-menu-state.json',state)
@@ -29,6 +27,14 @@ def main():
             command('items-ready')
             if (RUN/'items-ready.txt').read_text().strip()=='48':break
             assert time.monotonic()<deadline,'runtime-inventory-not-ready';time.sleep(.5)
+        # String rows alone do not establish the notification workload. Follow
+        # the original Continue route into the disposable fixture's gameplay
+        # scene so its item sprite resources are actually available.
+        deadline=time.monotonic()+180
+        while True:
+            command('items-gameplay')
+            if (RUN/'items-gameplay.txt').read_text().startswith('True|'):break
+            assert time.monotonic()<deadline,'item-gameplay-resources-not-ready';time.sleep(.5)
         command('items-readback')
         assert (RUN/'item-readback.tsv').read_bytes()==(RUN/'item-expectations.tsv').read_bytes()
         for i,action in enumerate(['received','found','delivered','glitch'],1):
@@ -55,6 +61,7 @@ def main():
                 from PIL import Image
                 extrema=Image.open(p).convert('RGB').getextrema();assert max(channel[1] for channel in extrema)>20,('blank-capture',extrema)
                 captures.append(dict(filename=name,sha256=sha(p),width=width,height=height))
+        command('display-diagnostics')
         success=True
     except BaseException as ex:error=repr(ex);print(error,flush=True)
     finally:
@@ -70,7 +77,7 @@ def main():
         unchanged=all(sha(parent/'game'/DATA/n)==h for n,h in parent_hashes.items())
         fixture_after={p.name:sha(p) for p in (GAME/DATA).glob('tfol.*') if p.is_file()}
         write('cleanup.json',dict(taskOwnedProcessesAbsent=not remaining,remainingTaskProcessRows=remaining,quitError=quit_error,localizedAssemblyRestored=sha(GAME/DATA/'Managed/Assembly-CSharp.dll')==sha(original),bridgeRemoved=not (GAME/DATA/'Managed/ForestProbe.dll').exists(),parentArtifactUnchanged=unchanged,ownerGameClosedOrControlled=False,ownerSaveFilesUsed=False,qaFixtureBefore=fixture,qaFixtureAfter=fixture_after))
-        write('runtime-result.json',dict(result='passed' if success and not remaining and unchanged else 'failed',error=error,captures=captures,durationSeconds=round(time.monotonic()-started,3),boundary='48 actual DataService items/96 strings; actual found/received/delivered display methods and original prefab/font. Display calls bypass item awarding events; ownership/save behavior is not established by them. The display is staged in StartMenu, bypassing scene navigation and item-award events; no save-continuation acceptance or owner progress is involved.',visual='pending' if captures else 'not-run'))
+        write('runtime-result.json',dict(result='passed' if success and not remaining and unchanged else 'failed',error=error,captures=captures,durationSeconds=round(time.monotonic()-started,3),boundary='48 actual DataService items/96 strings; original Continue route into the disposable QA fixture and actual gameplay notification prefab/font/sprite resources. Display calls bypass item awarding events; no ownership, real progression or owner-save acceptance. Source sprite availability is required before display.',visual='pending' if captures else 'not-run'))
     assert success and not remaining and unchanged,(error,remaining)
     print('48 items/96 strings loaded; four real notification displays passed; cleanup complete',flush=True)
 if __name__=='__main__':main()

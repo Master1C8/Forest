@@ -120,7 +120,7 @@ TextMeshProUGUI.GenerateTextMesh IL_0356..037d, 0157..0177, 355e..35a6.
  return f32(spacing + 100 * (old['m_LineHeight'] * old['m_Scale'] / old['m_PointSize']
                             - new['m_LineHeight'] * new['m_Scale'] / new['m_PointSize']))
 
-def typography_plan(objects, generator, old_face, new_face, font_id, file_id=0):
+def typography_plan(objects, generator, old_face, new_face, font_id, file_id=0, minimum_spacing=None):
  from extract_assets import read_tree
  plan, receipt = {}, []
  for pid,obj in objects.items():
@@ -129,6 +129,7 @@ def typography_plan(objects, generator, old_face, new_face, font_id, file_id=0):
   tree=read_tree(obj,generator)
   if tree.get('m_fontAsset') != {'m_FileID': file_id, 'm_PathID': font_id}: continue
   before=tree['m_lineSpacing']; tree['m_lineSpacing']=metric_spacing(old_face,new_face,before)
+  if minimum_spacing is not None: tree['m_lineSpacing']=max(minimum_spacing,tree['m_lineSpacing'])
   if tree.get('m_text') in WARNING_TEXT: tree['m_text']=WARNING_TEXT[tree['m_text']]
   plan[pid]=tree
   receipt.append({'pathId':pid,'sourceLineSpacing':before,'targetLineSpacing':tree['m_lineSpacing'],

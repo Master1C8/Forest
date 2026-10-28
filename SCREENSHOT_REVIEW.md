@@ -26,3 +26,12 @@ delete an active lock or recapture valid originals because a model disconnected.
 
 This entry point changes no translation, runtime, complete visual coverage,
 RTL, publication or server permission requirements.
+
+Before capture acceptance, establish the actual workload, including required
+sprite/texture resources. Loaded string rows alone do not prove that a notification
+icon is available in a staged menu. Regression:48 valid item rows with a null
+selected sprite must reject before visual acceptance; load the original fixture
+scene through its real route and bind the sprite. Record actual PNG dimensions
+and independent client/physical-screen diagnostics instead of assuming launch
+arguments define the rendered viewport. A changed disposable screen-resolution
+field is distinct from a changed savegame; verify both boundaries explicitly.

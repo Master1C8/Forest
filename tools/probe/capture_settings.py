@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """One versioned attempt using the existing bridge commands, with unconditional restoration."""
 import datetime, hashlib, json, re, shutil, subprocess, sys, time
+import runtime_startup
 from pathlib import Path
 
 RUN=Path(sys.argv[1]).resolve()
@@ -18,6 +19,8 @@ def processes():
     rows=subprocess.check_output(['ps','-axo','pid,ppid,command'],text=True).splitlines()
     paths=[str(EXE), 'Z:'+str(EXE).replace('/',chr(92)), 'Y:'+chr(92)+str(EXE.relative_to(Path('/Users/antonkrutov'))).replace('/',chr(92))]
     return [r.strip() for r in rows if any(p in r for p in paths)]
+def wait_for_probe(child,timeout):
+    return runtime_startup.wait_for_probe(RUN,child,processes,timeout)
 def command(c):
     r=subprocess.run([sys.executable,str(COMMAND),str(RUN),c],capture_output=True,text=True,timeout=25)
     assert r.returncode==0, (c,r.stdout[-500:],r.stderr[-500:])
@@ -44,10 +47,7 @@ def main():
         with (RUN/'wine.log').open('wb') as log:
             child=subprocess.Popen(args,cwd=GAME,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         write('launch.json',{'pid':child.pid,'startedAt':now(),'command':args,'buildSha256':sha(RUN/'build.json'),'bridgeSha256':sha(RUN/'bridge-build.json'),'captureRecipeSha256':sha(Path(__file__)),'commandHelperSha256':sha(COMMAND),'scope':'One isolated settings synthetic candidate; real menu handlers, no desktop input or activation'})
-        until=time.monotonic()+300
-        while not (RUN/'player.log').exists() or 'FOREST_PROBE_READY' not in (RUN/'player.log').read_text(errors='replace'):
-            assert time.monotonic()<until, 'Startup marker timeout'
-            time.sleep(1)
+        wait_for_probe(child,300)
         (RUN/'actions.log').touch(exist_ok=True)
         command('show-menu'); d=dump(); assert d['scene']=='StartMenu'
         assert 'StartScreenMainMenu Canvas/MainMenu' in d['components']

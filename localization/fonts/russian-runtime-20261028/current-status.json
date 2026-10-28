@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-28T10:26:46.254584+00:00",
+  "status": "incomplete-native-startup-recovery-required",
+  "coordinatorModel": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "candidates": [
+    {
+      "candidate": "localization/previews/ru-20261028-texture-preserving-05",
+      "buildSha256": "15ffddc52b8e14cf2c342d198c302c36d1200c220b83d3b4426f751777186033",
+      "textureAuditSha256": "7b1e8b0990c7f26265e045879242cc3981c6daefce45b36e1473e200770f6bc1",
+      "textureAuditStatus": "pass"
+    },
+    {
+      "candidate": "localization/previews/ru-20261028-texture-preserving-06",
+      "buildSha256": "0f31c71a0782e9a9f4db94d7d77c2d81d4fc99d42165c660b4195e24a6ebf54d",
+      "textureAuditSha256": "7e6118c9bf59903aa554a16e7241401e0de4bbadb1188cc9b699927f4445d509",
+      "textureAuditStatus": "pass"
+    }
+  ],
+  "runs": [
+    {
+      "run": "localization/probes/ru-menu-20261028-06",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "18c032f601963b5250dc352f2e0776b08f228405e740310055c2090caeb90824",
+          "bytes": 776
+        },
+        "startup-state.json": {
+          "sha256": "ec40efb074e41ff2cfc6cf75c7eefc95293aacc39167866f072c4de71c1c430a",
+          "bytes": 901
+        },
+        "runtime-result.json": {
+          "sha256": "24a3637369d578f91af3d3256962168387a3d2bb24c93f9b0c74dc83d3bc7d7d",
+          "bytes": 2294
+        },
+        "cleanup.json": {
+          "sha256": "fd237725f25816ddda879ca10daead2820a4654a2cdf400eb93de719faf24b80",
+          "bytes": 956
+        },
+        "player.log": {
+          "sha256": "1f7201f061dcdc1b6186657ab89e20dc449c267588f6b76dadef868f9936dab1",
+          "bytes": 48977
+        }
+      },
+      "result": "passed",
+      "error": null,
+      "captures": 6
+    },
+    {
+      "run": "localization/probes/ru-menu-20261028-07",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "8b716f61143fb7b0d1759c78ea5a97fa967e1ab0e43fc5111cbdf7693dc6691c",
+          "bytes": 776
+        },
+        "startup-state.json": {
+          "sha256": "f3ed809edb1bade9d6ac45ed858820488088d5165283d63caa50ddd3cdeb9e96",
+          "bytes": 901
+        },
+        "runtime-result.json": {
+          "sha256": "cb62920a94e0520c9cade38e1af2acbe8a47de240b616039f32defafad2e9a55",
+          "bytes": 2294
+        },
+        "cleanup.json": {
+          "sha256": "6873c52c2abe985d3a157db5cd64a51e2ff1493e688dc7be3002ff0422aabaf9",
+          "bytes": 956
+        },
+        "player.log": {
+          "sha256": "21c6e62c079c2a37eff94377e8ac6d9fb6a9b6e346af915a006c95849d4d1f98",
+          "bytes": 9868
+        }
+      },
+      "result": "passed",
+      "error": null,
+      "captures": 6
+    },
+    {
+      "run": "localization/probes/ru-items-20261028-08",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "cb405748e62bd4546f1bf3c8e9d1f489efa324ab01c920d4ff0edfba96770537",
+          "bytes": 776
+        },
+        "startup-state.json": {
+          "sha256": "267708c16f7f7f4ee8b7f01c2f8318e267d94c9c76f78ec53f6e1e7ef39b888f",
+          "bytes": 904
+        },
+        "runtime-result.json": {
+          "sha256": "a36acaca4c72984c5f124b5a3d0a1cd0dab908458726c4ff4c25301f4a18da06",
+          "bytes": 854
+        },
+        "cleanup.json": {
+          "sha256": "0e50ab577ef1f62162c060079163492b51701997192a0252eab87c5a94cb4cc9",
+          "bytes": 671
+        },
+        "player.log": {
+          "sha256": "afb5946e62209ffcef5526511ae715ce8de4a870ff6206fdf582fbdd1bc7c8fa",
+          "bytes": 2315
+        }
+      },
+      "result": "passed",
+      "error": null,
+      "captures": 2
+    },
+    {
+      "run": "localization/probes/ru-items-20261028-07",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "7ca55d087e0293814b6e90277afe2179045526f1c42198e7f8a24a1addfeba93",
+          "bytes": 776
+        },
+        "startup-state.json": {
+          "sha256": "56e2bda56413369ccb0ff3c0ab6344b096468d44f95dcfc02a236147589ff54e",
+          "bytes": 907
+        },
+        "runtime-result.json": {
+          "sha256": "23ae366e631ab34b6d4353a9df37771319c228b149ed23bac4d047a757e9b2a7",
+          "bytes": 526
+        },
+        "cleanup.json": {
+          "sha256": "6a9e8208efccb0388ce1fbbeb07b94806252a3806bb5f95adf933e164f3777ea",
+          "bytes": 1791
+        },
+        "parent-post-timeout-cleanup.json": {
+          "sha256": "ff3f9d6c0c24f63677c8d3f37b85fad12355357d2615154cce05a06d85e180aa",
+          "bytes": 904
+        }
+      },
+      "result": "failed",
+      "error": "RuntimeError('startup-timeout', None, 2)",
+      "captures": 0
+    },
+    {
+      "run": "localization/probes/ru-quests-20261028-18",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "a27d41555d42de6fa7d37b2bd97ac55bd063a12732c38f1c6a66e9722356b3c7",
+          "bytes": 776
+        },
+        "startup-state.json": {
+          "sha256": "8752291cbbbb4a6f9466e82e61880988571800e212db0e4c8d46193e3ed316a5",
+          "bytes": 909
+        },
+        "runtime-result.json": {
+          "sha256": "f1bf652c4ae164667355f60a86cce8c5ef26b42639f7674b018e9c5fe9aea255",
+          "bytes": 689
+        },
+        "cleanup.json": {
+          "sha256": "088a4b47a93dd4a4d570ef83aa3d00fd2d43a7023aa5fc9d8a45b02bbabe7d9e",
+          "bytes": 846
+        },
+        "player.log": {
+          "sha256": "dd4c516b051ded288699aa0d498f36af338b67f05c5e2ba15e1c80b12478334d",
+          "bytes": 3156
+        }
+      },
+      "result": "automated-fail",
+      "error": "AssertionError(('finite-quest-fixture-still-scrolls', 'photo-active-top', [0.3297915, 0.9131249, 0.1281433, 0.8281555, 0.3297915, 0.9131249, 0.1429749, 0.7163544, 174.688, 154.8135, 1.000018]))",
+      "captures": 0
+    },
+    {
+      "run": "localization/probes/ru-quests-20261028-19",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "bb5adf062c752a1d2128954a257db878cc6656e193865ece64a43b55b322111c",
+          "bytes": 776
+        },
+        "startup-state.json": {
+          "sha256": "2063ac573482c9267fbb48dbdc400b1f689e0486077768d2278706cea4882e41",
+          "bytes": 259
+        },
+        "runtime-result.json": {
+          "sha256": "d0b4d28c6380305f17008ce1c24b5c32cebee7d85d81a037cb5ca99edba29deb",
+          "bytes": 537
+        },
+        "cleanup.json": {
+          "sha256": "d502f40281687c32a3965cbf63283fc19422871c33314304487a7bad787b8354",
+          "bytes": 739
+        },
+        "player.log": {
+          "sha256": "9518b5198dd1703a1672815684b5d39c3da375e2df9c83e0af22f10d53b84bc8",
+          "bytes": 11237
+        }
+      },
+      "result": "automated-fail",
+      "error": "RuntimeError('startup-process-exited', 5, 0)",
+      "captures": 0
+    },
+    {
+      "run": "localization/probes/ru-quests-20261028-20",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "4034b0aa39a92140ae324d335043a12abf2e06ad130c784a6b6debf60a25df58",
+          "bytes": 892
+        },
+        "startup-state.json": {
+          "sha256": "6f88605cac1680a871b88e87aa1e57ff14389fbcba2ce874cff07ecf3359f633",
+          "bytes": 259
+        },
+        "runtime-result.json": {
+          "sha256": "7df32b260e202decd240351901962ad4726e947a998c5dfe2b5b5741882c5f43",
+          "bytes": 537
+        },
+        "cleanup.json": {
+          "sha256": "9ada8ce17838ab13dbbbf131f8ba1d3c2c61e892a93c3589b4e3893b96691503",
+          "bytes": 739
+        },
+        "player.log": {
+          "sha256": "2522a3db7ab3d88efba5dc1b0c15f5ce91d7f1d8203eb4c5f13ff902a04cde34",
+          "bytes": 11237
+        }
+      },
+      "result": "automated-fail",
+      "error": "RuntimeError('startup-process-exited', 5, 0)",
+      "captures": 0
+    },
+    {
+      "run": "localization/probes/ru-menu-20261028-08",
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "141f2b31c6a62801f3f7c8d99983021cfa02f635188d9b42df03803ed1a17103",
+          "bytes": 883
+        },
+        "startup-state.json": {
+          "sha256": "b12513fa4d8250109bcfe7f21576800296341afa068d26e9ab8aaf8be85b2240",
+          "bytes": 259
+        },
+        "runtime-result.json": {
+          "sha256": "ddb48866fa9125f68685ebb29d2810526b4382aeb87233628d77161d7bd03edc",
+          "bytes": 475
+        },
+        "cleanup.json": {
+          "sha256": "58bf2b7401f45c8df36cf0d20a1b6717fcc4b7ff85cf34e0acfde4b3e9b7fb36",
+          "bytes": 305
+        },
+        "player.log": {
+          "sha256": "aa772ea804fc0a5bcfb054393d14398feaa4b6c2966dfce12bf5c8ff46c4db29",
+          "bytes": 11219
+        }
+      },
+      "result": "failed",
+      "error": "RuntimeError('startup-process-exited', 5, 0)",
+      "captures": 0
+    }
+  ],
+  "acceptanceChecklist": [
+    {
+      "id": "dialogue-editorial",
+      "artifact": "localization/editorial-delivery/ru-cycle-02",
+      "predicate": "Version-matching independent final delta has no unresolved objective finding",
+      "evidence": "12,246-ID corpus unchanged, SHA462c91c948c3564225aeaf71da972c7426e5b5c068eaca7bab64e22e70e36587; peer164:143 pass plus21 technical-preservation",
+      "uncertainty": "Full visible-game inventory is larger than the dialogue family",
+      "nextPermittedAction": "Retain immutable dialogue evidence; reconcile additive shared source omissions before new target work"
+    },
+    {
+      "id": "menu",
+      "artifact": "localization/visual-qa/ru-menu-20261028-07/review.json",
+      "predicate": "All six actual panels pass complete visual review with native glyph/geometry evidence",
+      "evidence": "6/6 pass for candidate05 at1024x768; zero missing-glyph and underline warnings",
+      "uncertainty": "Source artwork exemption and staged panel-navigation boundary remain; candidate06 full runtime not accepted",
+      "nextPermittedAction": "Reuse only unchanged render dependencies by fingerprint; do not repeat unaffected reviews"
+    },
+    {
+      "id": "items",
+      "artifact": "localization/visual-qa/ru-items-20261028-08/review.json",
+      "predicate": "Actual48 items/96 text fields, four formatters, required source sprites, full-frame readability and contamination pass",
+      "evidence": "Text/readback/geometry pass; both frames pass layout/glyph/content but contamination needs-review",
+      "uncertainty": "White bell-region rendering and original glitch artwork binding; string rows alone do not prove sprite resources available",
+      "nextPermittedAction": "Run already prepared ru-items-20261028-10 after native startup recovery; original Continue route, nonnull sprite guard and icon diagnostics are frozen"
+    },
+    {
+      "id": "quest-layout",
+      "artifact": "localization/previews/ru-20261028-texture-preserving-06",
+      "predicate": "Complete finite photo/region fixture fits at >=12 native points, all195 states and source-linked captions/HUD verified, all seven frames reviewed",
+      "evidence": "Candidate05 photo body174.688 exceeds viewport154.8135 at12; candidate06 uses full history width below portrait; compiled and texture audit pass",
+      "uncertainty": "New layout/status captions have not executed because both current attempts crashed before bridge readiness",
+      "nextPermittedAction": "Recover native startup; prepare/run a fresh candidate06 quest probe (consumed19/20 must not be rerun)"
+    },
+    {
+      "id": "native-font-roles",
+      "artifact": "tools/russian_native_font_roles.py",
+      "predicate": "All three selected native367 labels use coherent369 and render actual inventory/plugin consumers",
+      "evidence": "Exact pointer-only source/readback tests pass; fictional font untouched",
+      "uncertainty": "Individual live inventory ticker/title and plugin portrait-name fields not visually accepted",
+      "nextPermittedAction": "Exercise actual bound consumers after startup recovery; source descriptions remain a separate target gap"
+    },
+    {
+      "id": "shared-source",
+      "artifact": "localization/fonts/final-corpus-bindings-20261028/acceptance-checklist.json",
+      "predicate": "All required source selectors have an accepted display/protected disposition and matching immutable targets",
+      "evidence": "70-cell reconciliation and restored producing recipe reproduce;48 descriptions and four compiled empty-cell inputs are absent from old935",
+      "uncertainty": "Three compiled seeds,1655 database policy/external values and1389 controller alias predicates remain held; source/role allocation not complete",
+      "nextPermittedAction": "Owning source/corpus disposition and additive shared targets; preserve frozen935/all30 packets and ready dialogue"
+    },
+    {
+      "id": "font-forms-and-gameplay",
+      "artifact": "localization/fonts/final-corpus-bindings-20261028/parent-recovery-verification.json",
+      "predicate": "Actual dialogue/choices and relevant normalization forms render with full corpus-bound resource acceptance",
+      "evidence": "Menu ordinary glyphs use dynamic Liberation Sans; all1385 Texture2D objects and full streams remain exact",
+      "uncertainty": "Russian NFD U+0306/U+0308, real dialogue/choice progression and remaining roles unaccepted",
+      "nextPermittedAction": "Scoped original-scenario checks after startup recovery; no serialized texture edits"
+    },
+    {
+      "id": "delivery",
+      "artifact": "localization/previews/ru-20261028-texture-preserving-06",
+      "predicate": "Accepted final artifact, applicable Windows/package/installer checks and release gates pass",
+      "evidence": "Local provisional preview only; no publication/deployment/installer launch",
+      "uncertainty": "Source, target, font, runtime and visual gates remain open",
+      "nextPermittedAction": "Complete dependencies first; do not label current preview a finished Russian release"
+    }
+  ],
+  "nativeCrashBoundary": "Repeated exit5 and ntdll null-write crash after input initialization, before FOREST_PROBE_READY; reproduced on older candidate03 with current diagnostic module. Windowed fixture did not resolve it. This does not identify the root cause or prove a game-code defect.",
+  "remainingPreparedRuns": [
+    "ru-items-20261028-09 (unlaunched; fullscreen)",
+    "ru-items-20261028-10 (unlaunched; derived windowed fixture)"
+  ],
+  "sourceTexturesModified": false,
+  "coordinatorImageInputs": 0,
+  "ownerOriginalGameOrSavesControlled": false,
+  "wineBottleRestartPerformed": false
+}
