@@ -1,0 +1,61 @@
+{
+  "sourceSha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "types": [
+    {
+      "type": "TheForestOfLove.GeneralStoryUIController",
+      "baseType": "TheForestOfLove.Core.BaseBehavior",
+      "attributes": "Public, BeforeFieldInit",
+      "customAttributes": [],
+      "fields": [
+        {
+          "name": "TheForestOfLove.Events.StringPrimitiveEvent TheForestOfLove.GeneralStoryUIController::onDialogueEmptyWithTitledLine",
+          "attributes": "Public",
+          "isStatic": false,
+          "customAttributes": [
+            "UnityEngine.HideInInspector"
+          ]
+        },
+        {
+          "name": "TheForestOfLove.Events.StringPrimitiveEvent TheForestOfLove.GeneralStoryUIController::onDialogueLine",
+          "attributes": "Public",
+          "isStatic": false,
+          "customAttributes": [
+            "UnityEngine.HideInInspector"
+          ]
+        },
+        {
+          "name": "UnityEngine.Events.UnityEvent TheForestOfLove.GeneralStoryUIController::onAdvanceMoment",
+          "attributes": "Public",
+          "isStatic": false,
+          "customAttributes": [
+            "UnityEngine.HideInInspector"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TheForestOfLove.Narrative.DialogueService",
+      "baseType": "TheForestOfLove.Core.BaseBehavior",
+      "attributes": "Public, BeforeFieldInit",
+      "customAttributes": [],
+      "fields": [
+        {
+          "name": "UnityEngine.Events.UnityEvent\u00601\u003CSystem.String\u003E TheForestOfLove.Narrative.DialogueService::onDialogueLineBegin_AnyPassthruTitledLine",
+          "attributes": "Public, Static",
+          "isStatic": true,
+          "customAttributes": [
+            "UnityEngine.HideInInspector"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TheForestOfLove.Events.StringPrimitiveEvent",
+      "baseType": "UnityEngine.Events.UnityEvent\u00601\u003CSystem.String\u003E",
+      "attributes": "Public, BeforeFieldInit",
+      "customAttributes": [],
+      "fields": []
+    }
+  ],
+  "storyDerivedTypes": []
+}
