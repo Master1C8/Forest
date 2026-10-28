@@ -3,6 +3,36 @@
 Canonical project: `/Users/antonkrutov/Desktop/Forest`. This is static preparation,
 not renderer feasibility, installation or release acceptance. No game was launched.
 
+## Current evidence and remaining scope
+
+The phase118 role matrix is a preserved baseline. Its custom-nameplate descendant
+gap was resolved by [the original binding supplement](nameplate-original-binding-20261027/ADAPTER.md):
+controller4311 -> root2849 -> leaf2442 / GO942 -> native Text4545 -> original
+Font369 `MatchupPro_TFOL`, with null material PPtr. Plugin portrait-name3695 /
+Font367 is outside that subtree. This gives109 distinct selected Text/TMP
+identities, not a complete live-component or displayed-text denominator. Reuse
+the stored binding/verification fingerprints instead of recovering that subtree again.
+
+[The 30-locale interface preflight](../font-checks/supplemental-30-20261028.json)
+checks the immutable935-unit packets against original and pinned candidate faces.
+It keeps raw/NFC/NFD requirements and each face separate. It does not cover newly
+discovered omissions, later wording, actual per-role shaping, bidi, fallback
+selection or native layout. Updated wording must invalidate the affected checks.
+
+[The current texture-preserving boundary](no-texture-feasibility-20261028.md)
+and [its guard controls](no-texture-guard-20261028.json) reject the known
+atlas-rewriting `--coherent-tmp-face` mode in both canonical preview builders,
+before output creation. Other resource changes still require byte-exact original
+Texture2D/stream comparison. No font resource or texture has been produced by this
+preparation, and the fictional mouse3324/material3/atlas245 mapping stays separate.
+
+The remaining font deliverable is a complete source/editorial-bound requirement
+set for each actual role, appropriate face/resource bindings and native evidence
+for the required scripts. Neither cmap coverage nor an old synthetic Russian
+probe accepts those predicates. Runtime testing remains stopped by the owner.
+
+## Preserved dialogue-corpus and candidate checks
+
 The original-font check covers all 12,246 saved dialogue-family IDs in each of
 `ru`, `zh`, `es`, `es-419`, `pt-BR`, `ja` and `de`. Input hashes in
 `../font-checks/dialogue-20261027-02.json` identify the exact revisions. The
