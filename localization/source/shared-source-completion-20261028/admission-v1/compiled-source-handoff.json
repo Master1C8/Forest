@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "phase": "0145-work",
+  "phase": "0146-work",
   "targetLocales": [
     "zh",
     "ru",
@@ -34,26 +34,26 @@
     "he"
   ],
   "originalOccurrences": 8576,
-  "resolvedOccurrences": 8325,
-  "unresolvedOccurrences": 251,
+  "resolvedOccurrences": 8573,
+  "unresolvedOccurrences": 3,
   "completeCompiledRolePacket": false,
   "newDelta": {
     "artifact": "compiled-source-role-delta.jsonl",
-    "occurrences": 318,
-    "display": 92,
-    "potentialDisplay": 17,
-    "preserve": 209,
+    "occurrences": 248,
+    "display": 33,
+    "potentialDisplay": 0,
+    "preserve": 215,
     "visibleIdentityDependencies": 0,
-    "remainingSelected": 251
+    "remainingSelected": 3
   },
   "knownWording": {
     "artifact": "compiled-wording-source.jsonl",
-    "occurrences": 315,
+    "occurrences": 348,
     "completeWhileRolesUnresolved": false
   },
   "preservedOperands": {
     "artifact": "compiled-preserve-exactly.jsonl",
-    "occurrences": 8022,
+    "occurrences": 8237,
     "overlap": "The12 comparison-on-display operands also appear in the wording dependency family; preserve them until an identity adapter is verified."
   },
   "preserveContract": "Every resolved non-wording occurrence remains bound to exact original index method/offset/value hash. Display comparisons/identities and format/markup roles retain separate adaptation/preservation contracts; no whole-method exclusions.",
@@ -68,10 +68,10 @@
     "boundary": "Additional protected typeName values also displayed; original filter values retained, no caption projection implemented."
   },
   "remainingArtifact": "unresolved-consumers.json",
-  "nextSelectors": "phase145/next-compiled-selectors.json",
+  "nextSelectors": "phase146/next-compiled-selectors.json",
   "databaseCallerBinding": "dialogue-database-caller-bindings.json",
-  "handoffContinuationPhase": "0145-work",
-  "remainingContext": "compiled-tail-source-context.json",
+  "handoffContinuationPhase": "0146-work",
+  "remainingContext": "compiled-final-source-context.json",
   "consoleContext": "compiled-console-source-context.json",
   "playbackContext": "compiled-playback-source-context.json",
   "arcContext": "compiled-arc-source-context.json",

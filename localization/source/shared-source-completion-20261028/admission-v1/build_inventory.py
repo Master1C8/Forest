@@ -20,7 +20,8 @@ from phase142.expand_roles import products as loader_products
 from phase143.reconcile_bindings import products as binding_products
 from phase144.expand_roles import products as remaining_products
 from phase145.expand_roles import products as tail_products
-NEXT_SOURCE = "Finish all251 remaining original compiled selectors across98 methods in phase145/next-compiled-selectors.json. Reuse phase144 full producers and phase145 exact argument/receiver/cache/branch proofs. First remaining boundary is Example1.LoadEmailLayout local0 -> OSK_Keyboard.LoadLayout -> layout/Generate parser and caption/control split. Resolve the whole finite remainder, including callback stores, display-return assemblies and spawner branches; preserve actual conditional console, unknown exception presentation, database1655, Rewired1389 and all source/editorial/renderer/runtime gates."
+from phase146.expand_roles import products as final_products
+NEXT_SOURCE = "Three remaining compiled static-field selectors (source lines331,332,4948) retain exact external/source-policy holds; no game-assembly reader is established. Do not repeat unchanged field scans. Next finite deliverable: reconcile the109 selected original Text/TMP identities into concrete game font roles, source/corpus requirement bindings and pinned candidate/resource decisions using localization/fonts/README.md. Preserve fictional-language mapping and all source/editorial/runtime gates; no target/font/texture production or GUI."
 
 INDEX = ROOT / 'outputs/pause-inventory-bio-completion-20261028/managed-index'
 SERIALIZED = ROOT / 'outputs/pause-inventory-bio-completion-20261028/serialized-nondialogue-roster.jsonl'
@@ -264,6 +265,11 @@ def products():
     tail_rules = {(r['method'],r['offset']):r for r in tail_delta['decisions']}
     assert len(tail_rules) == 318
     applied_tail_rules = set()
+    final_outputs = final_products()
+    final_delta = final_outputs['phase146/compiled-role-decisions.json']
+    final_rules = {(r['method'],r['offset']):r for r in final_delta['decisions']}
+    assert len(final_rules) == 248
+    applied_final_rules = set()
     applied_command_rules = set()
     applied_compiled_rules = set()
     for n, r in enumerate(lines(INDEX / 'literals.jsonl'), 1):
@@ -344,11 +350,15 @@ def products():
         if rule:
             role, decision = rule['role'], 'phase145:' + rule['contract']
             applied_tail_rules.add(key)
+        rule = apply_compiled_role(r, role, final_rules)
+        if rule:
+            role, decision = rule['role'], 'phase146:' + rule['contract']
+            applied_final_rules.add(key)
         row = dict(id=f"il:Assembly-CSharp.dll/{r['method']}/IL_{r['offset']:04x}",
                    family='managed-literal', method=r['method'], offset=r['offset'], sourceLine=n,
                    sourceValueSha256=value_hash(r['value']), role=role, decision=decision,
                    application='hold-common-source-special-case-and-feasibility-gates')
-        if role.startswith(('display', 'visible', 'special-display')) or role == 'comparison-on-display' or (key in (set(remaining_rules)|set(tail_rules)) and role.startswith('potential-display')):
+        if role.startswith(('display', 'visible', 'special-display')) or role == 'comparison-on-display' or (key in (set(remaining_rules)|set(tail_rules)|set(final_rules)) and role.startswith('potential-display')):
             row['source'] = r['value']
         il.append(row)
     assert len(il) == len({r['id'] for r in il}) == 8576
@@ -361,6 +371,7 @@ def products():
     assert applied_loader_rules == set(loader_rules), 'unmatched-loader-role-rules'
     assert applied_remaining_rules == set(remaining_rules), 'unmatched-remaining-role-rules'
     assert applied_tail_rules == set(tail_rules), 'unmatched-tail-role-rules'
+    assert applied_final_rules == set(final_rules), 'unmatched-final-role-rules'
 
     old = load(ROOT / 'localization/supplemental-ui/20261027/source-catalog.json')['units']
     old_by_id = {r['id']: r for r in old}
@@ -672,7 +683,7 @@ def products():
         pins[str((OUT/name).relative_to(ROOT))]=sha(OUT/name)
     manifest['compiledRemainingSourceContext']='compiled-remaining-source-context.json'
     manifest['sourceRoleResolvedScopes'].append('Phase144 consolidates the entire1251-selector scope:682 exact typed roles resolved;569 remain across284 methods, with all443 complete producers captured and47 named receivers pinned. Capture is not semantic coverage. Original prior roles and source identities/values/order remain exact.')
-    manifest['unresolvedScopes'][0]='Exact251 remaining original compiled roles across98 methods; use phase145/next-compiled-selectors.json and reuse complete saved producers.'
+    manifest['unresolvedScopes'][0]='Three exact static-field external/source-policy holds at original source lines331,332,4948; phase146/next-compiled-selectors.json. No inferred display absence.'
     consumers['phase144CompiledRoleDelta']=dict(artifact='phase144/compiled-role-decisions.json',assigned=1251,assignedMethods=443,resolved=682,remaining=569,remainingMethods=284,roleCounts=remaining_delta['roleCounts'],boundary=remaining_delta['boundary'])
     for name,digest in load(OUT/'phase145/input-pins.json').items():
         assert sha(ROOT/name)==digest,('phase145-input',name)
@@ -682,10 +693,18 @@ def products():
     manifest['compiledTailSourceContext']='compiled-tail-source-context.json'
     manifest['sourceRoleResolvedScopes'].append('Phase145 adjudicates the whole569-remainder assignment and resolves318 exact operand roles across typed argument, original branch, cache and named receiver proofs. All prior8007 precise records and complete original identities/values/order remain exact;251 remain across98 methods.84 conditional console wording,8 direct display,17 potential display/exception/input and209 protected operands remain distinct; no runtime/source admission is implied.')
     consumers['phase145CompiledRoleDelta']=dict(artifact='phase145/compiled-role-decisions.json',assigned=569,assignedMethods=284,resolved=318,remaining=251,remainingMethods=98,roleCounts=tail_delta['roleCounts'],boundary=tail_delta['boundary'])
+    for name,digest in load(OUT/'phase146/input-pins.json').items():
+        assert sha(ROOT/name)==digest,('phase146-input',name)
+        pins[name]=digest
+    for name in ['phase146/input-pins.json','phase146/expand_roles.py','phase146/selector_specs.py','phase146/validate_roles.py','phase146/compiled-role-decisions.json','phase146/static-field-holds.json','phase146/literal-transport-normalization.json']:
+        pins[str((OUT/name).relative_to(ROOT))]=sha(OUT/name)
+    manifest['compiledFinalSourceContext']='compiled-final-source-context.json'
+    manifest['sourceRoleResolvedScopes'].append('Phase146 resolves248 of251 exact original compiled roles across95 methods. Named original store/return/branch consumers and48 receiver snapshots preserve all8325 prior precise records. Three static-field external/source-policy holds remain; whole source, resource and runtime acceptance stay open.')
+    consumers['phase146CompiledRoleDelta']=dict(artifact='phase146/compiled-role-decisions.json',assigned=251,assignedMethods=98,resolved=248,remaining=3,remainingMethods=3,roleCounts=final_delta['roleCounts'],boundary=final_delta['boundary'])
     literal_values = {(r['method'],r['offset']):r['value'] for r in lines(INDEX/'literals.jsonl')}
     delta_rows = [dict(r, sourceIndexReference=dict(path=str((INDEX/'literals.jsonl').relative_to(ROOT)),line=new_by_id[r['id']]['sourceLine']),
                        **({'source':literal_values[r['method'],r['offset']]} if r['role'].startswith(('display','potential-display')) else {}))
-                  for r in tail_delta['decisions']]
+                  for r in final_delta['decisions']]
     compiled_wording = [dict(r,source=literal_values[r['method'],r['offset']]) for r in il
                         if r['role'].startswith(('display','visible','special-display','potential-display')) or r['role']=='comparison-on-display']
     compiled_preserve = [dict(id=r['id'],method=r['method'],offset=r['offset'],sourceLine=r['sourceLine'],
@@ -705,22 +724,23 @@ def products():
         'compiled-source-role-delta.jsonl': jl(delta_rows),
         'compiled-wording-source.jsonl': jl(compiled_wording),
         'compiled-preserve-exactly.jsonl': jl(compiled_preserve),
-        'compiled-source-handoff.json': j(dict(schemaVersion=1,phase='0145-work',targetLocales=locale_scope,
+        'compiled-source-handoff.json': j(dict(schemaVersion=1,phase='0146-work',targetLocales=locale_scope,
             originalOccurrences=8576, resolvedOccurrences=8576-counts['unresolvedCompiledStates'],
             unresolvedOccurrences=counts['unresolvedCompiledStates'], completeCompiledRolePacket=False,
-            newDelta=dict(artifact='compiled-source-role-delta.jsonl',occurrences=318,display=92,potentialDisplay=17,preserve=209,visibleIdentityDependencies=0,remainingSelected=251),
+            newDelta=dict(artifact='compiled-source-role-delta.jsonl',occurrences=248,display=sum(r['role'].startswith('display') for r in final_delta['decisions']),potentialDisplay=0,preserve=sum(r['role'].startswith('preserve') for r in final_delta['decisions']),visibleIdentityDependencies=0,remainingSelected=3),
             knownWording=dict(artifact='compiled-wording-source.jsonl',occurrences=len(compiled_wording),completeWhileRolesUnresolved=False),
             preservedOperands=dict(artifact='compiled-preserve-exactly.jsonl',occurrences=len(compiled_preserve),
                 overlap='The12 comparison-on-display operands also appear in the wording dependency family; preserve them until an identity adapter is verified.'),
             preserveContract='Every resolved non-wording occurrence remains bound to exact original index method/offset/value hash. Display comparisons/identities and format/markup roles retain separate adaptation/preservation contracts; no whole-method exclusions.',
             visibleIdentityDependencies=dict(artifact='compiled-display-identity-dependencies.json',occurrences=120,boundary='Displayed executable/state identities; original spelling remains protected. Separate from target wording and the12 retained display comparisons.'),
             displayedFilterDependencies=dict(artifact='compiled-console-source-context.json',occurrences=7,boundary='Additional protected typeName values also displayed; original filter values retained, no caption projection implemented.'),
-            remainingArtifact='unresolved-consumers.json',nextSelectors='phase145/next-compiled-selectors.json',databaseCallerBinding='dialogue-database-caller-bindings.json',handoffContinuationPhase='0145-work',remainingContext='compiled-tail-source-context.json',consoleContext='compiled-console-source-context.json',playbackContext='compiled-playback-source-context.json',arcContext='compiled-arc-source-context.json',loaderContext='compiled-loader-source-context.json',exceptionPresentation='unknown;ctor-and-throw-proved-only',
+            remainingArtifact='unresolved-consumers.json',nextSelectors='phase146/next-compiled-selectors.json',databaseCallerBinding='dialogue-database-caller-bindings.json',handoffContinuationPhase='0146-work',remainingContext='compiled-final-source-context.json',consoleContext='compiled-console-source-context.json',playbackContext='compiled-playback-source-context.json',arcContext='compiled-arc-source-context.json',loaderContext='compiled-loader-source-context.json',exceptionPresentation='unknown;ctor-and-throw-proved-only',
             commonSourceAccepted=False,translationEntryAllowed=False,editorial='not-run',runtime='not-run',
             boundary='Material subset; neither an accepted full source family nor a visible translation denominator. Targets and textures unchanged.')),
     }
     result.update(extra)
     result.update({name:j(value) for name,value in tail_outputs.items()})
+    result.update({name:j(value) for name,value in final_outputs.items()})
     result.update({name:j(value) for name,value in remaining_outputs.items()})
     result.update({name:j(value) for name,value in command_outputs.items() if name!='phase138/compiled-role-decisions.json'})
     result.update({name:j(value) for name,value in console_outputs.items() if name!='phase139/compiled-role-decisions.json'})

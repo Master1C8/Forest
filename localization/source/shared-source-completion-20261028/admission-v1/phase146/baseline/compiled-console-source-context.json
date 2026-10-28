@@ -1,0 +1,1678 @@
+{
+  "schemaVersion": 1,
+  "phase": "0139-work",
+  "occurrences": 110,
+  "methods": 32,
+  "groups": [
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)",
+      "key": "DialogueCommands::Find",
+      "producerBodySha256": "0a61d47f7c29b37801ab0d2b00f5a28ae1b6b191ece3c8d632158b838a171302",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_01a0",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_01ac",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_0210",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_023b"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_01a0",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_01ac"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_0210",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Find(System.String)/IL_023b"
+      ],
+      "contract": "Query is lowercased and split on char32. Lowercased Dialogue.dbName is scored; QueueNode stores the original numeric conversation ID and that lowercased name. Header is top + limit10 + matching dialogues. Negative-priority rows alone print (absolute score) padded ID name, at most10 rows. {0,-5} pads the numeric ID; outer slots are score, padded ID, conversationTitle. Dynamic dbName remains a lookup identity even when printed.",
+      "consumerInstructions": [
+        {
+          "offset": 223,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 406,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 433,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 438,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 502,
+          "opcode": "stsfld",
+          "operand": "System.Comparison`1<TheForestOfLove.DevConsoleCommands/DialogueCommands/QueueNode> TheForestOfLove.DevConsoleCommands/DialogueCommands/<>c::<>9__2_0"
+        },
+        {
+          "offset": 545,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 603,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 620,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)",
+      "key": "DialogueCommands::Info",
+      "producerBodySha256": "12aa40c08671f34bcfe118f4390b0e58e50b06d5a8b9d21538d9080079f5764f",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_001b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_008e",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_009a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_00af",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_00c8",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_00cf",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_011d",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0124",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0155",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_015c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_018d",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0194",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_01ce",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_01d5",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0212",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0219",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0252",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_02d9",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_02e0",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_030f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0328",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_032f"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_001b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_008e",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_00cf",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0124",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_015c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0194",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_01d5",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0219",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_02e0",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0328",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_032f"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_009a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_00af",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_00c8",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_011d",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0155",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_018d",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_01ce",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0212",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_0252",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_02d9",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Info(System.Int32)/IL_030f"
+      ],
+      "contract": "Missing ID prints error. Header = prefix + numeric ID + separator + dbName. Four-space indent is local V4; wrappers {0}{1} join indent and content. Quest-type200 template slots = dialogueType, quest.dbName, quest.status; otherwise type only. Other captions format status, primaryActorDbName and conditional initialActorDbName. Named arcs print customName with doubled indent. Named triggers print triggerPluginDbName and ready/fired selected by IsTriggerFired; {0}{1} ({2}) = double indent, trigger identity, selected status. These status words never feed the trigger lookup.",
+      "consumerInstructions": [
+        {
+          "offset": 39,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 132,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 165,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 170,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 250,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 255,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 269,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 308,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 313,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 327,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 364,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 369,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 383,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 415,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 420,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 434,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 480,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 485,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 499,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 542,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 556,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 603,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 615,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 629,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 741,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 755,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 792,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 820,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 834,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Raw(System.Int32,System.String)",
+      "key": "DialogueCommands::Raw",
+      "producerBodySha256": "c7abe781f1df8cafe892dcae73068961efa5eea5acc7d77630550a2b90121995",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Raw(System.Int32,System.String)/IL_001b"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Raw(System.Int32,System.String)/IL_001b"
+      ],
+      "preserveIds": [],
+      "contract": "Missing numeric dialogue ID emits error prefix + ID; success passes original dbName and optional arc argument to DialogueService.PlayDialogue and closes console. Error prefix is independent of the lookup/control identity.",
+      "consumerInstructions": [
+        {
+          "offset": 39,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Play(System.Int32,System.String)",
+      "key": "DialogueCommands::Play",
+      "producerBodySha256": "e8de3aef2c443dd6618eb5e3683bbb8f925609f778ac3e0d46c5adbacca44549",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Play(System.Int32,System.String)/IL_001b"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Play(System.Int32,System.String)/IL_001b"
+      ],
+      "preserveIds": [],
+      "contract": "Missing numeric dialogue ID emits error prefix + ID; success sends selected Dialogue and trimmed optional arc to StoryManager.PlayDialogue. Preserve identities/precondition flags, translate only error wording after gates.",
+      "consumerInstructions": [
+        {
+          "offset": 39,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Complete(System.Int32)",
+      "key": "DialogueCommands::Complete",
+      "producerBodySha256": "920775889a61ea475ad5b5aaba85e6001d4b87c9624674f5cf5794cc04abdc4c",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Complete(System.Int32)/IL_001b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Complete(System.Int32)/IL_0054"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Complete(System.Int32)/IL_001b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Complete(System.Int32)/IL_0054"
+      ],
+      "preserveIds": [],
+      "contract": "Missing numeric dialogue ID emits error. Success uses original dbName in MarkConversationsAsPlayed then logs completion prefix + numeric ID.",
+      "consumerInstructions": [
+        {
+          "offset": 39,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 96,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 101,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Reset(System.Int32)",
+      "key": "DialogueCommands::Reset",
+      "producerBodySha256": "2fb7870948e1357b8851cd896135eb765b0ce202be55e9a2040538fd68d2f31a",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Reset(System.Int32)/IL_0018",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Reset(System.Int32)/IL_0035"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Reset(System.Int32)/IL_0018",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Reset(System.Int32)/IL_0035"
+      ],
+      "preserveIds": [],
+      "contract": "ResetConversation(id) boolean selects success or error prefix; each concatenates numeric ID. Reset state and DevCommandActive flag do not consume either prefix.",
+      "consumerInstructions": [
+        {
+          "offset": 36,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 41,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 65,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 70,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Test(System.String)",
+      "key": "DialogueCommands::Test",
+      "producerBodySha256": "e21b6db8abfde41a56a74ba6a115404f094ede446dc71b4f1909a8b06217b387",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Test(System.String)/IL_000a"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::Test(System.String)/IL_000a"
+      ],
+      "contract": "GetConversation(system/testconvo) on current defaultDatabase; null emits existing prior diagnostic-classified IL001d, success forwards returned Title plus caller arc to DialogueService.PlayDialogue. Original stored record is conversation43 at /conversations/240 in both copies. Runtime default DB construction/replacement remains separate. The prior IL001d role is retained exactly but its visible LogError sink is a source finding requiring later adjudication; this phase does not overwrite prior roles.",
+      "consumerInstructions": [
+        {
+          "offset": 15,
+          "opcode": "callvirt",
+          "operand": "PixelCrushers.DialogueSystem.Conversation PixelCrushers.DialogueSystem.DialogueDatabase::GetConversation(System.String)"
+        },
+        {
+          "offset": 34,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::.cctor()",
+      "key": "DialogueCommands::.cctor",
+      "producerBodySha256": "a2cd1641f8c0ce159c5a23acbcc9b93453c9c46757f8b4de663845cbc463a609",
+      "bodyEvidence": "../phase138/game-01.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::.cctor()/IL_0006"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DialogueCommands::.cctor()/IL_0006"
+      ],
+      "contract": "List contains quest; Find reads tokensToCountOnce at IL00a9 and Contains at IL00b0 before once-only versus occurrence scoring.",
+      "consumerInstructions": [
+        {
+          "offset": 16,
+          "opcode": "stsfld",
+          "operand": "System.Collections.Generic.List`1<System.String> TheForestOfLove.DevConsoleCommands/DialogueCommands::tokensToCountOnce"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)",
+      "key": "DateCommands::Find",
+      "producerBodySha256": "7e7a38dde1d483015c2d23a24898fe8d19d21d2e1286001000ff32123aa6afa6",
+      "bodyEvidence": "../phase138/game-02.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_01b7",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_01c3",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_0227",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_0252"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_01b7",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_01c3"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_0227",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::Find(System.String)/IL_0252"
+      ],
+      "contract": "Filters dialogues to dialogueType500 then ranks lowercase dbName by query tokens. Header top +10+ matching dialogues; each matching row = absolute score, padded original pluginDbConversation.id, lowercased dbName. Queue constructor preserves ID/title. Dynamic database name stays an identity.",
+      "consumerInstructions": [
+        {
+          "offset": 240,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 429,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 456,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 461,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 525,
+          "opcode": "stsfld",
+          "operand": "System.Comparison`1<TheForestOfLove.DevConsoleCommands/DateCommands/QueueNode> TheForestOfLove.DevConsoleCommands/DateCommands/<>c::<>9__2_0"
+        },
+        {
+          "offset": 568,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 626,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 643,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DateCommands::List()",
+      "key": "DateCommands::List",
+      "producerBodySha256": "1eb193c067637ef4b161fdb898b664d44c3c86eca92ff97725e4a4794233e128",
+      "bodyEvidence": "../phase138/game-02.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::List()/IL_00f2",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::List()/IL_0114"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::List()/IL_00f2",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::List()/IL_0114"
+      ],
+      "contract": "Only dialogueType500. Output {0,-5} formats original plugin conversation ID; {0} {1} joins padded ID and lowercased dbName. It is layout without lexical wording.",
+      "consumerInstructions": [
+        {
+          "offset": 171,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 203,
+          "opcode": "stsfld",
+          "operand": "System.Comparison`1<TheForestOfLove.Narrative.Dialogue> TheForestOfLove.DevConsoleCommands/DateCommands/<>c::<>9__3_0"
+        },
+        {
+          "offset": 264,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 285,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 300,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)",
+      "key": "DateCommands::ForceNext",
+      "producerBodySha256": "56f04a88be5f1eed315f7c42b99a069ff3189280562aa044f80ae3005a91fdfa",
+      "bodyEvidence": "../phase138/game-02.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_0021",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_004a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_0056",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_008f"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_0021",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_004a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_0056",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::ForceNext(System.Int32)/IL_008f"
+      ],
+      "preserveIds": [],
+      "contract": "Calls dialogue Reset, checks ID and type500; errors assemble prefix + numeric ID (+ non-date suffix). Debug Date prefix joins dbName into debugDateName UI.Text only if both instance and Text are nonnull. dbName separately writes Globals.Debug_ForceSpawnDate_DialogueDbName; never replace that state with the caption.",
+      "consumerInstructions": [
+        {
+          "offset": 45,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 50,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 91,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 96,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 154,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 159,
+          "opcode": "callvirt",
+          "operand": "System.Void UnityEngine.UI.Text::set_text(System.String)"
+        },
+        {
+          "offset": 170,
+          "opcode": "stsfld",
+          "operand": "System.String Globals::Debug_ForceSpawnDate_DialogueDbName"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/DateCommands::.cctor()",
+      "key": "DateCommands::.cctor",
+      "producerBodySha256": "ba0ffd8e592406a11374ea0ec092b6220794ed4611803584472bc85603e7fde6",
+      "bodyEvidence": "../phase138/game-02.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::.cctor()/IL_0006",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::.cctor()/IL_0011"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::.cctor()/IL_0006",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/DateCommands::.cctor()/IL_0011"
+      ],
+      "contract": "quest and date populate tokensToCountOnce. Find reads list at IL00ba/Contains IL00c1; keys change ranking, not header wording.",
+      "consumerInstructions": [
+        {
+          "offset": 27,
+          "opcode": "stsfld",
+          "operand": "System.Collections.Generic.List`1<System.String> TheForestOfLove.DevConsoleCommands/DateCommands::tokensToCountOnce"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::List()",
+      "key": "QuestCommands::List",
+      "producerBodySha256": "ef0d4ab428da5a093d23457ccbd796c3466b15b06eaa870685444c5501b96496",
+      "bodyEvidence": "../phase138/game-03.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::List()/IL_00b1",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::List()/IL_00ce"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::List()/IL_00b1",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::List()/IL_00ce"
+      ],
+      "contract": "Enumerates GetQuests with mock IDs starting0, at most10. Format ID as {0,-5}; row = absolute queue priority, padded mock ID, original quest.dbName, quest.status. Status is boxed enum; title is stored by QueueNode constructor. Preserve dynamic identities and ordinal mock ID mapping.",
+      "consumerInstructions": [
+        {
+          "offset": 194,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 273,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object[])"
+        },
+        {
+          "offset": 289,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)",
+      "key": "QuestCommands::Find",
+      "producerBodySha256": "325789c7bfdadb762154ead7ac30ae247924771934e347d842edef027a7fa6aa",
+      "bodyEvidence": "../phase138/game-03.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_013b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_0147",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_01f3",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_021e"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_013b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_0147"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_01f3",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Find(System.String)/IL_021e"
+      ],
+      "contract": "Lowercase query split char32, score nonempty lowercase quest.dbName; preserve enumeration-derived mock ID. Header top+10+matching quests; negative score rows print absolute score, padded mock ID, stored lowercase title. Layout stays separate from wording.",
+      "consumerInstructions": [
+        {
+          "offset": 195,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 305,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 332,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 337,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 403,
+          "opcode": "stsfld",
+          "operand": "System.Comparison`1<TheForestOfLove.DevConsoleCommands/QuestCommands/QueueNode`1<TheForestOfLove.Narrative.Quest>> TheForestOfLove.DevConsoleCommands/QuestCommands/<>c::<>9__3_0"
+        },
+        {
+          "offset": 516,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 574,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 591,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)",
+      "key": "QuestCommands::Info",
+      "producerBodySha256": "4ba03526bb59c92d3e304e2cad26c0e22fc5ed2fda799620a0e66948c0144759",
+      "bodyEvidence": "../phase138/game-03.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_000f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_0082",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_008e",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_00a3",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_00af",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_00b6",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_013d",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_0144"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_000f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_0082",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_00b6",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_0144"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_008e",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_00a3",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_00af",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Info(System.Int32)/IL_013d"
+      ],
+      "contract": "GetQuestByMockId result controls missing error. Header prefix + mock ID + separator + dbName. Four-space indent wraps status template and steps completed template; completed count includes dialogue statuses200 or300, denominator is dialogues.Count. Preserve counts and status/identity values.",
+      "consumerInstructions": [
+        {
+          "offset": 27,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 32,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 120,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 153,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 158,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 198,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object)"
+        },
+        {
+          "offset": 203,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 217,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        },
+        {
+          "offset": 352,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 357,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 371,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Complete(System.Int32)",
+      "key": "QuestCommands::Complete",
+      "producerBodySha256": "f883d16e82e7c5fd087bff95e29cf2c67a7238008875c90cd809fcb3f04ae0f6",
+      "bodyEvidence": "../phase138/game-03.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Complete(System.Int32)/IL_000f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Complete(System.Int32)/IL_003d"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Complete(System.Int32)/IL_000f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Complete(System.Int32)/IL_003d"
+      ],
+      "preserveIds": [],
+      "contract": "Missing mock ID error; success SetStatusCompleted then completion prefix+ID in LogWarning. Preserve mock ID/state.",
+      "consumerInstructions": [
+        {
+          "offset": 27,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 32,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 73,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 78,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Reset(System.Int32)",
+      "key": "QuestCommands::Reset",
+      "producerBodySha256": "3e9b45433dbe38513fb69410a709a58548e405084c58e1cfbeefe6dfd298ffe9",
+      "bodyEvidence": "../phase138/game-03.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Reset(System.Int32)/IL_000f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Reset(System.Int32)/IL_003d"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Reset(System.Int32)/IL_000f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::Reset(System.Int32)/IL_003d"
+      ],
+      "preserveIds": [],
+      "contract": "Missing mock ID error; success Reset then reset prefix+ID in LogWarning. Preserve mock ID/state.",
+      "consumerInstructions": [
+        {
+          "offset": 27,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 32,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 73,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 78,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::.cctor()",
+      "key": "QuestCommands::.cctor",
+      "producerBodySha256": "a7aa517b47bcccd81bcbcbcde48cdf8d3c8a12e88ebe2a20a44d08acb9151826",
+      "bodyEvidence": "../phase138/game-03.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::.cctor()/IL_0006"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/QuestCommands::.cctor()/IL_0006"
+      ],
+      "contract": "quest list goes into tokensToCountOnce; Find IL008b/0092 controls once-only ranking.",
+      "consumerInstructions": [
+        {
+          "offset": 16,
+          "opcode": "stsfld",
+          "operand": "System.Collections.Generic.List`1<System.String> TheForestOfLove.DevConsoleCommands/QuestCommands::tokensToCountOnce"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Add(System.String)",
+      "key": "InventoryCommands::Add",
+      "producerBodySha256": "674ad129ebe8a06c4be0a9ad7435449b6173ca464c3928e3ca1d7b0c33e04a9a",
+      "bodyEvidence": "../phase138/game-05.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Add(System.String)/IL_0022",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Add(System.String)/IL_0081"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Add(System.String)/IL_0081"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Add(System.String)/IL_0022"
+      ],
+      "contract": "Each activeSchema.dbName removes spaces and lowercases, compared to lowercased caller input. Success uses itemType for AddInventoryItem; missing match logs prefix + original input. Do not translate normalized command name or type.",
+      "consumerInstructions": [
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 135,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 140,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)",
+      "key": "InventoryCommands::PlayerHas",
+      "producerBodySha256": "04bb6c1114de94058ec394ebfeb050a4e6a9acb0c2c4c14d6f79e9bb44da1fe7",
+      "bodyEvidence": "../phase138/game-05.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_0022",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_0075",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_008b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_00a1"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_0075",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_008b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_00a1"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::PlayerHas(System.String)/IL_0022"
+      ],
+      "contract": "Same dbName normalization and comparison as Add. Original itemType passes to PlayerHasItem; true and false select distinct message prefixes, both LogError in this original. Unknown input is third error. Preserve truth/negation and original input independently of log severity.",
+      "consumerInstructions": [
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 123,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 128,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 145,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 150,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        },
+        {
+          "offset": 167,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 172,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Remove(System.String)",
+      "key": "InventoryCommands::Remove",
+      "producerBodySha256": "dec0e536c31d2aa239699ba2dff59ecb03ce96e6db1e20d5fac6384e287d972b",
+      "bodyEvidence": "../phase138/game-05.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Remove(System.String)/IL_0022",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Remove(System.String)/IL_0081"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Remove(System.String)/IL_0081"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Remove(System.String)/IL_0022"
+      ],
+      "contract": "Same name normalization as Add, success RemoveInventoryItem by itemType. Unknown prefix + caller input is actual LogError output.",
+      "consumerInstructions": [
+        {
+          "offset": 44,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 135,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 140,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)",
+      "key": "InventoryCommands::Search",
+      "producerBodySha256": "0016af53cbdca807c6b3ef7313dd332f93ca76e0ed4b91be169c66a67fc5cb81",
+      "bodyEvidence": "../phase138/game-05.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_005c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_018f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_019b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_0204",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_0227"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_018f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_019b"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_005c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_0204",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/InventoryCommands::Search(System.String)/IL_0227"
+      ],
+      "contract": "Search string = dbName + space + description, lowercased. Inactive schemas skipped; query ranks by token occurrence. Header top+10+matching items. Row slots = absolute priority, dbName.Replace(space,empty).ToLower(), description. First space is search corpus join; second is protected normalization operand. Outer pipe/parentheses/spaces are display layout.",
+      "consumerInstructions": [
+        {
+          "offset": 104,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 213,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 389,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 416,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 421,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 485,
+          "opcode": "stsfld",
+          "operand": "System.Comparison`1<TheForestOfLove.DevConsoleCommands/InventoryCommands/QueueNode> TheForestOfLove.DevConsoleCommands/InventoryCommands/<>c::<>9__7_0"
+        },
+        {
+          "offset": 561,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 583,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 600,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)",
+      "key": "ChapterCommands::Search",
+      "producerBodySha256": "2d1cbe5b72af83bcef2cdcdef3e754b07928385af0c719d999cf347526ef5ac6",
+      "bodyEvidence": "../phase138/game-06.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_0057",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_018a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_0196",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_01ff"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_018a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_0196"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_0057",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Search(System.String)/IL_01ff"
+      ],
+      "contract": "Search string = title + space + description, lowercased; isHiddenInList entries skipped. Header top+10+matching chapters. Row slots = absolute priority, title, description. Search delimiter is not a visible separator; outer pipe format is.",
+      "consumerInstructions": [
+        {
+          "offset": 99,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 208,
+          "opcode": "callvirt",
+          "operand": "System.String System.String::Replace(System.String,System.String)"
+        },
+        {
+          "offset": 384,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)"
+        },
+        {
+          "offset": 411,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        },
+        {
+          "offset": 416,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 480,
+          "opcode": "stsfld",
+          "operand": "System.Comparison`1<TheForestOfLove.DevConsoleCommands/ChapterCommands/QueueNode> TheForestOfLove.DevConsoleCommands/ChapterCommands/<>c::<>9__2_0"
+        },
+        {
+          "offset": 558,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 575,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Unlock(System.String)",
+      "key": "ChapterCommands::Unlock",
+      "producerBodySha256": "eed82340fbaa8b3657771b2459a89cab908861b94f64825feed0b981559fbf2c",
+      "bodyEvidence": "../phase138/game-06.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Unlock(System.String)/IL_0059"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/ChapterCommands::Unlock(System.String)/IL_0059"
+      ],
+      "preserveIds": [],
+      "contract": "Original compares input.ToLower() with input.Trim() after null/hidden checks (IL0026-0037), not with ChapterRecord.title. Preserve this source anomaly. Missing record logs prefix + caller input; success uses unlockStopPoint/respawnInScene for DoChapterSelect. No gameplay fix is authorized.",
+      "consumerInstructions": [
+        {
+          "offset": 95,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 100,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "key": "StatsCommands::Stats_GenerateStats",
+      "producerBodySha256": "b7ac9545fe6dbc1c73732daaa5092bdefcf4dd8b32f8c3f3c3fb87122c55df5f",
+      "bodyEvidence": "../phase138/game-08.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0006",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0017",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0028",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0039",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_004a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_005c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_006e"
+      ],
+      "wordingIds": [],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0006",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0017",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0028",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0039",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_004a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_005c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_006e"
+      ],
+      "contract": "Seven entries correspond to quest/date/gossip/gift/manual/final-idle/player-choice dialogue queries. Caller filter string splits on char38 ampersand, passes same token list to GenerateTags and PrintUnplayed. typeName feeds FilterDialogueTypes lowercase Contains and PrintStats slot2; filtered header also prints original name. Keep typeName field exact; future caption projection must retain original filters.",
+      "consumerInstructions": [
+        {
+          "offset": 11,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        },
+        {
+          "offset": 28,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        },
+        {
+          "offset": 45,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        },
+        {
+          "offset": 62,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        },
+        {
+          "offset": 79,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        },
+        {
+          "offset": 97,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        },
+        {
+          "offset": 115,
+          "opcode": "stfld",
+          "operand": "System.String TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry::typeName"
+        }
+      ]
+    },
+    {
+      "method": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)",
+      "key": "StatsCommands::Stats_GenerateTags",
+      "producerBodySha256": "5bffd160db6feb2d2ba26254128d48525786faadc3423921fb8c879e24253411",
+      "bodyEvidence": "../phase138/game-08.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_014a",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_0160",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_0177",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_018d",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_01a4",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_01c3"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_014a",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_0160",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_0177",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_018d",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_01a4",
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateTags(System.Collections.Generic.List`1<System.String>,System.String&)/IL_01c3"
+      ],
+      "preserveIds": [],
+      "contract": "Input equality keys act1/act2/act3/nonlinear/adventure/all remain prior protected comparison operands. Each branch updates tag list and writes an independent caption through arg1 stind.ref. Six captions go via GenerateStats V8 to PrintStats arg2 or PrintUnplayed arg3. Original order and last recognized caption wins while tags reset; do not translate tag IDs or filter keys.",
+      "consumerInstructions": [
+        {
+          "offset": 335,
+          "opcode": "stind.ref",
+          "operand": null
+        },
+        {
+          "offset": 357,
+          "opcode": "stind.ref",
+          "operand": null
+        },
+        {
+          "offset": 380,
+          "opcode": "stind.ref",
+          "operand": null
+        },
+        {
+          "offset": 402,
+          "opcode": "stind.ref",
+          "operand": null
+        },
+        {
+          "offset": 425,
+          "opcode": "stind.ref",
+          "operand": null
+        },
+        {
+          "offset": 456,
+          "opcode": "stind.ref",
+          "operand": null
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)",
+      "key": "StatsCommands::PrintUnplayed",
+      "producerBodySha256": "41668cc29eb4ff9543fb7a478fc97da1a6e0b668046931ad3dd8160db945a9c1",
+      "bodyEvidence": "../phase138/game-08.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_005c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_0064",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_0081",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_009c"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_005c",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_0064"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_0081",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintUnplayed(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String,System.Int32)/IL_009c"
+      ],
+      "contract": "First calls FilterDialogueTypes with separate byref caption. Header slots = Actor.dbName or All Actors; optional leading-space+GenerateTags caption; optional leading-space+type-filter caption. Whitespace tokens are display layout. Entries print notCompleted.dbName until requested positive limit; no category caption is emitted for each row here.",
+      "consumerInstructions": [
+        {
+          "offset": 135,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 162,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 167,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 172,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 257,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_FilterDialogueTypes(System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String&)",
+      "key": "StatsCommands::Stats_FilterDialogueTypes",
+      "producerBodySha256": "1ec86746ddfaf855f28d42c36140bbf23fbd4ef617a169570b5540a413ba1945",
+      "bodyEvidence": "../phase138/game-08.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_FilterDialogueTypes(System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String&)/IL_0069"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry> TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_FilterDialogueTypes(System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.Collections.Generic.List`1<System.String>,System.String&)/IL_0069"
+      ],
+      "preserveIds": [],
+      "contract": "Ignores blank or trimmed-length<3 tokens. Compares typeName.ToLower().Contains(token.ToLower()) using original token (not Trim result). Each unique matched entry appends {previous} & type {typeName} through byref output; PrintUnplayed displays it. If no matches, returns original list. This template is caption wording, not a filter parser.",
+      "consumerInstructions": [
+        {
+          "offset": 119,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 124,
+          "opcode": "stind.ref",
+          "operand": null
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)",
+      "key": "StatsCommands::PrintStats",
+      "producerBodySha256": "e826cbfba649ac97fadf2f80b0f549f3a6621122e74685f84d49cceb2dc612ea",
+      "bodyEvidence": "../phase138/game-08.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)/IL_004b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)/IL_0053",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)/IL_0084"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)/IL_004b",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)/IL_0053"
+      ],
+      "preserveIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::PrintStats(TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.DevConsoleCommands/StatsCommands/StatEntry>,System.String)/IL_0084"
+      ],
+      "contract": "Header slots = Actor.dbName or All Actors, GenerateTags caption. Nonzero totals print {completed.Count+invalidated.Count} / {total} {typeName}. Placeholder-only row format is protected layout, typeName remains displayed filter identity; runtime totals are not translated wording.",
+      "consumerInstructions": [
+        {
+          "offset": 97,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object)"
+        },
+        {
+          "offset": 102,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        },
+        {
+          "offset": 206,
+          "opcode": "call",
+          "operand": "System.String System.String::Format(System.String,System.Object,System.Object,System.Object)"
+        },
+        {
+          "offset": 224,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Set(System.String)",
+      "key": "TriggersCommands::Set",
+      "producerBodySha256": "43f1856bb50e48f7df1bedb238607713cfb2a26d5ae3d4756875283b32b7e128",
+      "bodyEvidence": "../phase138/game-09.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Set(System.String)/IL_000b"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Set(System.String)/IL_000b"
+      ],
+      "preserveIds": [],
+      "contract": "Original caller key goes first to SetTrigger; independent prefix + same original key then LogWarning. Prefix is wording; key remains unchanged.",
+      "consumerInstructions": [
+        {
+          "offset": 17,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 22,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Reset(System.String)",
+      "key": "TriggersCommands::Reset",
+      "producerBodySha256": "2204b2ad966ae527d90b9571b35716fe5a85929b6e72a1a723da7bedb954c806",
+      "bodyEvidence": "../phase138/game-09.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Reset(System.String)/IL_0015"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Reset(System.String)/IL_0015"
+      ],
+      "preserveIds": [],
+      "contract": "Original key goes to GetTriggerByName then optional ResetTriggerDevtoolsOnly. Prefix+original key logs even if lookup null. No claim that message proves reset succeeded.",
+      "consumerInstructions": [
+        {
+          "offset": 27,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 32,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)",
+      "key": "TriggersCommands::Info",
+      "producerBodySha256": "97c30665a9f38f2cedf1af5c508abd1ae55fd6ec3ee2b4e62c3fd2e69d6816d1",
+      "bodyEvidence": "../phase138/game-09.il",
+      "ids": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_0018",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_001f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_002a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_0030"
+      ],
+      "wordingIds": [
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_0018",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_001f",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_002a",
+        "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/TriggersCommands::Info(System.String)/IL_0030"
+      ],
+      "preserveIds": [],
+      "contract": "GetTriggerByName original input key; null leaves status String.Empty. Existing trigger IsActivated chooses not set or set, stored locally. Output trigger + input + is + status via Concat4/LogWarning. These selected statuses never become state/lookup values.",
+      "consumerInstructions": [
+        {
+          "offset": 54,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 59,
+          "opcode": "callvirt",
+          "operand": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)"
+        }
+      ]
+    }
+  ],
+  "displayedFilterDependencies": [
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0006",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 6,
+      "sourceLine": 1297,
+      "sourceValueSha256": "f4358c47cc8c88d721b81b9713e93b3670d98f1b06c351b04cf3ea7d4c640b80",
+      "source": "quest",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0017",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 23,
+      "sourceLine": 1298,
+      "sourceValueSha256": "e9a1b6946539eafb0979c6151fc2848d28154453cac162b73845b2a28144c7b4",
+      "source": "date",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0028",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 40,
+      "sourceLine": 1299,
+      "sourceValueSha256": "091a0adcd22568db8e7ed4171475ab5e2b3df80acc5c2bb7fc0a9b640b9e1b09",
+      "source": "gossip",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_0039",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 57,
+      "sourceLine": 1300,
+      "sourceValueSha256": "93fc7a8caa6fb9a35e5f93b2993b1d3d44b430de19f8e2008be5ff252f7446a6",
+      "source": "gift",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_004a",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 74,
+      "sourceLine": 1301,
+      "sourceValueSha256": "73d805be762751aa4785797620b276477490af34ab027cbfcb75c1004dc63ded",
+      "source": "manual",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_005c",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 92,
+      "sourceLine": 1302,
+      "sourceValueSha256": "b10fafe6140fb562f0e5818c5b0981fd389c357f3b8fd83ad7e3f34bc8c0da86",
+      "source": "final idles",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)/IL_006e",
+      "method": "System.Void TheForestOfLove.DevConsoleCommands/StatsCommands::Stats_GenerateStats(System.String,TheForestOfLove.Narrative.Actor,System.Int32)",
+      "offset": 110,
+      "sourceLine": 1303,
+      "sourceValueSha256": "195ee6162ed21b96a8a3c5df5b6bf0333d4e2f02bc7c738a47c5034d0a74ed17",
+      "source": "player choice",
+      "role": "preserve-visible-filter-identity",
+      "input": "Stats_FilterDialogueTypes IL0047-0057 lowercase typeName.Contains(query)",
+      "display": "PrintStats IL00c9 -> Format slot2 -> Log; Stats_FilterDialogueTypes IL0072 -> byref caption -> PrintUnplayed header",
+      "adaptation": "Preserve typeName filter value; future display-only caption mapping must retain this full seven-entry group."
+    }
+  ],
+  "retainedSourceFindings": [
+    {
+      "method": "DialogueCommands::Test",
+      "offset": "IL_001d",
+      "finding": "Existing prior preserve-diagnostic role retained; actual LogError is visible. Needs later exact-role adjudication, not an absence claim."
+    },
+    {
+      "method": "ChapterCommands::Unlock",
+      "offsets": "IL_0026-0037",
+      "finding": "Original compares input.ToLower with input.Trim, not ChapterRecord.title; no repair made."
+    }
+  ],
+  "testConversation": {
+    "schemaVersion": 1,
+    "key": "system/testconvo",
+    "copies": [
+      {
+        "tree": "assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json",
+        "treeSha256": "41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b",
+        "pointer": "/conversations/240/fields/0/value",
+        "object": "sharedassets0.assets:3336",
+        "conversationId": 43,
+        "field": {
+          "title": "Title",
+          "value": "system/testconvo",
+          "type": 0,
+          "typeString": "CustomFieldType_Text"
+        },
+        "entryCount": 8,
+        "exactTitleMatches": [
+          {
+            "index": 240,
+            "id": 43
+          }
+        ]
+      },
+      {
+        "tree": "assets/source-v2/trees/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--9011735310751668748.json",
+        "treeSha256": "681f46d62ff8263ff599ef59a52818a60371223c3e27b87fdd41fe7ec37d4615",
+        "pointer": "/conversations/240/fields/0/value",
+        "object": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748",
+        "conversationId": 43,
+        "field": {
+          "title": "Title",
+          "value": "system/testconvo",
+          "type": 0,
+          "typeString": "CustomFieldType_Text"
+        },
+        "entryCount": 8,
+        "exactTitleMatches": [
+          {
+            "index": 240,
+            "id": 43
+          }
+        ]
+      }
+    ],
+    "boundary": "Exact original stored title match and source selection. Runtime default database replacement/actual test reachability not executed; no dialogue source acceptance.",
+    "dependentFrozenIds": [
+      "ds:43:8:Dialogue Text",
+      "ds:43:9:Dialogue Text",
+      "ds:43:10:Dialogue Text",
+      "ds:43:11:Dialogue Text",
+      "ds:43:13:Dialogue Text",
+      "ds:43:14:Dialogue Text"
+    ],
+    "selectionBoundary": "Both Title-key cache and fallback equality choose the unique original conversation43. Stored source selection only; actual current defaultDatabase construction/activation is not run."
+  },
+  "boundary": "Complete selected role/wording/preserve/context membership. Actual reachability/rendering, whole-family special cases and source admission remain pending."
+}

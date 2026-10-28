@@ -1,0 +1,1087 @@
+{
+  "schemaVersion": 1,
+  "phase": "0143-work",
+  "scope": "Both original database copies: globalUserScript and every conditionsString/userScript, including empty slots.",
+  "counts": {
+    "slotsPerCopy": 32793,
+    "emptyPerCopy": 32752,
+    "globalUserScriptEmpty": 1,
+    "conditionsStringEmpty": 16357,
+    "userScriptEmpty": 16394,
+    "nonemptyPerCopy": 41,
+    "conditionsStringNonempty": 39,
+    "userScriptNonempty": 2
+  },
+  "nonemptyLogicalPrograms": 41,
+  "physicalNonemptyPrograms": 82,
+  "distinctExpressions": 8,
+  "programs": [
+    {
+      "pointer": "/conversations/2/dialogueEntries/31/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 0",
+      "sourceValueSha256": "cd1b8c8f02947d389ef3ebd95662f02d2632a70d869c6f0101c5e1ef8422ebe2",
+      "conversationId": 61,
+      "entryId": 212,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/2/dialogueEntries/31/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/2/dialogueEntries/31/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "0"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/2/dialogueEntries/45/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 1",
+      "sourceValueSha256": "b1ced878c3733802627761906a7918b1c45673922efa28e01328ff701ea52689",
+      "conversationId": 61,
+      "entryId": 230,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/2/dialogueEntries/45/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/2/dialogueEntries/45/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "1"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/2/dialogueEntries/46/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 2",
+      "sourceValueSha256": "b65fd7d7acb9cdb352a8de23e62380ebe84903692cb9494963b68b52526285d2",
+      "conversationId": 61,
+      "entryId": 231,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/2/dialogueEntries/46/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/2/dialogueEntries/46/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "2"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/24/dialogueEntries/24/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 143,
+      "entryId": 179,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/24/dialogueEntries/24/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/24/dialogueEntries/24/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/101/dialogueEntries/7/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 21,
+      "entryId": 770,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/101/dialogueEntries/7/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/101/dialogueEntries/7/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/149/dialogueEntries/3/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 254,
+      "entryId": 134,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/149/dialogueEntries/3/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/149/dialogueEntries/3/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/149/dialogueEntries/15/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 254,
+      "entryId": 146,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/149/dialogueEntries/15/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/149/dialogueEntries/15/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/201/dialogueEntries/12/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 140,
+      "entryId": 271,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/201/dialogueEntries/12/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/201/dialogueEntries/12/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/201/dialogueEntries/13/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 140,
+      "entryId": 272,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/201/dialogueEntries/13/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/201/dialogueEntries/13/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/216/dialogueEntries/2/userScript",
+      "source": "Variable[\"mouse/treeId\"] = 777",
+      "sourceValueSha256": "9da814588b5e4ed00d67ced31af708ca8e552377949a5858886a45849c8ecfe9",
+      "conversationId": 108,
+      "entryId": 116,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/216/dialogueEntries/2/userScript",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/216/dialogueEntries/2/userScript"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [],
+        "writes": [
+          {
+            "table": "Variable",
+            "key": "mouse/treeId",
+            "value": 777
+          }
+        ],
+        "sink": "Lua-variable-store"
+      }
+    },
+    {
+      "pointer": "/conversations/216/dialogueEntries/10/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 108,
+      "entryId": 773,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/216/dialogueEntries/10/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/216/dialogueEntries/10/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/229/dialogueEntries/2/userScript",
+      "source": "x = math.random(100)",
+      "sourceValueSha256": "9a22f7ef27245beab03fe7086a8e952503e5fce7b918efc9b8fcb19b27032abb",
+      "conversationId": 111,
+      "entryId": 7,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/229/dialogueEntries/2/userScript",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/229/dialogueEntries/2/userScript"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "call": "math.random",
+            "arguments": [
+              100
+            ]
+          }
+        ],
+        "writes": [
+          {
+            "globalName": "x"
+          }
+        ],
+        "sink": "Lua-global-store"
+      }
+    },
+    {
+      "pointer": "/conversations/229/dialogueEntries/4/conditionsString",
+      "source": "x <= 50",
+      "sourceValueSha256": "191d7367b999eeddc2d0458d1df6b5cf170ab29eecf4a6fee9a1c2550c895c9f",
+      "conversationId": 111,
+      "entryId": 9,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/229/dialogueEntries/4/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/229/dialogueEntries/4/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "globalName": "x"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "<=",
+          "value": 50
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/239/dialogueEntries/1/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 0",
+      "sourceValueSha256": "cd1b8c8f02947d389ef3ebd95662f02d2632a70d869c6f0101c5e1ef8422ebe2",
+      "conversationId": 58,
+      "entryId": 1,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/239/dialogueEntries/1/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/1/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "0"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/239/dialogueEntries/18/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 1",
+      "sourceValueSha256": "b1ced878c3733802627761906a7918b1c45673922efa28e01328ff701ea52689",
+      "conversationId": 58,
+      "entryId": 716,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/239/dialogueEntries/18/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/18/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "1"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/239/dialogueEntries/21/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 2",
+      "sourceValueSha256": "b65fd7d7acb9cdb352a8de23e62380ebe84903692cb9494963b68b52526285d2",
+      "conversationId": 58,
+      "entryId": 719,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/239/dialogueEntries/21/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/21/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "2"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/308/dialogueEntries/7/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 310,
+      "entryId": 222,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/308/dialogueEntries/7/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/308/dialogueEntries/7/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/355/dialogueEntries/23/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 357,
+      "entryId": 764,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/355/dialogueEntries/23/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/355/dialogueEntries/23/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/357/dialogueEntries/26/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 359,
+      "entryId": 219,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/357/dialogueEntries/26/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/357/dialogueEntries/26/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/370/dialogueEntries/20/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 372,
+      "entryId": 335,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/370/dialogueEntries/20/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/370/dialogueEntries/20/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/370/dialogueEntries/47/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 372,
+      "entryId": 394,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/370/dialogueEntries/47/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/370/dialogueEntries/47/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/370/dialogueEntries/49/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 372,
+      "entryId": 396,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/370/dialogueEntries/49/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/370/dialogueEntries/49/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/370/dialogueEntries/52/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 372,
+      "entryId": 400,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/370/dialogueEntries/52/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/370/dialogueEntries/52/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/371/dialogueEntries/27/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 373,
+      "entryId": 404,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/371/dialogueEntries/27/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/371/dialogueEntries/27/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/374/dialogueEntries/20/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 376,
+      "entryId": 152,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/374/dialogueEntries/20/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/374/dialogueEntries/20/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/411/dialogueEntries/14/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 412,
+      "entryId": 759,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/411/dialogueEntries/14/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/411/dialogueEntries/14/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/411/dialogueEntries/15/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 412,
+      "entryId": 760,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/411/dialogueEntries/15/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/411/dialogueEntries/15/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/413/dialogueEntries/22/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 414,
+      "entryId": 760,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/413/dialogueEntries/22/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/413/dialogueEntries/22/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/435/dialogueEntries/9/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 436,
+      "entryId": 36,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/435/dialogueEntries/9/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/435/dialogueEntries/9/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/435/dialogueEntries/14/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 436,
+      "entryId": 41,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/435/dialogueEntries/14/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/435/dialogueEntries/14/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/435/dialogueEntries/19/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 436,
+      "entryId": 46,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/435/dialogueEntries/19/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/435/dialogueEntries/19/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/435/dialogueEntries/24/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 436,
+      "entryId": 51,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/435/dialogueEntries/24/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/435/dialogueEntries/24/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/435/dialogueEntries/28/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 436,
+      "entryId": 55,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/435/dialogueEntries/28/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/435/dialogueEntries/28/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/435/dialogueEntries/30/conditionsString",
+      "source": "Variable[\"bool_condition\"] == false",
+      "sourceValueSha256": "7130d808e4cecea177e35d04e14927e2900308dcc3f13a0d3bd47c9434732f0a",
+      "conversationId": 436,
+      "entryId": 57,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/435/dialogueEntries/30/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/435/dialogueEntries/30/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "false"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/442/dialogueEntries/56/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 443,
+      "entryId": 549,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/442/dialogueEntries/56/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/442/dialogueEntries/56/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/460/dialogueEntries/3/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 0",
+      "sourceValueSha256": "cd1b8c8f02947d389ef3ebd95662f02d2632a70d869c6f0101c5e1ef8422ebe2",
+      "conversationId": 472,
+      "entryId": 196,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/460/dialogueEntries/3/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/460/dialogueEntries/3/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "0"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/460/dialogueEntries/13/conditionsString",
+      "source": "Variable[\"branch_condition\"] == 0",
+      "sourceValueSha256": "cd1b8c8f02947d389ef3ebd95662f02d2632a70d869c6f0101c5e1ef8422ebe2",
+      "conversationId": 472,
+      "entryId": 337,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/460/dialogueEntries/13/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/460/dialogueEntries/13/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "branch_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "0"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/513/dialogueEntries/15/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 484,
+      "entryId": 749,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/513/dialogueEntries/15/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/513/dialogueEntries/15/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/521/dialogueEntries/145/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 492,
+      "entryId": 895,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/521/dialogueEntries/145/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/521/dialogueEntries/145/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/556/dialogueEntries/15/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 527,
+      "entryId": 1016,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/556/dialogueEntries/15/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/556/dialogueEntries/15/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    },
+    {
+      "pointer": "/conversations/607/dialogueEntries/8/conditionsString",
+      "source": "Variable[\"bool_condition\"] == true",
+      "sourceValueSha256": "3566d6bf237e7cdff6a1876f1c836ef9c438a473f9ccfab7c17dfe57f3162eab",
+      "conversationId": 578,
+      "entryId": 1023,
+      "occurrences": [
+        "sharedassets0.assets:3336/conversations/607/dialogueEntries/8/conditionsString",
+        "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/607/dialogueEntries/8/conditionsString"
+      ],
+      "analysis": {
+        "status": "parsed-exact-original-expression",
+        "reads": [
+          {
+            "table": "Variable",
+            "key": "bool_condition"
+          }
+        ],
+        "writes": [],
+        "comparison": {
+          "operator": "==",
+          "value": "true"
+        },
+        "sink": "dialogue-entry-condition-result"
+      }
+    }
+  ],
+  "customConversationFieldInputs": [],
+  "unparsedPrograms": [],
+  "boundary": "Complete exact expressions for this pinned database scope only, not a whole-game script/native/reflection absence proof. No Lua/game execution or target semantic judgment."
+}
