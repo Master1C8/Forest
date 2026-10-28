@@ -145,6 +145,7 @@ def read_unit(phase, ident, start):
 
 
 def finalize(phase):
+    verify_required_context(phase)
     packet = rows(phase / 'pairs.jsonl'); by_id = {r['id']: r for r in packet}
     complete, parts = set(), {}
     for path in (phase / 'reads').glob('*.json'):
@@ -269,12 +270,50 @@ def read_compact(phase, start, count=60, max_bytes=24000):
 
 def bootstrap_documents(directory):
     skill = Path('/Users/antonkrutov/.codex/skills/vn-game-localize')
-    return [Path('/Users/antonkrutov/.codex/instructions/sitefor-mods.md'),
+    config = json.loads((directory / 'config.json').read_text())
+    documents = [Path('/Users/antonkrutov/.codex/instructions/sitefor-mods.md'),
         Path('/Users/antonkrutov/.codex/instructions/game-localization-prompt.md'),
         Path('/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md'),
         skill / 'SKILL.md', skill / 'references/COMMON.md', skill / 'references/WORKFLOW.md',
         directory / 'contract.md', directory / 'glossary-en.json',
-        directory / ('glossary-' + json.loads((directory / 'config.json').read_text())['locale'] + '.json')]
+        directory / ('glossary-' + config['locale'] + '.json')]
+    for name in config.get('requiredReviewContextDocuments', []):
+        path = Path(name).resolve()
+        assert path.is_relative_to(Path(config['root']).resolve()), 'Review context outside project'
+        assert config['pins'].get(str(path)) == sha(path), 'Pinned review context changed'
+        if path not in documents:
+            documents.append(path)
+    return documents
+
+
+def bootstrap_payload(directory):
+    documents = bootstrap_documents(directory)
+    text = ''.join('\nDOCUMENT ' + str(p) + '\n' +
+        (encoded(json.loads(p.read_text())) if p.suffix == '.json' else p.read_text())
+        + '\nEND DOCUMENT\n' for p in documents)
+    return documents, text
+
+
+def verify_required_context(phase):
+    config_path = phase.parent / 'config.json'
+    if not config_path.exists():
+        return
+    config = json.loads(config_path.read_text())
+    if not config.get('requiredReviewContextDocuments'):
+        return
+    documents, text = bootstrap_payload(phase.parent)
+    expected = {str(p): sha(p) for p in documents}
+    end = 0
+    for path in sorted((phase / 'bootstrap-reads').glob('*.json')):
+        receipt = json.loads(path.read_text())
+        assert receipt['documentPins'] == expected and receipt['textSha256'] == hashlib.sha256(text.encode()).hexdigest(), 'Required review context receipt changed'
+        assert receipt['length'] == len(text) and 0 <= receipt['start'] <= receipt['end'] <= len(text), 'Invalid review context range'
+    receipts = [json.loads(p.read_text()) for p in (phase / 'bootstrap-reads').glob('*.json')]
+    for receipt in sorted(receipts, key=lambda r: r['start']):
+        if receipt['start'] > end:
+            break
+        end = max(end, receipt['end'])
+    assert end == len(text), 'Required review context not fully emitted'
 
 
 def bootstrap(directory, start=0):
@@ -282,15 +321,20 @@ def bootstrap(directory, start=0):
     # glossaries. Text may be split, never omitted or summarized by the helper.
     config = json.loads((directory / 'config.json').read_text())
     validate_model(config['model'], config['reasoning'], 'openai')
-    documents = bootstrap_documents(directory)
-    text = ''.join('\nDOCUMENT ' + str(p) + '\n' +
-        (encoded(json.loads(p.read_text())) if p.suffix == '.json' else p.read_text())
-        + '\nEND DOCUMENT\n' for p in documents)
+    documents, text = bootstrap_payload(directory)
     assert 0 <= start < len(text)
     chunk = text[start:].encode()[:23000].decode('utf-8', errors='ignore')
     end = start + len(chunk)
     print(encoded({'start': start, 'next': end, 'length': len(text), 'text': text[start:end],
                    'note': 'Read every part once. These are originals, not an exemption from other mandatory project instructions.'}))
+    if config.get('requiredReviewContextDocuments'):
+        state = json.loads((directory / 'job.json').read_text())
+        phase = Path(state['phases'][-1]['directory'])
+        assert phase.parent == directory, 'Bootstrap receipt belongs to another job'
+        receipt_dir = phase / 'bootstrap-reads'
+        receipt_dir.mkdir(exist_ok=True)
+        save(receipt_dir / f'{start:09d}-{end:09d}.json', dict(start=start, end=end, length=len(text),
+             textSha256=hashlib.sha256(text.encode()).hexdigest(), documentPins={str(p): sha(p) for p in documents}))
 
 
 def record_decisions(phase, decisions):

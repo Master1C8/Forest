@@ -49,6 +49,42 @@ class EditorialStorage(unittest.TestCase):
             self.assertEqual(state['phases'][0]['status'], 'interrupted-runtime-publication')
             self.assertEqual(state['phases'][0]['measuredUsage']['total_tokens'], 12)
 
+    def test_required_context_must_be_fully_emitted_and_bound_to_its_version(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve(); directory, home = self.fixture(root)
+            phase = directory / '0001-semantic'; phase.mkdir(); (phase / 'reads').mkdir()
+            packet = audit.rows(directory / 'pairs.jsonl')
+            (phase / 'pairs.jsonl').write_text(''.join(audit.encoded(r) + '\n' for r in packet))
+            with redirect_stdout(io.StringIO()):
+                audit.read_packet(phase, 0, len(packet))
+            (phase / 'decisions.jsonl').write_text(''.join(audit.encoded(dict(id=r['id'], verdict='pass', rationale='Explicit synthetic storage fixture, not a semantic review')) + '\n' for r in packet))
+            document = directory / 'required-context.jsonl'; document.write_text('context ' * 7000)
+            config = json.loads((directory / 'config.json').read_text())
+            config.update(requiredReviewContextDocuments=[str(document)])
+            config['pins'][str(document)] = audit.sha(document); audit.save(directory / 'config.json', config)
+            self.assertIn(document, audit.bootstrap_documents(directory))
+            state = json.loads((directory / 'job.json').read_text()); state['phases'] = [dict(directory=str(phase))]
+            audit.save(directory / 'job.json', state)
+            with patch.object(audit, 'bootstrap_documents', return_value=[document]):
+                with self.assertRaisesRegex(AssertionError, 'context not fully emitted'):
+                    audit.finalize(phase)
+                start = 0
+                while True:
+                    output = io.StringIO()
+                    with redirect_stdout(output):
+                        audit.bootstrap(directory, start)
+                    result = json.loads(output.getvalue()); start = result['next']
+                    if start == result['length']:
+                        break
+                    with self.assertRaisesRegex(AssertionError, 'context not fully emitted'):
+                        audit.finalize(phase)
+                self.assertEqual(len(audit.finalize(phase)), len(packet))
+                receipt = next((phase / 'bootstrap-reads').glob('*.json'))
+                changed = json.loads(receipt.read_text()); changed['documentPins'][str(document)] = 'another-version'
+                audit.save(receipt, changed)
+                with self.assertRaisesRegex(AssertionError, 'context receipt changed'):
+                    audit.finalize(phase)
+
     def test_counter_or_decisions_without_reads_cannot_complete(self):
         with tempfile.TemporaryDirectory() as temporary:
             phase=Path(temporary); (phase/'reads').mkdir()
