@@ -1,0 +1,47 @@
+{
+  "packetSha256": "b03f75defb35de3e03cf7301275419230190950acd00d778024480be3babe525",
+  "images": [
+    {
+      "index": 2,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the full 1280×720 prepared image. Russian title, subtitle and both paragraphs are readable and match the supplied target, with intact punctuation and no clipping. English artwork and Continue match the named exceptions. No external overlays are visible. The lowest faded artwork marks remain unresolved.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "minor",
+          "region": "Gossip artwork, lowest faded placeholder rows; approximately x=450–490, y=443–499.",
+          "observed": "The lowest faded marks cannot all be distinguished reliably, preventing complete glyph and visible-content verification.",
+          "expected": "Every visible mark must be resolvable; source-byte identity alone does not establish readability.",
+          "nextAction": "Provide a source-bound crop of this region with original hash and crop bounds. Retain needs-review if the marks remain indistinct."
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the full 1280×720 prepared image. Russian title, subtitle and three instruction lines are readable and match the supplied target, including ё, quotation marks and the dash. No clipping or external contamination is visible. English quest artwork and Continue are covered by the exact exceptions, but faded illustration text remains unresolved.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "minor",
+          "region": "Quest illustration: lower-left completed entry around x=461–554, y=429–455, and lower-right objectives around x=583–785, y=400–455.",
+          "observed": "Small, faded text beneath the completed heading and in the lower objective area cannot be read completely. Whole-frame inspection cannot verify every visible word or mark there.",
+          "expected": "All visible illustration text must be readable or retain explicit uncertainty, including preserved English artwork.",
+          "nextAction": "Provide source-bound crops covering these regions, recording original hash and crop bounds. Retain needs-review wherever native detail remains unreadable."
+        }
+      ]
+    }
+  ]
+}

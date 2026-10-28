@@ -1,0 +1,29 @@
+{
+  "packetSha256": "0a024272e22c1432afc2b32af6d54177f391073def8d29f27e65590129e069a8",
+  "images": [
+    {
+      "index": 0,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete delivered 1280×720 WebP80 frame. The notebook title and complete Russian announcement match the supplied Page1 text. Characters, punctuation, shadows and line breaks are readable; text remains within bounds without clipping or overlap. No visible tags, unexpected fallback text or external overlays.",
+      "findings": []
+    },
+    {
+      "index": 1,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete delivered 1280×720 WebP80 frame, including title, subtitle, both instructional blocks, artwork controls, page indicators and Continue control. Russian text matches Page2, including «Нажми кнопку»; glyphs, punctuation, spacing and field edges are readable and intact. GOSSIP/TALK literals and painted Continue match the supplied exceptions. L/R indicators are legible. No external overlays or visible defects.",
+      "findings": []
+    }
+  ]
+}

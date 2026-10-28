@@ -1,0 +1,26 @@
+{
+  "packetSha256": "b99aeb8b523db5ee7fe2950d72ebb95a3989fe3676ff07de0ea0da74471e2220",
+  "images": [
+    {
+      "index": 1,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete delivered 1280×815 prepared frame. Russian title, caption and both body blocks are readable and match the supplied Page2 wording, including «Нажми кнопку». Cyrillic, punctuation, spacing and shadows show no visible clipping, overlap, missing glyphs or literal markup. GOSSIP and TALK are supported source literals; L/R are control indicators. No external overlays are visible. This diagnostic frame does not establish runtime display or windowed-mode acceptance.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Bottom-right navigation control, approximately x=918–1118, y=643–691",
+          "observed": "The control reads “Continue” in English. The packet does not identify this label as artwork or establish an approved source-control exemption.",
+          "expected": "Russian navigation text, or explicit identification supporting retention under the no-texture policy.",
+          "nextAction": "Identify the label's source and applicable exemption. If retention is unsupported, resolve the untranslated label through the owning workflow and review a new bound capture."
+        }
+      ]
+    }
+  ]
+}

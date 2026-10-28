@@ -1,0 +1,182 @@
+[
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::StartNotification()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 2,
+    "lineEndInclusive": 25,
+    "fullBodySha256": "8b8330dfc17b1450692061cb9c99e726c5ea74e8be9f4c9acd8f608d08e65eed",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::StartNotification() | attributes=Private, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: ldc.i4.1\nIL_0002: call System.Void TheForestOfLove.ItemGetNotification::set_visible(System.Boolean)\nIL_0007: ldarg.0\nIL_0008: call System.Void TheForestOfLove.ItemGetNotification::ResetAnimatorTriggers()\nIL_000d: ldarg.0\nIL_000e: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::notificationAnimator\nIL_0013: ldstr \"show\"\nIL_0018: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_001d: ldarg.0\nIL_001e: call System.Void TheForestOfLove.ItemGetNotification::ShowOrHide()\nIL_0023: ldc.r4 1\nIL_0028: ldsfld System.Action TheForestOfLove.ItemGetNotification/<>c::<>9__57_0\nIL_002d: dup\nIL_002e: brtrue.s IL_0047\nIL_0030: pop\nIL_0031: ldsfld TheForestOfLove.ItemGetNotification/<>c TheForestOfLove.ItemGetNotification/<>c::<>9\nIL_0036: ldftn System.Void TheForestOfLove.ItemGetNotification/<>c::<StartNotification>b__57_0()\nIL_003c: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)\nIL_0041: dup\nIL_0042: stsfld System.Action TheForestOfLove.ItemGetNotification/<>c::<>9__57_0\nIL_0047: call System.Void TheForestOfLove.Core.Timing.TimerHelper::StartTimer(System.Single,System.Action)\nIL_004c: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::StartNotification_CleanedUp(System.Boolean,System.Boolean)",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 26,
+    "lineEndInclusive": 62,
+    "fullBodySha256": "fd98207174cac895aab97be1f7df99ccaa7f31d550131dcf4ef5147370161c50",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::StartNotification_CleanedUp(System.Boolean,System.Boolean) | attributes=Private, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Boolean TheForestOfLove.ItemGetNotification::get_visible()\nIL_0006: brfalse.s IL_0009\nIL_0008: ret\nIL_0009: ldarg.0\nIL_000a: ldc.i4.1\nIL_000b: call System.Void TheForestOfLove.ItemGetNotification::set_visible(System.Boolean)\nIL_0010: ldarg.0\nIL_0011: call System.Void TheForestOfLove.ItemGetNotification::ResetAnimatorTriggers()\nIL_0016: ldarg.0\nIL_0017: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::notificationAnimator\nIL_001c: ldstr \"show\"\nIL_0021: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_0026: ldarg.0\nIL_0027: ldc.r4 0\nIL_002c: stfld System.Single TheForestOfLove.ItemGetNotification::currentOpenTime\nIL_0031: ldarg.0\nIL_0032: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::continueButtonAnimator\nIL_0037: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_003c: ldarg.1\nIL_003d: callvirt System.Void UnityEngine.GameObject::SetActive(System.Boolean)\nIL_0042: ldarg.0\nIL_0043: ldfld UnityEngine.CanvasGroup TheForestOfLove.ItemGetNotification::itemGetPanelGroup\nIL_0048: ldarg.2\nIL_0049: callvirt System.Void UnityEngine.CanvasGroup::set_interactable(System.Boolean)\nIL_004e: ldarg.0\nIL_004f: ldfld UnityEngine.CanvasGroup TheForestOfLove.ItemGetNotification::messageGroup\nIL_0054: ldarg.2\nIL_0055: callvirt System.Void UnityEngine.CanvasGroup::set_interactable(System.Boolean)\nIL_005a: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onShowItemGetAchievement\nIL_005f: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()\nIL_0064: ldsfld UnityEngine.Events.UnityEvent`1<System.Boolean> TheForestOfLove.Events.GameEvents::onShowItemGetAchievementOverloadedForAdventures\nIL_0069: ldarg.0\nIL_006a: ldfld System.Boolean TheForestOfLove.ItemGetNotification::showingAdventureNotification\nIL_006f: callvirt System.Void UnityEngine.Events.UnityEvent`1<System.Boolean>::Invoke(!0)\nIL_0074: ret\n"
+  },
+  {
+    "method": "TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification::ShowPagedTutorial(TheForestOfLove.PagedTutorial)",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 63,
+    "lineEndInclusive": 116,
+    "fullBodySha256": "c0f9df363c495ce0845803c197e463cacb34d19380c785b8ed1c17c3f989646c",
+    "fullBody": "METHOD TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification::ShowPagedTutorial(TheForestOfLove.PagedTutorial) | attributes=Public, HideBySig | impl=IL\nIL_0000: newobj System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::.ctor()\nIL_0005: stloc.0\nIL_0006: ldloc.0\nIL_0007: ldarg.0\nIL_0008: stfld TheForestOfLove.ItemGetNotification TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<>4__this\nIL_000d: ldarg.0\nIL_000e: call System.Boolean TheForestOfLove.ItemGetNotification::get_visible()\nIL_0013: brfalse.s IL_0017\nIL_0015: ldnull\nIL_0016: ret\nIL_0017: ldloc.0\nIL_0018: ldarg.1\nIL_0019: ldarg.0\nIL_001a: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::messageContainer\nIL_001f: call !!0 UnityEngine.Object::Instantiate<TheForestOfLove.PagedTutorial>(!!0,UnityEngine.Transform)\nIL_0024: stfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0029: ldloc.0\nIL_002a: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_002f: ldc.i4.0\nIL_0030: stfld System.Boolean TheForestOfLove.PagedTutorial::allowNavigation\nIL_0035: ldc.r4 2.5\nIL_003a: ldloc.0\nIL_003b: ldftn System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__0()\nIL_0041: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)\nIL_0046: call System.Void TheForestOfLove.Core.Timing.TimerHelper::StartTimer(System.Single,System.Action)\nIL_004b: ldarg.0\nIL_004c: ldloc.0\nIL_004d: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0052: ldfld UnityEngine.Animator[] TheForestOfLove.PagedTutorial::nav\nIL_0057: ldarg.0\nIL_0058: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::extraControlsContainer\nIL_005d: call System.Void TheForestOfLove.ItemGetNotification::ReparentTutorialNav(UnityEngine.Animator[],UnityEngine.Transform)\nIL_0062: ldloc.0\nIL_0063: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0068: ldfld UnityEngine.Events.UnityEvent TheForestOfLove.PagedTutorial::onSubmit\nIL_006d: ldloc.0\nIL_006e: ldftn System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__1()\nIL_0074: newobj System.Void UnityEngine.Events.UnityAction::.ctor(System.Object,System.IntPtr)\nIL_0079: callvirt System.Void UnityEngine.Events.UnityEvent::AddListener(UnityEngine.Events.UnityAction)\nIL_007e: ldloc.0\nIL_007f: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0084: ldfld UnityEngine.Events.UnityEvent TheForestOfLove.PagedTutorial::onTutorialFinished\nIL_0089: ldloc.0\nIL_008a: ldftn System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__2()\nIL_0090: newobj System.Void UnityEngine.Events.UnityAction::.ctor(System.Object,System.IntPtr)\nIL_0095: callvirt System.Void UnityEngine.Events.UnityEvent::AddListener(UnityEngine.Events.UnityAction)\nIL_009a: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onTutorialStarting\nIL_009f: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()\nIL_00a4: ldarg.0\nIL_00a5: call System.Void TheForestOfLove.ItemGetNotification::StartNotification()\nIL_00aa: ldloc.0\nIL_00ab: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_00b0: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::ReparentTutorialNav(UnityEngine.Animator[],UnityEngine.Transform)",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 117,
+    "lineEndInclusive": 126,
+    "fullBodySha256": "2ae41f1e612027daab9fc7c3fc353fa074a7608fbd97743d6eee2a82bf9aaf73",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::ReparentTutorialNav(UnityEngine.Animator[],UnityEngine.Transform) | attributes=Private, HideBySig | impl=IL\nIL_0000: ldarg.1\nIL_0001: ldc.i4.0\nIL_0002: ldelem.ref\nIL_0003: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_0008: callvirt UnityEngine.Transform UnityEngine.Transform::get_parent()\nIL_000d: ldarg.2\nIL_000e: ldc.i4.1\nIL_000f: callvirt System.Void UnityEngine.Transform::SetParent(UnityEngine.Transform,System.Boolean)\nIL_0014: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::HideNotification()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 127,
+    "lineEndInclusive": 146,
+    "fullBodySha256": "a832320c8c66dec65bc96e816d4712711d1536d04730a195aa48105c82c18200",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::HideNotification() | attributes=Private, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Boolean TheForestOfLove.ItemGetNotification::get_visible()\nIL_0006: brfalse.s IL_003b\nIL_0008: ldarg.0\nIL_0009: ldc.i4.0\nIL_000a: call System.Void TheForestOfLove.ItemGetNotification::set_visible(System.Boolean)\nIL_000f: ldarg.0\nIL_0010: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::continueButtonAnimator\nIL_0015: ldstr \"pressed\"\nIL_001a: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_001f: ldarg.0\nIL_0020: call System.Void TheForestOfLove.ItemGetNotification::ResetAnimatorTriggers()\nIL_0025: ldarg.0\nIL_0026: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::notificationAnimator\nIL_002b: ldstr \"hide\"\nIL_0030: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_0035: ldarg.0\nIL_0036: call System.Void TheForestOfLove.ItemGetNotification::ShowOrHide()\nIL_003b: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::HideNotification_CleanedUp()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 147,
+    "lineEndInclusive": 175,
+    "fullBodySha256": "e0284fd9e1c5e08387135b85d72279cff4ec14bc66a9b2450692c2cd679d10ed",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::HideNotification_CleanedUp() | attributes=Private, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Boolean TheForestOfLove.ItemGetNotification::get_visible()\nIL_0006: brtrue.s IL_0009\nIL_0008: ret\nIL_0009: ldarg.0\nIL_000a: ldc.i4.0\nIL_000b: call System.Void TheForestOfLove.ItemGetNotification::set_visible(System.Boolean)\nIL_0010: ldarg.0\nIL_0011: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::continueButtonAnimator\nIL_0016: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_001b: callvirt System.Boolean UnityEngine.GameObject::get_activeInHierarchy()\nIL_0020: brfalse.s IL_0032\nIL_0022: ldarg.0\nIL_0023: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::continueButtonAnimator\nIL_0028: ldstr \"pressed\"\nIL_002d: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_0032: ldarg.0\nIL_0033: call System.Void TheForestOfLove.ItemGetNotification::ResetAnimatorTriggers()\nIL_0038: ldarg.0\nIL_0039: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::notificationAnimator\nIL_003e: ldstr \"hide\"\nIL_0043: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_0048: ldc.r4 1\nIL_004d: ldarg.0\nIL_004e: ldftn System.Void TheForestOfLove.ItemGetNotification::<HideNotification_CleanedUp>b__63_0()\nIL_0054: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)\nIL_0059: call System.Void TheForestOfLove.Core.Timing.TimerHelper::StartTimer(System.Single,System.Action)\nIL_005e: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::ShowPennyCloacaFistingStory()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 176,
+    "lineEndInclusive": 182,
+    "fullBodySha256": "c42eebd92b629b5201b4032619f830f6b376db5b4b358355576a48ec5b4b806a",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::ShowPennyCloacaFistingStory() | attributes=Public, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: ldarg.0\nIL_0002: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification::pennyCloacaFistingStoryPrefab\nIL_0007: call TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification::ShowPagedTutorial(TheForestOfLove.PagedTutorial)\nIL_000c: pop\nIL_000d: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::<HideNotification_CleanedUp>b__63_0()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "fileSha256": "4a1adcb3a9b94971f2cb0e2c589fcbc52caa423b3451e3f6f160ff195e6c0d66",
+    "lineStart": 183,
+    "lineEndInclusive": 266,
+    "fullBodySha256": "f1a8bea2388889f4546e21e6747cfcb5259f1af8bd1e8077ddd2392a8306bf1d",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::<HideNotification_CleanedUp>b__63_0() | attributes=Private, HideBySig | impl=IL\nATTRIBUTE System.Runtime.CompilerServices.CompilerGeneratedAttribute\nIL_0000: ldarg.0\nIL_0001: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::continueButtonAnimator\nIL_0006: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_000b: ldc.i4.1\nIL_000c: callvirt System.Void UnityEngine.GameObject::SetActive(System.Boolean)\nIL_0011: ldarg.0\nIL_0012: ldfld UnityEngine.CanvasGroup TheForestOfLove.ItemGetNotification::itemGetPanelGroup\nIL_0017: ldc.i4.0\nIL_0018: callvirt System.Void UnityEngine.CanvasGroup::set_interactable(System.Boolean)\nIL_001d: ldarg.0\nIL_001e: ldfld UnityEngine.CanvasGroup TheForestOfLove.ItemGetNotification::messageGroup\nIL_0023: ldc.i4.0\nIL_0024: callvirt System.Void UnityEngine.CanvasGroup::set_interactable(System.Boolean)\nIL_0029: ldarg.0\nIL_002a: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::messageContainer\nIL_002f: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_0034: callvirt System.Collections.IEnumerator UnityEngine.Transform::GetEnumerator()\nIL_0039: stloc.0\nIL_003a: br.s IL_0066\nIL_003c: ldloc.0\nIL_003d: callvirt System.Object System.Collections.IEnumerator::get_Current()\nIL_0042: castclass UnityEngine.Transform\nIL_0047: stloc.1\nIL_0048: ldloc.1\nIL_0049: ldarg.0\nIL_004a: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::messageContainer\nIL_004f: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_0054: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)\nIL_0059: brfalse.s IL_0066\nIL_005b: ldloc.1\nIL_005c: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_0061: call System.Void UnityEngine.Object::Destroy(UnityEngine.Object)\nIL_0066: ldloc.0\nIL_0067: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()\nIL_006c: brtrue.s IL_003c\nIL_006e: leave.s IL_0081\nIL_0070: ldloc.0\nIL_0071: isinst System.IDisposable\nIL_0076: stloc.2\nIL_0077: ldloc.2\nIL_0078: brfalse.s IL_0080\nIL_007a: ldloc.2\nIL_007b: callvirt System.Void System.IDisposable::Dispose()\nIL_0080: endfinally\nIL_0081: ldarg.0\nIL_0082: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::extraControlsContainer\nIL_0087: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_008c: callvirt System.Collections.IEnumerator UnityEngine.Transform::GetEnumerator()\nIL_0091: stloc.0\nIL_0092: br.s IL_00be\nIL_0094: ldloc.0\nIL_0095: callvirt System.Object System.Collections.IEnumerator::get_Current()\nIL_009a: castclass UnityEngine.Transform\nIL_009f: stloc.3\nIL_00a0: ldloc.3\nIL_00a1: ldarg.0\nIL_00a2: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::extraControlsContainer\nIL_00a7: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_00ac: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)\nIL_00b1: brfalse.s IL_00be\nIL_00b3: ldloc.3\nIL_00b4: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_00b9: call System.Void UnityEngine.Object::Destroy(UnityEngine.Object)\nIL_00be: ldloc.0\nIL_00bf: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()\nIL_00c4: brtrue.s IL_0094\nIL_00c6: leave.s IL_00d9\nIL_00c8: ldloc.0\nIL_00c9: isinst System.IDisposable\nIL_00ce: stloc.2\nIL_00cf: ldloc.2\nIL_00d0: brfalse.s IL_00d8\nIL_00d2: ldloc.2\nIL_00d3: callvirt System.Void System.IDisposable::Dispose()\nIL_00d8: endfinally\nIL_00d9: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onHideItemGetAchievement\nIL_00de: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()\nIL_00e3: ldsfld UnityEngine.Events.UnityEvent`1<System.Boolean> TheForestOfLove.Events.GameEvents::onHideItemGetAchievementOverloadedForAdventures\nIL_00e8: ldarg.0\nIL_00e9: ldfld System.Boolean TheForestOfLove.ItemGetNotification::showingAdventureNotification\nIL_00ee: callvirt System.Void UnityEngine.Events.UnityEvent`1<System.Boolean>::Invoke(!0)\nIL_00f3: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::RegisterServices()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "fileSha256": "22b59e4c3d44e66d7e3739cfbe20a20b2022a04dcf41a577351b3e1e9f400a95",
+    "lineStart": 2,
+    "lineEndInclusive": 7,
+    "fullBodySha256": "4b9870082f8b686182d479117fcd01c113eb271b142d33bd17a9a5006781d5ac",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::RegisterServices() | attributes=Family, Virtual, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Void TheForestOfLove.Core.BaseBehavior::RegisterServices()\nIL_0006: ldarg.0\nIL_0007: call System.Void TheForestOfLove.Services.ServiceLocator::Register<TheForestOfLove.ItemGetNotification>(T)\nIL_000c: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::UnregisterServices()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "fileSha256": "22b59e4c3d44e66d7e3739cfbe20a20b2022a04dcf41a577351b3e1e9f400a95",
+    "lineStart": 8,
+    "lineEndInclusive": 13,
+    "fullBodySha256": "924aec2842d437565ad20d3cc6c88d7189e686b760750aacf77ec8eea6c0f143",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::UnregisterServices() | attributes=Family, Virtual, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Void TheForestOfLove.Core.BaseBehavior::UnregisterServices()\nIL_0006: ldarg.0\nIL_0007: call System.Void TheForestOfLove.Services.ServiceLocator::Unregister<TheForestOfLove.ItemGetNotification>(T)\nIL_000c: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::AddEventListeners()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "fileSha256": "22b59e4c3d44e66d7e3739cfbe20a20b2022a04dcf41a577351b3e1e9f400a95",
+    "lineStart": 14,
+    "lineEndInclusive": 22,
+    "fullBodySha256": "8b12de9ba0b0626a05e9d129d656d1b4d495617e05c0fa458b95b987bf6b27a5",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::AddEventListeners() | attributes=Family, Virtual, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Void TheForestOfLove.Core.BaseBehavior::AddEventListeners()\nIL_0006: ldsfld TheForestOfLove.Events.InventoryEvent TheForestOfLove.Events.NarrativeEvents::onInventoryItemAdded\nIL_000b: ldarg.0\nIL_000c: ldftn System.Void TheForestOfLove.ItemGetNotification::OnItemAdded(TheForestOfLove.Inventory.InventoryItem,System.Int32)\nIL_0012: newobj System.Void UnityEngine.Events.UnityAction`2<TheForestOfLove.Inventory.InventoryItem,System.Int32>::.ctor(System.Object,System.IntPtr)\nIL_0017: callvirt System.Void UnityEngine.Events.UnityEvent`2<TheForestOfLove.Inventory.InventoryItem,System.Int32>::AddListener(UnityEngine.Events.UnityAction`2<!0,!1>)\nIL_001c: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::RemoveEventListeners()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "fileSha256": "22b59e4c3d44e66d7e3739cfbe20a20b2022a04dcf41a577351b3e1e9f400a95",
+    "lineStart": 23,
+    "lineEndInclusive": 31,
+    "fullBodySha256": "332b42ef00aaa22e5f2640192fbde474520e6f36ce73c14d9bdae647d3b6abf3",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::RemoveEventListeners() | attributes=Family, Virtual, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Void TheForestOfLove.Core.BaseBehavior::RemoveEventListeners()\nIL_0006: ldsfld TheForestOfLove.Events.InventoryEvent TheForestOfLove.Events.NarrativeEvents::onInventoryItemAdded\nIL_000b: ldarg.0\nIL_000c: ldftn System.Void TheForestOfLove.ItemGetNotification::OnItemAdded(TheForestOfLove.Inventory.InventoryItem,System.Int32)\nIL_0012: newobj System.Void UnityEngine.Events.UnityAction`2<TheForestOfLove.Inventory.InventoryItem,System.Int32>::.ctor(System.Object,System.IntPtr)\nIL_0017: callvirt System.Void UnityEngine.Events.UnityEvent`2<TheForestOfLove.Inventory.InventoryItem,System.Int32>::RemoveListener(UnityEngine.Events.UnityAction`2<!0,!1>)\nIL_001c: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::ShowOrHide()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "fileSha256": "22b59e4c3d44e66d7e3739cfbe20a20b2022a04dcf41a577351b3e1e9f400a95",
+    "lineStart": 32,
+    "lineEndInclusive": 51,
+    "fullBodySha256": "a0047347246a23ba6e9a27971f8e72fb03430700007acbca023da4fcfbd4155b",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::ShowOrHide() | attributes=Private, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Boolean TheForestOfLove.ItemGetNotification::get_visible()\nIL_0006: brfalse.s IL_002e\nIL_0008: ldarg.0\nIL_0009: ldc.r4 0\nIL_000e: stfld System.Single TheForestOfLove.ItemGetNotification::currentOpenTime\nIL_0013: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onShowItemGetAchievement\nIL_0018: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()\nIL_001d: ldsfld UnityEngine.Events.UnityEvent`1<System.Boolean> TheForestOfLove.Events.GameEvents::onShowItemGetAchievementOverloadedForAdventures\nIL_0022: ldarg.0\nIL_0023: ldfld System.Boolean TheForestOfLove.ItemGetNotification::showingAdventureNotification\nIL_0028: callvirt System.Void UnityEngine.Events.UnityEvent`1<System.Boolean>::Invoke(!0)\nIL_002d: ret\nIL_002e: ldc.r4 1\nIL_0033: ldarg.0\nIL_0034: ldftn System.Void TheForestOfLove.ItemGetNotification::<ShowOrHide>b__64_0()\nIL_003a: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)\nIL_003f: call System.Void TheForestOfLove.Core.Timing.TimerHelper::StartTimer(System.Single,System.Action)\nIL_0044: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification::<ShowOrHide>b__64_0()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "fileSha256": "22b59e4c3d44e66d7e3739cfbe20a20b2022a04dcf41a577351b3e1e9f400a95",
+    "lineStart": 52,
+    "lineEndInclusive": 122,
+    "fullBodySha256": "f74383a9e3b623987266beb88ce7b497987a278e1a9e6106cb0c850528839ee0",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification::<ShowOrHide>b__64_0() | attributes=Private, HideBySig | impl=IL\nATTRIBUTE System.Runtime.CompilerServices.CompilerGeneratedAttribute\nIL_0000: ldarg.0\nIL_0001: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::messageContainer\nIL_0006: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_000b: callvirt System.Collections.IEnumerator UnityEngine.Transform::GetEnumerator()\nIL_0010: stloc.0\nIL_0011: br.s IL_003d\nIL_0013: ldloc.0\nIL_0014: callvirt System.Object System.Collections.IEnumerator::get_Current()\nIL_0019: castclass UnityEngine.Transform\nIL_001e: stloc.1\nIL_001f: ldloc.1\nIL_0020: ldarg.0\nIL_0021: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::messageContainer\nIL_0026: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_002b: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)\nIL_0030: brfalse.s IL_003d\nIL_0032: ldloc.1\nIL_0033: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_0038: call System.Void UnityEngine.Object::Destroy(UnityEngine.Object)\nIL_003d: ldloc.0\nIL_003e: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()\nIL_0043: brtrue.s IL_0013\nIL_0045: leave.s IL_0058\nIL_0047: ldloc.0\nIL_0048: isinst System.IDisposable\nIL_004d: stloc.2\nIL_004e: ldloc.2\nIL_004f: brfalse.s IL_0057\nIL_0051: ldloc.2\nIL_0052: callvirt System.Void System.IDisposable::Dispose()\nIL_0057: endfinally\nIL_0058: ldarg.0\nIL_0059: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::extraControlsContainer\nIL_005e: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_0063: callvirt System.Collections.IEnumerator UnityEngine.Transform::GetEnumerator()\nIL_0068: stloc.0\nIL_0069: br.s IL_0095\nIL_006b: ldloc.0\nIL_006c: callvirt System.Object System.Collections.IEnumerator::get_Current()\nIL_0071: castclass UnityEngine.Transform\nIL_0076: stloc.3\nIL_0077: ldloc.3\nIL_0078: ldarg.0\nIL_0079: ldfld UnityEngine.Transform TheForestOfLove.ItemGetNotification::extraControlsContainer\nIL_007e: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_0083: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)\nIL_0088: brfalse.s IL_0095\nIL_008a: ldloc.3\nIL_008b: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_0090: call System.Void UnityEngine.Object::Destroy(UnityEngine.Object)\nIL_0095: ldloc.0\nIL_0096: callvirt System.Boolean System.Collections.IEnumerator::MoveNext()\nIL_009b: brtrue.s IL_006b\nIL_009d: leave.s IL_00b0\nIL_009f: ldloc.0\nIL_00a0: isinst System.IDisposable\nIL_00a5: stloc.2\nIL_00a6: ldloc.2\nIL_00a7: brfalse.s IL_00af\nIL_00a9: ldloc.2\nIL_00aa: callvirt System.Void System.IDisposable::Dispose()\nIL_00af: endfinally\nIL_00b0: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onHideItemGetAchievement\nIL_00b5: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()\nIL_00ba: ldsfld UnityEngine.Events.UnityEvent`1<System.Boolean> TheForestOfLove.Events.GameEvents::onHideItemGetAchievementOverloadedForAdventures\nIL_00bf: ldarg.0\nIL_00c0: ldfld System.Boolean TheForestOfLove.ItemGetNotification::showingAdventureNotification\nIL_00c5: callvirt System.Void UnityEngine.Events.UnityEvent`1<System.Boolean>::Invoke(!0)\nIL_00ca: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::.ctor()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-callbacks.il",
+    "fileSha256": "91e24e58180dcb73f517ef10132aa5665cdbcc8bc4a40c070bf96e91272af965",
+    "lineStart": 2,
+    "lineEndInclusive": 5,
+    "fullBodySha256": "aca97d7475fbaf61c3cc5eecc84b29a841843a90b954c08b37123993b3a60aef",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::.ctor() | attributes=Public, HideBySig, SpecialName, RTSpecialName | impl=IL\nIL_0000: ldarg.0\nIL_0001: call System.Void System.Object::.ctor()\nIL_0006: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__0()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-callbacks.il",
+    "fileSha256": "91e24e58180dcb73f517ef10132aa5665cdbcc8bc4a40c070bf96e91272af965",
+    "lineStart": 6,
+    "lineEndInclusive": 11,
+    "fullBodySha256": "88ee52dca9e2b5c5e499e6aea7e812eb13bba8aad8381892f0eaa76c1d1767ab",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__0() | attributes=Assembly, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0006: ldc.i4.1\nIL_0007: stfld System.Boolean TheForestOfLove.PagedTutorial::allowNavigation\nIL_000c: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__1()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-callbacks.il",
+    "fileSha256": "91e24e58180dcb73f517ef10132aa5665cdbcc8bc4a40c070bf96e91272af965",
+    "lineStart": 12,
+    "lineEndInclusive": 18,
+    "fullBodySha256": "f0fd2e62366906adf5ceebabd2f2e06bfbae6fa2261a06f3c39230f5f20a016d",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__1() | attributes=Assembly, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: ldfld TheForestOfLove.ItemGetNotification TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<>4__this\nIL_0006: ldfld UnityEngine.Animator TheForestOfLove.ItemGetNotification::continueButtonAnimator\nIL_000b: ldstr \"pressed\"\nIL_0010: callvirt System.Void UnityEngine.Animator::SetTrigger(System.String)\nIL_0015: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__2()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-callbacks.il",
+    "fileSha256": "91e24e58180dcb73f517ef10132aa5665cdbcc8bc4a40c070bf96e91272af965",
+    "lineStart": 19,
+    "lineEndInclusive": 40,
+    "fullBodySha256": "a8f14bb88b6baf56aaef36f4ba12c6293d291c11a2e06b56e12e64efb015e210",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__2() | attributes=Assembly, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: ldfld TheForestOfLove.ItemGetNotification TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<>4__this\nIL_0006: call System.Void TheForestOfLove.ItemGetNotification::HideNotification()\nIL_000b: ldc.r4 2\nIL_0010: ldarg.0\nIL_0011: ldfld System.Action TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<>9__3\nIL_0016: dup\nIL_0017: brtrue.s IL_002f\nIL_0019: pop\nIL_001a: ldarg.0\nIL_001b: ldarg.0\nIL_001c: ldftn System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__3()\nIL_0022: newobj System.Void System.Action::.ctor(System.Object,System.IntPtr)\nIL_0027: dup\nIL_0028: stloc.0\nIL_0029: stfld System.Action TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<>9__3\nIL_002e: ldloc.0\nIL_002f: call System.Void TheForestOfLove.Core.Timing.TimerHelper::StartTimer(System.Single,System.Action)\nIL_0034: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onTutorialEnding\nIL_0039: callvirt System.Void UnityEngine.Events.UnityEvent::Invoke()\nIL_003e: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__3()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-cleanup-callback.il",
+    "fileSha256": "6a68b37b0dcdec77c4b0316ad4af59349bf49e5371bbac22c7c8218ed73729f4",
+    "lineStart": 2,
+    "lineEndInclusive": 21,
+    "fullBodySha256": "bb7e0610d2fc2b173be20441ae7f6d010a7eda34213f770d40b0da540e2a6bbc",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<ShowPagedTutorial>b__3() | attributes=Assembly, HideBySig | impl=IL\nIL_0000: ldarg.0\nIL_0001: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0006: ldnull\nIL_0007: call System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)\nIL_000c: brfalse.s IL_003f\nIL_000e: ldarg.0\nIL_000f: ldfld TheForestOfLove.ItemGetNotification TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::<>4__this\nIL_0014: ldarg.0\nIL_0015: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_001a: ldfld UnityEngine.Animator[] TheForestOfLove.PagedTutorial::nav\nIL_001f: ldarg.0\nIL_0020: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0025: callvirt UnityEngine.Transform UnityEngine.Component::get_transform()\nIL_002a: call System.Void TheForestOfLove.ItemGetNotification::ReparentTutorialNav(UnityEngine.Animator[],UnityEngine.Transform)\nIL_002f: ldarg.0\nIL_0030: ldfld TheForestOfLove.PagedTutorial TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0::pagedTutorial\nIL_0035: callvirt UnityEngine.GameObject UnityEngine.Component::get_gameObject()\nIL_003a: call System.Void UnityEngine.Object::Destroy(UnityEngine.Object)\nIL_003f: ret\n"
+  },
+  {
+    "method": "System.Void TheForestOfLove.ItemGetNotification/<>c::<StartNotification>b__57_0()",
+    "path": "outputs/penny-tutorial-source-join-20261029/check/il/StartNotification-callback.il",
+    "fileSha256": "00e5f44ddba8b627d2a306e564758bcf57487db1e0ad904140f8bffb46ddeb4a",
+    "lineStart": 2,
+    "lineEndInclusive": 5,
+    "fullBodySha256": "0ea17e33829cfea7cfdbd718eef0654ecee0367e2585829313019e3d6958536a",
+    "fullBody": "METHOD System.Void TheForestOfLove.ItemGetNotification/<>c::<StartNotification>b__57_0() | attributes=Assembly, HideBySig | impl=IL\nIL_0000: ldc.i4 500\nIL_0005: call System.Void TheForestOfLove.Audio.SoundManager::Play(TheForestOfLove.Audio.SoundEffect)\nIL_000a: ret\n"
+  }
+]

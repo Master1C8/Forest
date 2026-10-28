@@ -1,0 +1,122 @@
+[
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "--find-field-fragment",
+      "TheForestOfLove.ItemGetNotification::pennyCloacaFistingStoryPrefab"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/penny-field-references.txt",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification",
+      "--list"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-list.txt",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification",
+      "--fields"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-fields.txt",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification",
+      "ShowPennyCloacaFistingStory,ShowPagedTutorial,ReparentTutorialNav,StartNotification,StartNotification_CleanedUp,HideNotification,HideNotification_CleanedUp,<HideNotification_CleanedUp>b__63_0"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-factory.il",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "--find-calls",
+      "System.Void TheForestOfLove.ItemGetNotification::ShowPennyCloacaFistingStory()"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/penny-show-callers.txt",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "--find-literal",
+      "ShowPennyCloacaFistingStory"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/penny-show-literal.txt",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0",
+      ".ctor,<ShowPagedTutorial>b__0,<ShowPagedTutorial>b__1,<ShowPagedTutorial>b__2"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-callbacks.il",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification",
+      "RegisterServices,UnregisterServices,AddEventListeners,RemoveEventListeners,ShowOrHide,<ShowOrHide>b__64_0"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/ItemGetNotification-registration.il",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification/<>c",
+      "<StartNotification>b__57_0"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/StartNotification-callback.il",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "dotnet",
+      "outputs/narrative-display-source-20261029/check/execution/inspector/InspectMethods.dll",
+      "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+      "TheForestOfLove.ItemGetNotification/<>c__DisplayClass59_0",
+      "<ShowPagedTutorial>b__3"
+    ],
+    "exitCode": 0,
+    "output": "outputs/penny-tutorial-source-join-20261029/check/il/ShowPagedTutorial-cleanup-callback.il",
+    "stderr": ""
+  }
+]

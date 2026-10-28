@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "50b4707e51bebc27be0fcdb4d439d7bb1d3a369d85f35419c96ea935044733b3",
+    "provenance:sourceManifest": "6c2dd76a3a5f3482e1aced1c43425c277c986ee5d45a3baa4ea2cbc46538be41",
+    "provenance:source:localization/probes/ru-notebook-20261029-01/ru-04-notebook-page-4.png": "00d1447655022633c388f98737321b3214a128183f82788cf6f9e6061ccc755b",
+    "provenance:source:localization/probes/ru-notebook-20261029-01/ru-05-notebook-page-5.png": "f8f019ba86c173ba54ebafc5730091f5554f32df39cfd415d6d0d648e78b0528",
+    "provenance:source:localization/probes/ru-quests-20261029-01/ru-01-quest-photo-active-top.png": "3a6c038f2a02457c40e036ff683d269fd6f7953ec269374cd347ee2f9d714ea8",
+    "provenance:source:localization/visual-qa/ru-notebook-20261029-01-diagnostic/artwork-source-bindings.json": "737414732de34b2549f23d0ad5c40d470b95ebc51bae4dbefa836adeb5666d33",
+    "provenance:source:localization/visual-qa/ru-details-20261029-01/crop-provenance.json": "9a1cb052265c0c2d5c9d67a744bfb7dab193b86d305511942781b27a3f58762d",
+    "provenance:source-image:notebook-page4.webp": "8b7a8440f080bd754f85a9bfcb88edf6a64bc88108741362bc8883c3694c927e",
+    "provenance:source-image:notebook-page5.webp": "e229ac021e5f9f00d9452c868642346c4ea1bf841cd8726a734172d0db8d8d8a",
+    "provenance:source-image:quest-photo-border.webp": "60a5f05bafa11e3a7baf70fd96a17613905926e8d256981cf29259efc5403d6c",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "2698f5c6c94e4a3ab566eee332a7ec58ffa932e72c8a92b1969b530f4d02d8b2"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "8b7a8440f080bd754f85a9bfcb88edf6a64bc88108741362bc8883c3694c927e.webp",
+      "sha256": "89ccdbcf2fa671a5319530865d4662604d385b40a3a84c6b439fa442ef0f1680",
+      "width": 650,
+      "height": 220,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T20:44:44.429288+00:00",
+      "observations": "Inspected the complete delivered 650×220 WebP crop. Russian foreground text is readable within the deliberate crop boundaries. Protected English notebook artwork shows fading beneath a dark tutorial overlay; no definite broken or overprinted target glyphs are visible, but complete lower artwork entries remain unreadable. Original SHA-256: 00d1447655022633c388f98737321b3214a128183f82788cf6f9e6061ccc755b; source crop [500,540,650,220]. This review does not close whole-frame runtime diagnostics.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "minor",
+          "region": "Crop coordinates: left notebook entry x60–200,y109–133; lower right entry x328–515,y109–133.",
+          "observed": "Faint artwork lettering merges into the dark overlay, preventing a complete reading. The crop does not conclusively resolve all marks as intentional fading versus malformed lettering.",
+          "expected": "Complete marks must be visually resolvable before readability can pass; source-byte identity and the protected-bitmap exception do not establish readability.",
+          "nextAction": "Retain glyphs needs-review and request an explicit readability acceptance decision for these exact protected source-art regions. Do not require translation of this bitmap."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "needs-review",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "e229ac021e5f9f00d9452c868642346c4ea1bf841cd8726a734172d0db8d8d8a.webp",
+      "sha256": "5c09459ef5476dfc704c1c65a3e866c3975c93ae53054e86ef768451e1981782",
+      "width": 650,
+      "height": 200,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-10-28T20:49:05.597273+00:00",
+      "observations": "Inspected the entire delivered 650×200 Page5 crop, source bounds [250,600,650,200]. Visible English belongs to the explicitly protected source bitmap. Deliberate crop edges are acceptable; no visible contamination. Source provenance establishes intentional artwork, but does not resolve readability of its lowest faded marks.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "minor",
+          "region": "Crop x240–550, y60–105: lowest notebook-table marks beneath the readable upper rows.",
+          "observed": "Marks fade into dark shading; complete character shapes remain unreadable. The crop does not resolve the original glyph uncertainty.",
+          "expected": "Required marks must be visually resolvable, or their unreadability must remain explicitly unresolved despite protected source provenance.",
+          "nextAction": "Retain needs-review and resolve these exact marks through separately authorized notebook display diagnostics. Preserve the protected bitmap; no translation change is indicated."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "needs-review",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "60a5f05bafa11e3a7baf70fd96a17613905926e8d256981cf29259efc5403d6c.webp",
+      "sha256": "71182320086f9f0aba506fd9e2fa7d82ae061db9b8c0940e6507487a0219a5f3",
+      "width": 420,
+      "height": 230,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-10-28T20:49:41.754581+00:00",
+      "observations": "Inspected the complete delivered 420×230 crop. The photo panel’s lower border remains visibly separate from the lowercase letters of “Маверика.” beneath it, with narrow clear padding. The capital М sits left of the panel. No contact, overprint or glyph clipping is visible at this boundary. Gray objective text remains readable; partial surrounding lines terminate at deliberate crop edges. This receipt covers only the supplied crop and its bound artifact.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

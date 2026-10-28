@@ -1,37 +1,44 @@
 # Current Russian completion, October29
 
-The complete935-ID Russian UI packet passed full semantic and independent review
-after32 corrections. The chapter/gallery case has common134-occurrence source,
-accepted wording and full combined build02. Its actual1385 original textures in26
-containers and all resource streams are independently preserved.
+The accepted935-ID UI packet includes32 reviewed corrections. The134-occurrence
+chapter/gallery packet and combined full build02 are statically verified; its1385
+original textures in26containers and all resource streams are preserved.
 
-The [bounded gallery renderer acceptance](localization/visual-qa/ru-gallery-20261029-01-diagnostic/gallery-scoped-acceptance.json)
-binds3367 original-consumer argument fixtures,129 loaded BG states,59 selection
-identities and all10 reviewed native frames. Continue is source-proven painted
-artwork under the existing no-texture exception. The owned game is closed, both
-disposable input files restored, bridge removed and parent unchanged. OOS and
-chapter-description surfaces, real eligibility/input/progression and all134 runtime
-acceptance remain pending.
+[Gallery acceptance](localization/visual-qa/ru-gallery-20261029-01-diagnostic/gallery-scoped-acceptance.json)
+binds3367 original-consumer argument fixtures and all10 reviewed frames.
+[Quest acceptance](localization/visual-qa/ru-quests-20261029-01/final-acceptance.json)
+binds195 loaded states,24 header fields, finite original pane/HUD cases and all
+seven frames plus one source-pixel border crop. These are renderer fixtures,
+not actual input, awards, ownership or progression acceptance.
 
-The [common narrative source increment](localization/source/narrative-displays-20261029.parent-inventory-acceptance.json)
-retains150 physical selectors as25 pages under five owners for all30 saved locales.
-Inactive Mouse78 and unverified old Penny tutorial30 remain potential resources;
-no absence or runtime claim. A separate fresh Sol/high/OpenAI stream reviews exact
-existing Russian target reuse, without new wording or corpus changes.
+The latest notebook run02 verifies all156 fields and five original pages at
+actual1280x720 client/1440x900 physical resolution. Windowed mode and both exact
+disposable save/settings bytes are preserved. All five frames were independently
+reviewed: Russian text/layout/contamination are clean; three tiny faded regions
+in protected original illustrations remain needs-review. Exact Image/Sprite/Texture
+bindings prove artwork provenance, not tiny-mark readability. Old run01 and its
+failed/missing-display evidence remain unchanged. The canonical capture now
+records diagnostics; the strict preparation accepts real run02 and rejects old
+run01 for exactly its missing diagnostic before writing output.
 
-The updated notebook passed156 loaded-field checks and captured all five pages.
-All main Russian text is visually readable; exact artwork attribution and two
-source-pixel detail crops remain pending. Its frozen capture omitted independent
-display diagnostics, so this run stays diagnostic. Future canonical capture now
-records the existing display diagnostic before cleanup. The Quest run passed195
-loaded states, reversible status fixtures and captured all seven pane/HUD frames;
-its fresh visual queue runs separately. Actual1650x1050 display/fullscreen reset
-is reconciled explicitly; requested windowed mode is not accepted. Both owned
-games closed and bridges removed; original game/saves remain unused.
+The common narrative source increment retains150 selectors as25 pages under
+five owners for all30 saved locales. Existing-target review found16 conditional
+compatibility candidates, five unresolved Penny joins and four pages lacking an
+exact whole-page target, with no wording defects in the21 existing matches.
+The old Penny tutorial factory and listeners are now statically bound; actual
+activation and speaker/conversation join remain unknown. Inactive Mouse78 and
+old Penny30 remain potential resources; no target application or absence claim.
 
-Complete-source/special-case/font allocation, actual dialogue/choices/awards and
-progression, final installer/platform and release gates remain open. Ordinary
-translation entry is false. Parallel review never waives those gates.
+All parent-owned games closed, bridges removed and parent artifacts unchanged;
+original owner files remain unused. Current finite model assignments finished
+with explicit fresh Sol/high/OpenAI selection. One pre-delivery capacity failure
+is preserved with unknown usage; its explicit recovery retained the same model.
+
+The [finite acceptance checklist](localization/completion/ru-20261029/acceptance-checklist.json)
+records exact artifacts, evidence, uncertainty and next permitted actions.
+OOS/chapter descriptions, other source wording, all23 special-case decisions,
+font allocation, actual dialogue/choices/progression and final delivery remain
+open. Ordinary translation entry and whole-game/release acceptance remain false.
 
 Earlier sections below are retained historical evidence.
 

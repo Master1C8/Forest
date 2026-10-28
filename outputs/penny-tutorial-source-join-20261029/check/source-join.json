@@ -1,0 +1,2884 @@
+{
+  "schemaVersion": 1,
+  "scope": "Exact old Penny tutorial only: five pages, 30 occurrences, six slots; static check.",
+  "runtimeVerification": "runtime-check.json",
+  "originalAssembly": {
+    "path": "outputs/narrative-display-source-20261029/check/execution/Assembly-CSharp.dll",
+    "sha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf"
+  },
+  "handoffReconciliation": {
+    "parentInventory": "25-page/150-occurrence conservative increment, unchanged; complete consumer admission remains false.",
+    "sourceCase": "narration-and-speaker-context",
+    "reuseFinding": "R02 refined: named prefab factory and instance listeners now proven statically; actual activation and physical speaker join remain unresolved. R07 unchanged.",
+    "fiveReuseDispositionsRetained": true,
+    "targetSemanticReviewPerformed": false
+  },
+  "owner": {
+    "object": {
+      "object": "sharedassets2.assets:18057",
+      "rawSha256": "44efa1397a5190b4171a14599c756b2a61d34a2feb8fe762077915d530ccdb45",
+      "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18057.json",
+      "sha256": "2925b8823e26b63d4407fcb37199fd48ac761889732a91f0fd01381f0c75a1fd"
+    },
+    "gameObject": {
+      "object": "sharedassets2.assets:4561",
+      "rawSha256": "a2805d936f8dbb37bc9c0d7baeee74ad8c93d429bef52db8662f263646c396a8",
+      "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-4561.json",
+      "sha256": "ab0f9984a17ab1c50099ab32979efd20d84b3979ebff6059bb77f908fd781c82"
+    },
+    "serializedControls": {
+      "m_GameObject": {
+        "m_FileID": 0,
+        "m_PathID": 4561
+      },
+      "m_Enabled": 1,
+      "m_Script": {
+        "m_FileID": 1,
+        "m_PathID": 4177
+      },
+      "m_Name": "",
+      "notificationAnimator": {
+        "m_FileID": 0,
+        "m_PathID": 5860
+      },
+      "continueButtonAnimator": {
+        "m_FileID": 0,
+        "m_PathID": 5693
+      },
+      "itemGetPanelGroup": {
+        "m_FileID": 0,
+        "m_PathID": 13740
+      },
+      "messageGroup": {
+        "m_FileID": 0,
+        "m_PathID": 13728
+      },
+      "messageContainer": {
+        "m_FileID": 0,
+        "m_PathID": 10772
+      },
+      "extraControlsContainer": {
+        "m_FileID": 0,
+        "m_PathID": 10105
+      },
+      "inventoryItemPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 4293
+      },
+      "inventoryItemPrefabVslice": {
+        "m_FileID": 0,
+        "m_PathID": 4292
+      },
+      "gossipTutorialPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15851
+      },
+      "swimFloatiesTutorialPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15166
+      },
+      "fastTravelTutorialPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15256
+      },
+      "blueBellItemPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14806
+      },
+      "plainsBellItemPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14807
+      },
+      "centralForestBellItemPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14810
+      },
+      "mountainsBellItemPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14805
+      },
+      "plantSceneUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 17176
+      },
+      "squirrelSceneUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 16881
+      },
+      "bunnyHandjobSceneUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 18283
+      },
+      "coyotesOralSceneUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 16879
+      },
+      "bunnyCuckSceneUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 16880
+      },
+      "ramAnalSceneUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 16878
+      },
+      "legendsTutorialPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14812
+      },
+      "datesTutorialPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15164
+      },
+      "endOfMonthlyContentPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14811
+      },
+      "startOfMonthlyContentPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14809
+      },
+      "outOfSyncContentPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 18814
+      },
+      "pennyCloacaFistingStoryPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15852
+      },
+      "dustinMinigameUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 14808
+      },
+      "sweaterUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15165
+      },
+      "lanternUnlockedPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15163
+      },
+      "storyInstancesPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15167
+      },
+      "generalMovieUnlockNotificationPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 18512
+      },
+      "confirmBeginAdventureNotificationPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 18088
+      },
+      "minimumOpenTime": 2.5
+    },
+    "field": "/pennyCloacaFistingStoryPrefab",
+    "pointer": {
+      "m_FileID": 0,
+      "m_PathID": 15852
+    },
+    "unrelatedControls": {
+      "gossipTutorialPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 15851
+      },
+      "outOfSyncContentPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 18814
+      }
+    }
+  },
+  "tutorial": {
+    "object": {
+      "object": "sharedassets2.assets:15852",
+      "rawSha256": "f9a3506f9a101c29934eebc057f21d3f58c89a4b3c5dfd842bfffb3c97fa75a3",
+      "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15852.json",
+      "sha256": "86a973ffca2b65fab2583c5317148d89841468072c9125f9d6527c62274ab81d"
+    },
+    "serializedControls": {
+      "m_GameObject": {
+        "m_FileID": 0,
+        "m_PathID": 3684
+      },
+      "m_Enabled": 1,
+      "m_Script": {
+        "m_FileID": 1,
+        "m_PathID": 239
+      },
+      "m_Name": "",
+      "pages": [
+        {
+          "m_FileID": 0,
+          "m_PathID": 13693
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 13508
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 13707
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 13757
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 13630
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 13647
+        }
+      ],
+      "nav": [
+        {
+          "m_FileID": 0,
+          "m_PathID": 5739
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 5832
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 5773
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 5835
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 5762
+        },
+        {
+          "m_FileID": 0,
+          "m_PathID": 5829
+        }
+      ],
+      "onSubmit": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "onTutorialFinished": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "allowNavigation": 0
+    },
+    "slots": [
+      {
+        "field": "/pages/0",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13693
+        },
+        "object": "sharedassets2.assets:13693",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:4277",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page1"
+      },
+      {
+        "field": "/pages/1",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13508
+        },
+        "object": "sharedassets2.assets:13508",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:3396",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page2"
+      },
+      {
+        "field": "/pages/2",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13707
+        },
+        "object": "sharedassets2.assets:13707",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:1115",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page3"
+      },
+      {
+        "field": "/pages/3",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13757
+        },
+        "object": "sharedassets2.assets:13757",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:5027",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page4"
+      },
+      {
+        "field": "/pages/4",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13630
+        },
+        "object": "sharedassets2.assets:13630",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:4709",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page5"
+      },
+      {
+        "field": "/pages/5",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13647
+        },
+        "object": "sharedassets2.assets:13647",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:4214",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page6"
+      }
+    ],
+    "sixthGameObject": {
+      "object": "sharedassets2.assets:4214",
+      "rawSha256": "06d6e417a9c505a7cbac03132082fa87fd93334eedcef3b630d6dae13d31b589",
+      "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-4214.json",
+      "sha256": "3ba674f035421cbdcd3d360cff59e4922c6bd23b0a05f60c6c7a100f170dac65"
+    },
+    "sixthNativeCanvasGroup": {
+      "object": "sharedassets2.assets:13647",
+      "rawSha256": "aa4d0596d4270f79891bd5d0aa6d092be71101a3d3cdc7898010b4e0d384e907",
+      "tree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 4214
+        },
+        "m_Enabled": 1,
+        "m_Alpha": 1.0,
+        "m_Interactable": false,
+        "m_BlocksRaycasts": false,
+        "m_IgnoreParentGroups": false
+      }
+    },
+    "sixthNativeTransform": {
+      "object": "sharedassets2.assets:10054",
+      "rawSha256": "015f7848a7e7fb5e17360bf535152b04152c2f51cafa8cd8b91266b1c255beb7",
+      "tree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 4214
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 12070
+          }
+        ],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13337
+        },
+        "m_AnchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "m_AnchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "m_AnchoredPosition": {
+          "x": 0.0,
+          "y": -0.0006103515625
+        },
+        "m_SizeDelta": {
+          "x": 426.0,
+          "y": 240.0
+        },
+        "m_Pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      }
+    },
+    "cachedSelectionContract": {
+      "id": "PennyScarlettCloacaFistingStory",
+      "ownerObject": "sharedassets2.assets:15852",
+      "ownerClass": "TheForestOfLove.PagedTutorial",
+      "rootGameObject": "sharedassets2.assets:3684",
+      "storyController": null,
+      "serializedOwnerControls": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 3684
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 239
+        },
+        "m_Name": "",
+        "pages": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 13693
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13508
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13707
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13757
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13630
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13647
+          }
+        ],
+        "nav": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 5739
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 5832
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 5773
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 5835
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 5762
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 5829
+          }
+        ],
+        "onSubmit": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "onTutorialFinished": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "allowNavigation": 0
+      },
+      "serializedGeneralControls": null,
+      "slots": [
+        {
+          "field": "/pages/0",
+          "pointer": {
+            "m_FileID": 0,
+            "m_PathID": 13693
+          },
+          "object": "sharedassets2.assets:13693",
+          "type": "CanvasGroup",
+          "gameObject": "sharedassets2.assets:4277",
+          "hierarchy": "PennyScarlettCloacaFistingStory/Page1"
+        },
+        {
+          "field": "/pages/1",
+          "pointer": {
+            "m_FileID": 0,
+            "m_PathID": 13508
+          },
+          "object": "sharedassets2.assets:13508",
+          "type": "CanvasGroup",
+          "gameObject": "sharedassets2.assets:3396",
+          "hierarchy": "PennyScarlettCloacaFistingStory/Page2"
+        },
+        {
+          "field": "/pages/2",
+          "pointer": {
+            "m_FileID": 0,
+            "m_PathID": 13707
+          },
+          "object": "sharedassets2.assets:13707",
+          "type": "CanvasGroup",
+          "gameObject": "sharedassets2.assets:1115",
+          "hierarchy": "PennyScarlettCloacaFistingStory/Page3"
+        },
+        {
+          "field": "/pages/3",
+          "pointer": {
+            "m_FileID": 0,
+            "m_PathID": 13757
+          },
+          "object": "sharedassets2.assets:13757",
+          "type": "CanvasGroup",
+          "gameObject": "sharedassets2.assets:5027",
+          "hierarchy": "PennyScarlettCloacaFistingStory/Page4"
+        },
+        {
+          "field": "/pages/4",
+          "pointer": {
+            "m_FileID": 0,
+            "m_PathID": 13630
+          },
+          "object": "sharedassets2.assets:13630",
+          "type": "CanvasGroup",
+          "gameObject": "sharedassets2.assets:4709",
+          "hierarchy": "PennyScarlettCloacaFistingStory/Page5"
+        },
+        {
+          "field": "/pages/5",
+          "pointer": {
+            "m_FileID": 0,
+            "m_PathID": 13647
+          },
+          "object": "sharedassets2.assets:13647",
+          "type": "CanvasGroup",
+          "gameObject": "sharedassets2.assets:4214",
+          "hierarchy": "PennyScarlettCloacaFistingStory/Page6"
+        }
+      ],
+      "sourcePageIds": [
+        "narrative-page:sharedassets2.assets:4277",
+        "narrative-page:sharedassets2.assets:3396",
+        "narrative-page:sharedassets2.assets:1115",
+        "narrative-page:sharedassets2.assets:5027",
+        "narrative-page:sharedassets2.assets:4709"
+      ],
+      "runtime": "not-run",
+      "sourceAccepted": false,
+      "selectionMechanism": "PagedTutorial.pages index; sets all page GameObjects active, selected CanvasGroup alpha1 and other alpha0, nav Animator selected bool.",
+      "navigation": "Awake currentPage0 and allowNavigation=true (overrides saved false). Right bumper/submit increments modulo6; left bumper wraps0->5. Submit at index5 invokes FinishTutorial then onSubmit.",
+      "finish": "FinishTutorial sets finishedTutorial and invokes onTutorialFinished; both saved UnityEvents have zero persistent calls. Instance listeners/reachability remain unverified.",
+      "commonCallbacks": [
+        {
+          "method": "System.Void TheForestOfLove.PagedTutorial::Awake()",
+          "offsets": [],
+          "bodySha256": "69cdb2e6f7b5b9d961b90a47575fad7fd611e8f103b2dd63813b8662545f0013"
+        },
+        {
+          "method": "System.Void TheForestOfLove.PagedTutorial::Update()",
+          "offsets": [],
+          "bodySha256": "b98cdb765028aedd23feed56ab1fbd825a9af42187cb1bdee57e86c1249c4c67"
+        },
+        {
+          "method": "System.Int32 TheForestOfLove.PagedTutorial::GetNextPage(System.Int32)",
+          "offsets": [],
+          "bodySha256": "d3cac0d9c046fca25418eeaab82f8d020198daf1fe796a23e0476b0a73df3ef1"
+        },
+        {
+          "method": "System.Int32 TheForestOfLove.PagedTutorial::GetPreviousPage(System.Int32)",
+          "offsets": [],
+          "bodySha256": "6e9fec0bf0a34a6c083dbac479b4897a0d951a1f4188be76fea8d066f18d3505"
+        },
+        {
+          "method": "System.Void TheForestOfLove.PagedTutorial::UpdatePageVisibility()",
+          "offsets": [],
+          "bodySha256": "ba4e6c559863014c69f2c41496d51995175f435acaa73ff86ecc867b1283dbad"
+        },
+        {
+          "method": "System.Void TheForestOfLove.PagedTutorial::FinishTutorial()",
+          "offsets": [],
+          "bodySha256": "043cf1d42e189f37d99b317c9afc8eee47a2d186b3717aabf6be3d214edfdd79"
+        }
+      ],
+      "excludedHomonym": "Bundle TheForestOfLove.PennyScarlettCloacaFistingStory movie controller is a different physical family; no control/actor/runtime binding inherited."
+    },
+    "excludedHomonym": "Bundle TheForestOfLove.PennyScarlettCloacaFistingStory movie controller is a different physical family; no control/actor/runtime binding inherited."
+  },
+  "pages": [
+    {
+      "pageId": "narrative-page:sharedassets2.assets:4277",
+      "pageOrder": 0,
+      "source": "Gosh, I was so nervous!",
+      "sourceUtf8Sha256": "936a900e776de1dde442af29a525a6eee681a89a694a427993c558d8879e778d",
+      "occurrenceIds": [
+        "sharedassets2.assets:17449/m_text",
+        "sharedassets2.assets:16432/m_text",
+        "sharedassets2.assets:15004/m_text",
+        "sharedassets2.assets:18416/m_text",
+        "sharedassets2.assets:14054/m_text",
+        "sharedassets2.assets:18145/m_text"
+      ],
+      "occurrences": [
+        {
+          "occurrenceId": "sharedassets2.assets:17449/m_text",
+          "role": "invisible-layout-provider",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-17449.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 547,
+            "sha256": "327b7c5bc66353bc4545bc0e29b0fcdc24aa7e2a73a9793c06c08c4843215e22"
+          },
+          "sourceValueSha256": "3ae9e58540aa892cd7d38b5229450146eb4e3ae581498265bff14b2350c0aab8",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:16432/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16432.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 547,
+            "sha256": "8ee85aa6cb9b5c5447dc57456d10cbba2ca3df2fd1fdca0971679032422453a8"
+          },
+          "sourceValueSha256": "3ae9e58540aa892cd7d38b5229450146eb4e3ae581498265bff14b2350c0aab8",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:15004/m_text",
+          "role": "visible-face",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15004.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 547,
+            "sha256": "284b2aa62ffae3b8115cb806398aa21b7320ccdd429d54e4ee355cc60b8b2517"
+          },
+          "sourceValueSha256": "3ae9e58540aa892cd7d38b5229450146eb4e3ae581498265bff14b2350c0aab8",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18416/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18416.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 547,
+            "sha256": "25f6f5851db0dd2130eb76d8837130126f8fc1e4586fa09326e6a820a2dd719e"
+          },
+          "sourceValueSha256": "3ae9e58540aa892cd7d38b5229450146eb4e3ae581498265bff14b2350c0aab8",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:14054/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-14054.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 547,
+            "sha256": "fc1291c0fb00c4f9119de3f09cde4f24004be0ea7fc262ca469279c3c2c6957a"
+          },
+          "sourceValueSha256": "3ae9e58540aa892cd7d38b5229450146eb4e3ae581498265bff14b2350c0aab8",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18145/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18145.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 547,
+            "sha256": "92e445a085ae04e5475a78024a47ecc3fede40c1c6054f4c259c5070953019c8"
+          },
+          "sourceValueSha256": "3ae9e58540aa892cd7d38b5229450146eb4e3ae581498265bff14b2350c0aab8",
+          "protectedNontextFieldsEqual": true
+        }
+      ],
+      "memberBinding": {
+        "field": "/pages/0",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13693
+        },
+        "object": "sharedassets2.assets:13693",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:4277",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page1"
+      },
+      "fieldFactoryEvidence": [
+        "sharedassets2.assets:18057/pennyCloacaFistingStoryPrefab",
+        "ItemGetNotification::ShowPennyCloacaFistingStory IL_0002,0007",
+        "ItemGetNotification::ShowPagedTutorial IL_0018-0024"
+      ],
+      "callerEvidence": "Zero method-reference operands for the exact public Penny entry point in the pinned Assembly-CSharp.dll; activation caller is unresolved.",
+      "phraseSource": {
+        "id": "ds:273:2:Dialogue Text",
+        "sourcePath": "/conversations/223/dialogueEntries/1",
+        "actor": "8",
+        "conversant": "1",
+        "entry": {
+          "id": 2,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "Gosh, I was so nervous!",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "i1",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 2,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 3,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 174.0,
+            "y": 178.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      "actorEvidence": "producer-context actors/8 is bird; actors/1 is player. These belong to the separate conversation, not a proven tutorial actor.",
+      "pointOfView": "First-person recollection; no listener is established. She/her refers to an unnamed female partner. Page4 expressly says lady. Names, identity and a tutorial listener are not established by this wording.",
+      "physicalSpeakerJoinProved": false,
+      "sourceAccepted": false,
+      "targetApplied": false
+    },
+    {
+      "pageId": "narrative-page:sharedassets2.assets:3396",
+      "pageOrder": 1,
+      "source": "She started having me lay back and get comfortable, as she gently explored and stroked around my down… She said the feathers were so soft down there…",
+      "sourceUtf8Sha256": "fb272aef7cc06f895b00b4e289c22e8efd68746e8a979cfa3527a64e00ee4b56",
+      "occurrenceIds": [
+        "sharedassets2.assets:15103/m_text",
+        "sharedassets2.assets:17240/m_text",
+        "sharedassets2.assets:16540/m_text",
+        "sharedassets2.assets:15840/m_text",
+        "sharedassets2.assets:14040/m_text",
+        "sharedassets2.assets:18499/m_text"
+      ],
+      "occurrences": [
+        {
+          "occurrenceId": "sharedassets2.assets:15103/m_text",
+          "role": "invisible-layout-provider",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15103.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 683,
+            "sha256": "d1d2e431f2c684bbd2fcac5891a754fdf2ec8ea9128437e49461f96f375f3345"
+          },
+          "sourceValueSha256": "0b45e4f371234e81eeb2802f9b9c8eff51a559679aa6014e1ef5419291a81691",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:17240/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-17240.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 683,
+            "sha256": "9a2feb3e05abda59921fa63f122637796606929d19461181c1a95bc8556d2fcc"
+          },
+          "sourceValueSha256": "0b45e4f371234e81eeb2802f9b9c8eff51a559679aa6014e1ef5419291a81691",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:16540/m_text",
+          "role": "visible-face",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16540.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 683,
+            "sha256": "4bda9a24c9721ff2cbe601bb88379345c1604982d4e0fdb1ca1080c4a143fafb"
+          },
+          "sourceValueSha256": "0b45e4f371234e81eeb2802f9b9c8eff51a559679aa6014e1ef5419291a81691",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:15840/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15840.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 683,
+            "sha256": "8793f595b7985b8c0657cc0ffd719b3104433c0cbd6b24c6f9225d8c75c51df8"
+          },
+          "sourceValueSha256": "0b45e4f371234e81eeb2802f9b9c8eff51a559679aa6014e1ef5419291a81691",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:14040/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-14040.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 683,
+            "sha256": "a9f45a765469dd36ae84d92eed698b89939dec1a45c0bfe3f27678653a564dfe"
+          },
+          "sourceValueSha256": "0b45e4f371234e81eeb2802f9b9c8eff51a559679aa6014e1ef5419291a81691",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18499/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18499.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 683,
+            "sha256": "e3b97ca86ff4c33b4910c5207c8c7c142d725a46722b8889eec665e84278762b"
+          },
+          "sourceValueSha256": "0b45e4f371234e81eeb2802f9b9c8eff51a559679aa6014e1ef5419291a81691",
+          "protectedNontextFieldsEqual": true
+        }
+      ],
+      "memberBinding": {
+        "field": "/pages/1",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13508
+        },
+        "object": "sharedassets2.assets:13508",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:3396",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page2"
+      },
+      "fieldFactoryEvidence": [
+        "sharedassets2.assets:18057/pennyCloacaFistingStoryPrefab",
+        "ItemGetNotification::ShowPennyCloacaFistingStory IL_0002,0007",
+        "ItemGetNotification::ShowPagedTutorial IL_0018-0024"
+      ],
+      "callerEvidence": "Zero method-reference operands for the exact public Penny entry point in the pinned Assembly-CSharp.dll; activation caller is unresolved.",
+      "phraseSource": {
+        "id": "ds:273:3:Dialogue Text",
+        "sourcePath": "/conversations/223/dialogueEntries/2",
+        "actor": "8",
+        "conversant": "1",
+        "entry": {
+          "id": 3,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "She started having me lay back and get comfortable, as she gently explored and stroked around my down… She said the feathers were so soft down there…",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 3,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 138,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 194.0,
+            "y": 246.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      "actorEvidence": "producer-context actors/8 is bird; actors/1 is player. These belong to the separate conversation, not a proven tutorial actor.",
+      "pointOfView": "First-person recollection; no listener is established. She/her refers to an unnamed female partner. Page4 expressly says lady. Names, identity and a tutorial listener are not established by this wording.",
+      "physicalSpeakerJoinProved": false,
+      "sourceAccepted": false,
+      "targetApplied": false
+    },
+    {
+      "pageId": "narrative-page:sharedassets2.assets:1115",
+      "pageOrder": 2,
+      "source": "I’ll never forget how her little curious paws felt… Seeing her cute lil’ excited face as she explored…",
+      "sourceUtf8Sha256": "e29657631316a5633feb6fc839a69e8d43136452e50fd28b9faeeca563e29953",
+      "occurrenceIds": [
+        "sharedassets2.assets:14660/m_text",
+        "sharedassets2.assets:14439/m_text",
+        "sharedassets2.assets:14224/m_text",
+        "sharedassets2.assets:15340/m_text",
+        "sharedassets2.assets:15438/m_text",
+        "sharedassets2.assets:16644/m_text"
+      ],
+      "occurrences": [
+        {
+          "occurrenceId": "sharedassets2.assets:14660/m_text",
+          "role": "invisible-layout-provider",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-14660.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 646,
+            "sha256": "1440c878551362e7c4ffe2a3eeea0b9379664784f75038dfa0d73958d0cb943a"
+          },
+          "sourceValueSha256": "da8ce1900445406595bdede9c81eb0282c1a6acca59155a848406418dfb09aa6",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:14439/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-14439.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 646,
+            "sha256": "f28ee1d0a0f533ed0b10adb25866b8720e287f50f4f4f694b764fcb04b0a4b36"
+          },
+          "sourceValueSha256": "da8ce1900445406595bdede9c81eb0282c1a6acca59155a848406418dfb09aa6",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:14224/m_text",
+          "role": "visible-face",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-14224.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 646,
+            "sha256": "b5d9a702cac2ae43bb402772506dc72be14b482bf8cb7c42c15d82343a5aaeb2"
+          },
+          "sourceValueSha256": "da8ce1900445406595bdede9c81eb0282c1a6acca59155a848406418dfb09aa6",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:15340/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15340.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 646,
+            "sha256": "3fcdbb580eb96504b0a7d0b7d4d179d337bbd0d04b784905c40b4c5d9c43c729"
+          },
+          "sourceValueSha256": "da8ce1900445406595bdede9c81eb0282c1a6acca59155a848406418dfb09aa6",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:15438/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15438.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 646,
+            "sha256": "7247359c7f11b6a29522557580816ec1ed4394be3b0c07aed5f71e37b407303b"
+          },
+          "sourceValueSha256": "da8ce1900445406595bdede9c81eb0282c1a6acca59155a848406418dfb09aa6",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:16644/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16644.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 646,
+            "sha256": "ad5b09c2be2471cfa413bf391662363c54fcec918db00000ef9575aa08e3b626"
+          },
+          "sourceValueSha256": "da8ce1900445406595bdede9c81eb0282c1a6acca59155a848406418dfb09aa6",
+          "protectedNontextFieldsEqual": true
+        }
+      ],
+      "memberBinding": {
+        "field": "/pages/2",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13707
+        },
+        "object": "sharedassets2.assets:13707",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:1115",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page3"
+      },
+      "fieldFactoryEvidence": [
+        "sharedassets2.assets:18057/pennyCloacaFistingStoryPrefab",
+        "ItemGetNotification::ShowPennyCloacaFistingStory IL_0002,0007",
+        "ItemGetNotification::ShowPagedTutorial IL_0018-0024"
+      ],
+      "callerEvidence": "Zero method-reference operands for the exact public Penny entry point in the pinned Assembly-CSharp.dll; activation caller is unresolved.",
+      "phraseSource": {
+        "id": "ds:273:138:Dialogue Text",
+        "sourcePath": "/conversations/223/dialogueEntries/5",
+        "actor": "8",
+        "conversant": "1",
+        "entry": {
+          "id": 138,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "I’ll never forget how her little curious paws felt… Seeing her cute lil’ excited face as she explored…",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 138,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 139,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 186.0,
+            "y": 313.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      "actorEvidence": "producer-context actors/8 is bird; actors/1 is player. These belong to the separate conversation, not a proven tutorial actor.",
+      "pointOfView": "First-person recollection; no listener is established. She/her refers to an unnamed female partner. Page4 expressly says lady. Names, identity and a tutorial listener are not established by this wording.",
+      "physicalSpeakerJoinProved": false,
+      "sourceAccepted": false,
+      "targetApplied": false
+    },
+    {
+      "pageId": "narrative-page:sharedassets2.assets:5027",
+      "pageOrder": 3,
+      "source": "As I began to relax, she started to work her way inside, and GOSH~! She really knows how to please a lady, bahaw!",
+      "sourceUtf8Sha256": "3745d6b95cb7edaa01422f61a8464983fb5639d8cc06a81fc614a2036af55a27",
+      "occurrenceIds": [
+        "sharedassets2.assets:17595/m_text",
+        "sharedassets2.assets:16920/m_text",
+        "sharedassets2.assets:18792/m_text",
+        "sharedassets2.assets:17897/m_text",
+        "sharedassets2.assets:16895/m_text",
+        "sharedassets2.assets:14708/m_text"
+      ],
+      "occurrences": [
+        {
+          "occurrenceId": "sharedassets2.assets:17595/m_text",
+          "role": "invisible-layout-provider",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-17595.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 637,
+            "sha256": "6b0a4de0b74925f256b56c6b1b8ec90d06dbd90a25eca3815a6e83bd551d0a46"
+          },
+          "sourceValueSha256": "526fb771bf11a9c4ee04cf6473a5ce4cc9992a8ea6ca34b3963c2ea7f02016ca",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:16920/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16920.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 637,
+            "sha256": "aeb223d353798b6ea2bf9a038b9e0c551e0e15965bf76c67b799d6fbe3085c4d"
+          },
+          "sourceValueSha256": "526fb771bf11a9c4ee04cf6473a5ce4cc9992a8ea6ca34b3963c2ea7f02016ca",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18792/m_text",
+          "role": "visible-face",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18792.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 637,
+            "sha256": "def0be7543cef745a65f851d51dc4588267ffa94fbbe94c4a6e1bb49a7386def"
+          },
+          "sourceValueSha256": "526fb771bf11a9c4ee04cf6473a5ce4cc9992a8ea6ca34b3963c2ea7f02016ca",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:17897/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-17897.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 637,
+            "sha256": "c8b1b2983b04117a682fcfa8a36416a1e84524a223fb57f956b606d5159f1dc2"
+          },
+          "sourceValueSha256": "526fb771bf11a9c4ee04cf6473a5ce4cc9992a8ea6ca34b3963c2ea7f02016ca",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:16895/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16895.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 637,
+            "sha256": "c722d4d73f0b2cb2db4406712f72813b036524ba1cb953ba20610cc8933cf88d"
+          },
+          "sourceValueSha256": "526fb771bf11a9c4ee04cf6473a5ce4cc9992a8ea6ca34b3963c2ea7f02016ca",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:14708/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-14708.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 637,
+            "sha256": "6f7a964dd11073cc1cf44b381cbb9331ce7675c7e7bc18e8425aee574b329f7b"
+          },
+          "sourceValueSha256": "526fb771bf11a9c4ee04cf6473a5ce4cc9992a8ea6ca34b3963c2ea7f02016ca",
+          "protectedNontextFieldsEqual": true
+        }
+      ],
+      "memberBinding": {
+        "field": "/pages/3",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13757
+        },
+        "object": "sharedassets2.assets:13757",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:5027",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page4"
+      },
+      "fieldFactoryEvidence": [
+        "sharedassets2.assets:18057/pennyCloacaFistingStoryPrefab",
+        "ItemGetNotification::ShowPennyCloacaFistingStory IL_0002,0007",
+        "ItemGetNotification::ShowPagedTutorial IL_0018-0024"
+      ],
+      "callerEvidence": "Zero method-reference operands for the exact public Penny entry point in the pinned Assembly-CSharp.dll; activation caller is unresolved.",
+      "phraseSource": {
+        "id": "ds:273:139:Dialogue Text",
+        "sourcePath": "/conversations/223/dialogueEntries/6",
+        "actor": "8",
+        "conversant": "1",
+        "entry": {
+          "id": 139,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "As I began to relax, she started to work her way inside, and GOSH~! She really knows how to please a lady, bahaw!",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 139,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 135,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 220.0,
+            "y": 381.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      "actorEvidence": "producer-context actors/8 is bird; actors/1 is player. These belong to the separate conversation, not a proven tutorial actor.",
+      "pointOfView": "First-person recollection; no listener is established. She/her refers to an unnamed female partner. Page4 expressly says lady. Names, identity and a tutorial listener are not established by this wording.",
+      "physicalSpeakerJoinProved": false,
+      "sourceAccepted": false,
+      "targetApplied": false
+    },
+    {
+      "pageId": "narrative-page:sharedassets2.assets:4709",
+      "pageOrder": 4,
+      "source": "It was a really special night… And I owe her a lot to help me come out of my shell…",
+      "sourceUtf8Sha256": "c49080f9e9396b75bdef846914196f28fdfa0cbac562dcf16206c0d5265d1bad",
+      "occurrenceIds": [
+        "sharedassets2.assets:16992/m_text",
+        "sharedassets2.assets:18383/m_text",
+        "sharedassets2.assets:16797/m_text",
+        "sharedassets2.assets:18231/m_text",
+        "sharedassets2.assets:18258/m_text",
+        "sharedassets2.assets:17656/m_text"
+      ],
+      "occurrences": [
+        {
+          "occurrenceId": "sharedassets2.assets:16992/m_text",
+          "role": "invisible-layout-provider",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16992.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 617,
+            "sha256": "82a3cd562dc6d9c6aa9a151391769ac1d8d0be2fcf63c2ad495eb7a89121b5ac"
+          },
+          "sourceValueSha256": "f9238b68a95dfd3958f44e005e38a04e75519e4637a5d710bc77cc3228800ed2",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18383/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18383.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 617,
+            "sha256": "c5daaba670446942dfcd85233d47b5b3d341564d66fdaa1466b14756e9fbc50b"
+          },
+          "sourceValueSha256": "f9238b68a95dfd3958f44e005e38a04e75519e4637a5d710bc77cc3228800ed2",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:16797/m_text",
+          "role": "visible-face",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-16797.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 617,
+            "sha256": "71df4496ed6c4e21486fc2d39ef12a0baa0607514ff44a58cc315d770e624dbc"
+          },
+          "sourceValueSha256": "f9238b68a95dfd3958f44e005e38a04e75519e4637a5d710bc77cc3228800ed2",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18231/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18231.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 617,
+            "sha256": "6e02bc699a84e3f3e092ebd2305b81d7d94aabf596aeed7bd5d6992fc12e4193"
+          },
+          "sourceValueSha256": "f9238b68a95dfd3958f44e005e38a04e75519e4637a5d710bc77cc3228800ed2",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:18258/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18258.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 617,
+            "sha256": "3a4ee534f93f47da6b2298da99df38e9ea4926035008d8bc8f2d260d02aab02e"
+          },
+          "sourceValueSha256": "f9238b68a95dfd3958f44e005e38a04e75519e4637a5d710bc77cc3228800ed2",
+          "protectedNontextFieldsEqual": true
+        },
+        {
+          "occurrenceId": "sharedassets2.assets:17656/m_text",
+          "role": "visible-glow",
+          "sourceSpan": {
+            "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-17656.json",
+            "pointer": "/m_text",
+            "jsonTokenByteStart": 522,
+            "jsonTokenByteEndExclusive": 617,
+            "sha256": "39e5f581ac3974395736cb85fd0b89d62316d69b939ed180ee33cdd3460ecc0f"
+          },
+          "sourceValueSha256": "f9238b68a95dfd3958f44e005e38a04e75519e4637a5d710bc77cc3228800ed2",
+          "protectedNontextFieldsEqual": true
+        }
+      ],
+      "memberBinding": {
+        "field": "/pages/4",
+        "pointer": {
+          "m_FileID": 0,
+          "m_PathID": 13630
+        },
+        "object": "sharedassets2.assets:13630",
+        "type": "CanvasGroup",
+        "gameObject": "sharedassets2.assets:4709",
+        "hierarchy": "PennyScarlettCloacaFistingStory/Page5"
+      },
+      "fieldFactoryEvidence": [
+        "sharedassets2.assets:18057/pennyCloacaFistingStoryPrefab",
+        "ItemGetNotification::ShowPennyCloacaFistingStory IL_0002,0007",
+        "ItemGetNotification::ShowPagedTutorial IL_0018-0024"
+      ],
+      "callerEvidence": "Zero method-reference operands for the exact public Penny entry point in the pinned Assembly-CSharp.dll; activation caller is unresolved.",
+      "phraseSource": {
+        "id": "ds:273:135:Dialogue Text",
+        "sourcePath": "/conversations/223/dialogueEntries/4",
+        "actor": "8",
+        "conversant": "1",
+        "entry": {
+          "id": 135,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "It was a really special night… And I owe her a lot to help me come out of my shell…",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 240.0,
+            "y": 437.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      "actorEvidence": "producer-context actors/8 is bird; actors/1 is player. These belong to the separate conversation, not a proven tutorial actor.",
+      "pointOfView": "First-person recollection; no listener is established. She/her refers to an unnamed female partner. Page4 expressly says lady. Names, identity and a tutorial listener are not established by this wording.",
+      "physicalSpeakerJoinProved": false,
+      "sourceAccepted": false,
+      "targetApplied": false
+    }
+  ],
+  "actorEvidence": [
+    {
+      "actorId": 1,
+      "sourcePointer": "/actors/5",
+      "record": {
+        "id": 1,
+        "fields": [
+          {
+            "title": "Name",
+            "value": "player",
+            "type": 0,
+            "typeString": ""
+          },
+          {
+            "title": "Pictures",
+            "value": "[]",
+            "type": 3,
+            "typeString": "CustomFieldType_Files"
+          },
+          {
+            "title": "Description",
+            "value": "",
+            "type": 0,
+            "typeString": ""
+          },
+          {
+            "title": "IsPlayer",
+            "value": "True",
+            "type": 2,
+            "typeString": "CustomFieldType_Boolean"
+          }
+        ],
+        "portrait": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "spritePortrait": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "alternatePortraits": [],
+        "spritePortraits": []
+      }
+    },
+    {
+      "actorId": 8,
+      "sourcePointer": "/actors/7",
+      "record": {
+        "id": 8,
+        "fields": [
+          {
+            "title": "Name",
+            "value": "bird",
+            "type": 0,
+            "typeString": "CustomFieldType_Text"
+          },
+          {
+            "title": "Pictures",
+            "value": "[]",
+            "type": 3,
+            "typeString": "CustomFieldType_Files"
+          },
+          {
+            "title": "Description",
+            "value": "",
+            "type": 0,
+            "typeString": "CustomFieldType_Text"
+          },
+          {
+            "title": "IsPlayer",
+            "value": "False",
+            "type": 2,
+            "typeString": "CustomFieldType_Boolean"
+          }
+        ],
+        "portrait": {
+          "m_FileID": 0,
+          "m_PathID": 132
+        },
+        "spritePortrait": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "alternatePortraits": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 112
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 172
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 152
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 73
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 144
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 197
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 168
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 207
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 226
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 133
+          }
+        ],
+        "spritePortraits": []
+      }
+    }
+  ],
+  "phraseContext": {
+    "database": {
+      "path": "assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json",
+      "sha256": "41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b"
+    },
+    "conversationId": 273,
+    "conversationFields": [
+      {
+        "title": "Title",
+        "value": "movies/pennyScarlettCloacaFistingStory/dialogue",
+        "type": 0,
+        "typeString": "CustomFieldType_Text"
+      },
+      {
+        "title": "Pictures",
+        "value": "[]",
+        "type": 3,
+        "typeString": "CustomFieldType_Files"
+      },
+      {
+        "title": "Description",
+        "value": "",
+        "type": 0,
+        "typeString": "CustomFieldType_Text"
+      },
+      {
+        "title": "Actor",
+        "value": "1",
+        "type": 5,
+        "typeString": "CustomFieldType_Actor"
+      },
+      {
+        "title": "Conversant",
+        "value": "8",
+        "type": 5,
+        "typeString": "CustomFieldType_Actor"
+      },
+      {
+        "title": "TfolConversationType",
+        "value": "standalone",
+        "type": 0,
+        "typeString": "CustomFieldType_Text"
+      },
+      {
+        "title": "TfolUniqueDataKeySuffix",
+        "value": "movies_pennyscarlettstory",
+        "type": 0,
+        "typeString": "CustomFieldType_Text"
+      }
+    ],
+    "completeSevenEntryContext": [
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/0",
+        "entry": {
+          "id": 0,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "START",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Actor",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Sequence",
+              "value": "None()",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 20.0,
+            "y": 28.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/1",
+        "entry": {
+          "id": 2,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "Gosh, I was so nervous!",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "i1",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 2,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 3,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 174.0,
+            "y": 178.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/2",
+        "entry": {
+          "id": 3,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "She started having me lay back and get comfortable, as she gently explored and stroked around my down… She said the feathers were so soft down there…",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 3,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 138,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 194.0,
+            "y": 246.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/3",
+        "entry": {
+          "id": 131,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "IDLE",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "None()",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 131,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 2,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 184.0,
+            "y": 99.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/4",
+        "entry": {
+          "id": 135,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "It was a really special night… And I owe her a lot to help me come out of my shell…",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 240.0,
+            "y": 437.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/5",
+        "entry": {
+          "id": 138,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "I’ll never forget how her little curious paws felt… Seeing her cute lil’ excited face as she explored…",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 138,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 139,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 186.0,
+            "y": 313.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      },
+      {
+        "sourcePath": "/conversations/223/dialogueEntries/6",
+        "entry": {
+          "id": 139,
+          "fields": [
+            {
+              "title": "Title",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Pictures",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Description",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Actor",
+              "value": "8",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Conversant",
+              "value": "1",
+              "type": 5,
+              "typeString": "CustomFieldType_Actor"
+            },
+            {
+              "title": "Menu Text",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Dialogue Text",
+              "value": "As I began to relax, she started to work her way inside, and GOSH~! She really knows how to please a lady, bahaw!",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Parenthetical",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Audio Files",
+              "value": "[]",
+              "type": 3,
+              "typeString": "CustomFieldType_Files"
+            },
+            {
+              "title": "Video File",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "TfolUniqueDataKeySuffix",
+              "value": "",
+              "type": 0,
+              "typeString": "CustomFieldType_Text"
+            },
+            {
+              "title": "Response Menu Sequence",
+              "value": "",
+              "type": 0,
+              "typeString": ""
+            }
+          ],
+          "conversationID": 273,
+          "isRoot": 0,
+          "isGroup": 0,
+          "nodeColor": "",
+          "delaySimStatus": 0,
+          "falseConditionAction": "Block",
+          "conditionPriority": 2,
+          "outgoingLinks": [
+            {
+              "originConversationID": 273,
+              "originDialogueID": 139,
+              "destinationConversationID": 273,
+              "destinationDialogueID": 135,
+              "isConnector": 0,
+              "priority": 2
+            }
+          ],
+          "conditionsString": "",
+          "userScript": "",
+          "onExecute": {
+            "m_PersistentCalls": {
+              "m_Calls": []
+            }
+          },
+          "canvasRect": {
+            "x": 220.0,
+            "y": 381.0,
+            "width": 160.0,
+            "height": 30.0
+          }
+        }
+      }
+    ],
+    "contextFile": {
+      "path": "outputs/narrative-reuse-review-20261029/check/context-273.jsonl",
+      "sha256": "23df38a4cf82f3c92d88e2f13abaa0b739ee5b1951fc4e6a8ddead331a60e579"
+    },
+    "contextFileLimitation": "Despite its extension this is a compact text header followed by seven JSON entry lines; actor metadata is in producer-context and original database."
+  },
+  "methodEvidence": "method-evidence.json",
+  "acquisition": "method-acquisition.json",
+  "assemblyBoundNegative": {
+    "target": "System.Void TheForestOfLove.ItemGetNotification::ShowPennyCloacaFistingStory()",
+    "methodReferenceOperands": 0,
+    "exactMethodNameStringLiterals": 0,
+    "scope": "All HasBody methods across nested types in the pinned original Assembly-CSharp.dll, using frozen InspectMethods modes. Includes call,callvirt,ldftn and any other MethodReference operand.",
+    "limits": "Does not establish absence from other assemblies, unextracted/native/external serialized data, reflection or generated/split strings. No absence or unreachable-resource claim."
+  },
+  "resolvedPredicates": [
+    {
+      "id": "exact-physical-resource",
+      "predicate": "Owner field points to the old tutorial, not the bundle movie.",
+      "status": "resolved",
+      "evidence": [
+        {
+          "object": "sharedassets2.assets:18057",
+          "rawSha256": "44efa1397a5190b4171a14599c756b2a61d34a2feb8fe762077915d530ccdb45",
+          "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-18057.json",
+          "sha256": "2925b8823e26b63d4407fcb37199fd48ac761889732a91f0fd01381f0c75a1fd"
+        },
+        {
+          "object": "sharedassets2.assets:15852",
+          "rawSha256": "f9a3506f9a101c29934eebc057f21d3f58c89a4b3c5dfd842bfffb3c97fa75a3",
+          "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-15852.json",
+          "sha256": "86a973ffca2b65fab2583c5317148d89841468072c9125f9d6527c62274ab81d"
+        },
+        {
+          "object": "sharedassets2.assets:4561",
+          "rawSha256": "a2805d936f8dbb37bc9c0d7baeee74ad8c93d429bef52db8662f263646c396a8",
+          "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-4561.json",
+          "sha256": "ab0f9984a17ab1c50099ab32979efd20d84b3979ebff6059bb77f908fd781c82"
+        },
+        {
+          "object": "sharedassets2.assets:3684",
+          "rawSha256": "d5ecd687a31900b8c20de4cc9797774b6a1a1fae54e58929a0f9e22344637249",
+          "path": "assets/source-v2/trees/93427fb40d-sharedassets2.assets-3684.json",
+          "sha256": "b674a611bc9ca34d133ca1df01e491467d1e14e817ce40a41cd83c88a5fc3e10"
+        }
+      ]
+    },
+    {
+      "id": "field-reader",
+      "predicate": "Enumerate exact field readers in original game assembly.",
+      "status": "resolved",
+      "evidence": "One ldfld at ShowPennyCloacaFistingStory IL_0002; full body calls ShowPagedTutorial at 0007."
+    },
+    {
+      "id": "factory",
+      "predicate": "Establish exact prefab instantiation and dynamic listeners.",
+      "status": "resolved-static-contract",
+      "evidence": "ShowPagedTutorial returns null when visible; otherwise Instantiate<PagedTutorial>(prefab,messageContainer) at001f. allowNavigation=false at0030; 2.5-second callback b__0 sets true. nav is reparented via 005d. onSubmit b__1 is installed at 0079 and triggers pressed; onTutorialFinished b__2 is installed at 0095, hides notification, schedules b__3 after 2 seconds, and invokes onTutorialEnding. b__3 reparents nav and destroys the instance. onTutorialStarting is invoked at 009f; StartNotification at 00a5."
+    },
+    {
+      "id": "six-slots-and-callbacks",
+      "predicate": "Bind all five text pages and retain sixth slot and protected events.",
+      "status": "resolved-static-contract",
+      "evidence": "Five pages/30 exact spans verified. Sixth CanvasGroup13647 belongs to GO4214, has no assigned narrative text, and remains pages/5. Native supplement retains transform10054 child12070 without inventing a text binding. PagedTutorial Update at 0077 finishes on index5 and invokes onSubmit at 009d. Both serialized persistent-call arrays are empty; the factory adds runtime listeners conditionally."
+    },
+    {
+      "id": "conversation-provenance",
+      "predicate": "Bind five phrase matches and separate actor metadata/order.",
+      "status": "resolved-provenance-only",
+      "evidence": "Conversation 273 entries 2->3->138->139->135, each actor 8=bird, conversant 1=player. IDLE 131 links to2. Exact words/order are corroborating provenance and not a physical speaker join."
+    }
+  ],
+  "remainingPredicates": [
+    {
+      "id": "activation-caller",
+      "predicate": "Identify an actual caller/registration/serialized route that activates ShowPennyCloacaFistingStory on this owner.",
+      "status": "bounded-unresolved",
+      "evidence": "Zero exact MethodReference operands and zero exact ldstr operands for ShowPennyCloacaFistingStory in original Assembly-CSharp. Owner RegisterServices registers ItemGetNotification; AddEventListeners subscribes OnItemAdded, not the Penny method. No route is established. Candidate text search found no spelling in the existing extracted trees/text-assets or two named cached source directories; this is not an external absence proof.",
+      "nextPermittedAction": "Parent retains potential-resource disposition. Obtain a concrete serialized/script route or an explicit source/context adjudication; an observed runtime route requires separate applicable owner authorization. Do not repeat unchanged scans."
+    },
+    {
+      "id": "physical-speaker",
+      "predicate": "Bind this tutorial instance to a narrator, addressee, and conversation 273.",
+      "status": "bounded-unresolved",
+      "evidence": "The complete named reader/factory/callback bodies contain no actor/conversation parameter or StartDialogue call. Their generic GameEvents and service/native execution boundaries do not prove a listener or story identity. Exact source equality, field/root names, and the excluded movie homonym are insufficient.",
+      "nextPermittedAction": "Parent must establish a concrete version-bound route/actor join or explicitly adjudicate the old tutorial context before target reuse admission. No target wording re-review or application in this job."
+    },
+    {
+      "id": "runtime-and-delivery",
+      "predicate": "Actual instantiation, timer/event execution, rendered visibility and target resource acceptance.",
+      "status": "not-run",
+      "nextPermittedAction": "Retain separate source/editorial/font/package/runtime gates; no global 23-case waiver."
+    }
+  ],
+  "protectedPins": {
+    "source": {
+      "path": "localization/source/narrative-displays-20261029/source.jsonl",
+      "sha256": "d3a21012dce4fca2a2b58c1161665514893a17f06b8a6ffa084244eccdb95d7c"
+    },
+    "controls": {
+      "path": "localization/source/narrative-displays-20261029/protected-controls.json",
+      "sha256": "3987a0634c9af70535b819cc2d98621fe230b759ef30cc75927e879c33dcbefe"
+    },
+    "sourceCase": {
+      "path": "localization/source/narrative-displays-20261029/source-case.json",
+      "sha256": "2b3e3dc36288d27c2dec4f60bb0c99ba4ef35ef5817db2c8f43542cd12728f19"
+    },
+    "frozenDialogue": {
+      "path": "localization/ru-assets/dialogue.ru.jsonl",
+      "sha256": "462c91c948c3564225aeaf71da972c7426e5b5c068eaca7bab64e22e70e36587"
+    },
+    "preservedKeys": [
+      "all owner and tutorial serialized fields",
+      "pages/nav pointers and order",
+      "empty persistent event arrays",
+      "selected/show/hide/pressed animator keys",
+      "conversation title,type,unique data keys,Actor,Conversant",
+      "entry conditions,scripts,onExecute,outgoingLinks",
+      "all 30 nontext controls including resources and layout"
+    ],
+    "policy": "No source admission, target application, source/glossary/target edits or save/scene/control changes."
+  },
+  "sourceAccepted": false,
+  "targetApplied": false,
+  "runtime": "not-run",
+  "wholeGameAccepted": false
+}

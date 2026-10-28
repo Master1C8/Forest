@@ -1,0 +1,36 @@
+{
+  "packetSha256": "f246f62d05e7b55b6c06bc1592c7cdbe3ba186bc96602a6f2eb905ba49f32e9c",
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "8b7a8440f080bd754f85a9bfcb88edf6a64bc88108741362bc8883c3694c927e.webp",
+      "sha256": "89ccdbcf2fa671a5319530865d4662604d385b40a3a84c6b439fa442ef0f1680",
+      "width": 650,
+      "height": 220,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T20:44:44.429288+00:00",
+      "observations": "Inspected the complete delivered 650×220 WebP crop. Russian foreground text is readable within the deliberate crop boundaries. Protected English notebook artwork shows fading beneath a dark tutorial overlay; no definite broken or overprinted target glyphs are visible, but complete lower artwork entries remain unreadable. Original SHA-256: 00d1447655022633c388f98737321b3214a128183f82788cf6f9e6061ccc755b; source crop [500,540,650,220]. This review does not close whole-frame runtime diagnostics.",
+      "findings": [
+        {
+          "check": "glyphs",
+          "severity": "minor",
+          "region": "Crop coordinates: left notebook entry x60–200,y109–133; lower right entry x328–515,y109–133.",
+          "observed": "Faint artwork lettering merges into the dark overlay, preventing a complete reading. The crop does not conclusively resolve all marks as intentional fading versus malformed lettering.",
+          "expected": "Complete marks must be visually resolvable before readability can pass; source-byte identity and the protected-bitmap exception do not establish readability.",
+          "nextAction": "Retain glyphs needs-review and request an explicit readability acceptance decision for these exact protected source-art regions. Do not require translation of this bitmap."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "needs-review",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

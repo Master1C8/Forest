@@ -1,0 +1,68 @@
+[
+  {
+    "id": "notebook-page4",
+    "original": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-notebook-20261029-01/ru-04-notebook-page-4.png",
+    "originalSha256": "00d1447655022633c388f98737321b3214a128183f82788cf6f9e6061ccc755b",
+    "originalDimensions": [
+      1650,
+      1050
+    ],
+    "crop": [
+      500,
+      540,
+      650,
+      220
+    ],
+    "prepared": "/Users/antonkrutov/Desktop/Forest/localization/visual-qa/ru-details-20261029-01/crops/notebook-page4.webp",
+    "preparedSha256": "8b7a8440f080bd754f85a9bfcb88edf6a64bc88108741362bc8883c3694c927e",
+    "preparedDimensions": [
+      650,
+      220
+    ],
+    "preparation": "python3 -B ~/.codex/tools/screenshot_preview.py <original> --output <separate.webp> --crop X Y WIDTH HEIGHT;WebP80,no upscale,max1280"
+  },
+  {
+    "id": "notebook-page5",
+    "original": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-notebook-20261029-01/ru-05-notebook-page-5.png",
+    "originalSha256": "f8f019ba86c173ba54ebafc5730091f5554f32df39cfd415d6d0d648e78b0528",
+    "originalDimensions": [
+      1650,
+      1050
+    ],
+    "crop": [
+      250,
+      600,
+      650,
+      200
+    ],
+    "prepared": "/Users/antonkrutov/Desktop/Forest/localization/visual-qa/ru-details-20261029-01/crops/notebook-page5.webp",
+    "preparedSha256": "e229ac021e5f9f00d9452c868642346c4ea1bf841cd8726a734172d0db8d8d8a",
+    "preparedDimensions": [
+      650,
+      200
+    ],
+    "preparation": "python3 -B ~/.codex/tools/screenshot_preview.py <original> --output <separate.webp> --crop X Y WIDTH HEIGHT;WebP80,no upscale,max1280"
+  },
+  {
+    "id": "quest-photo-border",
+    "original": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-quests-20261029-01/ru-01-quest-photo-active-top.png",
+    "originalSha256": "3a6c038f2a02457c40e036ff683d269fd6f7953ec269374cd347ee2f9d714ea8",
+    "originalDimensions": [
+      1650,
+      1050
+    ],
+    "crop": [
+      1020,
+      530,
+      420,
+      230
+    ],
+    "prepared": "/Users/antonkrutov/Desktop/Forest/localization/visual-qa/ru-details-20261029-01/crops/quest-photo-border.webp",
+    "preparedSha256": "60a5f05bafa11e3a7baf70fd96a17613905926e8d256981cf29259efc5403d6c",
+    "preparedDimensions": [
+      420,
+      230
+    ],
+    "preparation": "python3 -B ~/.codex/tools/screenshot_preview.py <original> --output <separate.webp> --crop X Y WIDTH HEIGHT;WebP80,no upscale,max1280"
+  }
+]
