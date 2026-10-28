@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "phase": "0139-work",
+  "targetLocales": [
+    "zh",
+    "ru",
+    "es",
+    "es-419",
+    "pt-BR",
+    "ja",
+    "de",
+    "ko",
+    "fr",
+    "tr",
+    "pl",
+    "zh-TW",
+    "it",
+    "th",
+    "vi",
+    "id",
+    "uk",
+    "ar",
+    "cs",
+    "hu",
+    "nl",
+    "fa",
+    "ro",
+    "hi",
+    "fil",
+    "el",
+    "bg",
+    "sr",
+    "sw",
+    "he"
+  ],
+  "originalOccurrences": 8576,
+  "resolvedOccurrences": 7248,
+  "unresolvedOccurrences": 1328,
+  "completeCompiledRolePacket": false,
+  "newDelta": {
+    "artifact": "compiled-source-role-delta.jsonl",
+    "occurrences": 110,
+    "display": 62,
+    "preserve": 48,
+    "visibleIdentityDependencies": 7,
+    "remainingSelected": 0
+  },
+  "knownWording": {
+    "artifact": "compiled-wording-source.jsonl",
+    "occurrences": 153,
+    "completeWhileRolesUnresolved": false
+  },
+  "preservedOperands": {
+    "artifact": "compiled-preserve-exactly.jsonl",
+    "occurrences": 7107,
+    "overlap": "The12 comparison-on-display operands also appear in the wording dependency family; preserve them until an identity adapter is verified."
+  },
+  "preserveContract": "Every resolved non-wording occurrence remains bound to exact original index method/offset/value hash. Display comparisons/identities and format/markup roles retain separate adaptation/preservation contracts; no whole-method exclusions.",
+  "visibleIdentityDependencies": {
+    "artifact": "compiled-display-identity-dependencies.json",
+    "occurrences": 120,
+    "boundary": "Displayed executable/state identities; original spelling remains protected. Separate from target wording and the12 retained display comparisons."
+  },
+  "displayedFilterDependencies": {
+    "artifact": "compiled-console-source-context.json",
+    "occurrences": 7,
+    "boundary": "Additional protected typeName values also displayed; original filter values retained, no caption projection implemented."
+  },
+  "remainingArtifact": "unresolved-consumers.json",
+  "nextSelectors": "phase139/next-compiled-selectors.json",
+  "consoleContext": "compiled-console-source-context.json",
+  "commonSourceAccepted": false,
+  "translationEntryAllowed": false,
+  "editorial": "not-run",
+  "runtime": "not-run",
+  "boundary": "Material subset; neither an accepted full source family nor a visible translation denominator. Targets and textures unchanged."
+}

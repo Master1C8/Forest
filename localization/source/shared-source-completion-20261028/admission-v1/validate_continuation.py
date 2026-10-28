@@ -5,16 +5,28 @@ The full parent tree/span readback is reused only on unchanged source values,
 IDs, occurrence order and preserved context. Role judgments remain authored.
 """
 import copy
+import contextlib
 import hashlib
+import io
 import itertools
 import json
+import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
+from unittest.mock import patch
+
+import build_inventory as builder_module
 
 from prepare_context import ROOT, OUT, sha, load, lines
-from build_inventory import products, value_hash, jl, INDEX, SERIALIZED
+from build_inventory import products, value_hash, jl, INDEX, SERIALIZED, apply_compiled_role
 from phase135.reconcile_database import check_partition, classify
 from phase136.reconcile_roles import GREETING_ID, GREETING, classify_remaining
+from phase137.expand_roles import expanded, first_typed_call
+from phase138.expand_roles import expanded as expanded_commands, registration
+from phase139.expand_roles import expanded as expanded_console, validate_rule as validate_console_rule, method_bodies
+from phase140.expand_roles import expanded as expanded_playback, validate_rule as validate_playback_rule
+from phase141.expand_roles import expanded as expanded_arc, validate_rule as validate_arc_rule, METHOD as ARC_METHOD
 
 
 def same_identity_values(before, after):
@@ -30,6 +42,21 @@ def same_identity_values(before, after):
 
 
 def main():
+    phase141 = OUT / 'phase141'
+    for name, digest in load(phase141 / 'baseline-pins.json').items():
+        assert sha(phase141 / 'baseline' / name) == digest, ('preserved-phase140', name)
+    phase140 = OUT / 'phase140'
+    for name, digest in load(phase140 / 'baseline-pins.json').items():
+        assert sha(phase140 / 'baseline' / name) == digest, ('preserved-phase139', name)
+    phase139 = OUT / 'phase139'
+    for name, digest in load(phase139 / 'baseline-pins.json').items():
+        assert sha(phase139 / 'baseline' / name) == digest, ('preserved-phase138', name)
+    phase138 = OUT / 'phase138'
+    for name, digest in load(phase138 / 'baseline-pins.json').items():
+        assert sha(phase138 / 'baseline' / name) == digest, ('preserved-phase137', name)
+    phase137 = OUT / 'phase137'
+    for name, digest in load(phase137 / 'baseline-pins.json').items():
+        assert sha(phase137 / 'baseline' / name) == digest, ('preserved-phase136', name)
     phase136 = OUT / 'phase136'
     for name, digest in load(phase136 / 'baseline-pins.json').items():
         assert sha(phase136 / 'baseline' / name) == digest, ('preserved-phase135', name)
@@ -94,17 +121,378 @@ def main():
     assert len(managed) == len(original_il) == 8576
     for source, row in zip(original_il, managed):
         assert (source['method'],source['offset'],value_hash(source['value'])) == (row['method'],row['offset'],row['sourceValueSha256'])
-    assert sum(r['role']=='needs-consumer-decision' for r in managed) == 2400
+    assert sum(r['role']=='needs-consumer-decision' for r in managed) == 1280
+    phase140_managed = list(lines(phase141 / 'baseline/managed-literal-inventory.jsonl'))
+    phase139_managed = list(lines(phase140 / 'baseline/managed-literal-inventory.jsonl'))
+    phase138_managed = list(lines(phase139 / 'baseline/managed-literal-inventory.jsonl'))
+    phase137_managed = list(lines(phase138 / 'baseline/managed-literal-inventory.jsonl'))
+    phase136_managed = list(lines(phase137 / 'baseline/managed-literal-inventory.jsonl'))
+    same_identity_values(phase136_managed, managed)
+    compiled_decisions = load(phase137 / 'compiled-role-decisions.json')
+    assert compiled_decisions == expanded(), 'authored-compiled-expansion'
+    exact_rules = {(r['method'],r['offset']):r for r in compiled_decisions['decisions']}
+    changed_compiled = [(a,b) for a,b in zip(phase136_managed,phase137_managed) if a!=b]
+    assert len(changed_compiled)==len(exact_rules)==817
+    assert all(a['role']=='needs-consumer-decision' and b['role']==exact_rules[b['method'],b['offset']]['role'] for a,b in changed_compiled)
+    reconstructed_phase136 = copy.deepcopy(phase137_managed)
+    for r in reconstructed_phase136:
+        if (r['method'],r['offset']) in exact_rules:
+            r.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
+            r.pop('source',None)
+    assert jl(reconstructed_phase136)==(phase137/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'unexpected-phase137-compiled-delta'
+    # Independent guards check exact selector/value/typed consumer and rejection reason.
+    rule = next(r for r in compiled_decisions['decisions'] if 'consumer' in r)
+    source = by_selector[rule['method'],rule['offset']]
+    one_rule = {(rule['method'],rule['offset']):rule}
+    apply_compiled_role(source,'needs-consumer-decision',one_rule)
+    for kind,reason in [('value','compiled-rule-value'),('selector','compiled-rule-selector'),('consumer','compiled-rule-consumer'),('role','compiled-rule-overwrites-accepted-role')]:
+        altered_source,altered_rule=copy.deepcopy(source),copy.deepcopy(rule)
+        prior_role='needs-consumer-decision'
+        if kind=='value':altered_source['value']+='__changed__'
+        if kind=='selector':altered_rule['id']+='__changed__'
+        if kind=='consumer':altered_rule['consumer']['operand']='System.Void Changed::Sink(System.String)'
+        if kind=='role':prior_role='comparison-on-display'
+        try:
+            apply_compiled_role(altered_source,prior_role,{(rule['method'],rule['offset']):altered_rule})
+        except AssertionError as error:
+            assert str(error)==reason,(kind,error)
+        else:raise AssertionError('changed-compiled-contract-accepted:'+kind)
+    assert first_typed_call(source)==rule['consumer']
+    barrier=copy.deepcopy(source);barrier['after'][0]['opcode']='br.s'
+    assert first_typed_call(barrier) is None,'typed-argument-crossed-branch'
+    barrier=copy.deepcopy(source);barrier['after'][0]['opcode']='stloc.0'
+    assert first_typed_call(barrier) is None,'typed-argument-crossed-store'
+    adventure=list(lines(OUT.parent/'adventure-source/roster.jsonl'))
+    assert len(adventure)==44 and Counter(r['role'] for r in adventure)=={'display-source':20,'preserve-adventure-identity':24}
+    for r in adventure:
+        assert exact_rules[r['method'],r['offset']]['sourceValueSha256']==r['sourceValueSha256']
+    delta=list(lines(phase138/'baseline/compiled-source-role-delta.jsonl'))
+    assert len(delta)==817 and sum(r['role']=='display-source' for r in delta)==20
+    assert all(r['sourceValueSha256']==value_hash(by_selector[r['method'],r['offset']]['value']) for r in delta)
+    assert sum('source' in r for r in delta)==20
+    wording=list(lines(OUT/'compiled-wording-source.jsonl'))
+    preserved=list(lines(OUT/'compiled-preserve-exactly.jsonl'))
+    wording_ids={r['id'] for r in wording};preserved_ids={r['id'] for r in preserved}
+    assert len(wording)==len(wording_ids)==167 and len(preserved)==len(preserved_ids)==7141
+    assert wording_ids|preserved_ids=={r['id'] for r in managed if r['role']!='needs-consumer-decision'}
+    assert wording_ids&preserved_ids=={r['id'] for r in managed if r['role']=='comparison-on-display'}
+    for r in wording:
+        assert r['source']==by_selector[r['method'],r['offset']]['value'],'compiled-wording-source'
+    for r in preserved:
+        source=original_il[r['sourceLine']-1]
+        assert (source['method'],source['offset'],value_hash(source['value']))==(r['method'],r['offset'],r['sourceValueSha256']),'compiled-preserve-exact-source'
+    handoff=load(OUT/'compiled-source-handoff.json')
+    assert handoff['resolvedOccurrences']==7296 and handoff['unresolvedOccurrences']==1280
+    assert handoff['completeCompiledRolePacket'] is False and handoff['translationEntryAllowed'] is False
+    adventure_case=next(r for r in load(OUT/'special-cases.json')['cases'] if r['id']=='compiled-adventure-title-body-status')
+    assert {r['id'] for r in adventure_case['sourceBindings']}=={r['id'] for r in adventure}
+    next_selectors=load(phase137/'next-compiled-selectors.json')
+    assert next_selectors['occurrences']==len(next_selectors['rows'])==255
+    assert {r['id'] for r in next_selectors['rows']} <= {r['id'] for r in phase137_managed if r['role']=='needs-consumer-decision'}
+
+    # New145 exact identities reconstruct the WHOLE prior product, retaining all817
+    # prior role decisions, precise metadata and original occurrence order.
+    authored_commands, expected_dependencies, expected_remaining = expanded_commands()
+    assert load(phase138/'compiled-role-decisions.json')==authored_commands, 'command-authored-expansion'
+    command_rules={(r['method'],r['offset']):r for r in authored_commands['decisions']}
+    assert len(command_rules)==145
+    command_changed=[(a,b) for a,b in zip(phase137_managed,phase138_managed) if a!=b]
+    assert len(command_changed)==145
+    assert all(a['role']=='needs-consumer-decision' and b['role']==command_rules[b['method'],b['offset']]['role'] for a,b in command_changed)
+    reconstructed_phase137=copy.deepcopy(phase138_managed)
+    for r in reconstructed_phase137:
+        if (r['method'],r['offset']) in command_rules:
+            r.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
+            r.pop('source',None)
+    assert jl(reconstructed_phase137)==(phase138/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'unexpected-phase138-compiled-delta'
+    current_delta=list(lines(phase139/'baseline/compiled-source-role-delta.jsonl'))
+    assert len(current_delta)==145 and all(r['role'].startswith('preserve-') for r in current_delta)
+    assert {r['id'] for r in current_delta}=={r['id'] for r in authored_commands['decisions']}
+    assert all('source' not in r for r in current_delta), 'protected-delta-is-not-target-wording'
+    command_rule=next(r for r in authored_commands['decisions'] if r['role']=='preserve-visible-command-identity')
+    command_source=by_selector[command_rule['method'],command_rule['offset']]
+    registration(command_source)
+    apply_compiled_role(command_source,'needs-consumer-decision',{(command_rule['method'],command_rule['offset']):command_rule})
+    for kind,reason in [('value','compiled-rule-value'),('selector','compiled-rule-selector'),('consumer','compiled-rule-consumer'),('role','compiled-rule-overwrites-accepted-role'),('producer','compiled-rule-producer-window')]:
+        altered_source,altered_rule=copy.deepcopy(command_source),copy.deepcopy(command_rule)
+        prior_role='needs-consumer-decision'
+        if kind=='value':altered_source['value']+='__changed__'
+        if kind=='selector':altered_rule['id']+='__changed__'
+        if kind=='consumer':altered_rule['consumer']['operand']='System.Void Changed::Sink(System.String)'
+        if kind=='role':prior_role='display-source'
+        if kind=='producer':altered_source['before'][-4]['operand']='System.Void Changed::Command()'
+        try:
+            apply_compiled_role(altered_source,prior_role,{(command_rule['method'],command_rule['offset']):altered_rule})
+        except AssertionError as error:assert str(error)==reason,(kind,error)
+        else:raise AssertionError('changed-command-contract-accepted:'+kind)
+    branch_source=copy.deepcopy(command_source);branch_source['before'][-2]['opcode']='br.s'
+    try:registration(branch_source)
+    except AssertionError as error:assert str(error)=='command-producer-window'
+    else:raise AssertionError('command-producer-crossed-branch')
+    registration_source=copy.deepcopy(command_source);registration_source['after'][1]['operand']='System.Void Changed::Register()'
+    try:registration(registration_source)
+    except AssertionError as error:assert str(error)=='command-registration-window'
+    else:raise AssertionError('command-registration-changed')
+    identity_dependencies=load(OUT/'compiled-display-identity-dependencies.json')
+    registry=load(OUT/'special-cases.json')['cases']
+    def validate_identity_dependencies(dependencies):
+        assert dependencies['rows']==expected_dependencies,'command-display-dependency-membership'
+        assert len(dependencies['rows'])==dependencies['occurrences']==120
+        for row in dependencies['rows']:
+            source=by_selector[row['method'],row['offset']]
+            assert row['source']==source['value'] and row['sourceValueSha256']==value_hash(source['value'])
+        for ident,kind in [('compiled-command-input-suggestion-identities','command-input-and-suggestion'),('compiled-simulation-scene-label-identities','scene-state-and-label')]:
+            case=next(r for r in registry if r['id']==ident)
+            assert {r['id'] for r in case['sourceBindings']}=={r['id'] for r in dependencies['rows'] if r['kind']==kind},'command-special-case-membership'
+    validate_identity_dependencies(identity_dependencies)
+    bad=copy.deepcopy(identity_dependencies);bad['rows'].pop()
+    try:validate_identity_dependencies(bad)
+    except AssertionError as error:assert str(error)=='command-display-dependency-membership'
+    else:raise AssertionError('lost-displayed-identity-accepted')
+    bad=copy.deepcopy(identity_dependencies);bad['rows'][0]['assembledCommand']+='__changed__'
+    try:validate_identity_dependencies(bad)
+    except AssertionError as error:assert str(error)=='command-display-dependency-membership'
+    else:raise AssertionError('changed-command-insertion-accepted')
+    next_commands=load(phase138/'next-compiled-selectors.json')
+    assert next_commands['rows']==expected_remaining and len(expected_remaining)==next_commands['occurrences']==110
+    assert len({r['method'] for r in expected_remaining})==next_commands['methods']
+    assert {r['id'] for r in expected_remaining}<={r['id'] for r in phase138_managed if r['role']=='needs-consumer-decision'}
+    assert {r['id'] for r in expected_remaining}.isdisjoint({r['id'] for r in authored_commands['decisions']})
+    assert {r['id'] for r in expected_remaining}|{r['id'] for r in authored_commands['decisions']}=={r['id'] for r in next_selectors['rows']}
+    assert handoff['visibleIdentityDependencies']['occurrences']==120 and handoff['newDelta']['occurrences']==25
+
+    # Exact new110 source roles; whole prior product reconstruction rejects
+    # accidental edits to any old role/metadata, not merely source values.
+    console_decisions, console_context = expanded_console()
+    assert load(phase139/'compiled-role-decisions.json') == console_decisions, 'console-authored-expansion'
+    assert load(OUT/'compiled-console-source-context.json') == console_context, 'console-context-expansion'
+    console_rules = {(r['method'],r['offset']):r for r in console_decisions['decisions']}
+    assert len(console_rules)==110
+    console_changed=[(a,b) for a,b in zip(phase138_managed,phase139_managed) if a!=b]
+    assert len(console_changed)==110
+    assert all(a['role']=='needs-consumer-decision' and b['role']==console_rules[b['method'],b['offset']]['role'] for a,b in console_changed)
+    reconstructed_phase138=copy.deepcopy(phase139_managed)
+    for r in reconstructed_phase138:
+        if (r['method'],r['offset']) in console_rules:
+            r.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
+            r.pop('source',None)
+    assert jl(reconstructed_phase138)==(phase139/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'unexpected-phase139-compiled-delta'
+    console_delta=list(lines(phase140/'baseline/compiled-source-role-delta.jsonl'))
+    assert {r['id'] for r in console_delta}=={r['id'] for r in console_decisions['decisions']}
+    assert len(console_delta)==110 and sum('source' in r for r in console_delta)==62
+    assert console_decisions['roleCounts']=={'display-console-wording':62,'preserve-display-format':30,'preserve-database-identity':1,'preserve-search-ranking-key':4,'preserve-input-normalization':4,'preserve-search-assembly':2,'preserve-visible-filter-identity':7}
+    assert len(console_context['groups'])==32
+    assert {i for g in console_context['groups'] for i in g['wordingIds']}=={r['id'] for r in console_decisions['decisions'] if r['roleKind']=='W'}
+    assert {i for g in console_context['groups'] for i in g['preserveIds']}=={r['id'] for r in console_decisions['decisions'] if r['roleKind']!='W'}
+    assert len(console_context['displayedFilterDependencies'])==7
+    console_case=next(r for r in registry if r['id']=='compiled-console-wording-and-filter-identities')
+    assert {r['id'] for r in console_case['sourceBindings']}=={r['id'] for r in console_decisions['decisions']}
+    # Matched positive and single-boundary negative controls.
+    rule=next(r for r in console_decisions['decisions'] if r['roleKind']=='D')
+    source=by_selector[rule['method'],rule['offset']]
+    prior_console=next(r for r in phase138_managed if r['id']==rule['id'])
+    body=method_bodies(phase138/'game-08.il')[rule['method']]
+    validate_console_rule(source,prior_console,rule,body)
+    for kind,reason in [('value','console-source-value'),('selector','console-selector'),('body','console-producer-body'),('role','console-role-membership'),('context','console-context-membership'),('placeholder','console-placeholder-contract'),('prior','console-prior-role')]:
+        altered_source,altered_prior,altered_rule,altered_body=map(copy.deepcopy,[source,prior_console,rule,body])
+        if kind=='value':altered_source['value']+='__changed__'
+        if kind=='selector':altered_rule['sourceLine']+=1
+        if kind=='body':altered_body[-1]['opcode']='throw'
+        if kind=='role':altered_rule.update(roleKind='W',role='display-console-wording')
+        if kind=='context':altered_rule['context']+='__changed__'
+        if kind=='placeholder':altered_rule['placeholderContract']=['{99}']
+        if kind=='prior':altered_prior['role']='comparison-on-display'
+        try:validate_console_rule(altered_source,altered_prior,altered_rule,altered_body)
+        except AssertionError as error:assert str(error)==reason,(kind,error)
+        else:raise AssertionError('changed-console-contract-accepted:'+kind)
+    # Replay only the observed filter/title predicates, not the CLR/game.
+    # Full body fingerprints above bind the replay to original source semantics.
+    filter_values=[r['source'] for r in console_context['displayedFilterDependencies']]
+    def selected_types(values,token):
+        return [v for v in values if token and len(token.strip())>=3 and token.lower() in v.lower()]
+    assert selected_types(filter_values,'quest')==['quest']
+    assert selected_types(filter_values,'choice')==['player choice']
+    assert selected_types(filter_values,'fi')==[]
+    assert selected_types(filter_values,' quest ')==[]  # original token is not trimmed for Contains
+    altered_values=['__synthetic_caption__' if v=='quest' else v for v in filter_values]
+    assert selected_types(altered_values,'quest')==[], 'display-only-replacement-must-break-original-filter'
+    test_selection=console_context['testConversation']
+    assert test_selection['key']=='system/testconvo'
+    for source_copy in test_selection['copies']:
+        assert source_copy['field']['title']=='Title' and source_copy['field']['value']==test_selection['key']
+        assert source_copy['exactTitleMatches']==[dict(index=240,id=43)]
+        assert source_copy['field']['value']!='__synthetic_title__', 'changed-title-must-fail-original-equality'
+    assert handoff['displayedFilterDependencies']['occurrences']==7
+    # No unchanged occurrence is silently removed by the next selector.
+    next_family=load(phase139/'next-compiled-selectors.json')
+    owners={'TheForestOfLove.Narrative.DialogueSystemLoader','TheForestOfLove.Narrative.DialogueService'}
+    expected_family=[r for r in phase139_managed if r['role']=='needs-consumer-decision' and r['method'].split(' ',1)[1].split('::')[0] in owners]
+    assert [r['id'] for r in next_family['rows']]==[r['id'] for r in expected_family]
+    assert len(expected_family)==next_family['occurrences']==77
+    assert len({r['method'] for r in expected_family})==next_family['methods']==26
+    assert not {r['id'] for r in expected_remaining}&{r['id'] for r in managed if r['role']=='needs-consumer-decision'}
+
+    # Playback23 is a real subset of the assigned77, not implicit coverage of
+    # the saved loader bodies. Reconstruct every byte of the prior product.
+    playback_decisions, playback_context, held_loader = expanded_playback()
+    assert load(phase140/'compiled-role-decisions.json') == playback_decisions, 'playback-authored-expansion'
+    assert load(OUT/'compiled-playback-source-context.json') == playback_context, 'playback-context-expansion'
+    playback_rules = {(r['method'],r['offset']):r for r in playback_decisions['decisions']}
+    playback_changed = [(a,b) for a,b in zip(phase139_managed,phase140_managed) if a!=b]
+    assert len(playback_changed) == len(playback_rules) == 23
+    assert all(a['role']=='needs-consumer-decision' and b['role']==playback_rules[b['method'],b['offset']]['role'] for a,b in playback_changed)
+    reconstructed_phase139 = copy.deepcopy(phase140_managed)
+    for r in reconstructed_phase139:
+        if (r['method'],r['offset']) in playback_rules:
+            r.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
+            r.pop('source',None)
+    assert jl(reconstructed_phase139) == (phase140/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'unexpected-phase140-compiled-delta'
+    playback_delta=list(lines(phase141/'baseline/compiled-source-role-delta.jsonl'))
+    assert {r['id'] for r in playback_delta}=={r['id'] for r in playback_decisions['decisions']}
+    assert len(playback_delta)==23 and sum('source' in r for r in playback_delta)==3
+    assert playback_decisions['roleCounts']=={'display-conditional-unity-log-wording':3,'preserve-conversation-trigger-identity':2,'preserve-database-identity':3,'preserve-dialogue-entry-title-identity':11,'preserve-conversation-title-template':1,'preserve-lua-variable-key':2,'preserve-history-report-event-prefix':1}
+    assert len(playback_context['groups'])==10
+    assert {i for g in playback_context['groups'] for i in g['wordingIds']}=={r['id'] for r in playback_decisions['decisions'] if r['roleKind']=='W'}
+    assert {i for g in playback_context['groups'] for i in g['preserveIds']}=={r['id'] for r in playback_decisions['decisions'] if r['roleKind']!='W'}
+    playback_case=next(r for r in registry if r['id']=='compiled-playback-graph-and-conditional-diagnostics')
+    assert {r['id'] for r in playback_case['sourceBindings']}=={r['id'] for r in playback_decisions['decisions']}
+    remaining_loader=load(phase140/'next-compiled-selectors.json')
+    assert remaining_loader['rows']==held_loader
+    current_loader=[r for r in phase140_managed if r['role']=='needs-consumer-decision' and r['method'].split(' ',1)[1].split('::')[0] in owners]
+    assert [r['id'] for r in current_loader]==[r['id'] for r in held_loader]
+    assert len(held_loader)==remaining_loader['occurrences']==54 and len({r['method'] for r in held_loader})==16
+    assert {r['id'] for r in held_loader}.isdisjoint({r['id'] for r in playback_decisions['decisions']})
+    assert {r['id'] for r in held_loader}|{r['id'] for r in playback_decisions['decisions']}=={r['id'] for r in next_family['rows']}
+    assert sum(r['role']=='needs-consumer-decision' for r in phase140_managed)-len(held_loader)==1251
+    # Positive control reaches the intended boundary before each single change.
+    rule=next(r for r in playback_decisions['decisions'] if r['contextKey']=='HandleDialogueLineActor')
+    source=by_selector[rule['method'],rule['offset']]
+    prior_playback=next(r for r in phase139_managed if r['id']==rule['id'])
+    body=method_bodies(phase140/'service.il')[rule['method']]
+    validate_playback_rule(source,prior_playback,rule,body)
+    for kind,reason in [('value','playback-source-value'),('selector','playback-selector'),('body','playback-producer-body'),('role','playback-role-membership'),('context','playback-context-membership'),('placeholder','playback-placeholder-contract'),('prior','playback-prior-role'),('consumer','playback-consumer'),('argument','playback-argument-window')]:
+        altered_source,altered_prior,altered_rule,altered_body=map(copy.deepcopy,[source,prior_playback,rule,body])
+        if kind=='value':altered_source['value']+='__changed__'
+        if kind=='selector':altered_rule['sourceLine']+=1
+        if kind=='body':altered_body[-1]['opcode']='throw'
+        if kind=='role':altered_rule.update(roleKind='K',role='preserve-lua-variable-key')
+        if kind=='context':altered_rule['context']+='__changed__'
+        if kind=='placeholder':altered_rule['placeholderContract']=['{99}']
+        if kind=='prior':altered_prior['role']='comparison-on-display'
+        if kind=='consumer':altered_rule['bodyConsumer']['offset']+=1
+        if kind=='argument':altered_rule['bodyArgumentWindow']=[]
+        try:validate_playback_rule(altered_source,altered_prior,altered_rule,altered_body)
+        except AssertionError as error:assert str(error)==reason,(kind,error)
+        else:raise AssertionError('changed-playback-contract-accepted:'+kind)
+    # Replay the actual console bitmask predicate only; this does not execute
+    # Unity native delivery, subscription, component activation or GUI.
+    capture=lambda mask,level:(mask & level)==level
+    assert capture(8,8) and capture(12,8) and not capture(4,8) and not capture(0,8)
+    for proof in playback_context['consumerProofs']['methods']:
+        assert proof['bodySha256']==value_hash(method_bodies(phase140/proof['path'])[proof['method']])
+    assert handoff['playbackContext']=='compiled-playback-source-context.json'
+    assert handoff['newDelta']['remainingSelected']==29
+    # Arc25 changes only its exact prior unknown rows. Reconstruct the entire
+    # prior compiled product byte-for-byte, including every precise old role.
+    arc_decisions, arc_context, held_after_arc = expanded_arc()
+    assert load(phase141/'compiled-role-decisions.json') == arc_decisions, 'arc-authored-expansion'
+    assert load(OUT/'compiled-arc-source-context.json') == arc_context, 'arc-context-expansion'
+    arc_rules = {(r['method'],r['offset']):r for r in arc_decisions['decisions']}
+    arc_changed = [(a,b) for a,b in zip(phase140_managed,managed) if a!=b]
+    assert len(arc_changed) == len(arc_rules) == 25
+    assert all(a['role']=='needs-consumer-decision' and b['role']==arc_rules[b['method'],b['offset']]['role'] for a,b in arc_changed)
+    reconstructed_phase140 = copy.deepcopy(managed)
+    for r in reconstructed_phase140:
+        if (r['method'],r['offset']) in arc_rules:
+            r.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
+            r.pop('source',None)
+    assert jl(reconstructed_phase140) == (phase141/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'unexpected-phase141-compiled-delta'
+    arc_delta=list(lines(OUT/'compiled-source-role-delta.jsonl'))
+    assert len(arc_delta)==25 and sum('source' in r for r in arc_delta)==11
+    assert {r['id'] for r in arc_delta}=={r['id'] for r in arc_decisions['decisions']}
+    assert arc_decisions['roleCounts']=={'potential-display-exception-wording':11,'preserve-exception-assembly-separator':9,'preserve-actor-plugin-lookup-key':2,'preserve-dialogue-entry-field-key':1,'preserve-generated-arc-identity-delimiter':2}
+    complete_arc={r['id'] for r in arc_context['completeProducerLiterals']}
+    assert complete_arc=={r['id'] for r in managed if r['method']==ARC_METHOD} and len(complete_arc)==33
+    arc_case=next(r for r in registry if r['id']=='compiled-arc-keys-and-exception-assembly')
+    assert {r['id'] for r in arc_case['sourceBindings']}==complete_arc, 'arc-registry-membership'
+    assert set(arc_context['wordingIds'])=={r['id'] for r in arc_decisions['decisions'] if r['roleKind']=='W'}
+    assert set(arc_context['preserveIds'])=={r['id'] for r in arc_decisions['decisions'] if r['roleKind']!='W'}
+    assert len(arc_context['exceptionAssemblies'])==11
+    assert {s for a in arc_context['exceptionAssemblies'] for s in a['separatorIds']}=={r['id'] for r in arc_decisions['decisions'] if r['roleKind']=='S'}
+    remaining_arc=load(phase141/'next-compiled-selectors.json')
+    assert remaining_arc['rows']==held_after_arc and remaining_arc['occurrences']==len(held_after_arc)==29
+    assert remaining_arc['methods']==len({r['method'] for r in held_after_arc})==15
+    assert {r['id'] for r in held_after_arc}.isdisjoint(arc_context['wordingIds']+arc_context['preserveIds'])
+    assert {r['id'] for r in held_after_arc}|set(arc_context['wordingIds']+arc_context['preserveIds'])=={r['id'] for r in held_loader}
+    assert [r['id'] for r in managed if r['role']=='needs-consumer-decision' and r['method'].split(' ',1)[1].split('::')[0] in owners]==[r['id'] for r in held_after_arc]
+    assert sum(r['role']=='needs-consumer-decision' for r in managed)-len(held_after_arc)==1251
+    assert handoff['arcContext']=='compiled-arc-source-context.json' and handoff['exceptionPresentation']=='unknown;ctor-and-throw-proved-only'
+    rule=next(r for r in arc_decisions['decisions'] if r['roleKind']=='W')
+    source=by_selector[rule['method'],rule['offset']]
+    prior_arc=next(r for r in phase140_managed if r['id']==rule['id'])
+    body=method_bodies(OUT/'phase135/arc-consumers.il')[ARC_METHOD]
+    validate_arc_rule(source,prior_arc,rule,body)
+    for kind,reason in [('value','arc-source-value'),('selector','arc-selector'),('body','arc-producer-body'),('role','arc-role-membership'),('context','arc-context-membership'),('prior','arc-prior-role'),('consumer','arc-consumer'),('argument','arc-argument-window'),('throw','arc-exception-throw'),('visibility','arc-visibility-boundary')]:
+        altered_source,altered_prior,altered_rule,altered_body=map(copy.deepcopy,[source,prior_arc,rule,body])
+        if kind=='value':altered_source['value']+='__changed__'
+        if kind=='selector':altered_rule['sourceLine']+=1
+        if kind=='body':altered_body[-1]['opcode']='throw'
+        if kind=='role':altered_rule.update(roleKind='A',role='preserve-actor-plugin-lookup-key')
+        if kind=='context':altered_rule['context']+='__changed__'
+        if kind=='prior':altered_prior['role']='preserve-diagnostic'
+        if kind=='consumer':altered_rule['bodyConsumer']['offset']+=1
+        if kind=='argument':altered_rule['bodyArgumentWindow']=[]
+        if kind=='throw':altered_rule['throw']['opcode']='ret'
+        if kind=='visibility':altered_rule['visibility']='proved-visible-in-unity-console'
+        try:validate_arc_rule(altered_source,altered_prior,altered_rule,altered_body)
+        except AssertionError as error:assert str(error)==reason,(kind,error)
+        else:raise AssertionError('changed-arc-contract-accepted:'+kind)
+    def check_arc_context(value):
+        assert value==arc_context, 'arc-context-expansion'
+    check_arc_context(load(OUT/'compiled-arc-source-context.json'))
+    bad=copy.deepcopy(arc_context);bad['exceptionAssemblies'][2]['separatorIds']=[]
+    try:check_arc_context(bad)
+    except AssertionError as error:assert str(error)=='arc-context-expansion'
+    else:raise AssertionError('lost-exception-assembly-dependency-accepted')
+    # Replays original regex predicates only, not CLR, graph or save behavior.
+    import re
+    arc_sources=[by_selector[r['method'],r['offset']] for r in managed if r['method']==ARC_METHOD]
+    patterns=[r['value'] for r in arc_sources if r['offset'] in (0x253,0x2ed,0x387,0x421)]
+    assert patterns==['^[p][0-9]*','^[s][0-9]*','^[i][0-9]*','^[n][0-9]*']
+    for pattern,letter in zip(patterns,'psin'):
+        assert re.search(pattern,letter) and re.search(pattern,letter+'notdigits') and re.search(pattern,letter+'12tail')
+        assert not re.search(pattern,'x'+letter) and not re.search(pattern,letter.upper())
+    # Exercise the actual build write loop with synthetic products redirected
+    # to task-owned disposable files. Source generation is replaced here; this
+    # checks only the sequential partial-write boundary, never corpus validity.
+    with tempfile.TemporaryDirectory(prefix='write-boundary-',dir=phase141) as scratch_name:
+        scratch=Path(scratch_name)
+        fixtures={'first.json':b'first\n','second.json':b'second\n','manifest.json':b'{"counts":{}}\n'}
+        original_write=Path.write_bytes
+        def fail_second(path,content):
+            if path==scratch/'second.json':
+                raise OSError('injected-second-product-write')
+            return original_write(path,content)
+        with patch.object(builder_module,'OUT',scratch), patch.object(builder_module,'products',return_value=fixtures), patch.object(sys,'argv',['build_inventory.py']):
+            with patch.object(Path,'write_bytes',fail_second):
+                try:builder_module.main()
+                except OSError as error:assert str(error)=='injected-second-product-write'
+                else:raise AssertionError('injected-write-failure-not-observed')
+            assert (scratch/'first.json').read_bytes()==fixtures['first.json']
+            assert not (scratch/'second.json').exists() and not (scratch/'manifest.json').exists()
+            with contextlib.redirect_stdout(io.StringIO()):builder_module.main()
+            assert all((scratch/name).read_bytes()==content for name,content in fixtures.items())
+
     baseline_managed = list(lines(phase135 / 'baseline/managed-literal-inventory.jsonl'))
     same_identity_values(baseline_managed, managed)
-    role_delta = [(a,b) for a,b in zip(baseline_managed,managed) if a['role'] != b['role']]
+    role_delta = [(a,b) for a,b in zip(baseline_managed,phase136_managed) if a['role'] != b['role']]
     assert len(role_delta) == 1060
     assert all(a['role']=='needs-consumer-decision' and
                (b['role']=='preserve-comparison-operand' or
                 (b['id']==GREETING_ID and b['role']=='display-runtime-fast-travel-greeting' and b['source']==GREETING))
                for a,b in role_delta)
     assert sum(b['role']=='preserve-comparison-operand' for a,b in role_delta)==1059
-    reconstructed_phase135 = copy.deepcopy(managed)
+    reconstructed_phase135 = copy.deepcopy(phase136_managed)
     greeting_row = next(r for r in reconstructed_phase135 if r['id']==GREETING_ID)
     greeting_row.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
     del greeting_row['source']
@@ -255,14 +643,18 @@ def main():
     else:
         raise AssertionError('equal-wording-occurrence-loss-accepted')
     assert manifest['commonSourceAccepted'] is False and manifest['translationEntryAllowed'] is False
-    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0136-work',
+    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0141-work',
                    reusedParentReadback=dict(path=str((baseline/'readback-validation.json').relative_to(ROOT)),
                        sha256=sha(baseline/'readback-validation.json'), originalManifestSha256=prior['manifestSha256'],
                        boundary='Original parent full source/tree/span readback, reused on exactly unchanged values/IDs/context; not rerun or relabeled as independent semantic judgment.'),
                    currentManifestSha256=sha(OUT/'manifest.json'), builderSha256=sha(OUT/'build_inventory.py'),
                    validatorSha256=sha(Path(__file__)), generatedProducts=len(generated),
                    preservedProducts=unchanged_products, sourceDeltas=counts, mixedLeafPartitions=dict(partitions),
-                   unknownCompiledStates=2400, potentialControlLabelBindingStates=1389,
+                   unknownCompiledStates=1280, potentialControlLabelBindingStates=1389,
+                   phase137CompiledDelta=dict(changedRoles=817,displayOperands=20,preservedOperands=797,
+                       parentAdventureOperands=44,remainingMethods=543,priorWholeProductReconstructedExactly=True,
+                       nextCommandSelectors=255,knownWordingOperands=91,allProtectedOperands=6914,
+                       sharedComparisonDependencies=12,resolvedPartition=6993,completeCompiledPacket=False),
                    phase136CompiledDelta=dict(changedRoles=1,id=GREETING_ID,priorWholeProductReconstructedExactly=True),
                    comparisonOperandIntegration=dict(parentOperands=1121,newlyResolved=1059,priorRolesRetained=62,comparisonOnDisplayUnchanged=12),
                    dialogueDatabase=dict(completeExportUnion=911903,physicalStringsIncludingEmpty=1445340,
@@ -280,6 +672,17 @@ def main():
                    outputPins={name:sha(OUT/name) for name in generated},
                    noGateWaiver=dict(commonSourceAccepted=False, translationEntryAllowed=False,editorial='not-run',runtime='not-run',visual='not-run'),
                    boundary='Deterministic identity/value/occurrence and rule-expansion validation. No original-install access, game execution, image input, texture edit or target authoring. Files are written sequentially; no multi-file transaction claim.')
+    receipt['negativeControls'].update(changedCompiledValueRejected=True,changedCompiledSelectorRejected=True,
+        changedCompiledConsumerRejected=True,acceptedRoleOverwriteRejected=True,typedArgumentBranchBarrier=True,typedArgumentStoreBarrier=True)
+    receipt['phase138CompiledDelta']=dict(changedRoles=145,protectedOperands=145,commandNamespaces=103,sceneLabelProducers=17,visibleIdentityDependencies=120,remainingSelectedOccurrences=110,remainingSelectedMethods=next_commands['methods'],remainingCompiledOccurrences=1438,remainingCompiledMethods=len({r['method'] for r in phase138_managed if r['role']=='needs-consumer-decision'}),priorWholeProductReconstructedExactly=True,knownWordingOperands=91,protectedOperandsTotal=7059,resolvedPartition=7138,completeCompiledPacket=False)
+    receipt['negativeControls'].update(changedCommandProducerRejected=True,commandProducerBranchRejected=True,changedCommandRegistrationRejected=True,lostDisplayedIdentityRejected=True,changedCommandInsertionRejected=True)
+    receipt['phase139CompiledDelta']=dict(changedRoles=110,wordingOperands=62,protectedOperands=48,displayedFilterIdentities=7,remainingSelectedOccurrences=0,remainingCompiledOccurrences=1328,remainingCompiledMethods=len({r['method'] for r in phase139_managed if r['role']=='needs-consumer-decision'}),priorWholeProductReconstructedExactly=True,knownWordingOperands=153,protectedOperandsTotal=7107,resolvedPartition=7248,nextFamilyOccurrences=77,nextFamilyMethods=26,completeCompiledPacket=False)
+    receipt['negativeControls'].update(changedConsoleSourceRejected=True,changedConsoleSelectorRejected=True,changedConsoleProducerRejected=True,displayedFilterRoleOverwriteRejected=True,changedConsoleContextRejected=True,changedConsolePlaceholderRejected=True,changedConsolePriorRoleRejected=True,originalFilterReplayPassed=True,displayOnlyFilterReplacementLosesSelection=True,exactTestConversationTitlePredicatePassed=True)
+    receipt['phase140CompiledDelta']=dict(changedRoles=23,wordingOperands=3,protectedOperands=20,assignedOccurrences=77,remainingSelectedOccurrences=54,remainingSelectedMethods=16,remainingCompiledOccurrences=1305,remainingCompiledMethods=len({r['method'] for r in phase140_managed if r['role']=='needs-consumer-decision'}),priorWholeProductReconstructedExactly=True,knownWordingOperands=156,protectedOperandsTotal=7127,resolvedPartition=7271,completeCompiledPacket=False)
+    receipt['negativeControls'].update(changedPlaybackSourceRejected=True,changedPlaybackSelectorRejected=True,changedPlaybackProducerRejected=True,changedPlaybackRoleRejected=True,changedPlaybackContextRejected=True,changedPlaybackPlaceholderRejected=True,changedPlaybackPriorRoleRejected=True,changedPlaybackConsumerRejected=True,changedPlaybackArgumentWindowRejected=True,consoleBitmaskPredicateReplayPassed=True,exactLoader54Retained=True)
+    receipt['phase141CompiledDelta']=dict(changedRoles=25,potentialExceptionWording=11,protectedOperands=14,completeProducerLiterals=33,priorPreciseRolesRetained=8,exceptionAssemblies=11,exceptionSeparators=9,remainingSelectedOccurrences=29,remainingSelectedMethods=15,remainingCompiledOccurrences=1280,remainingCompiledMethods=len({r['method'] for r in managed if r['role']=='needs-consumer-decision'}),priorWholeProductReconstructedExactly=True,knownWordingAndPotentialOperands=167,protectedOperandsTotal=7141,resolvedPartition=7296,completeCompiledPacket=False,exceptionPresentation='unknown;ctor-and-throw-proved-only')
+    receipt['negativeControls'].update(changedArcSourceRejected=True,changedArcSelectorRejected=True,changedArcProducerRejected=True,changedArcRoleRejected=True,changedArcContextRejected=True,changedArcPriorRoleRejected=True,changedArcConsumerRejected=True,changedArcArgumentWindowRejected=True,changedArcThrowRejected=True,unsupportedExceptionVisibilityRejected=True,lostExceptionAssemblyDependencyRejected=True,originalPrefixRegexReplayPassed=True,exactLoader29Retained=True)
+    receipt['writeBoundary']=dict(actualBuildWriteLoop='passed-second-write-failure-and-positive-control',planning='synthetic-products-only;real-source-generation-verified-separately',firstProductSurvives=True,laterProductsAbsentAtFailure=True,rollback=False,multiFileTransaction=False)
     (OUT/'continuation-validation.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in receipt.items() if k not in ('outputPins','preservedProducts','boundary')}))
 

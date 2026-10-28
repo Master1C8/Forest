@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "methods": [
+    {
+      "path": "unity-console-capture.il",
+      "fileSha256": "176ebf6498a193fb5f8ea794248b01e8019ec56228035c6b57a0be14e9212f09",
+      "method": "System.Void SickDev.DevConsole.DevConsole::OnEnable()",
+      "bodySha256": "deb71b73bd0445e35c545cfe2532a7eed876aa37deb682d50e61da767bd281e2",
+      "sourceContract": "Enabled DevConsole subscribes/unsubscribes Unity log callback; attachedLogLevel condition gates EntryData and Log/Error/Warning."
+    },
+    {
+      "path": "unity-console-capture.il",
+      "fileSha256": "176ebf6498a193fb5f8ea794248b01e8019ec56228035c6b57a0be14e9212f09",
+      "method": "System.Void SickDev.DevConsole.DevConsole::OnDisable()",
+      "bodySha256": "80fd21dd1e9da6010f07b097a9d646728dbb1446fe6222e1da12af274da8a269",
+      "sourceContract": "Enabled DevConsole subscribes/unsubscribes Unity log callback; attachedLogLevel condition gates EntryData and Log/Error/Warning."
+    },
+    {
+      "path": "unity-console-capture.il",
+      "fileSha256": "176ebf6498a193fb5f8ea794248b01e8019ec56228035c6b57a0be14e9212f09",
+      "method": "System.Void SickDev.DevConsole.DevConsole::OnLogMessageReceived(System.String,System.String,UnityEngine.LogType)",
+      "bodySha256": "72a94698ef7d798a7a2ccda8bf01db5c7da9a52d7155288bd55f2da8122466f1",
+      "sourceContract": "Enabled DevConsole subscribes/unsubscribes Unity log callback; attachedLogLevel condition gates EntryData and Log/Error/Warning."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::SubmitInputText()",
+      "bodySha256": "fddf369020951fc20c77a6a9d32c1d5691c5788e4e6f5039753648aeb3951fd8",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::Log(System.String)",
+      "bodySha256": "03072a82bdbe4bd882b3775bc099d25cde691d650a1819d65fdea1f38f98a36c",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::Log(System.String,SickDev.DevConsole.EntryOptions)",
+      "bodySha256": "4d4959fc08ab6af1d0228808140295dd9ea8a30e9808c07e19e0a65fbe2f7f68",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::Log(SickDev.DevConsole.EntryData)",
+      "bodySha256": "be2c26518ddcaf2763076ad7d61b31f067fe35d15491896ca1f21cebc82b4d8f",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String)",
+      "bodySha256": "67156cd2260b9c3e21ee6d48f0cd7eb7a1ae13a000db6f095acc5d2a0d0bd63d",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::LogWarning(System.String,SickDev.DevConsole.EntryOptions)",
+      "bodySha256": "c8aa3f94dceb12695e50d0a96e3c63561105f151cf8fcd059726476a0be9a3c1",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::LogWarning(SickDev.DevConsole.EntryData)",
+      "bodySha256": "0cf4e474441c97351ee776895900e5af53be4b1044d87b2f2dffe77df15a8486",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String)",
+      "bodySha256": "e3597a1cf214a90e4e4598468fc1b8529a158dce76c285d81402d9c9849cf264",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::LogError(System.String,SickDev.DevConsole.EntryOptions)",
+      "bodySha256": "bf8111764151510af9237982a0ee72fd7da2281ea06e8d85bf66b2768670b7d3",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::LogError(SickDev.DevConsole.EntryData)",
+      "bodySha256": "044e1a20330ed126e42075fe264dc6b5e2dd54d5fa7be666d856f2b6f2d16f36",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::ExecuteIfCommand(System.String)",
+      "bodySha256": "859670f5ff10bd35d533d65152cc99fce222dee040e72ff4dccf8b0e9310e130",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "System.Void SickDev.DevConsole.DevConsole::AddCommand(SickDev.CommandSystem.Command)",
+      "bodySha256": "fc7d067b49b9b6f4558288edb96fe90bbf32fb25c1d62ca432dbfca801dc2d27",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-contract.il",
+      "fileSha256": "8cc2973ed7f72c2cf8aadf5bf3f25197af5574a0e68ad22675ea0688e3475ad7",
+      "method": "SickDev.CommandSystem.Command[] SickDev.DevConsole.DevConsole::GetCommands()",
+      "bodySha256": "5dea3220eb41974fe20c6511258018d4f4ac8cbe1fc6c506f18804bc9b0a75ea",
+      "sourceContract": "Previously bound Log/LogWarning/LogError EntryData text pipeline, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-entry.il",
+      "fileSha256": "a41e167de5b12bbffcd49fb393e5857a62e74fe9c4b8736f470e8444998ad670",
+      "method": "System.Void SickDev.DevConsole.Entry::SetContentText()",
+      "bodySha256": "e926f3f3637425e81d63dec13a93856e22b03c425d800ccaeb7ef291622a3a6d",
+      "sourceContract": "Previously bound EntryData text to actual GUI.Label/TextField rendering, reused unchanged."
+    },
+    {
+      "path": "../phase138/console-entry.il",
+      "fileSha256": "a41e167de5b12bbffcd49fb393e5857a62e74fe9c4b8736f470e8444998ad670",
+      "method": "System.Void SickDev.DevConsole.Entry::DrawText(UnityEngine.Rect&,System.Single)",
+      "bodySha256": "d6504bd15b0f97c6c0dcf3b157867f42bfa6e28af9de2b26f943a1b448e28db3",
+      "sourceContract": "Previously bound EntryData text to actual GUI.Label/TextField rendering, reused unchanged."
+    },
+    {
+      "path": "../phase139/conversation-get.il",
+      "fileSha256": "81a171600150d3ccde640f1f2c036d41927fbe656c6a9525ba61a33bf4fd24c6",
+      "method": "PixelCrushers.DialogueSystem.Conversation PixelCrushers.DialogueSystem.DialogueDatabase::GetConversation(System.String)",
+      "bodySha256": "fdef74c7d7e2fc25d7c46cc6a49dd0faee5be0cda70dfa4356ce16d51c8c7d4b",
+      "sourceContract": "Original conversation string key/cache and fallback dispatch; ID overload retained as exact neighboring consumer."
+    },
+    {
+      "path": "../phase139/conversation-get.il",
+      "fileSha256": "81a171600150d3ccde640f1f2c036d41927fbe656c6a9525ba61a33bf4fd24c6",
+      "method": "PixelCrushers.DialogueSystem.Conversation PixelCrushers.DialogueSystem.DialogueDatabase::GetConversation(System.Int32)",
+      "bodySha256": "d44ca0da550173243ff5b7bc574d4273a3083b04def89363db9ecf99738ba8cd",
+      "sourceContract": "Original conversation string key/cache and fallback dispatch; ID overload retained as exact neighboring consumer."
+    },
+    {
+      "path": "../phase139/conversation-cache.il",
+      "fileSha256": "4a931bc231abdf70b5c57957f3acc83c9c90995dcf888bf25bc707b973ab6e47",
+      "method": "System.Void PixelCrushers.DialogueSystem.DialogueDatabase::SetupCaches()",
+      "bodySha256": "ec1607bb7dc0eca0459d8118b5137da5b661cc693105e638ac929fbf7a75f563",
+      "sourceContract": "Original cache initialization by identity, reused unchanged."
+    },
+    {
+      "path": "../phase139/conversation-create-cache.il",
+      "fileSha256": "a95ef79406bd506c69a65f5cd31343ffcbbe36b0e43d77efb0e702051b67cb6e",
+      "method": "System.Collections.Generic.Dictionary`2<System.String,T> PixelCrushers.DialogueSystem.DialogueDatabase::CreateCache(System.Collections.Generic.List`1<T>)",
+      "bodySha256": "46249aaec683aa6cd57be98c396474a627c29521f408fc804463f9d86bad46cd",
+      "sourceContract": "Original cache delegate/selector, reused unchanged."
+    },
+    {
+      "path": "../phase139/conversation-match.il",
+      "fileSha256": "270ecd1fe4a3c25bad15762645f843e28a73d2d5b0585142f9c6d228b30a37cd",
+      "method": "System.Boolean PixelCrushers.DialogueSystem.DialogueDatabase/<>c__DisplayClass37_0::<GetConversation>b__0(PixelCrushers.DialogueSystem.Conversation)",
+      "bodySha256": "6cba93bbfe08379c2d029c5bc1ef1c15fb998b4940177a77633f7e49f201dc6d",
+      "sourceContract": "Original fallback Title equality, reused unchanged."
+    },
+    {
+      "path": "../../../bgdatabase-20261027/bio-dialogue-registration/conversation-lookups.il",
+      "fileSha256": "61b6b1594c206171ea6d8bfa1159473437fb93d3c8f4d0a953dce7103c7f85b2",
+      "method": "PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Conversation::GetDialogueEntry(System.String)",
+      "bodySha256": "7d1b3deb15e4d25c1da8d51ef8ae0a96e9bf0d912258d223c67c47c84252ffb2",
+      "sourceContract": "Supplied string is captured for List.Find; integer overload remains distinct."
+    },
+    {
+      "path": "../../../bgdatabase-20261027/bio-dialogue-registration/conversation-lookups.il",
+      "fileSha256": "61b6b1594c206171ea6d8bfa1159473437fb93d3c8f4d0a953dce7103c7f85b2",
+      "method": "PixelCrushers.DialogueSystem.DialogueEntry PixelCrushers.DialogueSystem.Conversation::GetDialogueEntry(System.Int32)",
+      "bodySha256": "94f2c438ccdbc860b87650e2f7345cbf2940b03a232ff591f85d70d09ae779d4",
+      "sourceContract": "Supplied string is captured for List.Find; integer overload remains distinct."
+    },
+    {
+      "path": "../../../bgdatabase-20261027/bio-dialogue-registration/entry-title-predicate.il",
+      "fileSha256": "2d93e24941c7ba6fa140b7cd059b87892abdfae6399dac90f09e71e6c3ef8746",
+      "method": "System.Boolean PixelCrushers.DialogueSystem.Conversation/<>c__DisplayClass20_0::<GetDialogueEntry>b__0(PixelCrushers.DialogueSystem.DialogueEntry)",
+      "bodySha256": "8cd8068c3229492cb363ea5847658ad9dbf0354fcb31fd5850cefb6e2c2f76a6",
+      "sourceContract": "Exact source Title String.Equals predicate; no caption substitution."
+    },
+    {
+      "path": "trigger-conversation.il",
+      "fileSha256": "827787eae73f212efa6b54368cfb4fdac3990b4def5eb96dd89d8deca7cb945c",
+      "method": "System.Void PixelCrushers.DialogueSystem.DialogueSystemTrigger::Fire(UnityEngine.Transform)",
+      "bodySha256": "e3b445635565c71169ec3f71039e2933157fe784bb824269ce2095e3ffcb561d",
+      "sourceContract": "Fire -> DoConversationAction -> actual conversation field lookup, validity and StartConversation; exact original guards retained."
+    },
+    {
+      "path": "trigger-conversation.il",
+      "fileSha256": "827787eae73f212efa6b54368cfb4fdac3990b4def5eb96dd89d8deca7cb945c",
+      "method": "System.Void PixelCrushers.DialogueSystem.DialogueSystemTrigger::DoConversationAction(UnityEngine.Transform)",
+      "bodySha256": "d1c846f1af76f07c94d4c53012b38484c409488fc45dc2a1e93004664ab4c1d5",
+      "sourceContract": "Fire -> DoConversationAction -> actual conversation field lookup, validity and StartConversation; exact original guards retained."
+    },
+    {
+      "path": "set-variable.il",
+      "fileSha256": "533a396c1dc47947bdb681dc2e1e7896f4a1a342dc7b2c9e77c8877f79aa31d8",
+      "method": "System.Void PixelCrushers.DialogueSystem.DialogueLua::SetVariable(System.String,System.Object)",
+      "bodySha256": "87351145af4558d7d7f72a1097ac55774f1b0b69b5079e55d46cd132eadef9bf",
+      "sourceContract": "Real Lua Variable table named store, with StringToTableIndex and ObjectToLuaValue boundary."
+    },
+    {
+      "path": "gameplay-log.il",
+      "fileSha256": "91271caf5495860c97f36395a21548dfc6322ca7ff9a1f5f1da79754484e6ccd",
+      "method": "System.Void TheForestOfLove.GameplayLogManager::RegisterServices()",
+      "bodySha256": "b6210775b5eac5c0725bc826a6056464766ad239042dccc02c2e3395fdb7bcbc",
+      "sourceContract": "Real optional service, clocked event storage and history message queue; no report or save operation executed."
+    },
+    {
+      "path": "gameplay-log.il",
+      "fileSha256": "91271caf5495860c97f36395a21548dfc6322ca7ff9a1f5f1da79754484e6ccd",
+      "method": "System.Void TheForestOfLove.GameplayLogManager::UnregisterServices()",
+      "bodySha256": "2b5d14d2779ff10570506af92fbd85bc78956f253b9ee5e3fd2e4fe2a83f0970",
+      "sourceContract": "Real optional service, clocked event storage and history message queue; no report or save operation executed."
+    },
+    {
+      "path": "gameplay-log.il",
+      "fileSha256": "91271caf5495860c97f36395a21548dfc6322ca7ff9a1f5f1da79754484e6ccd",
+      "method": "System.Void TheForestOfLove.GameplayLogManager::LogMessage(System.String)",
+      "bodySha256": "f174e69eb4effefba2c8268e5e0f600d8987c657cb1fa26479cb8ea299937014",
+      "sourceContract": "Real optional service, clocked event storage and history message queue; no report or save operation executed."
+    },
+    {
+      "path": "gameplay-log.il",
+      "fileSha256": "91271caf5495860c97f36395a21548dfc6322ca7ff9a1f5f1da79754484e6ccd",
+      "method": "System.Void TheForestOfLove.GameplayLogManager::AddLogHistory(System.String,System.Single)",
+      "bodySha256": "c9c7019c3e49c2404aed2e0b6f6615234c8e6afde36dce1c45213e0f5603c463",
+      "sourceContract": "Real optional service, clocked event storage and history message queue; no report or save operation executed."
+    },
+    {
+      "path": "gameplay-log.il",
+      "fileSha256": "91271caf5495860c97f36395a21548dfc6322ca7ff9a1f5f1da79754484e6ccd",
+      "method": "System.Void TheForestOfLove.GameplayLogManager::AddEventLog(System.String)",
+      "bodySha256": "ff9f097dd0f7e2a99b1c4bd94892a1df722d245ef5b7eff618f952f987047633",
+      "sourceContract": "Real optional service, clocked event storage and history message queue; no report or save operation executed."
+    },
+    {
+      "path": "history-restore.il",
+      "fileSha256": "daab697786c233b8c2a897cc70899a9e1af7a3711fe44b577c9fb4cfc53595ba",
+      "method": "System.Void TheForestOfLove.GameplayLogManager::Awake()",
+      "bodySha256": "fff7f4e7056d27a50f433bee9d429cb32f2810dc3c5b1e3fcb46daddcbbb6f85",
+      "sourceContract": "Awake reads persisted messages; GetLogHistory returns optional queue or empty list."
+    },
+    {
+      "path": "history-restore.il",
+      "fileSha256": "daab697786c233b8c2a897cc70899a9e1af7a3711fe44b577c9fb4cfc53595ba",
+      "method": "System.Collections.Generic.IEnumerable`1<GameplayLogHistory> TheForestOfLove.GameplayLogManager::GetLogHistory()",
+      "bodySha256": "ffe99dc3b9fa85f915a9b61f4e37279670755151e02190337d9202aac40d330b",
+      "sourceContract": "Awake reads persisted messages; GetLogHistory returns optional queue or empty list."
+    },
+    {
+      "path": "../phase137/report.il",
+      "fileSha256": "556b6067afd58fc46e14b744001a5e7a9c61d155f3332eb9a4753aef966e91dd",
+      "method": "System.String TheForestOfLove.BugReportApiHelper::GenerateRecentStoryEvents()",
+      "bodySha256": "18b601307a0dad3d2106b7acbd02ed6390d238c353e8b1ed77434cb00cf84de6",
+      "sourceContract": "Original recent-event assembly reads stored messages; exact full file hash retained without copying report credentials or unrelated source text."
+    }
+  ],
+  "nativeBoundary": "Unity Debug.LogError -> Application.logMessageReceived is Unity native log delivery; no native body/reachability execution claimed.",
+  "reportBoundary": "Stored GameplayLogHistory.message -> GenerateRecentStoryEvents is proved; report submission context reused from phase137 by file fingerprint. No credentials copied or emitted.",
+  "runtime": "not-run",
+  "independentSemanticReview": "not-run"
+}

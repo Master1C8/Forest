@@ -1,0 +1,1362 @@
+{
+  "schemaVersion": 1,
+  "phase": "0141-work",
+  "selectedOccurrences": 54,
+  "resolvedOccurrences": 25,
+  "remainingSelectedOccurrences": 29,
+  "roleCounts": {
+    "potential-display-exception-wording": 11,
+    "preserve-actor-plugin-lookup-key": 2,
+    "preserve-dialogue-entry-field-key": 1,
+    "preserve-exception-assembly-separator": 9,
+    "preserve-generated-arc-identity-delimiter": 2
+  },
+  "decisions": [
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0021",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 33,
+      "sourceLine": 4699,
+      "sourceValueSha256": "70ee0f0c811993630c37d588997f5686aa232a486fbdb0295a3425a02f551cca",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 49,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 38,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 39,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 44,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 49,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 54,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0106",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 262,
+      "sourceLine": 4703,
+      "sourceValueSha256": "97f5db6e7163a5448a294d359ef9d598ccfe2779a185d9e82ba5474bfa601fc8",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "A",
+      "role": "preserve-actor-plugin-lookup-key",
+      "reason": "Exact actorsByPluginDbName dictionary key. Returned actor.pluginDbActor.id is compared with the first selected node ActorID, or with the first successor ActorID after a none-sequence gate. It selects the stored playerInitiatedQuestion and first-player-question node, independently of display wording.",
+      "contract": "arc-source-A",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 267,
+        "opcode": "callvirt",
+        "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 267,
+          "opcode": "callvirt",
+          "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+        }
+      ],
+      "visibility": "identity-or-structure;no-caption-application",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0172",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 370,
+      "sourceLine": 4705,
+      "sourceValueSha256": "97f5db6e7163a5448a294d359ef9d598ccfe2779a185d9e82ba5474bfa601fc8",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "A",
+      "role": "preserve-actor-plugin-lookup-key",
+      "reason": "Exact actorsByPluginDbName dictionary key. Returned actor.pluginDbActor.id is compared with the first selected node ActorID, or with the first successor ActorID after a none-sequence gate. It selects the stored playerInitiatedQuestion and first-player-question node, independently of display wording.",
+      "contract": "arc-source-A",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 375,
+        "opcode": "callvirt",
+        "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 375,
+          "opcode": "callvirt",
+          "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+        }
+      ],
+      "visibility": "identity-or-structure;no-caption-application",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_01b8",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 440,
+      "sourceLine": 4706,
+      "sourceValueSha256": "dacd46ac6c91703eabe205bf513d00095b6968a34a7f340c1a65ab6eff338bef",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 456,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 445,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 446,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 451,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String)"
+        },
+        {
+          "offset": 456,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 461,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_01d4",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 468,
+      "sourceLine": 4707,
+      "sourceValueSha256": "806991a0935c58e65ca9e71594c752ceae42948539a70c0a08e75705e4854d15",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "F",
+      "role": "preserve-dialogue-entry-field-key",
+      "reason": "Exact Field.AssignedField name on the selected first arc entry fields. Pinned AssignedField calls Lookup; the real predicate compares Field.title to the supplied title using String.Equals. Empty field values return null; this producer additionally rejects whitespace-only suffixes. The returned value builds arc lookup/save identities and skip policy; the field name is not a caption.",
+      "contract": "arc-source-F",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 473,
+        "opcode": "call",
+        "operand": "PixelCrushers.DialogueSystem.Field PixelCrushers.DialogueSystem.Field::AssignedField(System.Collections.Generic.List`1<PixelCrushers.DialogueSystem.Field>,System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 473,
+          "opcode": "call",
+          "operand": "PixelCrushers.DialogueSystem.Field PixelCrushers.DialogueSystem.Field::AssignedField(System.Collections.Generic.List`1<PixelCrushers.DialogueSystem.Field>,System.String)"
+        }
+      ],
+      "visibility": "identity-or-structure;no-caption-application",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_01f2",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 498,
+      "sourceLine": 4708,
+      "sourceValueSha256": "ac8167e012127f59540738e83e9038e63db00da4f622293bce9abfb0a9efc6ae",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 525,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 503,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 504,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 509,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 514,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 515,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 520,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 525,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 530,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_01fd",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 509,
+      "sourceLine": 4709,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 525,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 514,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 515,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 520,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 525,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 530,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0222",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 546,
+      "sourceLine": 4710,
+      "sourceValueSha256": "080390646b2497878dd1321ed9780c229a3d08ac5b158117f943d92e225425f7",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "D",
+      "role": "preserve-generated-arc-identity-delimiter",
+      "reason": "Exact underscore in dbName+underscore+suffix or savekey+underscore+suffix. Complete producer stores generatedName/generatedSavekey, uses generatedName for within-sublist equality and inserts original suffix/savekey dictionary keys. Preserve assembly delimiters and both distinct identity domains. These are not display separators.",
+      "contract": "arc-source-D",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 553,
+        "opcode": "call",
+        "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 551,
+          "opcode": "ldloc.s",
+          "operand": "V_5"
+        },
+        {
+          "offset": 553,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        }
+      ],
+      "visibility": "identity-or-structure;no-caption-application",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0236",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 566,
+      "sourceLine": 4711,
+      "sourceValueSha256": "080390646b2497878dd1321ed9780c229a3d08ac5b158117f943d92e225425f7",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "D",
+      "role": "preserve-generated-arc-identity-delimiter",
+      "reason": "Exact underscore in dbName+underscore+suffix or savekey+underscore+suffix. Complete producer stores generatedName/generatedSavekey, uses generatedName for within-sublist equality and inserts original suffix/savekey dictionary keys. Preserve assembly delimiters and both distinct identity domains. These are not display separators.",
+      "contract": "arc-source-D",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 573,
+        "opcode": "call",
+        "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 571,
+          "opcode": "ldloc.s",
+          "operand": "V_5"
+        },
+        {
+          "offset": 573,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String)"
+        }
+      ],
+      "visibility": "identity-or-structure;no-caption-application",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_025f",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 607,
+      "sourceLine": 4713,
+      "sourceValueSha256": "bac75f96736afb0d2a529b34617e61f740f116e5fa5154bf7e1c64f65848a046",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 634,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 612,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 613,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 618,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 623,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 624,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 629,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 634,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 639,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_026a",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 618,
+      "sourceLine": 4714,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 634,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 623,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 624,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 629,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 634,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 639,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_02a4",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 676,
+      "sourceLine": 4715,
+      "sourceValueSha256": "4f1d799f6b4945ede1ea4ecfc561a180d3ae1f6eceb1390e883600fcc02a39d8",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 703,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 681,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 682,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 687,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 692,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 693,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 698,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 703,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 708,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_02af",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 687,
+      "sourceLine": 4716,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 703,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 692,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 693,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 698,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 703,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 708,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_02f9",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 761,
+      "sourceLine": 4718,
+      "sourceValueSha256": "1b646b510538fbefbaa39a02130656652225543b07228ecf0d53146add86d804",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 788,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 766,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 767,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 772,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 777,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 778,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 783,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 788,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 793,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0304",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 772,
+      "sourceLine": 4719,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 788,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 777,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 778,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 783,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 788,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 793,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_033e",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 830,
+      "sourceLine": 4720,
+      "sourceValueSha256": "f8edad623a611ed57db8b01eb77669de04e79edee42559a8dd22d05ffd306432",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 857,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 835,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 836,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 841,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 846,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 847,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 852,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 857,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 862,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0349",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 841,
+      "sourceLine": 4721,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 857,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 846,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 847,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 852,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 857,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 862,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0393",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 915,
+      "sourceLine": 4723,
+      "sourceValueSha256": "9b3e94e1b927774cfb2e2800f562c55b16a59dade9d467ef636894e2a4d80de8",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 942,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 920,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 921,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 926,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 931,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 932,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 937,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 942,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 947,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_039e",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 926,
+      "sourceLine": 4724,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 942,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 931,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 932,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 937,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 942,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 947,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_03d8",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 984,
+      "sourceLine": 4725,
+      "sourceValueSha256": "ea51735a969a2d8eb0ba7d6fd65fe531c4a99488a90ff241870ca5ae2a111af8",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 1011,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 989,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 990,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 995,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 1000,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 1001,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 1006,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 1011,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 1016,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_03e3",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 995,
+      "sourceLine": 4726,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 1011,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 1000,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 1001,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 1006,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 1011,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 1016,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_042d",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 1069,
+      "sourceLine": 4728,
+      "sourceValueSha256": "14c5c4a2bc93940b2f76edfeae2032f23c6ab0db50daef53c3e90772afb9599d",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 1096,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 1074,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 1075,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 1080,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 1085,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 1086,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 1091,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 1096,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 1101,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0438",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 1080,
+      "sourceLine": 4729,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 1096,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 1085,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 1086,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 1091,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 1096,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 1101,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_0472",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 1138,
+      "sourceLine": 4730,
+      "sourceValueSha256": "8df510bc002439b0744e23f1d62c980a615e33c486f85e426af5d3236995896e",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "W",
+      "role": "potential-display-exception-wording",
+      "reason": "Complete producer concatenates this wording with original dialogue identity and, for suffix/convention/uniqueness errors, the selected original DialogueText and a separate exact space. The result constructs System.Exception and is thrown. This is potential exception wording, not a lookup key. No catch/presentation/native delivery or actual runtime reachability was proved; retain it in candidate wording without accepting a visible denominator or assuming the Unity LogError sink.",
+      "contract": "arc-source-W",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 1165,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 1143,
+          "opcode": "ldloc.3",
+          "operand": null
+        },
+        {
+          "offset": 1144,
+          "opcode": "callvirt",
+          "operand": "System.String PixelCrushers.DialogueSystem.DialogueEntry::get_DialogueText()"
+        },
+        {
+          "offset": 1149,
+          "opcode": "ldstr",
+          "operand": "\" \""
+        },
+        {
+          "offset": 1154,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 1155,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 1160,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 1165,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 1170,
+        "opcode": "throw",
+        "operand": null
+      }
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)/IL_047d",
+      "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+      "offset": 1149,
+      "sourceLine": 4731,
+      "sourceValueSha256": "52109349dabf69106e04ec2f493fb8b6ade94ea100227cccce6559ab8b96553f",
+      "bodyEvidence": "../phase135/arc-consumers.il",
+      "roleKind": "S",
+      "role": "preserve-exception-assembly-separator",
+      "reason": "Exact space between selected original DialogueText and dialogue.dbName in a four-string exception-message concatenation. It belongs to the same exception assembly/context as its separate wording operand and dynamic values, but is protected formatting rather than an independently translatable phrase. Exception presentation remains unknown.",
+      "contract": "arc-source-S",
+      "producerBodySha256": "0ad95b5f8313d20965e7e5b5ef1dcecf29aef14e9938f863db07950113e0e081",
+      "context": "GetDialogueEntry(rootNodeTitle) returns the root; absent root returns without arcs, present root with zero outgoing links throws prefix+dialogue.dbName. Caller argument windows bind PRIMARY/SECONDARY/IDLE/NAMED to their corresponding actual lists. Each outgoing root link allocates an Arc. NAMED first stores the immediate child Title as customName, then takes that child first outgoing destination as the arc first node; other roots use their linked child directly. PRIMARY plus hasPlayerInitiatedQuestion checks types200/400 (other type logs the pre-existing precise diagnostic at00f0, retained unchanged). First ActorID equals actorsByPluginDbName[player].pluginDbActor.id, or a lowercase Sequence containing none leads to its first successor with that actor ID. Store playerInitiatedQuestion and pluginDbFirstPlayerQuestionDialogueEntry, otherwise throw. AssignedField(first.fields,TfolUniqueDataKeySuffix) must exist and its value must not be whitespace. Missing/blank throws wording+first.DialogueText+space+dialogue.dbName. Compute generatedName=dbName+_+suffix and generatedSavekey=savekey+_+suffix. By actual arcSublist object identity, primary/secondary/idle/named check ^[p][0-9]* / ^[s][0-9]* / ^[i][0-9]* / ^[n][0-9]*, then compare generatedName against every existing arc in that same list. Regexes have no end anchor and permit zero digits; do not strengthen them or treat the whole suffix as numeric. Convention/duplicate errors throw their own prefix+first.DialogueText+space+dialogue.dbName. Store generatedName, pluginDbSuffix, generatedSavekey, dialogue, skip flag from arcSuffixesDisallowSkip.Contains(suffix), and pluginDbFirstDialogueEntry. RecursivelyPopulateDialogueEntries uses a visited-node list and follows only links whose destinationConversationID equals the current conversationID. Then append to dialogue.arcs, Add(suffix,arc) to arcsByDbArcSuffix, Add(generatedSavekey,arc) to arcsBySavekey, append manifest.arcs and finally arcSublist. Within-list checks do not prove global uniqueness; dictionary Add may reject an existing key after earlier mutation. No rollback or runtime validation is claimed. Exception construction/throw is proved; managed/native propagation and actual presentation remain open. Prior eight precise literal roles are retained unchanged.",
+      "bodyConsumer": {
+        "offset": 1165,
+        "opcode": "newobj",
+        "operand": "System.Void System.Exception::.ctor(System.String)"
+      },
+      "bodyArgumentWindow": [
+        {
+          "offset": 1154,
+          "opcode": "ldarg.3",
+          "operand": null
+        },
+        {
+          "offset": 1155,
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+        },
+        {
+          "offset": 1160,
+          "opcode": "call",
+          "operand": "System.String System.String::Concat(System.String,System.String,System.String,System.String)"
+        },
+        {
+          "offset": 1165,
+          "opcode": "newobj",
+          "operand": "System.Void System.Exception::.ctor(System.String)"
+        }
+      ],
+      "visibility": "unknown-exception-presentation",
+      "evidence": [
+        "../phase135/arc-consumers.il",
+        "consumer-proofs.json"
+      ],
+      "application": "hold-common-source-special-case-feasibility-and-independent-editorial-gates",
+      "throw": {
+        "offset": 1170,
+        "opcode": "throw",
+        "operand": null
+      }
+    }
+  ],
+  "boundary": "Complete source-role adjudication of arc25 subset only; eleven potential exception wording inputs, fourteen protected operands. Exception visibility is unresolved; no source admission/editorial/runtime acceptance."
+}
