@@ -1,0 +1,24 @@
+TYPE TheForestOfLove.Inventory.InventoryItem BASE System.Object
+FIELD System.String TheForestOfLove.Inventory.InventoryItem::dbName
+FIELD TheForestOfLove.DB.InventoryItem TheForestOfLove.Inventory.InventoryItem::dbItem
+FIELD TheForestOfLove.Inventory.InventoryItemType TheForestOfLove.Inventory.InventoryItem::itemType
+FIELD System.String TheForestOfLove.Inventory.InventoryItem::savekey
+FIELD System.String TheForestOfLove.Inventory.InventoryItem::title
+FIELD System.String TheForestOfLove.Inventory.InventoryItem::notificationPhrase
+FIELD System.String TheForestOfLove.Inventory.InventoryItem::description
+FIELD System.Boolean TheForestOfLove.Inventory.InventoryItem::isStackable
+FIELD System.Boolean TheForestOfLove.Inventory.InventoryItem::isInactive
+FIELD System.Boolean TheForestOfLove.Inventory.InventoryItem::isAchievementItem
+FIELD System.Int32 TheForestOfLove.Inventory.InventoryItem::priority
+FIELD TheForestOfLove.Inventory.InventoryItemEquipLocation TheForestOfLove.Inventory.InventoryItem::equipLocation
+FIELD UnityEngine.Vector2 TheForestOfLove.Inventory.InventoryItem::gridLocation
+FIELD UnityEngine.Sprite TheForestOfLove.Inventory.InventoryItem::sprite
+FIELD UnityEngine.RuntimeAnimatorController TheForestOfLove.Inventory.InventoryItem::spriteAnimatorController
+FIELD TheForestOfLove.Utility.GenericAddressableAssetLoader`1<UnityEngine.Sprite> TheForestOfLove.Inventory.InventoryItem::spriteAssetLoader
+FIELD TheForestOfLove.Utility.GenericAddressableAssetLoader`1<UnityEngine.RuntimeAnimatorController> TheForestOfLove.Inventory.InventoryItem::spriteAnimatorAssetLoader
+FIELD UnityEngine.Vector2 TheForestOfLove.Inventory.InventoryItem::spriteOffset
+FIELD UnityEngine.Vector2 TheForestOfLove.Inventory.InventoryItem::spriteScale
+FIELD System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Inventory.InventoryItem::enableWithTags
+FIELD System.Int32 TheForestOfLove.Inventory.InventoryItem::quantity
+FIELD System.Boolean TheForestOfLove.Inventory.InventoryItem::isConsumed
+PROPERTY System.Boolean TheForestOfLove.Inventory.InventoryItem::PlayerHasItem()

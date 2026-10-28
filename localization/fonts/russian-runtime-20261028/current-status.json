@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-28T11:22:50.947095+00:00",
-  "status": "scoped-native-and-visual-UI-checks-passed-release-incomplete",
+  "recordedAt": "2026-10-28T17:04:00.549346+00:00",
+  "status": "scoped-inventory-renderer-passed;whole-game-incomplete",
   "coordinatorModel": "gpt-6.1-sol",
   "reasoning": "high",
   "provider": "openai",
@@ -346,25 +346,25 @@
       "id": "native-font-roles",
       "artifact": "tools/russian_native_font_roles.py",
       "predicate": "All three selected native367 labels use coherent369 and render actual inventory/plugin consumers",
-      "evidence": "Exact pointer-only source/readback tests pass; fictional font untouched",
-      "uncertainty": "Individual live inventory ticker/title and plugin portrait-name fields not visually accepted",
-      "nextPermittedAction": "Exercise actual bound consumers after startup recovery; source descriptions remain a separate target gap"
+      "evidence": "Candidate15/run07 loads48 exact descriptions and measures52 original consumer fixtures with complete native character counts, source-relative opacity and no glyphs outside active masks;5 frames under full visual review.",
+      "uncertainty": "Actual input/ownership/405 in-story path and plugin portrait-name consumer remain unaccepted. Legacy inactive variants do not inherit active-route acceptance.",
+      "nextPermittedAction": "Complete all5 current native frame reviews; preserve independent plugin/source-to-role gates."
     },
     {
       "id": "shared-source",
-      "artifact": "localization/fonts/final-corpus-bindings-20261028/acceptance-checklist.json",
+      "artifact": "localization/supplemental-ui/20261028-inventory/ru.acceptance.json",
       "predicate": "All required source selectors have an accepted display/protected disposition and matching immutable targets",
-      "evidence": "70-cell reconciliation and restored producing recipe reproduce;48 descriptions and four compiled empty-cell inputs are absent from old935",
-      "uncertainty": "Three compiled seeds,1655 database policy/external values and1389 controller alias predicates remain held; source/role allocation not complete",
-      "nextPermittedAction": "Owning source/corpus disposition and additive shared targets; preserve frozen935/all30 packets and ready dialogue"
+      "evidence": "Exact3047 preservation policy accepted;52 inventory and2 glitch wording units independently accepted;113 gallery/chapter selectors prepared append-only across30 locales.",
+      "uncertainty": "Finite audit identifies314 missing-bound selectors, mixing copies/runtime producers; complete phrase denominator and callbacks/effects/special scenes remain unresolved.",
+      "nextPermittedAction": "Finish current inventory review and then exact113-cell source/application family. Preserve old935/dialogue and all30 source identity."
     },
     {
       "id": "font-forms-and-gameplay",
       "artifact": "localization/fonts/final-corpus-bindings-20261028/parent-recovery-verification.json",
       "predicate": "Actual dialogue/choices and relevant normalization forms render with full corpus-bound resource acceptance",
       "evidence": "Menu ordinary glyphs use dynamic Liberation Sans; all1385 Texture2D objects and full streams remain exact",
-      "uncertainty": "Russian NFD U+0306/U+0308, real dialogue/choice progression and remaining roles unaccepted",
-      "nextPermittedAction": "Scoped original-scenario checks after startup recovery; no serialized texture edits"
+      "uncertainty": "Raw authored Russian12246+935+52 is NFC with no combining marks. Synthetic NFD is conditional on a concrete selected runtime transform/input contract. Actual dialogue/choice progression and remaining role allocations are unaccepted.",
+      "nextPermittedAction": "Resolve actual input/transform and role dependencies; test only applicable native forms and original gameplay routes. No texture edits."
     },
     {
       "id": "delivery",
@@ -373,6 +373,14 @@
       "evidence": "Candidate06 scoped notifications and quest UI pass native/visual checks; whole release remains gated by separate source/target/font/scenario predicates.",
       "uncertainty": "Source, target, font, runtime and visual gates remain open",
       "nextPermittedAction": "Complete dependencies first; do not label current preview a finished Russian release"
+    },
+    {
+      "id": "inventory-renderer",
+      "artifact": "localization/visual-qa/ru-inventory-20261028-09/final-acceptance.json",
+      "predicate": "Actual active native fields and separate glitch TMP render the accepted52+2 wording without missing glyphs, clipping or overprint",
+      "evidence": "Candidate17/run09:48 exact loaded descriptions,52 original consumer fixtures,611 finite glitch starts sized,max28.98<=58,6/6 native frames independently pass;save/settings exact;cleanup verified",
+      "uncertainty": "Actual input/ownership/405 in-story branch, inactive alternate controllers and full-game/delivery acceptance remain separate",
+      "nextPermittedAction": "Reuse exact scoped render dependencies; continue admitted source113 wording/application and later actual gameplay gates."
     }
   ],
   "nativeCrashBoundary": "Owner-authorized Steam bottle restart ended old server44985; new server54115 was observed after fresh launch. Two fresh candidate06 jobs then completed. Root cause of earlier ntdll crash remains unproven; no further assistant shutdown was performed.",
@@ -382,5 +390,26 @@
   "sourceTexturesModified": false,
   "coordinatorImageInputs": 0,
   "ownerOriginalGameOrSavesControlled": false,
-  "wineBottleRestartPerformed": true
+  "wineBottleRestartPerformed": true,
+  "inventoryIncrement": {
+    "editorial": "localization/supplemental-ui/20261028-inventory/ru.acceptance.json",
+    "candidate": "localization/previews/ru-20261028-texture-preserving-17",
+    "runtime": "localization/probes/ru-inventory-20261028-09",
+    "status": "native52-and-complete6-frame-visual-pass",
+    "glitchEditorial": "localization/supplemental-ui/20261028-glitch/ru.acceptance.json",
+    "priorCandidate14": "native52-pass;glitch-frame-pass;four-ordinary-layout-findings;ledgers-preserved",
+    "rendererAcceptance": "localization/visual-qa/ru-inventory-20261028-09/final-acceptance.json",
+    "originalGlitchProducerSourcePreserved": true,
+    "glitchDisplayAdapter": "CR->LF and separate action line at final TMP display boundary;611 source starts sized;CR/non-CR native frames pass"
+  },
+  "completionReconciliation": {
+    "artifact": "outputs/ru-completion-reconciliation-20261028/check/remaining.json",
+    "checklistRows": 18,
+    "newOrdinaryPhraseCount": null,
+    "knownStaticBindingGapSelectors": 314,
+    "nextSourceFamily": "localization/source/gallery-chapter-display-20261028/admission-v1/family-decision.json",
+    "sourceFamilyUnits": 113,
+    "ordinaryWholeGameTranslationEntryAllowed": false,
+    "sourceFamilyDecision": "accepted-conservative-gap-repair;Russian113-not-authored"
+  }
 }

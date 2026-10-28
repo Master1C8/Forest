@@ -1,0 +1,30 @@
+using Mono.Cecil;
+using Mono.Cecil.Cil;
+using System.Security.Cryptography;
+using System.Text.Json;
+if(args.Length!=6)throw new Exception("source.dll expectedHash targets.json output.dll receipt.json helper.dll");
+string Hash(byte[] b)=>Convert.ToHexString(SHA256.HashData(b)).ToLowerInvariant();
+var sourceHash=Hash(File.ReadAllBytes(args[0]));if(sourceHash!=args[1]||File.Exists(args[3])||File.Exists(args[4]))throw new Exception("Input/output guard");
+using var module=ModuleDefinition.ReadModule(args[0]);
+IEnumerable<TypeDefinition> Types(IEnumerable<TypeDefinition> ts){foreach(var t in ts){yield return t;foreach(var n in Types(t.NestedTypes))yield return n;}}
+string Body(MethodDefinition m){if(!m.HasBody)return "<none>";var list=m.Body.Instructions;string Index(Instruction? i)=>i==null?"end":"@"+list.IndexOf(i);string Operand(object? o)=>o switch{null=>"",Instruction i=>Index(i),Instruction[] a=>string.Join(",",a.Select(Index)),_=>o.ToString()??""};return "locals="+m.Body.InitLocals+":"+string.Join(",",m.Body.Variables.Select(v=>v.VariableType.FullName))+"\n"+string.Join("\n",list.Select(i=>i.OpCode+" "+Operand(i.Operand)))+"\n"+string.Join("\n",m.Body.ExceptionHandlers.Select(h=>h.HandlerType+" "+h.CatchType+" "+Index(h.TryStart)+" "+Index(h.TryEnd)+" "+Index(h.HandlerStart)+" "+Index(h.HandlerEnd)+" "+Index(h.FilterStart)));}
+var methods=Types(module.Types).SelectMany(t=>t.Methods).ToDictionary(m=>m.FullName);var before=methods.ToDictionary(p=>p.Key,p=>Body(p.Value));
+var name="System.Void TheForestOfLove.InventoryInfoTicker::RandomizeGlitchItemInfoTickerText()";var method=methods[name];var literals=method.Body.Instructions.Where(i=>i.OpCode==OpCodes.Ldstr).ToArray();
+if(literals.Length!=2||literals[0].Offset!=0x1c||literals[1].Offset!=0x54)throw new Exception("Exact glitch producer literals required");
+var source=" <color=\"purple\">(Use Me)</color>";if((string)literals[1].Operand!=source)throw new Exception("Unexpected suffix source");
+var fakeTrace=(string)literals[0].Operand;
+var row=JsonDocument.Parse(File.ReadAllText(args[2])).RootElement;
+if(row.GetProperty("id").GetString()!="il:Assembly-CSharp.dll/"+name+"/IL_0054"||row.GetProperty("locale").GetString()!="ru"||row.GetProperty("source").GetString()!=source)throw new Exception("Wrong exact target binding");
+var target=row.GetProperty("target").GetString()!;if(!target.StartsWith(" <color=\"purple\">(")||!target.EndsWith(")</color>"))throw new Exception("Protected suffix format changed");
+using var helper=ModuleDefinition.ReadModule(args[5]);
+var format=helper.GetType("VNRevivalInventoryLayout").Methods.Single(m=>m.Name=="FormatGlitch"&&m.IsStatic&&m.Parameters.Count==1&&m.Parameters[0].ParameterType.FullName=="System.String"&&m.ReturnType.FullName=="System.String");
+var setter=method.Body.Instructions.Single(i=>i.OpCode==OpCodes.Callvirt&&i.Operand.ToString()=="System.Void TMPro.TMP_Text::set_text(System.String)");
+int index=method.Body.Instructions.IndexOf(literals[1]);literals[1].Operand=target;
+method.Body.GetILProcessor().InsertBefore(setter,Instruction.Create(OpCodes.Call,module.ImportReference(format)));
+var expected=methods.ToDictionary(p=>p.Key,p=>Body(p.Value));module.Write(args[3]);
+using var readback=ModuleDefinition.ReadModule(args[3]);var after=Types(readback.Types).SelectMany(t=>t.Methods).ToDictionary(m=>m.FullName);
+if(!before.Keys.ToHashSet().SetEquals(after.Keys)||expected.Any(p=>Body(after[p.Key])!=p.Value))throw new Exception("Whole method readback failed");
+var changed=before.Keys.Where(k=>before[k]!=Body(after[k])).ToArray();if(changed.Length!=1||changed[0]!=name)throw new Exception("Unexpected changed methods");
+var inserted=after[name].Body.Instructions.Single(i=>i.OpCode==OpCodes.Call&&i.Operand.ToString()==format.FullName);after[name].Body.Instructions.Remove(inserted);
+after[name].Body.Instructions[index].Operand=source;if(before.Any(p=>Body(after[p.Key])!=p.Value))throw new Exception("Code/trace/fragment/timer/control changed");
+File.WriteAllText(args[4],JsonSerializer.Serialize(new{sourceSha256=sourceHash,targetSha256=Hash(File.ReadAllBytes(args[3])),selectedStrings=1,selectedMethod=name,fakeTraceUtf8Sha256=Hash(System.Text.Encoding.UTF8.GetBytes(fakeTrace)),fakeTrace,renderingAdapter=format.FullName,renderingHelperSha256=Hash(File.ReadAllBytes(args[5])),displayTransform="Original32-character fragment CR->LF; added LF before the unchanged exact localized suffix. Original producer literal/substring/range/LF->space/timer remain exact before this final display boundary.",wholeMethodInventoryReadback=true,allOriginalBodiesRestored=true},new JsonSerializerOptions{WriteIndented=true})+"\n");

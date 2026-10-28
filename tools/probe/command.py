@@ -9,7 +9,9 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('run', type=Path)
 parser.add_argument('command')
 parser.add_argument('--snapshot')
+parser.add_argument('--timeout', type=float, default=20)
 args = parser.parse_args()
+assert 0 < args.timeout <= 90, 'Command acknowledgement deadline must be in (0,90] seconds'
 run = args.run.resolve()
 assert 'Forest/localization/probes/' in run.as_posix()
 pending = run / 'command.txt'
@@ -22,7 +24,7 @@ temp = run / 'command.pending'
 assert not temp.exists()
 temp.write_text(args.command + '\n')
 temp.rename(pending)
-deadline = time.monotonic() + 20
+deadline = time.monotonic() + args.timeout
 receipt = None
 while time.monotonic() < deadline:
     if not log.exists():

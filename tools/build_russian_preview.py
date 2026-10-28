@@ -22,6 +22,9 @@ from russian_report_ui import report_text_plan
 from russian_quest_ui import project_quest_display
 from russian_menu_ui import menu_plan, snapshot as snapshot_menu, patch_gallery
 from russian_item_ui import project_item_display, snapshot as snapshot_items, patch_items
+from russian_inventory_descriptions import project_descriptions, snapshot as snapshot_descriptions, patch_empty_cells, load_inputs as load_description_inputs
+from russian_inventory_layout import snapshot as snapshot_inventory_layout, patch_layout as patch_inventory_layout
+from russian_inventory_glitch import snapshot as snapshot_glitch, plan as glitch_plan, patch as patch_glitch, load_inputs as load_glitch_inputs
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
@@ -84,6 +87,7 @@ def main():
     parser.add_argument('--coherent-choice-face', action='store_true', help='Rebind only native response-label Text fonts to the already coherent embedded face')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Compatibility flag: actual Russian previews always disable duplicate settings Images with complete TMP replacements')
+    parser.add_argument('--inventory-display-completion', action='store_true', help='Apply the independently accepted52-unit additive description/empty-cell packet after historical item/quest stages')
     args = parser.parse_args()
     try:
         validate_texture_policy(args.coherent_tmp_face)
@@ -98,6 +102,9 @@ def main():
     assert not args.coherent_legacy_face or args.repair_cyrillic_metrics
     assert not args.coherent_choice_face or args.coherent_legacy_face
     assert args.sample_surface != 'tutorial-choices' or args.coherent_choice_face
+    if args.inventory_display_completion:
+        load_description_inputs()  # Fail before creating output when editorial acceptance is absent.
+        load_glitch_inputs()
     out = args.output.resolve()
     assert PROJECT in out.parents and SOURCE not in out.parents
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
@@ -123,6 +130,13 @@ def main():
     snapshot_menu(out)
     shutil.copy2(Path(__file__).parent / 'russian_item_ui.py', out / 'russian_item_ui.py')
     snapshot_items(out)
+    shutil.copy2(Path(__file__).parent / 'russian_inventory_descriptions.py', out / 'russian_inventory_descriptions.py')
+    shutil.copy2(Path(__file__).parent / 'russian_inventory_layout.py', out / 'russian_inventory_layout.py')
+    shutil.copy2(Path(__file__).parent / 'russian_inventory_glitch.py', out / 'russian_inventory_glitch.py')
+    if args.inventory_display_completion:
+        snapshot_descriptions(out)
+        snapshot_inventory_layout(out, SOURCE / DATA_NAME / 'Managed')
+        snapshot_glitch(out)
     shutil.copy2(Path(__file__).parent/'item_notification_layout.py',out/'item_notification_layout.py')
     snapshot_item_layout(out)
     shutil.copy2(Path(__file__).parent/'russian_notebook_ui.py',out/'russian_notebook_ui.py')
@@ -162,6 +176,7 @@ def main():
               'coherentLegacyFace': args.coherent_legacy_face,
               'coherentTmpFace': args.coherent_tmp_face,
               'uniformTmpFallback': args.uniform_tmp_fallback,
+              'inventoryDisplayCompletion': args.inventory_display_completion,
               'coherentChoiceFace': args.coherent_choice_face,
               'choiceSamples': {},
               'markSamples': mark_samples,
@@ -184,6 +199,7 @@ def main():
         item_layout_repairs = {}
         notebook_repairs = {}
         coherent_spacings = {}
+        glitch_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
@@ -196,6 +212,9 @@ def main():
             header_repairs,report['journalHeaderProjection']=journal_header_plan(objects,generator)
             assert not (notebook_repairs.keys()&header_repairs.keys());notebook_repairs.update(header_repairs)
             selected={pid:objects[pid] for pid in notebook_repairs}
+            if args.inventory_display_completion:
+                glitch_repairs,report['inventoryGlitchInitialProjection']=glitch_plan(objects,generator)
+                selected.update({pid:objects[pid] for pid in glitch_repairs})
         elif name=='sharedassets1.assets':
             item_layout_repairs, report['itemNotificationLayout'] = layout_plan(objects,generator)
             selected={pid:objects[pid] for pid in item_layout_repairs}
@@ -315,6 +334,8 @@ def main():
                     report['questDisplayProjection'] = quest_receipt
                     data, report['itemDisplayProjection'] = project_item_display(data,parse,variable_cells)
                     data, report['questFamilyProjection'] = project_quest_family(data,parse,variable_cells)
+                    if args.inventory_display_completion:
+                        data, report['inventoryDescriptionProjection'] = project_descriptions(data,parse,variable_cells)
                     tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
                     report['actorDisplayProjection'] = receipt
                 elif pid == 1020:
@@ -369,6 +390,8 @@ def main():
             elif pid in native_role_repairs:
                 # Pointer repair is applied below after any other selected edits.
                 pass
+            elif pid in glitch_repairs:
+                tree['m_text']=glitch_repairs[pid]['m_text']
             elif obj.type.name == 'Font':
                 assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
                 # The default repair extends the existing fallback only. The
@@ -408,6 +431,8 @@ def main():
                 (out / ('dialogue-readback-plan-'+ ('shared' if name=='sharedassets0.assets' else 'bundle')+'.json')).write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
             if pid in native_role_repairs:
                 tree = apply_native_role(tree, native_role_repairs[pid])
+            if pid in glitch_repairs:
+                tree['m_text']=glitch_repairs[pid]['m_text']
             if pid in coherent_spacings:
                 # Owner-specific wording/wrapping plans must not restore the old
                 # bitmap spacing after the shared face-metric plan ran.
@@ -450,9 +475,14 @@ def main():
     report['questCodeRepair'] = patch_quest_code(target/'Managed/Assembly-CSharp.dll',out/'Assembly-CSharp.quest.dll',out/'quest-code-readback.json',out)
     shutil.copy2(out/'Assembly-CSharp.quest.dll',target/'Managed/Assembly-CSharp.dll')
     (out/'Assembly-CSharp.quest.dll').unlink()
+    if args.inventory_display_completion:
+        report['inventoryEmptyCellCodeRepair'] = patch_empty_cells(target/'Managed',out,out/'inventory-empty-code-readback.json')
+        report['inventoryLayoutCodeRepair'] = patch_inventory_layout(target/'Managed',out,out/'inventory-layout-code-readback.json')
+        report['inventoryGlitchCodeRepair'] = patch_glitch(target/'Managed',out,out/'inventory-glitch-code-readback.json')
+        report['files'].append(dict(path='Managed/VNRevivalInventoryLayout.dll',probeSha256=sha(target/'Managed/VNRevivalInventoryLayout.dll'),purpose='Native inventory title/description reflow inside the original frame'))
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
-                            'probeSha256':report['questCodeRepair']['targetSha256'],'wholeMethodReadback':'passed'})
+                            'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})
     (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 
 

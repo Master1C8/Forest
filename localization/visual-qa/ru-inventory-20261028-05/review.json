@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "f1cb618ff1913a26c05afe0545f7facebf8be98464db608093b93ddafc21a392",
+    "provenance:sourceManifest": "01040a9f0c759f9d06f169dad0e5c149344379ec72157e4e984561ad3f860ab4",
+    "provenance:source:localization/previews/ru-20261028-texture-preserving-12/build.json": "04ab63b0bb603c7c69d5d5d5995758786020709b2b43c641a7ca35c8e5b43495",
+    "provenance:source:localization/previews/ru-20261028-texture-preserving-12/texture-preservation.json": "0f29b5c6c1a9c7b18bbd3fe87b9ef4c71688cca8a8a597fc1f8a060c58c65a66",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/qa-preparation.json": "e3e0795ab974c31f250c2608a54b57fcb96c48a923553a9419113ed3ddad0894",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/runtime-result.json": "14128b53da493a7deb75c74b67a3274f27618007ea3474584829cb7e636e7cc4",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/cleanup.json": "0fb4c635b8764b5438258974200969f3972e48ec242b61d6da7a6a9536992524",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/player.log": "578b923e5db4fdb5fafa4018caafd2ec29b853aa3a8459071068583c21e41e65",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/display-diagnostics.tsv": "6e436e271a474a41dec5f42d0175596dae7ac7d3c39463d79366c76278be6d11",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/inventory-measurements.json": "8f534bb8c3ce17217e53b2e9b6da3904874a03e9f2417a26ea247c51663720c3",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/inventory-readback.tsv": "919153efed6063ca92ec7834730b5f98a195d3f7d1de95c1f38d7a8d5029c0b4",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/capture_inventory_ui.py": "3d5e796c6de9174506f4ee02ec515ad5aedb2999b3d331d708a52f125f32f114",
+    "provenance:source:localization/probes/ru-inventory-20261028-05/execution-pins.json": "96492012fd2d3bb1e42c288b9f9c01277304dc666161ebf011fac2432477922d",
+    "provenance:source:localization/visual-qa/ru-inventory-20261028-05/fixture-preservation.json": "6fd642ee9b22e3924bb606deb50db9796908dda40311c5ea6005b397ccc23e0d",
+    "provenance:source:localization/visual-qa/ru-inventory-20261028-05/fixture-verifier.py.snapshot": "176b4334e5db8ab0b8efaf37e784ff179bdbabce639bc13c308524eab3395b0f",
+    "provenance:source-image:ru-01-inventory-owned-30.png": "1b9e01c4b8ecd4b26e437ce5219a6db2cebb0620fe4ff2f91f38534388ab9c5f",
+    "provenance:source-image:ru-02-inventory-owned-190.png": "387e9d0068c486310c053bce1554e48991e9c459aede065122de3ab8950ecfcb",
+    "provenance:source-image:ru-03-inventory-empty-special.png": "8db741d7ee9cfaf77b342de0288bb40b1beff1ad8de04178c9000e37873a0386",
+    "provenance:source-image:ru-04-inventory-empty.png": "f073236598bf6c38b32177e76d2fc9b92cbe914e3594661c57abb14806401755",
+    "provenance:source-image:ru-05-inventory-owned-400.png": "f021a87e01b9cf55bf42f4e187a106d28e9be61050742a700c06b27030ff5590",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "cb544b6e2030d4cad7b3f294ae80a1d9f761034ae58589da3cfbd82ae6fe54d1"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "1b9e01c4b8ecd4b26e437ce5219a6db2cebb0620fe4ff2f91f38534388ab9c5f.webp",
+      "sha256": "f6478998b5bdfc9fa5bb0a3f45e5606e0afb018803f03377eb5301f094d8fb41",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T15:17:00.258377+00:00",
+      "observations": "Inspected the complete 1280×720 prepared frame. The Russian title and full description match the expected text and remain separated from the grid. The outer border is fully visible. Protected English artwork is permitted; no external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Description first line, approximately x250–1035, y532–553",
+          "observed": "The horizontal background divider touches the lower strokes of the first description line, visually underlining and interfering with the text.",
+          "expected": "Description lines remain clear of panel dividers and decorative strokes.",
+          "nextAction": "Adjust the shared pane positioning or background geometry to separate the divider from text, then review a newly bound frame."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "387e9d0068c486310c053bce1554e48991e9c459aede065122de3ab8950ecfcb.webp",
+      "sha256": "023fcc8825069127cf72e1a731c48c245ebb59db3e3f080107c5a564f21dd098",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T15:17:00.258417+00:00",
+      "observations": "Inspected the complete 1280×720 prepared frame. The description matches the expected two-line text. The long title fits horizontally, but its initial letter is ambiguous against a vertical decorative stroke. The outer border is fully visible; no external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Description first line, approximately x250–1035, y532–553",
+          "observed": "The horizontal background divider touches the lower strokes of the first description line.",
+          "expected": "Description text remains visually separated from the background divider.",
+          "nextAction": "Correct the shared text/divider separation and review both affected frames."
+        },
+        {
+          "check": "glyphs",
+          "severity": "major",
+          "region": "Title beginning «Колокольчик», approximately x388–430, y489–521",
+          "observed": "A vertical background stroke intersects the beginning of the title. The initial «К» cannot be confidently verified in this prepared copy, leaving the exact title unresolved.",
+          "expected": "The complete title «Колокольчик для поездок в Центральный лес» is independently legible, including its initial letter.",
+          "nextAction": "Provide a source-pixel crop of this region, bound to the original hash and crop coordinates, to resolve the glyph and content uncertainty."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "8db741d7ee9cfaf77b342de0288bb40b1beff1ad8de04178c9000e37873a0386.webp",
+      "sha256": "8865fa1fa9317a29610bf2ac4b49ed4465cf4efc2c9b6bb7e6735219e18da6b8",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-28T15:28:40.838170+00:00",
+      "observations": "Inspected the complete 1280×720 prepared frame. Both Russian strings match the expected empty-special fields and remain readable. The full border and artwork are visible. Protected English heading is permitted; no external overlays appear.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Description lower edge, approximately x250–470, y531–552 in the prepared frame",
+          "observed": "“Не-а, опять ничего.” sits directly against the horizontal panel divider, without visible lower padding.",
+          "expected": "The complete description should remain clear of panel edges and divider lines, with visible padding.",
+          "nextAction": "Adjust the shared description placement to clear the divider, then recapture and review the affected cases."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 4,
+      "direction": "ltr",
+      "filename": "f073236598bf6c38b32177e76d2fc9b92cbe914e3594661c57abb14806401755.webp",
+      "sha256": "697d75224944a735b148c896384d1fc948f7fa120c994810a9c1135bef95f43c",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-28T15:28:40.838250+00:00",
+      "observations": "Inspected the complete 1280×720 prepared frame. “Ничё” and the complete expected description are readable, including the ё dots. The title and description remain separated from each other and the item grid. The full border is visible, with no external overlays.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Description baseline and horizontal divider, approximately x250–640, y531–555 in the prepared frame",
+          "observed": "The horizontal panel divider runs through the description’s lower edge, intersecting descending letter strokes.",
+          "expected": "All description strokes should remain separated from the divider, with visible lower padding.",
+          "nextAction": "Adjust the shared description placement to eliminate the border collision, then recapture and review the affected cases."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 5,
+      "direction": "ltr",
+      "filename": "f021a87e01b9cf55bf42f4e187a106d28e9be61050742a700c06b27030ff5590.webp",
+      "sha256": "213eb06872a8f23f3afba3af724a6f767e5e9f084ba3a786796b93f8a6652f2b",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-10-28T15:29:40.505155+00:00",
+      "observations": "Inspected the entire delivered 1280×720 WebP80 frame. The inventory border is fully visible, with no obvious artwork distortion or external overlays. The lower native title/description pane is blank, consistent with owned 400. Protected Inventory artwork remains English. Acceptance of the separate glitch renderer remains unresolved.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Glitch description beneath grid, approximately x414–742, y488–512",
+          "observed": "The code-like line visibly begins with “aph.DoWakeUpEdges” and reaches “System.Collec” beside the purple “(Use Me)” text. Complete text and intended field boundaries cannot be established; truncation or overlap is unresolved.",
+          "expected": "All required glitch-renderer text remains legible within its intended bounds, with any intentional truncation supported by source context.",
+          "nextAction": "Provide the exact glitch-renderer source text and intended clipping behavior, plus a source-bound crop of this region."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Glitch title and description, approximately x292–742, y488–537",
+          "observed": "A question-mark title and English code-like description are visible. The supplied expected fields are empty and do not establish whether these question marks and English text are intentional or indicate missing glyphs or fallback content.",
+          "expected": "Source evidence identifies the intended glitch title, description, and glyph sequence.",
+          "nextAction": "Supply the original item400 glitch strings and renderer context; verify the question marks and English against that evidence before accepting glyphs or content."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "status": "finite-reconciliation-complete",
+  "runtime": "gpt-6.1-sol/high/OpenAI;fresh exec,no inherited history",
+  "evidencePaths": {
+    "remaining.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/remaining.json",
+      "sha256": "c4011570e76ae522efb1a00fb506acee8bf273c162cd5e272e67c5b9259dc793"
+    },
+    "remaining.md": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/remaining.md",
+      "sha256": "4700bbd8e2b0fb778431c575cce34127610fc401cec4b8f1e00ecf916bbedd71"
+    },
+    "input-pins.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/input-pins.json",
+      "sha256": "89dc8edec94e5cd1873bf4cdffdfc1037c1a1988075dada5c7bc32914b1e7294"
+    },
+    "runtime-check.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/runtime-check.json",
+      "sha256": "26683709b576dd21dce6858579848eb656f1bdd6efcb435f96519729676bf512"
+    },
+    "source-version-check.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/source-version-check.json",
+      "sha256": "aeae87aa8d63134598526a1fb7bb7bd166210aca5c1558fee44b404df899219d"
+    },
+    "deterministic-evidence.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/deterministic-evidence.json",
+      "sha256": "83aee00fb9855935ec7c06cf40ecff96863613b101e476fc0ba8fa988d9a650b"
+    },
+    "source-selector-reconciliation.jsonl": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/source-selector-reconciliation.jsonl",
+      "sha256": "578d0dc175af6fe44fa08103ba328b70cf990dfedd5fb90f3095298b422ebd8a"
+    },
+    "untranslated-display-inputs.jsonl": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/untranslated-display-inputs.jsonl",
+      "sha256": "c42241b7bbe0ef557543b0c0a071bec6f7cb19442be91b5e991669d30b4a89a4"
+    },
+    "unallocated-game-producers.jsonl": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/unallocated-game-producers.jsonl",
+      "sha256": "e6c25ec1e534a3b5a2d6b067e963413bcb9a6427affbaa2dc6633311c3fe27d0"
+    },
+    "compiled-display-reconciliation.jsonl": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/compiled-display-reconciliation.jsonl",
+      "sha256": "195731d5170bddd931e7d2f0716e49010dd71e2ca622a4b3ec2e8114e44d4d53"
+    },
+    "role-reconciliation.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/role-reconciliation.json",
+      "sha256": "f15dba4e7103c7dcbdb246de59f6164e6dff866ba1cbc55f685eb6d2ecf11ba4"
+    },
+    "editorial-holds.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/editorial-holds.json",
+      "sha256": "2253c6164ae61335c7649b6368ff8654ad97cf6ff7a86ced8e5f9f3921404313"
+    },
+    "special-case-reconciliation.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/special-case-reconciliation.json",
+      "sha256": "9c9ee609eec2db48cc556a1c694514372df05022833ad8a0bf7fcc350191e6a7"
+    },
+    "final-validation.json": {
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/final-validation.json",
+      "sha256": "f17cb6d00aa7f1721f8a65173df6f53d3b1de9162a4fc916361bb84017a40ede"
+    }
+  },
+  "conclusions": [
+    "Exact3047 approved preservation selectors and acceptedRussian52 are reusable; frozen12246 dialogue and old935/all30 bytes remain exact.",
+    "Additional display-binding gaps:130 nonempty BG cells,150 native narrative occurrences/25 values,34 compiled game producers;complete ordinary-text count remains null with exact source/application decisions enumerated.",
+    "All23 special-case groups,10 role profiles and41 historical source/context findings reconciled with current versions; stale phase counters do not create new work.",
+    "Raw targets contain zero combining marks and are NFC;native NFD remains conditional and unpassed.",
+    "Candidate12 native/visual and final delivery remain pending;this static reconciliation grants no source/runtime/release acceptance."
+  ],
+  "newRequiredOrdinaryTextCount": null,
+  "wholeGameAccepted": false,
+  "writesRestrictedTo": "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check",
+  "nestedJobs": 0,
+  "GitMutations": 0,
+  "rootReadmeCheckpointMutations": 0,
+  "automaticContinuation": false,
+  "usage": "unknown here; parent measures owning CLI telemetry"
+}

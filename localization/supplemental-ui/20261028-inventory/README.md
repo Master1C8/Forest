@@ -49,3 +49,5 @@ relevant native mark rendering, real input/ownership/405 in-story behavior and
 dialogue/progression/delivery gates. This packet is not whole-game acceptance.
 No texture, original installation/save, installer, site publication or deployment
 change is authorized by its wording acceptance.
+
+Current renderer acceptance: candidate17/run09 verifies all48 loaded descriptions,52 original consumer fixtures and six full native frames, including both CR/non-CR glitch controls. The separate accepted2-unit glitch supplement and final display adapter are documented by `localization/visual-qa/ru-inventory-20261028-09/final-acceptance.json`. All611 possible original fragment starts fit after the display transform. The obsolete native divider and glitch automatic horizontal layout are disabled; source font sizes/opacity, serialized textures and save/settings remain exact. Actual ownership/input/405 in-story behavior and whole-game delivery remain separate.

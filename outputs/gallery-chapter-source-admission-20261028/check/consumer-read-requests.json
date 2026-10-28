@@ -1,0 +1,24 @@
+{
+  "sourceSha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "inspectorSha256": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05",
+  "requests": [
+    [
+      "TheForestOfLove.ChapterSelectUI",
+      "RefreshVisibleItems,SelectItemLabel"
+    ],
+    [
+      "TheForestOfLove.ChapterSelectUI/GossipItemLabel",
+      "SetText"
+    ],
+    [
+      "TheForestOfLove.Services.Persistence.DataService",
+      "GetMovieRecordByMovie"
+    ],
+    [
+      "TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass12_0",
+      "<GenerateMovies>b__0"
+    ]
+  ],
+  "predicate": "Complete actual title/tooltip display and MovieRecord cache binding; original getter/record/hint bodies reused. No framework traversal.",
+  "outputSha256": "44da5ede5d96b361e0ed6e56a733b8b7cf4924526fe282f4513a406513281b5f"
+}

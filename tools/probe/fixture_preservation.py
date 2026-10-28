@@ -29,21 +29,33 @@ def settings_delta(before, after, dimensions, *, fullscreen_reset=False):
             for key, old, new in zip(keys, previous, dimensions) if old != new]
 
 
-def verify_fixture(run, fixture, *, reconcile_resolution_reset=False):
+def verify_fixture(run, fixture, *, reconcile_resolution_reset=False, continuation=None):
     run, fixture = Path(run), Path(fixture)
     cleanup = json.loads((run / 'cleanup.json').read_text())
+    receipts = run
+    original_cleanup = None
+    if continuation is not None:
+        receipts = run / continuation
+        assert receipts.parent == run and receipts.is_dir(), 'Invalid continuation receipt path'
+        original_cleanup = cleanup
+        initial = json.loads((run / 'runtime-result.json').read_text())
+        assert initial['result'] == 'failed' and initial['measuredCases'] == 0 and not initial['captures'], 'Continuation must account for any prior workload'
+        cleanup = json.loads((receipts / 'cleanup.json').read_text())
+        assert original_cleanup['qaFixtureAfter'] == cleanup['qaFixtureBefore'], 'Fixture changed across live adoption'
+        assert not original_cleanup['ownerSaveFilesUsed'] and original_cleanup['parentArtifactUnchanged']
     preparation = json.loads((run / 'qa-preparation.json').read_text())
     manifest = json.loads((fixture / 'manifest.json').read_text())
     assert sha(fixture / 'manifest.json') == preparation['fixtureManifestSha256']
     assert manifest['originalOwnerFilesUsed'] is False
     assert cleanup['taskOwnedProcessesAbsent'] and not cleanup['ownerSaveFilesUsed']
-    before, after = cleanup['qaFixtureBefore'], cleanup['qaFixtureAfter']
+    before = (original_cleanup or cleanup)['qaFixtureBefore']
+    after = cleanup['qaFixtureAfter']
     assert set(before) == set(after) == set(manifest['files']) == {'tfol.settings', 'tfol.savegame'}
     for name, pin in manifest['files'].items():
         assert sha(fixture / name) == pin['sha256'] == before[name]
         assert sha(run / 'game/The Forest of Love_Data' / name) == after[name]
     assert before['tfol.savegame'] == after['tfol.savegame'], 'Disposable savegame changed'
-    captures = json.loads((run / 'runtime-result.json').read_text())['captures']
+    captures = json.loads((receipts / 'runtime-result.json').read_text())['captures']
     assert captures, 'No captured viewport evidence'
     dimensions = set()
     for capture in captures:

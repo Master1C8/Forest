@@ -1,4 +1,18 @@
+## Current Russian inventory renderer acceptance, 2026-10-29
+
+Candidate17/run09 passes the actual active native title/body roles and separate glitch TMP:48 loaded descriptions,52 consumer fixtures,611 finite glitch starts and6/6 native visual frames. `localization/visual-qa/ru-inventory-20261028-09/final-acceptance.json` pins the scope. Source font sizes/opacity and all1385 serialized texture objects/streams remain exact; the final CR-to-LF/action-line display adapter is explicit. This does not pass alternate inactive controllers, plugin/nameplate roles, actual ownership/405 input, whole-game allocation or delivery. Authored Russian is raw NFC with no combining marks; synthetic NFD remains conditional on an actual selected input/transform contract.
+
 # Corpus-bound font preparation
+
+The current Russian inventory increment has independently accepted52 wording
+inputs and candidate07 font bindings in
+`../supplemental-ui/20261028-inventory/font-requirements.json`. Each native
+title/description role binds50 conservative dynamic inputs. The actual packaged
+369 face matches bundled Liberation Sans and covers raw/NFC/NFD cmap requirements;
+native marks/layout and complete role allocation remain separate. Isolated
+Russian runtime/GUI checks are owner-authorized; original installation/saves and
+textures remain protected. Older stopped-runtime statements below describe their
+historical preparation scope, not a new permission requirement.
 
 Canonical project: `/Users/antonkrutov/Desktop/Forest`. This is static preparation,
 not renderer feasibility, installation or release acceptance. No game was launched.
