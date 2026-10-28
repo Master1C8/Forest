@@ -19,6 +19,36 @@ def row(ident, text='Original', target='Перевод'):
 
 
 class EditorialStorage(unittest.TestCase):
+    def setUp(self):
+        # Storage tests replace both the model and runtime publisher. The real
+        # metadata/registry mechanism is covered in test_cli_runtime_identity.
+        publisher = patch.object(audit, 'publish_current_runtime')
+        publisher.start()
+        self.addCleanup(publisher.stop)
+
+    def test_runtime_recovery_requires_exact_repaired_execution_and_terminal_turn(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve(); directory, home = self.fixture(root)
+            state = json.loads((directory / 'job.json').read_text())
+            phase = directory / '0001-semantic'; phase.mkdir()
+            (phase / 'events.jsonl').write_text(json.dumps({'type': 'turn.completed', 'usage': {'input_tokens': 10, 'output_tokens': 2}}) + '\n')
+            state.update(status='held-supervisor-error', phases=[dict(number=1, status='running', directory=str(phase))])
+            audit.save(directory / 'job.json', state)
+            receipt = directory / 'runtime-recovery.json'
+            value = dict(kind='runtime-publication-failure', jobSha256=audit.sha(directory / 'job.json'),
+                         phaseDirectory=str(phase), eventsSha256=audit.sha(phase / 'events.jsonl'),
+                         noSurvivingTaskProcesses=True, availableBytes=1024**3,
+                         repairedHelperSha256=audit.sha(Path(audit.__file__)),
+                         repairedRuntimeSha256=audit.sha(Path(audit.__file__).with_name('cli_runtime_identity.py')))
+            for key, reason in [('repairedHelperSha256', 'Repaired runtime observer'), ('repairedRuntimeSha256', 'Repaired runtime resolver')]:
+                audit.save(receipt, {**value, key: 'changed'})
+                with self.assertRaisesRegex(AssertionError, reason):
+                    audit.reconcile_interruption(directory, state, json.loads((directory / 'config.json').read_text()), receipt)
+            audit.save(receipt, value)
+            self.assertEqual(audit.reconcile_interruption(directory, state, json.loads((directory / 'config.json').read_text()), receipt), 0)
+            self.assertEqual(state['phases'][0]['status'], 'interrupted-runtime-publication')
+            self.assertEqual(state['phases'][0]['measuredUsage']['total_tokens'], 12)
+
     def test_counter_or_decisions_without_reads_cannot_complete(self):
         with tempfile.TemporaryDirectory() as temporary:
             phase=Path(temporary); (phase/'reads').mkdir()
