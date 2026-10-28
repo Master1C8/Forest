@@ -1,0 +1,80 @@
+{
+  "negative": [
+    {
+      "id": "omit109th",
+      "reason": "selected109-coverage",
+      "result": "rejected"
+    },
+    {
+      "id": "duplicate84th",
+      "reason": "candidate84-coverage",
+      "result": "rejected"
+    },
+    {
+      "id": "wrong-source-439",
+      "reason": "fallback-source-439",
+      "result": "rejected"
+    },
+    {
+      "id": "allow-atlas-rewrite",
+      "reason": "atlas-rewrite-forbidden",
+      "result": "rejected"
+    },
+    {
+      "id": "JP-replaced-with-SC",
+      "reason": "locale-candidate-identity",
+      "result": "rejected"
+    },
+    {
+      "id": "claim-CJK-supported",
+      "reason": "candidate-applicability-or-scope",
+      "result": "rejected"
+    },
+    {
+      "id": "shared-material-for-bundle",
+      "reason": "stored-selection-change",
+      "result": "rejected"
+    },
+    {
+      "id": "mouse-mapping-edited",
+      "reason": "fictional-mapping-change",
+      "result": "rejected"
+    },
+    {
+      "id": "claim-textures-pass",
+      "reason": "unrun-gate-promoted",
+      "result": "rejected"
+    }
+  ],
+  "positive": [
+    "all109-real-bindings",
+    "all84-exact-profile-resource-locale-decisions",
+    "matched-SC-and-JP-candidates",
+    "439-export-equals-serialized-payload",
+    "1017-dynamic-empty-caches-source439",
+    "367-three-vs369-twelve",
+    "fictional-original-preserved"
+  ],
+  "boundary": "Metadata-plan and exact-input controls only; does not execute builders,font parsers,native renderer or future texture comparisons.",
+  "phase": "0148-work",
+  "status": "passed-static-plan-only",
+  "inputPins": 163,
+  "selectedComponents": 109,
+  "candidateDecisions": 84,
+  "requirementProfiles": 10,
+  "families": 4,
+  "resourceFacts": 140,
+  "recipeSha256": "04ee375613512c1ac155a04ad37faca8eeca010f62d525d20eb088e5f12ec445",
+  "outputs": {
+    "resource-plan.json": "43a3a76d67de5573c19386c32d04b6f5d23643f79400c25c360339e096972640",
+    "input-pins.json": "1ed5929cdbd36edacd3bda27dfaf65eb2f1cca0f4d8ef867d670b4c604383a63"
+  },
+  "resourceBuilds": 0,
+  "fontParsersRun": 0,
+  "resourceEdits": 0,
+  "textureEdits": 0,
+  "imagesOpened": 0,
+  "newIL": 0,
+  "runtime": "not-run",
+  "usage": "unknown;parent measures actual request telemetry"
+}

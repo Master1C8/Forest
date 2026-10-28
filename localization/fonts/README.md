@@ -83,3 +83,54 @@ cannot establish those properties. Runtime testing remains stopped by the owner.
 The earlier original-font report ending in `-01.json` is historical and was
 superseded before acceptance: an empty external resource must have unknown
 coverage. The current index and regression test preserve that correction.
+
+## Current role and requirement supplement, phase147
+
+[The current109-component reconciliation](role-requirements-20261028/ADAPTER.md)
+resolves the finite role/source/candidate assignment in10 requirement profiles.
+[Its acceptance checklist](role-requirements-20261028/acceptance-checklist.json)
+extends the preserved118/119 checklists. It supersedes their uniform saved-dialogue
+applicability wording and historical custom-root gap without changing those packets.
+
+Only18 selected settings layers directly join old935. Explicit dynamic joins bind
+item titles/descriptions, quest fields/history and custom nameplate candidates;
+48 nonempty item descriptions and all four compiled empty-cell literals lack old935
+targets. Missing nonempty strings and absent DB states remain separate. All30
+immutable interface packets receive profile-specific raw/NFC/NFD requirement and
+per-face subset checks. Empty projections never pass coverage. The seven saved
+dialogue corpora stay separate from these interface projections and current final
+role wording remains unverified. No live target overlay is read.
+
+Pinned Noto SC/JP Regular2.004 and LiberationSans439 remain trial candidates,
+with explicit face/hash/license/application limits. Fictional mouse3324/material3/
+atlas245 and38 pinned phonetic rows are preserved. No resource or texture is made.
+Next static work must produce a finite resource plan for original dynamic fallback
+1017/native roles and the pinned candidates under the existing no-texture guard.
+Actual native shaping/bidi/marks/metrics/narrow layout/input and loaded-face proof
+still require applicable owner-authorized runtime; repeated cmap checks cannot
+pass them. Source/editorial/final fonts/resource/runtime/release gates remain open.
+
+## Current resource plan, phase148
+
+[The exact binding/change/readback plan](resource-plan-20261028/PLAN.md) completes
+the former next static assignment without producing font or texture assets.
+It preserves all109 selected bindings and84 candidate decisions, pins original
+1017 -> source Font439 / material10 / empty runtime atlas74, and distinguishes
+global missing-character fallback from whole-face native replacement. Default
+TMP1018 already has local fallback1017. The three native367 inventory/plugin
+labels need their own exact pointer selector; the response helper cannot select
+them. Pinned CJK OTF candidates are incompatible with the current hardcoded439
+recipe until a coherent import/metrics path and native loading are verified.
+
+The normal path leaves primary static TMP tables/materials/atlases unchanged.
+Both --coherent-tmp-face guards remain unchanged. Full original texture-object/
+external-stream equality and a matching actual new-face positive control are
+specified but not run; dynamic in-memory caches are a separate native boundary.
+The new15-row checklist extends the previous finite checklist without waiving
+any source/editorial/font/resource/runtime/visual/delivery gate.
+
+`python3 -B localization/fonts/resource-plan-20261028/plan.py --check` reproduces
+163 pinned inputs,140 resource facts and nine targeted metadata rejection controls.
+No original install, game, image, builder or font parser is opened. Next static
+work binds the10 profiles to currently available immutable editorial deliveries
+for the seven saved locales; missing/active and unbound role states stay explicit.
