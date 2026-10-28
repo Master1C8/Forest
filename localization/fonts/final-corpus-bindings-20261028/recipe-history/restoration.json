@@ -1,0 +1,36 @@
+{
+  "restoredPath": "/Users/antonkrutov/Desktop/Forest/localization/fonts/final-corpus-bindings-20261028/bind.py",
+  "restoredSha256": "600989ae22e39cc477d1677003f80df9af88ed2d19b6a97c584d6130dbbfe9fb",
+  "restoredBytes": 30984,
+  "method": "Decoded exact149 Add File tool argument, required old data input-pins SHA/length before replacement. No old prompt/command executed.",
+  "versionsPreserved": {
+    "149workingPinned": "600989ae22e39cc477d1677003f80df9af88ed2d19b6a97c584d6130dbbfe9fb",
+    "149laterFailedRevision": "11be4a3739f77357ec5db14310c7222cd28a265a5f5d51a65a1ba0cbf0ea3c75",
+    "150replacement": "0f98ea37d6f5b3519f67bc664eb55553857658ec5fdf634140411a935d745346"
+  },
+  "reasonForBaseline": "149 initial recipe completed with70 cells/12 controls. Later revision failed inventory-omission-category-counts and did not regenerate the pinned data; preserve it separately, restore the reproducible version.",
+  "dataArtifactsRegenerated": false,
+  "preservedLaterRecipes": [
+    {
+      "path": "localization/fonts/final-corpus-bindings-20261028/recipe-history/bind-phase149-unverified.py.txt",
+      "bytes": 32405,
+      "sha256": "11be4a3739f77357ec5db14310c7222cd28a265a5f5d51a65a1ba0cbf0ea3c75",
+      "role": "preserved historical revision; not the producing recipe"
+    },
+    {
+      "path": "localization/fonts/final-corpus-bindings-20261028/recipe-history/bind-phase150-replaced.py.txt",
+      "bytes": 25593,
+      "sha256": "0f98ea37d6f5b3519f67bc664eb55553857658ec5fdf634140411a935d745346",
+      "role": "preserved historical revision; not the producing recipe"
+    }
+  ],
+  "originalRecipeCheck": {
+    "command": "python3 -B localization/fonts/final-corpus-bindings-20261028/bind.py --check",
+    "exitCode": 0,
+    "cells": 70,
+    "dialogueJoins": 36738,
+    "targetProjections": 2093,
+    "negativeControls": 12,
+    "inputPins": 37
+  }
+}

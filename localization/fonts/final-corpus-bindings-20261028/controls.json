@@ -1,0 +1,72 @@
+{
+  "negativeControls": [
+    {
+      "name": "duplicate IDs before mapping",
+      "expectedReason": "duplicate-stable-id",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "missing target with otherwise valid source",
+      "expectedReason": "source-target-id-coverage",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "source value changed with correct own hash",
+      "expectedReason": "source-value-mismatch",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "physical source pointer order",
+      "expectedReason": "source-occurrence-mismatch",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "embedded target hash",
+      "expectedReason": "embedded-target-hash-mismatch",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "live overlay read",
+      "expectedReason": "live-overlay-prohibited",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "wrong manifest file hash",
+      "expectedReason": "file-hash-mismatch:localization/font-checks/dialogue-20261027-02.json",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "duplicate matrix cell",
+      "expectedReason": "matrix-cell-uniqueness",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "empty projection credited as coverage",
+      "expectedReason": "empty-projection-pass",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "description omission hidden",
+      "expectedReason": "description-omission-count",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "compiled empty-cell title omission hidden",
+      "expectedReason": "title-empty-cell-omission-count",
+      "result": "rejected-at-intended-boundary"
+    },
+    {
+      "name": "unmapped plugin given dialogue corpus",
+      "expectedReason": "unbound-dialogue-allocation",
+      "result": "rejected-at-intended-boundary"
+    }
+  ],
+  "positiveControls": [
+    "valid exact source/hash/occurrence join",
+    "complete70-cell matrix",
+    "raw/NFC/NFD kept separate; decomposed new characters invalidate only applicability",
+    "empty projections have no font coverage pass",
+    "48 DB descriptions and four compiled empty-cell inputs remain omissions"
+  ],
+  "boundary": "Controls test deterministic metadata/ID/hash/selector rejection; no semantic, font-parser or native renderer proof."
+}

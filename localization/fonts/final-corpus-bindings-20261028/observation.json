@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "phase": "0149-work",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "ignoreUserConfig": true,
+  "runtimeModelEvidence": "Current process33366 command line; no prior conversation read.",
+  "manifestPaths": [
+    "localization/editorial-delivery/de-cycle-02/author/output-manifest.json",
+    "localization/editorial-delivery/de-cycle-02/cycle/manifest.json",
+    "localization/editorial-delivery/ru-cycle-02/author/delivery-manifest.json",
+    "localization/editorial-delivery/ru-cycle-02/cycle/manifest.json",
+    "localization/editorial-delivery/zh-cycle-02/cycle/manifest.json",
+    "localization/editorial-delivery/zh-cycle-02/prior-independent/closure-manifest.json"
+  ],
+  "missingDeliveries": {
+    "es": {
+      "owningJob": "outputs/editorial-20261027/es/job.json",
+      "observedJobFingerprint": {
+        "sha256": "89e1243c7adc86ab626f9e7169c3d7d2a9b35a472a053a99abddc90159b8155e",
+        "bytes": 70007
+      },
+      "statusAtObservation": "full-pass-complete-awaiting-adjudication",
+      "reviewedIdsReportedByOwner": 12246,
+      "currentManifestAbsentAtObservation": true,
+      "cycle02ArchiveAbsentAtObservation": true,
+      "status": "missing-immutable-editorial-delivery",
+      "boundary": "Observed once, not process-liveness or semantic acceptance; do not wait or stop any lane."
+    },
+    "es-419": {
+      "owningJob": "outputs/editorial-20261027/es-419/job.json",
+      "observedJobFingerprint": {
+        "sha256": "04f0dccffcf6f36db25cae864fa96bb9171a0d31b4fa43f93a4ad950774db07f",
+        "bytes": 70633
+      },
+      "statusAtObservation": "full-pass-complete-awaiting-adjudication",
+      "reviewedIdsReportedByOwner": 12246,
+      "currentManifestAbsentAtObservation": true,
+      "cycle02ArchiveAbsentAtObservation": true,
+      "status": "missing-immutable-editorial-delivery",
+      "boundary": "Observed once, not process-liveness or semantic acceptance; do not wait or stop any lane."
+    },
+    "pt-BR": {
+      "owningJob": "outputs/editorial-20261027/pt-BR/job.json",
+      "observedJobFingerprint": {
+        "sha256": "cf904fbea848921915883f0f92461b5ad13369020b18dc8dbb8e82257eef530a",
+        "bytes": 70074
+      },
+      "statusAtObservation": "full-pass-complete-awaiting-adjudication",
+      "reviewedIdsReportedByOwner": 12246,
+      "currentManifestAbsentAtObservation": true,
+      "cycle02ArchiveAbsentAtObservation": true,
+      "status": "missing-immutable-editorial-delivery",
+      "boundary": "Observed once, not process-liveness or semantic acceptance; do not wait or stop any lane."
+    },
+    "ja": {
+      "owningJob": "outputs/locale-assets-20261026/ja/job.json",
+      "observedJobFingerprint": {
+        "sha256": "f21533de26bd2dfb532faecce3dfc7f98076ef698c079fdbe4721f5f3c25dbf1",
+        "bytes": 254265
+      },
+      "statusAtObservation": "draft-complete",
+      "reviewedIdsReportedByOwner": null,
+      "currentManifestAbsentAtObservation": true,
+      "cycle02ArchiveAbsentAtObservation": true,
+      "status": "missing-immutable-editorial-delivery",
+      "boundary": "Observed once, not process-liveness or semantic acceptance; do not wait or stop any lane."
+    }
+  }
+}

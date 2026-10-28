@@ -1,0 +1,81 @@
+{
+  "negativeControls": [
+    {
+      "name": "duplicate-stable-id",
+      "expectedReason": "duplicate-stable-id",
+      "result": "rejected"
+    },
+    {
+      "name": "source-value-drift",
+      "expectedReason": "source-value-mismatch",
+      "result": "rejected"
+    },
+    {
+      "name": "physical-pointer-order",
+      "expectedReason": "source-occurrence-mismatch",
+      "result": "rejected"
+    },
+    {
+      "name": "unknown-translation-id",
+      "expectedReason": "unknown-source-id",
+      "result": "rejected"
+    },
+    {
+      "name": "live-target-access-before-read",
+      "expectedReason": "live-target-read-prohibited",
+      "result": "rejected"
+    },
+    {
+      "name": "hash-mismatch",
+      "expectedReason": "input-hash-mismatch",
+      "result": "rejected"
+    },
+    {
+      "name": "incomplete-corpus",
+      "expectedReason": "dialogue-id-coverage-mismatch",
+      "result": "rejected"
+    },
+    {
+      "name": "corpus-byte-version-mismatch",
+      "expectedReason": "reconstructed-corpus-hash-mismatch",
+      "result": "rejected"
+    },
+    {
+      "name": "outside-report-universe",
+      "expectedReason": "report-universe-exceeded",
+      "result": "rejected"
+    },
+    {
+      "name": "empty-projection-is-not-coverage",
+      "expectedReason": "no-bound-target-characters",
+      "result": "rejected"
+    },
+    {
+      "name": "48-description-omissions-cannot-pass",
+      "expectedReason": "missing-description-targets",
+      "result": "rejected"
+    },
+    {
+      "name": "four-empty-cell-inputs-cannot-pass",
+      "expectedReason": "missing-empty-cell-targets",
+      "result": "rejected"
+    },
+    {
+      "name": "69-cell-matrix-cannot-pass",
+      "expectedReason": "matrix-70-cell-coverage",
+      "result": "rejected"
+    }
+  ],
+  "positiveControls": [
+    "unique-ids",
+    "matching-source",
+    "complete-corpus",
+    "in-universe-subset",
+    "nonempty-projection",
+    "raw-versus-NFD-separation",
+    "real-70-cell-matrix",
+    "three-exact-current-corpus-hashes",
+    "48-nonempty-descriptions-and-four-compiled-inputs"
+  ],
+  "boundary": "Metadata/hash/ID gates only; no semantic, font-parser, resource, native or visual replacement."
+}

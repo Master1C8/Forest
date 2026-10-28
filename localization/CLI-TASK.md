@@ -156,6 +156,15 @@ After an exact known capacity failure, a current owner repair/continue instructi
 resume through `--reconcile-capacity` only with a receipt bound to the failed request,
 canonical HEAD, recovered artifact hashes and original next brief. Preserve its failed
 exit and incomplete usage; a parent-reviewed commit is not a completed model turn.
+Capacity can arrive after successful tool writes even when `result.json` and
+`turn.completed` are absent. Before assigning recovery, inventory and fingerprint
+every existing output in the failed assignment's bounded scope, including untracked
+recipes. Preserve their exact bytes and execution dependencies. Reuse a matching
+recipe or write a separately named successor; never overwrite an existing recipe
+because Git does not track it. A data receipt is reproducible only with its pinned
+recipe. Regression: a capacity-failed phase wrote a valid matrix and recipe, then
+edited the recipe without regenerating the matrix; recover the version matching
+the receipt, retain later versions separately, and verify before continuing.
 Unknown transport outcomes must still hold. Regression: capacity after staging runtime
 evidence must preserve/review/commit that exact index under one coordinator, verify
 cleanup and continue the next phase without rerunning the consumed game candidate.
