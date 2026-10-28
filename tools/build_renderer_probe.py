@@ -17,6 +17,7 @@ from addressables_catalog import update_catalog
 from tmp_dialogue_font import coherent_tmp_face
 from settings_glow import settings_glow_plan, settings_value_image_plan
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
+from texture_policy import validate_texture_policy
 
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')
@@ -48,12 +49,6 @@ def fields_changed(before, after, pointer=''):
     return [] if before == after else [pointer]
 
 
-def validate_texture_policy(coherent_tmp_face):
-    """New probes must preserve original texture assets under the owner scope."""
-    if coherent_tmp_face:
-        raise ValueError('--coherent-tmp-face rewrites the original font atlas and is disabled for the current texture-preserving workflow')
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path)
@@ -61,7 +56,7 @@ def main():
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
-    parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
+    parser.add_argument('--coherent-tmp-face', action='store_true', help='Disabled in the current workflow: this option rewrites atlas textures')
     parser.add_argument('--coherent-choice-face', action='store_true', help='Rebind only native response-label Text fonts to the already coherent embedded face')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Disable legacy baked Images with complete six-layer TMP replacements in OptionsMenu')
@@ -87,6 +82,7 @@ def main():
     out.mkdir(parents=True)
     # Preserve the recipe used by this attempt, including partial failures.
     shutil.copy2(Path(__file__), out / 'build_renderer_probe.py')
+    shutil.copy2(PROJECT / 'tools/texture_policy.py', out / 'texture_policy.py')
     shutil.copy2(PROJECT / 'tools/tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
     shutil.copy2(PROJECT / 'tools/settings_glow.py', out / 'settings_glow.py')
     shutil.copy2(PROJECT / 'tools/legacy_choice_font.py', out / 'legacy_choice_font.py')

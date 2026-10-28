@@ -27,6 +27,7 @@ from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
 from russian_quest_family import project_quest_family, snapshot as snapshot_quest_family, patch_quest_code
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
+from texture_policy import validate_texture_policy
 from russian_preview_ui import typography_plan, project_actor_display, load_bg_parser, exact_ui_plan
 parse, variable_cells = load_bg_parser()
 
@@ -76,11 +77,15 @@ def main():
     parser.add_argument('--repair-cyrillic-metrics', action='store_true')
     parser.add_argument('--coherent-legacy-face', action='store_true',
                         help='Use the bundled Liberation Sans for the entire native nameplate Font role')
-    parser.add_argument('--coherent-tmp-face', action='store_true', help='Use one bundled outline face and canonical mark-pair positioning for the shared dialogue TMP role')
+    parser.add_argument('--coherent-tmp-face', action='store_true', help='Disabled in the current workflow: this option rewrites atlas textures')
     parser.add_argument('--coherent-choice-face', action='store_true', help='Rebind only native response-label Text fonts to the already coherent embedded face')
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Compatibility flag: actual Russian previews always disable duplicate settings Images with complete TMP replacements')
     args = parser.parse_args()
+    try:
+        validate_texture_policy(args.coherent_tmp_face)
+    except ValueError as error:
+        parser.error(str(error))
     assert re.fullmatch(r'ForestRuActual[0-9]{8}_[0-9]{2,}', args.qa_product), 'Explicit isolated QA identity required'
     product = args.qa_product
     assert shutil.disk_usage(PROJECT).free >= 512 * 1024**2, 'Insufficient disk reserve before preview build'
@@ -102,6 +107,7 @@ def main():
     (out/'overlay-validation.json').write_text(json.dumps(validation,ensure_ascii=False,indent=2)+'\n')
     # Preserve the recipe used by this attempt, including partial failures.
     shutil.copy2(Path(__file__), out / 'build_russian_preview.py')
+    shutil.copy2(PROJECT / 'tools/texture_policy.py', out / 'texture_policy.py')
     shutil.copy2(Path(__file__).parent / 'tmp_dialogue_font.py', out / 'tmp_dialogue_font.py')
     shutil.copy2(Path(__file__).parent / 'settings_glow.py', out / 'settings_glow.py')
     shutil.copy2(Path(__file__).parent / 'russian_settings_ui.py', out / 'russian_settings_ui.py')
