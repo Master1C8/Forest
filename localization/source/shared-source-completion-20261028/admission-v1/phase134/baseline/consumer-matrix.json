@@ -1,0 +1,3866 @@
+{
+  "schemaVersion": 1,
+  "remainingBgColumns": [
+    {
+      "sheet": "ActorGossipGreeting",
+      "field": "greeting_text",
+      "fieldId": "sHUFF3DI3kyify+0YaYjiQ",
+      "states": 17,
+      "stored": 17,
+      "absent": 0,
+      "role": "preserve-unused-column",
+      "reason": "The supported loader reads greeting_text_test, not this historical string column; retain its literal backslash bytes.",
+      "getterUses": [],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "dormant-potential-display-source"
+    },
+    {
+      "sheet": "ActorGossipGreeting",
+      "field": "greeting_text_test",
+      "fieldId": "HiklKG8OqUO1pxWl3D3PlA",
+      "states": 17,
+      "stored": 17,
+      "absent": 0,
+      "role": "display",
+      "reason": "GenerateGossipGreetings copies this getter into GossipGreeting.greetingText; GossipUI.ChooseGreetingText selects by actor and sends it to UpdateGreetingText.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass18_0::<GenerateGossipGreetings>b__0(TheForestOfLove.DB.ActorGossipGreeting)",
+          "offset": 55,
+          "index": 19,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.ActorGossipGreeting::get_greeting_text_test()",
+          "targetType": "TheForestOfLove.DB.ActorGossipGreeting"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "display"
+    },
+    {
+      "sheet": "ActorGossipGreeting",
+      "field": "name",
+      "fieldId": "ZsBHMEpfnkWq38Xt+YNE5A",
+      "states": 17,
+      "stored": 17,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "Loader copies to GossipGreeting.dbName, separately from greetingText and actor-key grouping.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass18_0::<GenerateGossipGreetings>b__0(TheForestOfLove.DB.ActorGossipGreeting)",
+          "offset": 8,
+          "index": 4,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.ActorGossipGreeting::get_name()",
+          "targetType": "TheForestOfLove.DB.ActorGossipGreeting"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Area",
+      "field": "name",
+      "fieldId": "+Thw6LtdF0e41lxq9rJX4Q",
+      "states": 33,
+      "stored": 33,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateAreas copies to AreaRecord.dbName and areasByDbName dictionary.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass10_0::<GenerateAreas>b__0(TheForestOfLove.DB.Area)",
+          "offset": 8,
+          "index": 4,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Area",
+      "field": "savekey",
+      "fieldId": "RfBqQm0vVk2ZFiGTfMv1/Q",
+      "states": 33,
+      "stored": 33,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateAreas copies to AreaRecord.savekey and areasBySavekey dictionary.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass10_0::<GenerateAreas>b__0(TheForestOfLove.DB.Area)",
+          "offset": 27,
+          "index": 11,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_savekey()",
+          "targetType": "TheForestOfLove.DB.Area"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Area",
+      "field": "unity_scene_name",
+      "fieldId": "p7f4jMDS8kCG0O9nzGasWQ",
+      "states": 33,
+      "stored": 33,
+      "absent": 0,
+      "role": "preserve-resource-key",
+      "reason": "GenerateAreas copies to unitySceneName and areasByUnitySceneName; CreateChapterRecord copies respawn area scene into respawnInScene.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 1667,
+          "index": 512,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_unity_scene_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 1749,
+          "index": 537,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_unity_scene_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 1831,
+          "index": 562,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_unity_scene_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 1913,
+          "index": 587,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_unity_scene_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        },
+        {
+          "method": "TheForestOfLove.Narrative.ChapterRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateChapterRecord(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.DB.Chapter)",
+          "offset": 112,
+          "index": 39,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_unity_scene_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass10_0::<GenerateAreas>b__0(TheForestOfLove.DB.Area)",
+          "offset": 39,
+          "index": 15,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Area::get_unity_scene_name()",
+          "targetType": "TheForestOfLove.DB.Area"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-resource-key"
+    },
+    {
+      "sheet": "Chapter",
+      "field": "description",
+      "fieldId": "ghsKLl5yqkiN+7UfUTQj3w",
+      "states": 32,
+      "stored": 28,
+      "absent": 4,
+      "role": "display",
+      "reason": "CreateChapterRecord copies description; ChapterSelectUI.FilterAvailableChapters copies to GossipItem.tooltipText under the same guards.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.ChapterRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateChapterRecord(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.DB.Chapter)",
+          "offset": 63,
+          "index": 23,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Chapter::get_description()",
+          "targetType": "TheForestOfLove.DB.Chapter"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "display"
+    },
+    {
+      "sheet": "Chapter",
+      "field": "name",
+      "fieldId": "Uc93ZfOVlUuk8fqu97pd3Q",
+      "states": 32,
+      "stored": 32,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "CreateChapterRecord copies dbName; GenerateChapters uses it as dictionary identity.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.ChapterRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateChapterRecord(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.DB.Chapter)",
+          "offset": 8,
+          "index": 4,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Chapter::get_name()",
+          "targetType": "TheForestOfLove.DB.Chapter"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Chapter",
+      "field": "savekey",
+      "fieldId": "7oM1qo4EPEqTRGDDD34tQg",
+      "states": 32,
+      "stored": 32,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "CreateChapterRecord copies savekey; manifest/save/restore consumers retain this key.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.ChapterRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateChapterRecord(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.DB.Chapter)",
+          "offset": 27,
+          "index": 11,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Chapter::get_savekey()",
+          "targetType": "TheForestOfLove.DB.Chapter"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Chapter",
+      "field": "title",
+      "fieldId": "bJO3qiU0Xk69FPq5E3q2+A",
+      "states": 32,
+      "stored": 28,
+      "absent": 4,
+      "role": "display",
+      "reason": "CreateChapterRecord copies title; ChapterSelectUI.FilterAvailableChapters copies to GossipItem.displayText after unlock/title/hidden/tag guards.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.ChapterRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateChapterRecord(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.DB.Chapter)",
+          "offset": 51,
+          "index": 19,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Chapter::get_title()",
+          "targetType": "TheForestOfLove.DB.Chapter"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "display"
+    },
+    {
+      "sheet": "DialogueArc",
+      "field": "name",
+      "fieldId": "9h5dxamucEiy5GHmDY2GkQ",
+      "states": 27,
+      "stored": 27,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "Original GenerateDialogues callback and AddArcPreconditionsAndTriggers consume arc name as graph/registration identity, not authored display wording.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddArcPreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 859,
+          "index": 261,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueArc::get_name()",
+          "targetType": "TheForestOfLove.DB.DialogueArc"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<GenerateDialogues>b__0(TheForestOfLove.DB.Dialogue)",
+          "offset": 575,
+          "index": 183,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueArc::get_name()",
+          "targetType": "TheForestOfLove.DB.DialogueArc"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "DialogueArcStatus",
+      "field": "name",
+      "fieldId": "iR69d21OukirmvbmB3g+bg",
+      "states": 3,
+      "stored": 3,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateArcStatuses copies dbName to lookup dictionaries; status is a separate numeric enum.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass23_0::<GenerateArcStatuses>b__0(TheForestOfLove.DB.DialogueArcStatus)",
+          "offset": 8,
+          "index": 4,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueArcStatus::get_name()",
+          "targetType": "TheForestOfLove.DB.DialogueArcStatus"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "DialogueArcStatus",
+      "field": "savekey",
+      "fieldId": "/I5HBaCdcE+MNruwFU5PFA",
+      "states": 3,
+      "stored": 3,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateArcStatuses copies savekey to its dictionary separately from the enum.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass23_0::<GenerateArcStatuses>b__0(TheForestOfLove.DB.DialogueArcStatus)",
+          "offset": 39,
+          "index": 15,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueArcStatus::get_savekey()",
+          "targetType": "TheForestOfLove.DB.DialogueArcStatus"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "DialogueAvailabilityRule",
+      "field": "name",
+      "fieldId": "/RQ5b3GeP0G3/b5M+Q9K1w",
+      "states": 600,
+      "stored": 600,
+      "absent": 0,
+      "role": "preserve-database-identity",
+      "reason": "BGFieldEntityName identity; no direct name getter reference from the complete supported Assembly-CSharp index. Rule behavior is carried by typed relations/conditions, not a target display value.",
+      "getterUses": [],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-database-identity"
+    },
+    {
+      "sheet": "DialogueDateSettings",
+      "field": "legacy_date_prefab_name",
+      "fieldId": "ZHnUK2G0UE+r1rZL967a7g",
+      "states": 16,
+      "stored": 16,
+      "absent": 0,
+      "role": "preserve-resource-key",
+      "reason": "Original dialogue callback stores legacyDatePrefabName for type500 after the exact one-date-setting/null guard; it is a prefab resource identifier.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<GenerateDialogues>b__0(TheForestOfLove.DB.Dialogue)",
+          "offset": 398,
+          "index": 127,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueDateSettings::get_legacy_date_prefab_name()",
+          "targetType": "TheForestOfLove.DB.DialogueDateSettings"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<GenerateDialogues>b__0(TheForestOfLove.DB.Dialogue)",
+          "offset": 429,
+          "index": 137,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueDateSettings::get_legacy_date_prefab_name()",
+          "targetType": "TheForestOfLove.DB.DialogueDateSettings"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-resource-key"
+    },
+    {
+      "sheet": "DialogueDateSettings",
+      "field": "name",
+      "fieldId": "2q2SCN51IEmU3rzqCD0//w",
+      "states": 16,
+      "stored": 16,
+      "absent": 0,
+      "role": "preserve-database-identity",
+      "reason": "BGFieldEntityName identity; no direct name getter reference in complete supported Assembly-CSharp. The dialogue callback consumes the relation and prefab field.",
+      "getterUses": [],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-database-identity"
+    },
+    {
+      "sheet": "DialogueStateTrigger",
+      "field": "name",
+      "fieldId": "MepXjdJodEWCu/GTtFyJtg",
+      "states": 600,
+      "stored": 600,
+      "absent": 0,
+      "role": "preserve-database-identity",
+      "reason": "BGFieldEntityName identity; no direct name getter reference in complete supported Assembly-CSharp; typed trigger relations remain exact.",
+      "getterUses": [],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-database-identity"
+    },
+    {
+      "sheet": "DialogueStatus",
+      "field": "name",
+      "fieldId": "KJlPqysig0Wq1kTgCJDNfQ",
+      "states": 4,
+      "stored": 4,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateDialogueStatuses copies dbName into lookup dictionaries; numeric status remains separate.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass22_0::<GenerateDialogueStatuses>b__0(TheForestOfLove.DB.DialogueStatus)",
+          "offset": 8,
+          "index": 4,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueStatus::get_name()",
+          "targetType": "TheForestOfLove.DB.DialogueStatus"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "DialogueStatus",
+      "field": "savekey",
+      "fieldId": "TJ+5mvrlw0uL9O9VDLGdqw",
+      "states": 4,
+      "stored": 4,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateDialogueStatuses copies savekey into lookup dictionaries separately from status.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass22_0::<GenerateDialogueStatuses>b__0(TheForestOfLove.DB.DialogueStatus)",
+          "offset": 39,
+          "index": 15,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.DialogueStatus::get_savekey()",
+          "targetType": "TheForestOfLove.DB.DialogueStatus"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "DialogueType",
+      "field": "name",
+      "fieldId": "fve3lkgBnkmivV0sl0GJgA",
+      "states": 7,
+      "stored": 7,
+      "absent": 0,
+      "role": "preserve-database-identity",
+      "reason": "Original dialogue callback reads enum_type from the type relation; no direct name getter reference in complete supported Assembly-CSharp.",
+      "getterUses": [],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-database-identity"
+    },
+    {
+      "sheet": "Movie",
+      "field": "hint_phrase",
+      "fieldId": "vD1IEmMS4U+KWJBke1GQiA",
+      "states": 65,
+      "stored": 57,
+      "absent": 8,
+      "role": "display",
+      "reason": "CreateMovieRecord copies hintPhrase; GalleryHintTutorial.Start appends it to lastAttemptedMovieIdentifierPhrase with the original two-line separator, or displays No hint available!.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.MovieRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateMovieRecord(TheForestOfLove.DB.Movie)",
+          "offset": 38,
+          "index": 14,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Movie::get_hint_phrase()",
+          "targetType": "TheForestOfLove.DB.Movie"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "display"
+    },
+    {
+      "sheet": "Movie",
+      "field": "name",
+      "fieldId": "0wY7ruk1zE2caWq6neCDoA",
+      "states": 65,
+      "stored": 65,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "CreateMovieRecord copies dbName; GenerateMovies dictionary, PlayMovie and SaveMovie consume identity.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.MovieRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateMovieRecord(TheForestOfLove.DB.Movie)",
+          "offset": 7,
+          "index": 3,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Movie::get_name()",
+          "targetType": "TheForestOfLove.DB.Movie"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Movie",
+      "field": "savekey",
+      "fieldId": "xNt/EONapkOG4dFZKtU8ww",
+      "states": 65,
+      "stored": 65,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "CreateMovieRecord copies savekey; GenerateMovies and save/restore consumers use the key.",
+      "getterUses": [
+        {
+          "method": "TheForestOfLove.Narrative.MovieRecord TheForestOfLove.Narrative.DialogueSystemLoader::CreateMovieRecord(TheForestOfLove.DB.Movie)",
+          "offset": 26,
+          "index": 10,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Movie::get_savekey()",
+          "targetType": "TheForestOfLove.DB.Movie"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Portrait",
+      "field": "name",
+      "fieldId": "OU9QZpB2FEmOJvjZsVFwkQ",
+      "states": 170,
+      "stored": 170,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GeneratePortraits copies dbName separately from actor,offset,scale and the foreground/background resource loaders.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass16_0::<GeneratePortraits>b__0(TheForestOfLove.DB.Portrait)",
+          "offset": 24,
+          "index": 8,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Portrait::get_name()",
+          "targetType": "TheForestOfLove.DB.Portrait"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "QuestStatus",
+      "field": "name",
+      "fieldId": "ypmUKC2xfkeJESrJexJyzw",
+      "states": 3,
+      "stored": 3,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateQuestStatuses copies dbName into lookup dictionaries; numeric status remains separate.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass19_0::<GenerateQuestStatuses>b__0(TheForestOfLove.DB.QuestStatus)",
+          "offset": 8,
+          "index": 4,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.QuestStatus::get_name()",
+          "targetType": "TheForestOfLove.DB.QuestStatus"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "QuestStatus",
+      "field": "savekey",
+      "fieldId": "iQY2eIhS4ku8Y6TX4cQvIw",
+      "states": 3,
+      "stored": 3,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateQuestStatuses copies savekey into lookup dictionaries separately from status.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass19_0::<GenerateQuestStatuses>b__0(TheForestOfLove.DB.QuestStatus)",
+          "offset": 39,
+          "index": 15,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.QuestStatus::get_savekey()",
+          "targetType": "TheForestOfLove.DB.QuestStatus"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Trigger",
+      "field": "name",
+      "fieldId": "Yr4hlv2KT067RnEIkSRftw",
+      "states": 450,
+      "stored": 450,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateTriggers uses name in its missing-plugin-key exception; AddDialoguePreconditionsAndTriggers uses source identity. No direct translation permitted.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 2503,
+          "index": 764,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_name()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 2535,
+          "index": 773,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_name()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddDialoguePreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest)",
+          "offset": 2567,
+          "index": 782,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_name()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass11_0::<GenerateTriggers>b__0(TheForestOfLove.DB.Trigger)",
+          "offset": 25,
+          "index": 8,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_name()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    },
+    {
+      "sheet": "Trigger",
+      "field": "plugin_db_named_trigger",
+      "fieldId": "BDR8bJVhHEW19/lxxjyOUQ",
+      "states": 450,
+      "stored": 450,
+      "absent": 0,
+      "role": "preserve-control-key",
+      "reason": "GenerateTriggers rejects blank values, copies to runtime Trigger.name, and keys triggersByTriggerName; it is a named-trigger dispatch identifier.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass11_0::<GenerateTriggers>b__0(TheForestOfLove.DB.Trigger)",
+          "offset": 7,
+          "index": 3,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_plugin_db_named_trigger()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        },
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass11_0::<GenerateTriggers>b__0(TheForestOfLove.DB.Trigger)",
+          "offset": 62,
+          "index": 21,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_plugin_db_named_trigger()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-control-key"
+    },
+    {
+      "sheet": "Trigger",
+      "field": "savekey",
+      "fieldId": "yY5b66fn8ket8HoVM0bJeQ",
+      "states": 450,
+      "stored": 450,
+      "absent": 0,
+      "role": "preserve-identity",
+      "reason": "GenerateTriggers copies savekey and inserts triggersBySavekey.",
+      "getterUses": [
+        {
+          "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass11_0::<GenerateTriggers>b__0(TheForestOfLove.DB.Trigger)",
+          "offset": 50,
+          "index": 17,
+          "opcode": "callvirt",
+          "called": "System.String TheForestOfLove.DB.Trigger::get_savekey()",
+          "targetType": "TheForestOfLove.DB.Trigger"
+        }
+      ],
+      "evidenceBoundary": "Original source CIL metadata and stored cells; no runtime reachability/renderer acceptance. Database identity roles are protected even if a diagnostic may echo a key. No technical exclusion inferred merely from English spelling.",
+      "admittedRole": "preserve-identity"
+    }
+  ],
+  "directNativeDecisions": [
+    {
+      "id": "native-story-paragraphs",
+      "indices": [
+        6,
+        12,
+        13,
+        14,
+        18,
+        19,
+        22,
+        23,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        269,
+        289,
+        291,
+        312,
+        350,
+        370
+      ],
+      "role": "display-source",
+      "reason": "Complete narrated paragraphs or dialogue, including distinct multi-paragraph versions. Retain every serialized instance; do not reduce to dialogue database coverage or deduplicate equal copies.",
+      "consumer": "Native Text/TMP initial text; exact component/tree/peers in direct-context.jsonl. Narrative producer override and versioned scene reachability remain separately unverified.",
+      "specialCases": [
+        "narration-and-speaker-context"
+      ]
+    },
+    {
+      "id": "native-potential-template-prose",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17,
+        20,
+        21,
+        24,
+        28,
+        154,
+        191,
+        194,
+        195,
+        199,
+        200,
+        201,
+        202,
+        204,
+        206,
+        207,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        217,
+        218,
+        219,
+        220,
+        221,
+        243,
+        250,
+        268,
+        331,
+        374,
+        375,
+        376,
+        377,
+        378,
+        380,
+        381
+      ],
+      "role": "potential-display-source",
+      "reason": "Initial UI template, development/test sentence or serialized sample text. Include it in source storage rather than treating unknown reachability as an exclusion. Final translation selector must reconcile runtime replacement with the actual producer, and must never count this seed as coverage of that producer.",
+      "consumer": "Native Text/TMP initial text; component and complete hierarchy bound in direct-context.jsonl.",
+      "specialCases": [
+        "runtime-template-versus-producer",
+        "haiku-group"
+      ]
+    },
+    {
+      "id": "native-keyboard-symbols",
+      "indices": [
+        38,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        247,
+        248
+      ],
+      "role": "preserve-display-symbol",
+      "reason": "Printable keyboard characters, layout-switch identifiers and navigation arrows are exact symbols, not ordinary prose. Plus signs also occur as system-info level markers: their component context remains distinct. Preserve every occurrence; do not change emitted input or keyboard layout through label translation.",
+      "consumer": "OSK key/keyboard source labels and report/navigation components; actual input identities remain protected independently of visible labels.",
+      "specialCases": [
+        "input-labels-and-emitted-values"
+      ]
+    },
+    {
+      "id": "native-keyboard-action-labels",
+      "indices": [
+        39,
+        69,
+        71
+      ],
+      "role": "display-source",
+      "reason": "ENTER, SHIFT and DONE are human-readable action labels; input key codes/layout/callbacks are separate protected operands. Retain source and bind relabeling producer before implementation.",
+      "consumer": "OSK action key labels; OSK_Key_TFOL.Relabel and specialKeys must be reconciled as one group.",
+      "specialCases": [
+        "input-labels-and-emitted-values"
+      ]
+    },
+    {
+      "id": "native-intentional-masks",
+      "indices": [
+        8,
+        379,
+        382
+      ],
+      "role": "preserve-display-symbol",
+      "reason": "Unknown-name/hidden-value masks must keep their symbol count and newline. They do not establish the hidden referent's name or gender, and are distinct from translated BioKeyword text.",
+      "consumer": "Nameplate/Bio/notification initial masks; actual hide/reveal producers remain separate.",
+      "specialCases": [
+        "hidden-identity-and-unlock-masks"
+      ]
+    },
+    {
+      "id": "native-report-control-states",
+      "indices": [
+        113,
+        169,
+        178,
+        180
+      ],
+      "role": "preserve-control-state",
+      "reason": "Repeated plus signs encode system-info detail levels; U+200B is an input sentinel. Preserve exact values, not localized prose.",
+      "consumer": "BugReportMenu and input editing state.",
+      "specialCases": [
+        "input-labels-and-emitted-values"
+      ]
+    },
+    {
+      "id": "native-attribution-and-identifiers",
+      "indices": [
+        109,
+        111,
+        138,
+        164,
+        165,
+        177
+      ],
+      "role": "preserve-visible-identity",
+      "reason": "Carrot/Vixel attribution, Patreon brand, TFoL.info website and version identifiers retain their identity. Preserve exact source spelling; ordinary surrounding credits remain translation sources.",
+      "consumer": "Credits/platform/start-screen labels and runtime version labels.",
+      "specialCases": []
+    },
+    {
+      "id": "native-numeric-runtime-seeds",
+      "indices": [
+        251,
+        253,
+        325,
+        385,
+        388,
+        399
+      ],
+      "role": "preserve-display-symbol",
+      "reason": "Stored quantities/fractions/percentage or dash symbols are seeds for numeric runtime labels. Preserve these scalar seeds and the actual count/format semantics; surrounding Time/Dashes prose is a distinct source.",
+      "consumer": "Collection counters, inventory quantity and plant-minigame meters; original setters retained.",
+      "specialCases": [
+        "numeric-format-and-counter-producers"
+      ]
+    },
+    {
+      "id": "native-ui-and-tutorial-prose",
+      "indexRanges": [
+        [
+          7,
+          7
+        ],
+        [
+          102,
+          108
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          114,
+          137
+        ],
+        [
+          139,
+          153
+        ],
+        [
+          155,
+          163
+        ],
+        [
+          166,
+          168
+        ],
+        [
+          170,
+          176
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          181,
+          190
+        ],
+        [
+          192,
+          193
+        ],
+        [
+          196,
+          198
+        ],
+        [
+          203,
+          203
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          215,
+          216
+        ],
+        [
+          222,
+          242
+        ],
+        [
+          244,
+          246
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          252,
+          252
+        ],
+        [
+          254,
+          267
+        ],
+        [
+          270,
+          288
+        ],
+        [
+          290,
+          290
+        ],
+        [
+          292,
+          311
+        ],
+        [
+          313,
+          324
+        ],
+        [
+          326,
+          330
+        ],
+        [
+          332,
+          349
+        ],
+        [
+          351,
+          369
+        ],
+        [
+          371,
+          373
+        ],
+        [
+          383,
+          384
+        ],
+        [
+          386,
+          387
+        ],
+        [
+          389,
+          398
+        ]
+      ],
+      "role": "display-source",
+      "reason": "Read complete menu/help/confirmation/tutorial/item-get/mini-game/heading/credits wording. Include old/demo/platform-specific and dormant copies. A stored word is not automatically the runtime producer: title/item/name/count joins and templates are separate consumer contracts.",
+      "consumer": "Native Text/TMP components with original enabled/ancestor state retained. General display role follows the native text field; game-specific dynamic producers are registered separately.",
+      "specialCases": [
+        "markup-and-ornamental-initials",
+        "input-labels-and-emitted-values",
+        "runtime-template-versus-producer",
+        "notify-only-artwork"
+      ]
+    }
+  ],
+  "serializedGroups": [
+    {
+      "index": 0,
+      "className": "UnityEngine.UI.Button",
+      "field": "m_AnimationTriggers",
+      "occurrences": 2985,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 1,
+      "className": "UnityEngine.UI.Button",
+      "field": "m_OnClick",
+      "occurrences": 1126,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 2,
+      "className": "UnityEngine.UI.Slider",
+      "field": "m_AnimationTriggers",
+      "occurrences": 845,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 3,
+      "className": "PixelCrushers.Wrappers.UIButtonKeyTrigger",
+      "field": "buttonName",
+      "occurrences": 81,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 4,
+      "className": "BlendModes.BlendModeEffect",
+      "field": "shaderFamily",
+      "occurrences": 3037,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 5,
+      "className": "BlendModes.BlendModeEffect",
+      "field": "componentExtensionState",
+      "occurrences": 12924,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 6,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUIMenuPanel",
+      "field": "autonumber",
+      "occurrences": 157,
+      "decision": "display-format-contracts",
+      "role": "preserve-display-format"
+    },
+    {
+      "index": 7,
+      "className": "PixelCrushers.Wrappers.UIPanel",
+      "field": "showAnimationTrigger",
+      "occurrences": 245,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 8,
+      "className": "PixelCrushers.Wrappers.UIPanel",
+      "field": "hideAnimationTrigger",
+      "occurrences": 245,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 9,
+      "className": "UnityEngine.UI.Scrollbar",
+      "field": "m_AnimationTriggers",
+      "occurrences": 795,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 10,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUISubtitlePanel",
+      "field": "showAnimationTrigger",
+      "occurrences": 309,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 11,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUISubtitlePanel",
+      "field": "hideAnimationTrigger",
+      "occurrences": 309,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 12,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUISubtitlePanel",
+      "field": "addSpeakerNameFormat",
+      "occurrences": 309,
+      "decision": "display-format-contracts",
+      "role": "preserve-display-format"
+    },
+    {
+      "index": 13,
+      "className": "TheForestOfLove.Gameplay.DynamicConversationCustomTrigger",
+      "field": "targetConversationName",
+      "occurrences": 79,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 14,
+      "className": "TheForestOfLove.Gameplay.DynamicConversationCustomTrigger",
+      "field": "targetActorName",
+      "occurrences": 79,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 15,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUIInputField",
+      "field": "showAnimationTrigger",
+      "occurrences": 157,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 16,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUIInputField",
+      "field": "hideAnimationTrigger",
+      "occurrences": 157,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 17,
+      "className": "Tantawowa.TimelineEvents.TimelineEventClip",
+      "field": "template",
+      "occurrences": 21,
+      "decision": "timeline-source-identities",
+      "role": "preserve-control"
+    },
+    {
+      "index": 18,
+      "className": "UnityEngine.UI.InputField",
+      "field": "m_AnimationTriggers",
+      "occurrences": 785,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 19,
+      "className": "UnityEngine.UI.InputField",
+      "field": "m_Text",
+      "occurrences": 157,
+      "decision": "native-input-seeds",
+      "role": "potential-display-input-seed"
+    },
+    {
+      "index": 20,
+      "className": "NodeCanvas.Framework.Blackboard",
+      "field": "_serializedBlackboard",
+      "occurrences": 10,
+      "decision": "nodecanvas-control-json",
+      "role": "preserve-control-graph"
+    },
+    {
+      "index": 21,
+      "className": "NodeCanvas.Framework.Blackboard",
+      "field": "_serializedVariables",
+      "occurrences": 47,
+      "decision": "nodecanvas-control-json",
+      "role": "preserve-control-graph"
+    },
+    {
+      "index": 22,
+      "className": "UnityEngine.Timeline.AnimationTrack",
+      "field": "m_Clips",
+      "occurrences": 128,
+      "decision": "timeline-source-identities",
+      "role": "preserve-control"
+    },
+    {
+      "index": 23,
+      "className": "Febucci.UI.TextAnimator_TMP",
+      "field": "_text",
+      "occurrences": 124,
+      "decision": "animator-source-cache",
+      "role": "potential-display-input-cache"
+    },
+    {
+      "index": 24,
+      "className": "Febucci.UI.Effects.SizeBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 25,
+      "className": "Tantawowa.TimelineEvents.TimelineEventTrack",
+      "field": "m_Clips",
+      "occurrences": 21,
+      "decision": "timeline-source-identities",
+      "role": "preserve-control"
+    },
+    {
+      "index": 26,
+      "className": "Febucci.UI.Effects.BounceBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 27,
+      "className": "NodeCanvas.BehaviourTrees.BehaviourTreeOwner",
+      "field": "_boundGraphSerialization",
+      "occurrences": 6,
+      "decision": "nodecanvas-control-json",
+      "role": "preserve-control-graph"
+    },
+    {
+      "index": 28,
+      "className": "Febucci.UI.Effects.HorizontalExpandAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 29,
+      "className": "Febucci.UI.Effects.DangleBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 30,
+      "className": "Febucci.UI.Actions.WaitForAction",
+      "field": "tagID",
+      "occurrences": 6,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 31,
+      "className": "Febucci.UI.Effects.RotationBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 32,
+      "className": "Febucci.UI.Effects.SlideBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 33,
+      "className": "Febucci.UI.Effects.WaveBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 34,
+      "className": "Febucci.UI.Actions.SpeedAction",
+      "field": "tagID",
+      "occurrences": 6,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 35,
+      "className": "Febucci.UI.Effects.SizeAppearance",
+      "field": "tagID",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 36,
+      "className": "Febucci.UI.Effects.FadeAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 37,
+      "className": "TMPro.TMP_FontAsset",
+      "field": "m_Version",
+      "occurrences": 7,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 38,
+      "className": "TMPro.TMP_FontAsset",
+      "field": "m_SourceFontFileGUID",
+      "occurrences": 7,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 39,
+      "className": "TMPro.TMP_FontAsset",
+      "field": "m_FaceInfo",
+      "occurrences": 12,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 40,
+      "className": "TMPro.TMP_FontAsset",
+      "field": "m_fontInfo",
+      "occurrences": 4,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 41,
+      "className": "TMPro.TMP_FontAsset",
+      "field": "m_CreationSettings",
+      "occurrences": 18,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 42,
+      "className": "NodeCanvas.StateMachines.FSMOwner",
+      "field": "_boundGraphSerialization",
+      "occurrences": 3,
+      "decision": "nodecanvas-control-json",
+      "role": "preserve-control-graph"
+    },
+    {
+      "index": 43,
+      "className": "Febucci.UI.Effects.RotatingAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 44,
+      "className": "Febucci.UI.Effects.CompositeAnimation",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 45,
+      "className": "Febucci.UI.Effects.DiagonalExpandAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 46,
+      "className": "Febucci.UI.Effects.PendulumBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 47,
+      "className": "Febucci.UI.Effects.FadeBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 48,
+      "className": "Febucci.UI.Effects.VerticalExpandAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 49,
+      "className": "TMPro.TMP_SpriteAsset",
+      "field": "m_Version",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 50,
+      "className": "TMPro.TMP_SpriteAsset",
+      "field": "m_SpriteCharacterTable",
+      "occurrences": 8,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 51,
+      "className": "Febucci.UI.Effects.OffsetAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 52,
+      "className": "NodeCanvas.BehaviourTrees.BehaviourTree",
+      "field": "_serializedGraph",
+      "occurrences": 1,
+      "decision": "nodecanvas-control-json",
+      "role": "preserve-control-graph"
+    },
+    {
+      "index": 53,
+      "className": "Febucci.UI.Effects.SwingBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 54,
+      "className": "Febucci.UI.Actions.WaitAnyInputAction",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 55,
+      "className": "Febucci.UI.Effects.ShakeBehavior",
+      "field": "tagID",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 56,
+      "className": "Febucci.UI.Effects.RainbowBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 57,
+      "className": "Febucci.UI.Effects.RandomDirectionAppearance",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 58,
+      "className": "Febucci.UI.Effects.WiggleBehavior",
+      "field": "tagID",
+      "occurrences": 2,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 59,
+      "className": "TheForestOfLove.Core.SceneSetup.PrefabDropper",
+      "field": "groupName",
+      "occurrences": 29,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 60,
+      "className": "UnityEngine.UI.Slider",
+      "field": "m_OnValueChanged",
+      "occurrences": 12,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 61,
+      "className": "TheForestOfLove.SliderMoveHandler",
+      "field": "sliderType",
+      "occurrences": 4,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 62,
+      "className": "UnityEngine.EventSystems.EventTrigger",
+      "field": "m_Delegates",
+      "occurrences": 66,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 63,
+      "className": "viperOSK.OSK_Key_TFOL",
+      "field": "callBack",
+      "occurrences": 42,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 64,
+      "className": "viperOSK.OSK_Keyboard_TFOL",
+      "field": "layout",
+      "occurrences": 4,
+      "decision": "keyboard-layout-and-special-labels",
+      "role": "mixed-input-grammar-and-labels"
+    },
+    {
+      "index": 65,
+      "className": "viperOSK.OSK_Keyboard_TFOL",
+      "field": "specialKeys",
+      "occurrences": 20,
+      "decision": "keyboard-layout-and-special-labels",
+      "role": "mixed-input-grammar-and-labels"
+    },
+    {
+      "index": 66,
+      "className": "TMPro.TMP_InputField",
+      "field": "m_AnimationTriggers",
+      "occurrences": 10,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 67,
+      "className": "viperOSK.OSK_Receiver",
+      "field": "OnSubmit",
+      "occurrences": 6,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 68,
+      "className": "TheForestOfLove.Core.SceneSetup.PrefabDropper",
+      "field": "containerName",
+      "occurrences": 23,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 69,
+      "className": "TheForestOfLove.Cameras.CameraSettings",
+      "field": "uniqueIdentifier",
+      "occurrences": 28,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 70,
+      "className": "TheForestOfLove.Doorway",
+      "field": "sceneName",
+      "occurrences": 106,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 71,
+      "className": "Dreamteck.Splines.SplineComputer",
+      "field": "triggerGroups",
+      "occurrences": 86,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 72,
+      "className": "TheForestOfLove.Cameras.CameraSettings",
+      "field": "targetTransformTagName",
+      "occurrences": 8,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 73,
+      "className": "TheForestOfLove.CustomProximitySelector",
+      "field": "guiStyleName",
+      "occurrences": 22,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 74,
+      "className": "TheForestOfLove.CustomProximitySelector",
+      "field": "useButton",
+      "occurrences": 22,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 75,
+      "className": "TheForestOfLove.Cameras.CameraSettings",
+      "field": "targetTransformName",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 76,
+      "className": "TheForestOfLove.DialogueSettings",
+      "field": "arcDbName",
+      "occurrences": 65,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 77,
+      "className": "Ashkatchap.AnimatorEvents.AnimatorEvent",
+      "field": "events",
+      "occurrences": 74,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 78,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_box",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 79,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_button",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 80,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_toggle",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 81,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_label",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 82,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_textField",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 83,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_textArea",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 84,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_window",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 85,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_horizontalSlider",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 86,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_horizontalSliderThumb",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 87,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_verticalSlider",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 88,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_verticalSliderThumb",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 89,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_horizontalScrollbar",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 90,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_horizontalScrollbarThumb",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 91,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_horizontalScrollbarLeftButton",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 92,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_horizontalScrollbarRightButton",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 93,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_verticalScrollbar",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 94,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_verticalScrollbarThumb",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 95,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_verticalScrollbarUpButton",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 96,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_verticalScrollbarDownButton",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 97,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_ScrollView",
+      "occurrences": 4,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 98,
+      "className": "UnityEngine.GUISkin",
+      "field": "m_CustomStyles",
+      "occurrences": 23,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 99,
+      "className": "SickDev.DevConsole.Settings",
+      "field": "defaultTag",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 100,
+      "className": "Febucci.UI.Styles.StyleSheetScriptable",
+      "field": "styles",
+      "occurrences": 18,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 101,
+      "className": "DarkTonic.MasterAudio.MasterAudioSettings",
+      "field": "InstallationFolderPath",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 102,
+      "className": "TMPro.TMP_StyleSheet",
+      "field": "m_StyleList",
+      "occurrences": 27,
+      "decision": "style-and-tag-grammar",
+      "role": "preserve-style-grammar"
+    },
+    {
+      "index": 103,
+      "className": "TMPro.TMP_Settings",
+      "field": "m_defaultFontAssetPath",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 104,
+      "className": "TMPro.TMP_Settings",
+      "field": "m_defaultSpriteAssetPath",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 105,
+      "className": "TMPro.TMP_Settings",
+      "field": "m_defaultColorGradientPresetsPath",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 106,
+      "className": "TheForestOfLove.CodecksApiSettings",
+      "field": "label",
+      "occurrences": 13,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 107,
+      "className": "TheForestOfLove.CodecksApiSettings",
+      "field": "reportToken",
+      "occurrences": 13,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 108,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUIButton",
+      "field": "navigation",
+      "occurrences": 14,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 109,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUIButton",
+      "field": "text",
+      "occurrences": 7,
+      "decision": "legacy-gui-display-fields",
+      "role": "potential-display-source"
+    },
+    {
+      "index": 110,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUIButton",
+      "field": "message",
+      "occurrences": 7,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 111,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUIControl",
+      "field": "navigation",
+      "occurrences": 6,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 112,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUILabel",
+      "field": "navigation",
+      "occurrences": 14,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 113,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUILabel",
+      "field": "text",
+      "occurrences": 5,
+      "decision": "legacy-gui-display-fields",
+      "role": "potential-display-source"
+    },
+    {
+      "index": 114,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUIRoot",
+      "field": "navigation",
+      "occurrences": 2,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 115,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUIProgressBar",
+      "field": "navigation",
+      "occurrences": 2,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 116,
+      "className": "PixelCrushers.DialogueSystem.UnityGUI.Wrappers.GUITextField",
+      "field": "navigation",
+      "occurrences": 2,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 117,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroup",
+      "field": "busName",
+      "occurrences": 23,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 118,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "customEventCategories",
+      "occurrences": 4,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 119,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "newEventName",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 120,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "newCustomEventCategoryName",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 121,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "addToCustomEventCategoryName",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 122,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "musicDuckingSounds",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 123,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "groupBuses",
+      "occurrences": 4,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 124,
+      "className": "DarkTonic.MasterAudio.DynamicSoundGroupCreator",
+      "field": "audioSourceTemplateName",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 125,
+      "className": "Rewired.Data.Mapping.HardwareJoystickMap",
+      "field": "controllerName",
+      "occurrences": 2,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 126,
+      "className": "Rewired.Data.Mapping.HardwareJoystickMap",
+      "field": "description",
+      "occurrences": 2,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 127,
+      "className": "Rewired.Data.Mapping.HardwareJoystickMap",
+      "field": "controllerGuid",
+      "occurrences": 2,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 128,
+      "className": "Rewired.Data.Mapping.HardwareJoystickMap",
+      "field": "elementIdentifiers",
+      "occurrences": 311,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 129,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "controllerName",
+      "occurrences": 6,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 130,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "description",
+      "occurrences": 2,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 131,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "templateGuid",
+      "occurrences": 6,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 132,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "className",
+      "occurrences": 6,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 133,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "elementIdentifiers",
+      "occurrences": 815,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 134,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "joysticks",
+      "occurrences": 462,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 135,
+      "className": "Rewired.Data.Mapping.HardwareJoystickTemplateMap",
+      "field": "specialElements",
+      "occurrences": 31,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 136,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUIQuestTracker",
+      "field": "playerPrefsToggleKey",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 137,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUIQuestLogWindow",
+      "field": "noActiveQuestsText",
+      "occurrences": 1,
+      "decision": "legacy-gui-display-fields",
+      "role": "potential-display-source"
+    },
+    {
+      "index": 138,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUIQuestLogWindow",
+      "field": "noCompletedQuestsText",
+      "occurrences": 1,
+      "decision": "legacy-gui-display-fields",
+      "role": "potential-display-source"
+    },
+    {
+      "index": 139,
+      "className": "UnityEngine.UI.Toggle",
+      "field": "m_AnimationTriggers",
+      "occurrences": 10,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 140,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.StandardUISelectorElements",
+      "field": "animationTransitions",
+      "occurrences": 2,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 141,
+      "className": "DarkTonic.MasterAudio.PlaylistController",
+      "field": "songEndedCustomEvent",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 142,
+      "className": "DarkTonic.MasterAudio.PlaylistController",
+      "field": "playlistEndedCustomEvent",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 143,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "groupTemplateName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 144,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "audioSourceTemplateName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 145,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "busFilter",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 146,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "groupBuses",
+      "occurrences": 3,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 147,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "musicPlaylists",
+      "occurrences": 83,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 148,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "newEventName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 149,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "newCustomEventCategoryName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 150,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "addToCustomEventCategoryName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 151,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "customEvents",
+      "occurrences": 3,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 152,
+      "className": "DarkTonic.MasterAudio.MasterAudio",
+      "field": "customEventCategories",
+      "occurrences": 2,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 153,
+      "className": "TheForestOfLove.MouselessInputModule",
+      "field": "m_HorizontalAxis",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 154,
+      "className": "TheForestOfLove.MouselessInputModule",
+      "field": "m_VerticalAxis",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 155,
+      "className": "TheForestOfLove.MouselessInputModule",
+      "field": "m_SubmitButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 156,
+      "className": "TheForestOfLove.MouselessInputModule",
+      "field": "m_CancelButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 157,
+      "className": "UnityEngine.EventSystems.StandaloneInputModule",
+      "field": "m_HorizontalAxis",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 158,
+      "className": "UnityEngine.EventSystems.StandaloneInputModule",
+      "field": "m_VerticalAxis",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 159,
+      "className": "UnityEngine.EventSystems.StandaloneInputModule",
+      "field": "m_SubmitButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 160,
+      "className": "UnityEngine.EventSystems.StandaloneInputModule",
+      "field": "m_CancelButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 161,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "bunnyHandjobMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 162,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "plantMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 163,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "fastTravelMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 164,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "squirrelAnalMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 165,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "coyotesOralMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 166,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "coyotesRascalBukkakeMalesMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 167,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "coyotesRascalBukkakeFemalesMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 168,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "bunnyCuckMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 169,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "pennyScarlettCloacaFistingStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 170,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelSoloStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 171,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelDustinStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 172,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelDustinRascalStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 173,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "scarlettPennyRascalStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 174,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "peterBuckyScarlettStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 175,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "lanoraLegendPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 176,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "lanoraLegendPart2Prefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 177,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "ramAnalMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 178,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "maverickSoloStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 179,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "buckyAugustusDate2StoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 180,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "oliverCoyotesStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 181,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "coyotesPartyStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 182,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "coyotesFinleyDateStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 183,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "oliverBuckyOralMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 184,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "pennyMabelDateStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 185,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "oliverRascalDildoStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 186,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "dustinMinigameNoviceRewardPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 187,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbIntroBannerPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 188,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelKissingBoothStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 189,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelCoyotesStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 190,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelBuckyStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 191,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelBunniesStory1Prefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 192,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelBunniesStory2Prefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 193,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelBunniesStory3Prefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 194,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMaverickDustinStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 195,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelSummaryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 196,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "botbMabelFinalePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 197,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "charlotteMelodyFantasyStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 198,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "melodyPhotoshootMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 199,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "rascalSoloFluidsStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 200,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "rascalSoloKnotStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 201,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "rascalSoloAnalStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 202,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "maverickDating2StoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 203,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "melodyExcursionsStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 204,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "buckyRascalBearsStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 205,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "rascalSoloBearStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 206,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "bootyLineUpStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 207,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "greatFallFeastStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 208,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "melodyGreetingCardPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 209,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "bootyLineUpFemalesStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 210,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "gusOliverStoryPart1Prefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 211,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "gusOliverStoryPart2Prefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 212,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "finleyPennyBeakjobStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 213,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "maverickOliverMilkingStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 214,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelCumSpaStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 215,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "oliverCumSpaStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 216,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "glitchRascalPart1StoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 217,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelRascalMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 218,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelRascalAfterTheStormStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 219,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mabelCumJarEasterEggStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 220,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "maverickRascalShopStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 221,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "fenRascalMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 222,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "mouseOrgyMoviePrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 223,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "rascalPlantSubStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 224,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "melodyFlipbookStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 225,
+      "className": "TheForestOfLove.MovieManager",
+      "field": "charlotteBookClubStoryPrefab",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 226,
+      "className": "TheForestOfLove.Audio.MasterAudioPrefabDropper",
+      "field": "dsgcStartMenuResourcePath",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 227,
+      "className": "TheForestOfLove.Audio.MasterAudioPrefabDropper",
+      "field": "dsgcOverworldResourcePath",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 228,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "frostedPeaksPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 229,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "frostedPeaksInteriorPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 230,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "theVillagePlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 231,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "theVillageInteriorPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 232,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "theVillageClassicPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 233,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "ambiancePlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 234,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "titleScreenPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 235,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "deepWoodsPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 236,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "bunnyHousePlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 237,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "woodsAmbiancePlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 238,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "fieldPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 239,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "ruinsPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 240,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "otterShopPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 241,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "stormMusicPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 242,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "stormAmbiencePlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 243,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "interiorThunderstormPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 244,
+      "className": "TheForestOfLove.Audio.MusicManager",
+      "field": "thunderstormWindSfxPlaylistName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 245,
+      "className": "Rewired.Integration.UnityUI.RewiredStandaloneInputModule",
+      "field": "m_HorizontalAxis",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 246,
+      "className": "Rewired.Integration.UnityUI.RewiredStandaloneInputModule",
+      "field": "m_VerticalAxis",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 247,
+      "className": "Rewired.Integration.UnityUI.RewiredStandaloneInputModule",
+      "field": "m_SubmitButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 248,
+      "className": "Rewired.Integration.UnityUI.RewiredStandaloneInputModule",
+      "field": "m_CancelButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 249,
+      "className": "Rewired.InputManager",
+      "field": "_userData",
+      "occurrences": 113,
+      "decision": "rewired-identity-and-possible-binding-labels",
+      "role": "mixed-resource-identity-and-possible-display-labels"
+    },
+    {
+      "index": 250,
+      "className": "PixelCrushers.DialogueSystem.Wrappers.DialogueSystemController",
+      "field": "displaySettings",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 251,
+      "className": "PixelCrushers.Wrappers.InputDeviceManager",
+      "field": "submitButton",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 252,
+      "className": "Suriyun.MCS.UniversalButton",
+      "field": "onPointerDown",
+      "occurrences": 60,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 253,
+      "className": "TheForestOfLove.Core.SceneSetup.PrefabDropperSingletonsDestroyer",
+      "field": "managedGroupName",
+      "occurrences": 3,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 254,
+      "className": "TheForestOfLove.Core.SceneSetup.PrefabDropperSingletonsDestroyer",
+      "field": "customContainerName",
+      "occurrences": 3,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 255,
+      "className": "TheForestOfLove.Waypoint",
+      "field": "title",
+      "occurrences": 5,
+      "decision": "waypoint-title-role",
+      "role": "preserve-control"
+    },
+    {
+      "index": 256,
+      "className": "FuzzySprites.FuzzySpriteScriptableObject",
+      "field": "SourceTextureGuid",
+      "occurrences": 20,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 257,
+      "className": "TheForestOfLove.CCStartConversation",
+      "field": "dialogueArcName",
+      "occurrences": 11,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 258,
+      "className": "TheForestOfLove.CCTeleport",
+      "field": "useActorAsSource",
+      "occurrences": 7,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 259,
+      "className": "TheForestOfLove.CCSetTrigger",
+      "field": "trigger",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 260,
+      "className": "TheForestOfLove.CCWaitForConversation",
+      "field": "conversationName",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 261,
+      "className": "TheForestOfLove.CCWaitForConversationTrigger",
+      "field": "trigger",
+      "occurrences": 2,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 262,
+      "className": "TheForestOfLove.CCSwapCameraSettings",
+      "field": "gameObjectPath",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 263,
+      "className": "TheForestOfLove.CCWaitIfTriggerSet",
+      "field": "triggerName",
+      "occurrences": 4,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 264,
+      "className": "TheForestOfLove.CCDestroyObjectIfTriggerSet",
+      "field": "triggerName",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 265,
+      "className": "TheForestOfLove.Cameras.CameraSettingsSelective",
+      "field": "targetTransformTagName",
+      "occurrences": 12,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 266,
+      "className": "TheForestOfLove.InteractionUiController",
+      "field": "adventureGatewayName",
+      "occurrences": 4,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 267,
+      "className": "SonicBloom.Koreo.Koreography",
+      "field": "mTempoSections",
+      "occurrences": 2,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 268,
+      "className": "Ashkatchap.AnimatorEvents.EventSMB",
+      "field": "entries",
+      "occurrences": 14,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    },
+    {
+      "index": 269,
+      "className": "TheForestOfLove.FollowTransform",
+      "field": "targetTransformTagName",
+      "occurrences": 1,
+      "decision": "render-and-resource-configuration",
+      "role": "preserve-resource-identity"
+    },
+    {
+      "index": 270,
+      "className": "TheForestOfLove.PlantQuestMinigameUIController",
+      "field": "dashCharacter",
+      "occurrences": 1,
+      "decision": "callbacks-and-input-dispatch",
+      "role": "preserve-control"
+    }
+  ],
+  "authoredSerializedDecisions": [
+    {
+      "id": "callbacks-and-input-dispatch",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        18,
+        60,
+        61,
+        62,
+        63,
+        66,
+        67,
+        71,
+        74,
+        77,
+        99,
+        108,
+        110,
+        111,
+        112,
+        114,
+        115,
+        116,
+        136,
+        139,
+        140,
+        250,
+        251,
+        252,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        267,
+        268,
+        270
+      ],
+      "indexRanges": [
+        [
+          153,
+          160
+        ],
+        [
+          245,
+          248
+        ]
+      ],
+      "role": "preserve-control",
+      "reason": "Animation transition/trigger, UnityEvent target/method/argument, input action, shader-independent game dispatch, save preference or timeline handler operand. Whole-field shape and exact values remain bound to original occurrences. English-like method/branch/action names are not translated. dashCharacter is the literal '*' repeated by the original meter. Dialogue defaultSequence is executable Delay({{end}})."
+    },
+    {
+      "id": "render-and-resource-configuration",
+      "indices": [
+        4,
+        5,
+        37,
+        38,
+        39,
+        40,
+        41,
+        49,
+        50,
+        59,
+        68,
+        69,
+        70,
+        72,
+        73,
+        75,
+        76,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        253,
+        254,
+        256,
+        265,
+        266,
+        269
+      ],
+      "indexRanges": [
+        [
+          117,
+          124
+        ],
+        [
+          141,
+          152
+        ],
+        [
+          161,
+          244
+        ]
+      ],
+      "role": "preserve-resource-identity",
+      "reason": "Render serialization, font/sprite metadata, asset/group/scene/prefab/audio/style lookup, report configuration and transform/actor selectors are technical identities. API/report fields are represented only by hashes in the new catalog, never printed or copied as translatable text. A separate localized display alias would require a proved consumer; these resources themselves retain bytes."
+    },
+    {
+      "id": "style-and-tag-grammar",
+      "indices": [
+        24,
+        26,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        100,
+        102
+      ],
+      "indexRanges": [
+        [
+          78,
+          98
+        ]
+      ],
+      "role": "preserve-style-grammar",
+      "reason": "GUI style names, TMP/Febucci style definitions and effect/action tag IDs drive lookup/markup. Keep definitions, delimiters, IDs and ornamental '*' exactly; they are not sentences."
+    },
+    {
+      "id": "timeline-source-identities",
+      "indices": [
+        17,
+        22,
+        25
+      ],
+      "role": "preserve-control",
+      "reason": "Read all inventoried values and typed pointers: TimelineEventClip.template.HandlerKey contains four exact game callback names; TimelineEventTrack clip display names are TimelineEventClip; AnimationTrack clip names identify animation clips/locks/transitions. No narrative argument is stored in these exported string leaves. Game callback text remains a separate producer inventory."
+    },
+    {
+      "id": "nodecanvas-control-json",
+      "indices": [
+        20,
+        21,
+        27,
+        42,
+        52
+      ],
+      "role": "preserve-control-graph",
+      "reason": "Parsed complete inventoried leaves and node/variable types; preserve enclosing serialized JSON and all variable/state/method/connection operands. See nodeCanvasAdmission."
+    },
+    {
+      "id": "display-format-contracts",
+      "indices": [
+        6,
+        12
+      ],
+      "role": "preserve-display-format",
+      "reason": "Exact autonumber '{0}. {1}' and addSpeakerNameFormat '{0}: {1}' have runtime arguments, not English prose. Preserve placeholders, punctuation and argument identities pending any separately justified locale format adapter."
+    },
+    {
+      "id": "native-input-seeds",
+      "indices": [
+        19
+      ],
+      "role": "potential-display-input-seed",
+      "reason": "InputField.m_Text is user-input state initialized to 'Input Field', distinct from its native Text peer and placeholder. Retain all157 source seeds; do not overwrite input state merely to translate a label. A producer/clear-on-open contract is required before applying translated seeds."
+    },
+    {
+      "id": "animator-source-cache",
+      "indices": [
+        23
+      ],
+      "role": "potential-display-input-cache",
+      "reason": "All124 source/cache states feed a proved text setter path. See animatorAdmission and exact TMP peer bindings."
+    },
+    {
+      "id": "keyboard-layout-and-special-labels",
+      "indices": [
+        64,
+        65
+      ],
+      "role": "mixed-input-grammar-and-labels",
+      "reason": "Layout strings are executable keyboard grammar; specialKeys contain emitted printable symbols and human action labels. Preserve the enclosing grammar/keys. Exact nested action-label selectors require the OSK relabel/dispatch consumer decision before application; never translate the whole serialized layout string.",
+      "unresolvedPredicate": "OSK_Keyboard_TFOL specialKeys name versus value versus generated label; expand exact human label leaves and preserve emitted key values."
+    },
+    {
+      "id": "legacy-gui-display-fields",
+      "indices": [
+        109,
+        113,
+        137,
+        138
+      ],
+      "role": "potential-display-source",
+      "reason": "Legacy GUIButton/GUILabel.text contains response/subtitle/alert labels, separately from protected message/navigation. StandardUIQuestLogWindow.noActiveQuestsText/noCompletedQuestsText are actual fallback display messages. Include dormant plugin UI rather than excluding it by lack of new-game screenshots."
+    },
+    {
+      "id": "rewired-identity-and-possible-binding-labels",
+      "indices": [
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        249
+      ],
+      "role": "mixed-resource-identity-and-possible-display-labels",
+      "reason": "Controller/template GUID/class/element/action identifiers are exact resources. Name/description labels may be surfaced by remapping/binding UI; type spelling alone cannot settle whether the game has that consumer. Keep exact selectors/values under application hold; reuse existing Rewired peer reconciliation for the actual bounded consumer predicate.",
+      "unresolvedPredicate": "Supported-game control UI uses source controller/action/element names as display labels or only as dispatch identifiers; do not recursively inspect vendor internals."
+    },
+    {
+      "id": "waypoint-title-role",
+      "indices": [
+        255
+      ],
+      "role": "preserve-control",
+      "reason": "All nine original Waypoint.title read sites across four complete game methods were inspected. IntroForestCutscene compares double_take/familiar_rock/familiar_tree/slow1/sleep to choose dialogue arc, speed or sleep/fade actions. VerticalSliceIntroCutscene compares bunny_wife/end_cinematic_mode and otherwise only logs; no text setter receives the title. All five stored title values are dispatch identities.",
+      "evidence": [
+        "IntroForestCutscene-waypoints.il",
+        "VerticalSliceIntroCutscene-waypoints.il"
+      ]
+    }
+  ],
+  "animator": {
+    "role": "potential-display-input-cache",
+    "reason": "All124 serialized _text states can feed ConvertText -> SetTextToSource -> TMP/InputField after refresh. Awake/OnEnable/Update/LateUpdate ordering can select source versus cache. Both complete stored values are test/template prose, not a proof of a specific visible frame. Bind each to the TMP peer and keep it in source/preservation mapping; application must keep paired source/cache coherent.",
+    "exactEvidence": [
+      "../evidence/animator/base-lifecycle.il",
+      "../evidence/animator/animate-source-refresh.il",
+      "../evidence/animator/convert-input.il",
+      "../evidence/animator/tmp-source-compare.il",
+      "../evidence/animator/update-refresh.il",
+      "../evidence/animator/tmp-source-lifecycle.il"
+    ],
+    "runtime": "not-run"
+  },
+  "nodeCanvas": {
+    "role": "preserve-control-graph",
+    "reason": "All82 normalized pointer groups /1653 string leaves read with their26 node/variable types. Type/ref/variable IDs and method signatures are serialized identities; CheckString compares blink/main against triggerName, SetVariable writes triggerName/jump-state names, MecanimSetTrigger consumes the former, FSM transition names select loop/idle/afterglow branches. Blank comments/default string values remain blank. No user-facing prose is stored in these inventoried leaves; called game methods may independently produce dialogue and are not excluded by this graph decision.",
+    "application": "Preserve both complete enclosing JSON strings and every parsed leaf; never replace command, state or function names.",
+    "runtime": "not-run"
+  },
+  "immediateManagedConsumers": [
+    {
+      "target": "System.Void UnityEngine.Animator::SetTrigger(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Animator::ResetTrigger(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Animator::Play(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.Animator::GetBool(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.Transform UnityEngine.Transform::Find(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.GameObject UnityEngine.GameObject::Find(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.GameObject UnityEngine.GameObject::FindGameObjectWithTag(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.GameObject::CompareTag(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Int32 UnityEngine.LayerMask::NameToLayer(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Int32 UnityEngine.Shader::PropertyToID(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.Texture UnityEngine.Shader::GetGlobalTexture(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.Color UnityEngine.Material::GetColor(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.GameObject::.ctor(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Object::set_name(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void System.Guid::.ctor(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.PlayerPrefs::HasKey(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.PlayerPrefs::DeleteKey(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Int32 UnityEngine.PlayerPrefs::GetInt(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Single UnityEngine.PlayerPrefs::GetFloat(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.String UnityEngine.PlayerPrefs::GetString(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Single UnityEngine.Input::GetAxis(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.Input::GetButtonDown(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void System.Globalization.CultureInfo::.ctor(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Application::OpenURL(System.String)",
+      "role": "preserve-visible-identity",
+      "reason": "URL passed directly to OpenURL, not its separately stored button caption.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Debug::Log(System.Object)",
+      "role": "preserve-diagnostic",
+      "reason": "Constant is immediately passed to engine log output, not to a game text setter; fake visible stack traces have a different proved consumer and remain special-display-codec.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Debug::LogWarning(System.Object)",
+      "role": "preserve-diagnostic",
+      "reason": "Constant is immediately passed to engine log output, not to a game text setter; fake visible stack traces have a different proved consumer and remain special-display-codec.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Debug::LogError(System.Object)",
+      "role": "preserve-diagnostic",
+      "reason": "Constant is immediately passed to engine log output, not to a game text setter; fake visible stack traces have a different proved consumer and remain special-display-codec.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void TMPro.TMP_Text::set_text(System.String)",
+      "role": "display-source",
+      "reason": "Literal directly reaches a native/TMP text setter or GUI Label string argument; retain prototype/debug and dormant visible text, with reachability separate.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.UI.Text::set_text(System.String)",
+      "role": "display-source",
+      "reason": "Literal directly reaches a native/TMP text setter or GUI Label string argument; retain prototype/debug and dormant visible text, with reachability separate.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.GUI::Label(UnityEngine.Rect,System.String)",
+      "role": "display-source",
+      "reason": "Literal directly reaches a native/TMP text setter or GUI Label string argument; retain prototype/debug and dormant visible text, with reachability separate.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.UI.InputField::set_text(System.String)",
+      "role": "potential-display-input-seed",
+      "reason": "Literal directly sets an input field seed; user input state is not an ordinary translated label.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void TMPro.TMP_InputField::set_text(System.String)",
+      "role": "potential-display-input-seed",
+      "reason": "Literal directly sets an input field seed; user input state is not an ordinary translated label.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    }
+  ],
+  "readCompleteUiBodies": [
+    {
+      "index": 25,
+      "method": "System.Void TheForestOfLove.InteractionUiStatusIconController::UpdateGiftIconText(System.String)"
+    },
+    {
+      "index": 26,
+      "method": "System.Void TheForestOfLove.InteractionUiStatusIconTMPTextFixer::OnEnable()"
+    },
+    {
+      "index": 27,
+      "method": "System.Void TheForestOfLove.InteractionUiStatusIconTMPTextFixer::<OnEnable>b__1_0()"
+    },
+    {
+      "index": 32,
+      "method": "System.Void TheForestOfLove.InventoryCellUiTemplate::Show()"
+    },
+    {
+      "index": 33,
+      "method": "System.Void TheForestOfLove.InventoryCellUiTemplate::Hide()"
+    },
+    {
+      "index": 34,
+      "method": "System.Void TheForestOfLove.InventoryInfoTicker::RandomizeGlitchItemInfoTickerText()"
+    },
+    {
+      "index": 35,
+      "method": "System.Void TheForestOfLove.InventoryInfoTicker::UpdateItemInfoText(System.String,System.String)"
+    },
+    {
+      "index": 36,
+      "method": "System.Void TheForestOfLove.ItemGetNotification::ShowInventoryItemNotification(TheForestOfLove.Inventory.InventoryItemType)"
+    },
+    {
+      "index": 45,
+      "method": "System.Void TheForestOfLove.PlantQuestMinigameVialController::Update()"
+    },
+    {
+      "index": 46,
+      "method": "System.Void TheForestOfLove.StormQuestPageCollectionUIController::OnCollectedPage()"
+    },
+    {
+      "index": 47,
+      "method": "System.Void TheForestOfLove.WoodCollectionUIController::OnCollectedWood()"
+    },
+    {
+      "index": 48,
+      "method": "System.Void TheForestOfLove.WoolCollectionUIController::OnCollectedWool()"
+    },
+    {
+      "index": 52,
+      "method": "System.Void TheForestOfLove.GalleryHintTutorial::Start()"
+    },
+    {
+      "index": 54,
+      "method": "System.Void TheForestOfLove.ResponseOptionsUI::SetHaikuLine1(System.String)"
+    },
+    {
+      "index": 55,
+      "method": "System.Void TheForestOfLove.ResponseOptionsUI::SetHaikuLine2(System.String)"
+    },
+    {
+      "index": 56,
+      "method": "System.Void TheForestOfLove.ResponseOptionsUI::SetHaikuLine3(System.String)"
+    },
+    {
+      "index": 57,
+      "method": "System.Void TheForestOfLove.ResponseOptionsUI/ResponseOption::SetText(System.String)"
+    },
+    {
+      "index": 70,
+      "method": "System.Void TheForestOfLove.GossipUI::UpdateGreetingText(System.String,System.Boolean)"
+    },
+    {
+      "index": 71,
+      "method": "System.Void TheForestOfLove.GossipUIItemTemplate::SetText(System.String)"
+    },
+    {
+      "index": 72,
+      "method": "System.Void TheForestOfLove.GossipUIItemTemplate::TryPrependGlyphCode(TMPro.TextMeshProUGUI,System.Boolean,System.String,System.String)"
+    },
+    {
+      "index": 74,
+      "method": "System.Void TheForestOfLove.MapUI::SetSelectionLabelText(System.String)"
+    },
+    {
+      "index": 75,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemFoundNotification(UnityEngine.Sprite,System.String)"
+    },
+    {
+      "index": 76,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemGetNotification(UnityEngine.Sprite,System.String)"
+    },
+    {
+      "index": 77,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureItemLostNotification(UnityEngine.Sprite,System.String)"
+    },
+    {
+      "index": 78,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureGossipUnlockedNotification(System.String)"
+    },
+    {
+      "index": 79,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureGlobalGossipUnlockedNotification()"
+    },
+    {
+      "index": 80,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureBioUnlockedNotification(System.String)"
+    },
+    {
+      "index": 81,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureAdventureUnlockedNotification(System.String)"
+    },
+    {
+      "index": 82,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureAdventureAbandonedNotification(System.String)"
+    },
+    {
+      "index": 83,
+      "method": "System.Void TheForestOfLove.OverworldAllInOneNotificationItem::ConfigureAdventureCompletedNotification(System.String)"
+    },
+    {
+      "index": 84,
+      "method": "System.Void TheForestOfLove.OverworldItemGetNotificationLite::ShowNotification(System.String)"
+    },
+    {
+      "index": 85,
+      "method": "System.Void TheForestOfLove.QuestUpdatedUI::TryShowNextQueuedNotification()"
+    },
+    {
+      "index": 88,
+      "method": "System.Void TheForestOfLove.MinigameManager::Update()"
+    }
+  ],
+  "generatedDbLiterals": {
+    "identityArguments": 2442,
+    "exceptionArguments": 216,
+    "predicate": "Every literal is immediately consumed by exactly GetEntity(string) or new Exception(string); source role only, no framework recursion."
+  },
+  "boundary": "Source roles and exact consumers, not translated application, independent editorial judgment or runtime acceptance."
+}

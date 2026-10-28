@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "scope": "Six exact lexical exceptions, not field-level admission or target wording",
+  "ordinaryBracketText": [
+    {
+      "id": "ds:131:153:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "ordinaryBracketOrdinals": [
+        0
+      ],
+      "reason": "The full flower narration matches no FormattedText square-control family. The reviewed formatter and native UI/typewriter methods retain unrecognized square brackets; delimiters remain exact while the interior is literal text. Whole-field selection and runtime remain separate."
+    },
+    {
+      "id": "ds:540:232:Dialogue Text",
+      "sourceSha256": "d6186cb4aafa0bee25ef98c56a68e2c96aa70bc205e3286ee3c341ab277074c2",
+      "ordinaryBracketOrdinals": [
+        0
+      ],
+      "reason": "The second distinct flower-narration occurrence has the same literal-bracket grammar. Keep its own selector and both physical copies; equal wording does not merge identities."
+    },
+    {
+      "id": "ds:458:340:Dialogue Text",
+      "sourceSha256": "b233fcb4d55261d76cf860e1da92e3553d936de68a6b18b6a36d50418978a631",
+      "ordinaryBracketOrdinals": [
+        0
+      ],
+      "reason": "SHOW TUTORIAL SPLASH? is not an instruction in the reviewed FormattedText grammar. It is literal bracket content at this parser boundary. The prior detached-field preservation proposal remains unchanged; no field-level translation eligibility or reachability is inferred."
+    },
+    {
+      "id": "ds:458:346:Dialogue Text",
+      "sourceSha256": "b233fcb4d55261d76cf860e1da92e3553d936de68a6b18b6a36d50418978a631",
+      "ordinaryBracketOrdinals": [
+        0
+      ],
+      "reason": "The second detached authoring question has the same literal-bracket grammar and remains a separate source occurrence. Its prior whole-field disposition is not promoted or changed by lexical classification."
+    }
+  ],
+  "preservedSourceAnomalies": [
+    {
+      "id": "ds:505:1165:Dialogue Text",
+      "sourceSha256": "5abd8ae192bdd9bf3ef8cb107b720c03465df439e17cf5c82de498f3fe8a6097",
+      "start": 7,
+      "end": 8,
+      "text": "]",
+      "reason": "An additional closing bracket follows the portrait tag in the original constructed-language utterance. Preserve the original anomaly and the separate fictional-language decision; do not repair or decode it."
+    },
+    {
+      "id": "ds:512:938:Dialogue Text",
+      "sourceSha256": "555448324c981de6fbce3dcdd464122cfd354b23634af6dc063f3a4a9e8d042f",
+      "start": 7,
+      "end": 8,
+      "text": "]",
+      "reason": "An additional closing bracket follows the original portrait tag before ordinary dialogue. Preserve this exact punctuation separately from translated prose and markup; no source correction is authorized by this lexical inventory."
+    }
+  ]
+}

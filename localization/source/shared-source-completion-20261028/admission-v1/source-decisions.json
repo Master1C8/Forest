@@ -1,0 +1,883 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "0133-work, gpt-6.1-sol/high/OpenAI; actual process arguments verified",
+  "judgmentBoundary": "Authored storage/source-role decisions. No automatic semantic, editorial, runtime or complete-game pass. Every native initial string is retained, including dormant/testing prose; unknown producer/reachability is separately recorded.",
+  "directValueGroupsSha256": "94570ce353426335a17b0fc20023ae9b7da6a04e44ef5b40fe2eaeec10889067",
+  "directDecisions": [
+    {
+      "id": "native-story-paragraphs",
+      "indices": [
+        6,
+        12,
+        13,
+        14,
+        18,
+        19,
+        22,
+        23,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        269,
+        289,
+        291,
+        312,
+        350,
+        370
+      ],
+      "role": "display-source",
+      "reason": "Complete narrated paragraphs or dialogue, including distinct multi-paragraph versions. Retain every serialized instance; do not reduce to dialogue database coverage or deduplicate equal copies.",
+      "consumer": "Native Text/TMP initial text; exact component/tree/peers in direct-context.jsonl. Narrative producer override and versioned scene reachability remain separately unverified.",
+      "specialCases": [
+        "narration-and-speaker-context"
+      ]
+    },
+    {
+      "id": "native-potential-template-prose",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17,
+        20,
+        21,
+        24,
+        28,
+        154,
+        191,
+        194,
+        195,
+        199,
+        200,
+        201,
+        202,
+        204,
+        206,
+        207,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        217,
+        218,
+        219,
+        220,
+        221,
+        243,
+        250,
+        268,
+        331,
+        374,
+        375,
+        376,
+        377,
+        378,
+        380,
+        381
+      ],
+      "role": "potential-display-source",
+      "reason": "Initial UI template, development/test sentence or serialized sample text. Include it in source storage rather than treating unknown reachability as an exclusion. Final translation selector must reconcile runtime replacement with the actual producer, and must never count this seed as coverage of that producer.",
+      "consumer": "Native Text/TMP initial text; component and complete hierarchy bound in direct-context.jsonl.",
+      "specialCases": [
+        "runtime-template-versus-producer",
+        "haiku-group"
+      ]
+    },
+    {
+      "id": "native-keyboard-symbols",
+      "indices": [
+        38,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        247,
+        248
+      ],
+      "role": "preserve-display-symbol",
+      "reason": "Printable keyboard characters, layout-switch identifiers and navigation arrows are exact symbols, not ordinary prose. Plus signs also occur as system-info level markers: their component context remains distinct. Preserve every occurrence; do not change emitted input or keyboard layout through label translation.",
+      "consumer": "OSK key/keyboard source labels and report/navigation components; actual input identities remain protected independently of visible labels.",
+      "specialCases": [
+        "input-labels-and-emitted-values"
+      ]
+    },
+    {
+      "id": "native-keyboard-action-labels",
+      "indices": [
+        39,
+        69,
+        71
+      ],
+      "role": "display-source",
+      "reason": "ENTER, SHIFT and DONE are human-readable action labels; input key codes/layout/callbacks are separate protected operands. Retain source and bind relabeling producer before implementation.",
+      "consumer": "OSK action key labels; OSK_Key_TFOL.Relabel and specialKeys must be reconciled as one group.",
+      "specialCases": [
+        "input-labels-and-emitted-values"
+      ]
+    },
+    {
+      "id": "native-intentional-masks",
+      "indices": [
+        8,
+        379,
+        382
+      ],
+      "role": "preserve-display-symbol",
+      "reason": "Unknown-name/hidden-value masks must keep their symbol count and newline. They do not establish the hidden referent's name or gender, and are distinct from translated BioKeyword text.",
+      "consumer": "Nameplate/Bio/notification initial masks; actual hide/reveal producers remain separate.",
+      "specialCases": [
+        "hidden-identity-and-unlock-masks"
+      ]
+    },
+    {
+      "id": "native-report-control-states",
+      "indices": [
+        113,
+        169,
+        178,
+        180
+      ],
+      "role": "preserve-control-state",
+      "reason": "Repeated plus signs encode system-info detail levels; U+200B is an input sentinel. Preserve exact values, not localized prose.",
+      "consumer": "BugReportMenu and input editing state.",
+      "specialCases": [
+        "input-labels-and-emitted-values"
+      ]
+    },
+    {
+      "id": "native-attribution-and-identifiers",
+      "indices": [
+        109,
+        111,
+        138,
+        164,
+        165,
+        177
+      ],
+      "role": "preserve-visible-identity",
+      "reason": "Carrot/Vixel attribution, Patreon brand, TFoL.info website and version identifiers retain their identity. Preserve exact source spelling; ordinary surrounding credits remain translation sources.",
+      "consumer": "Credits/platform/start-screen labels and runtime version labels.",
+      "specialCases": []
+    },
+    {
+      "id": "native-numeric-runtime-seeds",
+      "indices": [
+        251,
+        253,
+        325,
+        385,
+        388,
+        399
+      ],
+      "role": "preserve-display-symbol",
+      "reason": "Stored quantities/fractions/percentage or dash symbols are seeds for numeric runtime labels. Preserve these scalar seeds and the actual count/format semantics; surrounding Time/Dashes prose is a distinct source.",
+      "consumer": "Collection counters, inventory quantity and plant-minigame meters; original setters retained.",
+      "specialCases": [
+        "numeric-format-and-counter-producers"
+      ]
+    },
+    {
+      "id": "native-ui-and-tutorial-prose",
+      "indexRanges": [
+        [
+          7,
+          7
+        ],
+        [
+          102,
+          108
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          114,
+          137
+        ],
+        [
+          139,
+          153
+        ],
+        [
+          155,
+          163
+        ],
+        [
+          166,
+          168
+        ],
+        [
+          170,
+          176
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          181,
+          190
+        ],
+        [
+          192,
+          193
+        ],
+        [
+          196,
+          198
+        ],
+        [
+          203,
+          203
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          215,
+          216
+        ],
+        [
+          222,
+          242
+        ],
+        [
+          244,
+          246
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          252,
+          252
+        ],
+        [
+          254,
+          267
+        ],
+        [
+          270,
+          288
+        ],
+        [
+          290,
+          290
+        ],
+        [
+          292,
+          311
+        ],
+        [
+          313,
+          324
+        ],
+        [
+          326,
+          330
+        ],
+        [
+          332,
+          349
+        ],
+        [
+          351,
+          369
+        ],
+        [
+          371,
+          373
+        ],
+        [
+          383,
+          384
+        ],
+        [
+          386,
+          387
+        ],
+        [
+          389,
+          398
+        ]
+      ],
+      "role": "display-source",
+      "reason": "Read complete menu/help/confirmation/tutorial/item-get/mini-game/heading/credits wording. Include old/demo/platform-specific and dormant copies. A stored word is not automatically the runtime producer: title/item/name/count joins and templates are separate consumer contracts.",
+      "consumer": "Native Text/TMP components with original enabled/ancestor state retained. General display role follows the native text field; game-specific dynamic producers are registered separately.",
+      "specialCases": [
+        "markup-and-ornamental-initials",
+        "input-labels-and-emitted-values",
+        "runtime-template-versus-producer",
+        "notify-only-artwork"
+      ]
+    }
+  ],
+  "serializedGroupDecisions": [
+    {
+      "id": "callbacks-and-input-dispatch",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        18,
+        60,
+        61,
+        62,
+        63,
+        66,
+        67,
+        71,
+        74,
+        77,
+        99,
+        108,
+        110,
+        111,
+        112,
+        114,
+        115,
+        116,
+        136,
+        139,
+        140,
+        250,
+        251,
+        252,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        267,
+        268,
+        270
+      ],
+      "indexRanges": [
+        [
+          153,
+          160
+        ],
+        [
+          245,
+          248
+        ]
+      ],
+      "role": "preserve-control",
+      "reason": "Animation transition/trigger, UnityEvent target/method/argument, input action, shader-independent game dispatch, save preference or timeline handler operand. Whole-field shape and exact values remain bound to original occurrences. English-like method/branch/action names are not translated. dashCharacter is the literal '*' repeated by the original meter. Dialogue defaultSequence is executable Delay({{end}})."
+    },
+    {
+      "id": "render-and-resource-configuration",
+      "indices": [
+        4,
+        5,
+        37,
+        38,
+        39,
+        40,
+        41,
+        49,
+        50,
+        59,
+        68,
+        69,
+        70,
+        72,
+        73,
+        75,
+        76,
+        101,
+        103,
+        104,
+        105,
+        106,
+        107,
+        253,
+        254,
+        256,
+        265,
+        266,
+        269
+      ],
+      "indexRanges": [
+        [
+          117,
+          124
+        ],
+        [
+          141,
+          152
+        ],
+        [
+          161,
+          244
+        ]
+      ],
+      "role": "preserve-resource-identity",
+      "reason": "Render serialization, font/sprite metadata, asset/group/scene/prefab/audio/style lookup, report configuration and transform/actor selectors are technical identities. API/report fields are represented only by hashes in the new catalog, never printed or copied as translatable text. A separate localized display alias would require a proved consumer; these resources themselves retain bytes."
+    },
+    {
+      "id": "style-and-tag-grammar",
+      "indices": [
+        24,
+        26,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        100,
+        102
+      ],
+      "indexRanges": [
+        [
+          78,
+          98
+        ]
+      ],
+      "role": "preserve-style-grammar",
+      "reason": "GUI style names, TMP/Febucci style definitions and effect/action tag IDs drive lookup/markup. Keep definitions, delimiters, IDs and ornamental '*' exactly; they are not sentences."
+    },
+    {
+      "id": "timeline-source-identities",
+      "indices": [
+        17,
+        22,
+        25
+      ],
+      "role": "preserve-control",
+      "reason": "Read all inventoried values and typed pointers: TimelineEventClip.template.HandlerKey contains four exact game callback names; TimelineEventTrack clip display names are TimelineEventClip; AnimationTrack clip names identify animation clips/locks/transitions. No narrative argument is stored in these exported string leaves. Game callback text remains a separate producer inventory."
+    },
+    {
+      "id": "nodecanvas-control-json",
+      "indices": [
+        20,
+        21,
+        27,
+        42,
+        52
+      ],
+      "role": "preserve-control-graph",
+      "reason": "Parsed complete inventoried leaves and node/variable types; preserve enclosing serialized JSON and all variable/state/method/connection operands. See nodeCanvasAdmission."
+    },
+    {
+      "id": "display-format-contracts",
+      "indices": [
+        6,
+        12
+      ],
+      "role": "preserve-display-format",
+      "reason": "Exact autonumber '{0}. {1}' and addSpeakerNameFormat '{0}: {1}' have runtime arguments, not English prose. Preserve placeholders, punctuation and argument identities pending any separately justified locale format adapter."
+    },
+    {
+      "id": "native-input-seeds",
+      "indices": [
+        19
+      ],
+      "role": "potential-display-input-seed",
+      "reason": "InputField.m_Text is user-input state initialized to 'Input Field', distinct from its native Text peer and placeholder. Retain all157 source seeds; do not overwrite input state merely to translate a label. A producer/clear-on-open contract is required before applying translated seeds."
+    },
+    {
+      "id": "animator-source-cache",
+      "indices": [
+        23
+      ],
+      "role": "potential-display-input-cache",
+      "reason": "All124 source/cache states feed a proved text setter path. See animatorAdmission and exact TMP peer bindings."
+    },
+    {
+      "id": "keyboard-layout-and-special-labels",
+      "indices": [
+        64,
+        65
+      ],
+      "role": "mixed-input-grammar-and-labels",
+      "reason": "Layout strings are executable keyboard grammar; specialKeys contain emitted printable symbols and human action labels. Preserve the enclosing grammar/keys. Exact nested action-label selectors require the OSK relabel/dispatch consumer decision before application; never translate the whole serialized layout string.",
+      "unresolvedPredicate": "OSK_Keyboard_TFOL specialKeys name versus value versus generated label; expand exact human label leaves and preserve emitted key values."
+    },
+    {
+      "id": "legacy-gui-display-fields",
+      "indices": [
+        109,
+        113,
+        137,
+        138
+      ],
+      "role": "potential-display-source",
+      "reason": "Legacy GUIButton/GUILabel.text contains response/subtitle/alert labels, separately from protected message/navigation. StandardUIQuestLogWindow.noActiveQuestsText/noCompletedQuestsText are actual fallback display messages. Include dormant plugin UI rather than excluding it by lack of new-game screenshots."
+    },
+    {
+      "id": "rewired-identity-and-possible-binding-labels",
+      "indices": [
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        249
+      ],
+      "role": "mixed-resource-identity-and-possible-display-labels",
+      "reason": "Controller/template GUID/class/element/action identifiers are exact resources. Name/description labels may be surfaced by remapping/binding UI; type spelling alone cannot settle whether the game has that consumer. Keep exact selectors/values under application hold; reuse existing Rewired peer reconciliation for the actual bounded consumer predicate.",
+      "unresolvedPredicate": "Supported-game control UI uses source controller/action/element names as display labels or only as dispatch identifiers; do not recursively inspect vendor internals."
+    },
+    {
+      "id": "waypoint-title-role",
+      "indices": [
+        255
+      ],
+      "role": "preserve-control",
+      "reason": "All nine original Waypoint.title read sites across four complete game methods were inspected. IntroForestCutscene compares double_take/familiar_rock/familiar_tree/slow1/sleep to choose dialogue arc, speed or sleep/fade actions. VerticalSliceIntroCutscene compares bunny_wife/end_cinematic_mode and otherwise only logs; no text setter receives the title. All five stored title values are dispatch identities.",
+      "evidence": [
+        "IntroForestCutscene-waypoints.il",
+        "VerticalSliceIntroCutscene-waypoints.il"
+      ]
+    }
+  ],
+  "bgRemainingAdmission": {
+    "decisionSource": "../remaining-bgdatabase-decisions.json",
+    "decisionSourceSha256": "e1b1dbdf3f2225375f8c7a0fa62765d3d01f4153c912d500ea4f3edb52519eef",
+    "judgment": "Read all29 authored reasons and getter-use bindings. Active greeting_text_test, Chapter title/description and Movie hint_phrase are display inputs. Identity/save/scene/prefab/trigger/status values retain exact bytes and absence state. The original generated wrapper readback is reusable by fingerprint, not an independent semantic pass.",
+    "dormantGreetingDecision": "Retain greeting_text as dormant-potential-display source, with a preserve-until-adaptation application hold. No direct generated getter use in the supported assembly is evidence of a dormant column, not authority to erase its17 textual states from the source revision. Preserve its literal backslashes; do not unescape or merge it with greeting_text_test.",
+    "runtime": "not-run"
+  },
+  "animatorAdmission": {
+    "role": "potential-display-input-cache",
+    "reason": "All124 serialized _text states can feed ConvertText -> SetTextToSource -> TMP/InputField after refresh. Awake/OnEnable/Update/LateUpdate ordering can select source versus cache. Both complete stored values are test/template prose, not a proof of a specific visible frame. Bind each to the TMP peer and keep it in source/preservation mapping; application must keep paired source/cache coherent.",
+    "exactEvidence": [
+      "../evidence/animator/base-lifecycle.il",
+      "../evidence/animator/animate-source-refresh.il",
+      "../evidence/animator/convert-input.il",
+      "../evidence/animator/tmp-source-compare.il",
+      "../evidence/animator/update-refresh.il",
+      "../evidence/animator/tmp-source-lifecycle.il"
+    ],
+    "runtime": "not-run"
+  },
+  "nodeCanvasAdmission": {
+    "role": "preserve-control-graph",
+    "reason": "All82 normalized pointer groups /1653 string leaves read with their26 node/variable types. Type/ref/variable IDs and method signatures are serialized identities; CheckString compares blink/main against triggerName, SetVariable writes triggerName/jump-state names, MecanimSetTrigger consumes the former, FSM transition names select loop/idle/afterglow branches. Blank comments/default string values remain blank. No user-facing prose is stored in these inventoried leaves; called game methods may independently produce dialogue and are not excluded by this graph decision.",
+    "application": "Preserve both complete enclosing JSON strings and every parsed leaf; never replace command, state or function names.",
+    "runtime": "not-run"
+  },
+  "immediateManagedConsumers": [
+    {
+      "target": "System.Void UnityEngine.Animator::SetTrigger(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Animator::ResetTrigger(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Animator::Play(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.Animator::GetBool(System.String)",
+      "role": "preserve-animation-key",
+      "reason": "Animator trigger/state/bool lookup argument; preserve exact state machine identity.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.Transform UnityEngine.Transform::Find(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.GameObject UnityEngine.GameObject::Find(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.GameObject UnityEngine.GameObject::FindGameObjectWithTag(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.GameObject::CompareTag(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Int32 UnityEngine.LayerMask::NameToLayer(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Int32 UnityEngine.Shader::PropertyToID(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.Texture UnityEngine.Shader::GetGlobalTexture(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "UnityEngine.Color UnityEngine.Material::GetColor(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.GameObject::.ctor(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Object::set_name(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void System.Guid::.ctor(System.String)",
+      "role": "preserve-resource-identity",
+      "reason": "Exact engine object, transform, layer, shader or tag lookup/identity argument; any visible alias is a separate producer.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.PlayerPrefs::HasKey(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.PlayerPrefs::DeleteKey(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Int32 UnityEngine.PlayerPrefs::GetInt(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Single UnityEngine.PlayerPrefs::GetFloat(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.String UnityEngine.PlayerPrefs::GetString(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Single UnityEngine.Input::GetAxis(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Boolean UnityEngine.Input::GetButtonDown(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void System.Globalization.CultureInfo::.ctor(System.String)",
+      "role": "preserve-save-input-or-locale-key",
+      "reason": "Exact engine preference/input/scene/locale lookup argument; no label translation at the control operand.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Application::OpenURL(System.String)",
+      "role": "preserve-visible-identity",
+      "reason": "URL passed directly to OpenURL, not its separately stored button caption.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Debug::Log(System.Object)",
+      "role": "preserve-diagnostic",
+      "reason": "Constant is immediately passed to engine log output, not to a game text setter; fake visible stack traces have a different proved consumer and remain special-display-codec.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Debug::LogWarning(System.Object)",
+      "role": "preserve-diagnostic",
+      "reason": "Constant is immediately passed to engine log output, not to a game text setter; fake visible stack traces have a different proved consumer and remain special-display-codec.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.Debug::LogError(System.Object)",
+      "role": "preserve-diagnostic",
+      "reason": "Constant is immediately passed to engine log output, not to a game text setter; fake visible stack traces have a different proved consumer and remain special-display-codec.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void TMPro.TMP_Text::set_text(System.String)",
+      "role": "display-source",
+      "reason": "Literal directly reaches a native/TMP text setter or GUI Label string argument; retain prototype/debug and dormant visible text, with reachability separate.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.UI.Text::set_text(System.String)",
+      "role": "display-source",
+      "reason": "Literal directly reaches a native/TMP text setter or GUI Label string argument; retain prototype/debug and dormant visible text, with reachability separate.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.GUI::Label(UnityEngine.Rect,System.String)",
+      "role": "display-source",
+      "reason": "Literal directly reaches a native/TMP text setter or GUI Label string argument; retain prototype/debug and dormant visible text, with reachability separate.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void UnityEngine.UI.InputField::set_text(System.String)",
+      "role": "potential-display-input-seed",
+      "reason": "Literal directly sets an input field seed; user input state is not an ordinary translated label.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    },
+    {
+      "target": "System.Void TMPro.TMP_InputField::set_text(System.String)",
+      "role": "potential-display-input-seed",
+      "reason": "Literal directly sets an input field seed; user input state is not an ordinary translated label.",
+      "proof": "ldstr is immediately followed by the registered call/newobj; this classifies that argument only, not other literals in its method."
+    }
+  ]
+}
