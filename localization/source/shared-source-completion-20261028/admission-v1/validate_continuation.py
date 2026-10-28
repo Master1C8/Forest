@@ -28,7 +28,9 @@ from phase139.expand_roles import expanded as expanded_console, validate_rule as
 from phase140.expand_roles import expanded as expanded_playback, validate_rule as validate_playback_rule
 from phase141.expand_roles import expanded as expanded_arc, validate_rule as validate_arc_rule, METHOD as ARC_METHOD
 from phase142.expand_roles import expanded as expanded_loader, validate_rule as validate_loader_rule
-from phase143.reconcile_bindings import refine as refine_binding, analyze_lua, validate_selector as validate_binding_selector, NEXT as NEXT_SOURCE
+from phase143.reconcile_bindings import refine as refine_binding, analyze_lua, validate_selector as validate_binding_selector
+from build_inventory import NEXT_SOURCE
+from phase144.validate_roles import validate as validate_remaining
 
 
 def same_identity_values(before, after):
@@ -44,6 +46,7 @@ def same_identity_values(before, after):
 
 
 def main():
+    phase144 = OUT / 'phase144'
     phase143 = OUT / 'phase143'
     for name, digest in load(phase143 / 'baseline-pins.json').items():
         assert sha(phase143 / 'baseline' / name) == digest, ('preserved-phase142', name)
@@ -121,7 +124,11 @@ def main():
     assert partitions['phase134:keyboardSymbolLabel'] == 14
     assert partitions['phase134:keyboardLayout'] == 4
 
-    managed = list(lines(OUT / 'managed-literal-inventory.jsonl'))
+    current_managed = list(lines(OUT / 'managed-literal-inventory.jsonl'))
+    phase144_result = validate_remaining(current_managed)
+    # Historical phase-specific assertions exercise the fingerprinted exact prior
+    # products; current delta and current products are checked independently above.
+    managed = list(lines(phase144 / 'baseline/managed-literal-inventory.jsonl'))
     original_il = list(lines(INDEX / 'literals.jsonl'))
     by_selector = {(r['method'],r['offset']):r for r in original_il}
     for row in rules['exactMethodLiterals']:
@@ -179,8 +186,8 @@ def main():
     assert len(delta)==817 and sum(r['role']=='display-source' for r in delta)==20
     assert all(r['sourceValueSha256']==value_hash(by_selector[r['method'],r['offset']]['value']) for r in delta)
     assert sum('source' in r for r in delta)==20
-    wording=list(lines(OUT/'compiled-wording-source.jsonl'))
-    preserved=list(lines(OUT/'compiled-preserve-exactly.jsonl'))
+    wording=list(lines(phase144/'baseline/compiled-wording-source.jsonl'))
+    preserved=list(lines(phase144/'baseline/compiled-preserve-exactly.jsonl'))
     wording_ids={r['id'] for r in wording};preserved_ids={r['id'] for r in preserved}
     assert len(wording)==len(wording_ids)==185 and len(preserved)==len(preserved_ids)==7152
     assert wording_ids|preserved_ids=={r['id'] for r in managed if r['role']!='needs-consumer-decision'}
@@ -190,7 +197,7 @@ def main():
     for r in preserved:
         source=original_il[r['sourceLine']-1]
         assert (source['method'],source['offset'],value_hash(source['value']))==(r['method'],r['offset'],r['sourceValueSha256']),'compiled-preserve-exact-source'
-    handoff=load(OUT/'compiled-source-handoff.json')
+    handoff=load(phase144/'baseline/compiled-source-handoff.json')
     assert handoff['resolvedOccurrences']==7325 and handoff['unresolvedOccurrences']==1251
     assert handoff['completeCompiledRolePacket'] is False and handoff['translationEntryAllowed'] is False
     adventure_case=next(r for r in load(OUT/'special-cases.json')['cases'] if r['id']=='compiled-adventure-title-body-status')
@@ -474,7 +481,7 @@ def main():
     # Exercise the actual build write loop with synthetic products redirected
     # to task-owned disposable files. Source generation is replaced here; this
     # checks only the sequential partial-write boundary, never corpus validity.
-    with tempfile.TemporaryDirectory(prefix='write-boundary-',dir=phase143) as scratch_name:
+    with tempfile.TemporaryDirectory(prefix='write-boundary-',dir=phase144) as scratch_name:
         scratch=Path(scratch_name)
         fixtures={'first.json':b'first\n','second.json':b'second\n','manifest.json':b'{"counts":{}}\n'}
         original_write=Path.write_bytes
@@ -505,7 +512,7 @@ def main():
             r.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
             r.pop('source',None)
     assert jl(reconstructed_phase141)==(phase142/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'unexpected-phase142-compiled-delta'
-    loader_delta=list(lines(OUT/'compiled-source-role-delta.jsonl'))
+    loader_delta=list(lines(phase144/'baseline/compiled-source-role-delta.jsonl'))
     assert len(loader_delta)==29 and sum('source' in r for r in loader_delta)==18
     assert {r['id'] for r in loader_delta}=={r['id'] for r in held_after_arc}
     assert not [r for r in managed if r['role']=='needs-consumer-decision' and r['method'].split(' ',1)[1].split('::')[0] in owners], 'loader-scope-not-complete'
@@ -681,13 +688,13 @@ def main():
     next_compiled=load(OUT/'phase143/next-compiled-selectors.json')
     assert next_compiled['occurrences']==1251 and next_compiled['methods']==443
     assert [r['id'] for r in next_compiled['selectors']]==[r['id'] for r in managed if r['role']=='needs-consumer-decision']
-    assert (OUT/'managed-literal-inventory.jsonl').read_bytes()==(phase143/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'phase143-compiled-whole-product-changed'
+    assert (phase144/'baseline/managed-literal-inventory.jsonl').read_bytes()==(phase143/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'phase143-compiled-whole-product-changed'
     assert load(OUT/'unresolved-consumers.json')['nextPredicate']==NEXT_SOURCE
     changed_products={'compiled-source-handoff.json','consumer-matrix.json','unresolved-consumers.json','manifest.json','dialogue-database-reconciliation.json','dialogue-database-values.jsonl','dialogue-database-unresolved.json','dialogue-database-consumer-dispositions.json'}
     previous_products=load(phase142/'integration-handoff.json')['generatedOutputPins']
     for name,digest in previous_products.items():
         if name not in changed_products:
-            assert sha(OUT/name)==digest, ('phase143-unaffected-prior-product',name)
+            assert sha(phase144/'baseline'/name)==digest, ('phase143-unaffected-prior-product',name)
 
     known_title=next(r for r in previous if (r.get('conversationId'),r.get('entryId'))==(109,5))
     classify_remaining(known_title,source_tree)
@@ -770,14 +777,14 @@ def main():
     else:
         raise AssertionError('equal-wording-occurrence-loss-accepted')
     assert manifest['commonSourceAccepted'] is False and manifest['translationEntryAllowed'] is False
-    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0143-work',
+    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0144-work',
                    reusedParentReadback=dict(path=str((baseline/'readback-validation.json').relative_to(ROOT)),
                        sha256=sha(baseline/'readback-validation.json'), originalManifestSha256=prior['manifestSha256'],
                        boundary='Original parent full source/tree/span readback, reused on exactly unchanged values/IDs/context; not rerun or relabeled as independent semantic judgment.'),
                    currentManifestSha256=sha(OUT/'manifest.json'), builderSha256=sha(OUT/'build_inventory.py'),
                    validatorSha256=sha(Path(__file__)), generatedProducts=len(generated),
                    preservedProducts=unchanged_products, sourceDeltas=counts, mixedLeafPartitions=dict(partitions),
-                   unknownCompiledStates=1251, potentialControlLabelBindingStates=1389,
+                   unknownCompiledStates=569, potentialControlLabelBindingStates=1389,
                    phase137CompiledDelta=dict(changedRoles=817,displayOperands=20,preservedOperands=797,
                        parentAdventureOperands=44,remainingMethods=543,priorWholeProductReconstructedExactly=True,
                        nextCommandSelectors=255,knownWordingOperands=91,allProtectedOperands=6914,
@@ -813,6 +820,8 @@ def main():
     receipt['negativeControls'].update(changedLoaderSourceRejected=True,changedLoaderSelectorRejected=True,changedLoaderProducerRejected=True,changedLoaderRoleRejected=True,changedLoaderContextRejected=True,changedLoaderPriorRoleRejected=True,changedLoaderConsumerRejected=True,changedLoaderArgumentWindowRejected=True,changedLoaderThrowRejected=True,unsupportedLoaderVisibilityRejected=True,lostLoaderMembershipRejected=True,all29LoaderSelectorsResolved=True)
     receipt['phase143DatabaseBindings']=dict(assignedLogicalValues=1655,physicalSelectors=3310,retainedProvedKeys=5,remainingLogicalValues=1655,serializedInstances=39,originalLuaSlotsPerCopy=32793,nonemptyLuaExpressions=41,distinctExpressions=8,directGameApiCalls=6,wholePriorCompiledProductUnchanged=True,priorUnaffectedProductsUnchanged=len(previous_products)-len(changed_products),nextCompiledOccurrences=1251,nextCompiledMethods=443,sourcePolicyAndExternalBoundary='unresolved;finite-static-assignment-complete',completeSourceAccepted=False)
     receipt['negativeControls'].update(changedDatabaseBindingSourceRejected=True,changedDatabaseBindingOccurrenceRejected=True,unsupportedDatabaseAdmissionRejected=True,missingDatabaseBindingEvidenceRejected=True,unknownLuaSyntaxHeldWithoutAbsenceClaim=True)
+    receipt['phase144CompiledDelta']=phase144_result
+    receipt['negativeControls'].update(phase144ExactSourceRoleArgumentBodyAndOutputMembership=True,phase144WholePriorProductReconstructed=True,rawMultilineLiteralTransportVerified=True)
     receipt['writeBoundary']=dict(actualBuildWriteLoop='passed-second-write-failure-and-positive-control',planning='synthetic-products-only;real-source-generation-verified-separately',firstProductSurvives=True,laterProductsAbsentAtFailure=True,rollback=False,multiFileTransaction=False)
     (OUT/'continuation-validation.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in receipt.items() if k not in ('outputPins','preservedProducts','boundary')}))

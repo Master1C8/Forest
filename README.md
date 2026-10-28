@@ -1,3 +1,176 @@
+# Current finite database caller bindings, phase143
+
+Phase0143 completes the finite serialized/caller assignment for all1655 residual database values and3310 physical selectors, preserving all original values and five prior proved Title keys. Parent39-instance/metadata evidence closes the proposed persistent-listener search. The named Rascal Contains(show ending screen) receiver has zero matches among the934 residual Titles; no spelling/dormancy or display exclusion follows. All32793 original Lua slots per copy are accounted for:32752 empty,39 nonempty conditions and two programs, eight exact complete expressions. Their inputs use Variable/x/math, with no custom conversation-field read in this bounded scope. The complete selected original game direct API roster has five variable setters and one entry suffix lookup, with exact name inputs/argument windows; it does not bind a conversation-field or Description reader. All716 conversation custom values and five Description markers retain exact API/external/source-policy holds. Static work on this packet is exhausted absent a named new reader or source-admission decision;1655 source holds remain unaccepted. Next is the consolidated1251 compiled-role selectors across443 methods, with previous precise argument/body evidence reused. All37 generated products reproduce; source/identity/old935/all30/haiku/fast-travel preservation and prior whole compiled product pass the final continuation check. No target/font/texture, game/image/runtime, Git or publication/deployment changes; real gates remain false.
+
+The existing admission recipe now produces `dialogue-database-caller-bindings.json`, exact per-selector residual/disposition products, `phase143/lua-inputs.json`, `phase143/game-callers.json` and the complete `phase143/next-compiled-selectors.json`. `phase143/role-decisions.json` records authored judgments; deterministic checks do not provide independent semantic/editorial review. The parent serialized supplement was verified with its existing read-only verifier; no new original IL/framework traversal was needed.
+
+The custom event fields are absent, not null or invented empty listener arrays. The positive `onAdvanceMoment` tables exist in every39 controller exports. `StringPrimitiveEvent` lacks Serializable metadata; the service event is static. HideInInspector alone is not an exclusion reason. Original code/serialized bounds do not prove arbitrary external/native/reflection subscribers absent. Likewise complete database-expression/caller classification does not prove all external/dynamic scripts absent. Preserve source identities until the owning source gate accepts a concrete disposition or supplies a real additional reader/sink.
+
+Run the existing normal builder, `build_inventory.py --check` and `validate_continuation.py`. Phase143 preserves all33 prior products and five recipe/checklist/documentation/validation files by fingerprint. The entire prior compiled product remains byte-identical. Whole-expression Lua matching retains unknown syntax explicitly; missing binding evidence, source/occurrence mutation and unsupported admission must reject. Real multi-output writes remain sequential without transaction/rollback; the inherited second-write-failure control remains distinct from source generation and runtime.
+
+Parent alone owns Git/integration and request usage; worker telemetry is unavailable. No agents or nested model/CLI jobs were launched. Every parallel lane, actual preview, frozen source/glossary/target input and accepted unchanged evidence remains untouched. Next work is the consolidated1251 compiled roles, rather than another unchanged persistent-event/Lua/framework absence search.
+
+The phase142 and earlier sections below are preserved historical evidence.
+
+# Current loader source-role completion, phase142
+
+Phase0142 finishes every29 remaining loader source-role selector across15 complete producers:18 potential exception wording inputs and11 protected operands (six exception separators, two watch suffixes, two BIO normalization keys and one empty PascalCase accumulator). All64 full-producer literals retain35 earlier precise roles. Actual watch lookup/action, predecessor extraction, inventory enum parser, portrait listener/action, actor state, font callback and priority sort boundaries are source-bound; accepted BIO/resource/arc/playback evidence is reused by fingerprint. Exception ctor/throw is proved; catch/native propagation/presentation remains unknown.7325 of8576 original compiled occurrences now have exact roles;1251 remain across443 methods.185 known wording/dependency/potential operands and7152 protected operands overlap only at the original12 display comparisons.9041 additional selectors include potential/dormant/protected/symbol states and are not a visible denominator. Common source/translation entry remain false;1655 database-role and1389 Rewired alias predicates remain separate. Frozen12246 IDs/24492 occurrences, old935/all30 hashes, Adventure44,120 displayed executable/state identities, seven displayed filters, fast-travel/seven frozen IDs and haiku194-ID/27-outcome dependencies remain exact. No target/font/texture, game/image/runtime, Git or publication/deployment changes.
+
+`compiled-loader-source-context.json` binds all29 new memberships,18 exact exception assemblies and every64 producer literal. `phase142/consumer-proofs.json` pins65 full producer/consumer bodies; named original cached-assembly inspections are recorded in `il-selections.json`. The unchanged complete loader producers come from phase140; accepted arc/playback inputs remain byte-identical. Existing source recipes, validator and registry are extended, with all32 previous products and prior recipes preserved by fingerprint in `phase142/baseline/`.
+
+Important original semantics: the PascalCase empty string is an accumulator after underscore Split, then its output enters InventoryItemType Enum.Parse. BIO removes every `note_` substring then every `kink_` substring, not just prefixes. Watch inference skips negated predecessors and copies finish priority plus one. Parent count follows the first parent chain without a visited set and feeds ascending Int32.CompareTo sorting; no stable-tie/global-depth claim. FONT parses exact `main`/`mouse` strings without an enum; existing main3323/fictional mouse3324 mapping stays exact. Actor arguments are not silently trimmed/case-normalized. Exception potential wording and six assembly separators remain separate.
+
+Resolve actual serialized event/script consumers of the934 retained node Title values and721 custom metadata values in dialogue-database-unresolved.json, reusing exact phase136 dispositions and unchanged producer proofs. Begin with the named empty-title-event listeners and serialized persistent bindings; retain unproved external/native readers. Keep1251 other compiled gaps/1389 Rewired bindings explicit; no accepted loader/playback/arc reread or renderer recursion.
+
+Validation commands are the existing normal builder, `build_inventory.py --check` and `validate_continuation.py`. The reproduction check verifies33 products; the continuation validator reconstructs the entire previous compiled product and passes all older checks, including source/role/context/output rejection controls. Deterministic validation is not independent semantic/editorial judgment. Synthetic second-write failure tests the real build write loop with source planning replaced; no multi-file rollback or transaction is claimed. Parent alone integrates and measures request usage; worker telemetry is unknown.
+
+The phase141 and earlier sections below are preserved historical evidence.
+
+# Current arc source-role subset, phase141
+
+Phase0141 resolves the exact25 remaining PopulateDialogueArcs operands using its complete33-literal producer:11 potential exception wording inputs and14 protected actor/field/identity/assembly operands; eight prior precise roles remain unchanged. All11 exception assemblies, nine spaces, actual field lookup, recursive same-conversation traversal and lookup/save dictionary writes are bound. Regexes permit zero digits and have no end anchor. Exception ctor/throw is proved; catch/native propagation/presentation remains unknown.7296 of8576 compiled occurrences now have exact roles;1280 remain across458 methods:29 assigned loader operands across15 methods plus1251 other compiled gaps.167 known wording/dependency/potential operands and7141 protected operands overlap only at the original12 display comparisons.9023 additional selectors include potential/dormant/protected/symbol states and are not a visible denominator. All32 products reproduce; whole prior compiled product reconstructs byte-for-byte and matching positive/negative source/role/context/output controls pass. Frozen12246 IDs/24492 occurrences, old935/all30 hashes, Adventure44,120 displayed executable/state identities, seven displayed filters, fast-travel/seven frozen IDs and haiku194-ID/27-outcome dependencies remain exact. Common source/translation entry remain false;1655 database-role and1389 Rewired alias predicates remain separate. No target/font/texture, game/image/runtime, Git or publication/deployment changes.
+
+`compiled-arc-source-context.json` binds all25 new wording/preserve/context memberships and all33 producer literal identities, including eight retained precise roles. `phase141/consumer-proofs.json` reuses nine exact original method fingerprints; only four caller argument windows are claimed for the GenerateDialogues callback. No unchanged IL was re-extracted. `phase141/baseline/` preserves all30 prior products and six recipes/documentation/validation files by fingerprint. The existing builder, validator and special-case registry are extended.
+
+Eleven thrown exception messages remain **potential wording**. Direct Unity `Debug.LogError` capture is not evidence of exception propagation/presentation. Nine exact spaces remain assembly dependencies; both `_` delimiters build distinct lookup/save identities. Original prefix regexes accept zero digits and trailing text; per-list duplicate checks precede dictionary insertion and do not prove global uniqueness or rollback. Prior PopulateDialogueArcs IL00f0 diagnostic classification remains exact with a named later role-adjudication finding, alongside the prior PlayerQuestion/Test findings. This rule is enforced by matching visibility/throw/assembly rejection controls.
+
+Resolve every exact29 remaining DialogueSystemLoader occurrence across15 methods in admission-v1/phase141/next-compiled-selectors.json using unchanged phase140/loader.il and body-files.json plus named actual watch/parser/field/trigger/callback/output consumers. Reuse arc25/playback23 and previous source contracts by fingerprint; no unchanged producer reread or different family while loader29 is open. Keep1251 other compiled residuals and all conditional visibility/precise diagnostic findings explicit. Parent integrates; no worker Git/GUI/target/font/texture changes.
+
+Both declared commands pass: normal build plus `build_inventory.py --check` reproduces32 products; `validate_continuation.py` reconstructs the entire prior compiled product, all original source identities/values/order and retained dependencies, rejects unsupported visibility and dropped exception assembly context, and replays exact regex predicates. Regex replay uses Python against the original ASCII patterns, not CLR/game execution. The build write-loop test replaces source planning with disposable synthetic products: second-write failure leaves the first file and no later files; no multi-file transaction or rollback exists. Deterministic checks are not independent semantic/editorial judgment. Usage telemetry remains parent-owned and unknown to this worker.
+
+The phase140 section below is preserved historical evidence.
+
+## Current technical continuation: phase0140
+
+Phase0140 adjudicates23 playback occurrences across10 complete DialogueService producers: three conditionally displayed Unity error operands and20 protected conversation/node/template/Lua/history operands.7271 of8576 original compiled occurrences now have exact roles;1305 remain across459 methods. The remaining assigned packet is54 loader occurrences across16 methods, plus1251 other compiled gaps. Common source/translation entry remain false;1655 database-role and1389 Rewired alias predicates are separate. No complete compiled packet, visible translation denominator or localization delivery is accepted.
+
+Evidence: `localization/source/shared-source-completion-20261028/admission-v1/` manifest/continuation-validation, `compiled-playback-source-context.json`, `compiled-source-handoff.json`, `phase140/{compiled-role-decisions.json,consumer-proofs.json,next-compiled-selectors.json,provenance.json}` and the existing acceptance checklist. Unity log capture is enabled-component/mask dependent and crosses a native delivery boundary. Three current error inputs remain wording; old diagnostic roles are unchanged. The played-dialogue prefix follows real history/report storage. Original graph selection, callback text, Lua values and dynamic identities remain separate.
+
+Validation: all30 generated products reproduce byte-for-byte. Exact prior compiled-product reconstruction, all old935/all30 packet hashes, frozen dialogue and retained dependency checks pass. The real build write loop, with source planning replaced by disposable synthetic products, preserves the first output on an injected second-write failure; matching positive control succeeds. No multi-file transaction or rollback is claimed.
+
+Next: Resolve the exact54 remaining DialogueSystemLoader occurrences across16 methods in admission-v1/phase140/next-compiled-selectors.json using complete pinned producers and actual watch/parser/field/trigger/callback/output consumers. Complete saved bodies alone are not semantic coverage. Retain1251 other compiled residuals and all earlier precise roles/dependencies. Parent integrates; no worker Git/GUI/target/font/texture changes.
+
+Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. No Git/index mutation, game/GUI/images, original-install/save access, target/font/texture edits, agents, nested model jobs or publication. Parallel lanes remain untouched. Worker request usage unknown; parent measures actual telemetry. Earlier sections below remain historical evidence.
+
+## Current technical continuation: phase0139
+
+Phase0139 finishes all110 assigned command/console occurrences across32 methods:62 wording and48 protected operands, including seven displayed filter identities.7248 of8576 original compiled occurrences now have roles;1328 remain across469 methods. Complete110 wording/preserve/context membership, all28 product reproduction and exact whole prior compiled-product reconstruction pass. Frozen12246 IDs/24492 occurrences, old935/all30 packets,12 display comparisons, Adventure44, fast-travel and haiku194-ID/27-outcome dependencies remain exact. Common source/entry remain false;1655 database roles and1389 Rewired aliases remain open. No complete compiled packet or visible denominator is accepted.
+
+Evidence: `localization/source/shared-source-completion-20261028/admission-v1/` manifest/continuation-validation, `compiled-console-source-context.json`, `compiled-source-handoff.json`, `phase139/{compiled-role-decisions.json,test-conversation-selection.json,provenance.json}` and the existing acceptance checklist. Seven original Stats typeName values remain executable filter inputs even when printed. Exact system/testconvo Title selection binds original conversation43 in both databases. Chapter Unlock input self-comparison and one prior visible-diagnostic role discrepancy remain explicit source findings.
+
+Next: Resolve the exact77 DialogueSystemLoader/DialogueService source occurrences across26 methods in admission-v1/phase139/next-compiled-selectors.json, using complete original producers and actual argument/field/output consumers. Retain the other1251 compiled residuals, all255 command/simulation roles and every prior precise decision. Then return to named database/event/script/resource or font-role gates. Parent integrates; no worker Git/GUI/target/font/texture changes.
+
+Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. No Git/index mutations, game/GUI/images, original-install/save access, target/font/texture edits, agents or nested model/CLI jobs. Parallel lanes remain untouched. Worker usage unknown; parent measures requests. Earlier sections below remain historical evidence.
+
+## Current technical continuation: phase0138
+
+Phase0138 resolves145 of the255 selected command/simulation occurrences as exact identities:103 command namespaces,38 travel/simulation scene inputs and four reset/save inputs.120 displayed identity dependencies are retained separately:103 executable suggestions and17 current-scene label producers.7138 of8576 original compiled occurrences now have roles;1438 remain across501 methods. The selected residual is110 occurrences across32 methods. All26 products reproduce; original values/order, frozen12246 IDs/24492 occurrences, old935/all30 packets,12 display comparisons, Adventure44, fast-travel and haiku194-ID/27-outcome contracts remain exact. This is a material subset, not a complete compiled/source packet. Common source/entry remain false;1655 database-role and1389 Rewired alias predicates stay open.
+
+Evidence: `localization/source/shared-source-completion-20261028/admission-v1/` manifest/continuation-validation, `compiled-source-handoff.json`, `compiled-source-role-delta.jsonl`, `compiled-display-identity-dependencies.json`, `special-cases.json` and `phase138/{compiled-role-decisions.json,provenance.json}`. Command signatures render the same namespace that completion inserts into executable input. The simulation UI copies current scene state into its label. Original parser/scene/save identities therefore remain protected independently of future display aliases. No caller's prose was excluded from these identity proofs.
+
+Next: Finish the exact110 command/console selectors across32 methods in admission-v1/phase138/next-compiled-selectors.json. Read complete saved producers and actual data/filter/field/return/output consumers; console text reaches visible entries and must not default to diagnostics. Reuse the145 exact command/scene/save identities and120 display dependencies. Then select a named finite family from the other1328 compiled residuals. Parent integrates; no worker Git/GUI/target/font/texture changes.
+
+Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. No Git/index mutations, game/GUI/image input, original-install/save access, target/font/texture changes, agents or nested model/CLI jobs. Usage is unknown in the worker; parent measures actual requests. Earlier phase sections below remain historical evidence.
+
+## Current technical continuation: phase0137
+
+Phase0137 resolves817 formerly unknown compiled roles:20 complete Adventure display operands and797 preserved argument/protocol/diagnostic identities.6993 of original8576 occurrences now have source roles;1583 remain across543 methods. Exact original values/order, all30 old935 packets, frozen12246 IDs/24492 occurrences,12 display comparisons, fast-travel dependency and haiku194-ID/27-outcome contract are unchanged. All24 products reproduce. Common source/translation entry remain false;1655 database-role values and1389 Rewired alias bindings remain separately pending.
+
+Evidence: `localization/source/shared-source-completion-20261028/admission-v1/` manifest/continuation-validation, `compiled-source-handoff.json`, `compiled-source-role-delta.jsonl`, `compiled-wording-source.jsonl`, `compiled-preserve-exactly.jsonl`, `special-cases.json` and `phase137/{compiled-role-decisions.json,provenance.json}`. The parent Adventure44 proof is integrated with exact consumers. Value/selector/consumer/accepted-role mutation controls and branch/store barriers pass. Deterministic validation and source-role judgment remain separate from independent semantic/editorial, renderer, runtime and release acceptance.
+
+Next: Resolve the exact255 command/simulation literals across74 methods in admission-v1/phase137/next-compiled-selectors.json using actual invocation/help/completion/output and producer contracts, then the remaining compiled selectors. Preserve all actual unknowns; no whole-method or spelling-based exclusions, unchanged extraction, or recursive framework audit. Parent integrates; no worker Git/GUI/target changes.
+
+Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. No Git/index mutations, game/GUI/image input, original-install/save access, target/font/texture changes, agents or nested model/CLI jobs. Usage is unknown in the worker; parent measures actual requests. Prior sections remain historical evidence.
+
+## Current technical continuation: phase0136
+
+Phase0136 records exact dispositions for all1660 prior database residual values: five Title control keys are proved;934 Title labels and721 custom metadata values remain held at named event/Lua/Field boundaries. Fast-travel argument sources are bound: four emitted destination identities plus retained DeepWoods, and compiled [pic=2]So where to? at TriggerHandlerAct3.ExecuteTrigger IL_0a01 -> ds:58:719.2400 compiled roles and1389 Rewired alias bindings remain separate. All20 products reproduce; frozen12246 IDs/24492 occurrences, old935 units/all30 packets, source values and haiku194-ID/27-outcome contract are unchanged. Common source/translation entry remain false.
+
+Evidence: `localization/source/shared-source-completion-20261028/admission-v1/` manifest/continuation-validation, `dialogue-database-consumer-dispositions.json`, `fast-travel-source-dependencies.json`, `special-cases.json` and `phase136/{role-decisions.json,provenance.json}`. Matching negative controls reject changed Title identity and missing compiled greeting dependency. Deterministic checks are separate from semantic/editorial, renderer, runtime and release gates.
+
+Next: Resolve actual serialized Title-event listener bindings and exact caller-supplied custom-field/Lua inputs for the enumerated1655 residual values. Reuse the proved five keys and complete fast-travel argument joins. Stop at actual external/runtime-only predicates when static evidence is exhausted; no recursive framework absence audit. Keep2400 compiled-role and1389 alias scopes separate. Parent integrates; no worker Git/GUI/target changes.
+
+Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. No original install/save access, game/GUI/image input, target/font/texture changes, agents or nested model jobs, Git/index mutations, publication or deployment. Parallel lanes and actual preview were preserved. Usage is unavailable to worker; parent owns telemetry. Earlier sections below are historical evidence.
+
+## Historical technical continuation: phase0135
+
+Phase0135 integrates1059 exact comparison-argument decisions (2401 compiled roles remain), complete12246-ID/24492-occurrence lexical partitions (7103 protected spans+291 separators), and exact911903 exported-state union with both original database trees including empties.1660 noncandidate logical consumer gaps remain (939 Title labels+721 custom metadata);1389 potential Rewired display aliases stay pending. Eight fast-travel Title keys and greeting overwrite at ds:58:719 are source-bound with all seven dependent frozen text IDs. All30 old935 packets/source values remain unchanged; common source/translation entry stay false.
+
+Current evidence: `localization/source/shared-source-completion-20261028/admission-v1/{ADAPTER.md,manifest.json,continuation-validation.json,acceptance-checklist.json,dialogue-inline-partitions.jsonl,dialogue-database-reconciliation.json,dialogue-database-unresolved.json,fast-travel-source-dependencies.json,dialogue-database-game-consumer-selectors.json}`. All19 current products reproduce byte-for-byte; complete original noncandidate-tree hashes and source union pass. Phase134 products/recipe are preserved in `phase135/baseline/`; original parent readback and haiku evidence remain reusable by fingerprint. Deterministic source checks do not establish semantic/editorial, display alias, renderer, runtime or release acceptance.
+
+Next: Resolve the exact1660 noncandidate database consumer-role residual using69 existing calls/19 named game methods, and bind fast-travel destination/greeting argument producers. Reuse completed grammar/storage proofs. Keep2401 compiled roles and1389 Rewired alias bindings separately pending; no locale/texture/runtime/Git mutation. Parent integrates.
+
+Parent alone owns Git/index/HEAD. Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. No original install/save access, game/GUI/images, texture/font/target changes, agents/model jobs or publication/deployment. Worker usage unavailable; parent owns telemetry. The earlier continuation sections below remain historical evidence.
+
+## Current technical continuation: phase0134
+
+Phase0134 common source continuation:1782 mixed OSK/Rewired leaves partitioned by explicit typed roles;1389 potential input/resource labels retained with display-alias binding unknown. Resolved1166 compiled role gaps;3460 remain across917 methods. Bound all935 prior units (911 direct+24 exact aliases), preserving all30 packet hashes. Haiku194 source IDs/259 nodes/9 comparisons and all27 original choices now have exact dependencies; display-only replacement loses3 named endings. Common source/translation entry remain false.
+
+Current evidence: `localization/source/shared-source-completion-20261028/admission-v1/{ADAPTER.md,manifest.json,continuation-decisions.json,continuation-validation.json,acceptance-checklist.json,consumer-matrix.json,special-cases.json,old935-selector-bindings.json}` and `phase134/haiku-source-{context,dependencies}.json`. The completed parent readback/phase133 products are preserved by fingerprint in `phase134/baseline/`. All12 current products reproduce byte-for-byte; matching positive/negative source-mutation and occurrence-loss checks pass. Source-role judgments are separate from exact readback and independent editorial acceptance.
+
+Next: Finish common dialogue inline grammar/preserve spans and noncandidate DialogueDatabase reconciliation from the two existing original exports; retain3460 exact compiled roles/917 methods and1389 potential input-label alias bindings as separate pending predicates. No frozen input/locale/texture/runtime mutation; parent integrates.
+
+Parent alone owns Git/index/HEAD. No original-install/save access, game/GUI/images, texture edits, target wording, agents/nested model jobs or publication/deployment. Actual gpt-6.1-sol/high/OpenAI/ignore-user-config verified. Worker usage unavailable; parent owns telemetry. Existing process/editorial/preview/locale bindings remain preserved; the earlier continuation sections below are historical evidence.
+
+## Current technical continuation: phase0132
+
+Reconciled exact27 original DialogueArc.name states with the saved callback reverse-config/arcs/get_name/HashSet.Add path:40 instructions and40 normal-flow rows, distinct p1–p9/i1–i9/n1–n9, complete byte/span/hash preservation. All four DialogueArcCustomConfig descriptors have0 rows and the complete ledger has0 cells:0 saved edges/selected keys, live registrations unknown; no prevent_skip guard in the two saved bodies. Independent deterministic readback,31 producer plus16 readback paired controls and two12-file byte-exact normal reproductions pass. Other25 columns/3213 states and prior39 scoped states retained; all3279 source states remain in denominator, zero accepted translation IDs/exclusions/gates. Next: exact1350 Trigger text states and three600-state saved Dialogue skip-trigger relation columns (5/0/2 stored one-edge lists), bound to the existing callback DB-object dictionary/list mappings without further IL reads. Parent integrates; worker no Git/GUI/images; all parallel lanes/preview untouched. Full source/editorial/font/resource/runtime/delivery gates remain pending; usage unknown.
+
+Evidence: `localization/source/bgdatabase-dialogue-arc-skip-key-consumers-20261027/ADAPTER.md`, `verified/{roster,preserve-exactly}.jsonl`, `verified/{consumer-binding,config-reconciliation,field-bindings,value-comparisons,value-observations,other-unresolved-columns,acceptance-checklist,provenance,counts,verification}.json`, `admission-controls.json`, `readback-validation.json`, `reproduction-validation.json`.
+
+Earlier sections remain historical evidence. Their process/editorial/preview/locale bindings and all accepted unchanged receipts are preserved.
+
+## Current technical continuation: phase0131
+
+Traced exactly two saved Dialogue loader bodies: 766 instructions, 365 references and nine preserved literal arguments. All 39 original type/date text states retain exact identities/bytes; 16 legacy prefab strings are conditional runtime assignment arguments, while seven type names and 16 settings names are not directly read in these bodies. Getter-to-field, reverse-index and downstream resource/display boundaries remain unproved; zero accepted IDs/exclusions/gates. All 600 typed relations map to seven saved enum rows; all 16 type500 dialogues have one saved date settings row, nonempty prefab strings and 36 actor edges. CharlotteBookClub settings/Dialogue names differ without a name-comparison guard; three Oliver/Coyotes prefab values remain distinct cell identities. Other 26 columns/3,240 states remain explicitly unresolved. Independent deterministic readback with 34 paired controls and two normal 14-artifact byte-exact reproductions pass. Next: reconcile the 27 original DialogueArc.name states with the saved direct getter-to-arcSuffixesDisallowSkip flow and complete zero-row config metadata, without more IL reads. Parent integrates; worker no Git/GUI/images; all parallel lanes/preview independent. Source/editorial/font/resource/runtime/delivery gates unchanged; usage unknown.
+
+Evidence: `localization/source/bgdatabase-dialogue-type-date-consumers-20261027/ADAPTER.md`, `verified/{roster,preserve-exactly,supporting-cells}.jsonl`, `verified/{methods,consumer-flow,field-bindings,type-joins,date-joins,value-comparisons,other-unresolved-columns,acceptance-checklist,counts,verification}.json`, `readback-validation.json`, `reproduction-validation.json`.
+
+Earlier technical continuation sections below remain historical evidence; all unchanged process, editorial, preview and locale bindings are preserved.
+
+## Current technical continuation: phase0130
+
+Reconciled all 29 remaining BGDatabase text columns across 14 sheets: 3,279 distinct states, 3,263 stored nonempty strings, 16 absent states and 3,959 words. Exact original identities, byte spans/field hashes, complete safety-hold manifest, per-state evidence/gaps and 29-row finite acceptance checklist are delivered. All 3,279 states remain pending direct consumer review; zero roles/exclusions/translation IDs or gates accepted. Zero identity overlaps with the prior 7,813-state inventory; 1,254 equal-value states and 905 same-row value pairs retain distinct selectors without role inheritance. All 600 saved Dialogue.type relations reach seven target rows. Six greeting pairs are byte-equal; eleven store literal backslash+n versus LF; all 17 match under the hypothetical conversion, with runtime processing unproved. Separate deterministic readback, 22 paired controls and two normal 11-artifact final reproductions pass. Next: inspect only the two already-saved GenerateDialogues/loader-callback bodies for the 39 DialogueType/date-setting text states and their exact guards/lookups. Parent integrates; worker no Git/GUI/images; parallel lanes/preview independent. All source/editorial/font/resource/runtime/delivery gates unchanged; usage unknown.
+
+Evidence: `localization/source/bgdatabase-remaining-text-classification-20261027/ADAPTER.md`, `verified/{roster,preserve-exactly}.jsonl`, `verified/{columns,evidence-matrix,counts,verification,acceptance-checklist}.json`, `readback-validation.json`, `reproduction-validation.json`.
+
+All earlier technical continuation sections below are historical; the new pointer preserves their evidence and all unchanged bindings.
+
+## Current technical continuation: phase0129
+
+Reconciled all four saved Actor code candidates from two admitted existing IL exports/three exact method bodies/84 instructions. Exact assembly-hash/full-signature/offset comparison finds zero overlaps with saved142 occurrences/15 methods/217 references; provisional union146 occurrences/18 methods is not an accepted or complete source denominator. Protected everyone/unison,trigger guards/branches,and notification LF/final-space/prefix+arg.1/TMP assignment contracts preserved. Export-command and historical assembly SHA256 attribution agree;full assembly version,live producers/setter/callers/argument/grammar/rendering remain unknown. Forty-five paired controls,independent byte/line readback,and two11-file byte-exact reproductions pass. No new accepted translation IDs/exclusions/gates. Next:classify all3279 remaining BGDatabase text states across29 columns(3263 stored nonempty strings;3959 words)from complete saved values and existing game-consumer evidence. Parent integrates;worker no Git/GUI/images;parallel lanes/preview independent. All source/editorial/font/resource/runtime/delivery gates unchanged;usage unknown.
+
+Evidence: `localization/source/actor-code-candidate-reconciliation-20261027/ADAPTER.md`, `verified/{roster,methods,preserve-exactly,control-flow-and-joins,overlap-comparisons,saved-code-reference-index,provenance,counts,verification,admission-controls}.json`, `readback-validation.json`, `reproduction-validation.json`, `acceptance-checklist.json`.
+
+Earlier phase summaries below are retained historical evidence. Complete-value enumeration supersedes the historical missing-value count only;consumer/source acceptance remains open.
+
+## Current technical continuation: phase0128
+
+Admitted unchanged phase127 indexes before selection:202308 object rows,zero exact ResourceManager rows in resources.assets;no indexed map tree exists through that selector. Unique full TextAsset319/322 rows at82530/82533 match saved ledger/reference/source hashes. Reused all16 JSON nodes/12 strings verbatim without payload reparsing;resource keys/PPtr occurrences/loader/display remain unknown,null map fields are not an accepted empty map. Thirty-seven admission/identity controls;independent deterministic readback and13-file byte-exact reproduction. Missing supported-version map or exact billing/package loader source needs separate acquisition;no unchanged retry,no exclusions or source gate pass. Next concrete deliverable:four existing Actor code candidates absent from saved142-occurrence code family,using only two already exported IL files/three named methods. Parent integrates;worker no Git/GUI/images;all parallel lanes/preview independent. Source/editorial/font/resource/runtime/delivery gates unchanged;usage unknown.
+
+Evidence: `localization/source/textasset-resource-keys-20261027/ADAPTER.md`,
+`verified/{roster,target-index,supported-version,source-family-row,map-inventory,direct-edges,key-comparisons,binding-limits,counts,verification}.json`,
+`verified/{saved-fields,saved-strings}.jsonl`, `acceptance-checklist.json`, `readback-validation.json`.
+Scoped export-boundary/identity checks passed;actual resource map/keys/consumers and all full-localization gates remain pending.
+
+## Current technical continuation: phase0127
+
+Reconciled both exact direct SpriteAsset Material exports:134 field nodes,26 strings,22 complete properties;four typed same-file Shader/Texture2D PPtrs. Both _MainTex targets equal their candidate SpriteAsset spriteSheet by full asset+PathID. Exact indexed texture metadata reports19x26,format4,mip1,RGBA and equal recorded PNG hashes;no pixels read. Exported H26 constrains all8 saved318 comparisons:6 numerical Y-flip matches,invisible NewLabel still glyphY0 versus candidateY3. Only shader/texture PathIDs differ between material trees. Twenty-five matched controls,independent deterministic reconstruction and17-file byte-exact reproduction verify scoped metadata. Settings FileID4/live selection/importer convention remain unknown. Next finite source deliverable:existing ResourceManager lookup-key bindings for Billing319/package322;no shader/framework recursion. Source/editorial/font/resource/runtime/delivery gates unchanged;parent integrates;worker no Git/GUI/images;usage unknown.
+
+Evidence: `localization/source/tmp-sprite-material-bindings-20261027/ADAPTER.md`,
+`verified/{roster,resource-trees,material-properties,resource-edges,direct-target-index,atlas-comparison,texture-metadata,frame-dimension-constraints,pair-comparison,counts,verification}.json`,
+`verified/{fields,strings}.jsonl`, `acceptance-checklist.json`, `readback-validation.json`.
+Scoped material/atlas binding passed;complete source/editorial/resources/runtime/delivery remain pending.
+
+## Current technical continuation: phase0126
+
+Inventoried both exact indexed TMP_SpriteAsset trees:286 complete field nodes,16 strings,8 character and8 glyph records;16 typed PPtrs retain5 same-file targets,10 nulls and1 unknown external script. Both tables agree;only script FileID/PathID,material PathID and spriteSheet PathID differ. All four saved318 frames compared against each tree:unique name candidates,no raw rectangle matches,three per tree match hypothetical H-y-h with saved H26;invisible NewLabel differs at Y0 versus flipped Y3. Names/rectangles do not prove identity or use;resources.assets FileID4 remains unknown. Fifteen matched admission controls and independent deterministic full readback/byte-exact reproduction verify this scoped export inventory. Next finite deliverable:the two direct material exported trees,all properties/typed shader-texture edges and comparison with exact spriteSheet atlas identities. No new IL/original/pixel reads or sprite production. Prior source/font/editorial/preview/locale bindings and fictional mapping unchanged;all pending gates remain. Parent integrates;worker no Git/GUI/images. Usage unknown.
+
+Evidence: `localization/source/tmp-sprite-frame-reconciliation-20261027/ADAPTER.md`,
+`verified/{roster,resource-trees,sprite-records,resource-edges,direct-target-index,saved-318-records,frame-comparison,pair-comparison,counts,verification}.json`,
+`verified/{fields,strings}.jsonl`, `acceptance-checklist.json`, `readback-validation.json`.
+Scoped inventory/comparison passed;external identity,game selection,coordinate convention,full source/editorial/resources/runtime/delivery remain pending.
+
 ## Current October27 owner-authorized work
 
 Six preliminary complete dialogue-family semantic passes run independently for ru,
@@ -26,48 +199,553 @@ ownership receipts are preserved. Static technical continuation uses the explici
 `--git-coordinator parent` option and has no Git or live-preview interaction rights.
 Japanese and all locale assets remain independent/read-only to technical workers.
 
-## Phase0072: BioDetail overrides, relation order and keyword slots
+## Phase0094: prewrite animator and concrete TMP dirty registration
 
-All original BioDetail18x10 cells and only the25 referenced BioKeyword rows (25x4)
-now have exact typed static readback:280 states,226 stored spans and54 absent
-states.61 display-candidate states include36 absent overrides and25 nonempty
-bio_text values;219 states preserve identity, controls and resource keys.
-All73 relations bind exact Actor/Tag/BioKeyword cells.17 actors have18 details,
-matching the original critter-included actor set;22 actors have no detail.
+currentSubtitle accessors only store/load the field. CheckSubtitleAnimator can lazily
+look up a portrait Animator and schedule exact d__109 with an actor controller or
+null; its MoveNext/native scheduling and live state remain unexecuted. No portrait
+resource was read. These calls precede the conditional phase93 content write.
 
-All original nameplate/full-name overrides are absent. The shipped FullName getter
-still reads overrideNameplateName; preserve that anomaly. The single-Actor reverse
-relation cache sorts by BGEntity.Index, and generated typed copies/loader preserve
-that order. First any-active tag wins before first default/list[0]/null. Charlotte
-has rows2/15; both tags active selects row2 under frozen initial order. Actual tag
-reachability is unverified. Active-tag events clear all actors' bio caches through
-the original listener; runtime lifecycle/event delivery remains untested.
+TextMeshProUGUI itself overrides both dirty methods. Graphics registration returns
+for null/inactive/rebuilding; layout preferred width/height flags change BEFORE its
+null/active guard. Inherited IsActive reaches native Behaviour.get_isActiveAndEnabled.
+Graphic internal registration rejects during update, otherwise uses key-based
+IndexedSet.AddUnique. Layout registration checks Contains/AddUnique without that
+guard. Dirty callbacks and layout root/pool work remain conditional/unexecuted.
 
-line1/2/3 bind species/age/role keyword slots. Display uses bio_text; unlock data
-uses original keyword dbName. The critter pane requires Detail/Notes/Kinks and
-attempts the three Detail unlocks for an introduced actor before masked display.
-Keep original keys (including town_arial_taxi), portraits, nulls and reveal timing.
-No source/glossary edits, target overlays, images, game or live-preview actions ran.
+Lazy CanvasUpdateRegistry initialization subscribes PerformUpdate to the Canvas
+event; its managed add accessor resides in metadata-resolved UnityEngine.UIModule.
+Neither event subscription nor a queue entry establishes rendering. Next read the
+exact PerformUpdate body and resolve concrete TMP Rebuild before following it.
+15 selections/25 declarations (24 managed bodies/1 native declaration),72 resolved
+operands and3 declaration chains reproduce16 substantive files byte-exactly.
+19 frozen pins/7 helpers/7 process references/10 resources/150 DLLs/183 prior inputs/
+65 phase92 files/39 phase93 files verify. No original resources decoded again.
+See `localization/source/bgdatabase-20261027/bio-subtitle-invalidation/` ADAPTER,
+source-trace, metadata-readback/verification, dependency-scopes and reproducibility.
+Parent integrates; worker no Git/GUI/images,53 replay/no54/hierarchy. Parallel
+lanes/preview and all pending source/editorial/resource/runtime/delivery gates remain.
+The earlier numbered phase sections below are retained historical evidence.
 
-Verification passes19 frozen pins,7 helpers,285 prior supplement evidence hashes,
-9 original resource/DLL hashes, original TextAsset/payload,44 exact IL selections,
-16 generated BGIds and both12246-candidate source copies (24492 occurrences).
-Fresh decoding and all8 readback outputs reproduce byte-for-byte. Selected-span
-no-op bytes are exact; reinsertion, semantic acceptance and rendering are unverified.
+## Phase0093: conditional subtitle content write and TMP invalidation
 
-Next: append-only BioKeyword111x4 and bounded trigger/save/unlock consumers, reusing
-these25 exact rows and inspecting the remaining86. BioNote/BioKink, complete source/
-special scenes, final fonts/licenses/resources/runtime/delivery and existing Quest
-uncertainties stay pending. Accepted10/15/47/48 visuals and50 route remain unchanged.
-All parallel lanes and the separate Russian preview remain independent/read-only.
-Parent alone integrates; this worker made zero Git/index/branch mutations.
+Original SetContent now traces through StopTyping, accumulation prefix/fromIndex,
+SetFormattedText and conditional delayed/immediate typing. Formatting writes the
+prefix plus italic/plain text, sends its notification, then applies color. Before
+this path, currentSubtitle/animator/portrait calls can intervene; live completion
+and callbacks remain unexecuted.
 
-Evidence: `localization/source/bgdatabase-20261027/bio-detail/ADAPTER.md`,
-`source-trace.json`, `decoded.json`, `runtime-context.json`,
-`readback/verification.json`, `readback/dependency-bindings.json`,
-`readback/relations.json`, `readback/selection-scenarios.json`, `reproducibility.json`.
-Previous summary/checkpoint bytes: `localization/history/phase0071-{summary.md,checkpoint.json}`.
-Usage is unknown in worker; parent measures actual telemetry.
+UITextField.set_text independently writes each nonnull TMP and legacy component;
+its getter prefers TMP. Conditional on selected original panel3633 and unchanged
+bindings, subtitle TMP4571 inherits TMP_Text text properties (no TextMeshProUGUI
+override). The setter's equal-string guard can return; otherwise it assigns the
+string and marks geometry/layout dirty. This establishes no rendered output.
+Exact UITextField notification targets its own GameObject, unlike the separate
+legacy Text overload. Typewriter uses native component lookup plus enabled guards;
+no actual concrete effect or receiver is identified.
+
+10 selections/16 method bodies and64 direct operand resolutions reproduce exactly.
+19 frozen pins/7 helpers/7 process references/10 resources/150 DLLs/183 prior input
+files/65 phase92 files verify. No original resource was decoded again. See
+`localization/source/bgdatabase-20261027/bio-subtitle-content/` ADAPTER, source-trace,
+metadata-readback/verification, dependency-scopes, next-consumer and reproducibility.
+Next trace prewrite animator/currentSubtitle and concrete TMP dirty registration.
+Parent integrates; worker no Git/GUI/images,53 replay/no54/hierarchy. Parallel
+lanes/preview, accepted visuals/routes and source/editorial/resource/runtime/delivery
+pending gates remain unchanged. Earlier phase sections below are historical evidence.
+
+## Phase0092: subtitle selection and original TMP binding
+
+The exact stored controls constructor/getter/initialization now bind the concrete
+StandardUISubtitleControls override. Its panel selection can use forced override,
+formatted-text index, actor-ID override, then Transform/PC-NPC/cache/Bark UI routes.
+A null ShowSubtitle returns before GetPanel; do not substitute the abstract base
+implementation or its guards. Normal panel dispatch can add speaker Name/color
+before panel.ShowSubtitle; actual live selection/callback effects remain unaccepted.
+
+Original defaultNPC panel3633 (256 bytes) and its sole subtitle TMP target4571
+(640 bytes, TMPro.TextMeshProUGUI) both have whole frozen-export parity. Both
+MonoScripts resolve actual fileID1 to globalgamemanagers.assets5405/5630 with raw/
+full parity. Panel subtitleText has legacy null/TMP4571. Base panel dispatch can
+wait for closing or activate/open/focus then call virtual SetContent. That method,
+UITextField writes, fonts3323/material7/effects/native rendering remain unread.
+
+17 new metadata selections/16 bodies and all four resource output files reproduce
+byte-exactly.19 frozen pins/7 helpers/10 resources/150 DLLs/183 prior inputs verify;
+previous source/table/root/child computations retained by hashes. No renderer/source/
+editorial gate is passed. See
+`localization/source/bgdatabase-20261027/bio-subtitle-panel-selection/` ADAPTER,
+source-trace, panel/text/metadata readbacks, next-consumer and reproducibility.
+Next trace SetContent and its actual content write with only direct dependencies.
+Parent integrates; no Git/GUI/images,53 replay/no54; all parallel lanes/preview and
+accepted10/15/47/48 visuals/50 route remain unchanged. Full source/special-scene/
+semantic/diff/font/license/resource/runtime/delivery gates remain pending. Earlier
+phase sections below are historical evidence.
+
+## Phase0091: original single child dialogue UI consumer
+
+Original child RectTransform2447 points back to2454 and to GameObject737,
+VN Template Standard Dialogue UI. Its exact five components include wrapper3926,
+KeyTriggerHelper3664, narrator-layout3870 and nameplate4311. Six original objects/
+867 bytes match raw identities; five have whole frozen-export parity, native2447
+has no frozen export. All four MonoScripts resolve actual fileID1 to original
+globalgamemanagers.assets with exact raw/export parity. Ten child pointers stay unread.
+
+The complete pinned wrapper3926 chain inherits IDialogueUI through AbstractDialogueUI
+and IStandardDialogueUI through StandardDialogueUI, all in actual Auto-asmdef-FirstPass.
+This establishes a stored descendant interface consumer, not a selected live UI.
+The wrapper declares only a constructor. Base ShowSubtitle closes standard menu
+controls before forwarding through standard subtitle controls; concrete panel selection,
+initialization, native lifecycle and rendering remain unaccepted. The wrapper is not
+legacy Text/TMP; TMP-named controller references do not prove their target renderer.
+
+19 frozen pins/7 unchanged helpers/10 installed resources/150 DLLs/141 prior inputs
+verify. Seven metadata selections/three method bodies and one full UI chain reproduce.
+Two failed assumed-module selections are retained separately from successful reads.
+Next trace exact subtitle-controls dispatch/selection, then original defaultNPC panel
+(fileID0,pathID3633) and indispensable direct bindings only; its stored default and
+inventory identity do not prove selection or rendering. See
+`localization/source/bgdatabase-20261027/bio-dialogue-ui-child/` ADAPTER, source-trace,
+readback/verification, metadata-readback/verification and reproducibility. Parent
+integrates; no Git/GUI/images,53 replay/no54. Parallel lanes/preview, accepted visuals/
+routes and pending source/editorial/runtime/delivery gates are unchanged. Earlier
+phase sections below are historical evidence.
+
+## Phase0090: original direct dialogue UI binding
+
+Original GameObject744 and its six exact direct components now match the pinned
+raw identities (7 objects/470 bytes). The root and four MonoBehaviours have whole
+frozen-export parity; native RectTransform/Canvas have no frozen exports, so their
+original structures and hashes are retained separately. All four MonoScript pointers
+resolve fileID1 to globalgamemanagers.assets, with exact script/export parity.
+
+Complete pinned base/interface chains prove that none of these six types implements
+IDialogueUI or derives from legacy Text/TMP/AbstractDialogueUI. DisplaySettings holds
+a GameObject; the controller validates a cached interface, searches native children
+or a prefab clone, conditionally loads a default and can write back the selected
+GameObject. Tools.IsPrefab uses live native hierarchy/object queries; serialized
+active/enabled booleans cannot select this branch or prove an actual renderer.
+
+19 frozen pins/7 helpers/10 installed sources/150 DLLs/92 prior inputs verify;
+11 metadata selections/6 bodies reproduce. Next bounded dependency is the sole
+original child pointer RectTransform2454 -> (fileID0,pathID2447), whose actual
+GameObject/UI component is still unread. See
+`localization/source/bgdatabase-20261027/bio-dialogue-ui-binding/` ADAPTER,
+source-trace, readback-v2/verification, metadata-readback/verification and
+reproducibility. Parent integrates; no Git/GUI/images,53 replay/no54. All parallel
+lanes/preview and accepted visuals/routes stay unchanged. Source/editorial/runtime/
+delivery gates remain pending. Earlier phase sections are historical.
+
+## Phase0089: original serialized manager localization settings
+
+Original sharedassets0.assets:4608 (440 bytes) now has complete aligned-reader export
+parity. Its displaySettings.localizationSettings stores language empty,
+useSystemLanguage0 and textTable(fileID0,pathID0) null. No direct serialized table
+is referenced; no external mapping is selected. This does not exclude dynamically
+created/loaded tables, later assignments or another selected controller. Controller
+settings remain distinct from component/UI singleton/global tables and live state.
+
+19 frozen pins/7 helpers/9 installed source files/all150 Managed DLLs/70 prior inputs
+verify. Earlier metadata/source computations are retained by hashes, not rerun;
+16 actor IDs/126 registrations/114 entries remain conditional inputs. A pin-category
+preflight error was repaired before the successful resource read; attempts are retained.
+See `localization/source/bgdatabase-20261027/bio-serialized-localization/` ADAPTER,
+source-trace, readback-v2/verification and reproducibility. Next unresolved source
+consumer is manager dialogueUI(fileID0,pathID744), OverworldDialogueCanvas; its six
+component pointers need bounded original readback. No live UI selection is accepted.
+Parent integrates; no Git/GUI/images,53 replay/no54. Parallel lanes/preview and all
+accepted visuals/routes remain unchanged. No source/editorial/runtime/delivery gate
+is promoted. Earlier phase sections are historical.
+
+## Phase0088: component table binding and controller lookup
+
+LocalizeUI selects its component table, then UI singleton/global fallback. Its table
+setter stores only the component field. UI-manager table accessors redirect to the
+singleton, so a controller-local manager and its effective table need not have the
+same identity. Base Start sets started before virtual UpdateText; OnEnable does not
+set it. Field-name/store and dropdown clear/key-capture boundaries are now traced.
+
+Controller GetLocalizedText reads display-settings table directly, resolves a numeric
+Localization cache ID, and returns original input for absent table or empty result.
+It does not use the component/global lookup route. The selected numeric cache has
+no table-identity key; actual differing tables/cache values are unverified. Two exact
+metadata-identified LocalizeUI-derived classes declare no UpdateText/GetLocalizedText;
+this is scoped evidence, not exhaustive subclass discovery or live dispatch proof.
+
+10 new metadata selections/22 bodies,8 reused metadata files and all37 phase87
+readbacks verify.19 frozen pins/7 helpers/9 resources/150 DLLs/all24492 candidate
+occurrences retain exact values;16 actor IDs/126 registrations/114 entries remain
+conditional. See `localization/source/bgdatabase-20261027/bio-localize-table-bindings/`
+ADAPTER,source-trace,readback/verification and reproducibility. Next: serialized
+localizationSettings of known manager sharedassets0:4608, original resource readback
+and direct referenced table only. No source/editorial/runtime/delivery gate promoted.
+Parent integrates; no Git/GUI/images,53 replay/no54. Parallel lanes/preview and all
+accepted visuals/routes remain unchanged. Earlier phase sections are historical.
+
+## Phase0087: original global table and field-selection boundaries
+
+GlobalTextTable language forwards to the UI singleton; its own instance getter only
+returns a cached reference. Global lookup uses the UI language name, whereas
+TextTable.GetFieldText uses a separate static numeric ID. Global table assignment
+stores its own field before conditional UI update; it does not assign the UI table.
+StringField.value is resolved before a second global lookup. Actual table identity,
+contents, language, lifecycle, native calls and reentrancy remain unaccepted.
+
+Unknown nonnull languages and missing field names each map to0 in separate maps.
+A missing field name can therefore select an existing field0; actual field0 presence
+is unverified. Requested nonempty text returns before the fallback flag; otherwise
+language0/field-label fallback and literal backslash-n conversion follow the selected
+original overload. TextTable's static blank flag differs from Localization's flag.
+
+12 metadata selections/44 bodies and all35 phase86 readback files reproduce exactly.
+19 frozen pins/7 helpers/9 resources/150 DLLs/all24492 source values remain unchanged.
+Exact16 actor IDs/126 registrations/114 entries retain conditional identity inputs.
+See `localization/source/bgdatabase-20261027/bio-language-table/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Next: original controller InitializeLocalization/GetLocalizedText and LocalizeUI table
+accessor/initialization. No source/editorial/runtime/delivery gate promoted. Parent
+integrates; no Git/GUI/images,53 replay/no54. Parallel lanes/preview, accepted10/15/47/
+48 visuals/50 route, all pending source/special-scene/semantic/diff/resource/font/
+license/runtime/delivery work and spawn/other3 intros/notebook/Bucky are unchanged.
+Earlier phase sections are historical evidence.
+
+## Phase0086: original language setter and callback boundaries
+
+UI currentLanguage/textTable resolve the global singleton rather than their receiver.
+The language setter updates UI synchronously, without an unchanged-value guard.
+Controller SetLanguage updates UI before settings.language and Localization.language;
+the latter stores language/invalidates ID before conditionally updating UI again.
+Virtual LocalizeUI calls, singleton/native lifecycle, prefs and reentrancy leave actual
+final language unaccepted. Awake may load a private prefs field; UI Start yields
+end-of-frame before update. Language changes do not reset the fallback flag.
+
+19 successful metadata selections/25 bodies and all32 phase85 readbacks reproduce.
+19 frozen pins/7 helpers/9 resources/150 DLLs/all24492 source values remain unchanged.
+Four direct initializationComplete subscription searches have zero scoped matches;
+no runtime-empty-event claim. Four fallback-setter searches identify only the plugin's
+uppercase alias, without an all-write absence claim. Exact16 actors/126 registrations/
+114 entries retain conditional identity inputs, not current Lua/displayed names.
+
+See `localization/source/bgdatabase-20261027/bio-language-initialization/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Next: actual GlobalTextTable language/table forwarding and bounded TextTable language/
+field lookup. Actual callbacks/lifecycle/DB/Lua/metatables/language/save/rendering/BIO/
+reachability, complete source/special-scene, universal editorial, final resources/
+fonts/licenses/package/runtime/delivery stay pending. Parent integrates; no Git/GUI/
+images,53 replay/no54. Parallel lanes/preview, accepted10/15/47/48 visuals/50 route and
+spawn/other3 intros/notebook/Bucky unchanged. Earlier phase sections are historical.
+
+## Phase0085: original database initialization and reset boundaries
+
+Default database assignment only stores a reference; reading masterDatabase can
+lazily populate Actor Lua entries. Controller initialization always creates a new
+manager and conditionally Add or Reset(KeepAllLoaded), before localization setup.
+Raw actor Name/cache controls first-wins merge; IDs and converted Lua keys differ.
+Clear resets asset lists/caches but preserves master globalUserScript/emphasis;
+accumulated scripts can execute again after later Add. The two selected original
+source copies have empty own scripts; actual accumulated state is unaccepted.
+
+15 successful metadata selections/29 bodies reproduce byte-for-byte, as do all29
+phase84 readback files.19 frozen pins/7 helpers/9 resources/150 DLLs/all24492 source
+values remain unchanged.6 narrow setter searches in3 named DLLs have zero matches,
+without an all-write absence claim. Exact16 identity/conditional name inputs remain
+bound in both copies; no live or rendered name acceptance or authored overlay.
+
+See `localization/source/bgdatabase-20261027/bio-lua-initialization/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Next: actual UI currentLanguage setter/callbacks and identified direct controller
+initializationComplete subscribers. Actual controller/DB/lifecycle/Lua/metatable/
+language/save/mutation/callback/delivery/rendering and complete source/special-scene,
+universal editorial, final resources/fonts/licenses/package/delivery remain pending.
+Parent integrates; no Git/GUI/images,53 replay/no54. Parallel lanes/live preview,
+accepted10/15/47/48 visuals/50 route and spawn/other3 intros/notebook/Bucky unchanged.
+
+## Phase0084: original participant Lua name lookup and initialization
+
+Exact original Actor-field lookup, language suffix/fallback, key conversion and
+initialization are pinned by27 successful metadata selections/53 method bodies.
+All25 phase83 readbacks reproduce;19 frozen pins/7 helpers/9 installed resources/
+150 DLLs/all24492 source values remain unchanged.28 supplied controls pass.
+One failed type-list selection is retained and not retried. Raw-byte capture now
+preserves the real CR/LF string literals; the correction and regression are recorded.
+
+Only the16 phase83 participant identities are selected in both copies. Each has
+one Text0 Name and no Display Name/localized-name fields. Under explicit unchanged
+post-population conditions,64 supplied language/flag combinations per copy return
+the original plugin Name. This is not a current Lua or displayed-name result.
+BGDatabase dbName/nameplate_name and spans remain distinct from plugin identity,
+Lua keys/values, localized Display Name and CharacterInfo.Name. Table-level fallback
+rejects missing/nil/empty, while the display consumer separately rejects exact `nil`.
+A component's Lua Name value becomes another actor-key lookup. ParseCode and full
+Parse have different scopes; no dynamic expression or original code was executed.
+
+See `localization/source/bgdatabase-20261027/bio-participant-lua/ADAPTER.md`,
+`source-trace.json`, `readback/target-lua-inputs.json`, `readback/verification.json`
+and `reproducibility.json`. Next: original default setter/master merge/controller
+initialization and narrowly identified name writes. Actual Lua/language/reset/loading,
+metatables, cache/override/Transform/scene/mutation/delivery/rendering/BIO/reachability,
+complete source/special-scene/runtime manifest, save/restore, universal editorial,
+final fonts/licenses/resources and delivery remain unaccepted. Parent integrates;
+no Git/GUI/images, source/target edits,53 replay or54. All parallel lanes/live preview,
+accepted10/15/47/48 visuals/50 route and spawn/other3 intros/notebook/Bucky stay intact.
+
+## Phase0083: exact target participant construction and identity
+
+All126 BIO registrations/114 unique target entries derive exactly16 participant
+IDs in both frozen copies; every original Conversant is1. Only that set is mapped
+to existing Actor-row/plugin identities.116 speakers match the original conversation
+conversant role;10 match neither role, under the explicit no-override assumption.
+These are source roles, not selected live participants or Transform objects.
+
+GetCharacterInfo caches by requested ID but a DialogueActor override can change
+resulting CharacterInfo.id/name; CharacterType still uses requested ID. A cache
+hit keeps prior info despite a changed input transform. Component search is self,
+children, then parent. Registry lookup and constructor-only name search differ:
+when the constructor changes this.transform, the following component lookup still
+uses its original argument. Plain-name FindSpecifier(name,true) tries registry and
+GameObject.Find; no plain-name hard/resource fallback follows a miss. Manager
+fallback supplies the scene-event GameObject argument, not participant identity.
+
+19 frozen pins/7 helpers/9 installed resources/all24492 source occurrences pass.
+20 phase82 readbacks match exactly;36 new metadata selections/40 bodies and17
+supplied transcription controls pass.126 prior files/161 additional pins stay exact.
+See `localization/source/bgdatabase-20261027/bio-participant-resolution/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Actual cache/override/registry, language/Lua/portraits, participant/manager/scene
+selection, callbacks/mutations/delivery/rendering/BIO/reachability remain unaccepted.
+Next: exact original Lua actor Name/localized-field initialization and lookup for
+these16 participants, including fallback/null/nil/ParseCode. Parent integrates;
+no Git/GUI/images, source/target edits,53 replay or54. All parallel lanes/Russian
+preview, accepted10/15/47/48 visuals/50 route and all unmet final gates stay intact.
+
+## Phase0082: exact prepare receiver and target scene lookup
+
+The original prepare sender is DialogueManager.instance with DontRequireReceiver;
+its receiver depends on cached FindObjectOfType, not the serialized object name.
+An exact method-name scan of all150 pinned original DLLs finds one prepare handler:
+ConversationLogger reads currentDialogueText and logs. DialogueSystemEvents has no
+prepare handler; the failed selection is retained, not retried. Native SendMessage,
+actual object selection and callback success remain unaccepted.
+
+Exact sceneEventGuid reads EventGuid; absent returns null, distinct from empty.
+All126 registrations/114 unique target entries lack EventGuid in both frozen copies.
+Scene lookup does not reject null/empty GUIDs before first exact matching event;
+null could match a supplied null-guid event. Empty persistent entry onExecute alone
+cannot remove this independent mutation path. Direct original readback binds the
+serialized controller4608 to sharedassets0 GameObject1297 and its six components,
+with six distinct export trees checked. This is a candidate, not a live selection.
+
+19 pins/7 helpers/9 original resources/all24492 source occurrences and52 phase81
+file hashes pass;15 phase81 readbacks match.150 DLLs/153 additional pins,31 successful
+metadata selections/24 method bodies, one retained failure and12 supplied Python
+controls bind this scoped result. See
+`localization/source/bgdatabase-20261027/bio-prepare-bindings/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Next: exact original target actor/conversant CharacterInfo and transform resolution
+before scene argument selection. Actual manager/scene/participants/mutations,
+Subtitle delivery/rendering/BIO/reachability and all full localization gates remain
+open. Parent integrates; no Git/GUI/images,53 replay or54. All parallel lanes,
+Russian preview and accepted10/15/47/48 visuals/50 route remain unchanged.
+
+## Phase0081: original Subtitle emphasis and constructor
+
+Both emphasis helpers bypass settings-dependent work for all126 target and1103
+arc-first inputs: none contains exact `[em`. The constructor preserves their text.
+Conditional formatted strings remain120/6 and595/508 nonempty/empty respectively,
+with noSubtitle false. Every empty row already has `None()`; supplied initial-state
+scenarios change no scoped sequence. Cached arc-first rows do not establish actual
+firstState selection, and callbacks/language/live manager availability remain open.
+Target517:969 retains literal `<pause>`; bracket prose131:153 and540:232 stays exact.
+
+Original extraction keeps one whole-text emphasis record from the last valid marker,
+including closing tags; it does not pair spans. Rich mode emits bold/italic/color,
+ignores underline and replaces an index only when its opening token is present.
+This can differ on tag-only emptiness; none of the scoped originals takes that path.
+
+19 frozen pins/7 helpers/9 installed resources and all24492 source occurrences pass.
+50 phase80 hashes and the prior evidence chain remain exact;10 prior readbacks match.
+9 new metadata selections/33 bodies and21 synthetic controls pass. Two complete runs
+exit0 and all15 output files reproduce exactly (5 new +10 prior, including5 phase79).
+See `localization/source/bgdatabase-20261027/bio-subtitle-emphasis/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Next: exact prepare receiver and target sceneEventGuid/serialized mutation binding.
+Actual inputs/callback success/rendering/selection/reachability, complete source/
+special-scene/editorial/resources/runtime/delivery remain pending. Parent integrates;
+no Git/GUI/images, frozen input/target edits,53 replay or54. All parallel lanes,
+Russian preview and accepted10/15/47/48 visuals/50 route remain unchanged.
+
+## Phase0080: original Subtitle formatting prefix
+
+Original FormattedText helpers/evaluators now bind126 BIO registrations and1103
+arc-first inputs in both frozen copies. No scoped raw input contains Lua/var/prompt/
+autocase, pipe or noSubtitle/control flags.119 target and322 arc picture tags have
+numeric indices; stripping them preserves120/6 and595/508 nonempty/empty prefix
+strings respectively. Two bracketed prose strings remain exact. These are conditional
+pre-emphasis values, not actual formatted Subtitle or display/reachability proof.
+
+Original prompt/Lua regexes are greedy within a line; reverse helpers cap100 scans.
+Prompt extraction precedes variable substitution. Exact flags remove all matches
+without trimming; noSubtitle and emptiness are independent. Caught Lua/variable
+failures return empty; runtime values and culture remain unknown. The original
+one-character lower-case helper calls ToUpper; no original code was changed.
+
+19 pins/7 helpers/all prior hashes including80 phase79 files/9 installed resources
+and all24492 source occurrences pass.5 freshly reproduced phase79 readbacks match.
+17 new metadata selections/22 bodies and26 synthetic controls bind the scoped prefix.
+See `localization/source/bgdatabase-20261027/bio-subtitle-formatting/ADAPTER.md`,
+`source-trace.json`, `readback/verification.json` and `reproducibility.json`.
+Next: narrow original emphasis helpers/constructor and exact owning serialized settings,
+then target prepare/scene mutation only as needed. Complete source/special-scene,
+actual callbacks/rendering, save/UI/editorial/resources/delivery remain pending.
+Parent integrates; no Git/GUI/images, frozen input/target edits,53 replay or54.
+All parallel lanes, Russian preview and accepted10/15/47/48 visuals/50 route unchanged.
+
+## Phase0079: original Subtitle construction and callback inputs
+
+Original current text/sequence selectors, Subtitle construction and local callback
+order now bind126 BIO registrations and1103 arc-first records in both frozen copies.
+The targets select120 Dialogue Text/6 Menu Text values;120 sequences are empty and6
+are None(). All are nongroup with positive actors. Prepare messages, Lua/script and
+scene events precede text/sequence construction; formatting and actual inputs remain
+unaccepted. The constructor can append TextInput; default-initial blank text/sequence
+can become None(), while a first group with sequence exactly empty can become Continue().
+
+OnConversationLine broadcasts before visibility checks, UI.ShowSubtitle and late
+sequence defaults/preprocessing. FinishSubtitle uses stored _subtitle only as its
+nonnull gate but sends lastSubtitle, so a later hidden line can retain that gate
+from an earlier shown line. Actual receiver identity, lifecycle/listener order,
+mutations, callback success, actor resolution and story reachability remain pending.
+Raw source text, formatted text, emitted events and rendered/selected lines stay
+separate. Parent alone integrates; all parallel lanes and preview remain untouched.
+
+19 frozen pins/7 helpers/all older hashes plus73 phase78 files/9 installed resources
+pass. All24492 source values match again;7 freshly regenerated phase78 outputs match.
+44 new selections/56 original IL bodies and24 synthetic transcription controls pass;
+5 final outputs reproduce byte-for-byte. No game assembly execution, images, GUI,
+Git mutation, target/glossary/frozen-source edit or new display candidate.
+
+Evidence: `localization/source/bgdatabase-20261027/bio-subtitle-inputs/ADAPTER.md`,
+`source-trace.json`, `readback-v2/target-inputs.json`, `readback-v2/verification.json`,
+`execution-recipe.json`, `reproducibility.json`. Next: narrow original FormattedText
+helpers and mutable prepare/scene input boundary. All complete-source/special-scene,
+save/UI/editorial/resources/runtime/delivery gates retain their pending scope;
+accepted10/15/47/48 visuals and50 route unchanged;53 consumed/no54.
+
+## Phase0078: implicit and dynamic line-end inputs
+
+Original line-begin handling may emit a line-end/BIO check before actor handling
+while its spoken-line latch remains false. The actual Subtitle sequence, manifest
+actor resolution and previous actor ID govern this path. Initialize resets the
+latch; callbacks and actual subtitle construction remain unaccepted. Sequence
+suppression differs between triggering and actor handling (none vs none/delay/continue).
+
+Dynamic construction can preplay an original first node before question actor/link
+processing, using service CurrentDialogue/Arc rather than assigning the cached arc.
+The two original callers restrict positive skip to Gossip400, blank arc or exact
+generated p1 fallback, DevCommandActive false. Question-menu mode uses skip=false.
+All1103 original arcs and126 BIO targets now have exact conditional line contexts.
+Five registrations match ANY cached first-node possibility (four their own arc);
+all five have nonGossip owning types. Thus unchanged original types/objects, stable
+context and these caller rules exclude direct builder preplay satisfying those BIO
+checks. This does not accept callbacks, begin-time/normal/forced checks or reachability.
+
+Seven original type-control cells/28 bytes reencode exactly; both frozen copies
+retain12246 exact values each.19 pins/7 helpers/all prior hashes/9 resources pass;
+10 registration and4 dispatch readbacks reproduce, plus25 new IL selections/39
+bodies.17 synthetic controls replace game execution. Seven final readbacks reproduce
+byte-for-byte. No source/target/glossary edit, GUI, image, game execution or Git mutation.
+
+Evidence: `localization/source/bgdatabase-20261027/bio-line-dispatch/ADAPTER.md`,
+`source-trace.json`, `runtime-context.json`, `readback-v2/target-line-contexts.json`,
+`readback-v2/verification.json`, `execution-recipe.json`, `reproducibility.json`.
+The initial own-arc-only readback is retained as superseded; final cross-cache evidence
+is v2. Next: bounded original plugin Subtitle construction, sequence defaults/overrides,
+current text-field selection and callback dispatch. Complete source/special-scene,
+manifest/save/UI/editorial/resource/runtime/delivery gates and prior accepted visual/
+route evidence retain status. Parent integrates; parallel lanes/preview stay independent.
+
+## Phase0077: BIO normal, forced and skip dispatch
+
+Original normal dispatch now traces subtitle IDs through the line-end event,
+StoryManager and FireArcTriggers to exact arc/conversation/entry checks. It marks
+isExecuted BEFORE BIO action. Vslice guard/no-op/error does not undo that mark.
+Forced dispatch checks skip flags and arc but bypasses node/execution state and
+never marks execution. All126 original BIO registrations have false repeat/null/
+skip flags. Null customName in MarkQuestStepAsPlayed directly forces all dialogue
+triggers; MarkConversationsAsPlayed uses dbName substring matching. Skip can force
+an arc and then invoke that all-trigger completion path. Runtime applicability,
+callback success, selected state and reachability remain unaccepted.
+
+Exact missing-key lookup LogErrors and returns null. BioDetail rejects null;
+Notes/Kinks compare members before dbName access. Under original nonnull lists,
+15 missing legacy keys/16 registrations unlock nothing; runtime-mutated null lists
+are not certified safe.109 registrations have potential category membership;1
+remains Augustus/sizeplay with no original slot.3 outside-registry controls remain
+retained. No remapping, display candidates, authored translation or source edits.
+
+Verification:19 pins/7 helpers, all285 older+63 Detail+50 Keyword+41 Note-Kink+72
+Registration hashes,9 original resources,10 freshly reproduced prior readbacks,
+24492 original values and27 prior/41-body plus29 new/29-body IL selections.
+30 synthetic controls exercise only the transcription. New readbacks reproduce
+under pinned code; no game assembly execution, images, GUI or Git mutations.
+
+Evidence: `localization/source/bgdatabase-20261027/bio-trigger-dispatch/ADAPTER.md`,
+`source-trace.json`, `runtime-context.json`, `readback/dispatch-targets.json`,
+`readback/verification.json`, `execution-recipe.json` and `reproducibility.json`.
+Previous guides are archived byte-exact in the supplement. Next bounded source
+trace: HandleDialogueLineTriggering/BuildDynamicConversation normal-event callers,
+preserving original IDs and separating implicit/preplayed dispatch from displayed
+lines. Full source/special scenes, manifest/save/UI/editorial/resource/runtime/
+delivery gates and prior accepted visual/route evidence retain their status.
+Parent integrates; parallel lanes/preview remain independent. Worker usage unknown.
+
+## Phase0076: BIO registry, primary actors and arc registration
+
+Original Dialogue600x7 selected fields now have exact static readback:4200 protected
+states,3601 stored spans/599 absent,1201 exact Actor/DialogueType relations and8
+matching generated BGIds. No new visible units or authored target text. Original
+GenerateDialogues enumerates all registry rows without a predicate and assigns
+primaryActor from its Actor BGId relation; conversation speakers are not authority.
+Both frozen627-conversation copies match all600 exact registry titles;27 conversations
+remain outside this registry and are retained in the source inventory.
+
+Ordered PRIMARY/SECONDARY/IDLE/NAMED roots and original local-only visited DFS yield
+1103 static arcs/10781 entry memberships in each copy. NAMED uses holder then first
+outgoing destination. Conditions/scripts/link priorities are not evaluated by this
+population routine. Suffix whitespace is preserved, including the original i2 newline.
+All126 BIO first-predecessor parent chains resolve; counts are not shortest paths.
+Registry/graph/registration compatibility is separate from successful manifest
+construction, runtime database selection, dialogue selection and story execution.
+
+Of128 original BIO controls,125 are statically eligible and yield126 registrations.
+108:118 belongs to two idle arcs (parent counts0/4). All15 implicit actors now resolve
+exactly: Mabel2/Bucky5/Scarlett2/Charlotte3/Maverick3. All15 legacy keys remain absent;
+registration precedes optional keyword metadata lookup. Conversation458's3 temporary
+fast-travel BIO controls are outside the registry; no global-unused claim or candidate
+removal.299:1006 still registers Augustus/sizeplay at named n1 entry485 despite no
+current category slot. Preserve every source anomaly; no remapping or source repair.
+
+Verification:19 pins,7 helpers,285 older+63 Detail+50 Keyword+41 Note/Kink hashes,
+9 original resources/DLLs,27 fresh IL selections/41 method bodies plus92 prior
+selections,11+8+8 prior readbacks and24492 exact source values. Selected-span no-op
+preserves all506640 original bytes. Final fresh decoder/full readback reproducibility
+is recorded in the linked receipt. Static graph controls replace game execution;
+reinsertion/runtime/visual/editorial/story acceptance remains unrun or pending.
+
+Evidence: `localization/source/bgdatabase-20261027/bio-dialogue-registration/ADAPTER.md`,
+`source-trace.json`, `decoded.json`, `runtime-context.json`, `readback/verification.json`,
+`readback/registry-bindings.json`, `readback/arc-membership.json`,
+`readback/bio-registration.json`, `readback/implicit-actors.json` and `reproducibility.json`.
+The byte-exact previous README/CHECKPOINT are archived in that supplement as
+`previous-summary.md` and `previous-checkpoint.json`.
+
+Next: bounded static normal/forced arc-trigger dispatch/callers and exact lookups/
+Vslice guard for the126 targets. Full source/special scenes, save lifecycle,
+notification/rendering, semantic/independent diff/delta, final fonts/licenses/resources/
+runtime/delivery and Quest uncertainties remain pending. Accepted10/15/47/48 visuals
+and50 route unchanged; initial spawn/other3 intros/notebook/Bucky still open. No53
+replay/no54. Parent integrates; all asset/editorial lanes and separate Russian preview
+stay untouched. Usage unknown in worker; parent measures telemetry. Zero Git mutations.
 
 ## Prior runtime: phase0050 original158 completion and unselected response pair
 
@@ -551,7 +1229,7 @@ remain explicit pending work rather than invented successful gates.
 | --- | --- | --- |
 | `scope` | `CHECKPOINT.json` | Exact 0.45 source, `ru`, standard localization and canonical checkout. |
 | `probe` | `.venv-assets314/bin/python tools/build_renderer_probe.py --output localization/probes/<new-run>` | Five bounded no-op/readback checks, then real synthetic Cyrillic rendering and normal-button progression on each required text path. |
-| `source` | Existing extractor/validator; `tools/prepare_dialogue_source.py`; BGDatabase supplements through `actor-identity/verify_actor.py`; `special-scenes.json` | Shared complete visible inventory, consumer classification and preserve-exactly manifest; semantic handoff pending. |
+| `source` | Existing extractor/validator; `tools/prepare_dialogue_source.py`; BGDatabase supplements through `bio-line-dispatch/verify_lines.py`; `special-scenes.json` | Shared complete visible inventory, consumer classification and preserve-exactly manifest; semantic handoff pending. |
 | `glossary` | `localization/glossary/{en,ru}.json` | Accepted source and Russian layers, 171 IDs, canonical hashes and two review layers. |
 | `translate-edit` | Pending source and probe gates | Direct model translation with immediate editing; every discovered special-scene group settled first. |
 | `editorial` | Universal protocol pinned in checkpoint | One complete semantic audit, reproducible closures, independent diff/delta review and final structural gate. |
@@ -737,3 +1415,19 @@ Accepted171-entry glossary snapshots are under localization/glossary/. Real cove
 is in outputs/locale-assets-20261026/<locale>/progress.json, separate from full-game
 source, renderer, editorial and release acceptance. Technical workers own Git and
 exclude ALL localization/*-assets/ and locale job directories from mutation/staging.
+
+
+## Phase0095: scheduled Canvas rebuild and concrete TMP pre-render
+
+Static evidence: `localization/source/bgdatabase-20261027/bio-canvas-rebuild/ADAPTER.md` and `source-trace.json`. Ten exact selections/16 declarations (14 managed bodies,2 native),67 selected operands,8 concrete chains and2 exception handlers reproduce16 substantive outputs. Registry layout0–2/graphics3–4 dispatch, conditional cleanup and exact TMP Rebuild/OnPreRenderCanvas/UpdateMaterial are bounded. Dirty flags clear before generation; neither flags nor queue completion proves rendering. Native CanvasRenderer material calls pinned; no original resource decoding/game/GUI/images/Git mutation. Name-only SetMaterial incidental Texture overload retained separately and excluded by exact signature regression.
+
+19 frozen pins/7 helpers/7 process references/10 installed files/150 original DLLs/183 inherited inputs/65 phase92/39 phase93/53 phase94 files retain hash parity. Next: exact TMP_Text.ParseInputText/inputSource3 and bounded managed conversion/preprocessing; no full generator/resource/hierarchy read. Prior79–94 limits and complete source/special-scene/editorial/font/resource/runtime/delivery gates remain pending. Accepted10/15/47/48 visuals/50 route unchanged. Parent alone integrates; all asset/editorial/Japanese lanes and actual Russian preview remain independently authorized/read-only. Worker usage unavailable; parent measures.
+
+
+## Phase0144: consolidated compiled-role progress
+
+Phase0144 examines the complete1251-selector assignment and resolves682 exact typed roles:4 direct display inputs,17 potential key-caption/notification/nameplate operands and661 protected state/resource/schema operands.569 original roles remain across284 methods. All443 complete producer bodies and47 named receivers are source-bound;24 actual LF/CR/quote/backslash transport cases have exact raw-span validation. Capture is not semantic coverage. Original8576 identities/values/order and prior7325 precise roles are preserved, with full prior-product reconstruction required. Database1655 source-policy/external holds, Rewired1389 alias predicates, frozen dialogue, old935/all30/haiku/fast-travel dependencies and real source/editorial/renderer/runtime/delivery gates remain separate and unaccepted.
+
+Evidence: `localization/source/shared-source-completion-20261028/admission-v1/compiled-remaining-source-context.json`, `phase144/compiled-role-decisions.json`, `phase144/next-compiled-selectors.json` and `continuation-validation.json`. The normal builder, reproduction check and full continuation validator bind the final artifacts; deterministic checks are separate from semantic/editorial acceptance. Exact previous whole-product reconstruction, typed branch/store barriers, output memberships and actual raw multiline literal spans are required. Parent integrates; no worker Git, target/font/texture, game/GUI/image, original-install/save or publication/deployment actions. Usage remains parent-owned and unavailable to worker.
+
+Finish all569 remaining compiled-role selectors across284 methods in phase144/next-compiled-selectors.json. Reuse the full443-producer snapshot and47 exact receiver bodies; capture alone is not semantic coverage. First unresolved producer is SoftSpriteMaskStrengthOnCollision2D.AnimateTo message assembly through Object.name/Concat/Debug.LogError. Complete the whole remaining source-role scope, keeping diagnostic/exception presentation separate. Do not repeat extraction, closed database1655 static searches or generic framework tracing. Preserve Rewired1389 and all real source/editorial/renderer/runtime gates.
