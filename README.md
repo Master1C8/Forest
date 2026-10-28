@@ -1,3 +1,22 @@
+# Current Russian completion, October29
+
+The complete935-ID Russian UI packet passed a full semantic audit and a distinct
+full independent review after32 corrections. Accepted, version-bound loaders
+retain the historical935/all30 inputs and apply the final targets to future
+builds. The chapter/gallery preparation case now has shared134-occurrence source
+coverage, accepted Russian wording and a successful full static rebuild:113 BG
+values,18 initial TMP fields and3 managed operands. Candidate01 preserves all1385
+original texture objects; the combined accepted935/134 full build02 also completed.
+
+The finite chapter/gallery probe compiled in both new and existing modes and
+passed9 static checks. Parent integration and independent combined saved-byte
+readback precede its isolated runtime/geometry/capture checks. No actual new
+screen, inactive AdventureName reachability, whole-locale special-case/font/source,
+dialogue/progression, final installer/platform or release gate is accepted here.
+See the current CHECKPOINT additions and the two20261029 supplemental packet folders.
+
+Earlier sections below are retained historical evidence.
+
 ## Russian localization: current runtime checkpoint, 2026-10-29
 
 [Current evidence and remaining acceptance checks](localization/fonts/russian-runtime-20261028/CURRENT.md) retain the accepted menu, item-notification and Quest fixtures. The new52-unit inventory wording and separate2-unit glitch supplement are independently accepted. Candidate17/run09 passes48 loaded descriptions,52 original consumer argument fixtures, all611 possible glitch-fragment size probes and complete six-frame visual review, including bare-CR and non-CR controls. The [scoped renderer acceptance](localization/visual-qa/ru-inventory-20261028-09/final-acceptance.json) records exact versions and preserved failed attempts. Actual input/ownership/405 in-story behavior remains separate.

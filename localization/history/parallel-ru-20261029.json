@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "status": "parallel-russian-completion-in-progress",
+  "canonicalCommit": "f622f1d973688d5a5c2b2cf82b381e81c491d535",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "streams": [
+    {
+      "task": "chapter/gallery134 source, wording and static application",
+      "status": "complete-bounded-static-scope",
+      "acceptance": "localization/supplemental-ui/20261029-chapter-gallery-case/ru.acceptance.json",
+      "application": "localization/supplemental-ui/20261029-chapter-gallery-case/application-static-acceptance.json"
+    },
+    {
+      "task": "existing935 semantic correction",
+      "status": "full935 initial+independent complete;32 repairs accepted and applied",
+      "owningJob": "outputs/ru-ui935-review-20261029/independent-01/job.json",
+      "proposedTarget": "localization/supplemental-ui/20261029-existing935/ru.edited.jsonl",
+      "targetEditorialAccepted": true
+    },
+    {
+      "task": "chapter/gallery runtime harness",
+      "status": "compile/static worker complete; parent integrated candidate;existing runtime run01 active",
+      "owningJob": "outputs/chapter-gallery-probe-20261029/job.json",
+      "runtime": "started;not-accepted"
+    }
+  ],
+  "actualCandidate": "localization/previews/ru-20261029-chapter-gallery-03",
+  "runtime": "run01 active;native PID recorded in task-process.json",
+  "wholeGameAccepted": false,
+  "ordinaryTranslationEntryAllowed": false,
+  "nextPermittedActions": [
+    "Review finite probe handoff and actual compilation/guards before isolated runtime.",
+    "Collect complete935 independent findings before any next consolidated repair/delta; keep frozen old935/all30 exact.",
+    "After technical lane ends reconcile current root README/CHECKPOINT and commit completed changes only."
+  ],
+  "preservation": "Original game/saves and all serialized textures unchanged; accepted inventory17/run09 evidence retained. No publication/deployment or server lifecycle action."
+}

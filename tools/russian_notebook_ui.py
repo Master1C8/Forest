@@ -19,6 +19,8 @@ def load_inputs():
   assert sha(PACKET/'source-catalog.json')==manifest['sourceCatalogSha256'];catalog=json.loads((PACKET/'source-catalog.json').read_text())
   assert sha(SOURCE)==catalog['sourcePins'][str(SOURCE.relative_to(ROOT))]
   inv=json.loads(SOURCE.read_text());records=[json.loads(x) for x in (PACKET/'ru.jsonl').read_text().splitlines()]
+  from russian_ui935 import apply_accepted
+  records=apply_accepted(records,locale='ru')
  ids={r['id'] for r in inv['rows'] if r['classification']=='display'};targets={r['id']:r for r in records if r['id'] in ids}
  assert len(targets)==len(ids)==156
  return inv,targets

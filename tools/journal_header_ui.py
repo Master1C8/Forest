@@ -21,7 +21,8 @@ def load_inputs():
  if (local/'journal-header-pins.json').exists():
   for n,h in json.loads((local/'journal-header-pins.json').read_text()).items():assert sha(local/n)==h
   return json.loads((local/'journal-header-inventory.json').read_text()),json.loads((local/'journal-header-targets.json').read_text())
- return inventory(),records('ru')
+ from russian_ui935 import apply_accepted
+ return inventory(),apply_accepted(records('ru'),locale='ru')
 def snapshot(folder):
  import shutil
  shutil.copy2(Path(__file__),folder/'journal_header_ui.py');inv,rows=load_inputs()

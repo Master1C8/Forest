@@ -12,7 +12,8 @@ def load_inputs():
   return tuple(json.loads((local/n).read_text()) for n in ['quest-family-inventory.json','quest-family-targets.json','quest-family-before.json'])
  from quest_supplement import inventory,all_records
  inv=inventory();ids={r['id'] for r in inv['sourceStates'] if r['source'] is not None}|{r['id'] for r in inv['units'] if r['family']=='quest-code'};records=[r for r in all_records('ru') if r['id'] in ids];assert len(records)==205
- return inv,records,json.loads((SOURCE/'russian-input.json').read_text())
+ from russian_ui935 import apply_accepted
+ return inv,apply_accepted(records,locale='ru'),json.loads((SOURCE/'russian-input.json').read_text())
 def snapshot(folder):
  import shutil
  code=folder/'quest-patch-source';code.mkdir()

@@ -27,6 +27,7 @@ from russian_inventory_descriptions import project_descriptions, snapshot as sna
 from russian_inventory_layout import snapshot as snapshot_inventory_layout, patch_layout as patch_inventory_layout
 from russian_inventory_glitch import snapshot as snapshot_glitch, plan as glitch_plan, patch as patch_glitch, load_inputs as load_glitch_inputs
 from russian_chapter_gallery_case import load_inputs as load_chapter_gallery, snapshot as snapshot_chapter_gallery, project_bg as project_chapter_gallery, native_plan as chapter_gallery_native_plan, patch_managed as patch_chapter_gallery
+from russian_ui935 import load_inputs as load_ui935, snapshot as snapshot_ui935
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
@@ -108,6 +109,7 @@ def main():
     if args.inventory_display_completion:
         load_description_inputs()  # Fail before creating output when editorial acceptance is absent.
         load_glitch_inputs()
+    load_ui935(locale='ru')
     chapter_plan = None
     if args.chapter_gallery_case:
         if not args.inventory_display_completion:
@@ -153,6 +155,7 @@ def main():
     shutil.copy2(Path(__file__).parent/'russian_quest_family.py',out/'russian_quest_family.py')
     snapshot_quest_family(out)
     snapshot_journal_headers(out)
+    snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
         snapshot_chapter_gallery(out, locale='ru')
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')

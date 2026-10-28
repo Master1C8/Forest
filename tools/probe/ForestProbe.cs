@@ -166,6 +166,10 @@ public sealed class ForestProbe : MonoBehaviour
         ObserveLifecycle("command-read");
         File.Delete(command);
         try {
+#if CHAPTER_GALLERY_PROBE
+            if(text.StartsWith("cg-")) ChapterGalleryCommand(text.Substring(3));
+            else
+#endif
             if(text=="dump-focus") ObserveFocus("snapshot","unknown");
             else if(text=="dump") Dump();
             else if(text=="dump-save-continuation") DumpSaveContinuation();

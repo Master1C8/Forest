@@ -19,6 +19,49 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def compile_chapter_gallery(output, managed, product=None):
+    """New immutable compile-only snapshot; no installation or process launch."""
+    output, managed = Path(output).resolve(), Path(managed).resolve()
+    assert output.is_relative_to(ROOT) and not output.exists(), 'New project-owned output required'
+    assert managed.is_dir() and (managed / 'Assembly-CSharp.dll').is_file()
+    source = (ROOT / 'tools/probe/ForestProbe.cs').read_text()
+    assert source.count('public sealed class ForestProbe : MonoBehaviour') == 1
+    source = source.replace('public sealed class ForestProbe : MonoBehaviour', 'public sealed partial class ForestProbe : MonoBehaviour')
+    if product is not None:
+        import re
+        assert re.fullmatch(r'ForestRuChapterGalleryProbe[0-9_]+', product), 'Isolated product required'
+        guard = 'Application.productName != "ForestRuRendererProbe"'
+        assert source.count(guard) == 1
+        source = source.replace(guard, 'Application.productName != "' + product + '"')
+        marker = 'Debug.Log("FOREST_PROBE_READY " + root + " SAVES " + Application.persistentDataPath);'
+        assert source.count(marker) == 1
+        source = source.replace(marker, 'File.WriteAllText(Path.Combine(root,"bridge-ready.txt"), "1\\n"+Application.companyName+"\\n"+Application.productName+"\\n"+Application.dataPath);\n        ' + marker)
+    sdk = subprocess.check_output(['dotnet', '--list-sdks'], text=True).splitlines()
+    row = next(r for r in sdk if r.startswith('8.0.131 ['))
+    compiler = Path(row.split('[', 1)[1].rstrip(']')) / '8.0.131/Roslyn/bincore/csc.dll'
+    refs = sorted(managed.glob('*.dll'))
+    assert compiler.is_file() and refs
+    payload = {'ForestProbe.cs': source.encode(),
+               'ChapterGalleryUiProbe.cs': (ROOT / 'tools/probe/ChapterGalleryUiProbe.cs').read_bytes()}
+    output.mkdir()
+    for name, raw in payload.items():
+        (output / name).write_bytes(raw)
+    argv = ['dotnet', str(compiler), '-nologo', '-target:library', '-nostdlib+',
+            '-define:CHAPTER_GALLERY_PROBE', '-out:' + str(output / 'ForestProbe.dll')]
+    argv += ['-r:' + str(p) for p in refs] + [str(output / n) for n in payload]
+    result = subprocess.run(argv, capture_output=True, text=True)
+    receipt = {'status': 'compiled-static-only' if result.returncode == 0 else 'compile-failed',
+               'argv': argv, 'exitCode': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr,
+               'compilerSha256': sha(compiler), 'references': {str(p): sha(p) for p in refs},
+               'sources': {name: sha(output / name) for name in payload}, 'product': product,
+               'runtime': 'not-run', 'releaseUse': False}
+    if result.returncode == 0:
+        receipt['bridgeSha256'] = sha(output / 'ForestProbe.dll')
+    (output / 'compile.json').write_text(json.dumps(receipt, indent=2) + '\n')
+    assert result.returncode == 0, result.stdout + result.stderr
+    return receipt
+
+
 def choice_mode_admission(run, report, mode):
     assert mode in ['original', 'synthetic'], 'Unknown tutorial choice mode'
     expected = {'159': 'Ёж Йй Щъ Ыь Эю Яя; 123 — Latin!',
@@ -42,11 +85,19 @@ def choice_mode_admission(run, report, mode):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('run', type=Path)
+    parser.add_argument('run', type=Path, nargs='?')
+    parser.add_argument('--chapter-gallery-compile-only', type=Path)
+    parser.add_argument('--managed', type=Path)
     parser.add_argument('--inventory-sample', action='store_true', help='Two synthetic empty-cell display literals only; no inventory identities/state changes')
     parser.add_argument('--startup-markers', action='store_true', help='Passive original bootstrap/menu entry logs; never a readiness or input-policy substitute')
     parser.add_argument('--tutorial-choice-mode', choices=['original', 'synthetic'], default='original')
     args = parser.parse_args()
+    if args.chapter_gallery_compile_only:
+        assert args.run is None and args.managed is not None
+        receipt = compile_chapter_gallery(args.chapter_gallery_compile_only, args.managed)
+        print(receipt['status'])
+        return
+    assert args.run is not None and args.managed is None
     run = args.run.resolve()
     assert run.parent == ROOT / 'localization/probes'
     game = run / 'game'

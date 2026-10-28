@@ -1,0 +1,83 @@
+{
+  "status": "finite-probe-handoff-complete",
+  "scope": "compile/static preparation only; parent owns integration and runtime execution",
+  "completedAt": "2026-10-28T18:47:41.553918+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "freshExecNoInheritedHistory": true,
+  "runtimeCheckSha256": "6235b5aa1cace4bbb02f473459abc62330f58297d089d13fb2ddb3c53b05a1da",
+  "code": {
+    "tools/probe/ChapterGalleryUiProbe.cs": "c30e832ec545143aa53b580925f502882fbaf1a0a1afb9f66c155fef47bcfb9a",
+    "tools/probe/capture_chapter_gallery_ui.py": "40a9aa676cb98eb8fcad330f728cc6b1c4c381d4a6cd5f77a9f1af0fb8a34a41",
+    "tools/prepare_chapter_gallery_review.py": "f320ebc8d8dfd7cffba0b6cb6c602d7029228b3411f25cef5e49596d54c07c35",
+    "tools/probe/ForestProbe.cs": "17c178c1e65e0620afa2b18d13e7c2e8cdbe6c988316a6d88205ea32b5fc550d",
+    "tools/probe/prepare_bridge.py": "e02960266fecfe9be13802af13117bd1ad15390abfc9cd54671025261da8c862"
+  },
+  "evidence": {
+    "static-checks.json": "5b3b3186c99797fe9336c235bd73c5bd40b72381561600831b39ec56957c2090",
+    "input-evidence.json": "83875c6e9cd754069677ce8238c122b791f1c8a7ae56da58c4daa1ae773ce2a5",
+    "acceptance-checklist.json": "3b4d176617d6de6cb0ee2af0baab05831ce637c16807a86306d9bd7f1d2e4216",
+    "INTEGRATION.md": "baf058a8bc090afe6953f7226fba9b89d751d0775eee6952da11f47d0649742e",
+    "compile-03/compile.json": "291b7de5ef3f22d93cef026a09da199c87abe4c350f21943bb8b3eaaafc951cd",
+    "legacy-compile-01/compile.json": "6575a581c4582729e314288c98cd041be53e9bdd732c2e07d942c7112525ec5a"
+  },
+  "frozenExecutionManifest": {
+    "path": "/Users/antonkrutov/Desktop/Forest/outputs/chapter-gallery-probe-20261029/check/frozen/pins.json",
+    "sha256": "92bcc5284bbc6be57605911fd289739d1445fac479fdf7c95bddf70d34a96a32"
+  },
+  "tests": {
+    "newBridgeCompile": "passed",
+    "existingBridgeCompile": "passed",
+    "staticRegressions": 9,
+    "pythonSyntax": "passed",
+    "genuineAcceptancePositiveGate": "passed",
+    "completeCandidatePositivePath": "pending; not fabricated"
+  },
+  "counts": {
+    "wordingOccurrences": 134,
+    "bgNonempty": 113,
+    "Movie.hint_phrase": 57,
+    "Chapter.title": 28,
+    "Chapter.description": 28,
+    "preservedAbsences": 16,
+    "nativeInitial": 18,
+    "compiled": 3,
+    "movieSelections": 11,
+    "storySelections": 48,
+    "unknownAdventureNameSelectors": 6,
+    "runtimeCases": {
+      "gallery": 3367,
+      "oos": 28,
+      "description": 28
+    },
+    "totalRuntimeCases": 3423
+  },
+  "protectedFilesByteExact": {
+    "README.md": true,
+    "CHECKPOINT.json": true,
+    "tools/russian_chapter_gallery_case.py": true
+  },
+  "runtime": "not-run",
+  "gui": "not-run",
+  "screenshots": "not-run",
+  "nestedJobs": false,
+  "gitMutations": false,
+  "rootReadmeCheckpointMutations": false,
+  "targetsAdapterBuilderFontTextureMutations": false,
+  "ordinaryTranslationEntryAllowed": false,
+  "globalPretranslationPassed": false,
+  "wholeGameAccepted": false,
+  "integrationNotes": "/Users/antonkrutov/Desktop/Forest/outputs/chapter-gallery-probe-20261029/check/INTEGRATION.md",
+  "checklist": "/Users/antonkrutov/Desktop/Forest/outputs/chapter-gallery-probe-20261029/check/acceptance-checklist.json",
+  "knownLimits": [
+    "Actual native screen and camera readiness have not run; fail closed rather than manufacturing a root",
+    "OOS wrapper is exact source literal argument fixture; BaseSpawner gameplay guards/callbacks remain untested",
+    "3423 conservative display argument fixtures do not prove actual selection eligibility",
+    "Runtime final save/settings restoration and every representative frame remain pending",
+    "Six inactive AdventureName selectors and separate Adventure.Title remain unaccepted",
+    "Preparation/finish writes are sequential; interrupted partial attempts require reconciliation, not blind replay"
+  ],
+  "usageAccounting": "Parent accounts actual session telemetry; no subagents were launched",
+  "nextAction": "Stop this finite handoff. Parent integrates frozen files and follows concrete candidate/runtime prerequisites; no automatic continuation."
+}

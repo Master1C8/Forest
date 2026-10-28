@@ -1,0 +1,62 @@
+{
+  "status": "genuine-acceptance-input-gate-passed-static-only",
+  "targetSha256": "99084af7808a78c424bd82cd36881e494a8c7cb0dced1019c837662854a6a9e5",
+  "acceptanceSha256": "000380ab785ad59bf1c489a5834844b3ec9c880868087c01e60206cd93310753",
+  "acceptedTargetPath": "/Users/antonkrutov/Desktop/Forest/localization/supplemental-ui/20261029-chapter-gallery-case/ru.edited.jsonl",
+  "sourcePins": {
+    "manifest.json": "b67d6f728f41f00406d63979dba6ee65bcdc625dd6caede724745f7f99a33287",
+    "source.jsonl": "0f4cf89d7e3f4ffb78d82fd286f46cea82c5f853259199dfee6afa73a4bdd4e7",
+    "absence.jsonl": "c6b9719f1b854be76c1993759fc98f514cd31429e5eb9d4533eb3585c32ba669",
+    "preserve-exactly.jsonl": "88f0dd1868e9b395c7bff93b32b49e89dac910643aec28bd5f882e2497427c79",
+    "producer-context.json": "0d7c14c3d860d12270b2748e2c3b4bad8e93c33666148b2fa0c617e65bfa3ecc",
+    "case-decision.json": "5746b40a6af754666026a438a7d7ccd2c053f9403e6372bf6f1303e516829250",
+    "selection-identities.jsonl": "ed63eab1550a35372e2962617b1103323f45c30459999ca2fac49fb4af39414c",
+    "initial-display-context.jsonl": "10ef9254303f5af4dfc232414fa73ecdf871ead503c9cc7999376c2e06016102"
+  },
+  "dependencyPins": {
+    "localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+    "localization/glossary/ru.json": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0",
+    "localization/glossary/inventory-display-20261028/handoff.json": "9e13887b2b05ffcf88d89339cb307b10fbe15e03c9d234ce95542edced14b6ac",
+    "localization/source/gallery-chapter-display-20261028/admission-v1/application-design.json": "07de45876859ff29f22661f4825b3959d1378e38ed65bd2599025734f5a06aab",
+    "localization/source/gallery-chapter-display-20261028/admission-v1/manifest.json": "1a5a7e3d8b6ef22d6f98220724519bc3912db12851af1a4217eda5211b357fb5"
+  },
+  "evidence": {
+    "finalDeterministic": {
+      "file": "ru.finalDeterministic.json",
+      "sha256": "9cce6caf0f011f1afacddd645d97c3330e428a3df4f49fcf0f2174ee1a6fbb88"
+    },
+    "fullSemantic": {
+      "file": "ru.fullSemantic.json",
+      "sha256": "749312053e626dfec018691b54f89b7f5c1ea49f0e9393fccdcce6d3064294a6"
+    },
+    "independentCleanDelta": {
+      "file": "ru.independentCleanDelta.json",
+      "sha256": "4ea963c889e95bed97874eb41848ab4956ede20db7b9da163129a32f5b350250"
+    }
+  },
+  "counts": {
+    "wordingOccurrences": 134,
+    "bgNonempty": 113,
+    "Movie.hint_phrase": 57,
+    "Chapter.title": 28,
+    "Chapter.description": 28,
+    "preservedAbsences": 16,
+    "nativeInitial": 18,
+    "compiled": 3,
+    "movieSelections": 11,
+    "storySelections": 48,
+    "unknownAdventureNameSelectors": 6,
+    "runtimeCases": {
+      "gallery": 3367,
+      "oos": 28,
+      "description": 28
+    },
+    "totalRuntimeCases": 3423
+  },
+  "runtime": "not-run",
+  "candidateCompleteness": "pending",
+  "draftUsedOnlyForExplicitStaticTests": true,
+  "ordinaryTranslationEntryAllowed": false,
+  "globalPretranslationPassed": false,
+  "wholeGameAccepted": false
+}

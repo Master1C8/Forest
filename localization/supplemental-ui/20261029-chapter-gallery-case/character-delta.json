@@ -1,0 +1,21 @@
+{
+  "status": "corpus-character-delta-only",
+  "targetIds": 134,
+  "baselineUnits": 13235,
+  "targetFile": "localization/supplemental-ui/20261029-chapter-gallery-case/ru.edited.jsonl",
+  "targetSha256": "99084af7808a78c424bd82cd36881e494a8c7cb0dced1019c837662854a6a9e5",
+  "uniqueTargetCodepoints": 67,
+  "additionalCodepoints": [],
+  "allTargetsNFC": true,
+  "rawCombiningMarks": [],
+  "baselinePins": {
+    "localization/ru-assets/dialogue.ru.jsonl": "462c91c948c3564225aeaf71da972c7426e5b5c068eaca7bab64e22e70e36587",
+    "localization/supplemental-ui/20261027/ru.jsonl": "198f0cd68d31db33705860be348b731e8f415416a1cc5a6b63274b907cbf8fef",
+    "localization/supplemental-ui/20261028-inventory/ru.edited.jsonl": "c55ec18779d40cca9689026280fc02c1b93e952de796c49513f0fefd227d905b",
+    "localization/supplemental-ui/20261028-glitch/ru.jsonl": "012060ccaeb599ddf9f23d2e53e824ff53c6a9061074cba0ab5dc772c1774271"
+  },
+  "predicate": "Determine whether new134 wording introduces codepoints outside the already packaged Russian corpus before exact component runtime checks.",
+  "limitations": "Character-set reuse does not prove actual role binding, renderer glyph fallback, geometry, readability or visual acceptance. No synthetic NFD requirement without a real transform/input.",
+  "runtime": "not-run",
+  "wholeGameAccepted": false
+}
