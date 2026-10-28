@@ -1,0 +1,85 @@
+{
+  "status": "finite-glossary-applicability-review-complete",
+  "reviewedIds": 8,
+  "reviewedIdList": [
+    "ds:199:180:Dialogue Text",
+    "ds:199:181:Dialogue Text",
+    "ds:199:182:Dialogue Text",
+    "ds:409:790:Dialogue Text",
+    "ds:422:754:Dialogue Text",
+    "ds:428:737:Dialogue Text",
+    "ds:569:788:Dialogue Text",
+    "ds:569:792:Dialogue Text"
+  ],
+  "completeContextRows": 169,
+  "completeGlossaryEntriesReadEach": 171,
+  "verdictCounts": {
+    "background-only-resolved": 8,
+    "needs-source-decision": 0,
+    "target-finding": 0
+  },
+  "remainingQuestions": [
+    {
+      "scope": "these-eight-IDs",
+      "question": null,
+      "state": "No unresolved linguistic/source-compatibility question remains for these eight exact source/target versions."
+    },
+    {
+      "scope": "parent-adoption",
+      "question": "Will the parent adopt this exact eight-ID proposal and append the hold resolutions while preserving original receipts and snapshot bindings?",
+      "state": "Parent-owned; no adoption or receipt mutation performed here.",
+      "nextPermittedAction": "Review decisions.jsonl and compatibility-proposal.json against their hashes."
+    }
+  ],
+  "inputEvidenceSha256": {
+    "/Users/antonkrutov/Desktop/Forest/localization/ru-assets/dialogue.ru.jsonl": "462c91c948c3564225aeaf71da972c7426e5b5c068eaca7bab64e22e70e36587",
+    "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+    "/Users/antonkrutov/Desktop/Forest/outputs/ru-completion-reconciliation-20261028/check/editorial-holds.json": "2253c6164ae61335c7649b6368ff8654ad97cf6ff7a86ced8e5f9f3921404313",
+    "/Users/antonkrutov/Desktop/Forest/assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json": "41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/historical-holds-eight.json": "1aef281d2e1ccef7dcf7c661699d60e00d5ecc00f7d6994b7ef01ba39ac4a963",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/glossary-handoff.json": "9e13887b2b05ffcf88d89339cb307b10fbe15e03c9d234ce95542edced14b6ac",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/speaker-source-context.json": "f4d6406cd78da708e228dc88f50aa06f003f0cae6de024899eb1b4afb5401857",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/glossary-en.json": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/glossary-ru.json": "2ec69b150c603c9603c1032d2dc6bdc032dc0e16201b1619b53ca5be8a176886",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/assigned-eight.jsonl": "c1ba88548ff294c36d69591c2cc6e093f115706124ba65201416d3e114b95d88",
+    "/Users/antonkrutov/Desktop/Forest/outputs/finley-applicability-20261029/check/complete-five-conversation-context.jsonl": "34b20a5e6b498aa5f84a53e554a128e1f50c4ee86021fe4012af038ead45d56b"
+  },
+  "additionalOldSnapshotSha256": {
+    "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+    "/Users/antonkrutov/Desktop/Forest/localization/glossary/ru.json": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0"
+  },
+  "artifactSha256": {
+    "runtime-check.json": "57a3568dc34605d2b0e2f1e66bd4266c92b5ab0b1d4f2cc2c0160fc011e8478c",
+    "input-verification.json": "264d684e546e5e461365a208306b010578a3bfa82cf4fde14a6d449ab9623a98",
+    "additional-evidence-pins.json": "d89807aa85262efe0afaf16d4ff3b6c4761aa61b682725f79f4cb360f41dbe9d",
+    "deterministic-validation.json": "8d909f69b518044c184e77028ea1c20c634fd1a80487e0e8fe6e64e12f19ff54",
+    "read-coverage.json": "5f0bfa1515fc163044fca0ccc7b0cd54e5cc60f4a2a77c657ca30635a6d45f9d",
+    "authored-decisions.json": "54952059ab28b7292ef782afdb3ca4095457eb587223e5fdf5ef94753e663ac8",
+    "decisions.jsonl": "30087eaa6229e4998b7267daf458343262c5d5cd4eb8b33dd6e22c3ad1fdbdff",
+    "compatibility-proposal.json": "f280e87127a47fe42418e571af78bdc7ec98df2b0b050626d03462449579286b",
+    "final-input-verification.json": "bf844ca3da2fc4032b21fa8c55366c4020f0b712795921cd555a51e6b648166f"
+  },
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "threadId": "01a183f8-b589-7260-bc72-bdf6cfe4a355",
+  "freshNoInheritedHistory": true,
+  "nestedJobs": false,
+  "wholeGameAccepted": false,
+  "sourceTargetMutations": false,
+  "sourceGloballyAccepted": false,
+  "globalEditorialAccepted": false,
+  "runtimeAccepted": false,
+  "releaseAccepted": false,
+  "gitMutations": false,
+  "rootReadmeCheckpointMutations": false,
+  "parentAdoptionPerformed": false,
+  "usageAccounting": "Parent-owned as required by the brief; no nested model/agent usage. This result does not assert zero or a complete measured request total.",
+  "completedAtUtc": "2026-10-28T19:29:47.234484+00:00",
+  "excludedAcceptanceScopes": [
+    "Whole-game source and glossary applicability",
+    "Old whole-dialogue and935 receipt rebinding",
+    "Other935 decisions or locales",
+    "Fonts, renderer, runtime, packaging and release"
+  ]
+}
