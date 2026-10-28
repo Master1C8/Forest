@@ -1,0 +1,3281 @@
+{
+  "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<GenerateDialogues>b__0(TheForestOfLove.DB.Dialogue)",
+  "instructions": [
+    {
+      "index": 0,
+      "offset": 0,
+      "opcode": "newobj",
+      "operand": "System.Void TheForestOfLove.Narrative.Dialogue::.ctor()"
+    },
+    {
+      "index": 1,
+      "offset": 5,
+      "opcode": "stloc.0",
+      "operand": null
+    },
+    {
+      "index": 2,
+      "offset": 6,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 3,
+      "offset": 7,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 4,
+      "offset": 8,
+      "opcode": "callvirt",
+      "operand": "System.String BansheeGz.BGDatabase.BGEntity::get_Name()"
+    },
+    {
+      "index": 5,
+      "offset": 13,
+      "opcode": "stfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 6,
+      "offset": 18,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 7,
+      "offset": 19,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 8,
+      "offset": 20,
+      "opcode": "stfld",
+      "operand": "TheForestOfLove.DB.Dialogue TheForestOfLove.Narrative.Dialogue::dbDialogue"
+    },
+    {
+      "index": 9,
+      "offset": 25,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 10,
+      "offset": 26,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 11,
+      "offset": 27,
+      "opcode": "callvirt",
+      "operand": "System.Int32 BansheeGz.BGDatabase.BGEntity::get_Index()"
+    },
+    {
+      "index": 12,
+      "offset": 32,
+      "opcode": "stfld",
+      "operand": "System.Int32 TheForestOfLove.Narrative.Dialogue::dbDialogueIndex"
+    },
+    {
+      "index": 13,
+      "offset": 37,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 14,
+      "offset": 38,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 15,
+      "offset": 39,
+      "opcode": "callvirt",
+      "operand": "System.String TheForestOfLove.DB.Dialogue::get_savekey()"
+    },
+    {
+      "index": 16,
+      "offset": 44,
+      "opcode": "stfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::savekey"
+    },
+    {
+      "index": 17,
+      "offset": 49,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 18,
+      "offset": 50,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 19,
+      "offset": 51,
+      "opcode": "callvirt",
+      "operand": "System.String TheForestOfLove.DB.Dialogue::get_plugin_db_name()"
+    },
+    {
+      "index": 20,
+      "offset": 56,
+      "opcode": "stfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::pluginDbName"
+    },
+    {
+      "index": 21,
+      "offset": 61,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 22,
+      "offset": 62,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 23,
+      "offset": 63,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.DialogueDatabase TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::database"
+    },
+    {
+      "index": 24,
+      "offset": 68,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 25,
+      "offset": 69,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::pluginDbName"
+    },
+    {
+      "index": 26,
+      "offset": 74,
+      "opcode": "callvirt",
+      "operand": "PixelCrushers.DialogueSystem.Conversation PixelCrushers.DialogueSystem.DialogueDatabase::GetConversation(System.String)"
+    },
+    {
+      "index": 27,
+      "offset": 79,
+      "opcode": "stfld",
+      "operand": "PixelCrushers.DialogueSystem.Conversation TheForestOfLove.Narrative.Dialogue::pluginDbConversation"
+    },
+    {
+      "index": 28,
+      "offset": 84,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 29,
+      "offset": 85,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 30,
+      "offset": 86,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.DB.DialogueType TheForestOfLove.DB.Dialogue::get_type()"
+    },
+    {
+      "index": 31,
+      "offset": 91,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.Narrative.DialogueType TheForestOfLove.DB.DialogueType::get_enum_type()"
+    },
+    {
+      "index": 32,
+      "offset": 96,
+      "opcode": "stfld",
+      "operand": "TheForestOfLove.Narrative.DialogueType TheForestOfLove.Narrative.Dialogue::dialogueType"
+    },
+    {
+      "index": 33,
+      "offset": 101,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 34,
+      "offset": 102,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 35,
+      "offset": 103,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 36,
+      "offset": 108,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Actor,TheForestOfLove.Narrative.Actor> TheForestOfLove.Narrative.DataManifest::actorsByDbActor"
+    },
+    {
+      "index": 37,
+      "offset": 113,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 38,
+      "offset": 114,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.DB.Actor TheForestOfLove.DB.Dialogue::get_primary_actor()"
+    },
+    {
+      "index": 39,
+      "offset": 119,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Actor,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+    },
+    {
+      "index": 40,
+      "offset": 124,
+      "opcode": "stfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::primaryActor"
+    },
+    {
+      "index": 41,
+      "offset": 129,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 42,
+      "offset": 130,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 43,
+      "offset": 131,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::primaryActor"
+    },
+    {
+      "index": 44,
+      "offset": 136,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Actor::dbName"
+    },
+    {
+      "index": 45,
+      "offset": 141,
+      "opcode": "stfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 46,
+      "offset": 146,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 47,
+      "offset": 147,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 48,
+      "offset": 148,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.DB.Actor TheForestOfLove.DB.Dialogue::get_initial_actor()"
+    },
+    {
+      "index": 49,
+      "offset": 153,
+      "opcode": "brtrue.s",
+      "operand": "IL_00a3: ldarg.0"
+    },
+    {
+      "index": 50,
+      "offset": 155,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 51,
+      "offset": 156,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::primaryActor"
+    },
+    {
+      "index": 52,
+      "offset": 161,
+      "opcode": "br.s",
+      "operand": "IL_00b9: stfld TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::initialActor"
+    },
+    {
+      "index": 53,
+      "offset": 163,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 54,
+      "offset": 164,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 55,
+      "offset": 169,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Actor,TheForestOfLove.Narrative.Actor> TheForestOfLove.Narrative.DataManifest::actorsByDbActor"
+    },
+    {
+      "index": 56,
+      "offset": 174,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 57,
+      "offset": 175,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.DB.Actor TheForestOfLove.DB.Dialogue::get_initial_actor()"
+    },
+    {
+      "index": 58,
+      "offset": 180,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Actor,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+    },
+    {
+      "index": 59,
+      "offset": 185,
+      "opcode": "stfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::initialActor"
+    },
+    {
+      "index": 60,
+      "offset": 190,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 61,
+      "offset": 191,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 62,
+      "offset": 192,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::initialActor"
+    },
+    {
+      "index": 63,
+      "offset": 197,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Actor::dbName"
+    },
+    {
+      "index": 64,
+      "offset": 202,
+      "opcode": "stfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::initialActorDbName"
+    },
+    {
+      "index": 65,
+      "offset": 207,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 66,
+      "offset": 208,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 67,
+      "offset": 209,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.DB.Quest TheForestOfLove.DB.Dialogue::get_quest()"
+    },
+    {
+      "index": 68,
+      "offset": 214,
+      "opcode": "brtrue.s",
+      "operand": "IL_00db: ldarg.0"
+    },
+    {
+      "index": 69,
+      "offset": 216,
+      "opcode": "ldnull",
+      "operand": null
+    },
+    {
+      "index": 70,
+      "offset": 217,
+      "opcode": "br.s",
+      "operand": "IL_00f1: stfld TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 71,
+      "offset": 219,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 72,
+      "offset": 220,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 73,
+      "offset": 225,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Quest,TheForestOfLove.Narrative.Quest> TheForestOfLove.Narrative.DataManifest::questsByDbQuest"
+    },
+    {
+      "index": 74,
+      "offset": 230,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 75,
+      "offset": 231,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.DB.Quest TheForestOfLove.DB.Dialogue::get_quest()"
+    },
+    {
+      "index": 76,
+      "offset": 236,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Quest,TheForestOfLove.Narrative.Quest>::get_Item(!0)"
+    },
+    {
+      "index": 77,
+      "offset": 241,
+      "opcode": "stfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 78,
+      "offset": 246,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 79,
+      "offset": 247,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 80,
+      "offset": 248,
+      "opcode": "callvirt",
+      "operand": "System.Int32 TheForestOfLove.DB.Dialogue::get_priority()"
+    },
+    {
+      "index": 81,
+      "offset": 253,
+      "opcode": "stfld",
+      "operand": "System.Int32 TheForestOfLove.Narrative.Dialogue::priority"
+    },
+    {
+      "index": 82,
+      "offset": 258,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 83,
+      "offset": 259,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 84,
+      "offset": 260,
+      "opcode": "callvirt",
+      "operand": "System.Boolean TheForestOfLove.DB.Dialogue::get_has_player_initiated_question()"
+    },
+    {
+      "index": 85,
+      "offset": 265,
+      "opcode": "stfld",
+      "operand": "System.Boolean TheForestOfLove.Narrative.Dialogue::hasPlayerInitiatedQuestion"
+    },
+    {
+      "index": 86,
+      "offset": 270,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 87,
+      "offset": 271,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 88,
+      "offset": 272,
+      "opcode": "callvirt",
+      "operand": "System.Boolean TheForestOfLove.DB.Dialogue::get_complete_if_skip_any_arc()"
+    },
+    {
+      "index": 89,
+      "offset": 277,
+      "opcode": "stfld",
+      "operand": "System.Boolean TheForestOfLove.Narrative.Dialogue::completeStepIfSkippingAnyArc"
+    },
+    {
+      "index": 90,
+      "offset": 282,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 91,
+      "offset": 283,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 92,
+      "offset": 284,
+      "opcode": "callvirt",
+      "operand": "TheForestOfLove.InteractionUiStatusIconProfileType TheForestOfLove.DB.Dialogue::get_interaction_icon_profile()"
+    },
+    {
+      "index": 93,
+      "offset": 289,
+      "opcode": "stfld",
+      "operand": "TheForestOfLove.InteractionUiStatusIconProfileType TheForestOfLove.Narrative.Dialogue::interactionUiStatusIconProfileType"
+    },
+    {
+      "index": 94,
+      "offset": 294,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 95,
+      "offset": 295,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.Conversation TheForestOfLove.Narrative.Dialogue::pluginDbConversation"
+    },
+    {
+      "index": 96,
+      "offset": 300,
+      "opcode": "brtrue.s",
+      "operand": "IL_0144: ldloc.0"
+    },
+    {
+      "index": 97,
+      "offset": 302,
+      "opcode": "ldstr",
+      "operand": "dialogue is missing plugin db conversation, make sure it exists in the Dialogue System db "
+    },
+    {
+      "index": 98,
+      "offset": 307,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 99,
+      "offset": 308,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 100,
+      "offset": 313,
+      "opcode": "call",
+      "operand": "System.String System.String::Concat(System.String,System.String)"
+    },
+    {
+      "index": 101,
+      "offset": 318,
+      "opcode": "newobj",
+      "operand": "System.Void System.Exception::.ctor(System.String)"
+    },
+    {
+      "index": 102,
+      "offset": 323,
+      "opcode": "throw",
+      "operand": null
+    },
+    {
+      "index": 103,
+      "offset": 324,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 104,
+      "offset": 325,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueType TheForestOfLove.Narrative.Dialogue::dialogueType"
+    },
+    {
+      "index": 105,
+      "offset": 330,
+      "opcode": "ldc.i4",
+      "operand": "500"
+    },
+    {
+      "index": 106,
+      "offset": 335,
+      "opcode": "bne.un",
+      "operand": "IL_0202: ldarg.1"
+    },
+    {
+      "index": 107,
+      "offset": 340,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 108,
+      "offset": 341,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueDateSettings> TheForestOfLove.DB.Dialogue::get_RelatedDialogueDateSettingsListUsingdate_dialogueRelation()"
+    },
+    {
+      "index": 109,
+      "offset": 346,
+      "opcode": "brfalse.s",
+      "operand": "IL_016a: ldstr \"all dates must have exactly one corresponding date settings record \""
+    },
+    {
+      "index": 110,
+      "offset": 348,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 111,
+      "offset": 349,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueDateSettings> TheForestOfLove.DB.Dialogue::get_RelatedDialogueDateSettingsListUsingdate_dialogueRelation()"
+    },
+    {
+      "index": 112,
+      "offset": 354,
+      "opcode": "callvirt",
+      "operand": "System.Int32 System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueDateSettings>::get_Count()"
+    },
+    {
+      "index": 113,
+      "offset": 359,
+      "opcode": "ldc.i4.1",
+      "operand": null
+    },
+    {
+      "index": 114,
+      "offset": 360,
+      "opcode": "beq.s",
+      "operand": "IL_0180: ldarg.1"
+    },
+    {
+      "index": 115,
+      "offset": 362,
+      "opcode": "ldstr",
+      "operand": "all dates must have exactly one corresponding date settings record "
+    },
+    {
+      "index": 116,
+      "offset": 367,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 117,
+      "offset": 368,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 118,
+      "offset": 373,
+      "opcode": "call",
+      "operand": "System.String System.String::Concat(System.String,System.String)"
+    },
+    {
+      "index": 119,
+      "offset": 378,
+      "opcode": "newobj",
+      "operand": "System.Void System.Exception::.ctor(System.String)"
+    },
+    {
+      "index": 120,
+      "offset": 383,
+      "opcode": "throw",
+      "operand": null
+    },
+    {
+      "index": 121,
+      "offset": 384,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 122,
+      "offset": 385,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueDateSettings> TheForestOfLove.DB.Dialogue::get_RelatedDialogueDateSettingsListUsingdate_dialogueRelation()"
+    },
+    {
+      "index": 123,
+      "offset": 390,
+      "opcode": "ldc.i4.0",
+      "operand": null
+    },
+    {
+      "index": 124,
+      "offset": 391,
+      "opcode": "callvirt",
+      "operand": "!0 System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueDateSettings>::get_Item(System.Int32)"
+    },
+    {
+      "index": 125,
+      "offset": 396,
+      "opcode": "stloc.1",
+      "operand": null
+    },
+    {
+      "index": 126,
+      "offset": 397,
+      "opcode": "ldloc.1",
+      "operand": null
+    },
+    {
+      "index": 127,
+      "offset": 398,
+      "opcode": "callvirt",
+      "operand": "System.String TheForestOfLove.DB.DialogueDateSettings::get_legacy_date_prefab_name()"
+    },
+    {
+      "index": 128,
+      "offset": 403,
+      "opcode": "brtrue.s",
+      "operand": "IL_01ab: ldloc.0"
+    },
+    {
+      "index": 129,
+      "offset": 405,
+      "opcode": "ldstr",
+      "operand": "missing prefab for date "
+    },
+    {
+      "index": 130,
+      "offset": 410,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 131,
+      "offset": 411,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 132,
+      "offset": 416,
+      "opcode": "call",
+      "operand": "System.String System.String::Concat(System.String,System.String)"
+    },
+    {
+      "index": 133,
+      "offset": 421,
+      "opcode": "newobj",
+      "operand": "System.Void System.Exception::.ctor(System.String)"
+    },
+    {
+      "index": 134,
+      "offset": 426,
+      "opcode": "throw",
+      "operand": null
+    },
+    {
+      "index": 135,
+      "offset": 427,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 136,
+      "offset": 428,
+      "opcode": "ldloc.1",
+      "operand": null
+    },
+    {
+      "index": 137,
+      "offset": 429,
+      "opcode": "callvirt",
+      "operand": "System.String TheForestOfLove.DB.DialogueDateSettings::get_legacy_date_prefab_name()"
+    },
+    {
+      "index": 138,
+      "offset": 434,
+      "opcode": "stfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::legacyDatePrefabName"
+    },
+    {
+      "index": 139,
+      "offset": 439,
+      "opcode": "ldloc.1",
+      "operand": null
+    },
+    {
+      "index": 140,
+      "offset": 440,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Actor> TheForestOfLove.DB.DialogueDateSettings::get_date_actors()"
+    },
+    {
+      "index": 141,
+      "offset": 445,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.Actor>::GetEnumerator()"
+    },
+    {
+      "index": 142,
+      "offset": 450,
+      "opcode": "stloc.2",
+      "operand": null
+    },
+    {
+      "index": 143,
+      "offset": 451,
+      "opcode": "br.s",
+      "operand": "IL_01e9: ldloca.s V_2"
+    },
+    {
+      "index": 144,
+      "offset": 453,
+      "opcode": "ldloca.s",
+      "operand": "V_2"
+    },
+    {
+      "index": 145,
+      "offset": 455,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Actor>::get_Current()"
+    },
+    {
+      "index": 146,
+      "offset": 460,
+      "opcode": "stloc.3",
+      "operand": null
+    },
+    {
+      "index": 147,
+      "offset": 461,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 148,
+      "offset": 462,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Actor> TheForestOfLove.Narrative.Dialogue::dateActors"
+    },
+    {
+      "index": 149,
+      "offset": 467,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 150,
+      "offset": 468,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 151,
+      "offset": 473,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Actor,TheForestOfLove.Narrative.Actor> TheForestOfLove.Narrative.DataManifest::actorsByDbActor"
+    },
+    {
+      "index": 152,
+      "offset": 478,
+      "opcode": "ldloc.3",
+      "operand": null
+    },
+    {
+      "index": 153,
+      "offset": 479,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Actor,TheForestOfLove.Narrative.Actor>::get_Item(!0)"
+    },
+    {
+      "index": 154,
+      "offset": 484,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Actor>::Add(!0)"
+    },
+    {
+      "index": 155,
+      "offset": 489,
+      "opcode": "ldloca.s",
+      "operand": "V_2"
+    },
+    {
+      "index": 156,
+      "offset": 491,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Actor>::MoveNext()"
+    },
+    {
+      "index": 157,
+      "offset": 496,
+      "opcode": "brtrue.s",
+      "operand": "IL_01c5: ldloca.s V_2"
+    },
+    {
+      "index": 158,
+      "offset": 498,
+      "opcode": "leave.s",
+      "operand": "IL_0202: ldarg.1"
+    },
+    {
+      "index": 159,
+      "offset": 500,
+      "opcode": "ldloca.s",
+      "operand": "V_2"
+    },
+    {
+      "index": 160,
+      "offset": 502,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Actor>"
+    },
+    {
+      "index": 161,
+      "offset": 508,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 162,
+      "offset": 513,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 163,
+      "offset": 514,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 164,
+      "offset": 515,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueArcCustomConfig> TheForestOfLove.DB.Dialogue::get_RelatedDialogueArcCustomConfigListUsingdialogueRelation()"
+    },
+    {
+      "index": 165,
+      "offset": 520,
+      "opcode": "brfalse.s",
+      "operand": "IL_027c: ldarg.1"
+    },
+    {
+      "index": 166,
+      "offset": 522,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 167,
+      "offset": 523,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueArcCustomConfig> TheForestOfLove.DB.Dialogue::get_RelatedDialogueArcCustomConfigListUsingdialogueRelation()"
+    },
+    {
+      "index": 168,
+      "offset": 528,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueArcCustomConfig>::GetEnumerator()"
+    },
+    {
+      "index": 169,
+      "offset": 533,
+      "opcode": "stloc.s",
+      "operand": "V_4"
+    },
+    {
+      "index": 170,
+      "offset": 535,
+      "opcode": "br.s",
+      "operand": "IL_0263: ldloca.s V_4"
+    },
+    {
+      "index": 171,
+      "offset": 537,
+      "opcode": "ldloca.s",
+      "operand": "V_4"
+    },
+    {
+      "index": 172,
+      "offset": 539,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.DialogueArcCustomConfig>::get_Current()"
+    },
+    {
+      "index": 173,
+      "offset": 544,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueArc> TheForestOfLove.DB.DialogueArcCustomConfig::get_arcs()"
+    },
+    {
+      "index": 174,
+      "offset": 549,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.DialogueArc>::GetEnumerator()"
+    },
+    {
+      "index": 175,
+      "offset": 554,
+      "opcode": "stloc.s",
+      "operand": "V_5"
+    },
+    {
+      "index": 176,
+      "offset": 556,
+      "opcode": "br.s",
+      "operand": "IL_024a: ldloca.s V_5"
+    },
+    {
+      "index": 177,
+      "offset": 558,
+      "opcode": "ldloca.s",
+      "operand": "V_5"
+    },
+    {
+      "index": 178,
+      "offset": 560,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.DialogueArc>::get_Current()"
+    },
+    {
+      "index": 179,
+      "offset": 565,
+      "opcode": "stloc.s",
+      "operand": "V_6"
+    },
+    {
+      "index": 180,
+      "offset": 567,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 181,
+      "offset": 568,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.HashSet`1<System.String> TheForestOfLove.Narrative.Dialogue::arcSuffixesDisallowSkip"
+    },
+    {
+      "index": 182,
+      "offset": 573,
+      "opcode": "ldloc.s",
+      "operand": "V_6"
+    },
+    {
+      "index": 183,
+      "offset": 575,
+      "opcode": "callvirt",
+      "operand": "System.String TheForestOfLove.DB.DialogueArc::get_name()"
+    },
+    {
+      "index": 184,
+      "offset": 580,
+      "opcode": "callvirt",
+      "operand": "System.Boolean System.Collections.Generic.HashSet`1<System.String>::Add(!0)"
+    },
+    {
+      "index": 185,
+      "offset": 585,
+      "opcode": "pop",
+      "operand": null
+    },
+    {
+      "index": 186,
+      "offset": 586,
+      "opcode": "ldloca.s",
+      "operand": "V_5"
+    },
+    {
+      "index": 187,
+      "offset": 588,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.DialogueArc>::MoveNext()"
+    },
+    {
+      "index": 188,
+      "offset": 593,
+      "opcode": "brtrue.s",
+      "operand": "IL_022e: ldloca.s V_5"
+    },
+    {
+      "index": 189,
+      "offset": 595,
+      "opcode": "leave.s",
+      "operand": "IL_0263: ldloca.s V_4"
+    },
+    {
+      "index": 190,
+      "offset": 597,
+      "opcode": "ldloca.s",
+      "operand": "V_5"
+    },
+    {
+      "index": 191,
+      "offset": 599,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.DialogueArc>"
+    },
+    {
+      "index": 192,
+      "offset": 605,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 193,
+      "offset": 610,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 194,
+      "offset": 611,
+      "opcode": "ldloca.s",
+      "operand": "V_4"
+    },
+    {
+      "index": 195,
+      "offset": 613,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.DialogueArcCustomConfig>::MoveNext()"
+    },
+    {
+      "index": 196,
+      "offset": 618,
+      "opcode": "brtrue.s",
+      "operand": "IL_0219: ldloca.s V_4"
+    },
+    {
+      "index": 197,
+      "offset": 620,
+      "opcode": "leave.s",
+      "operand": "IL_027c: ldarg.1"
+    },
+    {
+      "index": 198,
+      "offset": 622,
+      "opcode": "ldloca.s",
+      "operand": "V_4"
+    },
+    {
+      "index": 199,
+      "offset": 624,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.DialogueArcCustomConfig>"
+    },
+    {
+      "index": 200,
+      "offset": 630,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 201,
+      "offset": 635,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 202,
+      "offset": 636,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 203,
+      "offset": 637,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger> TheForestOfLove.DB.Dialogue::get_skip_triggers_on_dialogue_skip()"
+    },
+    {
+      "index": 204,
+      "offset": 642,
+      "opcode": "brfalse.s",
+      "operand": "IL_02d2: ldarg.1"
+    },
+    {
+      "index": 205,
+      "offset": 644,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 206,
+      "offset": 645,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger> TheForestOfLove.DB.Dialogue::get_skip_triggers_on_dialogue_skip()"
+    },
+    {
+      "index": 207,
+      "offset": 650,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger>::GetEnumerator()"
+    },
+    {
+      "index": 208,
+      "offset": 655,
+      "opcode": "stloc.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 209,
+      "offset": 657,
+      "opcode": "br.s",
+      "operand": "IL_02b9: ldloca.s V_7"
+    },
+    {
+      "index": 210,
+      "offset": 659,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 211,
+      "offset": 661,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>::get_Current()"
+    },
+    {
+      "index": 212,
+      "offset": 666,
+      "opcode": "stloc.s",
+      "operand": "V_8"
+    },
+    {
+      "index": 213,
+      "offset": 668,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 214,
+      "offset": 669,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Trigger> TheForestOfLove.Narrative.Dialogue::triggersSkipDuringDialogueSkip"
+    },
+    {
+      "index": 215,
+      "offset": 674,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 216,
+      "offset": 675,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 217,
+      "offset": 680,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Trigger,TheForestOfLove.Narrative.Trigger> TheForestOfLove.Narrative.DataManifest::triggersByDbTrigger"
+    },
+    {
+      "index": 218,
+      "offset": 685,
+      "opcode": "ldloc.s",
+      "operand": "V_8"
+    },
+    {
+      "index": 219,
+      "offset": 687,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Trigger,TheForestOfLove.Narrative.Trigger>::get_Item(!0)"
+    },
+    {
+      "index": 220,
+      "offset": 692,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Trigger>::Add(!0)"
+    },
+    {
+      "index": 221,
+      "offset": 697,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 222,
+      "offset": 699,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>::MoveNext()"
+    },
+    {
+      "index": 223,
+      "offset": 704,
+      "opcode": "brtrue.s",
+      "operand": "IL_0293: ldloca.s V_7"
+    },
+    {
+      "index": 224,
+      "offset": 706,
+      "opcode": "leave.s",
+      "operand": "IL_02d2: ldarg.1"
+    },
+    {
+      "index": 225,
+      "offset": 708,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 226,
+      "offset": 710,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>"
+    },
+    {
+      "index": 227,
+      "offset": 716,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 228,
+      "offset": 721,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 229,
+      "offset": 722,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 230,
+      "offset": 723,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger> TheForestOfLove.DB.Dialogue::get_skip_triggers_on_chapter_select()"
+    },
+    {
+      "index": 231,
+      "offset": 728,
+      "opcode": "brfalse.s",
+      "operand": "IL_0328: ldarg.1"
+    },
+    {
+      "index": 232,
+      "offset": 730,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 233,
+      "offset": 731,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger> TheForestOfLove.DB.Dialogue::get_skip_triggers_on_chapter_select()"
+    },
+    {
+      "index": 234,
+      "offset": 736,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger>::GetEnumerator()"
+    },
+    {
+      "index": 235,
+      "offset": 741,
+      "opcode": "stloc.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 236,
+      "offset": 743,
+      "opcode": "br.s",
+      "operand": "IL_030f: ldloca.s V_7"
+    },
+    {
+      "index": 237,
+      "offset": 745,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 238,
+      "offset": 747,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>::get_Current()"
+    },
+    {
+      "index": 239,
+      "offset": 752,
+      "opcode": "stloc.s",
+      "operand": "V_9"
+    },
+    {
+      "index": 240,
+      "offset": 754,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 241,
+      "offset": 755,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Trigger> TheForestOfLove.Narrative.Dialogue::triggersSkipDuringChapterSelect"
+    },
+    {
+      "index": 242,
+      "offset": 760,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 243,
+      "offset": 761,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 244,
+      "offset": 766,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Trigger,TheForestOfLove.Narrative.Trigger> TheForestOfLove.Narrative.DataManifest::triggersByDbTrigger"
+    },
+    {
+      "index": 245,
+      "offset": 771,
+      "opcode": "ldloc.s",
+      "operand": "V_9"
+    },
+    {
+      "index": 246,
+      "offset": 773,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Trigger,TheForestOfLove.Narrative.Trigger>::get_Item(!0)"
+    },
+    {
+      "index": 247,
+      "offset": 778,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Trigger>::Add(!0)"
+    },
+    {
+      "index": 248,
+      "offset": 783,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 249,
+      "offset": 785,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>::MoveNext()"
+    },
+    {
+      "index": 250,
+      "offset": 790,
+      "opcode": "brtrue.s",
+      "operand": "IL_02e9: ldloca.s V_7"
+    },
+    {
+      "index": 251,
+      "offset": 792,
+      "opcode": "leave.s",
+      "operand": "IL_0328: ldarg.1"
+    },
+    {
+      "index": 252,
+      "offset": 794,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 253,
+      "offset": 796,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>"
+    },
+    {
+      "index": 254,
+      "offset": 802,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 255,
+      "offset": 807,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 256,
+      "offset": 808,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 257,
+      "offset": 809,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger> TheForestOfLove.DB.Dialogue::get_skip_triggers_on_cheat_code()"
+    },
+    {
+      "index": 258,
+      "offset": 814,
+      "opcode": "brfalse.s",
+      "operand": "IL_037e: ldarg.1"
+    },
+    {
+      "index": 259,
+      "offset": 816,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 260,
+      "offset": 817,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger> TheForestOfLove.DB.Dialogue::get_skip_triggers_on_cheat_code()"
+    },
+    {
+      "index": 261,
+      "offset": 822,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.Trigger>::GetEnumerator()"
+    },
+    {
+      "index": 262,
+      "offset": 827,
+      "opcode": "stloc.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 263,
+      "offset": 829,
+      "opcode": "br.s",
+      "operand": "IL_0365: ldloca.s V_7"
+    },
+    {
+      "index": 264,
+      "offset": 831,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 265,
+      "offset": 833,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>::get_Current()"
+    },
+    {
+      "index": 266,
+      "offset": 838,
+      "opcode": "stloc.s",
+      "operand": "V_10"
+    },
+    {
+      "index": 267,
+      "offset": 840,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 268,
+      "offset": 841,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Trigger> TheForestOfLove.Narrative.Dialogue::triggersSkipDuringCheatCode"
+    },
+    {
+      "index": 269,
+      "offset": 846,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 270,
+      "offset": 847,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 271,
+      "offset": 852,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Trigger,TheForestOfLove.Narrative.Trigger> TheForestOfLove.Narrative.DataManifest::triggersByDbTrigger"
+    },
+    {
+      "index": 272,
+      "offset": 857,
+      "opcode": "ldloc.s",
+      "operand": "V_10"
+    },
+    {
+      "index": 273,
+      "offset": 859,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Trigger,TheForestOfLove.Narrative.Trigger>::get_Item(!0)"
+    },
+    {
+      "index": 274,
+      "offset": 864,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Trigger>::Add(!0)"
+    },
+    {
+      "index": 275,
+      "offset": 869,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 276,
+      "offset": 871,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>::MoveNext()"
+    },
+    {
+      "index": 277,
+      "offset": 876,
+      "opcode": "brtrue.s",
+      "operand": "IL_033f: ldloca.s V_7"
+    },
+    {
+      "index": 278,
+      "offset": 878,
+      "opcode": "leave.s",
+      "operand": "IL_037e: ldarg.1"
+    },
+    {
+      "index": 279,
+      "offset": 880,
+      "opcode": "ldloca.s",
+      "operand": "V_7"
+    },
+    {
+      "index": 280,
+      "offset": 882,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Trigger>"
+    },
+    {
+      "index": 281,
+      "offset": 888,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 282,
+      "offset": 893,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 283,
+      "offset": 894,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 284,
+      "offset": 895,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Tag> TheForestOfLove.DB.Dialogue::get_related_tags()"
+    },
+    {
+      "index": 285,
+      "offset": 900,
+      "opcode": "brfalse.s",
+      "operand": "IL_03d4: ldloc.0"
+    },
+    {
+      "index": 286,
+      "offset": 902,
+      "opcode": "ldarg.1",
+      "operand": null
+    },
+    {
+      "index": 287,
+      "offset": 903,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.DB.Tag> TheForestOfLove.DB.Dialogue::get_related_tags()"
+    },
+    {
+      "index": 288,
+      "offset": 908,
+      "opcode": "callvirt",
+      "operand": "System.Collections.Generic.List`1/Enumerator<!0> System.Collections.Generic.List`1<TheForestOfLove.DB.Tag>::GetEnumerator()"
+    },
+    {
+      "index": 289,
+      "offset": 913,
+      "opcode": "stloc.s",
+      "operand": "V_11"
+    },
+    {
+      "index": 290,
+      "offset": 915,
+      "opcode": "br.s",
+      "operand": "IL_03bb: ldloca.s V_11"
+    },
+    {
+      "index": 291,
+      "offset": 917,
+      "opcode": "ldloca.s",
+      "operand": "V_11"
+    },
+    {
+      "index": 292,
+      "offset": 919,
+      "opcode": "call",
+      "operand": "!0 System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Tag>::get_Current()"
+    },
+    {
+      "index": 293,
+      "offset": 924,
+      "opcode": "stloc.s",
+      "operand": "V_12"
+    },
+    {
+      "index": 294,
+      "offset": 926,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 295,
+      "offset": 927,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.Dialogue::relatedTags"
+    },
+    {
+      "index": 296,
+      "offset": 932,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 297,
+      "offset": 933,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 298,
+      "offset": 938,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Tag,TheForestOfLove.Narrative.Tag> TheForestOfLove.Narrative.DataManifest::tagsByDbTag"
+    },
+    {
+      "index": 299,
+      "offset": 943,
+      "opcode": "ldloc.s",
+      "operand": "V_12"
+    },
+    {
+      "index": 300,
+      "offset": 945,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Tag,TheForestOfLove.Narrative.Tag>::get_Item(!0)"
+    },
+    {
+      "index": 301,
+      "offset": 950,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag>::Add(!0)"
+    },
+    {
+      "index": 302,
+      "offset": 955,
+      "opcode": "ldloca.s",
+      "operand": "V_11"
+    },
+    {
+      "index": 303,
+      "offset": 957,
+      "opcode": "call",
+      "operand": "System.Boolean System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Tag>::MoveNext()"
+    },
+    {
+      "index": 304,
+      "offset": 962,
+      "opcode": "brtrue.s",
+      "operand": "IL_0395: ldloca.s V_11"
+    },
+    {
+      "index": 305,
+      "offset": 964,
+      "opcode": "leave.s",
+      "operand": "IL_03d4: ldloc.0"
+    },
+    {
+      "index": 306,
+      "offset": 966,
+      "opcode": "ldloca.s",
+      "operand": "V_11"
+    },
+    {
+      "index": 307,
+      "offset": 968,
+      "opcode": "constrained.",
+      "operand": "System.Collections.Generic.List`1/Enumerator<TheForestOfLove.DB.Tag>"
+    },
+    {
+      "index": 308,
+      "offset": 974,
+      "opcode": "callvirt",
+      "operand": "System.Void System.IDisposable::Dispose()"
+    },
+    {
+      "index": 309,
+      "offset": 979,
+      "opcode": "endfinally",
+      "operand": null
+    },
+    {
+      "index": 310,
+      "offset": 980,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 311,
+      "offset": 981,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 312,
+      "offset": 986,
+      "opcode": "brtrue.s",
+      "operand": "IL_03ff: ldloc.0"
+    },
+    {
+      "index": 313,
+      "offset": 988,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 314,
+      "offset": 989,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueType TheForestOfLove.Narrative.Dialogue::dialogueType"
+    },
+    {
+      "index": 315,
+      "offset": 994,
+      "opcode": "ldc.i4",
+      "operand": "200"
+    },
+    {
+      "index": 316,
+      "offset": 999,
+      "opcode": "bne.un.s",
+      "operand": "IL_03ff: ldloc.0"
+    },
+    {
+      "index": 317,
+      "offset": 1001,
+      "opcode": "ldstr",
+      "operand": "could not find matching quest! "
+    },
+    {
+      "index": 318,
+      "offset": 1006,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 319,
+      "offset": 1007,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 320,
+      "offset": 1012,
+      "opcode": "call",
+      "operand": "System.String System.String::Concat(System.String,System.String)"
+    },
+    {
+      "index": 321,
+      "offset": 1017,
+      "opcode": "newobj",
+      "operand": "System.Void System.Exception::.ctor(System.String)"
+    },
+    {
+      "index": 322,
+      "offset": 1022,
+      "opcode": "throw",
+      "operand": null
+    },
+    {
+      "index": 323,
+      "offset": 1023,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 324,
+      "offset": 1024,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueType TheForestOfLove.Narrative.Dialogue::dialogueType"
+    },
+    {
+      "index": 325,
+      "offset": 1029,
+      "opcode": "ldc.i4",
+      "operand": "400"
+    },
+    {
+      "index": 326,
+      "offset": 1034,
+      "opcode": "bne.un.s",
+      "operand": "IL_042a: ldarg.0"
+    },
+    {
+      "index": 327,
+      "offset": 1036,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 328,
+      "offset": 1037,
+      "opcode": "ldfld",
+      "operand": "System.Boolean TheForestOfLove.Narrative.Dialogue::hasPlayerInitiatedQuestion"
+    },
+    {
+      "index": 329,
+      "offset": 1042,
+      "opcode": "brtrue.s",
+      "operand": "IL_042a: ldarg.0"
+    },
+    {
+      "index": 330,
+      "offset": 1044,
+      "opcode": "ldstr",
+      "operand": "gossip dialogues must have a player initiated question! "
+    },
+    {
+      "index": 331,
+      "offset": 1049,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 332,
+      "offset": 1050,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 333,
+      "offset": 1055,
+      "opcode": "call",
+      "operand": "System.String System.String::Concat(System.String,System.String)"
+    },
+    {
+      "index": 334,
+      "offset": 1060,
+      "opcode": "newobj",
+      "operand": "System.Void System.Exception::.ctor(System.String)"
+    },
+    {
+      "index": 335,
+      "offset": 1065,
+      "opcode": "throw",
+      "operand": null
+    },
+    {
+      "index": 336,
+      "offset": 1066,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 337,
+      "offset": 1067,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 338,
+      "offset": 1072,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue> TheForestOfLove.Narrative.DataManifest::dialogues"
+    },
+    {
+      "index": 339,
+      "offset": 1077,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 340,
+      "offset": 1078,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 341,
+      "offset": 1083,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 342,
+      "offset": 1084,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 343,
+      "offset": 1089,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Dialogue> TheForestOfLove.Narrative.DataManifest::dialoguesByDbName"
+    },
+    {
+      "index": 344,
+      "offset": 1094,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 345,
+      "offset": 1095,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::dbName"
+    },
+    {
+      "index": 346,
+      "offset": 1100,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 347,
+      "offset": 1101,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Dialogue>::Add(!0,!1)"
+    },
+    {
+      "index": 348,
+      "offset": 1106,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 349,
+      "offset": 1107,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 350,
+      "offset": 1112,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Dialogue,TheForestOfLove.Narrative.Dialogue> TheForestOfLove.Narrative.DataManifest::dialoguesByDbDialogue"
+    },
+    {
+      "index": 351,
+      "offset": 1117,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 352,
+      "offset": 1118,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.DB.Dialogue TheForestOfLove.Narrative.Dialogue::dbDialogue"
+    },
+    {
+      "index": 353,
+      "offset": 1123,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 354,
+      "offset": 1124,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<TheForestOfLove.DB.Dialogue,TheForestOfLove.Narrative.Dialogue>::Add(!0,!1)"
+    },
+    {
+      "index": 355,
+      "offset": 1129,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 356,
+      "offset": 1130,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 357,
+      "offset": 1135,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Dialogue> TheForestOfLove.Narrative.DataManifest::dialoguesBySavekey"
+    },
+    {
+      "index": 358,
+      "offset": 1140,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 359,
+      "offset": 1141,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::savekey"
+    },
+    {
+      "index": 360,
+      "offset": 1146,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 361,
+      "offset": 1147,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<System.String,TheForestOfLove.Narrative.Dialogue>::Add(!0,!1)"
+    },
+    {
+      "index": 362,
+      "offset": 1152,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 363,
+      "offset": 1153,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 364,
+      "offset": 1158,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.Int32,TheForestOfLove.Narrative.Dialogue> TheForestOfLove.Narrative.DataManifest::dialoguesByPluginDbId"
+    },
+    {
+      "index": 365,
+      "offset": 1163,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 366,
+      "offset": 1164,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.Conversation TheForestOfLove.Narrative.Dialogue::pluginDbConversation"
+    },
+    {
+      "index": 367,
+      "offset": 1169,
+      "opcode": "ldfld",
+      "operand": "System.Int32 PixelCrushers.DialogueSystem.Asset::id"
+    },
+    {
+      "index": 368,
+      "offset": 1174,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 369,
+      "offset": 1175,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<System.Int32,TheForestOfLove.Narrative.Dialogue>::Add(!0,!1)"
+    },
+    {
+      "index": 370,
+      "offset": 1180,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 371,
+      "offset": 1181,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 372,
+      "offset": 1186,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesByActorDbName"
+    },
+    {
+      "index": 373,
+      "offset": 1191,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 374,
+      "offset": 1192,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 375,
+      "offset": 1197,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 376,
+      "offset": 1202,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 377,
+      "offset": 1203,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 378,
+      "offset": 1208,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 379,
+      "offset": 1209,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 380,
+      "offset": 1214,
+      "opcode": "brfalse.s",
+      "operand": "IL_0520: ldloc.0"
+    },
+    {
+      "index": 381,
+      "offset": 1216,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 382,
+      "offset": 1217,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 383,
+      "offset": 1222,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue> TheForestOfLove.Narrative.Quest::dialogues"
+    },
+    {
+      "index": 384,
+      "offset": 1227,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 385,
+      "offset": 1228,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 386,
+      "offset": 1233,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 387,
+      "offset": 1234,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 388,
+      "offset": 1239,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.Quest::dialoguesByActor"
+    },
+    {
+      "index": 389,
+      "offset": 1244,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 390,
+      "offset": 1245,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::primaryActor"
+    },
+    {
+      "index": 391,
+      "offset": 1250,
+      "opcode": "callvirt",
+      "operand": "System.Boolean System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::ContainsKey(!0)"
+    },
+    {
+      "index": 392,
+      "offset": 1255,
+      "opcode": "brtrue.s",
+      "operand": "IL_0504: ldloc.0"
+    },
+    {
+      "index": 393,
+      "offset": 1257,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 394,
+      "offset": 1258,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 395,
+      "offset": 1263,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.Quest::dialoguesByActor"
+    },
+    {
+      "index": 396,
+      "offset": 1268,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 397,
+      "offset": 1269,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::primaryActor"
+    },
+    {
+      "index": 398,
+      "offset": 1274,
+      "opcode": "newobj",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::.ctor()"
+    },
+    {
+      "index": 399,
+      "offset": 1279,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::Add(!0,!1)"
+    },
+    {
+      "index": 400,
+      "offset": 1284,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 401,
+      "offset": 1285,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Quest TheForestOfLove.Narrative.Dialogue::quest"
+    },
+    {
+      "index": 402,
+      "offset": 1290,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.Quest::dialoguesByActor"
+    },
+    {
+      "index": 403,
+      "offset": 1295,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 404,
+      "offset": 1296,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.Actor TheForestOfLove.Narrative.Dialogue::primaryActor"
+    },
+    {
+      "index": 405,
+      "offset": 1301,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.Actor,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 406,
+      "offset": 1306,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 407,
+      "offset": 1307,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 408,
+      "offset": 1312,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 409,
+      "offset": 1313,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueType TheForestOfLove.Narrative.Dialogue::dialogueType"
+    },
+    {
+      "index": 410,
+      "offset": 1318,
+      "opcode": "stloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 411,
+      "offset": 1320,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 412,
+      "offset": 1322,
+      "opcode": "ldc.i4",
+      "operand": "300"
+    },
+    {
+      "index": 413,
+      "offset": 1327,
+      "opcode": "bgt.s",
+      "operand": "IL_0549: ldloc.s V_13"
+    },
+    {
+      "index": 414,
+      "offset": 1329,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 415,
+      "offset": 1331,
+      "opcode": "brfalse.s",
+      "operand": "IL_0584: ldarg.0"
+    },
+    {
+      "index": 416,
+      "offset": 1333,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 417,
+      "offset": 1335,
+      "opcode": "ldc.i4",
+      "operand": "200"
+    },
+    {
+      "index": 418,
+      "offset": 1340,
+      "opcode": "beq.s",
+      "operand": "IL_05a5: ldarg.0"
+    },
+    {
+      "index": 419,
+      "offset": 1342,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 420,
+      "offset": 1344,
+      "opcode": "ldc.i4",
+      "operand": "300"
+    },
+    {
+      "index": 421,
+      "offset": 1349,
+      "opcode": "beq.s",
+      "operand": "IL_05c6: ldarg.0"
+    },
+    {
+      "index": 422,
+      "offset": 1351,
+      "opcode": "br.s",
+      "operand": "IL_0584: ldarg.0"
+    },
+    {
+      "index": 423,
+      "offset": 1353,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 424,
+      "offset": 1355,
+      "opcode": "ldc.i4",
+      "operand": "500"
+    },
+    {
+      "index": 425,
+      "offset": 1360,
+      "opcode": "bgt.s",
+      "operand": "IL_056c: ldloc.s V_13"
+    },
+    {
+      "index": 426,
+      "offset": 1362,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 427,
+      "offset": 1364,
+      "opcode": "ldc.i4",
+      "operand": "400"
+    },
+    {
+      "index": 428,
+      "offset": 1369,
+      "opcode": "beq",
+      "operand": "IL_05e4: ldarg.0"
+    },
+    {
+      "index": 429,
+      "offset": 1374,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 430,
+      "offset": 1376,
+      "opcode": "ldc.i4",
+      "operand": "500"
+    },
+    {
+      "index": 431,
+      "offset": 1381,
+      "opcode": "beq",
+      "operand": "IL_0602: ldarg.0"
+    },
+    {
+      "index": 432,
+      "offset": 1386,
+      "opcode": "br.s",
+      "operand": "IL_0584: ldarg.0"
+    },
+    {
+      "index": 433,
+      "offset": 1388,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 434,
+      "offset": 1390,
+      "opcode": "ldc.i4",
+      "operand": "600"
+    },
+    {
+      "index": 435,
+      "offset": 1395,
+      "opcode": "beq",
+      "operand": "IL_0620: ldarg.0"
+    },
+    {
+      "index": 436,
+      "offset": 1400,
+      "opcode": "ldloc.s",
+      "operand": "V_13"
+    },
+    {
+      "index": 437,
+      "offset": 1402,
+      "opcode": "ldc.i4",
+      "operand": "700"
+    },
+    {
+      "index": 438,
+      "offset": 1407,
+      "opcode": "beq",
+      "operand": "IL_063e: ldarg.0"
+    },
+    {
+      "index": 439,
+      "offset": 1412,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 440,
+      "offset": 1413,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 441,
+      "offset": 1418,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeManualByActorDbName"
+    },
+    {
+      "index": 442,
+      "offset": 1423,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 443,
+      "offset": 1424,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 444,
+      "offset": 1429,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 445,
+      "offset": 1434,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 446,
+      "offset": 1435,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 447,
+      "offset": 1440,
+      "opcode": "br",
+      "operand": "IL_065a: ldarg.0"
+    },
+    {
+      "index": 448,
+      "offset": 1445,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 449,
+      "offset": 1446,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 450,
+      "offset": 1451,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeQuestByActorDbName"
+    },
+    {
+      "index": 451,
+      "offset": 1456,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 452,
+      "offset": 1457,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 453,
+      "offset": 1462,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 454,
+      "offset": 1467,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 455,
+      "offset": 1468,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 456,
+      "offset": 1473,
+      "opcode": "br",
+      "operand": "IL_065a: ldarg.0"
+    },
+    {
+      "index": 457,
+      "offset": 1478,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 458,
+      "offset": 1479,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 459,
+      "offset": 1484,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeFinalIdleByActorDbName"
+    },
+    {
+      "index": 460,
+      "offset": 1489,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 461,
+      "offset": 1490,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 462,
+      "offset": 1495,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 463,
+      "offset": 1500,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 464,
+      "offset": 1501,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 465,
+      "offset": 1506,
+      "opcode": "br.s",
+      "operand": "IL_065a: ldarg.0"
+    },
+    {
+      "index": 466,
+      "offset": 1508,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 467,
+      "offset": 1509,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 468,
+      "offset": 1514,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeGossipByActorDbName"
+    },
+    {
+      "index": 469,
+      "offset": 1519,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 470,
+      "offset": 1520,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 471,
+      "offset": 1525,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 472,
+      "offset": 1530,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 473,
+      "offset": 1531,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 474,
+      "offset": 1536,
+      "opcode": "br.s",
+      "operand": "IL_065a: ldarg.0"
+    },
+    {
+      "index": 475,
+      "offset": 1538,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 476,
+      "offset": 1539,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 477,
+      "offset": 1544,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeDateByActorDbName"
+    },
+    {
+      "index": 478,
+      "offset": 1549,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 479,
+      "offset": 1550,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 480,
+      "offset": 1555,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 481,
+      "offset": 1560,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 482,
+      "offset": 1561,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 483,
+      "offset": 1566,
+      "opcode": "br.s",
+      "operand": "IL_065a: ldarg.0"
+    },
+    {
+      "index": 484,
+      "offset": 1568,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 485,
+      "offset": 1569,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 486,
+      "offset": 1574,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeGiftByActorDbName"
+    },
+    {
+      "index": 487,
+      "offset": 1579,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 488,
+      "offset": 1580,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 489,
+      "offset": 1585,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 490,
+      "offset": 1590,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 491,
+      "offset": 1591,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 492,
+      "offset": 1596,
+      "opcode": "br.s",
+      "operand": "IL_065a: ldarg.0"
+    },
+    {
+      "index": 493,
+      "offset": 1598,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 494,
+      "offset": 1599,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 495,
+      "offset": 1604,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>> TheForestOfLove.Narrative.DataManifest::dialoguesOfTypeQuestionIdleByActorDbName"
+    },
+    {
+      "index": 496,
+      "offset": 1609,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 497,
+      "offset": 1610,
+      "opcode": "ldfld",
+      "operand": "System.String TheForestOfLove.Narrative.Dialogue::primaryActorDbName"
+    },
+    {
+      "index": 498,
+      "offset": 1615,
+      "opcode": "callvirt",
+      "operand": "!1 System.Collections.Generic.Dictionary`2<System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>>::get_Item(!0)"
+    },
+    {
+      "index": 499,
+      "offset": 1620,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 500,
+      "offset": 1621,
+      "opcode": "callvirt",
+      "operand": "System.Void System.Collections.Generic.List`1<TheForestOfLove.Narrative.Dialogue>::Add(!0)"
+    },
+    {
+      "index": 501,
+      "offset": 1626,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 502,
+      "offset": 1627,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueSystemLoader TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<>4__this"
+    },
+    {
+      "index": 503,
+      "offset": 1632,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 504,
+      "offset": 1633,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 505,
+      "offset": 1638,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 506,
+      "offset": 1639,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.DialogueDatabase TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::database"
+    },
+    {
+      "index": 507,
+      "offset": 1644,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 508,
+      "offset": 1645,
+      "opcode": "ldstr",
+      "operand": "PRIMARY"
+    },
+    {
+      "index": 509,
+      "offset": 1650,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 510,
+      "offset": 1651,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc> TheForestOfLove.Narrative.Dialogue::primaryArcs"
+    },
+    {
+      "index": 511,
+      "offset": 1656,
+      "opcode": "call",
+      "operand": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)"
+    },
+    {
+      "index": 512,
+      "offset": 1661,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 513,
+      "offset": 1662,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueSystemLoader TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<>4__this"
+    },
+    {
+      "index": 514,
+      "offset": 1667,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 515,
+      "offset": 1668,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 516,
+      "offset": 1673,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 517,
+      "offset": 1674,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.DialogueDatabase TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::database"
+    },
+    {
+      "index": 518,
+      "offset": 1679,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 519,
+      "offset": 1680,
+      "opcode": "ldstr",
+      "operand": "SECONDARY"
+    },
+    {
+      "index": 520,
+      "offset": 1685,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 521,
+      "offset": 1686,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc> TheForestOfLove.Narrative.Dialogue::secondaryArcs"
+    },
+    {
+      "index": 522,
+      "offset": 1691,
+      "opcode": "call",
+      "operand": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)"
+    },
+    {
+      "index": 523,
+      "offset": 1696,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 524,
+      "offset": 1697,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueSystemLoader TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<>4__this"
+    },
+    {
+      "index": 525,
+      "offset": 1702,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 526,
+      "offset": 1703,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 527,
+      "offset": 1708,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 528,
+      "offset": 1709,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.DialogueDatabase TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::database"
+    },
+    {
+      "index": 529,
+      "offset": 1714,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 530,
+      "offset": 1715,
+      "opcode": "ldstr",
+      "operand": "IDLE"
+    },
+    {
+      "index": 531,
+      "offset": 1720,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 532,
+      "offset": 1721,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc> TheForestOfLove.Narrative.Dialogue::idleArcs"
+    },
+    {
+      "index": 533,
+      "offset": 1726,
+      "opcode": "call",
+      "operand": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)"
+    },
+    {
+      "index": 534,
+      "offset": 1731,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 535,
+      "offset": 1732,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DialogueSystemLoader TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::<>4__this"
+    },
+    {
+      "index": 536,
+      "offset": 1737,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 537,
+      "offset": 1738,
+      "opcode": "ldfld",
+      "operand": "TheForestOfLove.Narrative.DataManifest TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::manifest"
+    },
+    {
+      "index": 538,
+      "offset": 1743,
+      "opcode": "ldarg.0",
+      "operand": null
+    },
+    {
+      "index": 539,
+      "offset": 1744,
+      "opcode": "ldfld",
+      "operand": "PixelCrushers.DialogueSystem.DialogueDatabase TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass24_0::database"
+    },
+    {
+      "index": 540,
+      "offset": 1749,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 541,
+      "offset": 1750,
+      "opcode": "ldstr",
+      "operand": "NAMED"
+    },
+    {
+      "index": 542,
+      "offset": 1755,
+      "opcode": "ldloc.0",
+      "operand": null
+    },
+    {
+      "index": 543,
+      "offset": 1756,
+      "opcode": "ldfld",
+      "operand": "System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc> TheForestOfLove.Narrative.Dialogue::namedArcs"
+    },
+    {
+      "index": 544,
+      "offset": 1761,
+      "opcode": "call",
+      "operand": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)"
+    },
+    {
+      "index": 545,
+      "offset": 1766,
+      "opcode": "ret",
+      "operand": null
+    }
+  ]
+}

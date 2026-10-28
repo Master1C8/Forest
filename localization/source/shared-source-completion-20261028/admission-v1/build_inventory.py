@@ -10,6 +10,8 @@ from collections import Counter
 from pathlib import Path
 
 from prepare_context import ROOT, OUT, BASE, sha, load, lines
+from phase135.reconcile_database import products as database_products
+from phase136.reconcile_roles import products as consumer_products, GREETING_METHOD, GREETING_ID, GREETING
 
 INDEX = ROOT / 'outputs/pause-inventory-bio-completion-20261028/managed-index'
 SERIALIZED = ROOT / 'outputs/pause-inventory-bio-completion-20261028/serialized-nondialogue-roster.jsonl'
@@ -197,6 +199,10 @@ def products():
     stored_fields = {r['target']: r for r in continuation['managedStoredFields']}
     exact_continuation = {(r['method'],r['offset']):r for r in continuation['exactMethodLiterals']}
     assert len(exact_continuation) == len(continuation['exactMethodLiterals'])
+    comparison_path = BASE / 'comparison-operands/preserve-exactly.jsonl'
+    comparison_operands = {(r['method'], r['offset']): r for r in lines(comparison_path)}
+    assert len(comparison_operands) == 1121
+    integrated_comparisons = 0
     for n, r in enumerate(lines(INDEX / 'literals.jsonl'), 1):
         key = r['method'], r['offset']
         role, decision = 'needs-consumer-decision', 'complete-index-unread-consumer'
@@ -231,6 +237,18 @@ def products():
             rule = exact_continuation[key]
             assert rule['sourceValueSha256'] == value_hash(r['value']), ('continuation-literal-value',key)
             role, decision = rule['role'], 'phase134:complete-body:' + rule['evidence']
+        if key in comparison_operands:
+            proof = comparison_operands[key]
+            assert proof['sourceValueSha256'] == value_hash(r['value']), ('comparison-value', key)
+            first = r['after'][0]
+            assert (first['offset'], first['opcode'], first['operand']) == (proof['consumerOffset'], proof['consumerOpcode'], proof['consumer']), ('comparison-consumer', key)
+            if role == 'needs-consumer-decision':
+                role, decision = proof['role'], 'phase135:exact-parent-comparison-argument'
+                integrated_comparisons += 1
+        if key == (GREETING_METHOD, 0x0a01):
+            assert r['value'] == GREETING and role == 'needs-consumer-decision'
+            assert r['after'][0]['operand'] == 'System.Void TheForestOfLove.Gameplay.FastTravelController::set_NextFastTravelCustomGreetingText(System.String)'
+            role, decision = 'display-runtime-fast-travel-greeting', 'phase136:exact-runtime-greeting-producer'
         row = dict(id=f"il:Assembly-CSharp.dll/{r['method']}/IL_{r['offset']:04x}",
                    family='managed-literal', method=r['method'], offset=r['offset'], sourceLine=n,
                    sourceValueSha256=value_hash(r['value']), role=role, decision=decision,
@@ -239,6 +257,7 @@ def products():
             row['source'] = r['value']
         il.append(row)
     assert len(il) == len({r['id'] for r in il}) == 8576
+    assert integrated_comparisons == 1059
 
     old = load(ROOT / 'localization/supplemental-ui/20261027/source-catalog.json')['units']
     old_by_id = {r['id']: r for r in old}
@@ -316,6 +335,9 @@ def products():
                        predicate='Every literal is immediately consumed by exactly GetEntity(string) or new Exception(string); source role only, no framework recursion.'),
                      boundary='Source roles and exact consumers, not translated application, independent editorial judgment or runtime acceptance.')
     consumers['continuationDecisions'] = continuation
+    consumers['comparisonOperandIntegration'] = dict(artifact='../comparison-operands/preserve-exactly.jsonl',
+        sourceOperands=1121, newlyResolved=integrated_comparisons, unchangedPriorRoles=62,
+        boundary='Exact argument roles only. All comparison-on-display roles and haiku dependency retained; input/display producer and application predicates remain separate.')
     consumers['mixedFamilyLeafPartitions'] = dict(Counter(r['decision'] for r in serialized if r['decision'].startswith('phase134:')))
     consumers['potentialControlLabelBindingStates'] = sum('consumerBindingPredicate' in r for r in serialized)
     for group in consumers['serializedGroups']:
@@ -341,7 +363,18 @@ def products():
     pins[str((OUT / 'continuation-decisions.json').relative_to(ROOT))] = sha(OUT / 'continuation-decisions.json')
     pins[str((OUT / 'phase134/haiku-source-dependencies.json').relative_to(ROOT))] = sha(OUT / 'phase134/haiku-source-dependencies.json')
     case_spec = load(OUT / 'special-case-spec.json')
+    extra = consumer_products(database_products())
+    database_value_rows = [json.loads(s) for s in extra['dialogue-database-values.jsonl'].splitlines()]
+    database_report = json.loads(extra['dialogue-database-reconciliation.json'])
     pins[str((OUT / 'special-case-spec.json').relative_to(ROOT))] = sha(OUT / 'special-case-spec.json')
+    for name, digest in load(OUT / 'phase135/input-pins.json').items():
+        assert sha(ROOT / name) == digest, ('phase135-input', name)
+        pins[name] = digest
+    pins[str((OUT / 'phase135/reconcile_database.py').relative_to(ROOT))] = sha(OUT / 'phase135/reconcile_database.py')
+    for name, digest in load(OUT / 'phase136/input-pins.json').items():
+        assert sha(ROOT / name) == digest, ('phase136-input', name)
+        pins[name] = digest
+    pins[str((OUT / 'phase136/reconcile_roles.py').relative_to(ROOT))] = sha(OUT / 'phase136/reconcile_roles.py')
     il_type_by_selector = {f"il:Assembly-CSharp.dll/{r['method']}/IL_{r['offset']:04x}":r['type']
                            for r in lines(INDEX / 'literals.jsonl')}
     cases = []
@@ -363,6 +396,26 @@ def products():
         for row in frozen:
             if row['conversationId'] in spec.get('dialogueConversationIds', []):
                 selected[row['id']] = row
+        database_nodes = {tuple(pair) for pair in spec.get('databaseNodes', [])}
+        if database_nodes:
+            for row in frozen:
+                if (row['conversationId'],row['entryId']) in database_nodes:
+                    selected[row['id']] = row
+            for row in database_value_rows:
+                if (row.get('conversationId'),row.get('entryId')) in database_nodes:
+                    for occurrence in row['occurrences']:
+                        selected[occurrence] = dict(id=occurrence,sourceValueSha256=row['sourceValueSha256'],role=row['role'])
+            dependency = json.loads(extra[spec['dependencyArtifact']])
+            dependency_ids = set(dependency['sourceIds'])
+            for row in frozen:
+                if row['id'] in dependency_ids:
+                    selected[row['id']] = row
+            assert dependency_ids <= set(selected), ('missing-runtime-write-dependency',spec['id'])
+            producer_ids = set(dependency.get('runtimeProducerIds', []))
+            for row in il:
+                if row['id'] in producer_ids:
+                    selected[row['id']] = row
+            assert producer_ids <= set(selected), ('missing-runtime-producer-dependency',spec['id'])
         assert selected, ('empty-special-case', spec['id'])
         cases.append(dict(id=spec['id'], category=spec['category'], invariant=spec['invariant'],
                           route=spec['route'], positive=spec['positive'], negative=spec['negative'],
@@ -425,7 +478,23 @@ def products():
     manifest['unresolvedScopes'][1] = 'Potential Rewired label aliases: actual vendor/game UI binding and selection unverified; original resource/dispatch values held exact'
     manifest['counts']['potentialControlLabelBindingStates'] = sum('consumerBindingPredicate' in r for r in serialized)
     manifest['haikuDependencyArtifact'] = 'phase134/haiku-source-dependencies.json'
-    return {
+    manifest['sourceRoleResolvedScopes'].append('1059 previously unknown immediate comparison/search/pattern operands integrated by exact argument identity; existing precise roles preserved')
+    manifest['sourceRoleResolvedScopes'].append('Complete frozen dialogue lexical partition:12246 IDs/24492 occurrences,7103 exact markup/delimiter spans and291 line separators; ordinary text spans separate from field eligibility')
+    manifest['unresolvedScopes'][2] = 'Whole-field dialogue callbacks, registered effects, display producers and complete textual special-scene discovery; lexical spans resolved separately'
+    manifest['unresolvedScopes'][-1] = 'Noncandidate database typed consumer gaps explicitly enumerated in dialogue-database-unresolved.json; TextAsset/resource-family joins remain separate'
+    manifest['linkedCompleteSerializedInventory']['rule'] = 'Exact911903-state source union reconciled:36107 non-dialogue plus875796 nonempty original database strings. Empty database strings and nonstring state remain in the full tree contract. Complete storage accounting does not accept unresolved typed consumers or whole-game source.'
+    manifest['dialogueLexicalArtifact'] = 'dialogue-inline-partitions.jsonl'
+    manifest['dialogueDatabaseArtifact'] = 'dialogue-database-reconciliation.json'
+    manifest['counts']['noncandidateDatabaseUnresolvedLogicalValues'] = database_report['unresolvedLogicalValues']
+    manifest['counts']['databasePhysicalStringStatesIncludingEmpty'] = database_report['physicalStringStates']
+    manifest['sourceRoleResolvedScopes'].append('Phase136 five exact dynamic/story Title control keys; all1660 former residual values have bounded per-selector dispositions. Compiled fast-travel greeting producer joins seven frozen text IDs without changing source values.')
+    manifest['dialogueDatabaseConsumerDispositionArtifact'] = 'dialogue-database-consumer-dispositions.json'
+    consumers['dialogueDatabase'] = dict(artifact='dialogue-database-reconciliation.json',
+        unresolvedArtifact='dialogue-database-unresolved.json', completeStorageUnion=911903,
+        typedConsumerUnresolved=database_report['unresolvedLogicalValues'], runtime='not-run')
+    unresolved['dialogueDatabase'] = dict(artifact='dialogue-database-unresolved.json',
+        counts=database_report['unresolvedRoles'], predicates=database_report['unresolvedPredicates'])
+    result = {
         'serialized-inventory.jsonl': jl(serialized), 'bgdatabase-inventory.jsonl': jl(bg),
         'frozen-dialogue-bindings.jsonl': jl(frozen), 'managed-literal-inventory.jsonl': jl(il),
         'nodecanvas-preserve-exactly.jsonl': jl(nodes), 'consumer-matrix.json': j(consumers),
@@ -433,6 +502,8 @@ def products():
         'old935-selector-bindings.json': j(old_bindings), 'additional-source-selectors.jsonl': jl(additions),
         'thirty-locale-coverage.json': j(coverage), 'manifest.json': j(manifest),
     }
+    result.update(extra)
+    return result
 
 
 def main():

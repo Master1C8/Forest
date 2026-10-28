@@ -1,0 +1,18 @@
+[
+  {
+    "method": "System.Void TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs(TheForestOfLove.Narrative.DataManifest,PixelCrushers.DialogueSystem.DialogueDatabase,TheForestOfLove.Narrative.Dialogue,System.String,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Arc>)",
+    "offset": 473,
+    "index": 138,
+    "opcode": "call",
+    "called": "PixelCrushers.DialogueSystem.Field PixelCrushers.DialogueSystem.Field::AssignedField(System.Collections.Generic.List`1<PixelCrushers.DialogueSystem.Field>,System.String)",
+    "targetType": "PixelCrushers.DialogueSystem.Field"
+  },
+  {
+    "method": "System.Boolean TheForestOfLove.Narrative.StoryManager::PlayDialogue(TheForestOfLove.Narrative.QuestManagerInteractionMode,TheForestOfLove.DialogueSettings)",
+    "offset": 184,
+    "index": 62,
+    "opcode": "callvirt",
+    "called": "System.Void TheForestOfLove.Narrative.DialogueService::PlayDynamicFastTravelDialogue(System.Collections.Generic.List`1<System.String>,System.String)",
+    "targetType": "TheForestOfLove.Narrative.DialogueService"
+  }
+]

@@ -1,4 +1,4 @@
-"""Validate the phase134 source delta against the fingerprinted parent readback.
+"""Validate the current source delta against the fingerprinted parent readback.
 
 No extraction, original-install access, model call, GUI or semantic auto-pass.
 The full parent tree/span readback is reused only on unchanged source values,
@@ -12,7 +12,9 @@ from collections import Counter
 from pathlib import Path
 
 from prepare_context import ROOT, OUT, sha, load, lines
-from build_inventory import products, value_hash, INDEX, SERIALIZED
+from build_inventory import products, value_hash, jl, INDEX, SERIALIZED
+from phase135.reconcile_database import check_partition, classify
+from phase136.reconcile_roles import GREETING_ID, GREETING, classify_remaining
 
 
 def same_identity_values(before, after):
@@ -28,6 +30,12 @@ def same_identity_values(before, after):
 
 
 def main():
+    phase136 = OUT / 'phase136'
+    for name, digest in load(phase136 / 'baseline-pins.json').items():
+        assert sha(phase136 / 'baseline' / name) == digest, ('preserved-phase135', name)
+    phase135 = OUT / 'phase135'
+    for name, digest in load(phase135 / 'baseline-pins.json').items():
+        assert sha(phase135 / 'baseline' / name) == digest, ('preserved-phase134', name)
     phase = OUT / 'phase134'
     baseline = phase / 'baseline'
     for name, digest in load(phase / 'baseline-output-pins.json').items():
@@ -86,7 +94,111 @@ def main():
     assert len(managed) == len(original_il) == 8576
     for source, row in zip(original_il, managed):
         assert (source['method'],source['offset'],value_hash(source['value'])) == (row['method'],row['offset'],row['sourceValueSha256'])
-    assert sum(r['role']=='needs-consumer-decision' for r in managed) == 3460
+    assert sum(r['role']=='needs-consumer-decision' for r in managed) == 2400
+    baseline_managed = list(lines(phase135 / 'baseline/managed-literal-inventory.jsonl'))
+    same_identity_values(baseline_managed, managed)
+    role_delta = [(a,b) for a,b in zip(baseline_managed,managed) if a['role'] != b['role']]
+    assert len(role_delta) == 1060
+    assert all(a['role']=='needs-consumer-decision' and
+               (b['role']=='preserve-comparison-operand' or
+                (b['id']==GREETING_ID and b['role']=='display-runtime-fast-travel-greeting' and b['source']==GREETING))
+               for a,b in role_delta)
+    assert sum(b['role']=='preserve-comparison-operand' for a,b in role_delta)==1059
+    reconstructed_phase135 = copy.deepcopy(managed)
+    greeting_row = next(r for r in reconstructed_phase135 if r['id']==GREETING_ID)
+    greeting_row.update(role='needs-consumer-decision',decision='complete-index-unread-consumer')
+    del greeting_row['source']
+    assert hashlib.sha256(jl(reconstructed_phase135)).hexdigest()==load(phase136/'baseline/continuation-validation.json')['outputPins']['managed-literal-inventory.jsonl'], 'unexpected-phase136-compiled-delta'
+    display_comparisons = [r for r in baseline_managed if r['role']=='comparison-on-display']
+    assert len(display_comparisons)==12
+    assert display_comparisons == [r for r in managed if r['role']=='comparison-on-display']
+    database = load(OUT / 'dialogue-database-reconciliation.json')
+    assert database['completeExportUnion']==911903
+    assert database['sourceStringsPerCopy']==722670 and database['physicalStringStates']==1445340
+    assert database['noncandidateStringStates']==1420848
+    assert sum(g['logicalStates'] for g in database['selectorGroups'])==722670
+    assert database['unresolvedLogicalValues']==1655
+    assert database['unresolvedRoles']=={'preserve-custom-metadata;consumer-unresolved':721,'retained-node-label;consumer-unresolved':934}
+    assert database['rolesPerCopy']['protected-fast-travel-selection-key']==8
+    grammar_partitions = list(lines(OUT / 'dialogue-inline-partitions.jsonl'))
+    frozen_rows = list(lines(OUT / 'frozen-dialogue-bindings.jsonl'))
+    assert [r['id'] for r in grammar_partitions]==[r['id'] for r in frozen_rows]
+    for source,row in zip(frozen_rows,grammar_partitions):
+        assert row['occurrences']==source['occurrences']
+        check_partition(source['source'],row)
+    sample_partition=copy.deepcopy(grammar_partitions[0])
+    check_partition(frozen_rows[0]['source'],sample_partition)
+    sample_partition['partition'][0]['text']='[pic=7]'
+    try:
+        check_partition(frozen_rows[0]['source'],sample_partition)
+    except AssertionError as error:
+        assert str(error)=='partition-value'
+    else:
+        raise AssertionError('changed-control-span-accepted')
+    try:
+        classify({},'/unreviewedText','fixture',{},set())
+    except ValueError as error:
+        assert str(error)=='unread-string-selector:/unreviewedText'
+    else:
+        raise AssertionError('unknown-database-selector-accepted')
+    potential = list(lines(OUT/'dialogue-database-values.jsonl'))
+    occurrences = [i for r in potential for i in r['occurrences']]
+    assert len(occurrences)==len(set(occurrences))==2*len(potential)
+    assert all(r['translationId'] is None for r in potential)
+    travel=load(OUT/'fast-travel-source-dependencies.json')
+    registered_travel=next(r for r in load(OUT/'special-cases.json')['cases'] if r['id']==travel['id'])
+    assert len(travel['sourceIds'])==7 and travel['customGreetingWriteTarget']==719
+    assert 'ds:58:719:Dialogue Text' in travel['sourceIds']
+    assert set(travel['sourceIds']) <= {r['id'] for r in registered_travel['sourceBindings']}
+    assert travel['runtimeProducerIds']==[GREETING_ID]
+    def validate_producer_binding(registry_case):
+        if GREETING_ID not in {r['id'] for r in registry_case['sourceBindings']}:
+            raise ValueError('missing-fast-travel-runtime-producer')
+    validate_producer_binding(registered_travel)
+    missing_producer=copy.deepcopy(registered_travel)
+    missing_producer['sourceBindings']=[r for r in missing_producer['sourceBindings'] if r['id']!=GREETING_ID]
+    try:
+        validate_producer_binding(missing_producer)
+    except ValueError as error:
+        assert str(error)=='missing-fast-travel-runtime-producer'
+    else:
+        raise AssertionError('missing-runtime-producer-accepted')
+    dispositions=load(OUT/'dialogue-database-consumer-dispositions.json')['values']
+    previous=load(phase136/'baseline/dialogue-database-unresolved.json')['values']
+    assert len(dispositions)==len(previous)==1660
+    for old,new in zip(previous,dispositions):
+        assert all(old[k]==new[k] for k in ('pointer','occurrences','source','sourceValueSha256'))
+        assert new['consumerBoundary'] and new['remainingPredicate']
+    assert Counter(r['role'] for r in dispositions if r['roleResolved'])=={
+        'protected-dynamic-conversation-selection-key':4,'protected-story-event-comparison-key':1}
+    assert [r for r in dispositions if not r['roleResolved']]==load(OUT/'dialogue-database-unresolved.json')['values']
+    source_tree=load(ROOT/load(ROOT/'localization/source/dialogue-manifest.json')['sources'][0]['tree'])
+    assert [classify_remaining(r,source_tree) for r in previous]==dispositions
+    known_title=next(r for r in previous if (r.get('conversationId'),r.get('entryId'))==(109,5))
+    classify_remaining(known_title,source_tree)
+    altered_title=copy.deepcopy(known_title);altered_title['source']='__localized_identity__'
+    try:
+        classify_remaining(altered_title,source_tree)
+    except AssertionError as error:
+        assert error.args[0]==('known-title-value',(109,5))
+    else:
+        raise AssertionError('changed-known-title-accepted')
+    old_values=[json.loads(s) for s in (phase136/'baseline/dialogue-database-values.jsonl').read_text().splitlines()]
+    assert len(old_values)==len(potential)==10316
+    for old,new in zip(old_values,potential):
+        assert all(old[k]==new[k] for k in ('pointer','occurrences','source','sourceValueSha256'))
+    # Independently reconstruct the five new and remaining934 Title group digests.
+    from phase135.reconcile_database import encoded
+    for group in database['selectorGroups']:
+        if group['role'] in ('retained-node-label;consumer-unresolved','protected-dynamic-conversation-selection-key','protected-story-event-comparison-key'):
+            rows=[r for r in dispositions if r['role']==group['role']]
+            assert group['logicalStates']==len(rows)
+            assert group['orderedPointerValueSha256']==hashlib.sha256(b''.join(encoded([r['pointer'],r['source']])+b'\n' for r in rows)).hexdigest()
+    assert len([r for r in potential if r['role']=='protected-fast-travel-selection-key'])==8
+    actual_protected=sum(p['kind'] not in ('ordinary-lexical-text;field-eligibility-separate','preserved-line-separator')
+        for r in grammar_partitions for p in r['partition'])
+    assert actual_protected==7103
+    assert sum(p['kind']=='preserved-line-separator' for r in grammar_partitions for p in r['partition'])==291
 
     bindings = load(OUT / 'old935-selector-bindings.json')
     assert len(bindings) == len({r['id'] for r in bindings}) == len({r['sourceId'] for r in bindings}) == 935
@@ -143,18 +255,28 @@ def main():
     else:
         raise AssertionError('equal-wording-occurrence-loss-accepted')
     assert manifest['commonSourceAccepted'] is False and manifest['translationEntryAllowed'] is False
-    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0134-work',
+    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0136-work',
                    reusedParentReadback=dict(path=str((baseline/'readback-validation.json').relative_to(ROOT)),
                        sha256=sha(baseline/'readback-validation.json'), originalManifestSha256=prior['manifestSha256'],
                        boundary='Original parent full source/tree/span readback, reused on exactly unchanged values/IDs/context; not rerun or relabeled as independent semantic judgment.'),
                    currentManifestSha256=sha(OUT/'manifest.json'), builderSha256=sha(OUT/'build_inventory.py'),
                    validatorSha256=sha(Path(__file__)), generatedProducts=len(generated),
                    preservedProducts=unchanged_products, sourceDeltas=counts, mixedLeafPartitions=dict(partitions),
-                   unknownCompiledStates=3460, potentialControlLabelBindingStates=1389,
+                   unknownCompiledStates=2400, potentialControlLabelBindingStates=1389,
+                   phase136CompiledDelta=dict(changedRoles=1,id=GREETING_ID,priorWholeProductReconstructedExactly=True),
+                   comparisonOperandIntegration=dict(parentOperands=1121,newlyResolved=1059,priorRolesRetained=62,comparisonOnDisplayUnchanged=12),
+                   dialogueDatabase=dict(completeExportUnion=911903,physicalStringsIncludingEmpty=1445340,
+                       noncandidatePhysicalStrings=1420848,unresolvedLogicalValues=1655,
+                       assignedConsumerDispositions=1660,resolvedTitleControlKeys=5,
+                       completeOriginalNoncandidateTreeDigestPassed=True),
+                   dialogueGrammar=dict(logicalIds=12246,physicalOccurrences=24492,protectedSpans=7103,
+                       lineSeparators=291,unresolvedLexicalSpans=0,completePartitionReconstruction=True),
                    old935Bindings=dict(direct=911, exactObjectAliases=24, allSourceValuesEqual=True),
                    unchangedLocalePackets=30, haiku=dict(sourceIds=194, nodes=259, originalPredicateCombinations=27,
                        outcomes=dict(outcomes), syntheticDisplayOnlyBranchChanges=changed, actualRuntimeAdapter='not-implemented'),
-                   negativeControls=dict(changedSourceRejected=True, equalWordingOccurrenceLossRejected=True, matchingPositiveControlsPassed=True),
+                   negativeControls=dict(changedSourceRejected=True, equalWordingOccurrenceLossRejected=True,
+                       changedControlSpanRejected=True,unknownDatabaseSelectorRejected=True,
+                       changedKnownTitleRejected=True,missingRuntimeProducerRejected=True,matchingPositiveControlsPassed=True),
                    outputPins={name:sha(OUT/name) for name in generated},
                    noGateWaiver=dict(commonSourceAccepted=False, translationEntryAllowed=False,editorial='not-run',runtime='not-run',visual='not-run'),
                    boundary='Deterministic identity/value/occurrence and rule-expansion validation. No original-install access, game execution, image input, texture edit or target authoring. Files are written sequentially; no multi-file transaction claim.')

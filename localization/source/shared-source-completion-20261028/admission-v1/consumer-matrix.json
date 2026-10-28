@@ -5193,6 +5193,13 @@
       }
     ]
   },
+  "comparisonOperandIntegration": {
+    "artifact": "../comparison-operands/preserve-exactly.jsonl",
+    "sourceOperands": 1121,
+    "newlyResolved": 1059,
+    "unchangedPriorRoles": 62,
+    "boundary": "Exact argument roles only. All comparison-on-display roles and haiku dependency retained; input/display producer and application predicates remain separate."
+  },
   "mixedFamilyLeafPartitions": {
     "phase134:keyboardLayout": 4,
     "phase134:keyboardSymbolLabel": 14,
@@ -5201,5 +5208,12 @@
     "phase134:rewiredResourceIdentity": 369,
     "phase134:rewiredDualIdentity": 45
   },
-  "potentialControlLabelBindingStates": 1389
+  "potentialControlLabelBindingStates": 1389,
+  "dialogueDatabase": {
+    "artifact": "dialogue-database-reconciliation.json",
+    "unresolvedArtifact": "dialogue-database-unresolved.json",
+    "completeStorageUnion": 911903,
+    "typedConsumerUnresolved": 1655,
+    "runtime": "not-run"
+  }
 }

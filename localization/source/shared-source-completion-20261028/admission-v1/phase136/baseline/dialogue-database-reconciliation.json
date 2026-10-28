@@ -1,0 +1,1206 @@
+{
+  "schemaVersion": 1,
+  "phase": "0135-work",
+  "status": "complete-string-selector-and-value-partition;consumer-gaps-explicit",
+  "sources": [
+    {
+      "object": "sharedassets0.assets:3336",
+      "tree": "assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json",
+      "treeSha256": "41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b",
+      "allNoncandidateValuesSha256": "163f980b2c6c86170b74c48bfbc3a826fd845b7f4ff8ea80c2095b114e59d4ef",
+      "scalarTypes": {
+        "int": 415441,
+        "str": 722670,
+        "float": 69378
+      }
+    },
+    {
+      "object": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748",
+      "tree": "assets/source-v2/trees/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--9011735310751668748.json",
+      "treeSha256": "681f46d62ff8263ff599ef59a52818a60371223c3e27b87fdd41fe7ec37d4615",
+      "allNoncandidateValuesSha256": "9fe59e1ce818034b84bae8fa96a5e605c70cd5514af1236f14f8c0570da19956",
+      "scalarTypes": {
+        "int": 415441,
+        "str": 722670,
+        "float": 69378
+      }
+    }
+  ],
+  "sourceStringsPerCopy": 722670,
+  "physicalStringStates": 1445340,
+  "frozenLogicalIds": 12246,
+  "frozenPhysicalOccurrences": 24492,
+  "noncandidateStringStates": 1420848,
+  "exportedNonemptyDatabaseStrings": 875796,
+  "retainedNonDatabaseExportStrings": 36107,
+  "completeExportUnion": 911903,
+  "rolesPerCopy": {
+    "protected-resource-name": 1,
+    "preserved-empty-metadata": 3,
+    "preserved-empty-lua-program": 1,
+    "protected-schema-key-or-type": 435544,
+    "protected-actor-lookup;potential-display-alias": 39,
+    "protected-file-list": 33468,
+    "preserved-empty-state": 127690,
+    "protected-boolean": 49,
+    "protected-quest-lookup;potential-display-alias": 10,
+    "protected-quest-state": 10,
+    "protected-lua-variable-key": 3,
+    "protected-initial-state": 2,
+    "protected-conversation-lookup;potential-display-alias": 627,
+    "protected-actor-reference": 34046,
+    "preserve-custom-metadata;consumer-unresolved": 721,
+    "preserved-empty-sequencer-default": 1881,
+    "preserved-empty-input-key": 1254,
+    "preserved-empty-editor-color": 17023,
+    "protected-arc-root-title": 1476,
+    "protected-sequencer-program": 3660,
+    "protected-condition-enum": 16396,
+    "protected-lua-condition": 16396,
+    "protected-lua-program": 16396,
+    "protected-dispatch-command-title": 1299,
+    "frozen-display-candidate": 12246,
+    "protected-arc-save-key-suffix": 1178,
+    "protected-named-arc-key": 301,
+    "retained-node-label;consumer-unresolved": 939,
+    "protected-fast-travel-selection-key": 8,
+    "retained-editor-group-label;potential-display": 2,
+    "protected-editor-template": 1
+  },
+  "semanticFieldRolesPerCopy": {
+    "protected-actor-lookup;potential-display-alias": 39,
+    "protected-file-list": 33468,
+    "preserved-empty-state": 127690,
+    "protected-boolean": 49,
+    "protected-quest-lookup;potential-display-alias": 10,
+    "protected-quest-state": 10,
+    "protected-lua-variable-key": 3,
+    "protected-initial-state": 2,
+    "protected-conversation-lookup;potential-display-alias": 627,
+    "protected-actor-reference": 34046,
+    "preserve-custom-metadata;consumer-unresolved": 721,
+    "protected-arc-root-title": 1476,
+    "protected-sequencer-program": 3660,
+    "protected-lua-condition": 16396,
+    "protected-lua-program": 16396,
+    "protected-dispatch-command-title": 1299,
+    "protected-arc-save-key-suffix": 1178,
+    "protected-named-arc-key": 301,
+    "retained-node-label;consumer-unresolved": 939,
+    "protected-fast-travel-selection-key": 8,
+    "retained-editor-group-label;potential-display": 2
+  },
+  "selectorGroups": [
+    {
+      "selector": "/m_Name",
+      "role": "protected-resource-name",
+      "logicalStates": 1,
+      "nonemptyStates": 1,
+      "orderedPointerValueSha256": "aca9eb3345c74e279a6bec85c3b7ca61ec7bd3b443fb8e08dc6611e2b578315e",
+      "physicalStringStates": 2
+    },
+    {
+      "selector": "/version",
+      "role": "preserved-empty-metadata",
+      "logicalStates": 1,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "76b1c9e1a9a6f8957b124d434a66387ddb29fbf9385aeedcc91f0de19c1e027d",
+      "physicalStringStates": 2
+    },
+    {
+      "selector": "/author",
+      "role": "preserved-empty-metadata",
+      "logicalStates": 1,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "e206c52da991745305b5bd0e8534c62cbc2937ced609818d78c1be89b5f2f525",
+      "physicalStringStates": 2
+    },
+    {
+      "selector": "/description",
+      "role": "preserved-empty-metadata",
+      "logicalStates": 1,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "94d42476d6820ded02d278d1da97d74c8f6d36663a95a1109eb78a1ba8e22ec5",
+      "physicalStringStates": 2
+    },
+    {
+      "selector": "/globalUserScript",
+      "role": "preserved-empty-lua-program",
+      "logicalStates": 1,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "23713a46b872578560b4acbb9959c24846a3bf9de3dbedb8b9ab1809a95b1991",
+      "physicalStringStates": 2
+    },
+    {
+      "selector": "actors:Name:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "0b5bd0f2a42385dfa8f9cd28672942529dba2862f9742c895c8d9717d9b334e7",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Name:value",
+      "role": "protected-actor-lookup;potential-display-alias",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "263005e1491c714fb1fe24781d333b1f43dd401b58483818bd303e71a42af81f",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Name:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 2,
+      "orderedPointerValueSha256": "6b8334bf08ce576300fc80f85703f4c4c0974a351f2c7c50722093d01dfdfd27",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Pictures:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "078f324255732ae5c060496b4cf57de65b6e0279759eb3bb4f9ad52429aa21af",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Pictures:value",
+      "role": "protected-file-list",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "64ff7d0f85aa0d97fe07464bf439ebe950d5bf520164bae58114de036d4f35f5",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Pictures:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "41a7ea85b19370c86d426768b10f404289527280273329a0c156860f45cd6b3e",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "9bfc054bfdd11d29bc4c495add07aaac80d7599e92fc8b04814b41bbdc3faaac",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 39,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "bbe3879eba5cb9ca86f09c387180ec5a2129995116a8cf0176c79ba430785768",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 2,
+      "orderedPointerValueSha256": "967d64d0f4097d6455772649df3e842be16cd2dfe095ee0321c53a6fa31d1d85",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:IsPlayer:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "b21d33a53e6fe215c2f82f9dded00688c4716bf4686d61c9d9debc7ec1abba4a",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:IsPlayer:value",
+      "role": "protected-boolean",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "47954bdce6fea9e35ebffc229e67d7e8eb304748ce602464df321eda36a277fb",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "actors:IsPlayer:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 39,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "7d07c76437add17df70bb36a8b5f83f319f0db6ece188c00aa2381dad984d29c",
+      "physicalStringStates": 78
+    },
+    {
+      "selector": "items:Name:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "ca41afb5e9a1cc6c8a639c8c4ecc2bbf8391761539b8d3434ff203dbc56e08a3",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Name:value",
+      "role": "protected-quest-lookup;potential-display-alias",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "d3306f470c71fe9dfd625f2a0fb8c8c1986629f23c6333cd4d7b1748272559c0",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Name:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 7,
+      "orderedPointerValueSha256": "6020ed6659b30936193a9056bc2416e0e9b655ef981ddf57a4aabf21620998a7",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Pictures:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "a6cce571e7f635fc222cd605e061625546121309c7827a374269efb55870a6b5",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Pictures:value",
+      "role": "protected-file-list",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "20e7aa17b9bbe0a4ba3a47b7af8d46402ea60fd5589a57a81851cd686743e1bd",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Pictures:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "512f5af9b4c68cbee8b5e55b3127d3456d8a11104604bd6c1bfbd9e87507ba70",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "0eca9e491e2434eaeaf1f89abf9eb964d56cda2b64819094fc42740fbee21136",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 10,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "5ab09708aae4216e08443a960741b93e855636e746a4e28612ec7ebcb8a1dfb6",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 7,
+      "orderedPointerValueSha256": "0dded2342549b1b1f7215f2f85212033e6ed3f84a3c0294829e99b2dbc973406",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Is Item:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "d8ef3900299473963f5f72a9e55eec0a31bf7479c0c28f3ad8101999e1272b0b",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Is Item:value",
+      "role": "protected-boolean",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "8b06c262803d8c7c76d0fa9934dce0d933a52750a1c4f60719dd830122c2bca4",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Is Item:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "e0cae9011d8fc52e79e972cf0cae0e4321534a1c5229587ff8ec38f823ddc7e0",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Success Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "cf54b3caa60add70e5066fbd3a96f25c6c02a9111c7849e2aaa1bcfc7605c3e5",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Success Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 10,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "83d61681e6430d99997906947f5b8fed9cfa93ba77aee3abeb2668546ef24f60",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Success Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 7,
+      "orderedPointerValueSha256": "a727e5d82ae6df27f245fa09c77246ecbf99877d6f1a186fe1924188d0104065",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Failure Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "51649cfdb9b48b134e574bfbf7c73b6271641188c371d8fded52358d3d76afa0",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Failure Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 10,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "2d8399872b0893e3fe665f5487001bbd5c28391b2310b1930dfd2262a2ba683e",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:Failure Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 7,
+      "orderedPointerValueSha256": "e28934ae11f124c9408c10e206fb555c5ec07d692d70a8c9ea026569326fcd4d",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:State:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "3169c19fb4a0439af3ce6ca8f70648315266387abbe79694382a4be4382f9f88",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:State:value",
+      "role": "protected-quest-state",
+      "logicalStates": 10,
+      "nonemptyStates": 10,
+      "orderedPointerValueSha256": "6b950a37d9693221d0acfdc8b1e301a8a198135a7181be80ea0305d0af105d32",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "items:State:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 10,
+      "nonemptyStates": 7,
+      "orderedPointerValueSha256": "e39b58e3e058ffaa4469c716d055162410e149f4bc7857e61511678d87091d1d",
+      "physicalStringStates": 20
+    },
+    {
+      "selector": "variables:Name:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 3,
+      "nonemptyStates": 3,
+      "orderedPointerValueSha256": "3f11b0a18d872da598c9b358eb8c3ac23e78dce3a2097bd137d615abd3294aba",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Name:value",
+      "role": "protected-lua-variable-key",
+      "logicalStates": 3,
+      "nonemptyStates": 3,
+      "orderedPointerValueSha256": "7b487b0c86f89048c4bcc27bd9c8343d8d2189a19574a3de8683b6afb3e29e21",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Name:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 3,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "b1a983866bffe530bd14d6e7c819d1a00cdf67c4133bb213a05b299d0fc57199",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Initial Value:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 3,
+      "nonemptyStates": 3,
+      "orderedPointerValueSha256": "a712ba359356b27d3f4487a03eea0a005ca1986403a382ef20a25438ea98e4c1",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Initial Value:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 1,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "d8c10d16df985bb50157133d6eb0ea3cc37b887387ee5d53eb6d77a02014c481",
+      "physicalStringStates": 2
+    },
+    {
+      "selector": "variables:Initial Value:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 3,
+      "nonemptyStates": 3,
+      "orderedPointerValueSha256": "295265c43a8bf7ae5efddddf522dfbd0643936071f735dd87269054267c73758",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 3,
+      "nonemptyStates": 3,
+      "orderedPointerValueSha256": "0c1474ca33979ab098a22dd139743c8b37946e3473108954db4aa0ab3263025f",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 3,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "3bea2d8096a76643fa014e9aa920108ddc3b80d0169075ee396c198cc77dc82f",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 3,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "7e36960ec366102c510749f93202aeb9de60d0dc36b93643902aaccdc78e2dab",
+      "physicalStringStates": 6
+    },
+    {
+      "selector": "variables:Initial Value:value",
+      "role": "protected-initial-state",
+      "logicalStates": 2,
+      "nonemptyStates": 2,
+      "orderedPointerValueSha256": "1bcef84064d4d0a551843bac68aafe3e9e1daa2469908cdbd32edbbb6b1f7e91",
+      "physicalStringStates": 4
+    },
+    {
+      "selector": "conversations:Title:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "000706fd1d22f2a9ae7c627a6ca1aa7e11bdae08a12ba47d661e8ebe58773c04",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Title:value",
+      "role": "protected-conversation-lookup;potential-display-alias",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "4eed390cd6592ee9fe4aafb84fff77513c9be3b47863a0126d0f0a6a72542030",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Title:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 335,
+      "orderedPointerValueSha256": "61d70e5d1180551e87d26411f2ab9f8bcdb6b8f851153c110b2f22481f56a41a",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Pictures:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "e5cf71f5e3582d4831282b0fd5c4016971c506bb04037bce17d12d2bf6bc21d7",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Pictures:value",
+      "role": "protected-file-list",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "21a91fcaf4f2e5ea21f3a2cf8c0142f636027c48685f04ef84a057afbbf8a6a9",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Pictures:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "e7abec39f5f1e5cdcec20f2f57df73eed50481cd66c2b3bc8fa51fa54a18aa44",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "761d3c742bc3640d59cb00ff9b9f6aea260633a674388c0a450674b59c1ef778",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "656995af5b909c7bd46000eab85a5718dced915a691661ee23c86c7521ca0613",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 335,
+      "orderedPointerValueSha256": "b6979c2d4ef56a15bc0f5cf7e0d0664abc3e8bc9552ed897773a84332e108b5b",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Actor:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "fe02919b2b681bdcd2c541e45f64999aa3336d7eeb818a4313537301343c0205",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Actor:value",
+      "role": "protected-actor-reference",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "d436a23c4c8a42819ebd32cf7a43b07893b9c40743e5a46db1f6667305695743",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Actor:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "0325e309981050a7f025e53bf0fb0951fa1507872fd2ce770d82d453a8a72c90",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Conversant:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "3f0063b13eca1a399b7f67f619df6c06fd0c93af48ade2c7644fb9bdbdc11326",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Conversant:value",
+      "role": "protected-actor-reference",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "524a06f6c88ab1756a80b3148fae1f29de02e6ca2e2a77df7aa4a0bc61f0f3de",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:Conversant:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "255ed843011771f582c11bf459477b48ccede255c1aeab5031c7f14d8e34f5ba",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:TfolConversationType:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "32ecbad3b55b9f291bb1cbfe71d4da49e3684c6b394d1e6e9bcec0966417596f",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:TfolConversationType:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 434,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "33b2bfa524d5fb5defff9d4ae327afa22b1b8e35820273c9ecb68690affdde19",
+      "physicalStringStates": 868
+    },
+    {
+      "selector": "conversations:TfolConversationType:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "496cff1e98b63d75d06e009b1e7f1da162f47b8e1217ec41553cabfd620d3222",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:TfolUniqueDataKeySuffix:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "1709115729802d5ad67f42f27e4bdfbf3268f3b540134e311b86ac413520abf5",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "conversations:TfolUniqueDataKeySuffix:value",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "logicalStates": 523,
+      "nonemptyStates": 523,
+      "orderedPointerValueSha256": "b90beaa2759fc8cb1d256303ac90b31f7553afe7e6df8ac36c49fcfac2da962b",
+      "physicalStringStates": 1046
+    },
+    {
+      "selector": "conversations:TfolUniqueDataKeySuffix:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 627,
+      "nonemptyStates": 627,
+      "orderedPointerValueSha256": "7f47ca7ef64e0c0b6495674606dec32addfa74b4d8cb64113ec67dc48842c7db",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "/conversations/*/overrideSettings/defaultSequence",
+      "role": "preserved-empty-sequencer-default",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "a0ab3d7e0f39d53eeaaf41b522c84c563507b9e38b0e0924a64d8dcb66565943",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "/conversations/*/overrideSettings/defaultPlayerSequence",
+      "role": "preserved-empty-sequencer-default",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "15fa5903866f0cb9a95519f55ec2b986a48fe9a71b6b5df5fcb808cb1dfd269e",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "/conversations/*/overrideSettings/defaultResponseMenuSequence",
+      "role": "preserved-empty-sequencer-default",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "fad33d24f2f4c8f62fe63ac757b1d5d2d5dc9e5193be267584b88ce0b394791c",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "/conversations/*/overrideSettings/cancelSubtitle/buttonName",
+      "role": "preserved-empty-input-key",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "a171bc59ec1db89a4efe228e49566f50747730a4b2acdb75c4753750434a2e7d",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "/conversations/*/overrideSettings/cancelConversation/buttonName",
+      "role": "preserved-empty-input-key",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "018e1074258f6d03ea91ef04ac9ab162451da969e89ec9dc5b47aa5332492261",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "/conversations/*/nodeColor",
+      "role": "preserved-empty-editor-color",
+      "logicalStates": 627,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "97a7f113356deaafc84c3dcc52c14d812fdc6ae57592e25a5322d554c906e733",
+      "physicalStringStates": 1254
+    },
+    {
+      "selector": "entries:Title:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "b7cfc1b5d20fce56ec75195874c6c1d9e4319d03d8512d4a13be20a3c37417a4",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Title:value",
+      "role": "protected-arc-root-title",
+      "logicalStates": 1476,
+      "nonemptyStates": 1476,
+      "orderedPointerValueSha256": "2b5dd1c405fb4500286921a313c60bdfd7deb9189ab906c4bfb9e57fec9fc572",
+      "physicalStringStates": 2952
+    },
+    {
+      "selector": "entries:Title:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "6c2d7b2bf235ea33726a2bb06942314a17080d629d6505ff2e6e847f0a0801d3",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Pictures:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "21b03c1eecd41853a7315bcd94c624269385f6aae6b984bfebd4bc2b8368ef0f",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Pictures:value",
+      "role": "protected-file-list",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "b02e261acc2f5a5b2c8581f6d91cb042e520a11d43726d8d627c1bccc4acd876",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Pictures:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "f9d112bc0e18bca5773ecf5cb098618ec92d909cf591a3ac04ae74d688638f83",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Description:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "ea0b7fcfc7a51ea8e71d174521f2f626bc977d99a98bd44534c856100007dcd5",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Description:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 16391,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "8409e880b08a1cef325972abda972973d4c70bcfc15325a526e55709be974c3a",
+      "physicalStringStates": 32782
+    },
+    {
+      "selector": "entries:Description:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "211873545f4dc3a402d741daac6b3892b9e1e6604dfd25bbc13e21d3fa40470b",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Actor:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "5416e833ebe9ddce30cc5afb7def7353e4af2674ac7e94f3e2751f4fb118e3e7",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Actor:value",
+      "role": "protected-actor-reference",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "6f37916c926037c64d4248101d73bfc96361a83b52e34c2ebd3e9bf58ca36342",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Actor:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 15714,
+      "orderedPointerValueSha256": "435857fe83b9e911bae826044388f92f86cfe5f6d1d2ceac4e66c85a9d4664cc",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Conversant:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "aa583c0035c67b345a6ba3ae62f93ca4155587481ba230d6d10dc0e4d4754def",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Conversant:value",
+      "role": "protected-actor-reference",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "201b77723af21d4d624984f771fa8a5601a2627924bbb4e8c17d7fab5687da5a",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Conversant:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 15604,
+      "orderedPointerValueSha256": "f04ab30551b3eef401194d189e44dae28c79f3a40441b1f502b03056bd460972",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Menu Text:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "8e68f5460f41c09db05da4ab51e32590b39f299caf6ed91a8efda740e9c1c639",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Menu Text:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 16381,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "d44596f000876b5b29cda1cedfef86b751b4457f88061445c155d12b451ac075",
+      "physicalStringStates": 32762
+    },
+    {
+      "selector": "entries:Menu Text:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "269e04d93ad64cabfd5d3caad05d4685e281ecc771e339d4bd50dce5e0c37dc6",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Dialogue Text:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "ef4103c4d0b02dc294fd2c2d2d14a67a1f0d84349eeda6bf9db3e6d46cd564e1",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Dialogue Text:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 4165,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "813ce82612a6c74f00d2a33ff200c0f513aa8aaf6fb30531498d2e42257d1d0d",
+      "physicalStringStates": 8330
+    },
+    {
+      "selector": "entries:Dialogue Text:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "98d8c0851ce15a2d4777157f259acce5c908c3eab2c348500712394de333949f",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Parenthetical:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "b4c6f5296c84bdc31e2d061f6bc0962bca2b6ac25c1f134ca2e6f5b141c81b67",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Parenthetical:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 16396,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "87e88c14fe118921949c21ca23fc1c7331fadf23b9a023a3283d59a6fb733a54",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Parenthetical:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "bad664a6f272b6eedf0d33f4feae48f5dbf6f3e8b1b7bc29f7c0d44ec2a32ab9",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Audio Files:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "7fd32fc25adeeef103000630796daa2530eb8804effeba60916b7a1d1645cae1",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Audio Files:value",
+      "role": "protected-file-list",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "baa3e4de31682d678593ea90b4dd8ebab6af575ae5cb9e55f3bf043c16d3e80a",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Audio Files:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16057,
+      "orderedPointerValueSha256": "d8b0a087d7bb460a977e5ecd38672c7e9c8362afac1626fb2a0fcbcdf2a61c9a",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Video File:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "7f773977bd2ca46361d6ba7254d1faa1c7e38debc5b75dd62939491721dfb3f0",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Video File:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 16396,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "7c54e6bf743a1bc6306dee60e480ffc59ab921db674a5edee8f3c143ce30b7dd",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Video File:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "0e0f100f2578aa18842f99516f02a4448ee2bb3dcfcb4f1186564a98940fd335",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Sequence:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "6a8c0e41eb23c4fb93c1c2a9e83fcd696db71f6b5709108e3b17e8609cc3c3b5",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Sequence:value",
+      "role": "protected-sequencer-program",
+      "logicalStates": 3660,
+      "nonemptyStates": 3660,
+      "orderedPointerValueSha256": "dbad34537c4f3eb34c47b51a42448ec08f8ccd63b38400a4e354a71d254d85a5",
+      "physicalStringStates": 7320
+    },
+    {
+      "selector": "entries:Sequence:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 4047,
+      "orderedPointerValueSha256": "5cba35a9bb004322791271dd998c25ed9275f91465437222d744471d8217e445",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:TfolUniqueDataKeySuffix:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "3214b479d7bdd8d76eb7ef8d821aa8dd5a129ec173e81c8fb4a221f4764e78d9",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:TfolUniqueDataKeySuffix:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 15218,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "427dd7c5582b35fa12bf29ca052dca422171a664941cbf4449c2d8deee844e6d",
+      "physicalStringStates": 30436
+    },
+    {
+      "selector": "entries:TfolUniqueDataKeySuffix:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16338,
+      "orderedPointerValueSha256": "4439624cbf894ae5fe8661a91535d14816194f650e1f15a3794ad7bff5051714",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Response Menu Sequence:title",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 16396,
+      "orderedPointerValueSha256": "e662b388f8ff6b41938d70a30540fcc7b6f13ed86ffa97bde285600a32586936",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Response Menu Sequence:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 16396,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "e55c229a7f34af9530e45648e8f9b0da67f7f1c61e28be7dca3951807d3f7d20",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Response Menu Sequence:typeString",
+      "role": "protected-schema-key-or-type",
+      "logicalStates": 16396,
+      "nonemptyStates": 1224,
+      "orderedPointerValueSha256": "bcfa6728908764702c539bcb132d3c11efea6802c9e71518968b4937e596ae4e",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "/conversations/*/dialogueEntries/*/nodeColor",
+      "role": "preserved-empty-editor-color",
+      "logicalStates": 16396,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "0183955b30331201c6b8489cf4b4f605c2fe07f9a9b6d1f52d406cd5933b6125",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "/conversations/*/dialogueEntries/*/falseConditionAction",
+      "role": "protected-condition-enum",
+      "logicalStates": 16396,
+      "nonemptyStates": 16392,
+      "orderedPointerValueSha256": "3a09335b6e5ed5f798b8f5bd90d33515d9b35224b4cd237b0acd74cab278f12d",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "/conversations/*/dialogueEntries/*/conditionsString",
+      "role": "protected-lua-condition",
+      "logicalStates": 16396,
+      "nonemptyStates": 39,
+      "orderedPointerValueSha256": "a4448e66ae2310c204e25e3d7f7c6c84b7a908415ad6aece0a6f4efc30ab42a8",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "/conversations/*/dialogueEntries/*/userScript",
+      "role": "protected-lua-program",
+      "logicalStates": 16396,
+      "nonemptyStates": 2,
+      "orderedPointerValueSha256": "0458f9bd8bcc22a2a9f99077443eeda9edf74e2282743a823669caa0898a9767",
+      "physicalStringStates": 32792
+    },
+    {
+      "selector": "entries:Title:value",
+      "role": "protected-dispatch-command-title",
+      "logicalStates": 1299,
+      "nonemptyStates": 1299,
+      "orderedPointerValueSha256": "de3a832dcc7de57dc80efa7432d9356d4122cf7974daf71b034d95c9d65da4b6",
+      "physicalStringStates": 2598
+    },
+    {
+      "selector": "entries:Title:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 12373,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "3c5eec3d616ac30c1a27484803e2c6c012d2acb183ca078a22d88bf8e3264b49",
+      "physicalStringStates": 24746
+    },
+    {
+      "selector": "frozen-dialogue",
+      "role": "frozen-display-candidate",
+      "logicalStates": 12246,
+      "nonemptyStates": 12246,
+      "orderedPointerValueSha256": "3e8caf13cb5d4c1e25c1bf204c81a0c19e8523389211a63bb1811c0045dcffd2",
+      "physicalStringStates": 24492
+    },
+    {
+      "selector": "entries:Sequence:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 12736,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "5c73c6317e42daf6d520d1dcd9a3a951b8bcd9bcc19c0609c081ad1dfb5c7b73",
+      "physicalStringStates": 25472
+    },
+    {
+      "selector": "entries:TfolUniqueDataKeySuffix:value",
+      "role": "protected-arc-save-key-suffix",
+      "logicalStates": 1178,
+      "nonemptyStates": 1178,
+      "orderedPointerValueSha256": "99a2aec242841830146b2ea2c525543812d5b9b57517ec822012768e4a89fc91",
+      "physicalStringStates": 2356
+    },
+    {
+      "selector": "entries:Title:value",
+      "role": "protected-named-arc-key",
+      "logicalStates": 301,
+      "nonemptyStates": 301,
+      "orderedPointerValueSha256": "3fa9d39add00dceb4a7d8e9fac4010cb1e5b35e9ceae573658bbe85d6d24fb42",
+      "physicalStringStates": 602
+    },
+    {
+      "selector": "entries:Title:value",
+      "role": "retained-node-label;consumer-unresolved",
+      "logicalStates": 939,
+      "nonemptyStates": 939,
+      "orderedPointerValueSha256": "587f30c772d36089503b24989c56f7d37713cfd66eb1743cb9a52568ad1bf73f",
+      "physicalStringStates": 1878
+    },
+    {
+      "selector": "conversations:TfolConversationType:value",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "logicalStates": 193,
+      "nonemptyStates": 193,
+      "orderedPointerValueSha256": "5b2e30916aafafc49d7ac3a89cb24c76fc58a201ee7eda7c49a30e9f7494fc53",
+      "physicalStringStates": 386
+    },
+    {
+      "selector": "conversations:TfolUniqueDataKeySuffix:value",
+      "role": "preserved-empty-state",
+      "logicalStates": 104,
+      "nonemptyStates": 0,
+      "orderedPointerValueSha256": "39d1802bac03971993df4ac4bf61d9208e4fbee8b2c175f22489b630ed091e39",
+      "physicalStringStates": 208
+    },
+    {
+      "selector": "entries:Title:value",
+      "role": "protected-fast-travel-selection-key",
+      "logicalStates": 8,
+      "nonemptyStates": 8,
+      "orderedPointerValueSha256": "5a9b9912931b182580464d79469715dd593addf2812f4046a3a3826dcaea95cb",
+      "physicalStringStates": 16
+    },
+    {
+      "selector": "entries:Description:value",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "logicalStates": 5,
+      "nonemptyStates": 5,
+      "orderedPointerValueSha256": "09c8704329277bee1256a29e286b20236ea1f83d24a7967d1cfc519cce0d5d03",
+      "physicalStringStates": 10
+    },
+    {
+      "selector": "/conversations/*/entryGroups/*/name",
+      "role": "retained-editor-group-label;potential-display",
+      "logicalStates": 2,
+      "nonemptyStates": 2,
+      "orderedPointerValueSha256": "d28a7a76eac0690a506d228d31396ede992f55364017fadf8be1c0f1dae95628",
+      "physicalStringStates": 4
+    },
+    {
+      "selector": "/templateJson",
+      "role": "protected-editor-template",
+      "logicalStates": 1,
+      "nonemptyStates": 1,
+      "orderedPointerValueSha256": "ebbeebde98da6bda075923e2b75577ce59547961fcc32ea0c73d94e059240689",
+      "physicalStringStates": 2
+    }
+  ],
+  "materialNoncandidateValueRecords": 10316,
+  "unresolvedLogicalValues": 1660,
+  "unresolvedRoles": {
+    "preserve-custom-metadata;consumer-unresolved": 721,
+    "retained-node-label;consumer-unresolved": 939
+  },
+  "selectorSemantics": "Each typed group expands against both pinned original trees, in source order, to every exact pointer/value state. Digests include pointer and full value, including empty strings. No occurrence or logical display ID is merged by wording. Nonstring state is protected by the original whole-tree removal digest.",
+  "unresolvedPredicates": [
+    {
+      "role": "retained-node-label;consumer-unresolved",
+      "producer": "DialogueEntry.Title outside exact roots/13 command families/NAMED outgoing labels",
+      "body": "Named original game consumers of DialogueEntry.get_Title / Conversation.GetDialogueEntry(string); older command labels may be dormant but absence is unproved.",
+      "next": "Join every exact retained selector to existing game call-index consumers; preserve note prose and old control syntax, no invented translation IDs."
+    },
+    {
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "producer": "Conversation.TfolConversationType/TfolUniqueDataKeySuffix and five DYNAMIC_RESPONSE_OPTION Description values",
+      "body": "Field.AssignedField/Lookup consumers and any vendor/dynamic field reader; current loader gets dialogue type/savekey from BG, which does not prove these custom fields unreachable.",
+      "next": "Resolve the exact original producer/consumer joins or retain an explicit potential/dormant-display boundary; no recursive framework absence audit."
+    }
+  ],
+  "evidencePins": {
+    "localization/source/shared-source-completion-20261028/comparison-operands/verify.py": "c9f355b4c88578e9d2525f2386e13a3c83b1ecde80e37b8f7bca313e9587a20e",
+    "localization/source/shared-source-completion-20261028/comparison-operands/preserve-exactly.jsonl": "4fcf9b61ca731063c734c8972965a55535e72ff17cf3969f8b66213f2c5617cc",
+    "localization/source/shared-source-completion-20261028/comparison-operands/verification.json": "861e2e3a5d43babb3a8a3c3cc7eeaa40651d75e25c67cae3e6110920475e7c42",
+    "localization/source/shared-source-completion-20261028/dialogue-grammar/inspect.py": "1732fe4ffa07e6fd6c6db268f34d95acc5cbd576a7e0f7df61878e92797d754b",
+    "localization/source/shared-source-completion-20261028/dialogue-grammar/span-decisions.json": "a79d26d916cbf2c0e1369d889529cb70179562bf53277e0a3b003c15028b83dd",
+    "localization/source/shared-source-completion-20261028/dialogue-grammar/protected-spans.jsonl": "bcd2b2e9551380e74511c9fa0285bb1368b6cf34aaf8244d0209acddf7a1258c",
+    "localization/source/shared-source-completion-20261028/dialogue-grammar/exceptions.json": "debef70c69b464b3d3559a737d4b6266e3566f0b1bf8d12eea01399f4ed2ef34",
+    "localization/source/shared-source-completion-20261028/dialogue-grammar/verification.json": "103ca994462c6ab291f8f06adb33977fdb92b23a05e5a599ce423cbfdc0e33ea",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase135/arc-consumers.il": "e230242d244028b484b4366f4bcab2567cd0b6a44e8d9449d2f12ff322125a6c",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase135/existing-body-30.json": "9da9b4f2c778e75b253e6e8792398c4236341a9b41ea1e0484b7139306dc60b2",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase135/existing-body-39.json": "1a5e35a7c80e7830cd733f980dd8a9020767584d349a4f635f1ad444961e0894",
+    "localization/source/notebook-20261026/LoaderArcTriggerDispatch.il": "9d50df4c98e5e7333d9f15204f36ed3a3ea2e291194719d853a7e80ec546f6ff",
+    "localization/source/dialogue-held-consumers-20261026/DialogueEntry.il": "bf3c8229d465fe67aa2acf28758c1244cb173e74ef4c5b77a07c1f60b432d3d0",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase135/fast-travel-producer.il": "3c2acb2ffc4f5f769a2270cdd2f042722178567c9731120f76f21d663e6e08ac",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase135/database-role-decisions.json": "7cd623d83150a77ffa8e6ea9165b1297548f9eacff3424e0447e37b4336c2ad7",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase134/haiku-trigger-binding.il": "a45d74d98ad31b8200e8ba31417ff2f17530397fa1287e86af738c9f5b7ff506",
+    "localization/source/shared-source-completion-20261028/admission-v1/phase134/load-variable.il": "3233dac7b689dc554a21aad91f51cbce049570abd4b62dc2cbc97381af5b8da9",
+    "localization/source/bgdatabase-20261027/actor-identity/plugin-actor-get.il": "278971160a10c44aeb7ac9a39488f91cd804ade92d12b5e844b4b7556ee0f553",
+    "localization/source/dialogue-held-consumers-20261026/ConversationModel.il": "08207dd3d5524e23a67f98a49c317fc31af9922f60cbc91f1acac8c098189c1d",
+    "localization/source/dialogue-held-consumers-20261026/ConversationView.il": "dedb4b0f1f48f3b796e0b35c10b67e34158e9e8b1645c5d15bc6f5499cc15b70",
+    "assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json": "41749d8b093ab438a9fc73519993809cee8b1288c5fbc6fab46782a1b899d69b",
+    "assets/source-v2/trees/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--9011735310751668748.json": "681f46d62ff8263ff599ef59a52818a60371223c3e27b87fdd41fe7ec37d4615"
+  },
+  "roleEvidence": "phase135/database-role-decisions.json",
+  "grammar": {
+    "artifact": "dialogue-inline-partitions.jsonl",
+    "sourceFields": 12246,
+    "physicalOccurrences": 24492,
+    "protectedSpans": 7103,
+    "lineSeparators": 291,
+    "unresolvedLexicalSpans": 0,
+    "fieldEligibilityAccepted": false
+  },
+  "gates": {
+    "commonSourceAccepted": false,
+    "translationEntryAllowed": false,
+    "editorial": "not-run",
+    "runtime": "not-run",
+    "visual": "not-run"
+  },
+  "boundary": "Static inventory and authored typed-role expansion; lexical ordinary spans are not whole-field eligibility. Preserve all originals/targets/old935 packets. No display-alias, registered-effect, whole-parser execution or whole-game source acceptance."
+}

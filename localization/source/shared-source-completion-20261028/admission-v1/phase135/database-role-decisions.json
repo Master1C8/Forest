@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "phase": "0135-work",
+  "authoredModel": "gpt-6.1-sol/high/OpenAI",
+  "rules": [
+    {
+      "scope": "field title/typeString",
+      "role": "protected-schema-key-or-type",
+      "reason": "Original typed Field arrays use title as lookup key and typeString as type metadata; never target wording.",
+      "evidence": [
+        "localization/source/shared-source-completion-20261028/admission-v1/phase134/haiku-trigger-binding.il",
+        "localization/source/shared-source-completion-20261028/admission-v1/phase134/load-variable.il",
+        "localization/source/dialogue-held-consumers-20261026/DialogueEntry.il"
+      ],
+      "predicate": "Schema identity only; value role independently classified."
+    },
+    {
+      "scope": "actors.Name / items.Name / conversations.Title",
+      "role": "protected-lookup;potential-display-alias",
+      "reason": "Actor and conversation values join exact GetActor/GetConversation selectors; item Name remains a quest identity. Potential vendor display aliases remain retained, no exclusion by game usage.",
+      "evidence": [
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/existing-body-30.json",
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/existing-body-39.json",
+        "localization/source/bgdatabase-20261027/actor-identity/plugin-actor-get.il"
+      ],
+      "predicate": "No alias reinsertion or runtime visibility is accepted; quest lookup/display consumer remains retained potential."
+    },
+    {
+      "scope": "Actor/Conversant numeric values; IsPlayer/Is Item boolean; Pictures/Audio Files empty file lists; State enum",
+      "role": "protected-typed-value",
+      "reason": "Typed original field shape and exact values are numeric references, bool, [] or quest state, not display prose.",
+      "evidence": [
+        "localization/source/dialogue-held-consumers-20261026/ConversationModel.il",
+        "localization/source/dialogue-held-consumers-20261026/DialogueEntry.il"
+      ],
+      "predicate": "Preserve exact stored value; no assertion that the whole record is unreachable."
+    },
+    {
+      "scope": "entry Title roots /13 exact command families / NAMED outgoing labels / eight fast-travel keys",
+      "role": "protected-control-identity",
+      "reason": "Actual loader dispatch uppercases prefix before first parenthesis; roots locate arc lists; NAMED outgoing titles become customName; fast-travel compares supplied identity to Title and rebuilds links.",
+      "evidence": [
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/arc-consumers.il",
+        "localization/source/notebook-20261026/LoaderArcTriggerDispatch.il",
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/fast-travel-producer.il"
+      ],
+      "predicate": "947 original other labels minus8 now proved fast-travel identities leaves939 explicitly unresolved labels; do not classify old commands or author notes by casing/wording."
+    },
+    {
+      "scope": "entry TfolUniqueDataKeySuffix",
+      "role": "protected-arc-save-key-suffix",
+      "reason": "PopulateDialogueArcs requires this field on first arc node; concatenates dbName/savekey with _ and suffix; stores lookup dictionaries.",
+      "evidence": [
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/arc-consumers.il"
+      ],
+      "predicate": "Exact source key held for every occurrence, including dormant nodes; no whole-game reachability proof."
+    },
+    {
+      "scope": "Sequence / Response Menu Sequence / override defaults / conditionsString / userScript / falseConditionAction / variable keys+initial state",
+      "role": "protected-program-or-control-state",
+      "reason": "Stored sequencer/Lua/condition state; preserve all assignment/comparison operands and empty slots. No fragment translation IDs.",
+      "evidence": [
+        "localization/source/dialogue-held-consumers-20261026/ConversationView.il",
+        "localization/source/dialogue-held-consumers-20261026/ConversationModel.il",
+        "localization/source/shared-source-completion-20261028/admission-v1/phase134/load-variable.il",
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/arc-consumers.il"
+      ],
+      "predicate": "Syntax/source preservation only; interpreter/native execution remains separate."
+    },
+    {
+      "scope": "nonempty TfolConversationType / conversation TfolUniqueDataKeySuffix / five DYNAMIC_RESPONSE_OPTION descriptions",
+      "role": "consumer-unresolved",
+      "reason": "Current GenerateDialogues derives type/savekey from BG; this does not prove original custom fields unused. Keep all721 values and exact selectors.",
+      "evidence": [
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/existing-body-39.json",
+        "localization/source/shared-source-completion-20261028/admission-v1/phase135/fast-travel-producer.il"
+      ],
+      "predicate": "Find exact original custom-field lookup/dynamic reader or retain boundary; no default technical exclusion."
+    },
+    {
+      "scope": "empty descriptive/display fields / editor node colors / metadata / templateJson / entryGroups.name",
+      "role": "preserved-source-or-retained-potential",
+      "reason": "Every empty slot and structural/template value remains source-bound; two Group names retained as possible editor/display labels. Embedded template defaults parsed separately.",
+      "evidence": [
+        "assets/source-v2/trees/57009919ee-sharedassets0.assets-3336.json",
+        "assets/source-v2/trees/c1a187d8bb-CAB-7cd732d37ea0297d073a22a52ce72d28--9011735310751668748.json",
+        "localization/source/shared-source-completion-20261028/admission-v1/dialogue-template-preserve.json"
+      ],
+      "predicate": "Complete storage retention; no arbitrary schema key becomes target prose and no nonempty unreviewed value is accepted."
+    }
+  ],
+  "semanticAudit": "not-run",
+  "runtime": "not-run"
+}

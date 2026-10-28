@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "phase": "0135-work",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "OpenAI",
+  "ignoreUserConfig": true,
+  "actualProcessPid": 4526,
+  "verification": "Current CLI process argument selection read with ps; no previous CLI conversation/history loaded.",
+  "assembly": "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+  "assemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "readOnlyInspector": "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+  "inspectorSha256": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05",
+  "capturedMethods": [
+    "TheForestOfLove.Narrative.DialogueSystemLoader::PopulateDialogueArcs",
+    "TheForestOfLove.Narrative.DialogueSystemLoader::RecursivelyPopulateDialogueEntries",
+    "TheForestOfLove.Narrative.DialogueService::BuildFastTravelConversation"
+  ],
+  "reusedBodies": "database-consumer-bodies.jsonl exact bodies30/39; original whole source readback reused by input pins",
+  "gitCoordinator": "parent",
+  "workerGitMutations": 0,
+  "originalInstallAccess": false,
+  "gameLaunches": 0,
+  "imagesOpened": 0,
+  "targetEdits": false,
+  "textureEdits": false,
+  "nestedModelJobs": false,
+  "agents": false,
+  "usage": "Unavailable to worker; parent owns actual request telemetry"
+}

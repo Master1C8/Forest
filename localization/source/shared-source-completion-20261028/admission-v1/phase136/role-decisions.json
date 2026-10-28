@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "phase": "0136-work",
+  "model": "gpt-6.1-sol/high/OpenAI",
+  "decisions": [
+    {
+      "scope": "109:5/8/9/10 Title",
+      "role": "protected-dynamic-conversation-selection-key",
+      "evidence": [
+        "dynamic-consumers.il"
+      ],
+      "reason": "Exact GetDialogueEntry(string) inputs in both BuildDynamicConversation and ResetDynamicConversation; link clearing/rebuilding depends on them."
+    },
+    {
+      "scope": "457:875 Title",
+      "role": "protected-story-event-comparison-key",
+      "evidence": [
+        "story-title-consumer.il",
+        "rascal-listener.il",
+        "rascal-title-handler.il"
+      ],
+      "reason": "Original empty-line Title event invokes listener; Contains(show ending screen) schedules TriggerAdvanceMoment. Preserve full source label."
+    },
+    {
+      "scope": "remaining934 Title values",
+      "role": "retained-node-label;consumer-unresolved",
+      "evidence": [
+        "story-title-consumer.il",
+        "dynamic-consumers.il",
+        "title-ui-subscribers.txt",
+        "title-service-subscribers.txt"
+      ],
+      "reason": "Original Title is emitted as conditional event payload. Author prose, historical commands and PASSTHRU labels cannot be excluded without serialized/external listener binding; no game subscriber finding is not external absence."
+    },
+    {
+      "scope": "716 conversation metadata values",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "evidence": [
+        "field-lookup.il",
+        "field-lookup-predicate.il",
+        "asset-lookup-value.il",
+        "lua-conversation-fields.il",
+        "custom-field-game-calls.json"
+      ],
+      "reason": "Only game AssignedField reads entry suffix. Generic conversation Lua exporter copies every field and GetConversationField reaches Lua.Run with caller-supplied name; actual script/caller/value sink remains unresolved. BG loader replacement does not prove old metadata inaccessible."
+    },
+    {
+      "scope": "58:3/5/7/14/15 Description",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "evidence": [
+        "field-lookup.il",
+        "field-lookup-predicate.il",
+        "plugin-description-marker-readers.txt",
+        "../phase135/fast-travel-producer.il"
+      ],
+      "reason": "Builder uses Title, not Description. Exact marker has no literal match in two pinned assemblies, but generic field lookup accepts any caller-supplied key; actual dynamic/serialized reader remains unproved."
+    },
+    {
+      "scope": "TriggerHandlerAct3.ExecuteTrigger IL_0a01",
+      "role": "display-runtime-fast-travel-greeting",
+      "evidence": [
+        "act3-greeting-producer.il",
+        "fast-travel-caller.il",
+        "fast-travel-arguments.il",
+        "greeting-writers.txt",
+        "greeting-field-uses.txt"
+      ],
+      "reason": "Actual original [pic=2]So where to? literal passes setter, cached getter local, builder argument and overwrite at ds:58:719. Item-gated destination identities are separate from display wording; DeepWoods retained but not emitted by this body."
+    }
+  ],
+  "runtime": "not-run",
+  "semanticAudit": "not-run",
+  "wholeGameSourceAccepted": false
+}
