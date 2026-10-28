@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "a920a9812d431463929ad85154cd1576e87e09bc9e0f905d3dde084d7098d477",
+    "provenance:sourceManifest": "73a0ab462c512fb0a74855fab3d90a141169a38442e3ebd911860f0621c62d0a",
+    "provenance:source:localization/previews/ru-20261028-texture-preserving-06/build.json": "0f31c71a0782e9a9f4db94d7d77c2d81d4fc99d42165c660b4195e24a6ebf54d",
+    "provenance:source:localization/previews/ru-20261028-texture-preserving-06/texture-preservation.json": "7e6118c9bf59903aa554a16e7241401e0de4bbadb1188cc9b699927f4445d509",
+    "provenance:source:localization/probes/ru-items-20261028-10/qa-preparation.json": "3d2040d6b4d0c49992aaa6df8fe6042472d158fa03bdd9fd35186a8ec23abb15",
+    "provenance:source:localization/probes/ru-items-20261028-10/runtime-result.json": "a83480af25081e8c7192ffca754451f751403dcb8008aee448278a4968892aeb",
+    "provenance:source:localization/probes/ru-items-20261028-10/cleanup.json": "2b19fc1a0dac45b536004d377abdbe921c7042bb91f9edaf7b35d42d1d10310e",
+    "provenance:source:localization/probes/ru-items-20261028-10/player.log": "0eece40a53684dc2bc4c5c28fc2cc8729e66da374c529eff019a1b4764ab8635",
+    "provenance:source:localization/visual-qa/ru-items-20261028-10/fixture-preservation.json": "58e6704895b52f65ac320b18fa7ba44d2f1653f913c7a1346fd3d7cd40bccbb4",
+    "provenance:source:localization/visual-qa/ru-items-20261028-10/fixture-verifier.py.snapshot": "b30a12e2e07a6cf85bdea251531fc079897c58b27400488236a417702a6ff35e",
+    "provenance:source:localization/probes/ru-items-20261028-10/display-diagnostics.tsv": "d1ab3c36a6bdf49083e148fdb1b5d16fe8c58509e2e126a895b382ceb25fdf16",
+    "provenance:source:cropBinding": "ecf4bd6cce86a01078d36070dc53888225aa5ec303f7b26ae4251c90eef5303f",
+    "provenance:source-image:received-full.png": "9a739187151704866adc1519dada8e1ff02e56fd0fca7174e3550c96bfd90994",
+    "provenance:source-image:received-icon-native.webp": "f2e4a2220b5f9cc5cabf9be3a2734801ab92fd9977f87ab706872ce5d3224948",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "c79e512204ffc4b7da6a8f2c461fe4b4252ef220da1c0523c2db3a2281ed6d7f"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "9a739187151704866adc1519dada8e1ff02e56fd0fca7174e3550c96bfd90994.webp",
+      "sha256": "b2c306342f1fccc7097edab5c2a0c281179c9a4560adfd26c56732b186235f43",
+      "width": 1280,
+      "height": 815,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T11:09:27.090945+00:00",
+      "observations": "Inspected the entire 1280×815 prepared frame. The Russian notification matches the supplied text, wraps cleanly before «лес», and has readable, consistent glyphs without clipping or overlap. The green bell-shaped icon immediately left of the rabbit is visible; image 1 resolves its appearance. No extraneous overlays or printed tags are present.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "f2e4a2220b5f9cc5cabf9be3a2734801ab92fd9977f87ab706872ce5d3224948.webp",
+      "sha256": "8eecaf1e19cfb19279367814feb1024974c9916659b942a08c5c85d06ad123b0",
+      "width": 250,
+      "height": 260,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-28T11:09:27.091033+00:00",
+      "observations": "Inspected the entire 250×260 diagnostic crop. Around x=53–96, y=121–166, the icon has a visibly green, flared bell-shaped body with dark outlines and internal shading. It is identifiable rather than absent or obscured. Together with image 0, this resolves the received-icon question. Surrounding scene/text cutoffs are intentional crop boundaries; no complete text field is independently assessed here.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

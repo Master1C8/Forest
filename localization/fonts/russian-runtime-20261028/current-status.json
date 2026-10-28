@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-28T10:26:46.254584+00:00",
-  "status": "incomplete-native-startup-recovery-required",
+  "recordedAt": "2026-10-28T11:22:50.947095+00:00",
+  "status": "scoped-native-and-visual-UI-checks-passed-release-incomplete",
   "coordinatorModel": "gpt-6.1-sol",
   "reasoning": "high",
   "provider": "openai",
@@ -243,6 +243,70 @@
       "result": "failed",
       "error": "RuntimeError('startup-process-exited', 5, 0)",
       "captures": 0
+    },
+    {
+      "run": "localization/probes/ru-items-20261028-10",
+      "result": "passed",
+      "error": null,
+      "captures": 2,
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "3d2040d6b4d0c49992aaa6df8fe6042472d158fa03bdd9fd35186a8ec23abb15",
+          "bytes": 891
+        },
+        "startup-state.json": {
+          "sha256": "916849ac3054ee70546f9af15a489bd2edce045e7cf99384f8ada5dae5e4adf2",
+          "bytes": 905
+        },
+        "runtime-result.json": {
+          "sha256": "a83480af25081e8c7192ffca754451f751403dcb8008aee448278a4968892aeb",
+          "bytes": 810
+        },
+        "cleanup.json": {
+          "sha256": "2b19fc1a0dac45b536004d377abdbe921c7042bb91f9edaf7b35d42d1d10310e",
+          "bytes": 671
+        },
+        "player.log": {
+          "sha256": "0eece40a53684dc2bc4c5c28fc2cc8729e66da374c529eff019a1b4764ab8635",
+          "bytes": 4842
+        },
+        "display-diagnostics.tsv": {
+          "sha256": "d1ab3c36a6bdf49083e148fdb1b5d16fe8c58509e2e126a895b382ceb25fdf16",
+          "bytes": 25
+        }
+      }
+    },
+    {
+      "run": "localization/probes/ru-quests-20261028-21",
+      "result": "capture-pass-review-pending",
+      "error": null,
+      "captures": 7,
+      "files": {
+        "qa-preparation.json": {
+          "sha256": "01929dcc70cfb7871dd05f2c243953b542063e7cc0b53598eac4b64ab61e0839",
+          "bytes": 892
+        },
+        "startup-state.json": {
+          "sha256": "bc089015d6f24ae494b2935a25364c7c521a59fa39a0a96ac259393efe41d65b",
+          "bytes": 908
+        },
+        "runtime-result.json": {
+          "sha256": "8f9bf1ac38a10a1527477c888e4f0e0513fc45f63b593aa514152d517ff96e09",
+          "bytes": 2481
+        },
+        "cleanup.json": {
+          "sha256": "b20a2956698d841624d9334ffcc61b803e90dea43bdbefc00d94aace443d31ff",
+          "bytes": 846
+        },
+        "player.log": {
+          "sha256": "d66d634de35dcec20f2dece77588fd28dd7fa0ba327c990382ab80641ddd706e",
+          "bytes": 8164
+        },
+        "display-diagnostics.tsv": {
+          "sha256": "d1ab3c36a6bdf49083e148fdb1b5d16fe8c58509e2e126a895b382ceb25fdf16",
+          "bytes": 25
+        }
+      }
     }
   ],
   "acceptanceChecklist": [
@@ -264,19 +328,19 @@
     },
     {
       "id": "items",
-      "artifact": "localization/visual-qa/ru-items-20261028-08/review.json",
+      "artifact": "localization/visual-qa/ru-items-20261028-10/final-acceptance.json",
       "predicate": "Actual48 items/96 text fields, four formatters, required source sprites, full-frame readability and contamination pass",
-      "evidence": "Text/readback/geometry pass; both frames pass layout/glyph/content but contamination needs-review",
-      "uncertainty": "White bell-region rendering and original glitch artwork binding; string rows alone do not prove sprite resources available",
-      "nextPermittedAction": "Run already prepared ru-items-20261028-10 after native startup recovery; original Continue route, nonnull sprite guard and icon diagnostics are frozen"
+      "evidence": "Native48 items/96 fields/four formatters pass in CentralForest; actual nonnull original sprite bindings recorded. Two frames accepted; received icon resolved by exact-source native-pixel crop.",
+      "uncertainty": "Staged display bypasses actual item-award events; source descriptions and individual inventory roles remain separate.",
+      "nextPermittedAction": "Retain exact-source receipts; exercise remaining actual inventory title/description consumers without unchanged recapture."
     },
     {
       "id": "quest-layout",
-      "artifact": "localization/previews/ru-20261028-texture-preserving-06",
+      "artifact": "localization/visual-qa/ru-quests-20261028-21/review.json",
       "predicate": "Complete finite photo/region fixture fits at >=12 native points, all195 states and source-linked captions/HUD verified, all seven frames reviewed",
-      "evidence": "Candidate05 photo body174.688 exceeds viewport154.8135 at12; candidate06 uses full history width below portrait; compiled and texture audit pass",
-      "uncertainty": "New layout/status captions have not executed because both current attempts crashed before bridge readiness",
-      "nextPermittedAction": "Recover native startup; prepare/run a fresh candidate06 quest probe (consumed19/20 must not be rerun)"
+      "evidence": "All195 states,512 photo masks/60 slots/64 region states/37 title cases pass; finite pane content fits at >=12 points. All seven frames pass full visual review, including Russian status captions/HUD.",
+      "uncertainty": "Reversible synthetic status fixtures do not prove real quest progression or complete game coverage.",
+      "nextPermittedAction": "Retain scoped candidate06 acceptance; do not repeat unaffected quest views."
     },
     {
       "id": "native-font-roles",
@@ -306,18 +370,17 @@
       "id": "delivery",
       "artifact": "localization/previews/ru-20261028-texture-preserving-06",
       "predicate": "Accepted final artifact, applicable Windows/package/installer checks and release gates pass",
-      "evidence": "Local provisional preview only; no publication/deployment/installer launch",
+      "evidence": "Candidate06 scoped notifications and quest UI pass native/visual checks; whole release remains gated by separate source/target/font/scenario predicates.",
       "uncertainty": "Source, target, font, runtime and visual gates remain open",
       "nextPermittedAction": "Complete dependencies first; do not label current preview a finished Russian release"
     }
   ],
-  "nativeCrashBoundary": "Repeated exit5 and ntdll null-write crash after input initialization, before FOREST_PROBE_READY; reproduced on older candidate03 with current diagnostic module. Windowed fixture did not resolve it. This does not identify the root cause or prove a game-code defect.",
+  "nativeCrashBoundary": "Owner-authorized Steam bottle restart ended old server44985; new server54115 was observed after fresh launch. Two fresh candidate06 jobs then completed. Root cause of earlier ntdll crash remains unproven; no further assistant shutdown was performed.",
   "remainingPreparedRuns": [
-    "ru-items-20261028-09 (unlaunched; fullscreen)",
-    "ru-items-20261028-10 (unlaunched; derived windowed fixture)"
+    "ru-items-20261028-09 unlaunched and superseded; do not launch without a new predicate"
   ],
   "sourceTexturesModified": false,
   "coordinatorImageInputs": 0,
   "ownerOriginalGameOrSavesControlled": false,
-  "wineBottleRestartPerformed": false
+  "wineBottleRestartPerformed": true
 }

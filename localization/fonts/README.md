@@ -137,7 +137,7 @@ for the seven saved locales; missing/active and unbound role states stay explici
 
 ## Russian runtime supplement, 2026-10-28
 
-`russian-runtime-20261028/CURRENT.md` and `current-status.json` record the current boundary: six candidate05 menu frames pass visual review, item icon contamination remains unresolved, and the candidate06 quest proposal has not run because startup crashes before probe readiness. All original1,385 texture objects and complete streams compare exact. The earlier README/verification.json retain the initial dynamic multi-atlas repair evidence. Three native367 pointer changes pass static checks; individual live fields remain untested. Existing role/resource packets retain historical fingerprints; old builder pins are superseded, not refreshed.
+`russian-runtime-20261028/CURRENT.md` and `current-status.json` record the current boundary: six candidate05 menu frames retain visual acceptance; after the authorized bottle restart, candidate06 notifications2 and quest7 frames pass native/visual checks. A native-pixel crop resolves the received icon. Both new jobs run fullscreen after the original resolution-reset, with exact disposable save bytes; windowed mode remains unaccepted. All original1,385 texture objects and complete streams compare exact. The earlier README/verification.json retain the initial dynamic multi-atlas repair evidence. Three native367 pointer changes pass static checks; individual live fields remain untested. Existing role/resource packets retain historical fingerprints; old builder pins are superseded, not refreshed.
 
 
 ## Immutable editorial applicability, phase150

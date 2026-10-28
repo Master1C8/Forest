@@ -28,6 +28,17 @@ class FixtureSettings(unittest.TestCase):
             with self.subTest(mutate=mutate), self.assertRaisesRegex(AssertionError, 'Unexpected disposable settings change'):
                 settings_delta(encode(self.before), encode(changed), (1024, 768))
 
+    def test_reconciled_mode_reset_cannot_hide_an_unrelated_change(self):
+        self.before['config_data']['value']['generalData']['isFullscreen'] = False
+        self.after['config_data']['value']['generalData']['isFullscreen'] = True
+        encode = lambda value: json.dumps(value).encode()
+        with self.assertRaisesRegex(AssertionError, 'Unexpected disposable settings change'):
+            settings_delta(encode(self.before), encode(self.after), (1024, 768))
+        self.assertEqual(len(settings_delta(encode(self.before), encode(self.after), (1024, 768), fullscreen_reset=True)), 3)
+        self.after['config_data']['value']['chapterUnlocks'] = ['new']
+        with self.assertRaisesRegex(AssertionError, 'Unexpected disposable settings change'):
+            settings_delta(encode(self.before), encode(self.after), (1024, 768), fullscreen_reset=True)
+
 
 if __name__ == '__main__':
     unittest.main()

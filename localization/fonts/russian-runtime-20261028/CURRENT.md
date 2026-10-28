@@ -1,57 +1,55 @@
 # Russian runtime checkpoint, 2026-10-28
 
-The Russian release is incomplete. `current-status.json` is the finite acceptance
-checklist: each predicate names its artifact, current evidence, uncertainty and
-next permitted action. The earlier README/verification.json describe candidate02
-and remain historical evidence, not the current visual verdict.
+The owner-authorized Steam bottle restart completed. Old server44985 ended and
+new server54115 was observed on the fresh launch. Candidate06 then passed native
+item run10 and quest run21. No further shutdown, file deletion or original-game/
+save control was performed. The earlier ntdll crash's root cause is unproven.
+The Russian release remains incomplete; current-status.json retains the finite
+acceptance checklist rather than promoting unrelated gates.
 
-Candidate05 passed all six menu panels in native run `ru-menu-20261028-07` and
-all six complete visual judgments. Ordinary visible menu letters and punctuation
-use dynamic Liberation Sans; no missing-glyph or underline warning remains.
-The ink diagnostic includes active resource objects, not just camera-visible
-text; its row count is not a screen-glyph count. Sixteen mesh-array messages also
-occur in the earlier successful controls; their root cause is not established.
-The menu acceptance text retained an obsolete1440x900 sentence; the actual
-manifest and every delivered-frame judgment identify1024x768. This does not
-establish1440x900 or native-pixel acceptance. Future context uses manifest sizes.
+Six candidate05 menu frames retain their exact-source visual acceptance. The new
+candidate06 item workload follows the original Continue route into CentralForest,
+loads48 titles/48 notification phrases, requires nonnull original sprites and
+exercises four original display methods. Both native frames are accepted. The
+received bell required a source-bound250x260 native-pixel crop; final-acceptance.json
+joins that full-frame follow-up to the unchanged glitch frame by original PNG
+hash. The original needs-review ledger remains unchanged; the crop is not a third
+native capture. Runtime records item_bell_green in the packed inventory atlas and
+original glitch_item_loop frames/UI/Glitch material. Reference sharedassets2
+sprite546 was only a colored comparison, not the proved runtime sprite identity.
 
-Item run08 loads48 titles/48 notification phrases and exercises four original
-formatters. Both frames pass layout, glyph and content judgments but retain
-contamination needs-review for the bell and glitch graphics. Source bell546 is
-colored, so a white rectangle cannot be accepted on the assumption that it is the
-authored icon. Future capture follows the original Continue route into the
-disposable fixture's gameplay scene and requires the actual selected sprite to
-exist; it records sprite/texture/material bindings. This is a harness correction,
-not proof that the prior frame's null-sprite cause has been observed. Prepared
-item runs09/10 have never launched.
+Quest run21 compares195 states and exercises512 photo masks,60 slots,64 region
+states and37 title cases. The largest bounded body size uses full-width history
+below the portrait and fits the finite pane fixture at >=12 points. All seven
+frames pass visual review, including active/completed native status captions,
+region pages and source-linked HUD text. The underlying Image components are
+hidden in favor of native Text; original sprites/textures remain exact. These
+reversible synthetic status fixtures do not establish actual quest progression.
 
-Quest run18 proves that a minimum12-point body still needs174.688 logical units
-in a154.8135 viewport. Candidate06 instead tries full-width history below the
-description/portrait, retaining the narrow scrolling fallback for dense cases.
-Portrait artwork is unchanged. The two Russian status labels replace only Image
-visibility and add native Text; the source sprite/texture bytes stay exact. This
-new layout and these captions are compiled proposals awaiting native and visual
-acceptance. They are not approved release changes.
+Both successful runs capture1650x1050. The game detects a changed physical screen
+and resets the requested windowed fixture to fullscreen. Independent display
+state and exact JSON comparison reconcile only this mode reset plus1440x900 ->
+1650x1050 metadata. All other settings and the disposable save bytes remain exact.
+Windowed usability is NOT accepted. The verifier's default rejects this mismatch;
+explicit reconciliation requires the unique original resolution-reset log and
+matching measured/persisted state. Its stricter current version also reproduces
+both actual jobs; each review retains a frozen verifier snapshot.
 
 Candidate06 differs from05 only in the isolated PlayerSettings identity and
-`VNRevivalQuestLayout.dll`; all other nine packaged files match. Both candidates
-pass the full original1,385 Texture2D and complete external/bundle stream audit.
-The decorative underscore remains in the primary font because the exact shipped
-TMP underline routine excludes fallbacks; ordinary glyphs use the existing
-dynamic resource. Fictional-language resources remain untouched.
+VNRevivalQuestLayout.dll; the other nine packaged files match. Both pass the full
+original1,385 Texture2D and complete external/bundle stream audit. No serialized
+texture changed. Ordinary TMP glyphs use dynamic Liberation Sans; the mandatory
+decorative underscore stays in the primary. Fictional-language resources remain
+untouched. Sixteen mesh-array messages also appear in earlier successful menu
+controls; their cause remains unclassified. Menu07's obsolete1440x900 context
+sentence did not change its actual1024x768 manifest/judgments; no larger-resolution
+menu acceptance is inferred from it.
 
-Runs quest19/fullscreen, quest20/derived-windowed and the older candidate03 menu08
-control all exit5 after input initialization and before bridge readiness. Logs
-contain an ntdll null-write crash; Wine also reports an unresolved monitor path.
-Windowed settings did not resolve it. This does not establish the root cause or
-prove a game-code defect. Every session is absent, its bridge removed and its
-localized assembly restored; original game/save files were not controlled.
-The earlier timed-out item07 survivors were separately reconciled and cleaned;
-its original failure receipt remains unchanged.
-
-Do not rerun consumed jobs or restart the shared Steam bottle implicitly. The
-existing isolated-game authorization does not itself authorize closing every
-Windows process in the shared bottle. Source, corpus allocation, NFD rendering,
-actual inventory/plugin fields, dialogue/choice progression and delivery checks
-remain separate. Forty-eight descriptions and four compiled empty-cell inputs
-remain absent from old935. No full-game gate is promoted by this checkpoint.
+Remaining work is explicit:48 descriptions/four empty-cell inputs lack matching
+shared supplemental targets; full source/role allocation and source-policy holds
+remain open. Actual inventory/plugin font consumers, relevant NFD mark rendering,
+dialogue/choice progression and final delivery remain unaccepted. Existing
+source traces for InventoryInfoTicker bind the description/title consumers and
+four exact empty-cell literals; do not replace them with another framework scan.
+No new target wording or full-game gate is authorized by these scoped visual
+passes. Preserve old935/all30 packets, frozen dialogue and existing receipts.

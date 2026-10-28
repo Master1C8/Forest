@@ -10,21 +10,26 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def settings_delta(before, after, dimensions):
+def settings_delta(before, after, dimensions, *, fullscreen_reset=False):
     left = json.loads(before)
     right = json.loads(after)
     expected = copy.deepcopy(left)
     general = expected['config_data']['value']['generalData']
     keys = ('lastKnownScreenResolutionWidth', 'lastKnownScreenResolutionHeight')
     previous = [general[key] for key in keys]
+    changes = []
+    if fullscreen_reset:
+        assert general['isFullscreen'] is False and tuple(previous) != tuple(dimensions), 'Invalid fullscreen reset precondition'
+        general['isFullscreen'] = True
+        changes.append({'field': 'isFullscreen', 'before': False, 'after': True})
     for key, value in zip(keys, dimensions):
         general[key] = value
     assert right == expected, 'Unexpected disposable settings change'
-    return [{'field': key, 'before': old, 'after': new}
+    return changes + [{'field': key, 'before': old, 'after': new}
             for key, old, new in zip(keys, previous, dimensions) if old != new]
 
 
-def verify_fixture(run, fixture):
+def verify_fixture(run, fixture, *, reconcile_resolution_reset=False):
     run, fixture = Path(run), Path(fixture)
     cleanup = json.loads((run / 'cleanup.json').read_text())
     preparation = json.loads((run / 'qa-preparation.json').read_text())
@@ -53,22 +58,34 @@ def verify_fixture(run, fixture):
     assert len(dimensions) == 1, 'Multiple captured viewport sizes'
     dimensions = next(iter(dimensions))
     physical = dimensions
+    fullscreen_reset = False
+    windowed_requested = manifest.get('derivation', {}).get('after') is False
     display = run / 'display-diagnostics.tsv'
+    assert not windowed_requested or display.exists(), 'Windowed fixture needs actual display diagnostics'
     if display.exists():
         fields = display.read_text().strip().split('\t')
         assert len(fields) == 5 and fields[4] in ('True', 'False')
         assert tuple(map(int, fields[:2])) == dimensions, 'Display/capture viewport mismatch'
         physical = tuple(map(int, fields[2:4]))
         assert all(value > 0 for value in physical)
-        if manifest.get('derivation', {}).get('after') is False:
-            assert fields[4] == 'False', 'Windowed fixture did not remain windowed'
+        actual_settings = json.loads((run / 'game/The Forest of Love_Data/tfol.settings').read_bytes())
+        assert actual_settings['config_data']['value']['generalData']['isFullscreen'] == (fields[4] == 'True'), 'Measured/persisted mode mismatch'
+        if windowed_requested:
+            if fields[4] != 'False':
+                assert reconcile_resolution_reset, 'Windowed fixture did not remain windowed'
+                marker = 'screen resolution changed from last time, reverting to defaults'
+                assert (run / 'player.log').read_text(errors='replace').count(marker) == 1, 'Missing unique resolution-reset evidence'
+                fullscreen_reset = True
     changes = []
     if before['tfol.settings'] != after['tfol.settings']:
         changes = settings_delta((fixture / 'tfol.settings').read_bytes(),
-            (run / 'game/The Forest of Love_Data/tfol.settings').read_bytes(), physical)
+            (run / 'game/The Forest of Love_Data/tfol.settings').read_bytes(), physical,
+            fullscreen_reset=fullscreen_reset)
     return dict(status='passed', disposableSavegameByteExact=True,
                 disposableSettingsByteExact=before['tfol.settings'] == after['tfol.settings'],
                 settingsChanges=changes, capturedViewport=list(dimensions),
                 physicalScreen=list(physical),
+                requestedWindowedModePreserved=not fullscreen_reset if windowed_requested else None,
+                resolutionResetReconciled=fullscreen_reset,
                 fixtureManifestSha256=sha(fixture / 'manifest.json'),
-                boundary='Exact disposable save bytes and settings schema/values; only recorded physical screen dimensions may follow independent Unity display diagnostics (legacy fullscreen fixtures use captured dimensions). No owner saves or normal continuation acceptance.')
+                boundary='Exact disposable save bytes and settings schema/values. Physical dimensions follow Unity display diagnostics. Explicitly reconciled source resolution-reset may restore fullscreen; this does not pass windowed-mode acceptance. No owner saves or normal continuation acceptance.')
