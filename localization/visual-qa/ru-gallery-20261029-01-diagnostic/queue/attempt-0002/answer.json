@@ -1,0 +1,47 @@
+{
+  "packetSha256": "b8c107732f3a47efbe01d8eeb9d070fd2fb36389355262c5d91b4afcb4274dd3",
+  "images": [
+    {
+      "index": 2,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the entire delivered 1280×720 prepared WebP. Russian text matches the expected “Фильм 1” capture, including the complete hint and punctuation. Text is readable with adequate spacing and no visible clipping, overlap, missing glyphs or backdrop spill. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right “Continue” control, approximately x=878–1052, y=550–592",
+          "observed": "English “Continue” remains visible. The packet does not establish whether this specific label is source-proven painted artwork.",
+          "expected": "Retained English requires evidence that the specific label falls under the approved painted artwork/chrome exception.",
+          "nextAction": "Provide source attribution for this control. If it is ordinary native text, resolve its localization and review a new capture."
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the entire delivered 1280×720 prepared WebP. Russian text matches the expected “Фильм 10” capture, including the complete hint and punctuation. Text is readable with adequate spacing and no visible clipping, overlap, missing glyphs or backdrop spill. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right “Continue” control, approximately x=878–1052, y=550–592",
+          "observed": "English “Continue” remains visible. The packet does not establish whether this specific label is source-proven painted artwork.",
+          "expected": "Retained English requires evidence that the specific label falls under the approved painted artwork/chrome exception.",
+          "nextAction": "Provide source attribution for this control. If it is ordinary native text, resolve its localization and review a new capture."
+        }
+      ]
+    }
+  ]
+}

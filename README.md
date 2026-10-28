@@ -1,19 +1,37 @@
 # Current Russian completion, October29
 
-The complete935-ID Russian UI packet passed a full semantic audit and a distinct
-full independent review after32 corrections. Accepted, version-bound loaders
-retain the historical935/all30 inputs and apply the final targets to future
-builds. The chapter/gallery preparation case now has shared134-occurrence source
-coverage, accepted Russian wording and a successful full static rebuild:113 BG
-values,18 initial TMP fields and3 managed operands. Candidate01 preserves all1385
-original texture objects; the combined accepted935/134 full build02 also completed.
+The complete935-ID Russian UI packet passed full semantic and independent review
+after32 corrections. The chapter/gallery case has common134-occurrence source,
+accepted wording and full combined build02. Its actual1385 original textures in26
+containers and all resource streams are independently preserved.
 
-The finite chapter/gallery probe compiled in both new and existing modes and
-passed9 static checks. Parent integration and independent combined saved-byte
-readback precede its isolated runtime/geometry/capture checks. No actual new
-screen, inactive AdventureName reachability, whole-locale special-case/font/source,
-dialogue/progression, final installer/platform or release gate is accepted here.
-See the current CHECKPOINT additions and the two20261029 supplemental packet folders.
+The [bounded gallery renderer acceptance](localization/visual-qa/ru-gallery-20261029-01-diagnostic/gallery-scoped-acceptance.json)
+binds3367 original-consumer argument fixtures,129 loaded BG states,59 selection
+identities and all10 reviewed native frames. Continue is source-proven painted
+artwork under the existing no-texture exception. The owned game is closed, both
+disposable input files restored, bridge removed and parent unchanged. OOS and
+chapter-description surfaces, real eligibility/input/progression and all134 runtime
+acceptance remain pending.
+
+The [common narrative source increment](localization/source/narrative-displays-20261029.parent-inventory-acceptance.json)
+retains150 physical selectors as25 pages under five owners for all30 saved locales.
+Inactive Mouse78 and unverified old Penny tutorial30 remain potential resources;
+no absence or runtime claim. A separate fresh Sol/high/OpenAI stream reviews exact
+existing Russian target reuse, without new wording or corpus changes.
+
+The updated notebook passed156 loaded-field checks and captured all five pages.
+All main Russian text is visually readable; exact artwork attribution and two
+source-pixel detail crops remain pending. Its frozen capture omitted independent
+display diagnostics, so this run stays diagnostic. Future canonical capture now
+records the existing display diagnostic before cleanup. The Quest run passed195
+loaded states, reversible status fixtures and captured all seven pane/HUD frames;
+its fresh visual queue runs separately. Actual1650x1050 display/fullscreen reset
+is reconciled explicitly; requested windowed mode is not accepted. Both owned
+games closed and bridges removed; original game/saves remain unused.
+
+Complete-source/special-case/font allocation, actual dialogue/choices/awards and
+progression, final installer/platform and release gates remain open. Ordinary
+translation entry is false. Parallel review never waives those gates.
 
 Earlier sections below are retained historical evidence.
 

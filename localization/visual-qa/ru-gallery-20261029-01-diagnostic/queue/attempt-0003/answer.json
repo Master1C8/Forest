@@ -1,0 +1,47 @@
+{
+  "packetSha256": "11dfbf4c402dbfc984f5774ad823e2b9d8a3fbf68f6cb1ce27e803efed66f91d",
+  "images": [
+    {
+      "index": 4,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the entire delivered 1280×720 prepared WebP. Russian text matches the expected История 1 title and complete hint, including punctuation. Cyrillic is readable, with adequate spacing and no visible clipping, overlap or backdrop spill. No external overlays. English Continue requires source attribution.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Bottom-right Continue control, approximately x=878–1050, y=550–592",
+          "observed": "English Continue is visible; supplied context does not establish that this specific label is source-proven painted artwork.",
+          "expected": "English artwork exemptions require source attribution; ordinary native UI text requires Russian localization.",
+          "nextAction": "Verify this control's texture or native-text binding. Retain it if proven painted artwork; otherwise correct the native label and review the affected frame."
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the entire delivered 1280×720 prepared WebP. Russian text matches the expected История 10 title and complete hint, including punctuation. Cyrillic and digits are readable, with adequate spacing and no visible clipping, overlap or backdrop spill. No external overlays. English Continue requires source attribution.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Bottom-right Continue control, approximately x=878–1050, y=550–592",
+          "observed": "English Continue is visible; supplied context does not establish that this specific label is source-proven painted artwork.",
+          "expected": "English artwork exemptions require source attribution; ordinary native UI text requires Russian localization.",
+          "nextAction": "Verify this control's texture or native-text binding. Retain it if proven painted artwork; otherwise correct the native label and review the affected frame."
+        }
+      ]
+    }
+  ]
+}

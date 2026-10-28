@@ -1,0 +1,47 @@
+{
+  "packetSha256": "023fa2c2b47800e1f89074d5f4d79ff8629b55926ad9c12b4027ab485c30e6e2",
+  "images": [
+    {
+      "index": 6,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete prepared 1280×720 frame. “Подсказки нет!” matches the expected fallback and is readable without clipping, overlap or missing glyphs. No external overlays are visible. Russian is LTR.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right Continue control, approximately x=878–1053, y=548–593",
+          "observed": "English “Continue” is visible. The supplied context does not establish whether this exact label is source-proven painted artwork.",
+          "expected": "Remaining English must have verified painted-artwork attribution under the owner's exemption.",
+          "nextAction": "Provide source-binding evidence for this exact control; retain needs-review until its exemption or localization requirement is established."
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete prepared 1280×720 frame. “Подсказки нет!” matches the expected fallback and is readable without clipping, overlap or missing glyphs. No external overlays are visible. Russian is LTR.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right Continue control, approximately x=878–1053, y=548–593",
+          "observed": "English “Continue” is visible. The supplied context does not establish whether this exact label is source-proven painted artwork.",
+          "expected": "Remaining English must have verified painted-artwork attribution under the owner's exemption.",
+          "nextAction": "Provide source-binding evidence for this exact control; retain needs-review until its exemption or localization requirement is established."
+        }
+      ]
+    }
+  ]
+}

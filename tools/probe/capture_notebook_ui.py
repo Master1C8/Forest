@@ -54,6 +54,7 @@ def main():
    from PIL import Image
    assert max(x[1] for x in Image.open(p).convert('RGB').getextrema())>20,'blank-frame'
    captures.append(dict(filename=name,sha256=sha(p),width=width,height=height))
+  command('display-diagnostics')
   success=True
  except BaseException as ex:error=repr(ex);print(error,flush=True)
  finally:

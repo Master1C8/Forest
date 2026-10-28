@@ -1,0 +1,47 @@
+{
+  "packetSha256": "bc9c9b34b42b33e1cc61ac44157a95f5caa257b7238f560a77bc20668b7fc3f0",
+  "images": [
+    {
+      "index": 8,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete delivered 1280×720 prepared WebP. The centered fallback reads exactly “Подсказки нет!” with clear Cyrillic, intact punctuation and sufficient contrast. No visible clipping, overlap, backdrop spill or external overlays. The lower-right control reads “Continue”; its source attribution is unresolved.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right Continue control, approximately x=875–1050, y=550–593 in the delivered image",
+          "observed": "English “Continue” is visible. The supplied context does not establish whether this specific text is painted artwork or native UI text.",
+          "expected": "English artwork requires exact source evidence for the owner's exemption; ordinary native UI text requires Russian localization.",
+          "nextAction": "Provide the control's asset/component binding to resolve painted versus native text. If native, correct its localization and review a new capture."
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the complete delivered 1280×720 prepared WebP. The centered fallback reads exactly “Подсказки нет!” with clear Cyrillic, intact punctuation and sufficient contrast. No visible clipping, overlap, backdrop spill or external overlays. The lower-right control reads “Continue”; its source attribution is unresolved.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right Continue control, approximately x=875–1050, y=550–593 in the delivered image",
+          "observed": "English “Continue” is visible. The supplied context does not establish whether this specific text is painted artwork or native UI text.",
+          "expected": "English artwork requires exact source evidence for the owner's exemption; ordinary native UI text requires Russian localization.",
+          "nextAction": "Provide the control's asset/component binding to resolve painted versus native text. If native, correct its localization and review a new capture."
+        }
+      ]
+    }
+  ]
+}

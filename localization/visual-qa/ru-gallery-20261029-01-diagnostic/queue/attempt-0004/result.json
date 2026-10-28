@@ -1,0 +1,67 @@
+{
+  "packetSha256": "023fa2c2b47800e1f89074d5f4d79ff8629b55926ad9c12b4027ab485c30e6e2",
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 7,
+      "direction": "ltr",
+      "filename": "d1c3ba0c3c15833516ff2ae33fb62dbcb912bf3c32c8d60c462d32d9cea8255c.webp",
+      "sha256": "364c99f62e6fee0ebd73bfb9c44ae24d707bf343e9b3a6b6d1bd18048231af68",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-10-28T20:03:11.238763+00:00",
+      "observations": "Inspected the complete prepared 1280×720 frame. “Подсказки нет!” matches the expected fallback and is readable without clipping, overlap or missing glyphs. No external overlays are visible. Russian is LTR.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right Continue control, approximately x=878–1053, y=548–593",
+          "observed": "English “Continue” is visible. The supplied context does not establish whether this exact label is source-proven painted artwork.",
+          "expected": "Remaining English must have verified painted-artwork attribution under the owner's exemption.",
+          "nextAction": "Provide source-binding evidence for this exact control; retain needs-review until its exemption or localization requirement is established."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 8,
+      "direction": "ltr",
+      "filename": "3324453d4fc2a8b53d7e5a8408bc5911248e8ca1a81f50c920b11f05794d33ef.webp",
+      "sha256": "29df166413d8b1fb13b2370e2412b7178a29b7ac0eb11ef0134a455453f13ed3",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-10-28T20:03:11.239016+00:00",
+      "observations": "Inspected the complete prepared 1280×720 frame. “Подсказки нет!” matches the expected fallback and is readable without clipping, overlap or missing glyphs. No external overlays are visible. Russian is LTR.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right Continue control, approximately x=878–1053, y=548–593",
+          "observed": "English “Continue” is visible. The supplied context does not establish whether this exact label is source-proven painted artwork.",
+          "expected": "Remaining English must have verified painted-artwork attribution under the owner's exemption.",
+          "nextAction": "Provide source-binding evidence for this exact control; retain needs-review until its exemption or localization requirement is established."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

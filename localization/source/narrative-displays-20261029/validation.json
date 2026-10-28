@@ -1,0 +1,54 @@
+{
+  "positiveControl": "passed",
+  "negativeControls": [
+    {
+      "id": "missing-page",
+      "expectedReason": "missing-page-identity",
+      "observedReason": "missing-page-identity",
+      "passed": true
+    },
+    {
+      "id": "reordered-page",
+      "expectedReason": "reordered-page-identity",
+      "observedReason": "reordered-page-identity",
+      "passed": true
+    },
+    {
+      "id": "altered-source",
+      "expectedReason": "altered-source",
+      "observedReason": "altered-source",
+      "passed": true
+    },
+    {
+      "id": "changed-source-span",
+      "expectedReason": "altered-source-span",
+      "observedReason": "altered-source-span",
+      "passed": true
+    },
+    {
+      "id": "unsupported-family",
+      "expectedReason": "unsupported-family",
+      "observedReason": "unsupported-family",
+      "passed": true
+    },
+    {
+      "id": "changed-protected-alpha",
+      "expectedReason": "altered-protected-controls",
+      "observedReason": "altered-protected-controls",
+      "passed": true
+    },
+    {
+      "id": "swapped-homonymous-owner",
+      "expectedReason": "altered-page-control",
+      "observedReason": "altered-page-control",
+      "passed": true
+    },
+    {
+      "id": "changed-slot-state",
+      "expectedReason": "altered-page-control",
+      "observedReason": "altered-page-control",
+      "passed": true
+    }
+  ],
+  "boundary": "Complete source handoff integrity against verified physical metadata; no renderer/target semantic execution or mocks."
+}

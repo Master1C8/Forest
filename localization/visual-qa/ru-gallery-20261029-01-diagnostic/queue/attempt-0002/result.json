@@ -1,0 +1,67 @@
+{
+  "packetSha256": "b8c107732f3a47efbe01d8eeb9d070fd2fb36389355262c5d91b4afcb4274dd3",
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "f0de875e9a600797633612aa6416ba37dbe4b7bd80452d254b31b1e170ef0bd3.webp",
+      "sha256": "57f3168ff8502c4fdbd0f676d2a10e183d1f7ef4e03c9a3d86cfb8caefc16fa3",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-28T20:02:21.175869+00:00",
+      "observations": "Inspected the entire delivered 1280×720 prepared WebP. Russian text matches the expected “Фильм 1” capture, including the complete hint and punctuation. Text is readable with adequate spacing and no visible clipping, overlap, missing glyphs or backdrop spill. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right “Continue” control, approximately x=878–1052, y=550–592",
+          "observed": "English “Continue” remains visible. The packet does not establish whether this specific label is source-proven painted artwork.",
+          "expected": "Retained English requires evidence that the specific label falls under the approved painted artwork/chrome exception.",
+          "nextAction": "Provide source attribution for this control. If it is ordinary native text, resolve its localization and review a new capture."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 4,
+      "direction": "ltr",
+      "filename": "595799d5465f89fc78be403f6076c010afd0097ffd1a8aa3da7da1774d696585.webp",
+      "sha256": "149f21aca7c5e72103f31df955aa6032f47974bcdbd60ecdb903938c6b7b1884",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-28T20:02:21.175938+00:00",
+      "observations": "Inspected the entire delivered 1280×720 prepared WebP. Russian text matches the expected “Фильм 10” capture, including the complete hint and punctuation. Text is readable with adequate spacing and no visible clipping, overlap, missing glyphs or backdrop spill. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Lower-right “Continue” control, approximately x=878–1052, y=550–592",
+          "observed": "English “Continue” remains visible. The packet does not establish whether this specific label is source-proven painted artwork.",
+          "expected": "Retained English requires evidence that the specific label falls under the approved painted artwork/chrome exception.",
+          "nextAction": "Provide source attribution for this control. If it is ordinary native text, resolve its localization and review a new capture."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

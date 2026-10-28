@@ -1,0 +1,90 @@
+{
+  "status": "verified-finite-handoff",
+  "reproduction": {
+    "command": "python3 -B outputs/narrative-display-source-20261029/check/execution/narrative_display_source.v4.py --check",
+    "observedExitCode": 0,
+    "completeProductSet": true,
+    "exactBytes": true
+  },
+  "occurrences": 150,
+  "pages": 25,
+  "controllers": 5,
+  "roles": {
+    "invisible-layout-provider": 25,
+    "visible-glow": 100,
+    "visible-face": 25
+  },
+  "negativeControls": 8,
+  "interruptedWriteRegression": "passed",
+  "managedLiteralIndexVersion": "passed",
+  "products": {
+    "README.md": {
+      "sha256": "5e0c114bb7536fe2cf8e39da1ad19a7e835a3e849a47be071909c4c4f295c25a",
+      "bytes": 2305
+    },
+    "Result.json": {
+      "sha256": "aeb9372a433e15cad4b44aab6e2fc2faba698e4d7009307f1006ada2383fab48",
+      "bytes": 115605
+    },
+    "acceptance-checklist.json": {
+      "sha256": "33911eb64c4e4e1cf27c82f5684181b8560bc6c15cd78c9f276db311ed28d72d",
+      "bytes": 6531
+    },
+    "controllers.json": {
+      "sha256": "cd45b1877b231d7e2a5e423a2f856f6c9803c149440dac0b93c71ab7fd8c9c27",
+      "bytes": 71631
+    },
+    "font-resource-roles.json": {
+      "sha256": "5240de8315f717f800e631e12ce01b6d65801d963e9a0e01e78a7ca09d32c2f3",
+      "bytes": 10283
+    },
+    "method-evidence.jsonl": {
+      "sha256": "e1f98ad74961d3ab49963da9dbc445426e066412233728d1a1857925e0772241",
+      "bytes": 238241
+    },
+    "object-evidence.jsonl": {
+      "sha256": "e8b3c5fafdc6d1ecb1af6cdc4423686a9c7408e5a63a82df7bc7b05fc3f3fa35",
+      "bytes": 1163950
+    },
+    "occurrence-map.jsonl": {
+      "sha256": "3fe5d445ef3e933577cd4e9707c86964bac1e9b8cd486b1ae68eb0dac75132c4",
+      "bytes": 761187
+    },
+    "producer-context.json": {
+      "sha256": "b78a25b9799b76d8c7727306512f345c3976a381b99dfdf041b0300909f83131",
+      "bytes": 1110559
+    },
+    "protected-controls.json": {
+      "sha256": "3987a0634c9af70535b819cc2d98621fe230b759ef30cc75927e879c33dcbefe",
+      "bytes": 956246
+    },
+    "source-case.json": {
+      "sha256": "2b3e3dc36288d27c2dec4f60bb0c99ba4ef35ef5817db2c8f43542cd12728f19",
+      "bytes": 24498
+    },
+    "source.jsonl": {
+      "sha256": "d3a21012dce4fca2a2b58c1161665514893a17f06b8a6ffa084244eccdb95d7c",
+      "bytes": 134567
+    },
+    "validation.json": {
+      "sha256": "0a70610dac5f91285b3b02a4c05881fa9ba405a32eb4c90f100b8bdc470a93b5",
+      "bytes": 1509
+    }
+  },
+  "additionalEvidence": {
+    "runtime-check.json": "1a136db5bebd881975de0868ffe04af1bb9dc88d7c1b258d784cb5685cd4fc0e",
+    "write-failure-regression.json": "b83ceb7faf7aa63b36795c56102aaf7d3911005d0ef2fd7225d7966cf653ff22",
+    "write-failure-regression.py": "d5a0770dbca56c69a67d92618960192b6da6f80fd7fa553347c4c5bcb0000061",
+    "managed-index-version-check.json": "2eed327e788df5c6e106de36a70a4bf300820572b87d1f3a5b51b4397e60751d",
+    "native-pointer-readback-recipe.py": "e51880a30a904c528c959f7b4217cfd71c2ebbb6ed80341b70bcb9e4142e4907",
+    "attempts.json": "4755eba50d442a7812746a5d6e4f010706712643f9ad65f57603712cef8830fb"
+  },
+  "sourceAcceptedByWorker": false,
+  "targetEditorialAccepted": false,
+  "runtime": "not-run",
+  "wholeGameAccepted": false,
+  "gapChecklistRows": 7,
+  "rootStatusAndGitMutations": 0,
+  "nestedJobs": 0,
+  "stoppedAfterFiniteAssignment": true
+}
