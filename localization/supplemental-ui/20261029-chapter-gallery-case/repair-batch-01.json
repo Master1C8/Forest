@@ -1,0 +1,25 @@
+{
+  "status": "one-consolidated-repair-batch",
+  "locale": "ru",
+  "caseId": "chapter-titles-and-gallery-hints",
+  "originalTargetSha256": "1e9582a7bebe3163035b361e87b968476129ab4dbfa8ca7c71caa514da877c4e",
+  "targetFile": "ru.edited.jsonl",
+  "targetSha256": "99084af7808a78c424bd82cd36881e494a8c7cb0dced1019c837662854a6a9e5",
+  "independentReviewsSha256": "fd388be7c0d94bea622a726230b781212b92e5d0cac5adcb50986977b5eac095",
+  "findings": [
+    {
+      "id": "bgdb:resources.assets:320/sheet/YRyF2%2Ff6dEyP%2F2V7ZJXDJA/row/tdbQN%2BFPbUyrqjAc5GZvPQ/field/vD1IEmMS4U%2BKWJBke1GQiA",
+      "verdict": "finding",
+      "rationale": "Russian requires the preposition form со before initial ск- in Скарлетт; с Скарлетт creates the unidiomatic consonant cluster. Preserve the same conversation unlock and approved name.",
+      "proposedTarget": "Открывается в беседе со Скарлетт.",
+      "sourceSha256": "590d9714ac829ab3f88bd9b81081523833e305a6bc9b637a0bbb1a4afae4c24f",
+      "targetSha256": "928c520941cfe936c0dc7e2072c30c1139316ecca8e060a6a4453e6351a19cd7"
+    }
+  ],
+  "changedIds": [
+    "bgdb:resources.assets:320/sheet/YRyF2%2Ff6dEyP%2F2V7ZJXDJA/row/tdbQN%2BFPbUyrqjAc5GZvPQ/field/vD1IEmMS4U%2BKWJBke1GQiA"
+  ],
+  "unchangedRows": 133,
+  "parentDecision": "Accepted objective Russian preposition correction; unlock conversation, actor name, source and all other words unchanged. Exact final delta review required.",
+  "wholeGameAccepted": false
+}

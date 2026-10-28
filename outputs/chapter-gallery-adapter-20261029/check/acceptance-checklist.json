@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "caseId": "chapter-titles-and-gallery-hints",
+  "items": [
+    {
+      "id": "source-binding",
+      "artifact": "localization/source/chapter-gallery-case-20261029/",
+      "predicate": "All134 wording IDs,10 protected operands,16 absent states and59 saved selection controls bound to the verified source version.",
+      "currentEvidence": [
+        "source-check-receipt.json",
+        "execution-v3/chapter-gallery-inputs.json"
+      ],
+      "status": "passed-static-source-binding",
+      "remainingUncertainty": "Owning parent source admission and runtime reachability of the initial-only confirmation branch.",
+      "exactNextPermittedAction": "Parent reconcile the existing verified source handoff; keep all conservative initial IDs and global gates unchanged."
+    },
+    {
+      "id": "acceptance-loading",
+      "artifact": "tools/russian_chapter_gallery_case.py",
+      "predicate": "Explicit ru only; exact134 unique source/target/hash bindings; normal loading rejects until matching bounded editorial acceptance; draft cannot be relabeled to bypass.",
+      "currentEvidence": [
+        "preflight-v6/preflight.json",
+        "delivery-verification.json"
+      ],
+      "status": "guard-verified-acceptance-pending",
+      "remainingUncertainty": "No actual matching editorial acceptance exists; the positive accepted-loader/snapshot path was not exercised and no acceptance was fabricated.",
+      "exactNextPermittedAction": "Parent reconcile genuine full semantic, independent clean delta and deterministic receipts into the documented acceptance contract, then test the accepted snapshot against those exact hashes."
+    },
+    {
+      "id": "bg-projection",
+      "artifact": "preflight-v6/resources.assets",
+      "predicate": "113 exact target cells in3 columns;16 absent unchanged;286 unselected column blobs exact; whole immediate prior localized payload restored.",
+      "currentEvidence": [
+        "preflight-v6/preflight.json",
+        "delivery-verification.json"
+      ],
+      "status": "passed-draft-static-only",
+      "remainingUncertainty": "Runtime DB/cache consumption, wording semantics and renderer output are untested.",
+      "exactNextPermittedAction": "Parent connect this stage after existing description projections only after source/editorial gates; pin the actual upstream payload and retain full readback/restoration."
+    },
+    {
+      "id": "native-plan",
+      "artifact": [
+        "preflight-v6/sharedassets0.assets",
+        "preflight-v6/sharedassets2.assets"
+      ],
+      "predicate": "18 exact asset/pathId/m_text fields; raw differences only the length/content/alignment span; every other field and unselected object byte preserved; prior typography/layout merged.",
+      "currentEvidence": [
+        "preflight-v6/preflight.json",
+        "delivery-verification.json"
+      ],
+      "status": "passed-draft-static-only",
+      "remainingUncertainty": "Initial examples do not establish live producers; separate Adventure.Title root and GO2510 reachability remain unaccepted.",
+      "exactNextPermittedAction": "Parent merge plans without altering the current non-text plans; retain initial-only labels and existing source decisions. Runtime investigation requires the owner's applicable instruction."
+    },
+    {
+      "id": "managed-operands",
+      "artifact": "preflight-v6/Assembly-CSharp.dll",
+      "predicate": "Exactly3 selected operands in2 methods; all10 protected operands unchanged; complete14095-method inventory/readback and serialized semantic reversal pass.",
+      "currentEvidence": [
+        "preflight-v6/managed-readback.json",
+        "preflight-v6/preflight.json",
+        "delivery-verification.json"
+      ],
+      "status": "passed-draft-static-only",
+      "remainingUncertainty": "PE rewrite is not byte-identical; managed compatibility is explicitly pinned to the candidate17 immediate prior DLL. Runtime execution was not performed.",
+      "exactNextPermittedAction": "Parent use the exact supported prior DLL or reconcile and verify a new compatibility pin before integrating; preserve existing localized code and every unselected method."
+    },
+    {
+      "id": "commit-boundary",
+      "artifact": "preflight-v6/failure-between-writes/Assembly-CSharp.dll",
+      "predicate": "An actual receipt-write failure after DLL creation is retained as incomplete; no receipt or completed package is claimed.",
+      "currentEvidence": [
+        "preflight-v6/preflight.json"
+      ],
+      "status": "passed-failure-accounting",
+      "remainingUncertainty": "Multi-resource writes are not a transaction and provide no runtime rollback.",
+      "exactNextPermittedAction": "Parent stage and validate all package outputs and write its completion manifest last; reconcile partial task-owned outputs without overwriting prior accepted artifacts."
+    },
+    {
+      "id": "integration-runtime-release",
+      "artifact": "tools/russian_chapter_gallery_case.py and tools/chapter_gallery_patch/",
+      "predicate": "Finite implementation delivered; parent-only full-builder/Git integration, editorial, font, runtime and release gates remain separate.",
+      "currentEvidence": [
+        "HANDOFF.md",
+        "delivery-verification.json"
+      ],
+      "status": "parent-pending",
+      "remainingUncertainty": "Builder integration and accepted positive-path checks remain pending; runtime/font/visual/release acceptance was not established.",
+      "exactNextPermittedAction": "Parent review and integrate verified code under its existing authority. No worker follow-up or new runtime/model job is started."
+    }
+  ],
+  "wholeGameAccepted": false,
+  "targetEditorialAccepted": false,
+  "runtime": "not-run",
+  "integration": "parent-pending"
+}

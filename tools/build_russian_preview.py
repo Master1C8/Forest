@@ -7,6 +7,7 @@ import json
 import re
 import shutil
 import struct
+import subprocess
 import unicodedata
 from pathlib import Path
 
@@ -25,6 +26,7 @@ from russian_item_ui import project_item_display, snapshot as snapshot_items, pa
 from russian_inventory_descriptions import project_descriptions, snapshot as snapshot_descriptions, patch_empty_cells, load_inputs as load_description_inputs
 from russian_inventory_layout import snapshot as snapshot_inventory_layout, patch_layout as patch_inventory_layout
 from russian_inventory_glitch import snapshot as snapshot_glitch, plan as glitch_plan, patch as patch_glitch, load_inputs as load_glitch_inputs
+from russian_chapter_gallery_case import load_inputs as load_chapter_gallery, snapshot as snapshot_chapter_gallery, project_bg as project_chapter_gallery, native_plan as chapter_gallery_native_plan, patch_managed as patch_chapter_gallery
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
@@ -88,6 +90,7 @@ def main():
     parser.add_argument('--repair-settings-glow', action='store_true', help='Candidate: stretch serialized Top OptionsMenu glow children to fitted parent height; actual resolved alignment and visual effect require review')
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Compatibility flag: actual Russian previews always disable duplicate settings Images with complete TMP replacements')
     parser.add_argument('--inventory-display-completion', action='store_true', help='Apply the independently accepted52-unit additive description/empty-cell packet after historical item/quest stages')
+    parser.add_argument('--chapter-gallery-case', action='store_true', help='Apply the accepted134-occurrence chapter/gallery preparation case; requires inventory completion')
     args = parser.parse_args()
     try:
         validate_texture_policy(args.coherent_tmp_face)
@@ -105,6 +108,11 @@ def main():
     if args.inventory_display_completion:
         load_description_inputs()  # Fail before creating output when editorial acceptance is absent.
         load_glitch_inputs()
+    chapter_plan = None
+    if args.chapter_gallery_case:
+        if not args.inventory_display_completion:
+            parser.error('--chapter-gallery-case requires --inventory-display-completion')
+        chapter_plan = load_chapter_gallery(locale='ru')
     out = args.output.resolve()
     assert PROJECT in out.parents and SOURCE not in out.parents
     assert not out.exists(), 'Use a new probe directory; do not overwrite prior evidence.'
@@ -123,7 +131,8 @@ def main():
     shutil.copy2(Path(__file__).parent / 'settings_glow.py', out / 'settings_glow.py')
     shutil.copy2(Path(__file__).parent / 'russian_settings_ui.py', out / 'russian_settings_ui.py')
     shutil.copy2(Path(__file__).parent / 'russian_report_ui.py', out / 'russian_report_ui.py')
-    shutil.copy2(Path(__file__).parent / 'russian_actor_names.py', out / 'russian_actor_names.py')
+    if not args.chapter_gallery_case:
+        shutil.copy2(Path(__file__).parent / 'russian_actor_names.py', out / 'russian_actor_names.py')
     shutil.copy2(PROJECT / 'localization/source/actor-display-ru-20261027/plan.json', out / 'actor-display-plan.json')
     shutil.copy2(Path(__file__).parent / 'russian_quest_ui.py', out / 'russian_quest_ui.py')
     shutil.copy2(Path(__file__).parent / 'russian_menu_ui.py', out / 'russian_menu_ui.py')
@@ -144,6 +153,8 @@ def main():
     shutil.copy2(Path(__file__).parent/'russian_quest_family.py',out/'russian_quest_family.py')
     snapshot_quest_family(out)
     snapshot_journal_headers(out)
+    if args.chapter_gallery_case:
+        snapshot_chapter_gallery(out, locale='ru')
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     shutil.copy2(Path(__file__).parent / 'russian_native_font_roles.py', out / 'russian_native_font_roles.py')
@@ -177,6 +188,7 @@ def main():
               'coherentTmpFace': args.coherent_tmp_face,
               'uniformTmpFallback': args.uniform_tmp_fallback,
               'inventoryDisplayCompletion': args.inventory_display_completion,
+              'chapterGalleryCase': args.chapter_gallery_case,
               'coherentChoiceFace': args.coherent_choice_face,
               'choiceSamples': {},
               'markSamples': mark_samples,
@@ -200,6 +212,7 @@ def main():
         notebook_repairs = {}
         coherent_spacings = {}
         glitch_repairs = {}
+        chapter_repairs = {}
         if name == 'globalgamemanagers':
             selected = {o.path_id: o for o in env.objects if o.type.name == 'PlayerSettings'}
         elif name == 'resources.assets':
@@ -298,6 +311,13 @@ def main():
             if receipt:
                 report.setdefault('nativeFontRoleRepair', []).extend(receipt)
                 selected.update({pid: objects[pid] for pid in native_role_repairs})
+        if args.chapter_gallery_case and name in ('sharedassets0.assets', 'sharedassets2.assets'):
+            chapter_repairs, chapter_native_receipt = chapter_gallery_native_plan(
+                name, objects, generator, locale='ru',
+                expected_asset_sha256=expected[name]['sha256'],
+                actual_asset_sha256=sha(SOURCE / DATA_NAME / name), plan=chapter_plan)
+            report.setdefault('chapterGalleryInitialProjection', []).append(chapter_native_receipt)
+            selected.update({pid: objects[pid] for pid in chapter_repairs})
         assert selected, name
         original = {pid: canonical(read_tree(obj, generator)) for pid, obj in selected.items()}
         raw_hashes = {pid: hashlib.sha256(obj.get_raw_data()).hexdigest() for pid, obj in objects.items()}
@@ -336,6 +356,10 @@ def main():
                     data, report['questFamilyProjection'] = project_quest_family(data,parse,variable_cells)
                     if args.inventory_display_completion:
                         data, report['inventoryDescriptionProjection'] = project_descriptions(data,parse,variable_cells)
+                    if args.chapter_gallery_case:
+                        data, report['chapterGalleryDatabaseProjection'] = project_chapter_gallery(
+                            data, parse, variable_cells, locale='ru',
+                            expected_before_sha256=hashlib.sha256(data).hexdigest(), plan=chapter_plan)
                     tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
                     report['actorDisplayProjection'] = receipt
                 elif pid == 1020:
@@ -392,6 +416,9 @@ def main():
                 pass
             elif pid in glitch_repairs:
                 tree['m_text']=glitch_repairs[pid]['m_text']
+            elif pid in chapter_repairs:
+                # Initial-only text selection must not implicitly change typography.
+                pass
             elif obj.type.name == 'Font':
                 assert tree['m_Name'] in (['MatchupPro 1', 'MatchupPro_TFOL'] if args.coherent_legacy_face else ['MatchupPro 1'])
                 # The default repair extends the existing fallback only. The
@@ -433,6 +460,9 @@ def main():
                 tree = apply_native_role(tree, native_role_repairs[pid])
             if pid in glitch_repairs:
                 tree['m_text']=glitch_repairs[pid]['m_text']
+            if pid in chapter_repairs:
+                # Apply wording after existing typography/font/layout plans.
+                tree['m_text'] = chapter_repairs[pid]['m_text']
             if pid in coherent_spacings:
                 # Owner-specific wording/wrapping plans must not restore the old
                 # bitmap spacing after the shared face-metric plan ran.
@@ -480,6 +510,16 @@ def main():
         report['inventoryLayoutCodeRepair'] = patch_inventory_layout(target/'Managed',out,out/'inventory-layout-code-readback.json')
         report['inventoryGlitchCodeRepair'] = patch_glitch(target/'Managed',out,out/'inventory-glitch-code-readback.json')
         report['files'].append(dict(path='Managed/VNRevivalInventoryLayout.dll',probeSha256=sha(target/'Managed/VNRevivalInventoryLayout.dll'),purpose='Native inventory title/description reflow inside the original frame'))
+    if args.chapter_gallery_case:
+        recipe = out / 'chapter-gallery-recipe'
+        subprocess.run(['dotnet', 'build', str(out / 'chapter_gallery_patch/ChapterGalleryPatch.csproj'),
+                        '--nologo', '--verbosity', 'quiet', '-o', str(recipe)], check=True)
+        staged = out / 'Assembly-CSharp.chapter-gallery.dll'
+        report['chapterGalleryCodeProjection'] = patch_chapter_gallery(
+            target / 'Managed/Assembly-CSharp.dll', staged, out / 'chapter-gallery-code-readback.json',
+            recipe, locale='ru', expected_before_sha256=sha(target / 'Managed/Assembly-CSharp.dll'), plan=chapter_plan)
+        shutil.copy2(staged, target / 'Managed/Assembly-CSharp.dll')
+        assert sha(target / 'Managed/Assembly-CSharp.dll') == report['chapterGalleryCodeProjection']['targetSha256']
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})

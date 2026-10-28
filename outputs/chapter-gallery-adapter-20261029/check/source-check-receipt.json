@@ -1,0 +1,23 @@
+{
+  "command": ".venv-assets314/bin/python -B tools/chapter_gallery_case_source.py --check",
+  "exitCode": 0,
+  "recordedFrom": "Observed successful tool stdout during this execution; not a rerun or editorial judgment.",
+  "stdout": {
+    "status": "verified",
+    "all153Accounted": true,
+    "sourceOccurrences": 134,
+    "absence": 16,
+    "preservedManagedOperands": 10,
+    "serializedOptions": 59,
+    "locales": 30,
+    "negativeControls": [
+      "missing-absence",
+      "changed-protected-value-with-valid-hash",
+      "wrong-confirmation-root",
+      "wrong-identifier-ordinal",
+      "missing-case-member"
+    ],
+    "boundary": "Deterministic source/version/selector comparisons only; no target semantics, adapter or runtime execution."
+  },
+  "helperSha256": "0b54fa271865a96b79d027d1aad260daa4d5fc5e4f1f4ea0f3c8d17b7993eb27"
+}

@@ -128,15 +128,15 @@ def run(directory):
     shutil.copyfile(directory / 'pairs.jsonl', phase / 'pairs.jsonl')
     helper = directory / 'execution/editorial_lane.py'
     brief = f'''Read this brief and dispatch.json first. Fresh no-history {MODEL}/high/OpenAI.
-You are the {config['stage']} reviewer of {config['candidateIds']} Russian inventory
-display IDs. Independent-diff means all{config['candidateIds']} newly admitted inputs form the exact
+You are the {config['stage']} reviewer of {config['candidateIds']} Russian {config['family']}
+IDs. Independent-diff means all{config['candidateIds']} newly admitted inputs form the exact
 initial-delivery delta; review all of them independently. No inherited history,
 other reviewers' decisions or nested jobs. Current input/context pins were checked.
 Before any localization text, read {phase / 'runtime-verification.json'} and
 verify actual model/reasoning/provider/fresh exec. Allow up to30 seconds only for
 this receipt, then stop if absent/mismatched. Record runtime-check.json.
 Read universal documents, contract, COMPLETE source/Russian glossaries and full
-inventory consumer/context exactly once with:
+assigned consumer/context exactly once with:
 python3 -B {helper} bootstrap --job {directory} --start 0
 Follow returned next until next==length; max_output_tokens12000. Never credit
 truncated output. Additional mandatory references apply if not already emitted.
