@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sourceAcceptance": "needs-review",
+  "discoveryScope": "All48 descriptions,111 keyword source values and499 UI text fields reconciled; no whole-game discovery claim.",
+  "cases": [
+    {
+      "id": "inventory-sugar-euphemism",
+      "sourceRows": [
+        0
+      ],
+      "invariant": "The original Bottle of Lube title and Sugar description belong to the same row; preserve the euphemism and quest callback without changing item identity."
+    },
+    {
+      "id": "inventory-map-input-hints",
+      "sourceRows": [
+        21
+      ],
+      "invariant": "Preserve literal [M] and [Select] input bindings; localize surrounding prose only."
+    },
+    {
+      "id": "inventory-rosetta-glyph-reference",
+      "sourceRows": [
+        24
+      ],
+      "invariant": "The description links to deciphering glyphs; retain the fictional-language resource mapping and the actual puzzle solution."
+    },
+    {
+      "id": "inventory-apology-cookie-icing",
+      "sourceRows": [
+        34
+      ],
+      "invariant": "The described icing says \"We're Sorry\"; bind the actual image/dialogue callback before settling target wording. Do not create a texture edit."
+    },
+    {
+      "id": "inventory-placeholder-and-empty-slots",
+      "sourceRows": [
+        46
+      ],
+      "invariant": "Keep type405 instanced-story placeholder guard and grid(4,3) versus ordinary empty-slot branches; four display literals are candidates, method keys remain exact."
+    },
+    {
+      "id": "inventory-glitch-fictional-trace",
+      "sourceRows": [
+        38
+      ],
+      "evidence": "localization/source/bgdatabase-20261027/compiled-fragments.json and ADAPTER.md",
+      "invariant": "Source644-character fake exception/CR bytes, substring window, markup and Use Me suffix require one complete codec/display decision. They are not a real crash and are not included as ordinary prose in the612 candidates."
+    },
+    {
+      "id": "bio-keyword-identity-and-masks",
+      "invariant": "Translate display bio_text only after acceptance; preserve name/savekey/plugin trigger, hidden/reveal flags and distinct literal Question Marks row ???. Shared keyword wording must respect every assigned actor/category; no source spelling correction or gender inference."
+    }
+  ],
+  "localeDecisions": "not-started; these source groups must be resolved before ordinary new authoring; prior unrelated decisions remain unchanged."
+}

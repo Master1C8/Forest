@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "images": [
+    {
+      "source": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-27 в 20.42.48.png",
+      "sha256": "dd8e53134e090957d0f60bece64e1531832172b5d9ebcf73cbb579e57bdb9c0f",
+      "width": 2514,
+      "height": 1246,
+      "locale": "ru",
+      "reviewer": "gpt-6.1-sol/high/OpenAI coordinator",
+      "reviewedAt": "2026-10-28T00:03:29.980431+00:00",
+      "inputRepresentation": "User-added attachment already present in chat; no assistant-produced screenshot emitted or reopened.",
+      "content": "failed: English fallback visible",
+      "releaseAcceptance": false,
+      "artifactIdentity": "unknown from owner screenshot; timestamp alone does not prove preview identity",
+      "surface": "Pause menu",
+      "observed": [
+        "Options",
+        "Save",
+        "Menu",
+        "Chapter Select",
+        "Cheats",
+        "Quit",
+        "Report Bug"
+      ],
+      "findings": [
+        "Main pause labels remain English in the owner frame.",
+        "Pause artwork is notify-only."
+      ],
+      "layout": "needs-review: the supplied frame cuts the top of the Pause graphic and reaches the bottom Quit edge; screenshot cropping cannot establish game clipping."
+    },
+    {
+      "source": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-27 в 20.42.31.png",
+      "sha256": "fcec21a3399cf8e508fbe750358bf7d313995db36c0682d798ee0b4ad13643af",
+      "width": 2514,
+      "height": 1246,
+      "locale": "ru",
+      "reviewer": "gpt-6.1-sol/high/OpenAI coordinator",
+      "reviewedAt": "2026-10-28T00:03:29.980431+00:00",
+      "inputRepresentation": "User-added attachment already present in chat; no assistant-produced screenshot emitted or reopened.",
+      "content": "failed: English fallback visible",
+      "releaseAcceptance": false,
+      "artifactIdentity": "unknown from owner screenshot; timestamp alone does not prove preview identity",
+      "surface": "Inventory",
+      "observed": [
+        "Bottle of Lube",
+        "A bottle of Sugar"
+      ],
+      "findings": [
+        "English title in this owner frame; the selected newer candidate already contains the Russian title.",
+        "Description is a separate original database column absent from the supplemental inputs.",
+        "The Sugar wording is paired with Bottle of Lube in original row0. It is not evidence of row misalignment or another selected item."
+      ],
+      "layout": "no internal text overlap visible in the supplied frame; full native viewport unavailable"
+    },
+    {
+      "source": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-27 в 20.42.26.png",
+      "sha256": "c29032e512961d04def556f4f20bfcaf1595b303e1f346425f721c3170764d50",
+      "width": 2514,
+      "height": 1246,
+      "locale": "ru",
+      "reviewer": "gpt-6.1-sol/high/OpenAI coordinator",
+      "reviewedAt": "2026-10-28T00:03:29.980431+00:00",
+      "inputRepresentation": "User-added attachment already present in chat; no assistant-produced screenshot emitted or reopened.",
+      "content": "failed: English fallback visible",
+      "releaseAcceptance": false,
+      "artifactIdentity": "unknown from owner screenshot; timestamp alone does not prove preview identity",
+      "surface": "Quest Log",
+      "observed": [
+        "Getting to Know You",
+        "Water Under the Bridge",
+        "Go find a few critters Scarlett wants you to meet.",
+        "DONE - Meet Augustus.",
+        "Say hi to all four of the critters.",
+        "Сахар и пряности"
+      ],
+      "findings": [
+        "Mixed English/Russian quest wording in the owner frame.",
+        "The complete Quest family has a later verified repair; do not reauthor it from this screenshot.",
+        "Active/Completed artwork remains notify-only."
+      ],
+      "layout": "needs-review: top of the supplied journal frame is cropped; native header clipping cannot be established"
+    },
+    {
+      "source": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-27 в 20.42.23.png",
+      "sha256": "753dd47daba59e0075340f17bff9556083f59ab445f1a2d9dffd328c20712d57",
+      "width": 2514,
+      "height": 1246,
+      "locale": "ru",
+      "reviewer": "gpt-6.1-sol/high/OpenAI coordinator",
+      "reviewedAt": "2026-10-28T00:03:29.980431+00:00",
+      "inputRepresentation": "User-added attachment already present in chat; no assistant-produced screenshot emitted or reopened.",
+      "content": "failed: English fallback visible",
+      "releaseAcceptance": false,
+      "artifactIdentity": "unknown from owner screenshot; timestamp alone does not prove preview identity",
+      "surface": "Critter Log",
+      "observed": [
+        "Августус Щиток",
+        "Residents",
+        "Alligator",
+        "Elder",
+        "Historian",
+        "Notes",
+        "Scholar",
+        "Kinks",
+        "???"
+      ],
+      "findings": [
+        "Russian names coexist with untranslated BioKeyword data and native Notes/Kinks headings.",
+        "Residents is enabled painted artwork.",
+        "Source placeholders and unlock masks must remain ???."
+      ],
+      "layout": "no internal overlap or missing glyph visible in the supplied frame; full native viewport unavailable"
+    }
+  ],
+  "total": 4,
+  "reviewed": 4,
+  "contentFailed": 4,
+  "releasePassed": 0,
+  "scope": "All four owner attachments, not a native QA capture or hosted gallery gate."
+}
