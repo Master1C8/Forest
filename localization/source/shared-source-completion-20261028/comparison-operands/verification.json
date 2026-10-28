@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "passed-immediate-comparison-operand-bindings",
+  "originalAssemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "inputIndex": "outputs/pause-inventory-bio-completion-20261028/managed-index/literals.jsonl",
+  "inputIndexSha256": "ead8bc160bf89829c80cd9cce7001af30a447833792ea3a0c91b9016bc0191c7",
+  "inputIndexManifestSha256": "f0baea3ef002a129e0748c8e4f8e3002633b7ceb8865ba181456edf3d8971889",
+  "scriptSha256": "c9f355b4c88578e9d2525f2386e13a3c83b1ecde80e37b8f7bca313e9587a20e",
+  "protectedOperandCount": 1121,
+  "consumerCounts": {
+    "System.Boolean System.String::op_Equality(System.String,System.String)": 750,
+    "System.Boolean System.String::Contains(System.String)": 286,
+    "System.Boolean System.String::op_Inequality(System.String,System.String)": 56,
+    "System.Boolean System.Text.RegularExpressions.Regex::IsMatch(System.String,System.String)": 4,
+    "System.Int32 System.String::IndexOf(System.String)": 25
+  },
+  "outputSha256": "4fcf9b61ca731063c734c8972965a55535e72ff17cf3969f8b66213f2c5617cc",
+  "matchingPositiveControls": true,
+  "changedLiteralRejected": true,
+  "changedConsumerRejected": true,
+  "modelSemanticDecision": "The five explicit consumer-role rules were authored by the Sol/high coordinator; script expansion/readback is deterministic.",
+  "commonSourceGatePassed": false,
+  "translationEntryAllowed": false,
+  "limitation": "No whole-method, source-producer, special-scene, reinsertion, native implementation or runtime acceptance. Display-versus-control comparison dependencies still require exact adapters, including haiku.",
+  "originalInstallAccess": false,
+  "gameLaunch": false,
+  "textureEdits": false
+}
