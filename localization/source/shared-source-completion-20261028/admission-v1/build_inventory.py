@@ -17,6 +17,7 @@ from phase139.expand_roles import products as console_products
 from phase140.expand_roles import products as playback_products
 from phase141.expand_roles import products as arc_products
 from phase142.expand_roles import products as loader_products
+from phase143.reconcile_bindings import products as binding_products, NEXT as NEXT_SOURCE
 
 INDEX = ROOT / 'outputs/pause-inventory-bio-completion-20261028/managed-index'
 SERIALIZED = ROOT / 'outputs/pause-inventory-bio-completion-20261028/serialized-nondialogue-roster.jsonl'
@@ -442,7 +443,7 @@ def products():
     pins[str((OUT / 'continuation-decisions.json').relative_to(ROOT))] = sha(OUT / 'continuation-decisions.json')
     pins[str((OUT / 'phase134/haiku-source-dependencies.json').relative_to(ROOT))] = sha(OUT / 'phase134/haiku-source-dependencies.json')
     case_spec = load(OUT / 'special-case-spec.json')
-    extra = consumer_products(database_products())
+    extra = binding_products(consumer_products(database_products()))
     database_value_rows = [json.loads(s) for s in extra['dialogue-database-values.jsonl'].splitlines()]
     database_report = json.loads(extra['dialogue-database-reconciliation.json'])
     pins[str((OUT / 'special-case-spec.json').relative_to(ROOT))] = sha(OUT / 'special-case-spec.json')
@@ -483,6 +484,11 @@ def products():
         assert sha(ROOT / name) == digest, ('phase142-input', name)
         pins[name] = digest
     for name in ['phase142/compiled-role-decisions.json', 'phase142/expand_roles.py']:
+        pins[str((OUT / name).relative_to(ROOT))] = sha(OUT / name)
+    for name, digest in load(OUT / 'phase143/input-pins.json').items():
+        assert sha(ROOT / name) == digest, ('phase143-input', name)
+        pins[name] = digest
+    for name in ['phase143/reconcile_bindings.py', 'phase143/role-decisions.json']:
         pins[str((OUT / name).relative_to(ROOT))] = sha(OUT / name)
     il_type_by_selector = {f"il:Assembly-CSharp.dll/{r['method']}/IL_{r['offset']:04x}":r['type']
                            for r in lines(INDEX / 'literals.jsonl')}
@@ -631,7 +637,11 @@ def products():
     consumers['phase142CompiledRoleDelta'] = dict(artifact='phase142/compiled-role-decisions.json',resolved=29,potentialExceptionWording=18,protectedOperands=11,completeProducerLiterals=64,priorPreciseRolesRetained=35,remaining=1251,remainingSelected=0,boundary=loader_delta['boundary'])
     manifest['sourceRoleResolvedScopes'].append('Phase142 finishes every29 remaining loader operand across15 full producers:18 potential exception wording and11 protected watch/identifier/BIO/exception-separator operands. All64 complete producer literals and35 prior precise roles are bound. Actual action/watch/parser/portrait/font/priority consumers are source-bound; fictional mapping unchanged. No assigned loader roles remain;1251 other original compiled roles remain explicit.')
     manifest['compiledLoaderSourceContext'] = 'compiled-loader-source-context.json'
-    unresolved['nextPredicate'] = 'Loader29 packet is finished. Next finite source task: actual serialized event/script consumers of the934 retained node Title values in dialogue-database-unresolved.json and721 caller-supplied metadata values, using existing phase136 dispositions and exact original selectors. Preserve unknown external/native consumers; resolve named game predicates only.1251 other compiled gaps and1389 Rewired alias bindings remain explicit; do not reopen accepted loader/playback/arc bodies or recurse renderer internals.'
+    unresolved['nextPredicate'] = NEXT_SOURCE
+    manifest['sourceRoleResolvedScopes'].append('Phase143 finite1655 database serialized/caller dispositions: complete39-instance persistent-field absence, actual Rascal receiver predicate, all41 nonempty original Lua expressions and six direct API callers. Residual source-policy/external uncertainty retained; no new exclusions.')
+    manifest['dialogueDatabaseCallerBindings'] = 'dialogue-database-caller-bindings.json'
+    consumers['dialogueDatabase']['callerBindingArtifact'] = 'dialogue-database-caller-bindings.json'
+    consumers['dialogueDatabase']['finiteStaticAssignment'] = 'complete;source-policy/external-boundary-retained'
     literal_values = {(r['method'],r['offset']):r['value'] for r in lines(INDEX/'literals.jsonl')}
     delta_rows = [dict(r, sourceIndexReference=dict(path=str((INDEX/'literals.jsonl').relative_to(ROOT)),line=new_by_id[r['id']]['sourceLine']),
                        **({'source':literal_values[r['method'],r['offset']]} if r['role'].startswith('potential-display') else {}))
@@ -665,7 +675,7 @@ def products():
             preserveContract='Every resolved non-wording occurrence remains bound to exact original index method/offset/value hash. Display comparisons/identities and format/markup roles retain separate adaptation/preservation contracts; no whole-method exclusions.',
             visibleIdentityDependencies=dict(artifact='compiled-display-identity-dependencies.json',occurrences=120,boundary='Displayed executable/state identities; original spelling remains protected. Separate from target wording and the12 retained display comparisons.'),
             displayedFilterDependencies=dict(artifact='compiled-console-source-context.json',occurrences=7,boundary='Additional protected typeName values also displayed; original filter values retained, no caption projection implemented.'),
-            remainingArtifact='unresolved-consumers.json',nextSelectors='dialogue-database-unresolved.json',consoleContext='compiled-console-source-context.json',playbackContext='compiled-playback-source-context.json',arcContext='compiled-arc-source-context.json',loaderContext='compiled-loader-source-context.json',exceptionPresentation='unknown;ctor-and-throw-proved-only',
+            remainingArtifact='unresolved-consumers.json',nextSelectors='phase143/next-compiled-selectors.json',databaseCallerBinding='dialogue-database-caller-bindings.json',handoffContinuationPhase='0143-work',consoleContext='compiled-console-source-context.json',playbackContext='compiled-playback-source-context.json',arcContext='compiled-arc-source-context.json',loaderContext='compiled-loader-source-context.json',exceptionPresentation='unknown;ctor-and-throw-proved-only',
             commonSourceAccepted=False,translationEntryAllowed=False,editorial='not-run',runtime='not-run',
             boundary='Material subset; neither an accepted full source family nor a visible translation denominator. Targets and textures unchanged.')),
     }

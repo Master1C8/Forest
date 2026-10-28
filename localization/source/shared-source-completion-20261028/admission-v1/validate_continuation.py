@@ -20,7 +20,7 @@ import build_inventory as builder_module
 
 from prepare_context import ROOT, OUT, sha, load, lines
 from build_inventory import products, value_hash, jl, INDEX, SERIALIZED, apply_compiled_role
-from phase135.reconcile_database import check_partition, classify
+from phase135.reconcile_database import check_partition, classify, get
 from phase136.reconcile_roles import GREETING_ID, GREETING, classify_remaining
 from phase137.expand_roles import expanded, first_typed_call
 from phase138.expand_roles import expanded as expanded_commands, registration
@@ -28,6 +28,7 @@ from phase139.expand_roles import expanded as expanded_console, validate_rule as
 from phase140.expand_roles import expanded as expanded_playback, validate_rule as validate_playback_rule
 from phase141.expand_roles import expanded as expanded_arc, validate_rule as validate_arc_rule, METHOD as ARC_METHOD
 from phase142.expand_roles import expanded as expanded_loader, validate_rule as validate_loader_rule
+from phase143.reconcile_bindings import refine as refine_binding, analyze_lua, validate_selector as validate_binding_selector, NEXT as NEXT_SOURCE
 
 
 def same_identity_values(before, after):
@@ -43,6 +44,9 @@ def same_identity_values(before, after):
 
 
 def main():
+    phase143 = OUT / 'phase143'
+    for name, digest in load(phase143 / 'baseline-pins.json').items():
+        assert sha(phase143 / 'baseline' / name) == digest, ('preserved-phase142', name)
     phase142 = OUT / 'phase142'
     for name, digest in load(phase142 / 'baseline-pins.json').items():
         assert sha(phase142 / 'baseline' / name) == digest, ('preserved-phase141', name)
@@ -470,7 +474,7 @@ def main():
     # Exercise the actual build write loop with synthetic products redirected
     # to task-owned disposable files. Source generation is replaced here; this
     # checks only the sequential partial-write boundary, never corpus validity.
-    with tempfile.TemporaryDirectory(prefix='write-boundary-',dir=phase142) as scratch_name:
+    with tempfile.TemporaryDirectory(prefix='write-boundary-',dir=phase143) as scratch_name:
         scratch=Path(scratch_name)
         fixtures={'first.json':b'first\n','second.json':b'second\n','manifest.json':b'{"counts":{}}\n'}
         original_write=Path.write_bytes
@@ -628,7 +632,63 @@ def main():
         'protected-dynamic-conversation-selection-key':4,'protected-story-event-comparison-key':1}
     assert [r for r in dispositions if not r['roleResolved']]==load(OUT/'dialogue-database-unresolved.json')['values']
     source_tree=load(ROOT/load(ROOT/'localization/source/dialogue-manifest.json')['sources'][0]['tree'])
-    assert [classify_remaining(r,source_tree) for r in previous]==dispositions
+    # Preserve the previous consumer product exactly, then validate this finite
+    # supplement separately instead of rewriting phase136 historical decisions.
+    phase142_dispositions=load(phase143/'baseline/dialogue-database-consumer-dispositions.json')['values']
+    assert [classify_remaining(r,source_tree) for r in previous]==phase142_dispositions
+    expected_bindings=[refine_binding(r,source_tree) if not r['roleResolved'] else r for r in phase142_dispositions]
+    assert expected_bindings==dispositions, 'finite-database-binding-dispositions'
+    current_unresolved=load(OUT/'dialogue-database-unresolved.json')['values']
+    old_unresolved=load(phase143/'baseline/dialogue-database-unresolved.json')['values']
+    assert len(current_unresolved)==len(old_unresolved)==1655
+    for before,after in zip(old_unresolved,current_unresolved):
+        validate_binding_selector(before,after)
+    assert len({r['pointer'] for r in current_unresolved})==1655
+    assert sum(len(r['occurrences']) for r in current_unresolved)==3310
+    assert Counter(r['fieldTitle'] for r in current_unresolved)=={'Title':934,'TfolConversationType':193,'TfolUniqueDataKeySuffix':523,'Description':5}
+    assert all(r['finiteStaticAssignment']=='complete;source-policy-or-identified-runtime-evidence-needed' for r in current_unresolved)
+    for field, changed, reason in (
+        ('source','__mutated_source__','database-binding-preserved-source'),
+        ('occurrences',list(reversed(current_unresolved[0]['occurrences'])),'database-binding-preserved-occurrences'),
+        ('roleResolved',True,'database-binding-preserved-roleResolved'),
+        ('consumerBindingEvidence','', 'database-binding-missing-evidence')):
+        altered=copy.deepcopy(current_unresolved[0]);altered[field]=changed
+        try:
+            validate_binding_selector(old_unresolved[0],altered)
+        except ValueError as error:
+            assert str(error)==reason
+        else:
+            raise AssertionError('invalid-database-binding-accepted:'+field)
+    lua=load(OUT/'phase143/lua-inputs.json')
+    assert lua['counts']['slotsPerCopy']==32793 and lua['counts']['emptyPerCopy']==32752
+    assert lua['nonemptyLogicalPrograms']==41 and lua['physicalNonemptyPrograms']==82
+    assert lua['counts']['conditionsStringNonempty']==39 and lua['counts']['userScriptNonempty']==2
+    assert lua['distinctExpressions']==8 and lua['customConversationFieldInputs']==[] and lua['unparsedPrograms']==[]
+    for program in lua['programs']:
+        assert get(source_tree,program['pointer'])==program['source']
+        assert program['sourceValueSha256']==value_hash(program['source'])
+        assert analyze_lua(program['source'])==program['analysis']
+    for unknown in ('Conversation[1][fieldName]', 'Variable["bool_condition"] == true; GetConversationField(1, key)', 'x = math.random(100); doSomething()'):
+        result=analyze_lua(unknown)
+        assert result['status']=='unparsed;dynamic-or-new-source' and result['reads'] is None
+    callers=load(OUT/'phase143/game-callers.json')
+    assert len(callers['directCalls'])==6
+    assert Counter(r['nameInput'] for r in callers['directCalls'])=={'bool_condition':4,'branch_condition':1,'TfolUniqueDataKeySuffix':1}
+    bindings=load(OUT/'dialogue-database-caller-bindings.json')
+    assert bindings['serializedBoundary']['instances']==39 and bindings['serializedBoundary']['absentIsNotNull']
+    assert bindings['codeTitleBoundary']['remaining934ExactPredicateMatches']==0
+    assert bindings['unresolvedLogicalValues']==1655 and not bindings['commonSourceAccepted']
+    next_compiled=load(OUT/'phase143/next-compiled-selectors.json')
+    assert next_compiled['occurrences']==1251 and next_compiled['methods']==443
+    assert [r['id'] for r in next_compiled['selectors']]==[r['id'] for r in managed if r['role']=='needs-consumer-decision']
+    assert (OUT/'managed-literal-inventory.jsonl').read_bytes()==(phase143/'baseline/managed-literal-inventory.jsonl').read_bytes(), 'phase143-compiled-whole-product-changed'
+    assert load(OUT/'unresolved-consumers.json')['nextPredicate']==NEXT_SOURCE
+    changed_products={'compiled-source-handoff.json','consumer-matrix.json','unresolved-consumers.json','manifest.json','dialogue-database-reconciliation.json','dialogue-database-values.jsonl','dialogue-database-unresolved.json','dialogue-database-consumer-dispositions.json'}
+    previous_products=load(phase142/'integration-handoff.json')['generatedOutputPins']
+    for name,digest in previous_products.items():
+        if name not in changed_products:
+            assert sha(OUT/name)==digest, ('phase143-unaffected-prior-product',name)
+
     known_title=next(r for r in previous if (r.get('conversationId'),r.get('entryId'))==(109,5))
     classify_remaining(known_title,source_tree)
     altered_title=copy.deepcopy(known_title);altered_title['source']='__localized_identity__'
@@ -710,7 +770,7 @@ def main():
     else:
         raise AssertionError('equal-wording-occurrence-loss-accepted')
     assert manifest['commonSourceAccepted'] is False and manifest['translationEntryAllowed'] is False
-    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0142-work',
+    receipt = dict(schemaVersion=1, status='passed-fingerprinted-source-continuation', phase='0143-work',
                    reusedParentReadback=dict(path=str((baseline/'readback-validation.json').relative_to(ROOT)),
                        sha256=sha(baseline/'readback-validation.json'), originalManifestSha256=prior['manifestSha256'],
                        boundary='Original parent full source/tree/span readback, reused on exactly unchanged values/IDs/context; not rerun or relabeled as independent semantic judgment.'),
@@ -751,6 +811,8 @@ def main():
     receipt['negativeControls'].update(changedArcSourceRejected=True,changedArcSelectorRejected=True,changedArcProducerRejected=True,changedArcRoleRejected=True,changedArcContextRejected=True,changedArcPriorRoleRejected=True,changedArcConsumerRejected=True,changedArcArgumentWindowRejected=True,changedArcThrowRejected=True,unsupportedExceptionVisibilityRejected=True,lostExceptionAssemblyDependencyRejected=True,originalPrefixRegexReplayPassed=True,exactLoader29Retained=True)
     receipt['phase142CompiledDelta']=dict(changedRoles=29,potentialExceptionWording=18,protectedOperands=11,completeProducerLiterals=64,priorPreciseRolesRetained=35,exceptionAssemblies=18,exceptionSeparators=6,remainingSelectedOccurrences=0,remainingSelectedMethods=0,remainingCompiledOccurrences=1251,remainingCompiledMethods=len({r['method'] for r in managed if r['role']=='needs-consumer-decision'}),priorWholeProductReconstructedExactly=True,knownWordingAndPotentialOperands=185,protectedOperandsTotal=7152,resolvedPartition=7325,completeCompiledPacket=False,exceptionPresentation='unknown;ctor-and-throw-proved-only')
     receipt['negativeControls'].update(changedLoaderSourceRejected=True,changedLoaderSelectorRejected=True,changedLoaderProducerRejected=True,changedLoaderRoleRejected=True,changedLoaderContextRejected=True,changedLoaderPriorRoleRejected=True,changedLoaderConsumerRejected=True,changedLoaderArgumentWindowRejected=True,changedLoaderThrowRejected=True,unsupportedLoaderVisibilityRejected=True,lostLoaderMembershipRejected=True,all29LoaderSelectorsResolved=True)
+    receipt['phase143DatabaseBindings']=dict(assignedLogicalValues=1655,physicalSelectors=3310,retainedProvedKeys=5,remainingLogicalValues=1655,serializedInstances=39,originalLuaSlotsPerCopy=32793,nonemptyLuaExpressions=41,distinctExpressions=8,directGameApiCalls=6,wholePriorCompiledProductUnchanged=True,priorUnaffectedProductsUnchanged=len(previous_products)-len(changed_products),nextCompiledOccurrences=1251,nextCompiledMethods=443,sourcePolicyAndExternalBoundary='unresolved;finite-static-assignment-complete',completeSourceAccepted=False)
+    receipt['negativeControls'].update(changedDatabaseBindingSourceRejected=True,changedDatabaseBindingOccurrenceRejected=True,unsupportedDatabaseAdmissionRejected=True,missingDatabaseBindingEvidenceRejected=True,unknownLuaSyntaxHeldWithoutAbsenceClaim=True)
     receipt['writeBoundary']=dict(actualBuildWriteLoop='passed-second-write-failure-and-positive-control',planning='synthetic-products-only;real-source-generation-verified-separately',firstProductSurvives=True,laterProductsAbsentAtFailure=True,rollback=False,multiFileTransaction=False)
     (OUT/'continuation-validation.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in receipt.items() if k not in ('outputPins','preservedProducts','boundary')}))

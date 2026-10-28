@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "phase": "0136-work",
+  "phase": "0143-work",
   "status": "complete-string-selector-and-value-partition;consumer-gaps-explicit",
   "sources": [
     {
@@ -1172,13 +1172,13 @@
       "role": "preserve-custom-metadata;consumer-unresolved",
       "logicalValues": 721,
       "artifact": "dialogue-database-unresolved.json",
-      "next": "Use exact remainingPredicate and consumerBoundary on each selector; no dormant-value exclusion or recursive framework audit."
+      "next": "Finite original serialized/caller assignment complete. Use per-selector remainingPredicate: source admission preservation decision or identified external/runtime consumer; no unchanged static search."
     },
     {
       "role": "retained-node-label;consumer-unresolved",
       "logicalValues": 934,
       "artifact": "dialogue-database-unresolved.json",
-      "next": "Use exact remainingPredicate and consumerBoundary on each selector; no dormant-value exclusion or recursive framework audit."
+      "next": "Finite original serialized/caller assignment complete. Use per-selector remainingPredicate: source admission preservation decision or identified external/runtime consumer; no unchanged static search."
     }
   ],
   "evidencePins": {
@@ -1207,7 +1207,8 @@
   },
   "roleEvidence": [
     "phase135/database-role-decisions.json",
-    "phase136/role-decisions.json"
+    "phase136/role-decisions.json",
+    "phase143/role-decisions.json"
   ],
   "grammar": {
     "artifact": "dialogue-inline-partitions.jsonl",
@@ -1256,5 +1257,6 @@
     "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
     "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Auto-asmdef-FirstPass.dll": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
     "tools/probe/bin/Debug/net8.0/InspectMethods.dll": "10e6da1a3ef09aff8ce89a1fc9f3e0fe56d15b776bc0e0ae70d56f42f304fc05"
-  }
+  },
+  "callerBindingArtifact": "dialogue-database-caller-bindings.json"
 }
