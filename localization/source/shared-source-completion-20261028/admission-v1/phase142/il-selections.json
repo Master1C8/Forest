@@ -1,0 +1,302 @@
+[
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/watch-precondition.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen",
+      "--list"
+    ],
+    "sha256": "dd4b5d022bbdcb480cd8f43ec0040344e10a5d612b8fc072cf6c8adc2fa9428c",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/watch-extract.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueSystemLoader",
+      "AddInferredOnscreenOffscreenWatchTriggerToAllPrecedingDialogues_ExtractPrecedingDialogues"
+    ],
+    "sha256": "b8ea4f7b6bba22a719be542c40382463594e884ebc80fa77fab450778d2d6777",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/pascal-callers.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "--find-call-fragment",
+      "DialogueSystemLoader::ConvertToPascalCase"
+    ],
+    "sha256": "2c58e8b93bcfa40e608777fedfca837b2fccdfaf1951b676b657df7dacbc80c3",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/priority-callers.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "--find-field-fragment",
+      "ArcTrigger::numberOfDialogueEntriesInArcBeforeTargetNode"
+    ],
+    "sha256": "cf038979f15843bb681f877582f2ff0431d91f28615052650cfc475248ddf2ca",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-LeftAlignPortraits.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerLeftAlignPortraits",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "02ceb518fb277d739dad99cea8e42a9cb7fa9e7af9eec8efad972d295bbe0816",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-RightAlignPortraits.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerRightAlignPortraits",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "6542f9e1c6ac7143c6ee7d09e6bb6c7fc5f5b79a98d817d816e22cd592df2914",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-EncounterActor.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerEncounterActor",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "d0cf978c64d897c6bd328c90d38633528c631a28d2bfb29e16a628f6ed4c12e2",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-IntroduceActor.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerIntroduceActor",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "fb6e4bc152fb8d2fab32ff3bcf10c6c6742d20d968212da12efa51e1d9faf794",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-FireChangeFont.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireChangeFont",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "f8a99e9d92efdf4fbfdf0a53379397963ccf5374ee0bd8f92015f3252b904105",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-FinishDialogue.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFinishDialogue",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "51bc4dc0f042e711c2de831e506d50b685bbb60f5ced9ab039011fe24144e5e9",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/action-FireNamedTrigger.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.ArcTriggers.ArcTriggerFireNamedTrigger",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "f1c7dc499b2b7d37e994889a45ca17ff6c9fc005d82351b5304135e2379ae468",
+    "purpose": "Named loader29 consumer predicate only; original metadata/IL, no assembly execution"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/watch-consumer.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen",
+      "IsConditionSatisfied,CheckOffscreenTrigger,CheckOnscreenTrigger"
+    ],
+    "sha256": "892a63d39ee8340f3babe1937171188dea9146f625828090bc03a065bf85dd2e",
+    "purpose": "Exact loader29 downstream predicate"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/item-consumer.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueSystemLoader",
+      "AddConversationTriggerAddItemToInventory,AddConversationTriggerRemoveItemFromInventory"
+    ],
+    "sha256": "6f96583a2ae9c6fbba8656c204cc9e47c1d5b4f39f1099a7557445a538b22cc4",
+    "purpose": "Exact loader29 downstream predicate"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/actions.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.NarrativeActions",
+      "LeftAlignActorPortraitsCurrentDialogue,RightAlignActorPortraitsCurrentDialogue,EncounterActor,IntroduceActor,ChangeFont,CompleteDialogue"
+    ],
+    "sha256": "eafa2a90ed628e255559f2bed73973193ad6ec0614d477348c34c8ad92123108",
+    "purpose": "Exact loader29 downstream predicate"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/priority-sort.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueSystemLoader",
+      "PrioritizeArcTriggers"
+    ],
+    "sha256": "63a5fecf0b55e8c7d94c80530fb3d168ab0f7cd4293f5530007a36c35336a8ae",
+    "purpose": "Exact loader29 downstream predicate"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/priority-comparer.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueSystemLoader/<>c",
+      "<PrioritizeArcTriggers>b__52_0"
+    ],
+    "sha256": "cfe6a838dd67ccd09330b512ee9a89d8715127484f1a6e3d3ccad6bc34eb3906",
+    "purpose": "Exact loader29 downstream predicate"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/portrait-left-listeners.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "--find-field-fragment",
+      "NarrativeEvents::onArcTriggerLeftAlignPortraits"
+    ],
+    "sha256": "1d1796597ef0dde0a1b69fb99255c0d39538522dbd75d0ee8ab9b8dbdab33fa9",
+    "purpose": "Exact loader29 event callback binding, not framework recursion"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/portrait-right-listeners.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "--find-field-fragment",
+      "NarrativeEvents::onArcTriggerRightAlignPortraits"
+    ],
+    "sha256": "76125fc26d5d86f47add6807d2b18653a9f8fb619ef5f521457cf5c3f5fd4cdf",
+    "purpose": "Exact loader29 event callback binding, not framework recursion"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/font-listeners.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "--find-field-fragment",
+      "NarrativeEvents::onChangeFont"
+    ],
+    "sha256": "dfe403748ffbf6e71e7ae55a2b0c1c41ccf6bfe010ce7aa51d7160c56904d100",
+    "purpose": "Exact loader29 event callback binding, not framework recursion"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/portraits-methods.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.CustomPortraitsUi",
+      "--list"
+    ],
+    "sha256": "93c0b6f4c89eaad94eb36b61c27941835376fc5c61a8cfa52f512d3daecb7e4a",
+    "purpose": "Exact loader29 callback/resource/state boundary"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/font-callback.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.DialogueNameplateController",
+      "OnChangeFont"
+    ],
+    "sha256": "8aa2cdbf294439efd43c54441a12207188755bb6365a0984afbd2ab4cd68462e",
+    "purpose": "Exact loader29 callback/resource/state boundary"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/actor-state.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.Actor",
+      "Encounter,Introduce"
+    ],
+    "sha256": "6266caea0573279327e8aa985aabdec17505090663b32f5ebec56c6518c47de4",
+    "purpose": "Exact loader29 callback/resource/state boundary"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/item-state.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.Narrative.DialogueTriggers.DialogueTriggerManageInventoryItems",
+      ".ctor,OnExecute"
+    ],
+    "sha256": "f13b8b87e0c924983f717bf8dab84d47824997275d266712a7c9b6d75b9ff93f",
+    "purpose": "Exact loader29 callback/resource/state boundary"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/portrait-callback.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.CustomPortraitsUi",
+      "AddEventListeners,RemoveEventListeners,OnConversationTriggerLeftAlignPortraits,OnConversationTriggerRightAlignPortraits"
+    ],
+    "sha256": "36bb0acbbd1ef781eab453aa2a1eee63b1ca22aa9de2f05bb22b0f32980d956e",
+    "purpose": "Exact loader29 event listener and callback"
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase142/font-registration.il",
+    "command": [
+      "dotnet",
+      "tools/probe/bin/Debug/net8.0/InspectMethods.dll",
+      "localization/probes/ru-20261026-11/game/The Forest of Love_Data/Managed/Assembly-CSharp.dll",
+      "TheForestOfLove.DialogueNameplateController",
+      "AddEventListeners,RemoveEventListeners"
+    ],
+    "sha256": "e23741e2117a578dcd8531e395b980a1aae33b22a684b27b7c95edcf0a2efeb4",
+    "purpose": "Exact loader29 event listener and callback"
+  }
+]

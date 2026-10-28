@@ -1,0 +1,4 @@
+System.Void TheForestOfLove.CustomPortraitsUi::AddEventListeners() | IL_00b6: ldsfld TheForestOfLove.Events.StringPrimitiveEvent TheForestOfLove.Events.NarrativeEvents::onArcTriggerRightAlignPortraits
+System.Void TheForestOfLove.CustomPortraitsUi::RemoveEventListeners() | IL_00b6: ldsfld TheForestOfLove.Events.StringPrimitiveEvent TheForestOfLove.Events.NarrativeEvents::onArcTriggerRightAlignPortraits
+System.Void TheForestOfLove.Events.NarrativeEvents::.cctor() | IL_00f5: stsfld TheForestOfLove.Events.StringPrimitiveEvent TheForestOfLove.Events.NarrativeEvents::onArcTriggerRightAlignPortraits
+System.Void TheForestOfLove.Narrative.NarrativeActions::RightAlignActorPortraitsCurrentDialogue(System.String) | IL_0000: ldsfld TheForestOfLove.Events.StringPrimitiveEvent TheForestOfLove.Events.NarrativeEvents::onArcTriggerRightAlignPortraits

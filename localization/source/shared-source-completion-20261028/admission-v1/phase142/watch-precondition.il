@@ -1,0 +1,4 @@
+System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen::IsConditionSatisfied()
+System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen::CheckOffscreenTrigger()
+System.Boolean TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen::CheckOnscreenTrigger()
+System.Void TheForestOfLove.Narrative.DialoguePreconditions.DialoguePreconditionActorOnscreenOffscreen::.ctor()

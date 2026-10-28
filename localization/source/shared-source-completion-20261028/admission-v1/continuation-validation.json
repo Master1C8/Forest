@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "status": "passed-fingerprinted-source-continuation",
-  "phase": "0141-work",
+  "phase": "0142-work",
   "reusedParentReadback": {
     "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/baseline/readback-validation.json",
     "sha256": "036ec1ff3d8698c566efea477932c2eeefb67568422bde7cc6c30363260d3225",
     "originalManifestSha256": "1d8b3fa9117e5f268ae8ee4941eaa0e14a48e4ea32a49bc88afba7d0f1db4d74",
     "boundary": "Original parent full source/tree/span readback, reused on exactly unchanged values/IDs/context; not rerun or relabeled as independent semantic judgment."
   },
-  "currentManifestSha256": "3c8532d4993bfad0acf2ab2fbfdad60bba36989f8f427e37ce1f9116b2c89c9e",
-  "builderSha256": "88f3d30f66db17d35682f9fe480f6ca595593b33a4a7519f4e03226c14e09d39",
-  "validatorSha256": "5a9b65448925b40f14247c20b4308c04edc7ad442780f5d7a508244d722fbb2c",
-  "generatedProducts": 32,
+  "currentManifestSha256": "ec844e819c65baab42c5d7dce815e4286932edea83a041610ed26eeec10f55b6",
+  "builderSha256": "90574c4336b252d5232739e0cff7b1a7b92ecfc694fa6237a9d25a461441b1b1",
+  "validatorSha256": "b7618d04544b06c6242705f8f7d42976126b63e08c9ad8aafe422b67d17ecf7e",
+  "generatedProducts": 33,
   "preservedProducts": [
     "bgdatabase-inventory.jsonl",
     "frozen-dialogue-bindings.jsonl",
@@ -29,8 +29,8 @@
     },
     "managed-literal-inventory.jsonl": {
       "states": 8576,
-      "changedRoles": 3346,
-      "changedRecords": 3358
+      "changedRoles": 3375,
+      "changedRecords": 3387
     }
   },
   "mixedLeafPartitions": {
@@ -41,7 +41,7 @@
     "phase134:rewiredResourceIdentity": 369,
     "phase134:rewiredDualIdentity": 45
   },
-  "unknownCompiledStates": 1280,
+  "unknownCompiledStates": 1251,
   "potentialControlLabelBindingStates": 1389,
   "phase137CompiledDelta": {
     "changedRoles": 817,
@@ -156,25 +156,37 @@
     "unsupportedExceptionVisibilityRejected": true,
     "lostExceptionAssemblyDependencyRejected": true,
     "originalPrefixRegexReplayPassed": true,
-    "exactLoader29Retained": true
+    "exactLoader29Retained": true,
+    "changedLoaderSourceRejected": true,
+    "changedLoaderSelectorRejected": true,
+    "changedLoaderProducerRejected": true,
+    "changedLoaderRoleRejected": true,
+    "changedLoaderContextRejected": true,
+    "changedLoaderPriorRoleRejected": true,
+    "changedLoaderConsumerRejected": true,
+    "changedLoaderArgumentWindowRejected": true,
+    "changedLoaderThrowRejected": true,
+    "unsupportedLoaderVisibilityRejected": true,
+    "lostLoaderMembershipRejected": true,
+    "all29LoaderSelectorsResolved": true
   },
   "outputPins": {
     "serialized-inventory.jsonl": "e5fedac64aad752cdccd3999982b8d3f052acfa2c2ea84ded09e2acc7e40cc22",
     "bgdatabase-inventory.jsonl": "765d36b81e35cb1be5ac9145cd38f97322a5ed80d99ef76dec3514e81b070878",
     "frozen-dialogue-bindings.jsonl": "50971fd20b45a3d24632ab31d25a0108b72e450e7e840bc3d0408d01762a4ee3",
-    "managed-literal-inventory.jsonl": "c374c7d9bdb2b046a44174ec42295b83fc493ab62b117b184fbe50083253762c",
+    "managed-literal-inventory.jsonl": "5bc78ce38331adce39d2179b6485983c9f3207cc15e6386af9393fffc57c9e7c",
     "nodecanvas-preserve-exactly.jsonl": "0c4f9dc8eb8eb234a0ce88bdfdb3eab7039a14ac51914821d927abfbca221f21",
-    "consumer-matrix.json": "25fb08856987ae75e601648428691db385fbe38ba32f109484c9fac81b4e2ec8",
-    "special-cases.json": "920213b34680ec0d86991dd41cdfd362e990003afe6169f5b7758d6eebb7f476",
-    "unresolved-consumers.json": "ae52dd47d004de9565d2aacdfa4d48e23a17929f6638f31a0ed7431bc0143f14",
+    "consumer-matrix.json": "067433f49b5f4e11e68dc90a8cc6adbd0f66e4ead119ab6417a7cd57d3b0c074",
+    "special-cases.json": "efc5af864e56b6e86ee27dfc2ee7be97651afb8e7180845813f1755a20ea5d6a",
+    "unresolved-consumers.json": "81095ff3ae214029824f1f8ba29131a0b39e500e131d2b87e4b50c50c987f7fe",
     "old935-selector-bindings.json": "a284dfde549e015e1d53ff652861156825ab2c8fe12fed0368f292769074c3bb",
-    "additional-source-selectors.jsonl": "69f5aa9ae50a0d2753119bf68f9ea14a55acc9b824524133ddc035c27461726c",
-    "thirty-locale-coverage.json": "e073aec43072d6784503dae9daa0fb50546d2e3a7ba5aeb60b628f305e7c7030",
-    "manifest.json": "3c8532d4993bfad0acf2ab2fbfdad60bba36989f8f427e37ce1f9116b2c89c9e",
-    "compiled-source-role-delta.jsonl": "0ad0c64d1a2063ceb046006d87cfdfee098339178ded306ef4dd460d7b6d6bd3",
-    "compiled-wording-source.jsonl": "0dce8a08adbb724012b4a31cd61c6b38c8f2ce35381d2fc967c1d532880d75e3",
-    "compiled-preserve-exactly.jsonl": "02e5381f7c64ea610f5eda58637794ff4bf2ff82bf43928405a466fb4d02af6c",
-    "compiled-source-handoff.json": "92e8b2b3706f9ca1255573a52c8c0e2a29b8be4317ffdf80d40fad58c456c4df",
+    "additional-source-selectors.jsonl": "2f69b57dda4dfc120578368fd35e32961466aa3614c25678af77ca7ffd5ebb87",
+    "thirty-locale-coverage.json": "98877970e4f256d4db6b1d707475aea7d34643a8e708c297d58664b78f4a39c4",
+    "manifest.json": "ec844e819c65baab42c5d7dce815e4286932edea83a041610ed26eeec10f55b6",
+    "compiled-source-role-delta.jsonl": "5a971c6da8f2fdc3be9111ead6b1b9d1d5baaeeca5c53c442cb7269b5769defb",
+    "compiled-wording-source.jsonl": "d3bcfbabf4f5032ce8e1bbd8d42c1b8cec97a9460d2b4a52da6a16d80c4c5ebe",
+    "compiled-preserve-exactly.jsonl": "e96b4ed32b3ab60ef1595272820694a177e09e033ec270fce9a1a34169bf1e69",
+    "compiled-source-handoff.json": "a00eb27a701f7e9a0cd4d5fc05854fa31fec0b1a8af3ff21f0f96c00b39c1078",
     "dialogue-database-reconciliation.json": "2d2586de35b477b38806b48e79b9196ad730114c07022918030b276c4c7bf427",
     "dialogue-database-values.jsonl": "59564923cb0b2f57252fd6d7ac92b65341bb8316ebaf611a7a6e0d0c6c90d23c",
     "dialogue-database-unresolved.json": "e61a48140de09136be1e692cd94eb051d1353ac2fe57f49a5a06d31b006e0066",
@@ -190,7 +202,8 @@
     "compiled-playback-source-context.json": "0baa8038d6d4bf03716d8712d617ead60f09b89fd43bb17751e2ea4bb675b254",
     "phase140/next-compiled-selectors.json": "8e1e68b71c2930aa18c47f61bfa69bab3bc887f612975858a447cc9f134ee7cf",
     "compiled-arc-source-context.json": "6c57551c99af022c63d235179a85d9b7043db4b7816495dc14d7bf17fa0aa4df",
-    "phase141/next-compiled-selectors.json": "fd656e1fd1c3592bcc5147200f02e51d987ec0e829fd2a7c631e1fea55efbad9"
+    "phase141/next-compiled-selectors.json": "fd656e1fd1c3592bcc5147200f02e51d987ec0e829fd2a7c631e1fea55efbad9",
+    "compiled-loader-source-context.json": "539c3a5177f877d06a3ae3d41fff3cbee11401fdcd5b409ae4b668b7724059bb"
   },
   "noGateWaiver": {
     "commonSourceAccepted": false,
@@ -263,6 +276,25 @@
     "knownWordingAndPotentialOperands": 167,
     "protectedOperandsTotal": 7141,
     "resolvedPartition": 7296,
+    "completeCompiledPacket": false,
+    "exceptionPresentation": "unknown;ctor-and-throw-proved-only"
+  },
+  "phase142CompiledDelta": {
+    "changedRoles": 29,
+    "potentialExceptionWording": 18,
+    "protectedOperands": 11,
+    "completeProducerLiterals": 64,
+    "priorPreciseRolesRetained": 35,
+    "exceptionAssemblies": 18,
+    "exceptionSeparators": 6,
+    "remainingSelectedOccurrences": 0,
+    "remainingSelectedMethods": 0,
+    "remainingCompiledOccurrences": 1251,
+    "remainingCompiledMethods": 443,
+    "priorWholeProductReconstructedExactly": true,
+    "knownWordingAndPotentialOperands": 185,
+    "protectedOperandsTotal": 7152,
+    "resolvedPartition": 7325,
     "completeCompiledPacket": false,
     "exceptionPresentation": "unknown;ctor-and-throw-proved-only"
   },

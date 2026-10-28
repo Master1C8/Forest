@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "phase": "0141-work",
+  "phase": "0142-work",
   "targetLocales": [
     "zh",
     "ru",
@@ -34,26 +34,26 @@
     "he"
   ],
   "originalOccurrences": 8576,
-  "resolvedOccurrences": 7296,
-  "unresolvedOccurrences": 1280,
+  "resolvedOccurrences": 7325,
+  "unresolvedOccurrences": 1251,
   "completeCompiledRolePacket": false,
   "newDelta": {
     "artifact": "compiled-source-role-delta.jsonl",
-    "occurrences": 25,
+    "occurrences": 29,
     "display": 0,
-    "potentialExceptionWording": 11,
-    "preserve": 14,
+    "potentialExceptionWording": 18,
+    "preserve": 11,
     "visibleIdentityDependencies": 0,
-    "remainingSelected": 29
+    "remainingSelected": 0
   },
   "knownWording": {
     "artifact": "compiled-wording-source.jsonl",
-    "occurrences": 167,
+    "occurrences": 185,
     "completeWhileRolesUnresolved": false
   },
   "preservedOperands": {
     "artifact": "compiled-preserve-exactly.jsonl",
-    "occurrences": 7141,
+    "occurrences": 7152,
     "overlap": "The12 comparison-on-display operands also appear in the wording dependency family; preserve them until an identity adapter is verified."
   },
   "preserveContract": "Every resolved non-wording occurrence remains bound to exact original index method/offset/value hash. Display comparisons/identities and format/markup roles retain separate adaptation/preservation contracts; no whole-method exclusions.",
@@ -68,10 +68,11 @@
     "boundary": "Additional protected typeName values also displayed; original filter values retained, no caption projection implemented."
   },
   "remainingArtifact": "unresolved-consumers.json",
-  "nextSelectors": "phase141/next-compiled-selectors.json",
+  "nextSelectors": "dialogue-database-unresolved.json",
   "consoleContext": "compiled-console-source-context.json",
   "playbackContext": "compiled-playback-source-context.json",
   "arcContext": "compiled-arc-source-context.json",
+  "loaderContext": "compiled-loader-source-context.json",
   "exceptionPresentation": "unknown;ctor-and-throw-proved-only",
   "commonSourceAccepted": false,
   "translationEntryAllowed": false,
