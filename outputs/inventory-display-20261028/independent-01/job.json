@@ -1,0 +1,29 @@
+{
+  "status": "review-complete-awaiting-parent",
+  "stage": "independent-diff",
+  "supervisorPid": 64616,
+  "phases": [
+    {
+      "directory": "/Users/antonkrutov/Desktop/Forest/outputs/inventory-display-20261028/independent-01/review"
+    }
+  ],
+  "reviewedIds": 52,
+  "pid": 64622,
+  "exitCode": 0,
+  "threadId": "01a18288-fc9c-77b3-b7f4-7bbb6835194b",
+  "measuredUsage": {
+    "input_tokens": 2342434,
+    "cached_input_tokens": 2251264,
+    "output_tokens": 10263,
+    "reasoning_output_tokens": 961,
+    "total_tokens": 2352697
+  },
+  "errors": [],
+  "result": {
+    "outcome": "batch-reviewed",
+    "reviewedIds": 52,
+    "findingIds": 0,
+    "reviewsSha256": "f6db2abd620a58e61de10406f9054349c42e8278bb219d27bb0650705f78640e",
+    "limits": "Stored read/decision receipts do not themselves prove semantic correctness or full-game acceptance."
+  }
+}
