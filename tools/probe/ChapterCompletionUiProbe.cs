@@ -156,8 +156,32 @@ public sealed partial class ForestProbe {
         CCRequire(result.clientWidth>0&&result.clientHeight>0&&result.systemWidth>0&&result.systemHeight>0&&result.dpi>0,"incomplete-native-display-diagnostics");
         System.IO.File.WriteAllText(System.IO.Path.Combine(root,"cc-display.json"),UnityEngine.JsonUtility.ToJson(result));
     }
-    UnityEngine.Component CCDescriptionPause(){
+    [System.Serializable] public sealed class CCDescriptionRouteObservation {
+        public string action,scene;
+        public int frame,conversationId=-1,entryId=-1;
+        public float realtime,scaledTime;
+        public bool paused,conversationActive,subtitleEntryAvailable;
+    }
+    void CCObserveDescriptionRoute(string action){
+        var row=new CCDescriptionRouteObservation{action=action,
+            scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+            frame=UnityEngine.Time.frameCount,realtime=UnityEngine.Time.realtimeSinceStartup,
+            scaledTime=UnityEngine.Time.time,paused=TheForestOfLove.PauseHelper.isPaused,
+            conversationActive=PixelCrushers.DialogueSystem.DialogueManager.isConversationActive};
+        var state=PixelCrushers.DialogueSystem.DialogueManager.currentConversationState;
+        var entry=state==null||state.subtitle==null?null:state.subtitle.dialogueEntry;
+        if(row.conversationActive&&entry!=null){
+            row.subtitleEntryAvailable=true;row.conversationId=entry.conversationID;row.entryId=entry.id;
+        }
+        // Capture scalar identity in the same game-thread command before the
+        // guard. A prior host dump can precede a newly activated conversation.
+        // Append so a rejected command cannot erase an earlier observation.
+        System.IO.File.AppendAllText(System.IO.Path.Combine(root,"cc-description-route.jsonl"),
+            UnityEngine.JsonUtility.ToJson(row)+"\n");
+    }
+    UnityEngine.Component CCDescriptionPause(string action){
         CCRequire(cgConsumer==null&&ccFactory==null,"restore-current-surface-first");
+        CCObserveDescriptionRoute(action);
         CCRequire(!PixelCrushers.DialogueSystem.DialogueManager.isConversationActive,"description-route-dialogue-active");
         var manager=CCExact("PauseScreenUIManager","LevelSingletons/PauseScreenUI",true);
         var panel=CGField(manager,"pauseScreenUi") as UnityEngine.Component;
@@ -175,7 +199,7 @@ public sealed partial class ForestProbe {
         return manager;
     }
     void CCDescriptionOpen(){
-        var manager=CCDescriptionPause();var panel=(UnityEngine.Component)CGField(manager,"pauseScreenUi");
+        var manager=CCDescriptionPause("open");var panel=(UnityEngine.Component)CGField(manager,"pauseScreenUi");
         var open=panel.GetType().GetProperty("isOpen",cgFlags);
         CCRequire(open!=null&&!(bool)open.GetValue(panel,null),"original-pause-panel-already-open");
         // OnPause is an event subscriber, not the original pause entry point.
@@ -188,7 +212,7 @@ public sealed partial class ForestProbe {
         System.IO.File.WriteAllText(System.IO.Path.Combine(root,"cc-description-open.txt"),CGPath(panel.transform)+"|original-PauseScreenUIManager.OnPause->UIPanelController.Open");
     }
     void CCDescriptionSelect(){
-        var manager=CCDescriptionPause();var panel=(UnityEngine.Component)CGField(manager,"pauseScreenUi");
+        var manager=CCDescriptionPause("select");var panel=(UnityEngine.Component)CGField(manager,"pauseScreenUi");
         var open=panel.GetType().GetProperty("isOpen",cgFlags);
         CCRequire(open!=null&&(bool)open.GetValue(panel,null)&&panel.gameObject.activeInHierarchy,"original-pause-panel-not-open");
         var menu=CGField(panel,"mainMenu") as UnityEngine.Component;

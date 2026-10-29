@@ -1,0 +1,44 @@
+{
+  "status": "run06-closed-blocked-before-description-workload",
+  "runtimeResult": {
+    "result": "incomplete",
+    "measuredCases": 0,
+    "captures": [],
+    "loaded113And16AbsencesVerified": false,
+    "visual": "pending",
+    "wholeGameAccepted": false
+  },
+  "cleanup": {
+    "taskOwnedProcessesAbsent": true,
+    "ownerSaveFilesUsed": false,
+    "parentArtifactUnchanged": true,
+    "qaFixtureBefore": {
+      "tfol.settings": "19e365200791c29cb534907a1ff68aaf4cbea3013c37f5c52db3312615e87188",
+      "tfol.savegame": "5017eb0df4076385ea0f0f4f40f3013bae171c55e627ac8a786b734688b35a92"
+    },
+    "qaFixtureAfter": {
+      "tfol.settings": "19e365200791c29cb534907a1ff68aaf4cbea3013c37f5c52db3312615e87188",
+      "tfol.savegame": "5017eb0df4076385ea0f0f4f40f3013bae171c55e627ac8a786b734688b35a92"
+    },
+    "postRuntimeSidecars": {
+      "The Forest of Love_Data/tfol.settings": "19e365200791c29cb534907a1ff68aaf4cbea3013c37f5c52db3312615e87188",
+      "The Forest of Love_Data/tfol.savegame": "5017eb0df4076385ea0f0f4f40f3013bae171c55e627ac8a786b734688b35a92"
+    },
+    "localizedAssemblyRestored": true,
+    "bridgeRemoved": true
+  },
+  "evidence": {
+    "localization/probes/ru-chapter-completion-20261029-06/actions.log": "edafd411e641d5be11f1fee8d5c4dc0520ede11f06316aa86a293dba5c3a57cc",
+    "localization/probes/ru-chapter-completion-20261029-06/cleanup.json": "956bba5921f8c10ac843d4acf07187b3d1472f255b2e68f90aab2b17d38f86f3",
+    "localization/probes/ru-chapter-completion-20261029-06/runtime-result.json": "ea492e24aa3566e8e3ab2f65e943da87c2b5a74023745ae25f04d5dd07bed7a5",
+    "localization/probes/ru-chapter-completion-20261029-06/state.json": "380f0d187f72c78f9d113d17a9d87c7fa8c08704ebb3eedf301a0c32697df9dc",
+    "localization/probes/ru-chapter-completion-20261029-06/cc-description-open.txt": "cef2ce2fdbeedbb8d7790e8ae754952608ce2d37464b8cf760171800c354e669",
+    "localization/probes/ru-chapter-completion-20261029-06/qa-preparation.json": "fed19ba7f340a0125cc8cfb1ff467e5d12df700dc877acc33461be5f111dd972",
+    "localization/probes/ru-chapter-completion-20261029-06/cc-listener-roster.tsv": "2d82d22dc6eac4a3e18145855d09d86f73079bcab1c8e5e4f30b72b56e8571ee"
+  },
+  "firstDivergence": "Conversation was inactive in the saved pre-open dump; original pause entry succeeded; description selection rejected active dialogue before invoking original chapter menu. Conversation identity at rejection was not captured.",
+  "hypothesis": "Disposable checkpoint has unfinished tutorials; this is not proof of which conversation activated.",
+  "nextPermittedAction": "Add source-bound read-only failure-state diagnostics in a new frozen probe version; observe identity/state before choosing original guarded dialogue progression. Do not repeat unchanged run, bypass dialogue guard or use forced panel exposure.",
+  "gameLaunchedThisResume": false,
+  "wholeGameAccepted": false
+}
