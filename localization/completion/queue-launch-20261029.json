@@ -1,0 +1,107 @@
+{
+  "status": "six-requests-running-runtime-verified",
+  "verifiedAt": "2026-10-29T16:38:33.495891+00:00",
+  "revision": "forest-ru-reference-v2-20261029",
+  "run": "outputs/locale-assets-20261026/workflow-v2-launch-20261029-01",
+  "liveStatus": "outputs/locale-assets-20261026/workflow-v2-launch-20261029-01/status.json",
+  "supervisorPid": 34057,
+  "streams": [
+    {
+      "locale": "zh",
+      "pid": 34085,
+      "threadId": "01a18885-b913-79e0-82df-807a9f0f70bc",
+      "status": "running-verified",
+      "packet": "outputs/locale-assets-20261026/zh/workflow-v2/reconcile-saved-evidence",
+      "runtimeReceiptSha256": "3defb307d231e2ec1a15a34966e632cf5d132ec5c6d58adee760c181d61d0e99",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "measuredUsage": null
+    },
+    {
+      "locale": "es",
+      "pid": 34086,
+      "threadId": "01a18885-b908-7e93-8a57-aa8683591309",
+      "status": "running-verified",
+      "packet": "outputs/locale-assets-20261026/es/workflow-v2/reconcile-saved-evidence",
+      "runtimeReceiptSha256": "c7487461d3b67943bf4d17c3db8e6cccf4263427ed4033e99131c8ef30630223",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "measuredUsage": null
+    },
+    {
+      "locale": "es-419",
+      "pid": 34087,
+      "threadId": "01a18885-b903-7c42-8f65-1e08ac2f107f",
+      "status": "running-verified",
+      "packet": "outputs/locale-assets-20261026/es-419/workflow-v2/reconcile-saved-evidence",
+      "runtimeReceiptSha256": "d2e8ca5e9bf3d520ce7d00d85327234f207fea7943173c454b74874c5b665e2d",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "measuredUsage": null
+    },
+    {
+      "locale": "pt-BR",
+      "pid": 34088,
+      "threadId": "01a18885-b8fe-73a2-9ef6-d27d75af876d",
+      "status": "running-verified",
+      "packet": "outputs/locale-assets-20261026/pt-BR/workflow-v2/reconcile-saved-evidence",
+      "runtimeReceiptSha256": "ed98ad66544c703a66e3e7d9c3ce7c18b3b044f51da05e5defb2daeb18226256",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "measuredUsage": null
+    },
+    {
+      "locale": "ja",
+      "pid": 34090,
+      "threadId": "01a18885-b904-7520-ba05-5a1a57726f0e",
+      "status": "running-verified",
+      "packet": "outputs/locale-assets-20261026/ja/workflow-v2/reconcile-saved-evidence",
+      "runtimeReceiptSha256": "ba1ce226bf8fb8b037e41d5c9ea9f1c23bf225d256abf0c7bbb2abf99c67b8db",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "measuredUsage": null
+    },
+    {
+      "locale": "de",
+      "pid": 34092,
+      "threadId": "01a18885-b902-7563-a3d5-ef0a11d7f2da",
+      "status": "running-verified",
+      "packet": "outputs/locale-assets-20261026/de/workflow-v2/reconcile-saved-evidence",
+      "runtimeReceiptSha256": "c6ca91dd776fe342c23514bf2944d36e75f9fa03fe8440006c3ca0f88b3ee21a",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "measuredUsage": null
+    }
+  ],
+  "currentAssignment": "reconcile-saved-evidence",
+  "nextBoundary": "Each completes one finite reconciliation and waits for parent evidence review/next task selection",
+  "capacityOrUnknownOutcomeRetries": false,
+  "sourceAndLocaleInputsStillMatchQueuePins": true,
+  "coordinatorAccounting": {
+    "category": "shared mixed launcher implementation/tests and six-stream orchestration",
+    "baselineAt": "2026-10-29T16:31:46.156Z",
+    "cutoffAt": "2026-10-29T16:38:30.648Z",
+    "measuredDelta": {
+      "input_tokens": 2435072,
+      "cached_input_tokens": 2425984,
+      "output_tokens": 14041,
+      "reasoning_output_tokens": 6562,
+      "total_tokens": 2449113
+    },
+    "limitations": "Earlier task preparation excluded; post-cutoff validation/commit/reporting tail and platform overhead unmeasured. Cached input and reasoning are subsets."
+  },
+  "workerUsage": "Pending terminal receipts; unknown, not zero",
+  "validation": "9 launcher/runtime identity regressions passed; model/native mechanisms replaced by fixtures in tests; actual six startup receipts verified separately"
+}
