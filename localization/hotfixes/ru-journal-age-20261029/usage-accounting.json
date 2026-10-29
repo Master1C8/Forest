@@ -1,0 +1,36 @@
+{
+  "scope": "Current journal age wording correction only; previous case counters excluded",
+  "worker": {
+    "task": "journal_age_wording_review",
+    "sessionId": "01a18797-20e4-7530-9def-c166aa80a601",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "cutoff": "2026-10-29T12:18:50.122Z",
+    "usage": {
+      "input_tokens": 840537,
+      "cached_input_tokens": 784640,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5460,
+      "reasoning_output_tokens": 1283,
+      "total_tokens": 845997
+    }
+  },
+  "coordinator": {
+    "baseline": {
+      "input_tokens": 156708048,
+      "cached_input_tokens": 155074304,
+      "output_tokens": 665571,
+      "total_tokens": 157373619
+    },
+    "cutoff": "2026-10-29T12:23:27.392Z",
+    "measuredDelta": {
+      "input_tokens": 3484509,
+      "cached_input_tokens": 3469056,
+      "output_tokens": 19402,
+      "total_tokens": 3503911
+    },
+    "attribution": "Mixed preparation/dispatch/context review/accounting and implementation/integration; exact orchestration-only split unavailable"
+  },
+  "limits": "Fresh worker cumulative usage counted once; replaces interim receipt count. Cache and reasoning are subsets. Coordinator early actions before baseline and remaining commit/reporting tail/platform overhead unmeasured. No descendants or monetary claim."
+}

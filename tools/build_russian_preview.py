@@ -40,6 +40,7 @@ from russian_bell_notifications import load_inputs as load_bell_notifications, s
 from russian_scene_notifications import load_inputs as load_scene_notifications, snapshot as snapshot_scene_notifications
 from russian_dates_titleflow import load_inputs as load_dates_titleflow, snapshot as snapshot_dates_titleflow
 from russian_speaker_display import load_inputs as load_speaker_display, snapshot as snapshot_speaker_display, patch as patch_speaker_display
+from russian_journal_age import load_inputs as load_journal_age, snapshot as snapshot_journal_age
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_native_font_roles import native_role_plan, apply_native_role
 from tmp_uniform_fallback import uniform_fallback_primary
@@ -114,6 +115,7 @@ def main():
         load_scene_notifications()
         load_dates_titleflow()
         load_speaker_display()
+        load_journal_age()
         if not args.pause_chapter_display_case:
             parser.error('--narrative-display-case requires --pause-chapter-display-case')
         frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
@@ -236,6 +238,7 @@ def main():
         frozen_scene_notifications = snapshot_scene_notifications(out)
         frozen_dates_titleflow = snapshot_dates_titleflow(out)
         frozen_speaker_display = snapshot_speaker_display(out)
+        frozen_journal_age = snapshot_journal_age(out)
     snapshot_journal_headers(out)
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
@@ -765,6 +768,15 @@ def main():
         shutil.copy2(speaker_code, target / 'Managed/Assembly-CSharp.dll')
         assert sha(target / 'Managed/Assembly-CSharp.dll') == report['speakerDisplayRepair']['targetSha256']
         speaker_code.unlink()
+        age_resources = out / 'journal-age-resources'
+        subprocess.run([str(frozen_narrative / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_journal_age / 'russian_journal_age.py'), '--locale', 'ru',
+                        '--source', str(target), '--output', str(age_resources)], check=True)
+        report['journalAgeRepair'] = json.loads((age_resources / 'Result.json').read_text())
+        shutil.copy2(age_resources / 'resources.assets', target / 'resources.assets')
+        assert sha(target / 'resources.assets') == report['journalAgeRepair']['targetSha256']
+        prior_report, = [row for row in report['files'] if row['path'] == 'resources.assets']
+        prior_report['probeSha256'] = report['journalAgeRepair']['targetSha256']
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})
