@@ -1,0 +1,16 @@
+{
+  "objectiveWordingFindings": [],
+  "consolidatedRepairBatch": [],
+  "exactFinalWordingDelta": [],
+  "changedAfterImmediateEdit": 0,
+  "initialTargetFile": "ru.initial.jsonl",
+  "finalTargetFile": "ru.prepared.jsonl",
+  "metadataDelta": "Only authorReview changes from pending to complete-stored-unit review for 16 rows; wording hashes unchanged.",
+  "deterministicToolRepair": {
+    "initialFailure": "KeyError source at first preserved managed-literal row",
+    "cause": "Preserved typed managed records intentionally omit source text; they pin the original literal by hash and sourceLine.",
+    "repair": "Join original literals at sourceLine; assert exact method, IL offset, value, role and sourceValueSha256. No source/target or accepted recipe changed.",
+    "regression": "All 15 assigned managed members, including the 14 preserved rows without a source field, validate through exact original identity."
+  },
+  "noStylisticVariantRepairs": true
+}

@@ -1,0 +1,41 @@
+{
+  "agent": "/root/counter90_independent",
+  "threadId": "01a18603-98d8-7e62-9b84-872a6738ab48",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "measurement": {
+    "cutoff": "2026-10-29T05:03:28.538Z",
+    "usage": {
+      "input_tokens": 3039159,
+      "cached_input_tokens": 2873856,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 16441,
+      "reasoning_output_tokens": 2539,
+      "total_tokens": 3055600
+    }
+  },
+  "alreadyReportedByParent": {
+    "cutoff": "2026-10-29T05:00:57.025Z",
+    "usage": {
+      "input_tokens": 2486848,
+      "cached_input_tokens": 2322816,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 15117,
+      "reasoning_output_tokens": 1992,
+      "total_tokens": 2501965
+    }
+  },
+  "laterNonoverlappingDelta": {
+    "input_tokens": 552311,
+    "cached_input_tokens": 551040,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1324,
+    "reasoning_output_tokens": 547,
+    "total_tokens": 553635
+  },
+  "category": "Entire independent-review worker session including the initial failed checker attempt and its repair; no descendants",
+  "subsets": "Cached input is included in input; reasoning output is included in output; do not add twice. Parent must add only laterNonoverlappingDelta to its already-reported baseline.",
+  "coordinatorOrchestration": "Parent owns separate accounting; unavailable in this worker.",
+  "unmeasuredTail": "Subsequent report writing, validation, messages and final response after this cutoff plus platform overhead are not included."
+}

@@ -1,0 +1,23 @@
+{
+  "wordingAuditObjectiveCorrections": [],
+  "sourceAndAdapterFindings": 35,
+  "consolidatedRepairBatch": [],
+  "changedWordingKeys": [],
+  "changedPreparedUnits": [],
+  "exactFinalDeltaIds": [],
+  "initialSha256": "afb680dafa031f468a31b2b09a87f65cbac25dbf61b2ccbf60eb047b15ddb2e4",
+  "finalSha256": "afb680dafa031f468a31b2b09a87f65cbac25dbf61b2ccbf60eb047b15ddb2e4",
+  "initialEqualsFinal": true,
+  "reason": "Complete author fidelity audit and separate native read found no objective wording correction. Source exposure/variant/grammar issues are preserved in findings.json; they are not silently repaired as prose. No stylistic replacements.",
+  "deltaReview": "not-applicable-empty-wording-delta; independent first review still pending",
+  "toolDiagnostics": [
+    {
+      "event": "initial source hash assertion",
+      "cause": "SourceValueSha256 is SHA256 of compact JSON string value, not raw UTF8; script corrected after verifying exact first row. No source content changed."
+    },
+    {
+      "event": "metadata label correction",
+      "cause": "Retained accepted journal mappings were relabeled existing-exact-accepted-mapping; no wording/component/source change."
+    }
+  ]
+}
