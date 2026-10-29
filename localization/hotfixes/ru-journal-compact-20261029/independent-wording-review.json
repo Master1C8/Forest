@@ -1,0 +1,828 @@
+{
+  "status": "needs-correction",
+  "reviewer": {
+    "identity": "/root/journal_compact_wording_review",
+    "sessionId": "01a18711-2a2d-7112-8f1f-10faa4823f39",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "verification": "Actual session_meta.model_provider=openai and turn_context.model=gpt-6.1-sol, effort=high; no descendant/model calls."
+  },
+  "scope": "Independent semantic/diff review of all29 compact changes and full111-ID replacement preservation; bounded journal UI application repair only.",
+  "locale": "ru",
+  "targetsSha256": "44558ab752de550fd122306bff0d11481ebb5eb9c26fc298571593ff5237b814",
+  "packetSha256": "88357a737c2edc3281850c73b1a24879f19d2abe8429078a03fa67bb20b79789",
+  "baselineTargetsSha256": "859f07e34f6686bf5d0f92800ebd0045ba382404ef19d2c952931d52c7a10eba",
+  "baselineAcceptanceSha256": "341ed9e1642e0fa277e646b59906e5805e21d1b9f6c2b21da174876a88574fc6",
+  "glossarySha256": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0",
+  "coverage": {
+    "changed": 29,
+    "reused": 82,
+    "all": 111,
+    "changedSemanticRead": 29,
+    "changedNativeRussianRead": 29,
+    "allActorSlotUsesRead": 111,
+    "replacementMapPreservationVerified": 111,
+    "unreadAssignedIds": [],
+    "newSemanticAcceptance": 28,
+    "needsCorrection": 1,
+    "reusedEvidence": "82 values are byte-for-byte identical to the hash-bound accepted ru.prepared.jsonl; prior semantic acceptance is retained, not counted as a new model review pass."
+  },
+  "deterministicChecks": {
+    "status": "pass",
+    "uniqueIds": 111,
+    "allSourcesMatchBaseline": true,
+    "allBeforeValuesMatchBaseline": true,
+    "allTargetUtf8HashesMatch": true,
+    "changedFlagsMatchExactDifference": true,
+    "unchanged82Exact": true,
+    "baselineAcceptanceHashMatches": true,
+    "baselineAcceptanceTargetHashMatches": true,
+    "allRecordedAdvancesWithinBudget": true,
+    "limitation": "Recorded metrics checked only; no rendered font, layout, game or visual acceptance."
+  },
+  "findings": [
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/0gRuXhT%2BJ0y5HLOoUJkojA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Oral (giving)",
+      "before": "Дарить оральные ласки",
+      "target": "Орал (давать)",
+      "category": "sexual-role-direction-ambiguity",
+      "reason": "The noun Орал is understandable in Kinks, but давать is not a reliably unambiguous Russian marker for performing oral sex. In sexual phrasing давать can describe making oneself available to a partner, so this compressed wording leaves the source’s perform-versus-receive distinction uncertain.",
+      "context": [
+        {
+          "sheet": "BioKink",
+          "slot": "kink1",
+          "actor": "Augustus"
+        }
+      ],
+      "proposedCandidate": "Орал: делать",
+      "requiredAction": "Replace with unambiguous performer wording, verify the replacement’s measured width, and review the exact one-ID delta. No correction was written by this reviewer."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/JOyrVrJ9zUGvsOThMUfCgw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Crafter",
+      "before": "Ремесленник",
+      "target": "Умелец",
+      "decision": "accepted",
+      "reason": "Умелец retains Bucky’s practical craft skill; the neighboring Handyman label still separately expresses broad repair ability."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/bwOS%2FIL6JkCTG5niUlbstQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Handyman",
+      "before": "Мастер на все лапы",
+      "target": "На все лапы",
+      "decision": "accepted",
+      "reason": "The recognizable shortened idiom На все лапы retains the all-round practical skill in Bucky’s Notes context; it is distinct from Умелец."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/DDcCh6yUC0uSOrL394nVBQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Sizeplay",
+      "before": "Игра на разнице размеров",
+      "target": "Разный размер",
+      "decision": "accepted",
+      "reason": "Within Kinks, Разный размер denotes the body-size difference preference; shared actor uses do not require a gendered or directional role."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/Qc2aVvYQWk2EgtD%2B3cuNng/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Interspecies",
+      "before": "Межвидовой секс",
+      "target": "Межвидовой",
+      "decision": "accepted",
+      "reason": "The Kinks category supplies the omitted sexual noun. Межвидовой preserves the across-species distinction and assigns no participant gender."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/iw%2BFDhaQWE6esIBcouHy4g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Town Gossip",
+      "before": "Городская сплетница",
+      "target": "Сплетница",
+      "decision": "accepted",
+      "reason": "Сплетница preserves the gossip role and female agreement for Penny and Scarlett; the town setting is supplied by this journal context."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/Zp4CsgwCt0GsIxMsv4qO5g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Exhibitionism",
+      "before": "Эксгибиционизм",
+      "target": "Эксгибиц.",
+      "decision": "accepted",
+      "reason": "Эксгибиц. is visibly abbreviated and retains a distinctive, recoverable root for exhibitionism; it does not collapse into voyeurism."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/tTq6pGb8aUi8pBLWmCId7w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "BDSM - Sub",
+      "before": "БДСМ — подчинение",
+      "target": "БДСМ: подчин.",
+      "decision": "accepted",
+      "reason": "БДСМ: подчин. transparently abbreviates submission in the BDSM category and preserves the subordinate role for Finley and Peter, distinct from bottom."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/EbogyQOXO060y5NgGJNfqg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Sex Dungeon",
+      "before": "Секс-подземелье",
+      "target": "Секс-подзем.",
+      "decision": "accepted",
+      "reason": "Секс-подзем. visibly abbreviates подземелье while retaining the sexual place/type. It does not change Scarlett’s associated location into an activity."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/mayo%2F4HtWkKNs4zmMCNi6Q/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Farmer Past",
+      "before": "Фермерское прошлое",
+      "target": "Экс-фермерша",
+      "decision": "accepted",
+      "reason": "Экс-фермерша explicitly retains former rather than current farming status and female agreement for Scarlett."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/r38E3jhlvEi69QVfUQmzDA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "“The Town Mom”",
+      "before": "«Городская мама»",
+      "target": "«Мама города»",
+      "decision": "accepted",
+      "reason": "«Мама города» preserves the quoted nickname, maternal/community role and town scope without asserting biological motherhood of every resident."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/7hw%2Fxh1OaU%2BWwdVR9EEarw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "BDSM - Dom",
+      "before": "БДСМ — доминирование",
+      "target": "БДСМ: дом.",
+      "decision": "accepted",
+      "reason": "БДСМ: дом. transparently abbreviates the dominant BDSM role and remains distinct from top/penetrating role."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/hOHQnEXKN0yq5vxJSFvj8g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Pleasing",
+      "before": "Доставлять удовольствие",
+      "target": "Ублажать",
+      "decision": "accepted",
+      "reason": "Ублажать preserves giving pleasure to another rather than receiving it; the infinitive works for both Oliver and Violet without imposed gender."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/0gRuXhT%2BJ0y5HLOoUJkojA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Oral (giving)",
+      "before": "Дарить оральные ласки",
+      "target": "Орал (давать)",
+      "decision": "needs-correction",
+      "reason": "The noun Орал is understandable in Kinks, but давать is not a reliably unambiguous Russian marker for performing oral sex. In sexual phrasing давать can describe making oneself available to a partner, so this compressed wording leaves the source’s perform-versus-receive distinction uncertain."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/YQnQEGCbPUKO1I9iC5xRSg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Political Figure",
+      "before": "Политическая деятельница",
+      "target": "Политик",
+      "decision": "accepted",
+      "reason": "Политик is a standard occupational noun usable for Mabel; its grammatical form does not assert a male character or change the political role."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/MFTqaopqlEySJJLXaHU7lw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Adventurer",
+      "before": "Искательница приключений",
+      "target": "Ищет приключ.",
+      "decision": "accepted",
+      "reason": "Ищет приключ. is a marked, recoverable abbreviation of ищет приключений and preserves Mabel’s adventure-seeking activity without unsupported gender marking."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/tYoUr7WJO0W7W%2FU9K5n6rA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Entrepreneur",
+      "before": "Предприниматель",
+      "target": "Бизнесмен",
+      "decision": "accepted",
+      "reason": "Бизнесмен expresses Maverick’s business/entrepreneur role and is compatible with his male context."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/yyteYhlq9UCBG1%2FFk0h6FA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Organized",
+      "before": "Организованный",
+      "target": "Организован",
+      "decision": "accepted",
+      "reason": "Организован is a natural short-form trait label and retains male singular agreement for Maverick."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/fVDCnYTNoUWJCG0km6N1JA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Teasing",
+      "before": "Поддразнивание",
+      "target": "Дразнить",
+      "decision": "accepted",
+      "reason": "Дразнить retains teasing as an enjoyed activity in Maverick’s Kinks; it adds no receiving role or different named practice."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/UPE6t0cYiEmho9vXVepMqA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Self Improving",
+      "before": "Работает над собой",
+      "target": "Саморазвитие",
+      "decision": "accepted",
+      "reason": "Саморазвитие preserves improvement directed toward oneself in Finley’s Notes, without introducing a new occupation or goal."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/wQ9QrogaYEiw1aCxzOhBJg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Competitive",
+      "before": "Любит соревноваться",
+      "target": "Соревнуется",
+      "decision": "accepted",
+      "reason": "Соревнуется communicates Dustin’s competitive/competition-oriented activity in this short Notes label; it does not reverse the relation or introduce an outcome."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/zuVhWJ%2BUPkqUgU5eQAEQVg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Elder",
+      "before": "Пожилой возраст",
+      "target": "В летах",
+      "decision": "accepted",
+      "reason": "В летах denotes older age naturally and is gender-neutral for Augustus, Bucky and MabelsMom."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/kA4IH%2BmoDkGIxL0UoQzR7g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Middle Aged",
+      "before": "Средний возраст",
+      "target": "Средних лет",
+      "decision": "accepted",
+      "reason": "Средних лет preserves middle age and is gender-neutral for Finley, Penny and Scarlett."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/bPDqpLzEqkChPiSUq8hRJA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Woodworker",
+      "before": "Мастер по дереву",
+      "target": "Столяр",
+      "decision": "accepted",
+      "reason": "Столяр is a concise woodworking occupation consistent with Bucky’s approved woodcraft context; the role remains distinct from general repairs."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/SysciIrbwkadcf1Xs9YHyw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Modeling",
+      "before": "Работа моделью",
+      "target": "Модель",
+      "decision": "accepted",
+      "reason": "Модель preserves Melody’s modeling role in Notes; it does not confuse her with an object/model in the supplied actor context."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/b1bSSI%2BSTU20HkcF1YVy8Q/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Caretaker",
+      "before": "Заботится о других",
+      "target": "Заботливая",
+      "decision": "accepted",
+      "reason": "Заботливая communicates Melody’s care for others as a personal quality in Notes, retains female agreement, and does not invent a specific patient, employment or family relation."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/LzJRgTmQGEKELn3F1Rh9yw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Hook Ups",
+      "before": "Секс без обязательств",
+      "target": "Секс без обяз.",
+      "decision": "accepted",
+      "reason": "Секс без обяз. visibly and transparently abbreviates без обязательств, preserving casual sex rather than a committed relationship."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/hTDrqx8xMUCh0QQaVVBfug/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Bookworm",
+      "before": "Любительница книг",
+      "target": "Книголюбка",
+      "decision": "accepted",
+      "reason": "Книголюбка naturally preserves Charlotte’s love of books and female agreement."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/0XPaYLSqbkGcD4WBQtyB9g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Sex-shy",
+      "before": "Стесняется секса",
+      "target": "Секс смущает",
+      "decision": "accepted",
+      "reason": "Секс смущает preserves sex-related shyness/embarrassment for Charlotte rather than disinterest, disgust or refusal."
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/jAlzSnGRnkm74%2BiQgn9JJA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Bigger Ladies",
+      "before": "Дамы покрупнее",
+      "target": "Дамы крупнее",
+      "decision": "accepted",
+      "reason": "Дамы крупнее retains female preference and the comparative larger body-size relation in Dustin’s Kinks; no species or explicit size threshold is invented."
+    }
+  ],
+  "retainedExactRows": [
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/TCHxo%2Bat6E2yWKpznFd%2F%2FQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Architecture",
+      "target": "Архитектура",
+      "targetUtf8Sha256": "9fe78c578deeabc5bf338d2536cde350531bf2451fc7ab88e45a5102615dc3cd"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/DaHOHjfogUuJTCmPsuyOnA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Oral",
+      "target": "Оральный секс",
+      "targetUtf8Sha256": "a73bb2b1d3f4098b3b7d215ac2d67ada80fec70fe8372c4ee251614c2b4777d1"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/b7%2FZje6%2FS0aUNXMlfnP4Mg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Bears",
+      "target": "Медведи",
+      "targetUtf8Sha256": "ba32a2df06e40eae34f66b62f44abe71d3be26b8a884cb1d83fcede06413e041"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/RqAq%2FcS920%2B4WKPdCG4suA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Toys",
+      "target": "Игрушки",
+      "targetUtf8Sha256": "dc0b8d5374a0bc7ba55eb827d4cd4aac09a95141d4536f003de920b55e3d1e16"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/xk%2FumsY9BEK4lptMZZSerg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Spanking",
+      "target": "Шлепки",
+      "targetUtf8Sha256": "ef2a0e6edab61e483cc7e6f8c6e4df774a05e809e6fe9313b26a13b1e7df613e"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/b2Z2%2Fqv8MkWe9fog5urkRQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Submissive",
+      "target": "Подчинение",
+      "targetUtf8Sha256": "1e30cd7c85aa4e7e23b3c12aa2a5a32c3b068084a1b7df15e285152ecc10cb2f"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/%2BYz9mulgvEWEBknoewfC%2BA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Anal",
+      "target": "Анальный секс",
+      "targetUtf8Sha256": "f576380f0460b0212570f1abfd8a15dec2ee6c91c94cf22273d757806dedfc4d"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/g5tdcmUoykq%2FkBwLqBGDog/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Mother",
+      "target": "Мать",
+      "targetUtf8Sha256": "c533806fd85632d9cebdb9dd5a576dbe8bc9081ea69f8b0336140df2decb66fd"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/hFKAi%2B8%2BRk%2BtJrP5r6nq7Q/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Traveler",
+      "target": "Путешествует",
+      "targetUtf8Sha256": "87558a3938b07bec0537db2ca2ebe69611e2295e5e8247698ce770040c7ed6b0"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/2bbzXgGSQ0KJ0cwrn5sYlQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Jokester",
+      "target": "Шутница",
+      "targetUtf8Sha256": "a90eb3ebc512b19c4d90486a945044fe890b4b0eca1ea5c82d39df66a0869978"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/cpU7HsgR4E608jEFl%2FypSA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Swinging",
+      "target": "Свинг",
+      "targetUtf8Sha256": "c1fc9ecba32dc92b2e271f708bb57d0d340e3042bce2cee294f1caa2d2e954a2"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/TX9mErNGIkG%2F8DuHOjomPQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Fisting",
+      "target": "Фистинг",
+      "targetUtf8Sha256": "a50e47b393a81fb266a5366e468cfa156c28f72a807ed025367e65cbd920aef9"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/n1FmjmkTOE%2B0WJ6SpUnNwQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Cloaca",
+      "target": "Клоака",
+      "targetUtf8Sha256": "9852c0de83d273241826db7ca7de7a37cefad8381bc2d9d162ee9624413a5ab4"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/dar2A1cZZk2k%2FxWPO2bXvw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Romance",
+      "target": "Романтика",
+      "targetUtf8Sha256": "f615d8975ab5cd01440a5f0437f63135052ef61d83484a5224936ff21e5d7781"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/imeUle2LOEq7k0wYF%2FkoeA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Flirting",
+      "target": "Флирт",
+      "targetUtf8Sha256": "32ebdbc0b12a3955acabd094c86f5b4625057d953a9c29ef3449b1ca18135b16"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/XYYxdu3gu0yTsih9YAhAig/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Husband",
+      "target": "Муж",
+      "targetUtf8Sha256": "7f2cdd6c41830e155df4b1b78a391a934077121ba225855aee7daeccba2635d8"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/6YPEquHUH06W6ZWIY%2BPAZg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Gatherer",
+      "target": "Собиратель",
+      "targetUtf8Sha256": "71b26b5ab29e95e0bc82cfd197e7306470c485bc1f622ea867b16435c55057f3"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/OBbLgiaHbkuMWRIYA%2FLRvA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Cuck",
+      "target": "Куколд",
+      "targetUtf8Sha256": "f1883882687783eea7727edde8b728cf1023e3b5c29cf4f3f2e43d5c1ad42e93"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/9A7gbhodfkWTSmIibd5C6Q/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Voyeurism",
+      "target": "Вуайеризм",
+      "targetUtf8Sha256": "b7c77c9a023488dd9881feec1a24ce87de7124596e725090d80be4da5cbde595"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/l6NisbpOG0aKSl0hCQOlbg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Bottom",
+      "target": "Пассив",
+      "targetUtf8Sha256": "aed0315eb80357ae988acb6535fb2c26983d5108ce6f7a032121db5fda254810"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/uGFqq9tSAkegug2J0hM08w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Scarlett",
+      "target": "Скарлетт",
+      "targetUtf8Sha256": "99d5108c340e90acce92b33289e4f6684687bf5b716707fdf1962c7e1a701f3c"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/t%2FwD5dJTDkmUWr169HOw8w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Married",
+      "target": "Замужем",
+      "targetUtf8Sha256": "881ea9447019561ca62903b527887feea133baecc1d4a314186e5c00b9e0566f"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/fo9v7j7L7kiQF9nRQCplTg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Cuck/Swinging",
+      "target": "Куколд/свинг",
+      "targetUtf8Sha256": "923fc97d0fe5e839e4872c0f28851dfbdc66db7d73573fd6947859584539f8d9"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/B22a6rR69EWKHdz2brFZ7w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Foodplay",
+      "target": "Игры с едой",
+      "targetUtf8Sha256": "f1ee85e11899c01d7dd592f250638084e097380b1bceae8a1f834eb30b703b47"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/NkBheuLSZUa19DgmtAY4Fw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Switch",
+      "target": "Универсал",
+      "targetUtf8Sha256": "f5d824c77847f670de5f0b465c17f285045b89d58b959f3e7c6e620ae857ce77"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/07%2FjpPqPm0in1DYk2iJ8NA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Strap On",
+      "target": "Страпон",
+      "targetUtf8Sha256": "df25ec3538ef4dabd7b85446c7bebe06223de58550863fe5c67051b70c7ce02d"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/IUk2oZxcMkmXGKHqqKPWpA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Tailorer",
+      "target": "Портниха",
+      "targetUtf8Sha256": "64700fb66174c8fc5ce936f407101478d9b14d2c2631a97f980679967d4a5b65"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/VTMNANSbzUmHoqD9Q%2BIaxQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Fashionista",
+      "target": "Модница",
+      "targetUtf8Sha256": "b2246cb64c96be3e649a80c3dedfd11b9a8c43c9e246c4388f136f5b16de0b33"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/YBnIqZqzmEa%2FxOXOrqN47Q/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Competition",
+      "target": "Соревнование",
+      "targetUtf8Sha256": "fbb4bbcab95a9e49c52228131b9b3aa8b29c0168468dc8bb8c8c678e730f3f3f"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/QssS%2FkadcEuDOKq4c8zGKA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Bukkake",
+      "target": "Буккаке",
+      "targetUtf8Sha256": "57a2083e43cb51418c1bd1c77021d0ccf763c29b4f8d305cacfc645a9bc2028d"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/88mOUAbtjUCvwD9OwjB9sA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Dominant",
+      "target": "Доминирование",
+      "targetUtf8Sha256": "4f8802228a5a5ecdd0e15cbb39d9ec26cddb80d38f0c43eeb82fe1886141899e"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/eVRy%2FqP9hkiTgRYXYJcMgA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Stretching",
+      "target": "Растягивание",
+      "targetUtf8Sha256": "bd223294920bf0bacbdb645c4c83adf5e9eaa7cefdda62fb7e5adeb04d950928"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/NrHp0Q256EWGBkJXXNhWZQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Claire",
+      "target": "Клэр",
+      "targetUtf8Sha256": "d3909c9cc4e22f3951bc5adbd91729d75d8fdc433cde4fbeb36d3eb8d9c211ce"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/qT1nXTqXxEqeuaLqOsBjrQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "New Comer",
+      "target": "Новичок",
+      "targetUtf8Sha256": "00822e4b5af1e5a32b1ef84fbff59bf8958f2756dcfd90f7192d93749ace2d81"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/8U2HcTShqkqgUHziSzl9Lw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Verile",
+      "target": "Мужская сила",
+      "targetUtf8Sha256": "c01845350f95980d979175354722567d7758c77ea48635044ff687d6e0061894"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/%2BKzaiaFh%2BUW967Zsb7P3qg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Auto-Fellatio",
+      "target": "Аутофелляция",
+      "targetUtf8Sha256": "d137f4c1a2e37614318ae6c16445b4a08d2407af4acc23ebe1732a80156d4c6a"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/BuB%2B9G5b%2F06pcO4s0ejN4g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Linguist",
+      "target": "Языковед",
+      "targetUtf8Sha256": "d3725d3d1ed9aa21ab0ca610a1a1db4c396cc1421b41d4047607370367721c52"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/iDQ4wZBxs0GkdxPiPA48Dw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Scholar",
+      "target": "Учёный",
+      "targetUtf8Sha256": "5868a4decb600c549c9acb38a0903978e66932f3ac9dfa6ca48d65c69728e4b6"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/1QJP4T%2BITkelgHr6rgHVVQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Mawplay",
+      "target": "Игры с пастью",
+      "targetUtf8Sha256": "bd0e459268b67c391f06206457412fe65ec7ce1e65c9a8cfbf8444eca5848afa"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/BGynTbIYwk6BeayV5mv%2Btw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Rascal?!?",
+      "target": "Плут?!?",
+      "targetUtf8Sha256": "1845a64663527d154c09073a38f1778e6c69719c9bff7a09a729b75530dccbdd"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/J8di4lQVpEiVCPZeqlc%2Bdw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Mouth Play",
+      "target": "Игры со ртом",
+      "targetUtf8Sha256": "047f865a2f8c5a7ba2cfe2b7b593f855357d2ce451f979180389c8d89f5fd666"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/risz1852KEGMqM9lJoG5wA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Experimentation",
+      "target": "Эксперименты",
+      "targetUtf8Sha256": "3b110b3b754bcc38c60cff6102d993e8c894ac809b929279b0877d7bf4d78531"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/nXUUzRIrf0Cugr%2BixQcBCg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Shopkeep",
+      "target": "Лавочник",
+      "targetUtf8Sha256": "13ce9ed8d7e899b15864c2382c665a759b548df7afbfe16e6ef58ff6682cf98c"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/sug4tOSiwUaylGGz4wUeHQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Group Sex",
+      "target": "Групповой секс",
+      "targetUtf8Sha256": "2f99c88ba80e74e0c3fbd82cc615c6685f3c46bd9790e40aecb5bfe45315fab9"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/Ds4O0SzbyUuB7K1ga9kjNQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Ladies",
+      "target": "Дамы",
+      "targetUtf8Sha256": "6f625774617bbd5d418b28a246cab091e3bfd5b23fbc1a1c6b1275786c1cf8fd"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/9t0eGP68i0iDQ727D3hatw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Contemplative",
+      "target": "Задумчивый",
+      "targetUtf8Sha256": "175194b75ae2d70ca762a800593aca89d8861902e6bbc263e176d04b655a732d"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/W9BarxaWqUqefo9rBF4nrw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Artist",
+      "target": "Художник",
+      "targetUtf8Sha256": "6f18f1d35f6b5b9abbcbdc4f6155e02b1ba9b6d3b0b4cc7bce5679693e8904ed"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/Uh8wV%2FFQ%2FkSblFKiP%2BaKBQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Blowjobs",
+      "target": "Минеты",
+      "targetUtf8Sha256": "1e08a29e3f919a0ac037a62496add9f7172701dc3cfb694a747ccfe0e80ff544"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/F3zaIlZ9BEGJYD3pqE5sFw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Trainer",
+      "target": "Тренер",
+      "targetUtf8Sha256": "894d7eccc6a450518d78c6b44df0db619bf344c90febf5067a0cd6a2cfd99c05"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/ybzdUtAhlEuUzxB5SUo0cg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Training",
+      "target": "Тренировка",
+      "targetUtf8Sha256": "8f14252b18fadb4943f09736347eda1bba0f163cec53642e894424dee22459de"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/Smvu%2F8k0LEqWf7Xt6Y1iwA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Alligator",
+      "target": "Аллигатор",
+      "targetUtf8Sha256": "821f693af169cf163769a82a03a3e33871e103f9c048d23bef388dc49d3b4ce7"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/q9UPLsPfqkupARqgqHP9sg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Beaver",
+      "target": "Бобр",
+      "targetUtf8Sha256": "2681367851f6fa9a5f014fa93a3ba8ad81026e0c14316ee915b3f182682cf8bc"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/9EM2UXp0k0yHlFLGrjuPKA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Bear",
+      "target": "Медведица",
+      "targetUtf8Sha256": "8b82f8f04d10a187b0f0b22eb318fa8b85b8bf3db7f652d4f0231ae7d1e8763c"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/tnn6mWQ1zEGnFElj%2BfdQRQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Coyote",
+      "target": "Койот",
+      "targetUtf8Sha256": "8340a7d7f64da5bbf9d531d908922ecf9154c0bf40341bfc6294e7868360699a"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/OaZgEd4GA0GJEzYjsfTBPA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Squirrel",
+      "target": "Белка",
+      "targetUtf8Sha256": "ef47c139e5ab76643514c1e0514187474d8d2ebb2295014a0d6423039f0e3f8b"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/VbHng98%2FQ0KlGmTfJVks5w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Ram",
+      "target": "Баран",
+      "targetUtf8Sha256": "e483cd1b3c12fdf5d66192248b21b3c365fcfaf7136124588f435ee262eb556b"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/qhyQ7Ob3kk6wBXpJYELCRQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Mouse",
+      "target": "Мышь",
+      "targetUtf8Sha256": "770dec38b024c8166d07deb2f5238dc479311ef6b5123fdb5985bb4188378510"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/5Vg391Ze%2FkG%2FRbRGgO3Bsg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Otter",
+      "target": "Выдра",
+      "targetUtf8Sha256": "6ea6a8563efd1e5c301b04ec79ced52ed75e55bc8d9ec8d1c8d85b01ea6ff048"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/u0%2FjlE4ZckC9vFbHru%2Fn%2Bg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Donkey",
+      "target": "Осёл",
+      "targetUtf8Sha256": "36e2d008e99d71b53c5dc250464638fade1f8ad1f9d509aec324399b57ab4216"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/u3Bzsjc41keZE31E0cx00g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Peregrine Falcon",
+      "target": "Сокол-сапсан",
+      "targetUtf8Sha256": "891e724463719191f7eb8fa66a55e80d7b028e5f7f144fa949529ddff9efc8da"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/ym8T72YnSUiOKz39ahdbtg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Rabbit",
+      "target": "Кролик",
+      "targetUtf8Sha256": "6e196b68b9ec8009fbdae4c9bdcb9c748ff9e6aaf9e6ec2ae27f12a0e022e641"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/QwFc65NVAkGQzoo6hiezzQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Adult",
+      "target": "Взрослый возраст",
+      "targetUtf8Sha256": "ef6826c0b2820d3a0734a259fd176011b14f7f8796dffb83d8e0633fcd89fed9"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/bhaKdhW3r0m0C38TU%2BD8Qw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Young Adult",
+      "target": "Ранняя взрослость",
+      "targetUtf8Sha256": "af0c8d0a22b97b91303436546627ee0fcba89f0d43b16085d82ffb519229eda5"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/zDwSb9ifqE6sa7eLffXCtw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Historian",
+      "target": "Историк",
+      "targetUtf8Sha256": "9f94371a7bbfd5d4944cc11ba4343538d7f9da080c8b80f72412da9389dafea4"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/9QccMCUv%2BE6NykZKql905w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Temporary Bodyguard",
+      "target": "Временный телохранитель",
+      "targetUtf8Sha256": "a7ac64c7fc07bcedbf9b2bb75dd13e4fc27ad9ee77e16517a4574bd10e35f94b"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/GwtyBYBN2kuC5%2BHBlA8%2BQg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Professional Athlete",
+      "target": "Профессиональный спортсмен",
+      "targetUtf8Sha256": "a85ff6d8bca34830d4bd579dddc22fa5121b8c4f128aea372bc3b8aaaa618d2b"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/VG6JvArKAEmZoqHAX17iOA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Town Aerial Taxi",
+      "target": "Городское аэротакси",
+      "targetUtf8Sha256": "e413dbca3d7004358d301c34667e1228a04a8ded2dbd37f61512b9c125fcab4e"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/ES5pmOSCcEK9h6TmRkvl%2Bg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Gardener",
+      "target": "Садовница",
+      "targetUtf8Sha256": "6b3611b9dc6b3ba77b226c762552c329d06ac9bdfc83f2c402f377f3adce16f5"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/VF5E8dp%2FMkaG%2Ftvt2TCnHw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Arctic Fox",
+      "target": "Песец",
+      "targetUtf8Sha256": "1c5f12d1990378fb67afbadd4361b237ce9ff8751ec2e8a0707d4516c824c5fe"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/sJlgBR3GbU%2BOTU46GXNWEQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "???",
+      "target": "???",
+      "targetUtf8Sha256": "a03b221c6c6eae7122ca51695d456d5222e524889136394944b2f9763b483615"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/heZp5mj1SkqTBcbSbXAYvg/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Wolf",
+      "target": "Волк",
+      "targetUtf8Sha256": "6a67be196c5da12be6607f7f4109996856bb6f670a8ff18537a7f4a237bd5404"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/7xS9KLo8oECThPUfPU7R%2BA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Grumpy?",
+      "target": "Ворчун?",
+      "targetUtf8Sha256": "7566046ef999d97ca7871c3ce7ccd4c4e3ca962ae57e220bf253030d74a93c52"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/8oW2ovVQKkii9LCOUS%2Frew/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Sorta nice?",
+      "target": "Вроде добрый?",
+      "targetUtf8Sha256": "73710d40ca7acfcb4f986337b22d05eb7657855b569ef808aa5d132b31ee73a0"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/1cPMjpa1I0uT4BiuwYhiDw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Still here?",
+      "target": "Всё ещё здесь?",
+      "targetUtf8Sha256": "89f25bc9d45b851e4dbd307ee8e1c908fb753ae2f0bc0380bd03ca94d3e9b8a6"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/pgomKxBcG0OjhDu%2BtQzUbw/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Roleplay",
+      "target": "Ролевая игра",
+      "targetUtf8Sha256": "4b23e54d1ad503ea79fbacc5e88536ac4b364cdb4efe25d474a592ba693f1b28"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/%2F%2Bx5Ro7FK0u53q79uFwn9w/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Exploration",
+      "target": "Исследование",
+      "targetUtf8Sha256": "04c325ed529cb584234e8fdf7ca0f144682131b9fd120300e74089b4a5fb7ab3"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/trbi%2FLdmjUeHeikg80Y8jQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Socializing",
+      "target": "Общение",
+      "targetUtf8Sha256": "e9e49c6f5ce1517c2540b1537de2f11066f1ec4894367d55cbdd8ec6d51b5227"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/kbYxY%2FlKvU6PfYXnLl9vsQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Dress Up",
+      "target": "Переодевания",
+      "targetUtf8Sha256": "d393ab22155d1f4ca23eb1ae782d5d25402f78526992c20dd003274bee649b1b"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/aZIzc4Y7oECpBCd%2Fq1fYiQ/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Baker",
+      "target": "Пекарь",
+      "targetUtf8Sha256": "8d7d0d5020eb816a917a3c2b129b16c304e213f82ffaf6cab834adf2ff810fc0"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/wAQoQXo7VUORhHicTiNU4g/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Curious",
+      "target": "Любопытная",
+      "targetUtf8Sha256": "810b6186b1267f50dc2f73d66dc41bba9b62f8d2d294741a6a1dfde6eaee4b40"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/1HgERkEo10y3emytvBUq5A/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "FOOD",
+      "target": "ЕДА",
+      "targetUtf8Sha256": "ee8306c219edacbd2b824057a8c395eb4c153975a7759a48731b47b2a505217e"
+    },
+    {
+      "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/K1oAcrv6dkaHJQ9viLNWMA/field/QtfPU7c06U6IYvVCzuqTMg",
+      "source": "Cum play",
+      "target": "Игры с кончой",
+      "targetUtf8Sha256": "9c9549ee31d10f3cebe33d36b5dee1fcd073b34a765304ba53a441bcfddc788e"
+    }
+  ],
+  "regressions": {
+    "mixedGenderAgeLabels": "pass: В летах and Средних лет have no sex-specific agreement across every supplied user.",
+    "roleVsDominance": "pass except Oral (giving) finding: BDSM sub/dom remain distinct from retained Bottom/Пассив and Switch/Универсал.",
+    "abbreviationTransparency": "pass for marked Эксгибиц., подчин., Секс-подзем., дом., приключ., обяз.; each remains recoverable in its supplied category.",
+    "namesHiddenStatesSpeciesRelationships": "All unchanged identifiers/values retained; nickname quotation and town relation preserved in changed «Мама города».",
+    "completeReplacementUnit": "All111 IDs unique, all source/before values match baseline,82 retained values unchanged,29 explicit deltas only."
+  },
+  "usage": {
+    "freshWorkerMeasuredSubtotal": {
+      "cutoff": "2026-10-29T09:51:46.960Z",
+      "counts": {
+        "input_tokens": 524711,
+        "cached_input_tokens": 462848,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3655,
+        "reasoning_output_tokens": 1334,
+        "total_tokens": 528366
+      }
+    },
+    "baseline": "Fresh session; first cumulative counters equal its first request counters. No inherited pre-assignment counters were included.",
+    "tail": "Receipt-writing tool response, subsequent reporting and platform overhead after cutoff are not included. Reasoning output and cached input are subsets, not additional totals."
+  },
+  "sourceGateAccepted": false,
+  "ordinaryTranslationEntryAllowed": false,
+  "runtimeVisualAccepted": false,
+  "wholeGameAccepted": false,
+  "runtime": "not-run",
+  "visual": "not-run",
+  "writes": "Only this receipt; no correction, game/GUI, Git, glossary or publication mutation.",
+  "reviewedTargetsFile": "compact-targets.initial.json",
+  "receiptGenerationRace": {
+    "status": "repaired-before-acceptance",
+    "cause": "Parent applied the accepted one-ID correction after the reviewer reported completed original judgments but before receipt serialization; the serializer reopened mutable compact-targets.json.",
+    "repair": "Rebound the existing complete original judgments, finding target and targetsSha256 to immutable compact-targets.initial.json; no new all111 semantic pass and no target edits.",
+    "initialTargetsSha256": "44558ab752de550fd122306bff0d11481ebb5eb9c26fc298571593ff5237b814",
+    "finalTargetsSha256": "c6662cbb0f0d60f5e63ea9078675472275855ba371a3a78740c4419fa82265ee"
+  }
+}

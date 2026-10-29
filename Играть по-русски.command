@@ -17,7 +17,7 @@ fi
 
 /usr/bin/python3 -B "$forest_project/tools/apply_quest_notification_hotfix.py" \
   --candidate "$forest_project/localization/previews/ru-20261029-narrative42-01"
-/usr/bin/python3 -B "$forest_project/tools/apply_tutorial_notification_hotfix.py" \
+/usr/bin/python3 -B "$forest_project/tools/apply_journal_compact_hotfix.py" \
   --candidate "$forest_project/localization/previews/ru-20261029-narrative42-01"
 
 forest_stamp="$(/bin/date +%Y%m%d-%H%M%S)"

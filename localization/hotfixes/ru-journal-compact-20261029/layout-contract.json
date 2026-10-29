@@ -1,0 +1,3864 @@
+{
+  "schemaVersion": 1,
+  "scope": "Native UnityEngine.UI.Text in CritterLog only; no TMP tutorial",
+  "locale": "ru",
+  "model": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "session": "01a18709-6c3d-7793-b6c8-527dd589b38b"
+  },
+  "sourcePins": {
+    "sharedassets2.assets": "97477de4d2be4fba79b74931a2260d722e21276df4bddc14afa94b089352f67b",
+    "Managed/Assembly-CSharp.dll": "94b5d36e5e6f8a1a0a12280754ae5c87c3f13338f40b085864d32df13c0ce750",
+    "sharedassets0.assets": "0b16874d428172d176f35e067d481fd601c8cc77d4c0a7f0b97d0450c2940086",
+    "ui-bindings.json": "faebf90f35183cc0d298c8430c4820d8d57c2f3ad0213d33b8041b5d0e853b58"
+  },
+  "font": {
+    "pointer": {
+      "m_FileID": 5,
+      "m_PathID": 369
+    },
+    "container": "sharedassets0.assets",
+    "face": "Liberation Sans Regular",
+    "fontDataSha256": "e5b0af421ea2bfbc1ac8d251d647268087ae82786234c57f757d1f0b90fa8b49",
+    "dataFile": "/Users/antonkrutov/Desktop/Forest/outputs/ru-journal-compact-20261029/layout/native-font369.ttf",
+    "unitsPerEm": 2048,
+    "hheaAscent": 1854,
+    "hheaDescent": -434,
+    "hheaLineGap": 67
+  },
+  "roles": [
+    {
+      "pathId": 14193,
+      "role": "section",
+      "rectId": 12362,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 4694
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 118.0,
+          "y": -120.0
+        },
+        "m_SizeDelta": {
+          "x": 60.0,
+          "y": 15.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 16,
+      "targetFontSize": 13,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 17708,
+      "role": "section",
+      "rectId": 11976,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 2033
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 118.0,
+          "y": -75.0
+        },
+        "m_SizeDelta": {
+          "x": 60.0,
+          "y": 15.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 16,
+      "targetFontSize": 13,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18703,
+      "role": "cell",
+      "rectId": 13275,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5092
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 106.0999984741211,
+          "y": -151.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18705,
+      "role": "cell",
+      "rectId": 13278,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5095
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 106.0999984741211,
+          "y": -165.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18706,
+      "role": "cell",
+      "rectId": 13279,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5096
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 184.0,
+          "y": -104.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18707,
+      "role": "resident",
+      "rectId": 13280,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5097
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13313
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "m_SizeDelta": {
+          "x": 76.0,
+          "y": 11.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18712,
+      "role": "fullName",
+      "rectId": 13285,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5102
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 98.0,
+          "y": -4.0
+        },
+        "m_SizeDelta": {
+          "x": 186.0,
+          "y": 15.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 18,
+      "targetFontSize": 14,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18713,
+      "role": "resident",
+      "rectId": 13286,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5103
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13313
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 1.0,
+          "y": 2.0
+        },
+        "m_SizeDelta": {
+          "x": 76.0,
+          "y": 11.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18716,
+      "role": "cell",
+      "rectId": 13288,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5105
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 106.0999984741211,
+          "y": -90.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18717,
+      "role": "resident",
+      "rectId": 13289,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5106
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13313
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 2.0,
+          "y": 1.0
+        },
+        "m_SizeDelta": {
+          "x": 76.0,
+          "y": 11.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18723,
+      "role": "cell",
+      "rectId": 13294,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5111
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 26.0,
+          "y": -104.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18724,
+      "role": "resident",
+      "rectId": 13295,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5112
+        },
+        "m_LocalRotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13276
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "m_AnchorMax": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 3.0,
+          "y": -0.5
+        },
+        "m_SizeDelta": {
+          "x": -6.0,
+          "y": -1.0
+        },
+        "m_Pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18727,
+      "role": "cell",
+      "rectId": 13297,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5114
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 26.0,
+          "y": -90.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18728,
+      "role": "cell",
+      "rectId": 13298,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5115
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 106.0999984741211,
+          "y": -104.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18729,
+      "role": "resident",
+      "rectId": 13299,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5116
+        },
+        "m_LocalRotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13292
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "m_AnchorMax": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 3.0,
+          "y": -0.5
+        },
+        "m_SizeDelta": {
+          "x": -6.0,
+          "y": -1.0
+        },
+        "m_Pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18730,
+      "role": "cell",
+      "rectId": 13300,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5117
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 26.0,
+          "y": -151.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18739,
+      "role": "cell",
+      "rectId": 13305,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5122
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 26.0,
+          "y": -165.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18740,
+      "role": "resident",
+      "rectId": 13306,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5123
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13313
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 1.0,
+          "y": 0.0
+        },
+        "m_SizeDelta": {
+          "x": 76.0,
+          "y": 11.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18742,
+      "role": "cell",
+      "rectId": 13308,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5125
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 26.0,
+          "y": -137.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18744,
+      "role": "subtitles",
+      "rectId": 13310,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5127
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 98.0,
+          "y": -24.0
+        },
+        "m_SizeDelta": {
+          "x": 186.0,
+          "y": 39.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 11,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18745,
+      "role": "cell",
+      "rectId": 13311,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5128
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 106.0999984741211,
+          "y": -137.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18746,
+      "role": "cell",
+      "rectId": 13312,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5129
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 184.0,
+          "y": -137.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18747,
+      "role": "resident",
+      "rectId": 13313,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5130
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 13289
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13286
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13306
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 13280
+          }
+        ],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13281
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 0.0,
+          "y": -12.0
+        },
+        "m_SizeDelta": {
+          "x": 77.0,
+          "y": 10.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 12,
+      "retainedVerticalOverflow": true
+    },
+    {
+      "pathId": 18750,
+      "role": "cell",
+      "rectId": 13316,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5133
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 184.0,
+          "y": -90.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18751,
+      "role": "cell",
+      "rectId": 13317,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5134
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 184.0,
+          "y": -151.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    },
+    {
+      "pathId": 18752,
+      "role": "cell",
+      "rectId": 13318,
+      "sourceRect": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5135
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 184.0,
+          "y": -165.0
+        },
+        "m_SizeDelta": {
+          "x": 82.0,
+          "y": 12.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "sourceFontSize": 14,
+      "targetFontSize": 10,
+      "retainedVerticalOverflow": false
+    }
+  ],
+  "changes": [
+    {
+      "pathId": 14193,
+      "role": "section",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks_Title",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 4694
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 0.45098039507865906
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 16,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 4,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Кинки"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 13,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 17708,
+      "role": "section",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes_Title",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 2033
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 0.45098039507865906
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 16,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 4,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Заметки"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 13,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18703,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks5",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5092
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18705,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks8",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5095
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18706,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes6",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5096
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18707,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateSelected/NameContainer/NameGlowLeft/Name",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5097
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.20784315466880798,
+          "g": 0.19607844948768616,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 0,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12
+      }
+    },
+    {
+      "pathId": 18712,
+      "role": "fullName",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/FullName",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5102
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 18,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 0,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett TenderPaw"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 14,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18713,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateSelected/NameContainer/NameGlowLeft/NameGlowTop",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5103
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 0,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12
+      }
+    },
+    {
+      "pathId": 18716,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes2",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5105
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18717,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateSelected/NameContainer/NameGlowLeft/NameGlowRight",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5106
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 0,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12
+      }
+    },
+    {
+      "pathId": 18723,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes4",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5111
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18724,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateDisabled/Name",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5112
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.5098039507865906,
+          "g": 0.48235297203063965,
+          "b": 0.40392160415649414,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12,
+        "/m_FontData/m_HorizontalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18727,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes1",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5114
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???\n"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18728,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes5",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5115
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18729,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateEnabled/Name",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5116
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12,
+        "/m_FontData/m_HorizontalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18730,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks4",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5117
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18739,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks7",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5122
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18740,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateSelected/NameContainer/NameGlowLeft/NameGlowBottom",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5123
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 0,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12
+      }
+    },
+    {
+      "pathId": 18742,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks1",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5125
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Mother"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18744,
+      "role": "subtitles",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Subtitles",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5127
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 0,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.699999988079071
+        },
+        "m_Text": "Bunny\nMiddle Aged\nGardener"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 11,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18745,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks2",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5128
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18746,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks3",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5129
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18747,
+      "role": "resident",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/ResidentsScrollView/Viewport/Content/TemplateSelected/NameContainer/NameGlowLeft",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5130
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 1.0,
+          "g": 1.0,
+          "b": 1.0,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 3,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 0,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "Scarlett"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 12
+      }
+    },
+    {
+      "pathId": 18750,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Notes3",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5133
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18751,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks6",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5134
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 18752,
+      "role": "cell",
+      "hierarchy": "LevelSingletons/MasterLog/CritterLog/CritterLog UI/Content/Bio/Kinks9",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5135
+        },
+        "m_Enabled": 1,
+        "m_Script": {
+          "m_FileID": 1,
+          "m_PathID": 2255
+        },
+        "m_Name": "",
+        "m_Material": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "m_Color": {
+          "r": 0.2078431397676468,
+          "g": 0.19607843458652496,
+          "b": 0.1568627506494522,
+          "a": 1.0
+        },
+        "m_RaycastTarget": 1,
+        "m_RaycastPadding": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 0.0
+        },
+        "m_Maskable": 1,
+        "m_OnCullStateChanged": {
+          "m_PersistentCalls": {
+            "m_Calls": []
+          }
+        },
+        "m_FontData": {
+          "m_Font": {
+            "m_FileID": 5,
+            "m_PathID": 369
+          },
+          "m_FontSize": 14,
+          "m_FontStyle": 0,
+          "m_BestFit": 0,
+          "m_MinSize": 1,
+          "m_MaxSize": 40,
+          "m_Alignment": 1,
+          "m_AlignByGeometry": 0,
+          "m_RichText": 1,
+          "m_HorizontalOverflow": 1,
+          "m_VerticalOverflow": 1,
+          "m_LineSpacing": 0.800000011920929
+        },
+        "m_Text": "???"
+      },
+      "replace": {
+        "/m_FontData/m_FontSize": 10,
+        "/m_FontData/m_HorizontalOverflow": 0,
+        "/m_FontData/m_VerticalOverflow": 0
+      }
+    },
+    {
+      "pathId": 13285,
+      "role": "fullName-height",
+      "beforeTree": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 5102
+        },
+        "m_LocalRotation": {
+          "x": -0.0,
+          "y": -0.0,
+          "z": -0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "m_Children": [],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 13302
+        },
+        "m_AnchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "m_AnchoredPosition": {
+          "x": 98.0,
+          "y": -4.0
+        },
+        "m_SizeDelta": {
+          "x": 186.0,
+          "y": 15.0
+        },
+        "m_Pivot": {
+          "x": 0.0,
+          "y": 1.0
+        }
+      },
+      "replace": {
+        "/m_SizeDelta/y": 18.0
+      }
+    }
+  ],
+  "guards": [
+    {
+      "pathId": 2033,
+      "type": "GameObject",
+      "rawSha256": "2cfefa7f243b33dd52379f12f6a3f94d2e8aa35d5ea79e62fa79dc82c083d964"
+    },
+    {
+      "pathId": 4694,
+      "type": "GameObject",
+      "rawSha256": "313c45e5e2897ea32af7e2bc50019d30c141027dee4be468f601c3af01228466"
+    },
+    {
+      "pathId": 5039,
+      "type": "GameObject",
+      "rawSha256": "8cb8662389a42fbe43564840664931378eb8a52ebee758ed3039ffd583fa5a7f"
+    },
+    {
+      "pathId": 5092,
+      "type": "GameObject",
+      "rawSha256": "836f10102c92723773fc299f6016205bc2881560f7461a91f323ee48b9d7ccee"
+    },
+    {
+      "pathId": 5093,
+      "type": "GameObject",
+      "rawSha256": "975c40368eb669aad54dfc7226ae811a478290a873f12884bb55f5b9060fb34b"
+    },
+    {
+      "pathId": 5095,
+      "type": "GameObject",
+      "rawSha256": "bdb508bb254cd3a5f1e1e54a081efdd74f71c61198041daa81a7699642338c72"
+    },
+    {
+      "pathId": 5096,
+      "type": "GameObject",
+      "rawSha256": "122193b9e388dce092b2b6b0acc36457e335b1f6b608a10a50d49ed39d19b473"
+    },
+    {
+      "pathId": 5097,
+      "type": "GameObject",
+      "rawSha256": "a88879a980f4aa74e97a026bf2feb256ab2b8e5856ee5efafd3e7f9553d6a46f"
+    },
+    {
+      "pathId": 5098,
+      "type": "GameObject",
+      "rawSha256": "bd9fa5efc344cb46b923e01989952709be5fc72e0e486e63ffe66ff44861aada"
+    },
+    {
+      "pathId": 5099,
+      "type": "GameObject",
+      "rawSha256": "2de67c82294bfd4f4aeadc3866946e2f10ef176daf8bd991b94f89a6f0592ce7"
+    },
+    {
+      "pathId": 5100,
+      "type": "GameObject",
+      "rawSha256": "2734cee20325c8c95a8097dc0eae396d2a69620ea279ad39fbc8cfb103cd1177"
+    },
+    {
+      "pathId": 5102,
+      "type": "GameObject",
+      "rawSha256": "9b810cbe9ed4ca4febdc4747ad70e77911bf7b7aab48dfbcc773f9b966c5d20f"
+    },
+    {
+      "pathId": 5103,
+      "type": "GameObject",
+      "rawSha256": "d3c35d0ab2e3fe7e912781441823dfcd241084bc390f296d4632e780192f7f21"
+    },
+    {
+      "pathId": 5105,
+      "type": "GameObject",
+      "rawSha256": "6b09acda41e843aa5938d01c800f8251dd03a4f5e7c3f4e6db511c14fffa7ba8"
+    },
+    {
+      "pathId": 5106,
+      "type": "GameObject",
+      "rawSha256": "d3cc8af41b8e974a43c5c80f7ed7320df0f90b2f5a54ba13e7adab68ab5b4178"
+    },
+    {
+      "pathId": 5108,
+      "type": "GameObject",
+      "rawSha256": "a5c0e8a040f08acea1506a9641b86fd01a89c242fafa840970837f6474f45933"
+    },
+    {
+      "pathId": 5109,
+      "type": "GameObject",
+      "rawSha256": "8caefdb89fff3b75689002507ffee60ce1c1d04e24309b90ce3bff311693a461"
+    },
+    {
+      "pathId": 5110,
+      "type": "GameObject",
+      "rawSha256": "56412bd8301c0333ce9721da1633fcc84c1ed130aeb9ed9799d8912ef40d8584"
+    },
+    {
+      "pathId": 5111,
+      "type": "GameObject",
+      "rawSha256": "704a72c6ed1ec0d129ad5ff4aa5e9be81972a2e7453b3da5f722c5bb139bdef8"
+    },
+    {
+      "pathId": 5112,
+      "type": "GameObject",
+      "rawSha256": "fca1fc45a7aac6df8a96a56f3840210c149f0cdc6916801ca0e4a819b2433346"
+    },
+    {
+      "pathId": 5113,
+      "type": "GameObject",
+      "rawSha256": "d1080794be2463e4ae50b36e5ab7010d88611f3eaf66c7d32df075f405442243"
+    },
+    {
+      "pathId": 5114,
+      "type": "GameObject",
+      "rawSha256": "3cc169d77c4c4071b4720990694a14432b7e4f7be200e988d2a9ea421acd6fc1"
+    },
+    {
+      "pathId": 5115,
+      "type": "GameObject",
+      "rawSha256": "db12bec783117b273590e203564f5f7675c7eaa480da10fb0f16ca8972ad32e4"
+    },
+    {
+      "pathId": 5116,
+      "type": "GameObject",
+      "rawSha256": "45a98c1fd80f3c1e4040d024c1ff434bccfc066d70e043fd5c81ae864db0e3bd"
+    },
+    {
+      "pathId": 5117,
+      "type": "GameObject",
+      "rawSha256": "39d7d576e0493b6b203780ac68da654e18344cc58292fdb43af94419e6901d10"
+    },
+    {
+      "pathId": 5119,
+      "type": "GameObject",
+      "rawSha256": "913d4db27c54eafd79cc496c593f9de2eae4c6a8341f839b9af9e5fdd6f249b3"
+    },
+    {
+      "pathId": 5120,
+      "type": "GameObject",
+      "rawSha256": "423b6f2b5df826d445ffb838bd7281b7b24c0a1710a12a5924f0794768e77fd2"
+    },
+    {
+      "pathId": 5121,
+      "type": "GameObject",
+      "rawSha256": "f19392cbac06bb9adc27d2c36f62f649959e3fc8f4861cfb9d1a43cad601d440"
+    },
+    {
+      "pathId": 5122,
+      "type": "GameObject",
+      "rawSha256": "fc44660127d207d421b8f226b51f819a4f598afa000123ce6a85882d0bb58571"
+    },
+    {
+      "pathId": 5123,
+      "type": "GameObject",
+      "rawSha256": "44171306616f38c2c07c002c921736884c53512c93095c69c0619a54adf97906"
+    },
+    {
+      "pathId": 5125,
+      "type": "GameObject",
+      "rawSha256": "781eed4cbf1c85128b393271a84ea8f1bbc125a7a2489ef750247ef4443ada91"
+    },
+    {
+      "pathId": 5127,
+      "type": "GameObject",
+      "rawSha256": "d7098f2101098647c1bf0e1fbb67b131f5d7bb7d9d958469b829f821a605e92a"
+    },
+    {
+      "pathId": 5128,
+      "type": "GameObject",
+      "rawSha256": "680b4d871cbc11b9f60b59bfc8029d00dc75e5e20993ef0ea370d76fe7462a34"
+    },
+    {
+      "pathId": 5129,
+      "type": "GameObject",
+      "rawSha256": "3cb1b3d3292d0087afc31a86362ef1757a5972deb73ab4cb900692ce4bce0cd2"
+    },
+    {
+      "pathId": 5130,
+      "type": "GameObject",
+      "rawSha256": "c7babdace223fbd918e720d49a926abca55381141d3107a47cbab58fd73701e6"
+    },
+    {
+      "pathId": 5133,
+      "type": "GameObject",
+      "rawSha256": "64b365f0c58ab48544bb1c33a4f11d0bc79bc5a765c6f0754d285a84fdea7e32"
+    },
+    {
+      "pathId": 5134,
+      "type": "GameObject",
+      "rawSha256": "7215d9ba9cee5dcf77b6bb75abfc155d3453d718db8d7d16c91824ac9e4ddcd9"
+    },
+    {
+      "pathId": 5135,
+      "type": "GameObject",
+      "rawSha256": "5303101946a3ac5baf2d460ce616d0ed22a56feb4e093a8fb540d81557f96fc3"
+    },
+    {
+      "pathId": 5208,
+      "type": "GameObject",
+      "rawSha256": "5559dd6fbc0dbc7781a345253a0aa765670d5355673d9ea7790ae3565e07d83e"
+    },
+    {
+      "pathId": 5335,
+      "type": "Transform",
+      "rawSha256": "8f377bf7dd37ab02ff96420e8467af2dc8a22d5ae0f5ca6c94d601f7cca27dda"
+    },
+    {
+      "pathId": 5439,
+      "type": "Transform",
+      "rawSha256": "fb7e77aa5b889bf44b6ac19962d4a3fa19dd2728de0f262e4908cc07bdfd403b"
+    },
+    {
+      "pathId": 11976,
+      "type": "RectTransform",
+      "rawSha256": "2132e3d1ba4320a868b80c566832c494ff35fbb4f6d60356c8464b4d7e33778c"
+    },
+    {
+      "pathId": 12362,
+      "type": "RectTransform",
+      "rawSha256": "8f3f5543e3d340f4306c523ebc5933af9cd7565a1d9d69eaebf1ad1d5c1bce63"
+    },
+    {
+      "pathId": 13275,
+      "type": "RectTransform",
+      "rawSha256": "6e9cb77bafdbaebee7f7894971372c7015f557fb778334d8ca5265812b1cf072"
+    },
+    {
+      "pathId": 13276,
+      "type": "RectTransform",
+      "rawSha256": "a6d278ddbd94c21eae64350e2fdcbb73108f2b03e7dabb45c6404056617baee7"
+    },
+    {
+      "pathId": 13278,
+      "type": "RectTransform",
+      "rawSha256": "27669edf22cb1bebd55be2bd757fcafa2c875740c32484e2d7a28e85fe803f38"
+    },
+    {
+      "pathId": 13279,
+      "type": "RectTransform",
+      "rawSha256": "481d27a41a2ae7c353118275601997661034e9f2b40f4363b1a1a2b1f23a1b98"
+    },
+    {
+      "pathId": 13280,
+      "type": "RectTransform",
+      "rawSha256": "960caae14fe97fb95db502783640a5dcd22e0314e6b14de9af9a5706bb1bc386"
+    },
+    {
+      "pathId": 13281,
+      "type": "RectTransform",
+      "rawSha256": "b57c3c1e70f7a4483300e794d39b64308d9adfe3a661a90cc0af1c7e7eeff7ba"
+    },
+    {
+      "pathId": 13282,
+      "type": "RectTransform",
+      "rawSha256": "27f01d59c9e1f74685fe06fcc599ca4231d9e3c5c741b82f5653870158fc9b18"
+    },
+    {
+      "pathId": 13283,
+      "type": "RectTransform",
+      "rawSha256": "e406e9460bf24fbb02b98b2cfb19f644d82f1cc77b411d8f1e2ad0a4033c6f01"
+    },
+    {
+      "pathId": 13285,
+      "type": "RectTransform",
+      "rawSha256": "5ae77a1baaca3d8e031f96345863e7d1a5ead972e72d2ed74f4d4b3e43240524"
+    },
+    {
+      "pathId": 13286,
+      "type": "RectTransform",
+      "rawSha256": "74f787f016eb771047eecc61cd76b451f818d25cd81027dc4ab234b31b58d276"
+    },
+    {
+      "pathId": 13288,
+      "type": "RectTransform",
+      "rawSha256": "82e997320ee69551b15ed6c9a2b7da5a853996b449041a303dc9d16332d8cda7"
+    },
+    {
+      "pathId": 13289,
+      "type": "RectTransform",
+      "rawSha256": "5ed03c8cfe0b2efd898cdd82ff83258b895daf35393f44f559b24044befb234d"
+    },
+    {
+      "pathId": 13291,
+      "type": "RectTransform",
+      "rawSha256": "7f6470adeb522fb814bb2659318f137e3440889cd35a4c92ca4d12011e0c9d34"
+    },
+    {
+      "pathId": 13292,
+      "type": "RectTransform",
+      "rawSha256": "58ab11b200680987915f13ee1aae63ddf807e2b371bbcd3ce2470b57ac5c2cb4"
+    },
+    {
+      "pathId": 13293,
+      "type": "RectTransform",
+      "rawSha256": "d4bbeb25f51c95ce23579f3b65663197ef3ec5c8e487bbda7d7567020abef025"
+    },
+    {
+      "pathId": 13294,
+      "type": "RectTransform",
+      "rawSha256": "12069abd1b75a2a7831e2b18544254fbf8ef8cf02d88a674af84adaa05ef8c43"
+    },
+    {
+      "pathId": 13295,
+      "type": "RectTransform",
+      "rawSha256": "b7af67490623131d657f3bc3fc476b170c8277ac29443ad469c2511bc8827855"
+    },
+    {
+      "pathId": 13296,
+      "type": "RectTransform",
+      "rawSha256": "861fe1e9e246ae6448d86c4a2879bb493ce0a239192cb4dacad10d6e8868df09"
+    },
+    {
+      "pathId": 13297,
+      "type": "RectTransform",
+      "rawSha256": "50d0aee82892df4e2cb64cc097a1cf247e514fd91b65958d164d6c7fc5d33c09"
+    },
+    {
+      "pathId": 13298,
+      "type": "RectTransform",
+      "rawSha256": "53ee0c0b122f2e2d0cd2028e2e88a49af1294dcdd4b94c1961685a8f126f001b"
+    },
+    {
+      "pathId": 13299,
+      "type": "RectTransform",
+      "rawSha256": "dadf64e62c6f945c6f0b3a520e2a26c2cc07a4f5908f420425c3da0a6fb042c0"
+    },
+    {
+      "pathId": 13300,
+      "type": "RectTransform",
+      "rawSha256": "7e050f508f40291e82f62825d5deb6340aeadf28954a632f4a7fcbb6595b419e"
+    },
+    {
+      "pathId": 13302,
+      "type": "RectTransform",
+      "rawSha256": "d6da23cfc3152d83f0e4c4371c4e1508533284c5d93f200fcc74bff18e5bcabc"
+    },
+    {
+      "pathId": 13303,
+      "type": "RectTransform",
+      "rawSha256": "b1762d44cd4046d5213e2ec722f6013c6af011b6fe03dcd723e966aaadee1bd8"
+    },
+    {
+      "pathId": 13304,
+      "type": "RectTransform",
+      "rawSha256": "38867d4feff714ee6fbece9fc93e2b09be4dc780013466fb3c61241f8433cacd"
+    },
+    {
+      "pathId": 13305,
+      "type": "RectTransform",
+      "rawSha256": "22b0f9f5252e7ac99e382f1a3d770fe7da454a4a3b838f850c4f8054f2e68414"
+    },
+    {
+      "pathId": 13306,
+      "type": "RectTransform",
+      "rawSha256": "575a75de23ebc2a7a2b5c03307634d25f5aab0ce4042a9c4afc0b44a0268a26e"
+    },
+    {
+      "pathId": 13308,
+      "type": "RectTransform",
+      "rawSha256": "eb6d2f713daef6103421ddfa9534143bbe35bbe8d39e2fa0eaf8399a82201c7b"
+    },
+    {
+      "pathId": 13310,
+      "type": "RectTransform",
+      "rawSha256": "9ef30a258df8e04ea15beacead1b2379950788717652a15c28e07a7a0a1bf468"
+    },
+    {
+      "pathId": 13311,
+      "type": "RectTransform",
+      "rawSha256": "7606222010b3fd932c8ef6aa0ce22ff4d6545f08c592ccd48ca731b410570202"
+    },
+    {
+      "pathId": 13312,
+      "type": "RectTransform",
+      "rawSha256": "fc40ac1685144e90eeeea49fb495e9bcdb15b63064936b2a8f464e4096e9980f"
+    },
+    {
+      "pathId": 13313,
+      "type": "RectTransform",
+      "rawSha256": "9dbd92140be325c5e5772fce1c7998088c59f7b87e70b3abc5fd7ad0159b20f6"
+    },
+    {
+      "pathId": 13316,
+      "type": "RectTransform",
+      "rawSha256": "2a04d810f454782c0435ef1ce80fd81715348d64be6af7b6d34194cbf1fa78ac"
+    },
+    {
+      "pathId": 13317,
+      "type": "RectTransform",
+      "rawSha256": "9656791c15048232b8626128d5cc38362834dd192c1432179018ac8ba8c5a71c"
+    },
+    {
+      "pathId": 13318,
+      "type": "RectTransform",
+      "rawSha256": "50d293147e5277669940367f23b61dc77124c9829c11a4035196c7c9ce122d96"
+    },
+    {
+      "pathId": 14193,
+      "type": "MonoBehaviour",
+      "rawSha256": "2f96270e71feec44cc1813a1d06ca9e1e27a6cf65f50c5b39cdf165b5d2848da"
+    },
+    {
+      "pathId": 17708,
+      "type": "MonoBehaviour",
+      "rawSha256": "79f5634f716e4f6fa6502dea658e803eaa0bbf19d14e3792578affcdb6505a21"
+    },
+    {
+      "pathId": 18703,
+      "type": "MonoBehaviour",
+      "rawSha256": "73f4c5c80aba377597c992c1921227e944f0d363bb20809e6c9188d3af9129b6"
+    },
+    {
+      "pathId": 18705,
+      "type": "MonoBehaviour",
+      "rawSha256": "e6e3c90d307b0f38867cb4c4863594a296e361c3a581604084a45d149cadd209"
+    },
+    {
+      "pathId": 18706,
+      "type": "MonoBehaviour",
+      "rawSha256": "278da7cc6e79b8d1fdfe924fda6ba0f35237bf8ff969156d3ad75fd7e3181093"
+    },
+    {
+      "pathId": 18707,
+      "type": "MonoBehaviour",
+      "rawSha256": "523e5f40590cc9e2060073dd4fa04c61ca64bb5f852ef8f8a0ff689a67727b8f"
+    },
+    {
+      "pathId": 18712,
+      "type": "MonoBehaviour",
+      "rawSha256": "5012646b2e544463f17a9f18f11acb7272f6fec5ce98b1bfe2e616d3db48ffa1"
+    },
+    {
+      "pathId": 18713,
+      "type": "MonoBehaviour",
+      "rawSha256": "bd48651a30d95b9c11f7c7cff1476aa741aaa29fd31ead32520e16f3d0021fda"
+    },
+    {
+      "pathId": 18716,
+      "type": "MonoBehaviour",
+      "rawSha256": "efd57b75c750cd8ac01a2dd3f9854d5817d8698d9bdcb6ff3281878044da777b"
+    },
+    {
+      "pathId": 18717,
+      "type": "MonoBehaviour",
+      "rawSha256": "fc20c85c62472b838b3387c168b02ef2872f02bc222a9c0ec75ea6c0afe69d4e"
+    },
+    {
+      "pathId": 18720,
+      "type": "MonoBehaviour",
+      "rawSha256": "c86307b5fe2349ebf7010d6b5e6ef0948df7277f5ebf62acdff9c213629bc3ae"
+    },
+    {
+      "pathId": 18723,
+      "type": "MonoBehaviour",
+      "rawSha256": "f377f0fb415a95641504821cc138868185f08e2ec390556c7c1adf29ba396427"
+    },
+    {
+      "pathId": 18724,
+      "type": "MonoBehaviour",
+      "rawSha256": "4cc0e5c1a1aa98e623503fad920ae79fb5c7bafaed3504fb89147086e5f98218"
+    },
+    {
+      "pathId": 18727,
+      "type": "MonoBehaviour",
+      "rawSha256": "c7cb5500649037bb1e0abf9fbe0037cb405d6f09e9e831f8cee78d4fea258649"
+    },
+    {
+      "pathId": 18728,
+      "type": "MonoBehaviour",
+      "rawSha256": "774bd62b26c885e0031b3151e1aa7e8538e6eab0933cd50695cc117c292a6657"
+    },
+    {
+      "pathId": 18729,
+      "type": "MonoBehaviour",
+      "rawSha256": "4b1c81523d77c377b431de8248389e130f26057676e963b6fbbbf57fb693829f"
+    },
+    {
+      "pathId": 18730,
+      "type": "MonoBehaviour",
+      "rawSha256": "ce621249e195bcb8c526f545f5ede63e4a77a33f107c5eac20be2d9e996c4bc0"
+    },
+    {
+      "pathId": 18736,
+      "type": "MonoBehaviour",
+      "rawSha256": "b670ae842a66f7dd1186575477cfc22916fc7cd3585581732b33ab4f4a5e1ec9"
+    },
+    {
+      "pathId": 18739,
+      "type": "MonoBehaviour",
+      "rawSha256": "0beeca9092effd8ba33c64ff732db80b630e703df268143bcb201b1ea9f35f70"
+    },
+    {
+      "pathId": 18740,
+      "type": "MonoBehaviour",
+      "rawSha256": "af158cfb6f523fffeeaa425358f9f0edc61a960b45be393463e38e2f0d3eb832"
+    },
+    {
+      "pathId": 18742,
+      "type": "MonoBehaviour",
+      "rawSha256": "8d915d93d946ab7dc3c2da67b1acead3337f3b8c32b34a30a616306228766233"
+    },
+    {
+      "pathId": 18744,
+      "type": "MonoBehaviour",
+      "rawSha256": "128fc5132fad96722ff864fe42a1b7919375b3147c49abbf74171ba91f458988"
+    },
+    {
+      "pathId": 18745,
+      "type": "MonoBehaviour",
+      "rawSha256": "cfd775acc2fa0aa2168ac8e7a8f0a4d40db9e982911a75c00ccafe08b2ac0800"
+    },
+    {
+      "pathId": 18746,
+      "type": "MonoBehaviour",
+      "rawSha256": "901f6cb6d147f51ca3f25b3a36561b9f252e7d13ca80d8072ad64afb3d727b37"
+    },
+    {
+      "pathId": 18747,
+      "type": "MonoBehaviour",
+      "rawSha256": "e06128ec4618419cbe3a3e79d0728e841cc7a43bfbe43a38cae3b3334ffbdd5d"
+    },
+    {
+      "pathId": 18750,
+      "type": "MonoBehaviour",
+      "rawSha256": "a39bc4593e57b506cdfd0c70cccf38370cf5602c34bcddbff53b14bcd58ee12c"
+    },
+    {
+      "pathId": 18751,
+      "type": "MonoBehaviour",
+      "rawSha256": "898f768a44963a8835376dde79d8b9214b51f60a68ad59f15b77081a96890ed4"
+    },
+    {
+      "pathId": 18752,
+      "type": "MonoBehaviour",
+      "rawSha256": "d04f29937495821cd8ee2f77ad24096de7f30d907ea2cd664da759aeb74a3f00"
+    }
+  ],
+  "policy": {
+    "cells": "fixed10, single-line advance<=75; no autofit or ellipsis; wrapping/truncation guards cannot substitute for fit validation",
+    "names": "Complete full names required; 14-point header,186×18; resident12 all seven copies",
+    "geometry": "Only FullName RectTransform13285 /m_SizeDelta/y15→18; all other rects unchanged",
+    "preserve": "All font pointers, faces, material/color/alpha, artwork, unknown placeholders, NEW badges, reveal state, save identities and all unselected raw objects",
+    "runtime": "not-run",
+    "sourceGateAccepted": false,
+    "ordinaryTranslationEntryAllowed": false,
+    "wholeGameAccepted": false
+  },
+  "consumerEvidence": {
+    "critter-bio.il.txt": "1c3c793a0fb44a8d9ff91c569457cc73ae996eed22e6fe43e06fe5e4514a2ed5",
+    "critter-log.il.txt": "470055b26c27bd99c3d451ca98494142bbb8dae44b90c2a6de59832e3e5e55ba",
+    "named-resident-status.il.txt": "a06cc2c9e0e80804b952b91b18c1ba7eb1435accb8fbf2826e1d6e0d5931c86e",
+    "named-resident.il.txt": "9ce14bd770ee802142ab8a6db86daa20a238756b4b6d3973016a835aa96fa212"
+  },
+  "managedDependencies": {
+    "AllIn1VfxAssmebly.dll": "2397acc633dd3a25cc5587ea01b881336f270981a2eadddfe4eb2c64a311de52",
+    "AllIn1VfxDemoScriptAssemblies.dll": "496cb67af68524b3cb50da88b30f10746a3f09c44538a67ee744f5e415cc7a28",
+    "AllIn1VfxTexDemoAssembly.dll": "2e9133a7df7f3c15c383a2db2ed65266577eca2db31de40cd84992cba92d8aa8",
+    "Animancer.Examples.dll": "5eab161a17cc95843b5a94ef8a65c644540378f2097611227ce09f1294f649b9",
+    "Animancer.FSM.dll": "69251e38952192e7d00d17da6d1b8dd6955095c4f63ece23a8303f5529db1a8e",
+    "Animancer.dll": "518196a256dd959e7b5ead721fdb237ee3682782396621fe542f698d7ca57ec6",
+    "AnimatorEvent.dll": "8582014f7479c6251af3fc46883151d7ca11ed8adb380b6aba5469d963228f59",
+    "Assembly-CSharp-firstpass.dll": "bae847cb9a938c78268935a4b4010ce95c1f5caf34aef4dd35137a9dde89727d",
+    "Assembly-CSharp.dll": "94b5d36e5e6f8a1a0a12280754ae5c87c3f13338f40b085864d32df13c0ce750",
+    "Auto-asmdef-FirstPass.dll": "5ce4b3209650b64b760d63fa2ce289562a6cc2ee16a27f7157964f30c4abb1db",
+    "Auto-asmdef-SecondPass.dll": "6731a288369fcddc227f5baf601d6ca2f5843e7154184a3dcb4a0d21fb414802",
+    "BGDatabase.Addressables.dll": "788936af32c19f3097b43efbaa31b99bce68380df920c41fd953ecae48c5ba9c",
+    "BGDatabase.dll": "036e91063cd21fea5ba0bc97109ab7a862d042f775323c91732c10e910765daa",
+    "BOC.BTagged.dll": "d8d3796a9699162c66308b3be0088393a70bdf892479d2080495f1a8b84a45e7",
+    "BestHTTP.dll": "eb0bff26d80ade72ebd14e5a9115b4a4ed84031dc3493a98cd1f55e044521cd4",
+    "CodeStage.AFPSCounter.Examples.dll": "9b0b8959fde2c080b3c5938198a3591226c9d237924a766ac9463f170b6768f3",
+    "CodeStage.AFPSCounter.Runtime.dll": "00f0b388ada1013cf5bad83ab11a6582e387bd8b66fac38e49b82e61c6b7244a",
+    "CommandSystem.dll": "7fa7924d2528cf61dde830bed49847d64fc98e1f51bc44a36e7466d44038a6c9",
+    "DOTween.dll": "8e90fc43ab564a5a51424af56531ab074a5a2e9cab271b2d653d287954237b83",
+    "DOTweenPro.dll": "db5225f6db87969a03b48a56e2dc3828b38384adca44da0f89248a2bb483b056",
+    "DemiLib.dll": "924b7530120c080c6acefd20dbab1947c631278836c58f1b466899ad6cd02be2",
+    "Elringus.BlendModes.Runtime.dll": "88b50f3c2f95d44290fafcd651b215382115dbd112053af8ce4e057898c8eff0",
+    "Elringus.DigitalGlitches.Runtime.dll": "606fe5c10d7f935b6a4b99e9c666598a3709652b115bb0750fec9878b95b8f32",
+    "Febucci.Attributes.Runtime.dll": "9a835893f6104ded3a91d1cff76d3b3a4f74bf98eb1c4744e06faac5bb3d788a",
+    "Febucci.TextAnimator.Demo.Runtime.dll": "95218901ce38b3593641e2cd065a2b7488350af735769089eff6a9d99e774b5f",
+    "Febucci.TextAnimator.Runtime.dll": "2c47a2ee13745c83dbcb9e22f714fdd9a97979579e0a97e2aef833e50825a246",
+    "Febucci.TextAnimator.TMP.Runtime.dll": "9cb3f91b109c892c5ca743bd110d0d853061b79b658ed5eb9a3f5597ba3c6de5",
+    "FuzzySprites.dll": "15d1baceeaa86bbfb6376539ee3a073d31d3cddde8434dec6c2915f7e8d266e4",
+    "MonKey Core.dll": "213c17b480e075ccdb36038517c69c435bf1919c5f7cc45bedc619ef83bcb187",
+    "Mono.Security.dll": "8c47b23389f9eede068683ed8b64b5a466f986499112983290778b30accfd1ba",
+    "ParadoxNotion.dll": "8e4f38de61fb33da077bb2b15a75af3c0b0bb71bd6cb9a5d0159310bff6bb44c",
+    "PhysicWind2D.Demo.dll": "9ce602fde4f19e37f766ebde94ff51d8ce4e98438abd3b2f4eb54e3897d91500",
+    "PhysicsWind2D.dll": "615bfbb3c385c0ab08287ef3627efd4fc5b9636c0230cbe54e819ed2630cb3b3",
+    "ProCamera2D.Examples.dll": "ba6a9cee4cfc1be124055bf7dd88316e498f9969113ad1511da76a2ac5987423",
+    "ProCamera2D.Runtime.dll": "b372dd5114838ae7e3b7fe9596104ed2de8e3479005b5d9f7b863f67ce2ff14b",
+    "Rewired_Core.dll": "591d0f9429e66821a4edea6d0c09acc0d78da6512e717b5652c4572f52e2d0bf",
+    "Rewired_Windows.dll": "a9cc6d11a33a14915b6e4f2522c225b75a9befb274b177f72d87c8b389fe2b1c",
+    "RobinBird.Logging.Runtime.dll": "eed0f0d9d3201582cf3f51f241b0cbc362fc8993a936aacb10b4be6f1a98e59d",
+    "RobinBird.Logging.Unity.dll": "5fca029f381ed59d3783accf02bde5a50862feaee3c6f8203a6fbb3bd6a6afbb",
+    "RobinBird.Utilities.Runtime.dll": "f8d3a91f6e2004d4547d8e3d56b328212acd994cee7bdda790401b81942cf523",
+    "RobinBird.Utilities.Unity.dll": "c0b1581fe8a38f8df4645c737bd7a4a03c99bc8574c129d24771a77bb27e2d8d",
+    "RunDesiredScene.dll": "c9cfb881c57a8c42c0b7a065978c6704e52f0884d7887b6cf120d5de2b6059ed",
+    "ShapesRuntime.dll": "543ef90ff582105795a1ea9222f935f96a29f25aff605cc0c496ee5dcafc8187",
+    "SoftMask.dll": "7cf029bb3926bf9195c7b7784b928080f69f85a8817efbe5790991920b28b7ac",
+    "SonicBloom.Koreo.dll": "5213e0f5ff0ec33cff8b176ef093af2b0a1d8eeb2a257f7970e114bb97821740",
+    "SonicBloom.MIDI.dll": "5cfed8746c32a26ba156545885a9bbad3532cd2b86456b93382aa328d66fe99c",
+    "System.ComponentModel.Composition.dll": "596500c15e90d4b63573a19da292009c95b02e05005f48077d7fc0850dd220fd",
+    "System.Configuration.dll": "44c54f752eb9c201cf6f00776075591b65874e2d18f624f23f3a28a411407235",
+    "System.Core.dll": "2d702d211d34e9b94ca18a5ef10a6c2b0fa40fb2cb09751348c7d5bd4dffed02",
+    "System.Data.dll": "23dae8379e8c412f69caa0668be411c87672a775ce473e18faf01f56c114e079",
+    "System.Diagnostics.StackTrace.dll": "4701e843059674accc1c87038ec41f3cecbadce2a65755f527c8b65b0cebc8ce",
+    "System.Drawing.dll": "41d7f9907c43d1c9dda3cd4a9eda76c836dcc7daf7f657ba993f6b6d9c146ae1",
+    "System.EnterpriseServices.dll": "4b0b1cd507cdc422f7e22ab5745988feda8e889f13da225c94bf1359cbca3607",
+    "System.Globalization.Extensions.dll": "4e8c5ad3450450ba6bc6a474300f2445094870f2bcc9ca16472fb2f3adb88ebd",
+    "System.IO.Compression.FileSystem.dll": "221abe4eea00347c51ac7409b47ba7b08ccfdaae8e36e706a8ee0d4de6ceb87a",
+    "System.IO.Compression.dll": "6045d16e65834f67b2604359a137a4b74434293813ccab0d86b34c5f7b1785fa",
+    "System.Net.Http.dll": "7122ed956be9bc78947c893605f35e77506652c61c9cced2ba14156edf7ee7d5",
+    "System.Numerics.dll": "01d3b2dd6375da4378b8c9951a6bbb4997dd6a0651753e5736aa1b0587015f35",
+    "System.Runtime.Serialization.Xml.dll": "2394dff209954e143795bedba8ec9c737e17ecd96e3a3a02de6d7c2631f04152",
+    "System.Runtime.Serialization.dll": "988564a6a6cdd7efc8d541434ccff96bbc2f7f9349290b0efaf5735046cd582f",
+    "System.ServiceModel.Internals.dll": "ab27dd2afdfab73dd36c5b90a542c78a69822d8add2bba3cc95db8990b23f4c4",
+    "System.Transactions.dll": "ff78a8b68809535c1d93cc6e511c79e0d2f85d97b358da2a8a76eca8c8f2e4bc",
+    "System.Xml.Linq.dll": "7152197c2d69b60a24b9af3323b45b76bde9f9f63a447c69090656289ac32c1e",
+    "System.Xml.XPath.XDocument.dll": "c53307ed65e10be7f252ee8c93a6261af7a7c44b5006631f57950624c3f06f5e",
+    "System.Xml.dll": "8283e176446695c0486b8b1cda7581178e9ddd5ceb49873dd7da519730497609",
+    "System.dll": "44ff3c2817a75f2274fa71faa453bb7e231626b8d7398bb5ced72a8259319fb9",
+    "Unity.2D.Animation.Runtime.dll": "63a7c2ee1c6887b3a33f30233d5517104591a041ce5bf797c91a8d1c83f53da9",
+    "Unity.2D.Animation.Triangle.Runtime.dll": "7b2682494a2a9f2afaec339113dbb37954c00771ef524eb8f85ed0cf4d6aa030",
+    "Unity.2D.Common.Runtime.dll": "6979487d02c935577992f982339aaf0628c213b8de1f59f135a09b7851dc15b3",
+    "Unity.2D.IK.Runtime.dll": "aba1450b3d5dbd731f8217ec4f0249aa18783cb7fe3e8fe2ac8cf20b664a5400",
+    "Unity.2D.PixelPerfect.dll": "6c848a46c584198b8ed3bfb2301a906fdbd695804d1a8779aa509190b3bd61af",
+    "Unity.2D.SpriteShape.Runtime.dll": "3fecbfd83733c8e9a044c69fea8904d78dab8bd11034060e28e07831ac32b280",
+    "Unity.Addressables.dll": "aeb798ab51fda6ee1addc6962d4c79764661f8d764133dcbc10369f760d176db",
+    "Unity.InternalAPIEngineBridge.001.dll": "52d488ee88c7c294a03f1730e908eb92e22bf637367dcabaeb3a15d531c146be",
+    "Unity.Mathematics.dll": "f63937450aad208337da8663958f4c4a34ab5ef0f6e8136555a74857c38ca4f1",
+    "Unity.Recorder.Base.dll": "4647a35fee61730963a50bc35dd65cc0a8275b2114708d18cf71d79113402dea",
+    "Unity.Recorder.dll": "ab255e997c695523835529bfa88f1554867fbbdfd7a69e71d52c377ee78f8f76",
+    "Unity.ResourceManager.dll": "b6d34c94fcf8e78c893c8886ec8ecc68e486958e21c78225ce4d526ee76d1386",
+    "Unity.ScriptableBuildPipeline.dll": "ec6ebcab2fb73ccb705f2d4e05763d51f0f31aff17f0a1a584caefb07b59040d",
+    "Unity.TextMeshPro.dll": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+    "Unity.Timeline.dll": "077c485e03e74817625ee1c9ac6e1b0182ecdcbfeee53f7bee777869018f881b",
+    "UnityEngine.AIModule.dll": "744fb3c54b08eb7ce4edb8fba796340bf7d567b92e4a479ef047af6ae385014f",
+    "UnityEngine.ARModule.dll": "9d9d9f7cbb8d9e7fcf327906a8ab413fc4060877bbe7242e50cbf06a8a155f6d",
+    "UnityEngine.AccessibilityModule.dll": "24bb309915137cb41a6f7f64fabe665cc3d48762157c1e552b88f307689e87b0",
+    "UnityEngine.AndroidJNIModule.dll": "3e21973b82db726d144e4573ba0e2ba15b1374736eaeb59a708fef88a596f973",
+    "UnityEngine.AnimationModule.dll": "53d55909cc8f8c82abea29ab107b3b8e970975ed951e1ec2791d085aebabd560",
+    "UnityEngine.AssetBundleModule.dll": "cc805b66537f592819da24b2fec94ebae35affcf1b02e2648e62aaa30f2f4b04",
+    "UnityEngine.AudioModule.dll": "f0fc4a409425171039a77aa699807a65623e15a6aeec00cfd64df601fe2d28ec",
+    "UnityEngine.ClothModule.dll": "cc336772d16dd36a8e8d948c81a458d9449ec519cbc04d689cc93792da2b8a16",
+    "UnityEngine.ClusterInputModule.dll": "10690babdf6d49c80dc26c66fdd7234a9f16b460344edffaef8b91a0bd62c1d4",
+    "UnityEngine.ClusterRendererModule.dll": "1573141ffebf807f72cca3bb7a16a0938b76a4994c5facc08f010133157324b9",
+    "UnityEngine.CoreModule.dll": "32572aef39e4e9b2cd1b732d0e01998874993344c5682662fad513a3e7e49658",
+    "UnityEngine.CrashReportingModule.dll": "0ac4d3323821af65a790cad927d5712248ba267c14d8543158b8e10d6f5c41de",
+    "UnityEngine.DSPGraphModule.dll": "956f7a058e36058e134c657de877c3f52ca19c4bb1f23bc216c7f9ebaae8065e",
+    "UnityEngine.DirectorModule.dll": "36387604c819a669bbecdd779d7a9df89976e588b44b7c3f2908384bc331bf4d",
+    "UnityEngine.GIModule.dll": "a086be50ea50703111917c9e95b9fec8799ee0e64ae3437d2c51935363e7cebc",
+    "UnityEngine.GameCenterModule.dll": "6db8d5a146fbc67d4f2fd4579d8e1389963b74d8332dc8b5c19868fd28a4a644",
+    "UnityEngine.GridModule.dll": "bb51be687cf5d139c566f2ee54e52f9cdbdcc6fc3aced5030b268f9cc944b39b",
+    "UnityEngine.HotReloadModule.dll": "e334c23602c7d5b57b6d82f9f104b0501ff9b1c1e0ebfc4284e2ac5aba898282",
+    "UnityEngine.IMGUIModule.dll": "1809669a9c76ab7e115f81bf67a0f0e94d77b414186c2b9f4314179d74e9884d",
+    "UnityEngine.ImageConversionModule.dll": "4bd837a65c7dcf0c9155d15c0630a5a580c53b8bd1c80bdad659e543f80cf7b1",
+    "UnityEngine.InputLegacyModule.dll": "e68e52e6d2019936216e7a8dd6ea2c079c7f7fa3db1303b9bef6788243e95437",
+    "UnityEngine.InputModule.dll": "f6242ebfb39b98ce5a09dcccf9bea03dd0d78ad5b6e16da797bc10444aab0def",
+    "UnityEngine.JSONSerializeModule.dll": "3782620d077b803c1235c46d6a4a3a4f95d8714f1581d58f869383c12f1af8a3",
+    "UnityEngine.LocalizationModule.dll": "5d4e6c785432319daac6ec296db011829932185a02cc6451c5c40906b554d2b5",
+    "UnityEngine.ParticleSystemModule.dll": "f92efc4be3cd49bdf5a7dc5a69b8e3e9785d9178b6c8e3d82fbbe24fedecaea4",
+    "UnityEngine.PerformanceReportingModule.dll": "b5f8fb199133a5aa664add7ac8af1f29bc35c57dd949265509482118c8b8b783",
+    "UnityEngine.Physics2DModule.dll": "2e3b65dee1a1b6bc80fffab9c477f5e55d3f5fed9ff5cb1fe5be8a422f5fdb59",
+    "UnityEngine.PhysicsModule.dll": "de0fcc69c3b078c994518fd2b6addb1a298c757d8095e0fb223afed5f1833351",
+    "UnityEngine.ProfilerModule.dll": "0b7564791e3afffbcf4700dbf86e7c456b4d5528508f4e4455eeeff38a366729",
+    "UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll": "5e6cee7bde83fe618f02597ddf10b2df421056ff8cd1c70094eda8ae79d1a6c0",
+    "UnityEngine.ScreenCaptureModule.dll": "645960fa2dd30cb79049995c75647bddbc38695cff7c067bfb152d287a383dff",
+    "UnityEngine.SharedInternalsModule.dll": "68c8fd1be3431bb4dc87aa264d802548888e7c9949319dbb4e51eb75f61010ce",
+    "UnityEngine.SpriteMaskModule.dll": "caea2fc6b940697ff24fa3b43f65fd3082bc27d0cf01f23589f357d37547311c",
+    "UnityEngine.SpriteShapeModule.dll": "0b71f25800afcccd0eecd254d39925fac002265d7ee302ef806ca8634069b86f",
+    "UnityEngine.StreamingModule.dll": "341b53f68728c77866c688277ff2b2387cadaf986b82f14a939b52cb5e053e73",
+    "UnityEngine.SubstanceModule.dll": "839f61a59274c3debc76551de08924c0d0ae801b99d43bfb10f7201dd196c4ee",
+    "UnityEngine.SubsystemsModule.dll": "90e5e4204c53c5f0e93f7c6fe7ce7b52fee4c95adcfcdf8fd25194caff76c0ac",
+    "UnityEngine.TLSModule.dll": "dc21e85fb8e7e7bb6956cf627fd5c3d52103e49484e4a92e33f0016d21a80ba6",
+    "UnityEngine.TerrainModule.dll": "c74c515b323bc48d3fe0362cae48d07d2f8812f5313394d4a97418ff60613983",
+    "UnityEngine.TerrainPhysicsModule.dll": "4994a62ddd2857c2d68ccf809cb91d3e067a1aa3a5dafa98106aeee71e7db441",
+    "UnityEngine.TextCoreModule.dll": "5d36823b178018de4ce2aaeec2eed70912a48908f3ddbe721a18fcb106e1d3be",
+    "UnityEngine.TextRenderingModule.dll": "a781542163647487631378c56858013a3a9cf857311c4d29fadb9ac276495f73",
+    "UnityEngine.TilemapModule.dll": "8c251d30ea180fb5db317b5d1101382fac3ca8fffd38f33702975f5659629051",
+    "UnityEngine.UI.dll": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
+    "UnityEngine.UIElementsModule.dll": "8024ea95540406afb7bf025342436940b60c9bef4b345dc7425035994a7862cc",
+    "UnityEngine.UIElementsNativeModule.dll": "8c27636fa14890a8bee1b8239d3f178b3f719e4e9decd3d81b46fc201bb508fa",
+    "UnityEngine.UIModule.dll": "160d98a221a768cf35f1ae52722ca8075e258cd5c99a40a5bcb730c8fe4ee6f8",
+    "UnityEngine.UNETModule.dll": "23198e32eee51c27ea26fe1d8782edd3e6aba7a4971c3244ca3247c43213376d",
+    "UnityEngine.UmbraModule.dll": "e0a85f82b614acf0eca76da305e395299c33c11bdb4e312bb8cca1e5047ee140",
+    "UnityEngine.UnityAnalyticsModule.dll": "128c04539d7eff3415b5e0baa40150167f67f8623ea0e5a45c94d572d08006c4",
+    "UnityEngine.UnityConnectModule.dll": "60504fdf2cdde829d09b7ecaa6aa4497a2e1790ebab66dca8a07930bd4ff878a",
+    "UnityEngine.UnityCurlModule.dll": "554f96b9d1227da09de388c92ff951d2afffbfc3015bfe1c6f4f686f4f25f989",
+    "UnityEngine.UnityTestProtocolModule.dll": "2042ac4a0e3e3e98f29a5ba8b93571d22417876724ab34e63621727bc948efd8",
+    "UnityEngine.UnityWebRequestAssetBundleModule.dll": "daf8b6d4fbb9e48acbcf6b1f6ad6e351b0363d1bd1c110e7fe3fb4a593b93c71",
+    "UnityEngine.UnityWebRequestAudioModule.dll": "c546a1593b1157d504bd421dd577d39160654cb446dd40e65f041b3d28a60a5d",
+    "UnityEngine.UnityWebRequestModule.dll": "1b0f7322b23b345927058f41083ccd8b1c8425d74daa2208fb531a841f314313",
+    "UnityEngine.UnityWebRequestTextureModule.dll": "5d8fa5f42d60f811f9e5b37ab6ecc17ba2efa118bc042be77a9f940854ec8351",
+    "UnityEngine.UnityWebRequestWWWModule.dll": "9870741ce4e32e202935d93b99f3678e2e19c3f516c1bb5eb1080c9bef260739",
+    "UnityEngine.VFXModule.dll": "7c47e3de50c30b8ece805105726c13e23315da89ab09c3762a3e84e733213aaa",
+    "UnityEngine.VRModule.dll": "389681b0b5f429606ebbe6dcafebb834e1e4fa0e0f8369f8afa86ebb044be2ff",
+    "UnityEngine.VehiclesModule.dll": "2e671c680605744856646f531a37f32cbc9fca2746dd68a778a8882ea934996f",
+    "UnityEngine.VideoModule.dll": "76cb252f6ad2d844407bace2f89ef7b0c36a16fe641dd5887d5657bced1cf338",
+    "UnityEngine.VirtualTexturingModule.dll": "42cf6e220d45e17556ca59eb951012df713dae874670017e3ae5815a1f5a9735",
+    "UnityEngine.WindModule.dll": "26767c1e8f10b99809595e9e4e59191602c63e274b023b46b7747c9975fe85db",
+    "UnityEngine.XRModule.dll": "580d6d24e777fcb8a471f60635b4d97bf33f93b5b2dcbde9476adadb61fee912",
+    "UnityEngine.dll": "4e2fc42f42059559768f0308af60e4e2cdf2ed58111da9a3a2df5ebf6abb68ae",
+    "VNRevivalInventoryLayout.dll": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e",
+    "VNRevivalQuestLayout.dll": "f536d11e16b50d8b3a6721747e8e2cd94d981b177a0a38b89035cf739181f910",
+    "VolumetricAudio.dll": "64b06b3f1acc915f7351329468e366aba97041513590da9b3dc1f9faba1d6dd8",
+    "mscorlib.dll": "efa9830957224e9841f99312e3144f8397c6319cde635abbde9fb11860b67a6c",
+    "netstandard.dll": "994be039eb23da7b0c14fc2fa2c09b3ca2a73bb330e840275ab8275063716f0e"
+  }
+}

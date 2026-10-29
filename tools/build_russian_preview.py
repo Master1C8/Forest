@@ -35,6 +35,7 @@ from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_j
 from russian_quest_family import project_quest_family, snapshot as snapshot_quest_family, patch_quest_code
 from russian_quest_notifications import load_inputs as load_quest_notifications, snapshot as snapshot_quest_notifications, patch as patch_quest_notifications
 from russian_tutorial_notifications import load_inputs as load_tutorial_notifications, snapshot as snapshot_tutorial_notifications
+from russian_journal_compact import load_inputs as load_journal_compact, snapshot as snapshot_journal_compact
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_native_font_roles import native_role_plan, apply_native_role
 from tmp_uniform_fallback import uniform_fallback_primary
@@ -104,6 +105,7 @@ def main():
     if args.narrative_display_case:
         load_quest_notifications(Path(__file__).parent / 'quest-notification' if (Path(__file__).parent / 'quest-notification').exists() else None)
         load_tutorial_notifications()
+        load_journal_compact()
         if not args.pause_chapter_display_case:
             parser.error('--narrative-display-case requires --pause-chapter-display-case')
         frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
@@ -221,6 +223,7 @@ def main():
     if args.narrative_display_case:
         frozen_quest_notifications = snapshot_quest_notifications(out)
         frozen_tutorial_notifications = snapshot_tutorial_notifications(out)
+        frozen_journal_compact = snapshot_journal_compact(out)
     snapshot_journal_headers(out)
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
@@ -703,6 +706,16 @@ def main():
         assert sha(target / resource_name) == report['tutorialNotificationRepair']['targetSha256']
         prior_report, = [row for row in report['files'] if row['path'] == resource_name]
         prior_report['probeSha256'] = report['tutorialNotificationRepair']['targetSha256']
+        compact_resources = out / 'journal-compact-resources'
+        subprocess.run([str(frozen_narrative / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_journal_compact / 'russian_journal_compact.py'), '--locale', 'ru',
+                        '--source', str(target), '--output', str(compact_resources)], check=True)
+        report['journalCompactRepair'] = json.loads((compact_resources / 'Result.json').read_text())
+        for resource_name, expected_hash in report['journalCompactRepair']['files'].items():
+            shutil.copy2(compact_resources / resource_name, target / resource_name)
+            assert sha(target / resource_name) == expected_hash
+            prior_report, = [row for row in report['files'] if row['path'] == resource_name]
+            prior_report['probeSha256'] = expected_hash
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})
