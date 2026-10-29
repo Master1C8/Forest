@@ -45,6 +45,7 @@ from russian_storm_greetings import load_inputs as load_storm_greetings, snapsho
 from russian_dam_minigame import load_inputs as load_dam_minigame, snapshot as snapshot_dam_minigame
 from russian_adventures import load_inputs as load_adventures, snapshot as snapshot_adventures
 from russian_lantern import load_inputs as load_lantern, snapshot as snapshot_lantern
+from russian_completion import load_inputs as load_completion, snapshot as snapshot_completion
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_native_font_roles import native_role_plan, apply_native_role
 from tmp_uniform_fallback import uniform_fallback_primary
@@ -124,6 +125,7 @@ def main():
         load_dam_minigame()
         load_adventures()
         load_lantern()
+        load_completion()
         if not args.pause_chapter_display_case:
             parser.error('--narrative-display-case requires --pause-chapter-display-case')
         frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
@@ -253,6 +255,7 @@ def main():
         frozen_dam_minigame = snapshot_dam_minigame(out)
         frozen_adventures = snapshot_adventures(out)
         frozen_lantern = snapshot_lantern(out)
+        frozen_completion = snapshot_completion(out)
     snapshot_journal_headers(out)
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
@@ -837,6 +840,17 @@ def main():
         prior_report['probeSha256'] = report['lanternTutorialRepair']['targetSha256']
         prior_report['lanternTextFields'] = 30
         prior_report['lanternBodyRectChanges'] = 10
+        completion_resources = out / 'completion-notification-resources'
+        subprocess.run([str(frozen_narrative / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_completion / 'russian_completion.py'), '--locale', 'ru',
+                        '--source', str(target), '--output', str(completion_resources)], check=True)
+        report['completionNotificationRepair'] = json.loads((completion_resources / 'Result.json').read_text())
+        shutil.copy2(completion_resources / 'sharedassets2.assets', target / 'sharedassets2.assets')
+        assert sha(target / 'sharedassets2.assets') == report['completionNotificationRepair']['targetSha256']
+        prior_report, = [row for row in report['files'] if row['path'] == 'sharedassets2.assets']
+        assert prior_report['probeSha256'] == report['completionNotificationRepair']['sourceSha256']
+        prior_report['probeSha256'] = report['completionNotificationRepair']['targetSha256']
+        prior_report['completionNotificationTextFields'] = 12
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})

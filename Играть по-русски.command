@@ -15,7 +15,7 @@ if [[ ! -f "$forest_game/The Forest of Love.exe" ]]; then
   exit 1
 fi
 
-/usr/bin/python3 -B "$forest_project/tools/apply_lantern_hotfix.py" \
+/usr/bin/python3 -B "$forest_project/tools/apply_completion_hotfix.py" \
   --candidate "$forest_project/localization/previews/ru-20261029-narrative42-01"
 
 forest_stamp="$(/bin/date +%Y%m%d-%H%M%S)"
