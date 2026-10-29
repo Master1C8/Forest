@@ -1,3 +1,39 @@
+# Current Russian candidate: Pause434 and native descriptions, October29
+
+The current complete local QA build is
+[ru-20261029-pause434-01](localization/previews/ru-20261029-pause434-01/build.json),
+build SHA `9880fdca75fac8ecffc77f749898708f72c16ca8cbc447e0f961ff1ec75d52b6`.
+It includes the accepted Bio185 and new Pause/Chapter434 static stages.
+All14 delivered files and1385 original textures across26 containers verify.
+The434 application protects12 retained captions,37 held fields and93 protected
+fields. Only a normal QA productName may vary after byte-exact whole-container
+reversal;helper metadata remains covered by the existing strict v2 contract.
+
+[Description run09](localization/visual-qa/ru-chapter-description-20261029-09/final-acceptance.json)
+accepts all28 original description arguments,129 loaded database states,
+168 text fields/140 visible faces and both complete native frames. The actual
+Chapter Select header is Russian. A shared diagnostic incorrectly rejected the
+orthographic camera's valid near0/depth0 plane;the actual-camera interval predicate
+passes4511 compiled controls and the new native workload with zero geometry/glyph
+issues. Both original-route runs restore task saves/settings and localized code,
+remove the bridge,close the owned process and preserve the parent candidate.
+OOS28 and its original3+1 subscriber-effect/hide predicates remain held.
+
+The [narrative150 resource contract](localization/source/narrative150-resource-contract-20261029/HANDOFF.md)
+maps every current selector and concrete fallback role. All120 accepted whole-page
+projections pass raw/NFC Font439 coverage. Parent admits only seven source-selected
+pages/42 fields for the next static stage. Inactive Mouse78 retain current fields
+and activation;Penny30 remain source-held with null targets. No narrative target
+has yet been applied. Exact source/current line-spacing differences are recorded.
+
+The [finite acceptance checklist](localization/completion/ru-20261029/acceptance-checklist.json)
+is current. Other menu/Bio/input contexts,ornamental/source-case predicates,
+actual choices/awards/progression and final package/platform acceptance remain
+open. Ordinary translation entry,whole-game and release acceptance remain false.
+No owner installation/save modification,texture edit,installer,publication or
+deployment is included. The earlier sections below retain prior snapshots;
+the current paths and dispositions above supersede their Russian next-step state.
+
 # Current Russian completion, October29
 
 The accepted935-ID UI packet includes32 reviewed corrections. The134-occurrence
