@@ -1,0 +1,40 @@
+{
+  "source": {
+    "scope": "Single owner-provided Green Bell notification frame; not full game evidence",
+    "sourceImage": {
+      "path": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-29 в 16.37.47.png",
+      "filename": "Снимок экрана — 2026-10-29 в 16.37.47.png",
+      "sha256": "e92958f2fad569d5a0a87434294945594966663cef8a87c89a7c8fc1efbf608f",
+      "width": 2300,
+      "height": 1090
+    },
+    "assistantGameLaunches": 0,
+    "exactCaptureBuild": "unverified; supplied screenshot predates current journal hotfix"
+  },
+  "representation": "WebP80,1280x607,original2300x1090 unchanged",
+  "reviewLedgerSha256": "afec9820714314e517e99be93a2e369babc3414fd86919ec6e89b174f1502e78",
+  "images": [
+    {
+      "observations": "Inspected the entire delivered 1280×607 WebP. Visible English glyphs are clear; the body wraps across two readable lines without clipping or text overlap. Central artwork remains visible. No external overlays are present. Russian is LTR. The capture build is unverified, so this historical frame cannot establish the proposed patch's runtime result.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "blocker",
+          "region": "Top notification heading and body at approximately x80–1110, y397–472",
+          "observed": "The heading remains English, consistent with THE GREEN BELL; the body reads “You found a green bell! Now you can summon Penny to the Central Forest fast travel perch.” No Russian notification text is visible.",
+          "expected": "Russian heading and notification body, with no source-English exception.",
+          "nextAction": "The owning workflow must verify Russian text in the packaged notification and supply a new build-bound frame for review."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Upper heading at approximately x350–880, y0–50",
+          "observed": "The heading intersects the upper image boundary, leaving its upper portions outside the supplied frame. This image cannot distinguish capture framing from an in-game layout defect.",
+          "expected": "A complete visible heading with sufficient framing to assess its glyphs and padding.",
+          "nextAction": "Supply an uncropped, build-bound prepared frame containing the complete heading; retain needs-review until its full bounds can be inspected."
+        }
+      ]
+    }
+  ],
+  "correctedRuntimeVisualAccepted": false
+}

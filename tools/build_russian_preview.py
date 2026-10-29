@@ -36,6 +36,7 @@ from russian_quest_family import project_quest_family, snapshot as snapshot_ques
 from russian_quest_notifications import load_inputs as load_quest_notifications, snapshot as snapshot_quest_notifications, patch as patch_quest_notifications
 from russian_tutorial_notifications import load_inputs as load_tutorial_notifications, snapshot as snapshot_tutorial_notifications
 from russian_journal_compact import load_inputs as load_journal_compact, snapshot as snapshot_journal_compact
+from russian_bell_notifications import load_inputs as load_bell_notifications, snapshot as snapshot_bell_notifications
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_native_font_roles import native_role_plan, apply_native_role
 from tmp_uniform_fallback import uniform_fallback_primary
@@ -106,6 +107,7 @@ def main():
         load_quest_notifications(Path(__file__).parent / 'quest-notification' if (Path(__file__).parent / 'quest-notification').exists() else None)
         load_tutorial_notifications()
         load_journal_compact()
+        load_bell_notifications()
         if not args.pause_chapter_display_case:
             parser.error('--narrative-display-case requires --pause-chapter-display-case')
         frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
@@ -224,6 +226,7 @@ def main():
         frozen_quest_notifications = snapshot_quest_notifications(out)
         frozen_tutorial_notifications = snapshot_tutorial_notifications(out)
         frozen_journal_compact = snapshot_journal_compact(out)
+        frozen_bell_notifications = snapshot_bell_notifications(out)
     snapshot_journal_headers(out)
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
@@ -716,6 +719,16 @@ def main():
             assert sha(target / resource_name) == expected_hash
             prior_report, = [row for row in report['files'] if row['path'] == resource_name]
             prior_report['probeSha256'] = expected_hash
+        bell_resources = out / 'bell-notification-resources'
+        subprocess.run([str(frozen_narrative / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_bell_notifications / 'russian_bell_notifications.py'), '--locale', 'ru',
+                        '--source', str(target), '--output', str(bell_resources)], check=True)
+        report['bellNotificationRepair'] = json.loads((bell_resources / 'Result.json').read_text())
+        resource_name = report['bellNotificationRepair']['resource']
+        shutil.copy2(bell_resources / resource_name, target / resource_name)
+        assert sha(target / resource_name) == report['bellNotificationRepair']['targetSha256']
+        prior_report, = [row for row in report['files'] if row['path'] == resource_name]
+        prior_report['probeSha256'] = report['bellNotificationRepair']['targetSha256']
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})
