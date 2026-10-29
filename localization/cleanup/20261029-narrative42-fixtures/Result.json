@@ -1,0 +1,32 @@
+{
+  "status": "completed-verified-duplicate-and-lossless-fixture-cleanup",
+  "filesRemoved": 596,
+  "logicalBytesRemoved": 27031901126,
+  "losslessArchives": [
+    {
+      "path": "localization/cleanup/20261029-narrative42-fixtures/archives/5707a2b6603e155c32dd67271286c8c51950fcee57e42a4ea00c97dab19d5f84.bundle.gz",
+      "sha256": "bdaec697774f13c3e75ad2b082f828f2991f371ed3a096bc91446f32619d8489",
+      "originalSha256": "5707a2b6603e155c32dd67271286c8c51950fcee57e42a4ea00c97dab19d5f84",
+      "originalBytes": 971484421,
+      "compressedBytes": 35924852
+    },
+    {
+      "path": "localization/cleanup/20261029-narrative42-fixtures/archives/d2be1f69389f6944d36b7c3922fb55d50099e6035fffab5facc27c3436146c2a.bundle.gz",
+      "sha256": "d67cfe689cbd7c8a88a03b83b3071a67fa110b320328450be24aae1af67ce329",
+      "originalSha256": "d2be1f69389f6944d36b7c3922fb55d50099e6035fffab5facc27c3436146c2a",
+      "originalBytes": 971482205,
+      "compressedBytes": 35917881
+    },
+    {
+      "path": "localization/cleanup/20261029-narrative42-fixtures/archives/93e4ed53c7fed6cdd35ca014a904594261cca0586e562b9011b17f680a252989.bundle.gz",
+      "sha256": "f2436a249b5595c8309a2ac1be8124e3221cc68fb4b2598dcb298ffc6f35a73b",
+      "originalSha256": "93e4ed53c7fed6cdd35ca014a904594261cca0586e562b9011b17f680a252989",
+      "originalBytes": 971482069,
+      "compressedBytes": 35918623
+    }
+  ],
+  "freeBytesBefore": 2973765632,
+  "freeBytesAfter": 20469334016,
+  "protected": "Current build,private-source,all execution snapshots,guard inputs,old code/results/ledgers,and unique small/partial failed outputs remain.",
+  "restore": "For each plan row,copy retained raw anchor or gzip-decompress its archive to the exact path,then require original SHA256. Superseded raw fixture directories are partial archives,not runnable inputs until restored."
+}
