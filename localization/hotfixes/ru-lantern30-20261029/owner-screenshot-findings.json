@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "d750e548114304d27cae44abea1db9aefa444fa0484971d1efda5fdd80179892",
+    "provenance:sourceManifest": "529cd49455393077035eeeb95de96cb6872a6126c5a421a26a99131ffa5f7d63",
+    "provenance:source:owner-input": "3daebe66879dd80378c990995a33af17ecf01967e5088f47c3f13af3d47a5b7c",
+    "provenance:source-image:Снимок экрана — 2026-10-29 в 20.05.42.png": "bb0e7756615c18c620e111e623901687c09d14f07e1e8a2268378a0368099cec",
+    "provenance:source-image:Снимок экрана — 2026-10-29 в 20.05.36.png": "ab892f694f998278ab4f22b7a20d881ab82f8b578fe5d4702a6b35327c5cbbb7",
+    "provenance:source-image:Снимок экрана — 2026-10-29 в 19.52.25.png": "f7d4cd6ed82618aa0b532b6a88d0a751bc21d89f8d29390327e12e6ffec25e08",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "c5d82430e7b929ab3ce7030d1a348b6d83fcde055facfa3ad3fc3ec2a26e432f"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "bb0e7756615c18c620e111e623901687c09d14f07e1e8a2268378a0368099cec.webp",
+      "sha256": "a9f7fedc3f65bea5765368a5b90fa3545c8b77c11783f06ba11f8c830879c7e9",
+      "width": 1280,
+      "height": 693,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T13:45:38.146854+00:00",
+      "observations": "Inspected the entire delivered 1280×693 prepared WebP. Visible glyphs are readable, with no replacement characters, literal tags or external overlays. English tutorial text appears in the assigned Russian frame. Several instruction lines terminate at the right image boundary. Native clipping versus capture cropping cannot be established from this packet.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top heading and subtitle; right-side tutorial instructions",
+          "observed": "“LANTERN”, “(Tutorial)” and all visible instructional prose remain English.",
+          "expected": "Russian localized tutorial text for the assigned Russian locale.",
+          "nextAction": "Trace these tutorial fields through the authored Russian resources, packaged payload and active locale binding; review a corrected capture after repair."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Right image boundary, approximately x=1270–1279, across instruction blocks at y=225–620",
+          "observed": "Multiple lines continue beyond the delivered image edge, leaving words and sentences incomplete. The packet does not establish whether the loss originates in native layout or capture bounds.",
+          "expected": "Complete instructions visible within their fields, with sufficient evidence to distinguish layout overflow from capture cropping.",
+          "nextAction": "Reconcile the native original and capture bounds using the pinned provenance. Supply a complete prepared frame or source-bound crop as appropriate; do not reconstruct missing endings."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "ab892f694f998278ab4f22b7a20d881ab82f8b578fe5d4702a6b35327c5cbbb7.webp",
+      "sha256": "4077d61bb9454af338f0b6e1dbe4fe037dfef4ad3dd4bc5fd434f59bb93b3cdd",
+      "width": 1280,
+      "height": 693,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T13:45:38.146907+00:00",
+      "observations": "Inspected the entire delivered 1280×693 prepared WebP. The heading and both unlock-message lines fit visibly without clipping or overlap. Glyphs are readable and no external overlays are present. All displayed text remains English in the assigned Russian frame. This pre-fix image does not establish corrected rendering acceptance.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top “LANTERN” heading and bottom unlock message, approximately x=275–1135, y=535–620",
+          "observed": "The frame displays “LANTERN”, “You got the Lantern!” and “Now you can explore the deepest darkest woods.” in English.",
+          "expected": "Russian localized item heading and unlock message for the assigned Russian locale.",
+          "nextAction": "Trace the unlock fields through the authored Russian resources, packaged payload and active locale binding; review the complete corrected frame after repair."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "f7d4cd6ed82618aa0b532b6a88d0a751bc21d89f8d29390327e12e6ffec25e08.webp",
+      "sha256": "f0822cf8c871f1c5f48fae40e7002473c3ea5a9fbbc612ae0bf74ad9fdfa09f5",
+      "width": 1280,
+      "height": 693,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-29T13:46:33.354335+00:00",
+      "observations": "Inspected the complete delivered 1280×693 WebP. Russian glyphs are recognizable, with no visible tofu or external overlays. The title has overlapping letters; the lower sentence reaches the right image boundary. This pre-fix frame cannot establish corrected rendering acceptance.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Upper title, approximately x=230–690, y=20–105",
+          "observed": "The enlarged Ф is displaced into and overlaps the remaining letters of the first word, disrupting its reading order.",
+          "expected": "ФИОЛЕТОВЫЙ КОЛОКОЛЬЧИК, with enlarged initial letters positioned without overlap.",
+          "nextAction": "Verify the staged shared heading fix in the packaged artifact and review a new complete frame linked to this failure."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Lower notification, approximately x=0–1279, y=520–565; especially the right edge",
+          "observed": "The sentence beginning «Ты получил фиолетовый колокольчик! Теперь можно путешествовать…» continues into the right image boundary, where its ending cannot be read. The packet does not establish whether this is capture cropping or native clipping, and the complete authored sentence is unavailable.",
+          "expected": "The complete authored notification must be readable within its intended field, or capture boundaries must be documented against the native frame.",
+          "nextAction": "Provide the exact authored notification and source-bound edge evidence or an uncropped complete frame. Reassess completeness and native clipping without reconstructing the missing ending."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}
