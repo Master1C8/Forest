@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "0c19e0e36bfe3ca775858134da5df70a007724a2a76d8c6cf615931b6103d58c",
+    "provenance:sourceManifest": "38337909ed5f4b99f43ac719bee8b9649142d5fcfd10dd34a26ad9ce59a88615",
+    "provenance:source:owner-input": "7c5b931315a3869b1270b836f9abd09caf06193974afd6aeda0b52710aed16b6",
+    "provenance:source-image:Снимок экрана — 2026-10-29 в 19.45.52.png": "5f56c21973a547565b47cf6e411021bcb0b7284576b6635784d510814b1cb54c",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "d8e01f35baf882c7a84af3e294fa8fef528f9d69513a1c3f009a638e28ed9ffb"
+  },
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "5f56c21973a547565b47cf6e411021bcb0b7284576b6635784d510814b1cb54c.webp",
+      "sha256": "417373d3a46db6660f76963748a67890c309b985de7f04eacc62e81be48d5ae7",
+      "width": 1280,
+      "height": 693,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T13:11:02.663816+00:00",
+      "observations": "Inspected the entire delivered 1280×693 WebP. Visible Latin glyphs are readable, with no apparent missing glyphs, text overlap or external overlays. Cyrillic rendering is not exercised. This historical pre-fix frame does not establish corrected native acceptance.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "blocker",
+          "region": "Heading “ADVENTURES” and both explanatory paragraphs",
+          "observed": "The heading and explanatory body appear in English in the assigned Russian frame.",
+          "expected": "Russian tutorial text; no approved English exception exists.",
+          "nextAction": "Trace the three-page tutorial source through the Russian packaged payload and TMP bindings, correct the responsible localization path, and review newly captured affected pages."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Second paragraph, approximately x=14–1279, y=570–608; right frame edge",
+          "observed": "The visible sentence ends with “keep the story in” near the right edge. The supplied source continues with “focus!”, which is not visible. This frame cannot distinguish screenshot cropping from native text-field clipping or overflow.",
+          "expected": "The complete authored paragraph remains readable within its native field with adequate padding.",
+          "nextAction": "Obtain an uncropped native frame with an exact build/capture receipt and prepare its compliant preview. Inspect the complete field and wrapping before attributing the missing ending to an in-game defect."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

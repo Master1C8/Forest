@@ -1,0 +1,50 @@
+[
+  {
+    "artifact": "membership-scope.json",
+    "predicate": "Exact active versus inactive source scope",
+    "status": "static-resolved",
+    "evidence": "48 exact source texts;24 active/12 inactive-contained/12 inactive-unrelated; current before-trees",
+    "uncertainty": "Runtime instrumentation was excluded",
+    "nextPermittedAction": "Parent apply only accepted24 text memberships; keep inactive24 exact"
+  },
+  {
+    "artifact": "controller-version-readback.json + controller-route.json",
+    "predicate": "Known tutorial/animation title activation route",
+    "status": "static-resolved",
+    "evidence": "Final code65 matches original/reused bounded methods; clips304/305 target only Page1/Icon+Container",
+    "uncertainty": "No live instance inspected",
+    "nextPermittedAction": "Preserve existing activation and event/controller bindings"
+  },
+  {
+    "artifact": "font-role-check.json + body-layout-plan.json",
+    "predicate": "Current embedded font covers final draft24 characters",
+    "status": "static-covered",
+    "evidence": "Current resources053 Font439 cmap has zero missing draft codepoints",
+    "uncertainty": "Actual fallback allocation, glyph mesh and native marks not run",
+    "nextPermittedAction": "Parent pin accepted wording and recheck affected codepoints if it changes"
+  },
+  {
+    "artifact": "body-layout-plan.json",
+    "predicate": "Visible body layers inherit preferred height",
+    "status": "proposed-not-applied",
+    "evidence": "15 exact before/after rect proposals; pages2/3 estimated body heights exceed fixed50 nested child boxes",
+    "uncertainty": "Overflow0 precludes claiming clipping from rects alone; no TMP native layout",
+    "nextPermittedAction": "Parent may apply guarded15-rect inheritance proposal within authorized repair scope"
+  },
+  {
+    "artifact": "layout.json",
+    "predicate": "Final native body/title fit and page progression",
+    "status": "not-run",
+    "evidence": "Saved widths, scales, fitter modes and current draft static metrics only",
+    "uncertainty": "Full-page vertical fit, animated placement, overlap, actual wrapping/face selection",
+    "nextPermittedAction": "Await applicable owner instruction for native checks; do not launch game or capture"
+  },
+  {
+    "artifact": "REPORT.md",
+    "predicate": "Delivered artifact integration and packaging",
+    "status": "parent-owned",
+    "evidence": "No resource or package produced by this assignment",
+    "uncertainty": "Final24 wording acceptance/resource patch/readback not owned here",
+    "nextPermittedAction": "Parent owns semantic review, guarded resource application, package and canonical integration"
+  }
+]
