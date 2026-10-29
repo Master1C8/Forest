@@ -97,7 +97,20 @@ def main():
     parser.add_argument('--remaining-display-case', action='store_true', help='Apply accepted Russian51 display occurrences after supported Haiku identity stage; 17 BG cells and 31 new operands, retaining 3 chapter labels')
     parser.add_argument('--bio-input-display-case', action='store_true', help='Apply accepted Bio113/input72 display fields after the supported remaining51 stage; preserves input identities and all managed code')
     parser.add_argument('--pause-chapter-display-case', action='store_true', help='Apply accepted434 static Pause/Chapter captions after Bio/input; preserve all held/protected fields and controller state')
+    parser.add_argument('--narrative-display-case', action='store_true', help='Apply only the parent-admitted seven whole narrative pages/42 native text fields after Pause/Chapter')
     args = parser.parse_args()
+    if args.narrative_display_case:
+        if not args.pause_chapter_display_case:
+            parser.error('--narrative-display-case requires --pause-chapter-display-case')
+        frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
+        if frozen_narrative.is_file():
+            import importlib.util
+            spec = importlib.util.spec_from_file_location('forest_narrative_bootstrap', frozen_narrative)
+            narrative_adapter = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(narrative_adapter)
+        else:
+            import russian_narrative_case as narrative_adapter
+        narrative_adapter.load_inputs(locale='ru')
     if args.pause_chapter_display_case:
         if not args.bio_input_display_case:
             parser.error('--pause-chapter-display-case requires --bio-input-display-case')
@@ -219,6 +232,8 @@ def main():
         frozen_bio = bio_adapter.snapshot(out, locale='ru')
     if args.pause_chapter_display_case:
         frozen_pause = pause_adapter.snapshot(out, locale='ru')
+    if args.narrative_display_case:
+        frozen_narrative = narrative_adapter.snapshot(out, locale='ru')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     shutil.copy2(Path(__file__).parent / 'russian_native_font_roles.py', out / 'russian_native_font_roles.py')
     shutil.copy2(Path(__file__).parent / 'tmp_uniform_fallback.py', out / 'tmp_uniform_fallback.py')
@@ -642,6 +657,20 @@ def main():
             assert sha(target / name) == expected_hash
             existing = [row for row in report['files'] if row['path'] == name]
             assert len(existing) == 1, 'Pause stage updates an existing file report row'
+            existing[0]['probeSha256'] = expected_hash
+    if args.narrative_display_case:
+        staged = out / 'narrative-resources'
+        subprocess.run([str(frozen_narrative / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_narrative / 'russian_narrative_case.py'), '--locale', 'ru', 'apply',
+                        '--source', str(target), '--output', str(staged)], check=True)
+        report['narrativeDisplayCase'] = True
+        report['narrativeDisplayProjection'] = json.loads((staged / 'Result.json').read_text())
+        for name, expected_hash in report['narrativeDisplayProjection']['files'].items():
+            assert sha(staged / name) == expected_hash
+            existing = [row for row in report['files'] if row['path'] == name]
+            assert len(existing) == 1, 'Narrative stage updates exactly one existing file report row'
+            shutil.copy2(staged / name, target / name)
+            assert sha(target / name) == expected_hash
             existing[0]['probeSha256'] = expected_hash
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
