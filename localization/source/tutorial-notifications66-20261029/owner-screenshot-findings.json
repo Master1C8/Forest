@@ -1,0 +1,105 @@
+{
+  "scope": "Both owner-provided screenshots in current request, not whole-game visual acceptance",
+  "inputManifestSha256": "d2c2cd01171aee7fbf84f403219f6040ab22b4058fcd1b162a940edd30f60ce2",
+  "reviewLedgerSha256": "b0b1ca2f9407008b14fcc65cdc1de3742751981d1374a2a161e1cdecfb2dbffc",
+  "reviewModel": "gpt-6.1-sol/high/OpenAI",
+  "representation": "WebP quality80,1280x656,complete supplied frames; original1966x1008 PNG unchanged",
+  "images": [
+    {
+      "filename": "67eec054fe5498eecbdd5817efd0f757880e69114ca946b35db4ac34fc0b5bcb.webp",
+      "sha256": "ff99b9c9f05ba04631ffe45f2e39e8066a1485c4b5894f686eeb35a5a76724a5",
+      "observations": "Inspected the entire delivered 1280×656 prepared WebP. Visible Latin glyphs are readable; Cyrillic rendering is untested. Instructional paragraphs wrap legibly over the artwork. No external overlays are visible. Capture-build identity and authored Russian wording remain needs-review.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "blocker",
+          "region": "SWIM FLOATIES heading, (Tutorial) subtitle, and all instructional paragraphs",
+          "observed": "All visible instructional text is English, including automatic equipment use, walking beside water, and swimming only in calmer water.",
+          "expected": "Russian heading, subtitle, and instructions for SwimFloatiesTutorial Page2.",
+          "nextAction": "Trace these visible strings through the authored Russian entries and packaged payload; review corrected evidence after an authorized repair."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Top edge, approximately x=180–785, y=0–60",
+          "observed": "The upper portions of the SWIM FLOATIES heading are cut off by the supplied frame boundary.",
+          "expected": "The complete heading is visible with adequate padding.",
+          "nextAction": "Compare the bound original and capture framing to determine where clipping occurred; provide complete heading evidence. This frame does not establish a game-layout cause."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Frame provenance and SwimFloatiesTutorial Page2 source binding",
+          "observed": "Needs-review: the capture build is unverified, and exact authored Russian strings are unavailable in this packet.",
+          "expected": "Verified capture-to-build binding and corresponding authored Russian text.",
+          "nextAction": "Reconcile the pinned source binding with the captured build and locale entries before judging translation completeness or repair closure."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "filename": "d727f464ee4ce818e274a9de7d2fd55d1064cf634f1d6d31bee011594f2dbe2e.webp",
+      "sha256": "808997b5c3ad2268233f847aa8d5e1d341b47579c72e459b1556d35eccfb06ed",
+      "observations": "Inspected the entire delivered 1280×656 prepared WebP. Visible Latin glyphs are readable; Cyrillic rendering is untested. Both body lines remain legible over the artwork without evident truncation. No external overlays are visible. Capture-build identity and authored Russian wording remain needs-review.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "blocker",
+          "region": "THE BLUE BELL heading and lower two-line notification",
+          "observed": "The heading and notification remain English: “You found a blue bell! Wonder what it's for...” and “Maybe you should ring it at the perch!”",
+          "expected": "Russian heading and notification for BlueBellItemNotification Page1.",
+          "nextAction": "Trace these visible strings through the authored Russian entries and packaged payload; review corrected evidence after an authorized repair."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Top edge, approximately x=185–780, y=0–60",
+          "observed": "The upper portions of the THE BLUE BELL heading are cut off by the supplied frame boundary.",
+          "expected": "The complete heading is visible with adequate padding.",
+          "nextAction": "Compare the bound original and capture framing to determine where clipping occurred; provide complete heading evidence. This frame does not establish a game-layout cause."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Frame provenance and BlueBellItemNotification Page1 source binding",
+          "observed": "Needs-review: the capture build is unverified, and exact authored Russian strings are unavailable in this packet.",
+          "expected": "Verified capture-to-build binding and corresponding authored Russian text.",
+          "nextAction": "Reconcile the pinned source binding with the captured build and locale entries before judging translation completeness or repair closure."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ],
+  "ownerClarification": "Owner explicitly answered: headings are cropped only by screenshot boundaries, not in the game. No game-layout repair required for that finding.",
+  "contentResolution": "All66 mapped text fields now applied; corrected native appearance not yet reviewed",
+  "newGameLaunches": 0,
+  "correctedRuntimeVisualAccepted": false,
+  "sourceImages": [
+    {
+      "path": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-29 в 15.49.03.png",
+      "filename": "Снимок экрана — 2026-10-29 в 15.49.03.png",
+      "width": 1966,
+      "height": 1008,
+      "sha256": "67eec054fe5498eecbdd5817efd0f757880e69114ca946b35db4ac34fc0b5bcb"
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-29 в 15.47.02.png",
+      "filename": "Снимок экрана — 2026-10-29 в 15.47.02.png",
+      "width": 1966,
+      "height": 1008,
+      "sha256": "d727f464ee4ce818e274a9de7d2fd55d1064cf634f1d6d31bee011594f2dbe2e"
+    }
+  ]
+}
