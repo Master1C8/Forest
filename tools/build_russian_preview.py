@@ -95,7 +95,20 @@ def main():
     parser.add_argument('--chapter-gallery-case', action='store_true', help='Apply the accepted134-occurrence chapter/gallery preparation case; requires inventory completion')
     parser.add_argument('--haiku-option-identity', action='store_true', help='Preserve the nine accepted Russian haiku option identities at the original evaluation boundary; requires the supported chapter/gallery stage')
     parser.add_argument('--remaining-display-case', action='store_true', help='Apply accepted Russian51 display occurrences after supported Haiku identity stage; 17 BG cells and 31 new operands, retaining 3 chapter labels')
+    parser.add_argument('--bio-input-display-case', action='store_true', help='Apply accepted Bio113/input72 display fields after the supported remaining51 stage; preserves input identities and all managed code')
     args = parser.parse_args()
+    if args.bio_input_display_case:
+        if not args.remaining_display_case:
+            parser.error('--bio-input-display-case requires --remaining-display-case')
+        frozen_bio = Path(__file__).parent / 'bio-input/russian_bio_input_case.py'
+        if frozen_bio.is_file():
+            import importlib.util
+            spec = importlib.util.spec_from_file_location('forest_bio_input_bootstrap', frozen_bio)
+            bio_adapter = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(bio_adapter)
+        else:
+            import russian_bio_input_case as bio_adapter
+        bio_adapter.load_inputs(locale='ru')
     remaining_adapter = None
     remaining_plan = None
     if args.remaining_display_case:
@@ -189,6 +202,8 @@ def main():
         spec.loader.exec_module(remaining_adapter)
         remaining_plan = remaining_adapter.load_inputs(locale='ru')
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
+    if args.bio_input_display_case:
+        frozen_bio = bio_adapter.snapshot(out, locale='ru')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     shutil.copy2(Path(__file__).parent / 'russian_native_font_roles.py', out / 'russian_native_font_roles.py')
     shutil.copy2(Path(__file__).parent / 'tmp_uniform_fallback.py', out / 'tmp_uniform_fallback.py')
@@ -581,6 +596,24 @@ def main():
             locale='ru', backend=backend, plan=remaining_plan)
         shutil.copy2(staged, target / 'Managed/Assembly-CSharp.dll')
         assert sha(target / 'Managed/Assembly-CSharp.dll') == report['remainingDisplayManagedProjection']['outputSha256']
+    if args.bio_input_display_case:
+        # Execute the exact frozen Python/dependency/source version. Outputs and
+        # subsequent promotion are sequential writes, not a directory transaction.
+        staged = out / 'bio-input-resources'
+        subprocess.run([str(frozen_bio / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_bio / 'russian_bio_input_case.py'), '--locale', 'ru', 'apply',
+                        '--source', str(target), '--output', str(staged)], check=True)
+        report['bioInputDisplayProjection'] = json.loads((staged / 'Result.json').read_text())
+        for name, expected_hash in report['bioInputDisplayProjection']['files'].items():
+            assert sha(staged / name) == expected_hash
+            shutil.copy2(staged / name, target / name)
+            assert sha(target / name) == expected_hash
+            existing = next((row for row in report['files'] if row['path'] == name), None)
+            if existing is None:
+                report['files'].append(dict(path=name, probeSha256=expected_hash,
+                                           purpose='Accepted finite Bio/input display fields'))
+            else:
+                existing['probeSha256'] = expected_hash
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})

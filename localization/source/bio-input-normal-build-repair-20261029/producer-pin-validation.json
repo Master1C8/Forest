@@ -1,0 +1,20 @@
+{
+  "replacedBoundary": "Path resolution only: a private source checkout fixture and identical private compiler tree; actual file bytes, hash checks, full compiler manifest and original reference validation execute unchanged. Normal contract admission remains separately verified on the real paths.",
+  "status": "pass",
+  "tests": [
+    {
+      "expectedRejection": "normal-producer-pin:tools/inventory_layout/VNRevivalInventoryLayout.cs",
+      "matchingPositiveBeforeAfter": true,
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-bio185-build-boundary-20261029/producer-pin-fixture/tools/inventory_layout/VNRevivalInventoryLayout.cs",
+      "status": "pass",
+      "test": "actual-source-pin-mutation"
+    },
+    {
+      "expectedRejection": "normal-compiler-pin:/Users/antonkrutov/Desktop/Forest/outputs/ru-bio185-build-boundary-20261029/compiler/opt/homebrew/Cellar/dotnet@8/8.0.131/libexec/sdk/8.0.131/Roslyn/bincore/csc.dll",
+      "matchingPositiveBeforeAfter": true,
+      "path": "/Users/antonkrutov/Desktop/Forest/outputs/ru-bio185-build-boundary-20261029/compiler/opt/homebrew/Cellar/dotnet@8/8.0.131/libexec/sdk/8.0.131/Roslyn/bincore/csc.dll",
+      "status": "pass",
+      "test": "actual-compiler-pin-mutation"
+    }
+  ]
+}

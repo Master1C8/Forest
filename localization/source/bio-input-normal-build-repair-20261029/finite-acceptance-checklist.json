@@ -1,0 +1,58 @@
+[
+  {
+    "artifact": "normal-build-contract.json + tools/russian_bio_input_case.py",
+    "evidence": "prior-admission-positive.json + helper-image-metadata-comparison.json + boundary-negative-controls.json",
+    "nextPermittedAction": "Parent performs unique normal build in HANDOFF command",
+    "predicate": "All13 strict priors admitted; exactly timestamp/MVID variation in2 pinned helper images",
+    "remainingUncertainty": "Full normal candidate generation/promotion not run here",
+    "status": "private-pass"
+  },
+  {
+    "artifact": "outputs/ru-bio185-build-boundary-20261029/delivery-final",
+    "evidence": "delivery-final/Result.json +18-file reproduction + evidence-reuse-and-readback-v2.json",
+    "nextPermittedAction": "Parent verifies actual full delivered candidate and applicable runtime predicates",
+    "predicate": "185 exact selectors,110BG cells,72 native fields,51572states,81729objects,7 reversible containers",
+    "remainingUncertainty": "No Unity lifecycle or native renderer execution",
+    "status": "pass"
+  },
+  {
+    "artifact": "Managed/Assembly-CSharp.dll +2 fresh layout helpers",
+    "evidence": "prior-admission-v2.json + exact fresh input manifest",
+    "nextPermittedAction": "Use actual built candidate for owner-authorized native checks",
+    "predicate": "Actual fresh input managed bytes wholly preserved across185 stage",
+    "remainingUncertainty": "Native execution/serialization exposure not exercised",
+    "status": "pass"
+  },
+  {
+    "artifact": "Texture2D objects and external streams",
+    "evidence": "texture-preservation-v2.json",
+    "nextPermittedAction": "Owner-authorized native font/visual checks using original captures and required preview policy",
+    "predicate": "1385 original raw objects across26containers +31streams exact",
+    "remainingUncertainty": "Dynamic font allocation, glyph display, text fit remain unverified",
+    "status": "pass"
+  },
+  {
+    "artifact": "v1 native-fixture-postconditions.json",
+    "evidence": "Unchanged v1 static contract only",
+    "nextPermittedAction": "Parent follows existing applicable game/GUI authority; this lane starts none",
+    "predicate": "Bio masks/visibility, headings,Shift/cache/Relabel,Return/Done,physical/touch/gamepad and157seed consumers",
+    "remainingUncertainty": "All actual Unity/native predicates remain pending",
+    "status": "runtime-not-run"
+  },
+  {
+    "artifact": "Canonical main integration",
+    "evidence": "main checkout; worker made no Git/index changes",
+    "nextPermittedAction": "Parent Git coordinator completes integration preserving other lanes",
+    "predicate": "Parent stages complete verified v1+v2 scope, inspects full staged diff, commits and verifies main",
+    "remainingUncertainty": "Canonical commit not owned by worker",
+    "status": "parent-pending"
+  },
+  {
+    "artifact": "Source/editorial/global game acceptance",
+    "evidence": "Target wording changed0; all185 accepted target/source hashes unchanged",
+    "nextPermittedAction": "Keep ordinaryTranslationEntryAllowed/sourceGateAccepted/wholeGameAccepted false",
+    "predicate": "No source gate or whole-game readiness inferred from finite technical pass",
+    "remainingUncertainty": "Existing source/runtime gates remain open",
+    "status": "not-accepted"
+  }
+]
