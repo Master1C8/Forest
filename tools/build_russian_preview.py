@@ -39,6 +39,7 @@ from russian_journal_compact import load_inputs as load_journal_compact, snapsho
 from russian_bell_notifications import load_inputs as load_bell_notifications, snapshot as snapshot_bell_notifications
 from russian_scene_notifications import load_inputs as load_scene_notifications, snapshot as snapshot_scene_notifications
 from russian_dates_titleflow import load_inputs as load_dates_titleflow, snapshot as snapshot_dates_titleflow
+from russian_speaker_display import load_inputs as load_speaker_display, snapshot as snapshot_speaker_display, patch as patch_speaker_display
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_native_font_roles import native_role_plan, apply_native_role
 from tmp_uniform_fallback import uniform_fallback_primary
@@ -112,6 +113,7 @@ def main():
         load_bell_notifications()
         load_scene_notifications()
         load_dates_titleflow()
+        load_speaker_display()
         if not args.pause_chapter_display_case:
             parser.error('--narrative-display-case requires --pause-chapter-display-case')
         frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
@@ -233,6 +235,7 @@ def main():
         frozen_bell_notifications = snapshot_bell_notifications(out)
         frozen_scene_notifications = snapshot_scene_notifications(out)
         frozen_dates_titleflow = snapshot_dates_titleflow(out)
+        frozen_speaker_display = snapshot_speaker_display(out)
     snapshot_journal_headers(out)
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
@@ -755,6 +758,13 @@ def main():
         assert sha(target / resource_name) == report['datesTitleflowRepair']['targetSha256']
         prior_report, = [row for row in report['files'] if row['path'] == resource_name]
         prior_report['probeSha256'] = report['datesTitleflowRepair']['targetSha256']
+        speaker_code = out / 'Assembly-CSharp.speaker-display.dll'
+        report['speakerDisplayRepair'] = patch_speaker_display(
+            target / 'Managed/Assembly-CSharp.dll', speaker_code,
+            out / 'speaker-display-code-readback.json', frozen_speaker_display)
+        shutil.copy2(speaker_code, target / 'Managed/Assembly-CSharp.dll')
+        assert sha(target / 'Managed/Assembly-CSharp.dll') == report['speakerDisplayRepair']['targetSha256']
+        speaker_code.unlink()
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})
