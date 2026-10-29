@@ -1,3 +1,25 @@
+# Russian manual-test handoff, October29
+
+The owner requested completion of the last increment and personal game testing.
+Run `Играть по-русски.command` from this canonical folder. The current isolated
+full candidate is `localization/previews/ru-20261029-narrative42-01`;all14 delivered
+payloads and1385 original textures across26containers verify. Seven native
+narrative pages/42fields are applied,while inactiveMouse78 and source-heldPenny30
+remain protected. The final Addressables catalog now matches the actual final
+bundle CRC/size with CRC checks preserved;the canonical builder refreshes it after
+promoting the narrative payload. No game probe or owner's old saves are included.
+
+[Manual-test acceptance](localization/completion/ru-20261029/manual-test-build-20261029.json)
+and `dist/Forest-Russian-Test-20261029/ПРОЧИТАЙ.txt` identify the exact artifact.
+`localization/cleanup/protected-owner-test-builds.json` protects this entire copy:
+any new save/settings/progress belongs to the owner. Never reset it as a disposable
+QA fixture,overwrite it or remove it during cleanup. The original installation and
+saves remain separate. This is a playable test handoff,not final release acceptance.
+
+No new text/source/runtime groups are to start until owner findings or an explicit
+continuation. The counter90 read-only resource proposal is retained as preparation;
+it authorizes no application. Earlier snapshots below remain historical evidence.
+
 # Current Russian candidate: Pause434 and native descriptions, October29
 
 The current complete local QA build is

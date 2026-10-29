@@ -1,0 +1,34 @@
+{
+  "worker": "narrative42_application",
+  "workerMeasured": {
+    "cachedInput": 10487168,
+    "childrenLaunched": 0,
+    "coordinatorOrchestration": "Parent measured separately; unavailable in this worker journal",
+    "cutoffOrdinal": 626,
+    "cutoffTimestamp": "2026-10-29T07:45:51.239Z",
+    "effort": "high",
+    "input": 10591496,
+    "model": "gpt-6.1-sol",
+    "output": 57219,
+    "provider": "openai",
+    "reasoningSubset": 20954,
+    "reportingTail": "Unmeasured tokens after this cutoff,including final verification/tool results/report. No monetary charge inferred.",
+    "scope": "Entire isolated no-history worker from creation through cutoff,including failed attempts. No inherited parent counters;initial recorded request is included,not subtracted.",
+    "total": 10648715,
+    "workerThread": "01a18684-09f1-72e2-8a2c-4a95c8da9924"
+  },
+  "parentMixedInterval": {
+    "baselineTimestamp": "2026-10-29T07:14:37.929Z",
+    "cutoffTimestamp": "2026-10-29T08:36:45.376Z",
+    "usageDelta": {
+      "input_tokens": 20035812,
+      "cached_input_tokens": 19870592,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 131679,
+      "reasoning_output_tokens": 101378,
+      "total_tokens": 20167491
+    },
+    "attribution": "Mixed worker coordination/review,independent counter resource preparation,owner-requested cleanup,catalog repair and manual-test preparation. Exact orchestration-only subtotal unavailable;no per-agent split.",
+    "reportingTail": "Subsequent integration,launch monitoring and final report are unmeasured by this cutoff."
+  }
+}

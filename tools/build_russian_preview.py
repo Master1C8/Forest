@@ -672,6 +672,12 @@ def main():
             shutil.copy2(staged / name, target / name)
             assert sha(target / name) == expected_hash
             existing[0]['probeSha256'] = expected_hash
+        # Narrative text changes the Addressables bundle after the initial
+        # catalog projection. Bind its CRC/size to the final promoted bytes.
+        report['addressables'] = update_catalog(
+            SOURCE / DATA_NAME / 'StreamingAssets/aa/catalog.json',
+            target / 'StreamingAssets/aa/catalog.json',
+            SOURCE / DATA_NAME / BUNDLE, target / BUNDLE)
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})

@@ -1,0 +1,57 @@
+{
+  "status": "resource-stage-version-matching;builder-finalization-corrected",
+  "resourceStageManifestSha256": "cb4ce4d08c3556d7355a3a4c024050111fdbfb732eabf2e9a5224828a820f426",
+  "onlyVersionChangedCanonicalFile": [
+    {
+      "canonical": "tools/build_russian_preview.py",
+      "oldSha256": "19277cea7fdb1a485be125aeb39f8a7582cc4a1edb7ea65933709ad97114a282",
+      "currentSha256": "8da535f8d073a5927e8ebd857f10683a68df068c00f79c87cc326717ec59fb3d",
+      "retainedExecutionCopy": "outputs/ru-narrative42-application-20261029/build_russian_preview.after.py"
+    }
+  ],
+  "adapterUnchangedSha256": "73ef77ca8d40d586d55e4cf226b490885f8b0eec1eb1b3ff68fbd4babf74c6ac",
+  "catalogFinalization": {
+    "status": "final-catalog-matches-final-narrative-bundle",
+    "oldOptions": {
+      "m_Hash": "298c5a4d1d1846b1a8d2c7d5da3f319c",
+      "m_Crc": 2346272206,
+      "m_Timeout": 0,
+      "m_ChunkedTransfer": false,
+      "m_RedirectLimit": -1,
+      "m_RetryCount": 0,
+      "m_BundleName": "aa8bc9c385ae1f9500dcdfcd4c18fc6e",
+      "m_AssetLoadMode": 0,
+      "m_BundleSize": 43082908,
+      "m_UseCrcForCachedBundles": true,
+      "m_UseUWRForLocalBundles": false,
+      "m_ClearOtherCachedVersionsWhenLoaded": false
+    },
+    "newOptions": {
+      "m_Hash": "298c5a4d1d1846b1a8d2c7d5da3f319c",
+      "m_Crc": 3958287217,
+      "m_Timeout": 0,
+      "m_ChunkedTransfer": false,
+      "m_RedirectLimit": -1,
+      "m_RetryCount": 0,
+      "m_BundleName": "aa8bc9c385ae1f9500dcdfcd4c18fc6e",
+      "m_AssetLoadMode": 0,
+      "m_BundleSize": 43082164,
+      "m_UseCrcForCachedBundles": true,
+      "m_UseUWRForLocalBundles": false,
+      "m_ClearOtherCachedVersionsWhenLoaded": false
+    },
+    "beforeBuildSha256": "06aa7f62d4b4864e5df09a71e9d60366ad1893f93aa906638fe830c7caebf449",
+    "afterBuildSha256": "f56bdd0ccb8d63cb0629fe29e8e548fba94cb191b69e8e694506d54ebf1b8f6f",
+    "catalogSha256": "52323d6387b0170c1221bc893a98c96d64cc9ca80c662f125a091360ed4fb3c1",
+    "bundleSha256": "e4394dc01e391feec8f809dc6e5744dd44e29edca67481c36d3e2d6c034adffc",
+    "actualProductionBlockExercised": true,
+    "noNarrativeCatalogUnchanged": true,
+    "noNarrativeASTUnchanged": true,
+    "failureBetweenCatalogAndReportVerified": true,
+    "partialBlindRetryRejected": true,
+    "gamePayloadsUnchanged": true,
+    "ownerSaveFilesPresent": false,
+    "wholeGameReleaseAccepted": false
+  },
+  "scope": "Old worker proof uses its retained executed builder. New canonical builder adds final narrative-bundle catalog refresh;actual production assignment and unchanged no-flag AST/catalog verified. No old receipt rewritten as an unchanged-current-builder pass."
+}
