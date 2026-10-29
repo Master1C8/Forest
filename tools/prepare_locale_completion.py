@@ -20,6 +20,11 @@ Previous reconciliation results are accepted as planning/evidence handoffs only,
 not semantic or release acceptance. Their old "stop for parent review" clauses
 are superseded for routine authorized local continuation. Do not repeat them.
 
+This v3 run's immutablePins and current lane state govern execution. The v2
+locale_queue.py snapshot becomes historical after authorized own-locale edits;
+do not use its expected target drift as an unchanged-source blocker or rerun
+the initial reconciliation. Preserve old receipts and current frozen helpers.
+
 Read applicable AGENTS.md, sitefor-mods.md and both mandatory universal game
 localization manuals once per fresh context. Use vn-game-localize for linguistic
 work, its universal editorial algorithm and the actual approved locale glossary.

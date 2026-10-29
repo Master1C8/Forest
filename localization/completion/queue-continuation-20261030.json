@@ -1,0 +1,83 @@
+{
+  "status": "six-linguistic-and-one-technical-running",
+  "verifiedAt": "2026-10-29T17:28:06.370488+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01",
+  "planSha256": "84586a9395d73d2b8ab0872f5cc29e45ab4bf6e98a6669f5bbc46d4937f0564a",
+  "automaticContinuation": true,
+  "parentReviewStopsRemoved": true,
+  "lanes": [
+    {
+      "locale": "zh",
+      "status": "running",
+      "phase": 1,
+      "kind": "work",
+      "pid": 53268,
+      "threadId": "01a188b2-b5a3-7e71-a8d3-e6bf4cdf0199",
+      "statusFile": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030/status.json",
+      "runtimeReceiptSha256": "3192524d8e86a2829f71ec09bae4340aeafac4c27007044179ed0c3f5d97479a"
+    },
+    {
+      "locale": "es",
+      "status": "running",
+      "phase": 1,
+      "kind": "work",
+      "pid": 53270,
+      "threadId": "01a188b2-b597-7e82-a784-19d0475781fc",
+      "statusFile": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/status.json",
+      "runtimeReceiptSha256": "17d3e8ece717924716f95cdef2ae4569df4ebf6acb9ffe28f43514a12406b88f"
+    },
+    {
+      "locale": "es-419",
+      "status": "running",
+      "phase": 1,
+      "kind": "work",
+      "pid": 53266,
+      "threadId": "01a188b2-b58a-7e10-9385-de6c3c430b55",
+      "statusFile": "outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/status.json",
+      "runtimeReceiptSha256": "b2e431eb1038223d8a9dbe594fbba8224788cf8d065aeec27821a93763cb4d9c"
+    },
+    {
+      "locale": "pt-BR",
+      "status": "running",
+      "phase": 1,
+      "kind": "work",
+      "pid": 53269,
+      "threadId": "01a188b2-b592-7b52-a86e-ef5ce35a945f",
+      "statusFile": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/status.json",
+      "runtimeReceiptSha256": "973efcaf95216f56a21b92fc8f16a81c9450c9106ee78d3767239e4498901d98"
+    },
+    {
+      "locale": "ja",
+      "status": "running",
+      "phase": 1,
+      "kind": "review",
+      "pid": 53265,
+      "threadId": "01a188b2-b584-7af0-9f9d-db4c58529f26",
+      "statusFile": "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/status.json",
+      "runtimeReceiptSha256": "7913664c9dfd4c1759abad0aadca6857788fa5e4e0cdf2166f5fe334580d8e4e"
+    },
+    {
+      "locale": "de",
+      "status": "running",
+      "phase": 1,
+      "kind": "work",
+      "pid": 53264,
+      "threadId": "01a188b2-b585-7402-a83a-04f8e8990201",
+      "statusFile": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/status.json",
+      "runtimeReceiptSha256": "dd78eaed0592ae12dddf0b73706e8809ffc48b6a80c2d3455e8246f64470c7ff"
+    },
+    {
+      "locale": "technical",
+      "status": "running",
+      "phase": 1,
+      "kind": "technical",
+      "pid": 53267,
+      "threadId": "01a188b2-b58b-7330-bb21-50170fd9a89f",
+      "statusFile": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/status.json",
+      "runtimeReceiptSha256": "b74cfaaf08b4cfca0ac74931be6046d65f85cdd86a2991b63403e65feaa7d2be"
+    }
+  ],
+  "scope": "Continuous authorized local production; no game/GUI/installer/publication/server operations",
+  "validation": "Actual seven Sol/high/OpenAI no-parent runtime receipts;10 mocked continuation/runtime boundary regressions passed",
+  "completion": "Not yet ready; current native/release gates remain separate"
+}

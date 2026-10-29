@@ -1,0 +1,146 @@
+{
+  "completedWorkers": [
+    {
+      "task": "zh/reconcile-saved-evidence",
+      "threadId": "01a18885-b913-79e0-82df-807a9f0f70bc",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "completed-awaiting-parent-review",
+      "usage": {
+        "input_tokens": 4179185,
+        "cached_input_tokens": 4043520,
+        "output_tokens": 23689,
+        "reasoning_output_tokens": 4578,
+        "total_tokens": 4202874
+      }
+    },
+    {
+      "task": "es/reconcile-saved-evidence",
+      "threadId": "01a18885-b908-7e93-8a57-aa8683591309",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "completed-awaiting-parent-review",
+      "usage": {
+        "input_tokens": 3120898,
+        "cached_input_tokens": 2969600,
+        "output_tokens": 22703,
+        "reasoning_output_tokens": 4202,
+        "total_tokens": 3143601
+      }
+    },
+    {
+      "task": "es-419/reconcile-saved-evidence",
+      "threadId": "01a18885-b903-7c42-8f65-1e08ac2f107f",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "completed-awaiting-parent-review",
+      "usage": {
+        "input_tokens": 6391012,
+        "cached_input_tokens": 6232832,
+        "output_tokens": 26596,
+        "reasoning_output_tokens": 6169,
+        "total_tokens": 6417608
+      }
+    },
+    {
+      "task": "pt-BR/reconcile-saved-evidence",
+      "threadId": "01a18885-b8fe-73a2-9ef6-d27d75af876d",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "completed-awaiting-parent-review",
+      "usage": {
+        "input_tokens": 4754684,
+        "cached_input_tokens": 4607744,
+        "output_tokens": 33879,
+        "reasoning_output_tokens": 6553,
+        "total_tokens": 4788563
+      }
+    },
+    {
+      "task": "ja/reconcile-saved-evidence",
+      "threadId": "01a18885-b904-7520-ba05-5a1a57726f0e",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "completed-awaiting-parent-review",
+      "usage": {
+        "input_tokens": 4376618,
+        "cached_input_tokens": 4077056,
+        "output_tokens": 26987,
+        "reasoning_output_tokens": 5496,
+        "total_tokens": 4403605
+      }
+    },
+    {
+      "task": "de/reconcile-saved-evidence",
+      "threadId": "01a18885-b902-7563-a3d5-ef0a11d7f2da",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "completed-awaiting-parent-review",
+      "usage": {
+        "input_tokens": 3049602,
+        "cached_input_tokens": 2905600,
+        "output_tokens": 19736,
+        "reasoning_output_tokens": 3301,
+        "total_tokens": 3069338
+      }
+    }
+  ],
+  "workerTokenAccounting": "Each terminal CLI request counted once. Cached input and reasoning are subsets. No costs inferred.",
+  "currentContinuousWorkers": [
+    {
+      "locale": "zh",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    },
+    {
+      "locale": "es",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    },
+    {
+      "locale": "es-419",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    },
+    {
+      "locale": "pt-BR",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    },
+    {
+      "locale": "ja",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    },
+    {
+      "locale": "de",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    },
+    {
+      "locale": "technical",
+      "usage": null,
+      "state": "running; terminal usage not yet available"
+    }
+  ],
+  "coordinator": {
+    "category": "mixed parent implementation/tests and shared seven-lane orchestration",
+    "baselineAt": "2026-10-29T17:18:21.815Z",
+    "baselineUsage": {
+      "input_tokens": 14217764,
+      "cached_input_tokens": 13987968,
+      "output_tokens": 82648,
+      "reasoning_output_tokens": 37521,
+      "total_tokens": 14300412
+    },
+    "cutoff": "2026-10-29T17:28:06.378Z",
+    "delta": {
+      "input_tokens": 3336258,
+      "cached_input_tokens": 3324672,
+      "output_tokens": 22355,
+      "reasoning_output_tokens": 10240,
+      "total_tokens": 3358613
+    },
+    "limitation": "Early preparation before baseline and reporting tail are not included. No per-worker split of shared orchestration."
+  }
+}

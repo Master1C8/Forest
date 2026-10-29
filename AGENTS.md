@@ -1,5 +1,15 @@
 # Forest localization completion
 
+When `outputs/locale-assets-20261026/launch-current.json` selects a workflow-v3
+continuous run, use that run's plan, lane status, frozen contract and
+`immutablePins` for current execution. The v2 `locale-queue.py check` snapshot is
+historical after authorized locale edits; its expected target/recipe drift is
+not a new source blocker or a reason to stop other lanes. Preserve the v2
+snapshot/receipts and all active frozen execution files. Normal finite phase
+completion writes `continue` and its next task; do not await parent review for
+routine already-authorized work. Semantic independence and real source/runtime
+gates still apply.
+
 For the updated multilingual completion queue, use `localization/PROCESS.md`,
 `localization/completion/process-spec.json` and `python3 -B tools/locale_queue.py
 check`. Russian development is a mechanism/regression reference, not another
