@@ -1,0 +1,68 @@
+{
+  "scope": "Current Dates/bell-flow repair only; previous historical workers excluded",
+  "workers": {
+    "bell_title_flow_repair": {
+      "sessionId": "01a18770-90fb-7350-b313-ea238352f034",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "cutoff": "2026-10-29T11:42:31.794Z",
+      "usage": {
+        "input_tokens": 3456745,
+        "cached_input_tokens": 3382400,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19587,
+        "reasoning_output_tokens": 4193,
+        "total_tokens": 3476332
+      }
+    },
+    "dates36_wording_review": {
+      "sessionId": "01a18771-1f14-7d43-9411-8327fa33b82c",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "cutoff": "2026-10-29T11:40:11.440Z",
+      "usage": {
+        "input_tokens": 1061906,
+        "cached_input_tokens": 1005952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14924,
+        "reasoning_output_tokens": 2500,
+        "total_tokens": 1076830
+      }
+    },
+    "owner_screenshot_review": {
+      "sessionId": "01a18771-8913-7aa1-9ea4-cab8011cbc45",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "cutoff": "2026-10-29T11:36:47.098216+00:00",
+      "usage": {
+        "input_tokens": 35161,
+        "cached_input_tokens": 16512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2200,
+        "reasoning_output_tokens": 980,
+        "total_tokens": 37361
+      }
+    }
+  },
+  "coordinator": {
+    "sessionId": "01a18600-c637-7542-a3ad-5e1cbcfbb3a0",
+    "baseline": {
+      "input_tokens": 145656421,
+      "cached_input_tokens": 144123520,
+      "output_tokens": 597128,
+      "total_tokens": 146253549
+    },
+    "cutoff": "2026-10-29T11:43:48.332Z",
+    "measuredDelta": {
+      "input_tokens": 3825920,
+      "cached_input_tokens": 3780608,
+      "output_tokens": 22679,
+      "total_tokens": 3848599
+    },
+    "attribution": "Mixed: assignment preparation, dispatch, follow-ups, result review and accounting together with implementation/integration; exact orchestration-only split unavailable"
+  },
+  "limits": "Cached input/reasoning are subsets, never added twice. Early coordinator work before baseline and post-cutoff validation/commit/reporting tail are unmeasured. No descendants. Worker fresh-session cumulative totals supersede interim counters; no monetary claim."
+}

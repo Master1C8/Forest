@@ -10,7 +10,7 @@ from apply_quest_notification_hotfix import sha
 def check():
     results = []
     with tempfile.TemporaryDirectory(prefix='resource-chain-', dir='/Users/antonkrutov/Desktop/Forest/outputs') as tmp:
-        for label in ['bell', 'scene']:
+        for label in ['bell', 'scene', 'dates-titleflow']:
             for scenario in ['before', 'after', 'older', 'running', 'bad-companion', 'interrupted']:
                 base = Path(tmp) / label / scenario
                 candidate, release = base / 'candidate', base / 'release'
