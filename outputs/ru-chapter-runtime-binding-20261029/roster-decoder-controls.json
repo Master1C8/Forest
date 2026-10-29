@@ -1,0 +1,20 @@
+{
+  "actualNativePositive": "run06 complete2 events,3+1 runtime invokables",
+  "negativeControls": [
+    {
+      "name": "omitted-native-JSON-fields",
+      "rejected": true,
+      "reason": "roster-format-required;missing-fields-are-not-zero"
+    },
+    {
+      "name": "missing-one-listener",
+      "rejected": true,
+      "reason": "missing-runtime-invokable"
+    },
+    {
+      "name": "duplicate-event",
+      "rejected": true,
+      "reason": "unique-complete-event-record"
+    }
+  ]
+}

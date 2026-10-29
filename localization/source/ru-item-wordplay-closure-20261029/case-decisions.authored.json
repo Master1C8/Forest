@@ -1,0 +1,150 @@
+[
+  {
+    "caseId": "inventory-sugar-euphemism",
+    "itemRowId": "IE0fMrRWeU+WqLMl0zGPgg",
+    "contextBindingStatus": "accepted-for-existing-wording",
+    "caseStatus": "semantic-context-bound;actual-item-callback-not-verified",
+    "decision": "Keep the accepted Бутылочка смазки title and complete Бутылочка «сахара» description unchanged. The item is lubricant, while Scarlett's original errand really asks for cooking sugar. The mismatch is the joke, and the description echoes Maverick's never-out-of-sugar line. Do not normalize both surfaces to literal sugar or remove the euphemism.",
+    "sourceFacts": [
+      {"ids": ["ds:120:180:Dialogue Text", "ds:120:186:Dialogue Text"], "fact": "Scarlett asks Rascal to obtain sugar from Maverick and identifies him as the otter by the river."},
+      {"ids": ["ds:128:166:Dialogue Text", "ds:128:169:Dialogue Text", "ds:128:170:Dialogue Text", "ds:128:171:Dialogue Text", "ds:128:172:Dialogue Text", "ds:128:173:Dialogue Text", "ds:128:174:Dialogue Text"], "fact": "Maverick learns the sugar is for Scarlett, hands over lubricant, says Scarlett has never run out, and explicitly explains sugar as an inside-joke code for lube."},
+      {"ids": ["ds:129:171:Dialogue Text", "ds:129:174:Dialogue Text", "ds:129:175:Dialogue Text", "ds:129:176:Dialogue Text", "ds:129:177:Dialogue Text", "ds:129:180:Dialogue Text", "ds:129:181:Dialogue Text", "ds:129:182:Dialogue Text", "ds:129:183:Dialogue Text", "ds:129:184:Dialogue Text", "ds:129:185:Dialogue Text"], "fact": "Scarlett recognizes her own secret code but says she actually needed sugar. She accepts more lube and will speak to Maverick herself. Her husband-related explanation maps sugar to lubricant, spices to toys and something nice to gear."},
+      {"bgRows": ["Quest:dQrKLrlXz0iJYfuyt+sgig", "QuestProgressLogText:Kl+Jw42KqkW8BjdD8s+Heg", "QuestProgressLogText:h8IrOVHhuU+VyqM4MrfQFQ"], "fact": "Sugar and Spice asks for real sugar, followed by asking Maverick and bringing the quoted sugar back. These are display fields; their row names/savekeys remain exact."}
+    ],
+    "controlIdentities": {
+      "itemType": 10,
+      "savekey": "bottle_of_lube",
+      "name": "Bottle of Lube",
+      "titleField": "idzA+SihD062xkfAt9az8Q",
+      "descriptionField": "TAthhVyZiEGyr0cvbui4cw",
+      "sprite": "Art/InventoryItems/act1/item_bottle_of_lube.png",
+      "authoredMarkers": [
+        {"conversationId": 128, "entryId": 163, "title": "GET(bottle_of_lube)", "firstOutgoingTarget": 170},
+        {"conversationId": 129, "entryId": 168, "title": "GIVE(bottle_of_lube)", "firstOutgoingTarget": 171},
+        {"conversationId": 129, "entryId": 228, "title": "TRIGGER(give_sugar_to_bunny)", "firstOutgoingTarget": 178}
+      ],
+      "triggerRowId": "QVmHfBR7R0iFdq/8MW+66g",
+      "triggerNameAndSavekey": "act1_give_sugar_to_bunny",
+      "triggerPluginKey": "give_sugar_to_bunny",
+      "dialogueRows": ["j79IZQi6j06zeHV0DNko4Q", "XAxOz8Q9q0GxLYM0Kjxdkg", "aIJdAsXwBk6etc3yV2CRdg", "H7I3cRnbI0y+/gqdQ455NA"],
+      "availability": "IntroFromBunny → OtterIntroduction → AskOtterForSugar → DeliverSugarToBunny are explicit dialogues_all prerequisites. Act1 tag and absence of Instanced Event are retained. Completion/skip/runtime evaluation is not exercised.",
+      "arcIdentity": "Primary p1 and secondary s1 plus idle i1 remain exact; dialogue Titles, TfolUniqueDataKeySuffix and node Titles are distinct from displayed prose."
+    },
+    "readCoverage": {
+      "fullSourceConversations": [120,143,128,129],
+      "scope": "All frozen display fields in the four complete units, complete linked authored graph, nonempty conditions/markers, direct selected BG fields, and the two accepted assigned targets. The original complete Russian 128/129 exchanges were read as context, without granting new semantic passes.",
+      "requiredUnread": [],
+      "boundary": "Initial new-game prerequisite is retained as an exact identity row only; its unrelated opening scene is not required to judge this errand. No broad game absence or exhaustive runtime claim."
+    },
+    "remainingPredicates": [
+      {"id": "sugar-actual-item-state-and-callback", "status": "needs-source/runtime", "artifact": "Authored GET at 128:163, GIVE at 129:168, trigger at 129:228; InventoryItem row IE0fMrRWeU+WqLMl0zGPgg; existing phase134 trigger contract", "predicate": "Actual loader/item service maps the two protected bottle_of_lube operands to item_type10, adds/removes the intended item and fires the authored callback on the expected line without translating the key.", "nextPermittedAction": "Hand the exact marker/row bindings to the owning technical lane; reuse existing consumer evidence if available. Any code trace or runtime test requires its own applicable scope. No runtime or new technical scan in this job."}
+    ],
+    "acceptanceScenarios": {
+      "positive": "The same lubricant item is obtained from Maverick, its explicit inventory title coexists with the quoted sugar description, and Scarlett's later correction remains understandable.",
+      "negative": "Literal cooking sugar is substituted for the item, the code explanation disappears, or a localized display string replaces bottle_of_lube/give_sugar_to_bunny."
+    },
+    "targetApplied": false,
+    "newSemanticPassRows": 0,
+    "ordinaryTranslationEntryAllowed": false,
+    "sourceGateAccepted": false,
+    "wholeGameAccepted": false
+  },
+  {
+    "caseId": "inventory-rosetta-glyph-reference",
+    "itemRowId": "qCat8UqD5E2o5HBd+m/d5Q",
+    "contextBindingStatus": "accepted-for-existing-description;clue-solution-resource-boundary-open",
+    "caseStatus": "gift-and-literal-context-bound;exact-glyph-mechanism-needs-source",
+    "decision": "Keep the complete accepted description unchanged. Augustus gives a translation guide, and the description correctly calls it a possible aid to decipher forest glyphs. It does not supply a decoded message, input answer, universal translation ability or new solution. Preserve existing fictional-language codepoints/font/resource mapping; the guide's exact relationship to the mouse script is not established by these ordinary-language dialogues.",
+    "sourceFacts": [
+      {"ids": ["ds:276:132:Dialogue Text", "ds:276:133:Dialogue Text", "ds:276:134:Dialogue Text", "ds:276:135:Dialogue Text", "ds:276:136:Dialogue Text", "ds:276:137:Dialogue Text", "ds:276:138:Dialogue Text"], "fact": "Augustus offers a gift because Rascal is curious about runes/history. He calls it his translation guide, somewhat outdated but useful for most small fragments/relics. The Receive Rosetta Stone authoring line is retained; it is not evidence that the primary graph displays that detached line."},
+      {"ids": ["ds:153:18:Dialogue Text", "ds:153:19:Dialogue Text", "ds:154:18:Dialogue Text", "ds:154:19:Dialogue Text", "ds:312:18:Dialogue Text"], "fact": "Examinable glyphs/monument inscriptions are initially described as mysterious or unreadable. These are complete source exchanges, not decoded solutions."},
+      {"conversations": [202,204,294], "fact": "Augustus discusses ancient ruins and proposed biome/cartography representations, explicitly admitting uncertainty. His later Lanora passage is an authored interpretation of an inscription; no exact glyph-sequence-to-solution link to this item is present in the selected graph/data. These thematic links are not treated as a proven codec."}
+    ],
+    "controlIdentities": {
+      "itemType": 260,
+      "savekey": "rosetta_stone",
+      "nameAndTitle": "Rosetta Stone",
+      "sprite": "Art/InventoryItems/gifts/item_rosetta.png",
+      "dialogueRowId": "waGhuUmkT0eZUv72VuzNQA",
+      "dialogueNameAndSavekey": "Gifts_Augustus_Rosetta",
+      "pluginDbName": "gifts/augustusRosetta",
+      "conversationSuffix": "gifts_rosetta",
+      "authoredMarker": {"conversationId":276,"entryId":176,"title":"GET(rosetta_stone)","firstOutgoingTarget":133},
+      "primaryGraph": "131 PRIMARY →132→133→135→136→137→138. Entry134 *Receive Rosetta Stone* separately links to135; no primary incoming edge to134 is invented.",
+      "availability": "Rule fnJosJGA9kefqD4wgP63nw requires completed CoyoteQuest_FinishShearingFinley (JmopASNlx06RsdVR9IilTg), Main tag, excludes Main Act1/Disable Gifts/Instanced Event, and stores percent_chance0.44999998807907104. This is an exact stored prerequisite/chance, not a tested runtime probability.",
+      "fictionalScriptPolicy": "tfol-068 forbids invented translations and early meaning reveals. Existing CONSTRUCTED-LANGUAGE-RECIPE.md remains unchanged. Preservation policy does not prove guide-to-font equivalence or physical glyph rendering."
+    },
+    "readCoverage": {
+      "fullSourceConversations": [276,153,154,204,202,294,312],
+      "scope": "All49 frozen display fields and the complete authored graphs/controls in these seven units, selected direct BG prerequisites and the complete accepted assigned description. The complete Russian gift exchange was read for binding consistency only.",
+      "requiredUnread": [],
+      "boundary": "The prior shearing scene and other unlock prerequisites are control identities, not new required Rosetta clue text. No claim that the remaining whole game contains no Rosetta consumer."
+    },
+    "remainingPredicates": [
+      {"id":"rosetta-native-glyph-guide-and-solution-binding","status":"needs-source","artifact":"InventoryItem qCat8UqD5E2o5HBd+m/d5Q sprite Art/InventoryItems/gifts/item_rosetta.png; authored GET(rosetta_stone) at276:176; examinables153/154/312","predicate":"Identify the actual native Sprite/Texture2D/atlas region or other displayed guide, its exact glyph sequence and correspondence to any clue/solution/input consumer. Preserve the fictional-script resource and codepoint identities without claiming that all ancient glyphs are the mouse alphabet.","nextPermittedAction":"Pass these exact source paths/IDs to the owning source/resource lane for a scoped existing-metadata binding. Actual image review, new code scans, runtime or a font/texture change are outside this job."},
+      {"id":"rosetta-actual-get-handler","status":"not-run/unverified","artifact":"276:176 GET(rosetta_stone) and item_type260","predicate":"The actual loader/item handler awards the same retained item and exposes the intended guide without an early meaning reveal.","nextPermittedAction":"Retain as a named technical/runtime predicate for the owning lane; do not relaunch or trace framework callees from this review."}
+    ],
+    "acceptanceScenarios": {
+      "positive":"The description retains Augustus as giver and a possible deciphering use; the retained guide/clue gives the same information at the same story point after its actual mapping is verified.",
+      "negative":"The localized description reveals a solution, invents a deciphered inscription or changes a script/font/resource key so the retained clue no longer corresponds."
+    },
+    "targetApplied": false,
+    "newSemanticPassRows": 0,
+    "ordinaryTranslationEntryAllowed": false,
+    "sourceGateAccepted": false,
+    "wholeGameAccepted": false
+  },
+  {
+    "caseId": "inventory-apology-cookie-icing",
+    "itemRowId": "rcrNBKenO0iUhEJYQ3fEJw",
+    "contextBindingStatus": "accepted-for-existing-prose-and-dialogue-callback;art-correspondence-open",
+    "caseStatus": "inscription-callback-and-roommates-bound;native-art-and-execution-unverified",
+    "decision": "Keep the complete accepted description, its Прости нас quotation and neutral former-housemates wording unchanged. The quote exactly agrees with existing Russian ds:423:741. Source dialogues explicitly identify Charlotte and Melody as Finley's former roommates and plural apologizers. This new case-specific source evidence resolves their identities here; it does not change any protected glossary or earlier general canon receipt. The description translates the source inscription's meaning; it is not proof of Russian letters painted on the unchanged cookie art.",
+    "sourceFacts": [
+      {"ids":["ds:199:181:Dialogue Text","ds:199:182:Dialogue Text","ds:199:188:Dialogue Text","ds:199:190:Dialogue Text"],"fact":"Finley describes former roommates as a fox and a bear, good friends but poor housemates; this early exchange does not yet name them."},
+      {"ids":["ds:409:783:Dialogue Text","ds:409:785:Dialogue Text","ds:409:787:Dialogue Text","ds:409:789:Dialogue Text","ds:409:790:Dialogue Text","ds:409:792:Dialogue Text","ds:409:794:Dialogue Text"],"fact":"In the complete Charlotte/Melody encounter, Charlotte has boxed Finley's belongings; Melody explicitly says we were a handful as roommates. Their own apology plan follows. Identification comes from speakers/linked exchange, not names or portraits."},
+      {"conversations":[388,413,425,426,427],"fact":"Finley requests his belongings from the mountain cave. Charlotte combines meeting forest residents with repairing their relationship to Finley; Melody gathers and returns his boxed possessions. Full branches and idle variants are retained."},
+      {"ids":["ds:414:717:Dialogue Text","ds:414:718:Dialogue Text","ds:414:740:Dialogue Text","ds:423:738:Dialogue Text","ds:423:739:Dialogue Text","ds:423:740:Dialogue Text","ds:423:741:Dialogue Text","ds:423:742:Dialogue Text"],"fact":"Charlotte provides a special cookie for Finley and stresses that it is from us. Rascal delivers Charlotte's baking with the belongings; Finley explicitly reads We're Sorry, sees their effort, and notices his belongings are cleaned. Existing Russian423:741 reads Прости нас, matching the assigned description."},
+      {"ids":["ds:422:747:Dialogue Text","ds:422:754:Dialogue Text","ds:423:755:Dialogue Text","ds:423:763:Dialogue Text","ds:428:735:Dialogue Text","ds:428:737:Dialogue Text","ds:428:748:Dialogue Text","ds:428:770:Dialogue Text"],"fact":"The coyote conversation distinguishes Charlotte and Melody from Claire/Violet and says Finley lived with them. Finley later names Melody's borrowed gear and Charlotte's books; Charlotte and Melody apologize directly, and Finley thanks girls. This supports their explicit source identities/gender here without guessing."},
+      {"conversations":[423,428,429],"fact":"Finley decides to talk to his former roommates; reconciliation follows but he chooses to keep living alone, proposing dinner. The conclusion credits Charlotte's cookies and Rascal's delivery. The source does not say that the cookie makes him move back in."}
+    ],
+    "controlIdentities": {
+      "itemType":360,
+      "savekey":"special_cookie",
+      "nameAndTitle":"Special Cookie",
+      "sprite":"Assets/_Game/Art/InventoryItems/act3/item_cookie_special.png",
+      "belongingsRowId":"8HNDcY7dp0OE/ON2cQeM+g",
+      "belongingsItemType":370,
+      "belongingsSavekey":"finleys_stuff",
+      "receiveMarker":{"conversationId":414,"entryId":736,"title":"TRIGGER(cookiequest_receive_special_cookie)","firstOutgoingTarget":717},
+      "giveMarker":{"conversationId":423,"entryId":734,"title":"TRIGGER(cookiequest_give_special_cookie)","firstOutgoingTarget":740},
+      "receiveTriggerRow":"vr9hYIsGHEeo4T7XpNKNAQ",
+      "receiveTriggerSavekey":"act3_cookiequest_receive_special_cookie",
+      "giveTriggerRow":"lcrFt0YuRkWoPzA5KNKEVA",
+      "giveTriggerSavekey":"act3_cookiequest_give_special_cookie",
+      "dialogueRows":{"cookiesReady":"cxtqF6Pm/k2j0B+h45kpTA","bringFinleyStuff":"BIJmw/MMJU6J1cuynMpbZQ","reconciliation":"VJz/vOw6ZkS5+w1Fvn+JrQ","conclusion":"eesJe0k6jECd4EZgWSXl5Q"},
+      "condition":"414:760 stores Variable[\"bool_condition\"] == false, on the idle split after cookiequest_check_if_before_roomies_reunited; its other branch uses ordinary delivery wording. Preserve the condition and both source variants.",
+      "availability":"BringFinleyHisStuff explicitly requires MelodyHasFinleyStuff and belongings item370, with Main Act3 and no Instanced Event. It does not explicitly require the special cookie in its stored items_all list. Do not invent that guard or prove cookie execution from prose alone.",
+      "authoredGraphBoundary":"414 primary links715→717→719 and423 links738→740→741; Receive/Give authoring prose718/739 is separately stored and not assumed to be the executable item operation. Phase134 proves the named-trigger marker contract, not the concrete cookie handler."
+    },
+    "readCoverage": {
+      "fullSourceConversations":[199,388,409,413,414,422,423,425,426,427,428,429],
+      "scope":"All303 frozen display fields in the12 complete contextual units, complete authored graph and nonempty conditions/markers, selected direct BG rows, full accepted assigned description, and complete Russian414/423 plus409:783–797 context. No new semantic pass is minted for those unchanged targets.",
+      "requiredUnread":[],
+      "boundary":"Other ordinary cookie recipients are not apology callbacks. The unrelated prior quest unlock and room-temperature gossip are retained as prerequisite identities, not expanded into extra reviews."
+    },
+    "remainingPredicates":[
+      {"id":"cookie-native-art-inscription-correspondence","status":"needs-source/art-review","artifact":"InventoryItem rcrNBKenO0iUhEJYQ3fEJw sprite Assets/_Game/Art/InventoryItems/act3/item_cookie_special.png; description and423:741 inscription reference","predicate":"Bind this exact path to native Sprite/Texture2D/atlas object and region, then establish the actual retained inscription and its understandable correspondence to Прости нас. No pixels were opened; metadata name searches are not absence proof.","nextPermittedAction":"Owning resource lane may reconcile existing exact metadata under its scope. Image review requires applicable owner authorization and prepared screenshot policy; texture bytes remain unchanged. If retained English art leaves the Russian quote ambiguous, return that concrete source-art scope choice to the owner. Do not approve all English art or paint Russian icing."},
+      {"id":"cookie-concrete-receive-give-handler","status":"needs-source/runtime","artifact":"TRIGGER(cookiequest_receive_special_cookie)414:736→717 and TRIGGER(cookiequest_give_special_cookie)423:734→740; item_type360 and exact BG Trigger rows","predicate":"The actual event handlers add/remove item360, preserve the separate belongings operation and keep the cookie quote/branch reachable in the correct story state.","nextPermittedAction":"Hand these finite identities to the owning technical lane. No new assembly scan, callback execution or game launch in this context review."}
+    ],
+    "acceptanceScenarios": {
+      "positive":"The cookie's apology is from Charlotte and Melody to Finley, and its prose quote agrees with his dialogue while referring intelligibly to the retained source artwork once separately verified.",
+      "negative":"The apology is attributed to Claire/Violet, direction reverses so Finley apologizes to them, the cookie forces a move back in, or prose is accepted as proof that unchanged English icing physically contains Russian letters."
+    },
+    "targetApplied":false,
+    "newSemanticPassRows":0,
+    "ordinaryTranslationEntryAllowed":false,
+    "sourceGateAccepted":false,
+    "wholeGameAccepted":false
+  }
+]

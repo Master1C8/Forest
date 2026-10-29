@@ -28,6 +28,7 @@ from russian_inventory_layout import snapshot as snapshot_inventory_layout, patc
 from russian_inventory_glitch import snapshot as snapshot_glitch, plan as glitch_plan, patch as patch_glitch, load_inputs as load_glitch_inputs
 from russian_chapter_gallery_case import load_inputs as load_chapter_gallery, snapshot as snapshot_chapter_gallery, project_bg as project_chapter_gallery, native_plan as chapter_gallery_native_plan, patch_managed as patch_chapter_gallery
 from russian_ui935 import load_inputs as load_ui935, snapshot as snapshot_ui935
+from russian_haiku_identity import load_inputs as load_haiku_identity, snapshot as snapshot_haiku_identity
 from item_notification_layout import layout_plan, snapshot as snapshot_item_layout
 from russian_notebook_ui import notebook_plan, snapshot as snapshot_notebook
 from journal_header_ui import plan as journal_header_plan,snapshot as snapshot_journal_headers
@@ -92,7 +93,23 @@ def main():
     parser.add_argument('--repair-settings-value-images', action='store_true', help='Compatibility flag: actual Russian previews always disable duplicate settings Images with complete TMP replacements')
     parser.add_argument('--inventory-display-completion', action='store_true', help='Apply the independently accepted52-unit additive description/empty-cell packet after historical item/quest stages')
     parser.add_argument('--chapter-gallery-case', action='store_true', help='Apply the accepted134-occurrence chapter/gallery preparation case; requires inventory completion')
+    parser.add_argument('--haiku-option-identity', action='store_true', help='Preserve the nine accepted Russian haiku option identities at the original evaluation boundary; requires the supported chapter/gallery stage')
+    parser.add_argument('--remaining-display-case', action='store_true', help='Apply accepted Russian51 display occurrences after supported Haiku identity stage; 17 BG cells and 31 new operands, retaining 3 chapter labels')
     args = parser.parse_args()
+    remaining_adapter = None
+    remaining_plan = None
+    if args.remaining_display_case:
+        if not args.haiku_option_identity:
+            parser.error('--remaining-display-case requires --haiku-option-identity')
+        frozen_helper = Path(__file__).parent / 'remaining51/russian_remaining51_case.py'
+        if frozen_helper.is_file():
+            import importlib.util
+            spec = importlib.util.spec_from_file_location('forest_remaining51_bootstrap', frozen_helper)
+            remaining_adapter = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(remaining_adapter)
+        else:
+            import russian_remaining51_case as remaining_adapter
+        remaining_plan = remaining_adapter.load_inputs(locale='ru')
     try:
         validate_texture_policy(args.coherent_tmp_face)
     except ValueError as error:
@@ -111,6 +128,10 @@ def main():
         load_glitch_inputs()
     load_ui935(locale='ru')
     chapter_plan = None
+    if args.haiku_option_identity:
+        if not args.chapter_gallery_case:
+            parser.error('--haiku-option-identity requires --chapter-gallery-case')
+        load_haiku_identity(locale='ru')  # Reject missing/version-mismatched acceptance before output creation.
     if args.chapter_gallery_case:
         if not args.inventory_display_completion:
             parser.error('--chapter-gallery-case requires --inventory-display-completion')
@@ -158,6 +179,15 @@ def main():
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
         snapshot_chapter_gallery(out, locale='ru')
+    if args.haiku_option_identity:
+        snapshot_haiku_identity(out, locale='ru')
+    if args.remaining_display_case:
+        frozen_remaining = remaining_adapter.snapshot(out, locale='ru')
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('forest_remaining51_frozen', frozen_remaining / 'russian_remaining51_case.py')
+        remaining_adapter = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(remaining_adapter)
+        remaining_plan = remaining_adapter.load_inputs(locale='ru')
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     shutil.copy2(Path(__file__).parent / 'russian_native_font_roles.py', out / 'russian_native_font_roles.py')
@@ -192,6 +222,8 @@ def main():
               'uniformTmpFallback': args.uniform_tmp_fallback,
               'inventoryDisplayCompletion': args.inventory_display_completion,
               'chapterGalleryCase': args.chapter_gallery_case,
+              'haikuOptionIdentity': args.haiku_option_identity,
+              'remainingDisplayCase': args.remaining_display_case,
               'coherentChoiceFace': args.coherent_choice_face,
               'choiceSamples': {},
               'markSamples': mark_samples,
@@ -363,6 +395,9 @@ def main():
                         data, report['chapterGalleryDatabaseProjection'] = project_chapter_gallery(
                             data, parse, variable_cells, locale='ru',
                             expected_before_sha256=hashlib.sha256(data).hexdigest(), plan=chapter_plan)
+                    if args.remaining_display_case:
+                        data, report['remainingDisplayBGProjection'] = remaining_adapter.project_bg(
+                            data, parse, variable_cells, locale='ru', plan=remaining_plan)
                     tree['m_Script'] = data.decode('utf-8', errors='surrogateescape')
                     report['actorDisplayProjection'] = receipt
                 elif pid == 1020:
@@ -523,6 +558,29 @@ def main():
             recipe, locale='ru', expected_before_sha256=sha(target / 'Managed/Assembly-CSharp.dll'), plan=chapter_plan)
         shutil.copy2(staged, target / 'Managed/Assembly-CSharp.dll')
         assert sha(target / 'Managed/Assembly-CSharp.dll') == report['chapterGalleryCodeProjection']['targetSha256']
+    if args.haiku_option_identity:
+        # Every later-read dependency comes from this attempt's immutable snapshot.
+        frozen = out / 'haiku-identity'
+        recipe = frozen / 'compiled'
+        subprocess.run(['dotnet', 'build', str(frozen / 'haiku_identity_patch/HaikuIdentityPatch.csproj'),
+                        '--nologo', '--verbosity', 'quiet', '-o', str(recipe)], check=True)
+        staged = out / 'Assembly-CSharp.haiku.dll'
+        receipt = out / 'haiku-identity-code-readback.json'
+        subprocess.run(['python3', '-B', str(frozen / 'russian_haiku_identity.py'), '--locale', 'ru', 'patch',
+                        '--input', str(target / 'Managed/Assembly-CSharp.dll'), '--output', str(staged),
+                        '--receipt', str(receipt), '--backend', str(recipe / 'HaikuIdentityPatch.dll')], check=True)
+        report['haikuIdentityCodeProjection'] = json.loads(receipt.read_text())
+        shutil.copy2(staged, target / 'Managed/Assembly-CSharp.dll')
+        assert sha(target / 'Managed/Assembly-CSharp.dll') == report['haikuIdentityCodeProjection']['outputSha256']
+    if args.remaining_display_case:
+        # New managed operands follow the supported Haiku stage exactly once.
+        backend = remaining_adapter.compile_backend(out / 'remaining51' / 'compiled')
+        staged = out / 'Assembly-CSharp.remaining51.dll'
+        report['remainingDisplayManagedProjection'] = remaining_adapter.patch_managed(
+            target / 'Managed/Assembly-CSharp.dll', staged, out / 'remaining51-code-readback.json',
+            locale='ru', backend=backend, plan=remaining_plan)
+        shutil.copy2(staged, target / 'Managed/Assembly-CSharp.dll')
+        assert sha(target / 'Managed/Assembly-CSharp.dll') == report['remainingDisplayManagedProjection']['outputSha256']
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})

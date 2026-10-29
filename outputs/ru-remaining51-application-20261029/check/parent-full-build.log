@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/tools/build_russian_preview.py", line 591, in <module>
+    main()
+    ~~~~^^
+  File "/Users/antonkrutov/Desktop/Forest/tools/build_russian_preview.py", line 117, in main
+    assert re.fullmatch(r'ForestRuActual[0-9]{8}_[0-9]{2,}', args.qa_product), 'Explicit isolated QA identity required'
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Explicit isolated QA identity required

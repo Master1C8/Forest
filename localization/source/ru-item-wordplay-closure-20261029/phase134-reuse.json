@@ -1,0 +1,29 @@
+{
+  "predicate": "The selected sugar/cookie TRIGGER titles preserve plugin keys and bind to their first outgoing successor, not their authoring marker ID.",
+  "status": "existing-complete-trace-reused",
+  "fingerprints": [
+    {
+      "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/haiku-trigger-single.il",
+      "pin": {
+        "sha256": "61e77d07c14151ed510d5e2d1743dad7ec42d7805b2bb80fb8ee15e7c886f8cc",
+        "bytes": 3243
+      }
+    },
+    {
+      "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/haiku-trigger-binding.il",
+      "pin": {
+        "sha256": "a45d74d98ad31b8200e8ba31417ff2f17530397fa1287e86af738c9f5b7ff506",
+        "bytes": 13385
+      }
+    },
+    {
+      "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/haiku-source-dependencies.json",
+      "pin": {
+        "sha256": "ce08433d3937c5269b4ade83b6579c74433c1ca4485e0c71a9fe2e78ff071ec8",
+        "bytes": 19556
+      }
+    }
+  ],
+  "applicability": "DialogueSystemLoader AddConversationFireNamedTrigger first reads outgoingLinks[0].destinationDialogueID. Single parses the title operand and constructs ArcTriggerFireNamedTrigger with the successor entry ID. Ordinary arcs are selected by successor membership. Trigger name must be modeled in triggersByTriggerName; skip flags retain exact keys.",
+  "boundary": "Not the concrete item callback handler or runtime execution; GET/GIVE handlers not proved by this contract. No new IL extraction or assembly scan."
+}

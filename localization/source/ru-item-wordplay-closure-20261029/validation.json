@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "caseDecisions": 3,
+  "assignedOriginalBindings": 4,
+  "retainedVersionMatchingSemanticRows": 8,
+  "sourceConversations": 23,
+  "frozenContextDisplayFields": 440,
+  "frozenContextPhysicalOccurrences": 880,
+  "selectedBGRowMemberships": 130,
+  "selectedBGCellMemberships": 2009,
+  "unchangedTargetContextRows": 99,
+  "pinnedInputs": 58,
+  "requiredUnread": [],
+  "targetApplied": false,
+  "newSemanticPassRows": 0,
+  "checks": [
+    "23 complete authored conversation snapshots equal across both frozen trees",
+    "all selected frozen display fields equal canonical candidates",
+    "four assigned targets equal their accepted hash references",
+    "eight retained full/independent review rows match exact source/target and pinned original files",
+    "all source fact IDs resolve in the selected packet",
+    "all pinned inputs remain byte-identical"
+  ],
+  "notRun": [
+    "game/runtime",
+    "GUI",
+    "image/pixel review",
+    "font/texture work",
+    "packaging",
+    "whole-game gate"
+  ],
+  "boundary": "Deterministic validation confirms identity/preservation, not model semantic correctness or external callback execution."
+}

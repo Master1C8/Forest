@@ -1,0 +1,22 @@
+{
+  "status": "verified",
+  "verifiedAt": "2026-10-29T03:39:41.568182+00:00",
+  "actualRuntime": {
+    "session": {
+      "id": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "processEvidence": "86127 86124 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/ru-input72-independent-20261029/check/last-message.txt Execute the one finite input72 Russian independent review in /Users/antonkrutov/Desktop/Forest/outputs/ru-input72-independent-20261029/check/brief.md. First read brief.md and dispatch.json. Before localized content verify runtime-verification.json. Fresh no inherited history, no nested jobs, no root README/CHECKPOINT or Git mutations.",
+  "freshExecNoResumeNoFork": true,
+  "nestedJobsAllowed": false,
+  "localizedContentReadBeforeCheck": false,
+  "dispatchSha256": "899e49c0faf96e7b01265506dc8a242ba2cd3b7416d09ead356416339e09692d",
+  "runtimeVerificationSha256": "acde7e74ab3ef52a7167261f8aba4c53e8f975aaeb84407d471b6d0bdbdd4ac8"
+}

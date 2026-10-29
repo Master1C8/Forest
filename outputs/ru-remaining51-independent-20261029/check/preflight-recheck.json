@@ -1,0 +1,74 @@
+{
+  "status": "passed-deterministic-preparation-only",
+  "rows": 51,
+  "sourceBindings": 51,
+  "targetControlsAndRawLF": 51,
+  "exactProtectedRecords": 2135,
+  "inputPinsVerified": 45,
+  "positiveControl": true,
+  "negativeControls": [
+    {
+      "name": "changed-format-argument",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "protected-control-order",
+      "passed": true
+    },
+    {
+      "name": "changed-portrait-control",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "protected-control-order",
+      "passed": true
+    },
+    {
+      "name": "changed-ornamental-size",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "grammar-tag-supported",
+      "passed": true
+    },
+    {
+      "name": "removed-status-LF",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "protected-control-order",
+      "passed": true
+    },
+    {
+      "name": "removed-concat-space",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "trailing-whitespace",
+      "passed": true
+    },
+    {
+      "name": "changed-source-with-rehashed-target",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "source-binding",
+      "passed": true
+    },
+    {
+      "name": "duplicate-ID",
+      "positive": "unchanged complete51 passes same validator",
+      "rejection": "coverage-unique51",
+      "passed": true
+    },
+    {
+      "name": "changed-BG-actor-relation",
+      "positive": "unchanged complete2135-record manifest passes the same exact-record comparison",
+      "rejection": "preserve-BG-exact",
+      "passed": true
+    }
+  ],
+  "actualSavedOriginalAssemblySha256": "46f43b212709b96ac51f2484d1564f863346fed8dc70f532860046226a020acf",
+  "actualSavedBuild02AssemblySha256": "84f70452d94741489b37d97c8125bf107b4261d4a87e5a2ba294ebdf107dfacf",
+  "savedBuild02WholeMethodInventory": 14095,
+  "alreadyProjectedAcceptedOperands": 3,
+  "newTargetApplication": false,
+  "semanticJudgment": false,
+  "runtime": "not-run",
+  "boundary": "Validates exact frozen inputs, prepared target grammar/joins and preserve manifest. No patcher/game/renderer invoked; negative mutations are in-memory copies only. Complete51 unchanged positive satisfies all other guards before each isolated negative.",
+  "files": {
+    "source-context.jsonl": "12f064636dac12f8f245126ce11ae3ced1f5a652b20690ee1d51f5b149d701c1",
+    "preserve-exactly.jsonl": "9e894c46c41140bece616e1a05d945544dc4113a09666454fefa6c09429e1ccc",
+    "ru.initial.jsonl": "7df249ae9a9efdd538dfbdd628640964ef6a84e3ca03651b0ad89dddd5e38674",
+    "ru.prepared.jsonl": "7df249ae9a9efdd538dfbdd628640964ef6a84e3ca03651b0ad89dddd5e38674",
+    "input-pins.json": "e74cc907d92507fc6a6b4ca38377a4693418d692c3fda37042f772fb54756cb4"
+  }
+}

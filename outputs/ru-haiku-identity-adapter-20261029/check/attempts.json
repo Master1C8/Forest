@@ -1,0 +1,16 @@
+[
+  {
+    "attempt": "private initial and final supported candidate patch",
+    "result": "passed; exact whole prior restoration",
+    "input": "84f70452d94741489b37d97c8125bf107b4261d4a87e5a2ba294ebdf107dfacf"
+  },
+  {
+    "attempt": "direct original assembly patch",
+    "result": "rejected before output writes: Cecil reserialization also changed two unrelated body MaxStack values",
+    "observedUnallowlistedMethods": [
+      "System.Void TheForestOfLove.MinigameManager::DoAttack()",
+      "System.Void viperOSK.OSK_Keyboard_TFOL::OnPhysicalKeyStroke(System.Char)"
+    ],
+    "decision": "Support only the actual full Russian02 candidate or byte-identical normal builder stage; original remains a read-only baseline for source contracts and evaluation. No preservation check weakened."
+  }
+]

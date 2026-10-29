@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "control": "complete unchanged positive",
+      "expectedBoundary": "positive-complete-accounting",
+      "actualBoundary": "positive-complete-accounting",
+      "passed": true
+    },
+    {
+      "control": "one binding omitted with all other guards valid",
+      "expectedBoundary": "exact-source-binding-membership",
+      "actualBoundary": "exact-source-binding-membership",
+      "passed": true
+    },
+    {
+      "control": "same23 count with case substitution",
+      "expectedBoundary": "exact-case-order-and-identity",
+      "actualBoundary": "exact-case-order-and-identity",
+      "passed": true
+    },
+    {
+      "control": "one original value hash changed",
+      "expectedBoundary": "exact-source-binding-membership",
+      "actualBoundary": "exact-source-binding-membership",
+      "passed": true
+    },
+    {
+      "control": "raw source substitution under same binding/hash",
+      "expectedBoundary": "exact-source-value-and-typed-hash",
+      "actualBoundary": "exact-source-value-and-typed-hash",
+      "passed": true
+    },
+    {
+      "control": "ordinary entry waiver rejected",
+      "expectedBoundary": "no-gate-waiver",
+      "actualBoundary": "no-gate-waiver",
+      "passed": true
+    }
+  ],
+  "receiptChecks": 136,
+  "runtimeReceiptFingerprintChecks": 32,
+  "sourceBindingAccounting": {
+    "memberships": 7361,
+    "distinctIds": 5897
+  },
+  "semanticJudgmentGenerated": false
+}

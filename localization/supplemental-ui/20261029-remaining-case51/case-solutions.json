@@ -1,0 +1,140 @@
+{
+  "status": "authored-preparatory-solutions;independent-review-pending",
+  "contracts": {
+    "greeting": {
+      "input": "Exact BGFieldText source, actual LF; historical BGFieldString literal backslash+n sibling is dormant/potential and remains byte-exact.",
+      "selection": "ActorGossipGreeting.ForEachEntity(null predicate,null comparison) builds actor-keyed ordered lists. ChooseGreetingText starts at -1 then cycles modulo list count; original actor/group/portrait/align_right remain exact.",
+      "output": "UpdateGreetingText sends raw greeting to every child TMP on the selected left/right animator, and empty string to the other side. No LF unescaping or new actor condition introduced.",
+      "voice": "Use actual actor/portrait context in each row; Claire-group/Violet-portrait row12 stays explicit. Rascal is male, familiar singular ты. No fictional-language replacement.",
+      "pending": "Native selection, line fitting, glyph coverage and actual actor availability not run."
+    },
+    "gift": {
+      "input": "Two exact Hey Rascal operands, separate IDs.",
+      "selection": "Update: on-screen actor, no competing available conversation/quest, HasNewGift; ChooseAndShowNewGiftIcon: profile50 early return. Preserve empty reset and guards.",
+      "output": "UpdateGiftIconText enumerates giftIcon child TextMeshProUGUI and assigns full callout unchanged. Generic NPC callout; no fixed speaker inferred.",
+      "pending": "Runtime visibility and fitting not run."
+    },
+    "gallery": {
+      "input": "Reuse exact accepted3 source/target IDs and receipts.",
+      "selection": "isMovie branch selects Movie with movieIndex+1; false selects Story with storyIndex+1. GalleryHintTutorial uses whitespace hint fallback.",
+      "output": "Nonblank hint: identifier + LF+LF + full hint via {0}\\n\\n{1}; otherwise exact Подсказки нет! to child TMP. Preserve format, branch and number arguments.",
+      "pending": "Already statically projected in saved build02; no new application or runtime claim."
+    },
+    "tooltip": {
+      "input": "Whole blocked gossip sentence.",
+      "selection": "DialoguePreconditionFullAvailabilityRule antiTagsAny includes active tag whose dbName exactly equals Instanced Event Blessing of the Bells. Other paths return Empty; no constant tag localization.",
+      "output": "SelectItemLabel -> GenerateTooltipText -> UpdateTooltipText existing child TMP; complete sentence retained, no added future lock.",
+      "pending": "Runtime hover/selection and fitting not run."
+    },
+    "overlay": {
+      "input": "Abandoned/completed size10 status descriptor ending LF.",
+      "selection": "Original visible guards and notification begin/finished events unchanged.",
+      "output": "Full status prefix + Adventure.Title rich heading -> EndNotification -> existing SetTitleText TMP loop; preserve LF and both22-point initials and sequel numeral in appended title.",
+      "pending": "Native overlay visibility/fitting not run."
+    },
+    "actorNotification": {
+      "input": "Gossip/Bio prefix followed by dynamic actorName.",
+      "selection": "EnqueueGossipNotification stores actor.IsIntroduced ? actor.NameplateName : ???, with original notification type. InstantiateNewNotification types4/6 select actorName and corresponding configured method; type5 is separate global message.",
+      "output": "Exact prefix + supplied name, no trimming or inflection. Nominative Зверушка: label accepts all supported actual NameplateName values and ??? without a name adapter. Keep trailing U+0020 and actual LF. Gossip and Critter Log meanings remain distinct.",
+      "pending": "Prefix replacement/display wording proposal only; no parser/argument changes or live notification proof."
+    },
+    "globalNotification": {
+      "input": "Whole global gossip notification, no suffix.",
+      "output": "Existing ConfigureGlobalGossipUnlockedNotification writes full two-line message to TMP children; ALL CRITTERS remains emphatic plural.",
+      "pending": "Actual unlock event, fitting and resource binding not run."
+    },
+    "adventureNotification": {
+      "input": "Unlocked/abandoned/completed prefix ending colon+LF+U+0020 and complete plain NotificationTitle.",
+      "selection": "Queue types7/8/9; unlocked chapter-select/cheat early return stays exact; Movie/tutorial guards in dispatcher preserved.",
+      "output": "Raw Concat(prefix,NotificationTitle), no title inflection. All six full plain titles are provided in this51 packet. Title/body/state and keys remain separate.",
+      "pending": "Event registration and actual queued notification not run."
+    },
+    "counter": {
+      "input": "Hits prefix, hitCountCurrent Int32.ToString.",
+      "selection": "MinigameManager.Update pause early return, source hit counter loop unchanged.",
+      "output": "Попадания: + exact decimal text on UnityEngine.UI.Text children, no noun after numeral. The label avoids quantity agreement for0/1/2/5/21 and any other supplied integer; numeric formatting remains source-controlled.",
+      "pending": "Native mini-game counter, font/layout not run."
+    },
+    "fastTravel": {
+      "input": "[pic=2] protected control followed by complete casual destination question.",
+      "selection": "act3_penny_mountains_perch_first_time_summoned branch; no dialogue skip/chapter-select/cheat and landed trigger unset. Preserve keys exactly. Set NextFastTravelCustomGreetingText; StoryManager snapshots greeting BEFORE GetDynamicFastTravelDestinationSceneNames clears it.",
+      "output": "PlayDynamicFastTravelDialogue fixes actor Penny, System_DynamicFastTravel and system/fastTravel resource keys; passes full custom string onward. Branch2 custom greeting vs0/1 default/no destinations, branch3 disabled greeting remain unchanged. Translate only literal prose, preserve initial [pic=2].",
+      "pending": "Actual subtitle parser/portrait, branch execution and destination UI not run; no new parser contract or downstream framework audit claimed."
+    },
+    "adventureTitle": {
+      "input": "Each of6 Adventure records has whole rich Title, plain NotificationTitle and whole Body.",
+      "selection": "Retained Adventure44 source contract: AdventureType100/200/300/400/500/600; all24 gateway/spawn/save/completion identities unchanged. Never infer live registration from factory presence.",
+      "output": "Title/Body backing properties -> AddAdventurePage -> existing child-TMP SetTitle/SetBody; Title also overlay; NotificationTitle goes to queues7/8/9. Existing <SIZE=22> syntax retained exactly, initial spans repositioned onto Russian letters; plain/rich full title equivalence required.",
+      "pending": "Native title fitting, TMP glyph resources and source/independent editorial acceptance pending."
+    }
+  },
+  "wordplayGroups": [
+    {
+      "ordinals": [
+        33,
+        34,
+        35
+      ],
+      "solution": "Approved Благословение колоколов title and separate Благословение event; full discovery question retained.",
+      "initials": [
+        "Б",
+        "К"
+      ]
+    },
+    {
+      "ordinals": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "solution": "Подземелья и соки echoes Подземелья и драконы while соки preserves juice/body-fluid suggestion. Full campaign renovation/recruitment retained; sequel2 and women-only request remain explicit.",
+      "initials": [
+        "П",
+        "С"
+      ],
+      "numeralEmphasis": "<SIZE=22>2</SIZE>"
+    },
+    {
+      "ordinals": [
+        42,
+        43,
+        44
+      ],
+      "solution": "Загадочные встречи keeps mystery and plural meetings, with встречи/встречается also suggesting dating; кувыркается means romp and sexual romping. This is the concrete cross-unit compensation for possible meets/meats sound play; no food or named partner invented. The singular protected glossary quest Загадочная встреча is unchanged.",
+      "initials": [
+        "З",
+        "В"
+      ],
+      "sourceUncertainty": "Meet/meat reading is possible, not a confirmed separate food mechanic; no sound-identical Russian homophone claimed."
+    },
+    {
+      "ordinals": [
+        45,
+        46,
+        47
+      ],
+      "solution": "С праздником! is the approved card salutation. Whole body keeps spicy cards, last year and uncertain spare.",
+      "initials": [
+        "С",
+        "П"
+      ]
+    },
+    {
+      "ordinals": [
+        48,
+        49,
+        50
+      ],
+      "solution": "Протянуть лапу помощи retains the helping-hand/paw idiom, full dream sentence and setting displacement.",
+      "initials": [
+        "П",
+        "Л"
+      ]
+    }
+  ],
+  "application": "No source/target/code patching; adapter implementation remains parent-owned.",
+  "runtime": "not-run"
+}

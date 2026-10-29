@@ -1,0 +1,82 @@
+[
+  {
+    "id": "accepted-inputs",
+    "status": "passed",
+    "artifact": "mapping.json + input-pins.json",
+    "predicate": "All194 source/target records have version-matching owning peer receipts; all9 choices and27 full poems exact.",
+    "remainingUncertainty": "No fresh semantic review is credited.",
+    "nextPermittedAction": "Reuse pinned accepted wording; do not regenerate it."
+  },
+  {
+    "id": "exact-adapter",
+    "status": "passed",
+    "artifact": "tools/russian_haiku_identity.py + tools/haiku_identity_patch/Program.cs",
+    "predicate": "Normal loader and actual private Cecil patch support exact Russian02;9 reads/4 helpers.",
+    "remainingUncertainty": "Direct original assembly serialization is intentionally unsupported; prior failure preserved in attempts.json.",
+    "nextPermittedAction": "Use only supported Russian02 input or byte-identical builder stage."
+  },
+  {
+    "id": "whole-assembly",
+    "status": "passed",
+    "artifact": "outputs/ru-haiku-identity-adapter-20261029/check/delivery/patch-receipt.json",
+    "predicate": "14095 existing definitions;14094 existing bodies unchanged; nine comparison literals and all controls retained. Exact whole payload reversal passed.",
+    "remainingUncertainty": "Cecil rewrites the assembly container; no cross-version support is implied.",
+    "nextPermittedAction": "Parent may inspect per-method hashes and actual patched IL."
+  },
+  {
+    "id": "all27-CLR",
+    "status": "passed",
+    "artifact": "outputs/ru-haiku-identity-adapter-20261029/check/delivery/clr-tests.json",
+    "predicate": "81 real CLR predicate/helper executions across3 cultures;3 named/24 mixed; Russian field strings unchanged.",
+    "remainingUncertainty": "Predicate extraction replaces Unity/service/callback boundary; this is not game acceptance.",
+    "nextPermittedAction": "Run actual-game27 fixture plan through the parent harness."
+  },
+  {
+    "id": "negative-and-write-boundary",
+    "status": "passed",
+    "artifact": "outputs/ru-haiku-identity-adapter-20261029/check/regression-final/validation.json",
+    "predicate": "Wrong hashes/locale, draft receipt, missing9th choice, collision and step rejection; actual interrupted-write and repeat rejection passed.",
+    "remainingUncertainty": "No atomic multi-file transaction; partial failed outputs are preserved and not complete.",
+    "nextPermittedAction": "Use a new output path after reconciling failures; exact before.dll supports rollback."
+  },
+  {
+    "id": "normal-builder-snapshot",
+    "status": "passed",
+    "artifact": "outputs/ru-haiku-identity-adapter-20261029/check/snapshot-build-verification.json",
+    "predicate": "Opt-in flag preflight before output, after chapter patch application, frozen late dependencies; snapshot compilation reproduces exact DLL.",
+    "remainingUncertainty": "Full game build not run.",
+    "nextPermittedAction": "Parent integrates canonical code; later authorized full builder must reach exact supported stage."
+  },
+  {
+    "id": "native27-gameplay",
+    "status": "not-run",
+    "artifact": "runtime27-fixtures.json",
+    "predicate": "All27 exact IDs, Russian labels, slot callbacks, expected arcs and continuation contracts prepared.",
+    "remainingUncertainty": "Live trigger priority, actual response UI/labels/confirm callbacks, Unity loading, complete displayed poems and native one-second timer have not been exercised.",
+    "nextPermittedAction": "Only parent, under applicable game instruction, dispatches all27 through the isolated game harness; then validates captured receipts with check/runtime27.py verify."
+  },
+  {
+    "id": "six-template-fields-and-rendering",
+    "status": "not-run",
+    "artifact": "phase134/haiku-source-dependencies.json + mapping.json",
+    "predicate": "Six template fields remain bound and unchanged; no texture or renderer changes.",
+    "remainingUncertainty": "Native template suppression/replacement, fonts/layout and visual quality are not covered.",
+    "nextPermittedAction": "Parent checks actual full scene display under its runtime/visual instructions."
+  },
+  {
+    "id": "integration",
+    "status": "not-run",
+    "artifact": "tools/build_russian_preview.py + builder-diff.patch",
+    "predicate": "Minimal optional hook is complete; canonical builder had no observed live argv/open-file readers before edit.",
+    "remainingUncertainty": "No Git/index/root README/CHECKPOINT mutation by this lane.",
+    "nextPermittedAction": "Parent reviews and integrates the finite delivered change; no publication/deployment implied."
+  },
+  {
+    "id": "global-source-and-whole-game",
+    "status": "needs-review",
+    "artifact": "source-adapter-contract.json",
+    "predicate": "This is only the haiku identity adapter.",
+    "remainingUncertainty": "Other22 cases, full source gate and whole-game acceptance remain open.",
+    "nextPermittedAction": "Return to owning source/runtime gates; do not claim closure from adapter completion."
+  }
+]

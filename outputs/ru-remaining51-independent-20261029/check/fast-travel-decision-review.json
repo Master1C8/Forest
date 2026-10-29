@@ -1,0 +1,714 @@
+{
+  "caseId": "fast-travel-selection-identity",
+  "verdict": "pass-scoped-editorial-binding-decision",
+  "independent": true,
+  "newDecisionReview": true,
+  "contextMemberCount": 38,
+  "contextMembers": [
+    {
+      "ordinal": 1,
+      "id": "ds:58:3:Dialogue Text",
+      "sourceValueSha256": "aa018680b27cd6e44d334bec9d5c5165149bed7d0d62a11f075fdfa514c96bdf",
+      "sourceUtf8Sha256": "ee9d5214a33dbfad6da36288cc991173a88b5d65fc697d6e3fd6a2d7e81954ed",
+      "source": "Central Forest",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Approved Central Forest label remains separate from exact CentralForest Title.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3081
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 2,
+      "id": "ds:58:5:Dialogue Text",
+      "sourceValueSha256": "33605b5340b7653b8689c1724ba5974cc59d88c9aa061ab1b1f284dec6719c6c",
+      "sourceUtf8Sha256": "98ce4d723310c908eec81f9e71b17aa801d08296bbd6542f6e90fb6688c3b43e",
+      "source": "The Lake",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Approved lake label remains separate from exact Lake Title.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3082
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 3,
+      "id": "ds:58:7:Dialogue Text",
+      "sourceValueSha256": "3e1da5130befe0fbf79df63edfd915179c3a2f98a2390a39322eeee90cb27434",
+      "sourceUtf8Sha256": "b0d2ff2f0631f0c951a0a9ea11891abba0369e4573ed0aefdc210d887a31453d",
+      "source": "The Mountains",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Approved plural mountain label remains separate from exact Mountains Title.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3083
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 4,
+      "id": "ds:58:14:Dialogue Text",
+      "sourceValueSha256": "6b77baec5ce34e7c749541f42b26a25c177c3b7a1244ec4a7f93227bf4600042",
+      "sourceUtf8Sha256": "42004253c81dbc0b8f0ac4c606fbdf500605a14f04397cb32ec0a6c334541983",
+      "source": "The Plains",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Approved plains label remains separate from exact Plains_End Title.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3084
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 5,
+      "id": "ds:58:15:Dialogue Text",
+      "sourceValueSha256": "47ae23b8109a8922c543aea17e58591eaa3845ec0db94d5181f43bfc4899b0de",
+      "sourceUtf8Sha256": "ad4af07b901f84611f1d14f1f6980db951cee072549889ed12da07cfbd899d73",
+      "source": "Deep Woods",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Approved Deep Woods label remains in the scope despite no emission by this destination producer.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3085
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 6,
+      "id": "ds:58:337:Dialogue Text",
+      "sourceValueSha256": "f41f7282dd22b9a6b6a258be426e993e61cc43f7960ee85cb5b498e8ab5e8819",
+      "sourceUtf8Sha256": "7a047979ce473e05c022cc97af72e518f78da455452c1e5764f81028856bee46",
+      "source": "Just wanna chat!",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Accepted player choice asks to chat; it remains the appended cancel identity.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3086
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 7,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/2/fields/0/value",
+      "sourceValueSha256": "d3a1ac43202019e26621b47770383ebe445368ea70a5e4288bcba02312b9c061",
+      "sourceUtf8Sha256": "61a34bef9795b020577bdfa7269761429504eee3e8a7de818718146a64772882",
+      "source": "CentralForest",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Both physical CentralForest Title copies are exact selection inputs, never display translations.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2822
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 8,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/2/fields/0/value",
+      "sourceValueSha256": "d3a1ac43202019e26621b47770383ebe445368ea70a5e4288bcba02312b9c061",
+      "sourceUtf8Sha256": "61a34bef9795b020577bdfa7269761429504eee3e8a7de818718146a64772882",
+      "source": "CentralForest",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Both physical CentralForest Title copies are exact selection inputs, never display translations.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2822
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 9,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/2/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Exact Description marker covered by owner policy for destination entry3 only.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2823
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 10,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/2/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Second physical copy of the same authorized entry3 Description marker.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2823
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 11,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/3/fields/0/value",
+      "sourceValueSha256": "0bc82879b0672da63cd4426c1d42618f2427e2310b4fd3c39cc87396422c89c0",
+      "sourceUtf8Sha256": "52082793941524bee85d52f510584860a7065e728d2e47b3b5df8f934f4fc410",
+      "source": "Lake",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Both physical Lake Title copies are preserved for exact input equality.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2824
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 12,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/3/fields/0/value",
+      "sourceValueSha256": "0bc82879b0672da63cd4426c1d42618f2427e2310b4fd3c39cc87396422c89c0",
+      "sourceUtf8Sha256": "52082793941524bee85d52f510584860a7065e728d2e47b3b5df8f934f4fc410",
+      "source": "Lake",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Both physical Lake Title copies are preserved for exact input equality.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2824
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 13,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/3/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Exact entry5 Description marker remains under the narrow preservation policy.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2825
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 14,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/3/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Second physical entry5 Description copy retains its original marker.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2825
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 15,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/4/fields/0/value",
+      "sourceValueSha256": "4645c5d6e4a4122e60f14d6d21d28e56ea512393bc6d7b98c197c59a5226fe2d",
+      "sourceUtf8Sha256": "0e9b3aa04e8a8308827108f4a300821d9c6b657f033c29275ca63c9f10ae8993",
+      "source": "Mountains",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Both physical Mountains Title copies retain exact destination matching.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2826
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 16,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/4/fields/0/value",
+      "sourceValueSha256": "4645c5d6e4a4122e60f14d6d21d28e56ea512393bc6d7b98c197c59a5226fe2d",
+      "sourceUtf8Sha256": "0e9b3aa04e8a8308827108f4a300821d9c6b657f033c29275ca63c9f10ae8993",
+      "source": "Mountains",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Both physical Mountains Title copies retain exact destination matching.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2826
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 17,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/4/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Exact entry7 Description marker remains under the narrow preservation policy.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2827
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 18,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/4/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Second physical entry7 Description copy retains its original marker.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2827
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 19,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/5/fields/0/value",
+      "sourceValueSha256": "871c1a1d15d4086c5e64f38ba3f75a915bd04a0dcfd2007d44c53de7e37d2384",
+      "sourceUtf8Sha256": "b6694e2b6e68ce2710cf30e33f534bde1d248f7a15c9d0a662a7c717b5650805",
+      "source": "FT_DYNAMIC_ROOT",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Dynamic root lookup key remains FT_DYNAMIC_ROOT and is distinct from displayed choices.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2828
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 20,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/5/fields/0/value",
+      "sourceValueSha256": "871c1a1d15d4086c5e64f38ba3f75a915bd04a0dcfd2007d44c53de7e37d2384",
+      "sourceUtf8Sha256": "b6694e2b6e68ce2710cf30e33f534bde1d248f7a15c9d0a662a7c717b5650805",
+      "source": "FT_DYNAMIC_ROOT",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Second physical FT_DYNAMIC_ROOT lookup key remains identical.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2828
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 21,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/5/fields/10/value",
+      "sourceValueSha256": "b9573620f8f448df8827ee43799d981bfd09d9f8bd3f537abfa03d7219afe0f2",
+      "sourceUtf8Sha256": "35859d36d9231f046bfbaee6dd6dc1cd3d6a0dccf2991bf5cb550ad58a2cd1c6",
+      "source": "None()",
+      "role": "protected-sequencer-program",
+      "assessment": "Root Sequence remains exact executable None(), with no translated prose.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2829
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 22,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/5/fields/10/value",
+      "sourceValueSha256": "b9573620f8f448df8827ee43799d981bfd09d9f8bd3f537abfa03d7219afe0f2",
+      "sourceUtf8Sha256": "35859d36d9231f046bfbaee6dd6dc1cd3d6a0dccf2991bf5cb550ad58a2cd1c6",
+      "source": "None()",
+      "role": "protected-sequencer-program",
+      "assessment": "Second physical root None() program remains identical.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2829
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 23,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/6/fields/0/value",
+      "sourceValueSha256": "0abf53c081e5ae67dd96998fff4f497be7138d5c1b7013146a2d09259b9b5550",
+      "sourceUtf8Sha256": "50005fe1fca31d35f92c2b77e10f95ebdd40508016ca8a456fc457401a660946",
+      "source": "Plains_End",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Plains_End remains the exact destination identity rather than the Russian display name.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2830
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 24,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/6/fields/0/value",
+      "sourceValueSha256": "0abf53c081e5ae67dd96998fff4f497be7138d5c1b7013146a2d09259b9b5550",
+      "sourceUtf8Sha256": "50005fe1fca31d35f92c2b77e10f95ebdd40508016ca8a456fc457401a660946",
+      "source": "Plains_End",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Second physical Plains_End Title retains the same input identity.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2830
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 25,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/6/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Exact entry14 Description marker retains its owner-authorized original value.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2831
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 26,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/6/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Second physical entry14 Description marker remains exact.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2831
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 27,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/7/fields/0/value",
+      "sourceValueSha256": "d937bff6133c130455774d3e45169c9b7e5374bf29e1b406dec5d6719a06bad3",
+      "sourceUtf8Sha256": "dfd16a5620bba989110b19fd178a79882c80b911cc679d1992243e70f2a6d4ae",
+      "source": "DeepWoods",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Stored DeepWoods Title remains protected; its absence from this producer does not authorize exclusion.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2832
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 28,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/7/fields/0/value",
+      "sourceValueSha256": "d937bff6133c130455774d3e45169c9b7e5374bf29e1b406dec5d6719a06bad3",
+      "sourceUtf8Sha256": "dfd16a5620bba989110b19fd178a79882c80b911cc679d1992243e70f2a6d4ae",
+      "source": "DeepWoods",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Second physical DeepWoods Title is retained without an unreachable claim.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2832
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 29,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/7/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Exact entry15 Description marker remains within the five approved logical fields.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2833
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 30,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/7/fields/2/value",
+      "sourceValueSha256": "0585e8f90a8caf3627dfd1a6ecf18bf0aa8e46c60438239ee8779814eb485fea",
+      "sourceUtf8Sha256": "44011fe0b69bc780dd5aafe47bc4de62481cf12b7f283db38de0de1d87091c08",
+      "source": "DYNAMIC_RESPONSE_OPTION",
+      "role": "preserve-custom-metadata;consumer-unresolved",
+      "assessment": "Second physical entry15 Description marker remains exact; policy is not broadened.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2833
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 31,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/8/fields/0/value",
+      "sourceValueSha256": "9a159451ede9f1b43ecf9039164487e7a7c76a7f0c17e9c4249f2e69190c42ba",
+      "sourceUtf8Sha256": "806a6d72866c61e0ae1ca670107717fad2b518038c95c9dcca64044c8d403c7c",
+      "source": "FASTTRAVELCANCEL",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "FASTTRAVELCANCEL remains the unconditional appended cancel node key.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2834
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 32,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/8/fields/0/value",
+      "sourceValueSha256": "9a159451ede9f1b43ecf9039164487e7a7c76a7f0c17e9c4249f2e69190c42ba",
+      "sourceUtf8Sha256": "806a6d72866c61e0ae1ca670107717fad2b518038c95c9dcca64044c8d403c7c",
+      "source": "FASTTRAVELCANCEL",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Second physical cancel Title preserves exact lookup behavior.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2834
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 33,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/20/fields/0/value",
+      "sourceValueSha256": "69d62c0e57eab3713b4d06f1a74746a03fa7b22cfc814b8f714d7bfe2425b3cb",
+      "sourceUtf8Sha256": "cfc0ba59e6a3d36302ff9d20438a1e6e799e2c22bc8bddb551e8233802868e4e",
+      "source": "FT_CUSTOM_GREETING",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "FT_CUSTOM_GREETING remains the lookup identity whose first successor receives the custom text.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2858
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 34,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/20/fields/0/value",
+      "sourceValueSha256": "69d62c0e57eab3713b4d06f1a74746a03fa7b22cfc814b8f714d7bfe2425b3cb",
+      "sourceUtf8Sha256": "cfc0ba59e6a3d36302ff9d20438a1e6e799e2c22bc8bddb551e8233802868e4e",
+      "source": "FT_CUSTOM_GREETING",
+      "role": "protected-fast-travel-selection-key",
+      "assessment": "Second physical FT_CUSTOM_GREETING Title remains identical.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2858
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 35,
+      "id": "sharedassets0.assets:3336/conversations/239/dialogueEntries/20/fields/10/value",
+      "sourceValueSha256": "b9573620f8f448df8827ee43799d981bfd09d9f8bd3f537abfa03d7219afe0f2",
+      "sourceUtf8Sha256": "35859d36d9231f046bfbaee6dd6dc1cd3d6a0dccf2991bf5cb550ad58a2cd1c6",
+      "source": "None()",
+      "role": "protected-sequencer-program",
+      "assessment": "Custom-greeting passthrough Sequence remains exact None(), separate from text.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2859
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 36,
+      "id": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle!/CAB-7cd732d37ea0297d073a22a52ce72d28:-9011735310751668748/conversations/239/dialogueEntries/20/fields/10/value",
+      "sourceValueSha256": "b9573620f8f448df8827ee43799d981bfd09d9f8bd3f537abfa03d7219afe0f2",
+      "sourceUtf8Sha256": "35859d36d9231f046bfbaee6dd6dc1cd3d6a0dccf2991bf5cb550ad58a2cd1c6",
+      "source": "None()",
+      "role": "protected-sequencer-program",
+      "assessment": "Second physical custom-greeting None() program is preserved.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/dialogue-database-values.jsonl",
+        "line": 2859
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 37,
+      "id": "ds:58:719:Dialogue Text",
+      "sourceValueSha256": "9f530ec18ad1a5a3174ae458f0a50b991d59ab2a5769e6e790fa2ab520623221",
+      "sourceUtf8Sha256": "bad2a25f5ab72dbebe16e3e5aaced7f1dd008f39cd9de6c4c737151ff62c0156",
+      "source": "[pic=2]So where to?",
+      "role": "display-candidate-inline-grammar-and-special-discovery-pending",
+      "assessment": "Accepted Penny greeting at entry719 retains branch_condition2, initial [pic=2] and casual open destination question.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/frozen-dialogue-bindings.jsonl",
+        "line": 3088
+      },
+      "newPhraseSemanticPass": false
+    },
+    {
+      "ordinal": 38,
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3::ExecuteTrigger(System.String)/IL_0a01",
+      "sourceValueSha256": "9f530ec18ad1a5a3174ae458f0a50b991d59ab2a5769e6e790fa2ab520623221",
+      "sourceUtf8Sha256": "bad2a25f5ab72dbebe16e3e5aaced7f1dd008f39cd9de6c4c737151ff62c0156",
+      "source": "[pic=2]So where to?",
+      "role": "display-runtime-fast-travel-greeting",
+      "assessment": "The compiled custom-greeting producer adopts precisely the accepted entry719 wording; separate selector application is still required to prevent English overwrite.",
+      "typedLedger": {
+        "path": "localization/source/shared-source-completion-20261028/admission-v1/managed-literal-inventory.jsonl",
+        "line": 4091
+      },
+      "newPhraseSemanticPass": false
+    }
+  ],
+  "retainedSemanticReceiptCount": 7,
+  "retainedReceipts": [
+    {
+      "id": "ds:58:3:Dialogue Text",
+      "sourceUtf8Sha256": "ee9d5214a33dbfad6da36288cc991173a88b5d65fc697d6e3fd6a2d7e81954ed",
+      "sourceValueSha256": "aa018680b27cd6e44d334bec9d5c5165149bed7d0d62a11f075fdfa514c96bdf",
+      "targetUtf8Sha256": "6d827c111e9782259e2353c88ab9e4060a46738194e62995a94e3aaca08a20c9",
+      "source": "Central Forest",
+      "target": "Центральный лес",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2695,
+      "receipt": {
+        "id": "ds:58:3:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Central Forest destination uses approved term; technical title untouched.",
+        "sourceSha256": "ee9d5214a33dbfad6da36288cc991173a88b5d65fc697d6e3fd6a2d7e81954ed",
+        "targetSha256": "6d827c111e9782259e2353c88ab9e4060a46738194e62995a94e3aaca08a20c9"
+      },
+      "newSemanticPass": false
+    },
+    {
+      "id": "ds:58:5:Dialogue Text",
+      "sourceUtf8Sha256": "98ce4d723310c908eec81f9e71b17aa801d08296bbd6542f6e90fb6688c3b43e",
+      "sourceValueSha256": "33605b5340b7653b8689c1724ba5974cc59d88c9aa061ab1b1f284dec6719c6c",
+      "targetUtf8Sha256": "a6905c63747cd016484e23e1be515a0d375e176c2152a288004d1a20f8f3cdba",
+      "source": "The Lake",
+      "target": "Озеро",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2696,
+      "receipt": {
+        "id": "ds:58:5:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Lake destination uses approved name and preserves Lake key.",
+        "sourceSha256": "98ce4d723310c908eec81f9e71b17aa801d08296bbd6542f6e90fb6688c3b43e",
+        "targetSha256": "a6905c63747cd016484e23e1be515a0d375e176c2152a288004d1a20f8f3cdba"
+      },
+      "newSemanticPass": false
+    },
+    {
+      "id": "ds:58:7:Dialogue Text",
+      "sourceUtf8Sha256": "b0d2ff2f0631f0c951a0a9ea11891abba0369e4573ed0aefdc210d887a31453d",
+      "sourceValueSha256": "3e1da5130befe0fbf79df63edfd915179c3a2f98a2390a39322eeee90cb27434",
+      "targetUtf8Sha256": "bcb74b71028adf8f226204bc9719e65c9e5ee65753b60c011f26c07d2f2a206a",
+      "source": "The Mountains",
+      "target": "Горы",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2697,
+      "receipt": {
+        "id": "ds:58:7:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Mountains destination correctly plural with title key retained.",
+        "sourceSha256": "b0d2ff2f0631f0c951a0a9ea11891abba0369e4573ed0aefdc210d887a31453d",
+        "targetSha256": "bcb74b71028adf8f226204bc9719e65c9e5ee65753b60c011f26c07d2f2a206a"
+      },
+      "newSemanticPass": false
+    },
+    {
+      "id": "ds:58:14:Dialogue Text",
+      "sourceUtf8Sha256": "42004253c81dbc0b8f0ac4c606fbdf500605a14f04397cb32ec0a6c334541983",
+      "sourceValueSha256": "6b77baec5ce34e7c749541f42b26a25c177c3b7a1244ec4a7f93227bf4600042",
+      "targetUtf8Sha256": "95455a63ba6ddbf9ca761690932a29a4661d4bd142d0bf20abab88f3a74a8358",
+      "source": "The Plains",
+      "target": "Равнины",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2698,
+      "receipt": {
+        "id": "ds:58:14:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Plains destination uses glossary name without changing Plains_End key.",
+        "sourceSha256": "42004253c81dbc0b8f0ac4c606fbdf500605a14f04397cb32ec0a6c334541983",
+        "targetSha256": "95455a63ba6ddbf9ca761690932a29a4661d4bd142d0bf20abab88f3a74a8358"
+      },
+      "newSemanticPass": false
+    },
+    {
+      "id": "ds:58:15:Dialogue Text",
+      "sourceUtf8Sha256": "ad4af07b901f84611f1d14f1f6980db951cee072549889ed12da07cfbd899d73",
+      "sourceValueSha256": "47ae23b8109a8922c543aea17e58591eaa3845ec0db94d5181f43bfc4899b0de",
+      "targetUtf8Sha256": "ce1398efe6a2e1fd97e18f6567b407f3d1b6e6db56fa8c1768922abf639b84a3",
+      "source": "Deep Woods",
+      "target": "Лесная чаща",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2699,
+      "receipt": {
+        "id": "ds:58:15:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Deep Woods translated as approved Лесная чаща, key unchanged.",
+        "sourceSha256": "ad4af07b901f84611f1d14f1f6980db951cee072549889ed12da07cfbd899d73",
+        "targetSha256": "ce1398efe6a2e1fd97e18f6567b407f3d1b6e6db56fa8c1768922abf639b84a3"
+      },
+      "newSemanticPass": false
+    },
+    {
+      "id": "ds:58:337:Dialogue Text",
+      "sourceUtf8Sha256": "7a047979ce473e05c022cc97af72e518f78da455452c1e5764f81028856bee46",
+      "sourceValueSha256": "f41f7282dd22b9a6b6a258be426e993e61cc43f7960ee85cb5b498e8ab5e8819",
+      "targetUtf8Sha256": "f79c1c2caa6b92d5bbde342a4fbe0727f467aeed7981cdba2188aa4c08d17427",
+      "source": "Just wanna chat!",
+      "target": "Просто хочу поболтать!",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2700,
+      "receipt": {
+        "id": "ds:58:337:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Cancel-travel choice explicitly requests chat and preserves technical title.",
+        "sourceSha256": "7a047979ce473e05c022cc97af72e518f78da455452c1e5764f81028856bee46",
+        "targetSha256": "f79c1c2caa6b92d5bbde342a4fbe0727f467aeed7981cdba2188aa4c08d17427"
+      },
+      "newSemanticPass": false
+    },
+    {
+      "id": "ds:58:719:Dialogue Text",
+      "sourceUtf8Sha256": "bad2a25f5ab72dbebe16e3e5aaced7f1dd008f39cd9de6c4c737151ff62c0156",
+      "sourceValueSha256": "9f530ec18ad1a5a3174ae458f0a50b991d59ab2a5769e6e790fa2ab520623221",
+      "targetUtf8Sha256": "da3a1c3d70413e67ef49239042cb2e4b1734f371063cf5f29d700a2f5e5f8531",
+      "source": "[pic=2]So where to?",
+      "target": "[pic=2]Ну что, куда?",
+      "receiptFile": "localization/editorial-delivery/ru-cycle-02/cycle/retained-reviews.jsonl",
+      "receiptFileSha256": "cb9ea59f11637c587545f95b9877b35e69a7af7d9e54b8bb029480897bdb2938",
+      "receiptLine": 2702,
+      "receipt": {
+        "id": "ds:58:719:Dialogue Text",
+        "verdict": "pass",
+        "rationale": "Short renewed destination prompt retains branch_condition2 and conversational tone.",
+        "sourceSha256": "bad2a25f5ab72dbebe16e3e5aaced7f1dd008f39cd9de6c4c737151ff62c0156",
+        "targetSha256": "da3a1c3d70413e67ef49239042cb2e4b1734f371063cf5f29d700a2f5e5f8531"
+      },
+      "newSemanticPass": false
+    }
+  ],
+  "newSemanticPassRowsForRetained7": 0,
+  "sourceBindingsFingerprint": "2931b627bed205b41088e8bb2760228085d9a2417d62c201315c58dcabc0121e",
+  "sourceBindingsRepresentation": "UTF-8 compact JSON ordered array of {id,sourceValueSha256,role}; no terminal LF",
+  "decisionFile": "localization/case-decisions/ru-20261029/decisions.jsonl",
+  "decisionFileSha256": "f6b172223b12232f987cf77c9922af656d4f69eb7cd07dc1c3be9fb0617ff11f",
+  "decisionRecordSha256": "eab09a0f50b47ef00758f5f8aba788b7efff3968a6a2caf24410d8ad844a6b0a",
+  "targetFile": "localization/supplemental-ui/20261029-remaining-case51/ru.prepared.jsonl",
+  "targetFileSha256": "7df249ae9a9efdd538dfbdd628640964ef6a84e3ca03651b0ad89dddd5e38674",
+  "compiledGreeting": {
+    "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3::ExecuteTrigger(System.String)/IL_0a01",
+    "sourceUtf8Sha256": "bad2a25f5ab72dbebe16e3e5aaced7f1dd008f39cd9de6c4c737151ff62c0156",
+    "targetUtf8Sha256": "da3a1c3d70413e67ef49239042cb2e4b1734f371063cf5f29d700a2f5e5f8531",
+    "adopts": "ds:58:719:Dialogue Text"
+  },
+  "rationale": "The seven Russian labels/cancel/greeting and compiled custom greeting are coherent as a complete locale decision. Display strings remain separate from Title, destination, Description, Sequence, trigger and branch identities. BuildFastTravelConversation matches original Titles, replaces the first custom-greeting successor text, and appends cancel; the translated compiled operand must be bound separately because it can overwrite translated dialogue. No inflection or identity adapter is required for these standalone Russian choices.",
+  "descriptionPolicy": {
+    "path": "localization/source/inventory-display-completion-20261028/approved-preservation.jsonl",
+    "sha256": "d91e0ed09b9db2a67bcd8735a0ad9f74990ede2ad55f2c0ab2b57b8a17f33ece",
+    "logicalFields": 5,
+    "physicalCopies": 10,
+    "ownerPolicy": "Exact owner3047 preservation only; no broader consumer-resolution or metadata exemption inferred."
+  },
+  "findings": [],
+  "sourceUncertainties": [
+    "DeepWoods is stored and retained but is not emitted by the traced four-key producer; no whole-game reachability or exclusion conclusion.",
+    "The five Description readers remain externally unproved; the exact owner preservation policy permits retaining their values, not declaring all consumers resolved."
+  ],
+  "remainingApplicationAndRuntime": [
+    "Parent must separately apply/read back exact compiled IL_0a01 target through the owning path after the relevant source/locale gates; a matching dialogue translation alone is insufficient.",
+    "Preserve all30 physical context fields and all seven original dialogue IDs; compare both physical copies and original routing/order.",
+    "Actual trigger state, greeting branch selection, choice meanings/routes, portrait control parsing, fonts and fitting remain not-run. No alias adapter or resource change accepted here."
+  ],
+  "targetApplied": false,
+  "ordinaryTranslationEntryAllowed": false,
+  "sourceGateAccepted": false,
+  "wholeGameAccepted": false,
+  "runtime": "not-run"
+}

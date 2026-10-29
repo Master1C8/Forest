@@ -1,0 +1,36 @@
+{
+  "packetSha256": "4a6b3d460b6062328bf4bab9529c7a19c9dd38b48ad3b68fb8609ddfcc025cc1",
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "89af5c17b75e915250ef86f305ea1d382054c0f7b30091c48d5b0050a985f025.webp",
+      "sha256": "5efd0258cb50cb52271d8cacfc97d6d0ba6d6a68311065c3c372f0f1cb682f84",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-10-29T04:06:13.256486+00:00",
+      "observations": "Inspected the complete delivered 1280×720 WebP. The expected Russian description is fully visible on one line without apparent clipping or missing glyphs. Other Cyrillic text is readable. No external overlays are visible. The decorative heading remains English: “Pause”.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top-center decorative heading, approximately x=496–787, y=130–235",
+          "observed": "The heading reads “Pause” in English.",
+          "expected": "Russian localized heading; no English-art exception is established for this surface.",
+          "nextAction": "Trace the heading's authored asset and packaged localization binding, provide a localized heading, and review a new bound capture after the correction."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "caseId": "input-labels-and-emitted-values",
+  "locale": "ru",
+  "groups": [
+    {
+      "group": "key-actions",
+      "ids": [
+        "level1:7266/m_text",
+        "level1:7299/m_text",
+        "level1:7301/m_text",
+        "level1:7318/m_text",
+        "level1:7329/m_text",
+        "level1:8684/specialKeys/4/name",
+        "level1:8718/specialKeys/0/name",
+        "level1:8718/specialKeys/4/name",
+        "sharedassets2.assets:15883/m_text",
+        "sharedassets2.assets:15933/m_text",
+        "sharedassets2.assets:16096/specialKeys/0/name",
+        "sharedassets2.assets:16096/specialKeys/4/name",
+        "sharedassets2.assets:16103/m_text",
+        "sharedassets2.assets:16107/specialKeys/4/name",
+        "sharedassets2.assets:16112/m_text",
+        "sharedassets2.assets:16190/m_text"
+      ],
+      "sourceWording": [
+        "ENTER",
+        "SHIFT",
+        "DONE",
+        "ENTER",
+        "DONE",
+        "ENTER",
+        "SHIFT",
+        "ENTER",
+        "ENTER",
+        "DONE",
+        "SHIFT",
+        "ENTER",
+        "SHIFT",
+        "ENTER",
+        "DONE",
+        "ENTER"
+      ],
+      "targetWording": [
+        "ВВОД",
+        "РЕГИСТР",
+        "ГОТОВО",
+        "ВВОД",
+        "ГОТОВО",
+        "ВВОД",
+        "РЕГИСТР",
+        "ВВОД",
+        "ВВОД",
+        "ГОТОВО",
+        "РЕГИСТР",
+        "ВВОД",
+        "РЕГИСТР",
+        "ВВОД",
+        "ГОТОВО",
+        "ВВОД"
+      ],
+      "interpretation": "Translate action captions only. Keep Return, LeftShift and every enum/keycode/callback exact; default cache must agree with initial caption.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "press-any-key",
+      "ids": [
+        "level1:7418/m_text",
+        "level1:7492/m_text",
+        "level1:7588/m_text",
+        "level1:7639/m_text",
+        "level1:7807/m_text",
+        "level1:7834/m_text",
+        "level1:9204/m_Text",
+        "sharedassets0.assets:3934/m_Text",
+        "sharedassets0.assets:3935/m_Text",
+        "sharedassets0.assets:4102/m_text",
+        "sharedassets0.assets:4103/m_text",
+        "sharedassets0.assets:4258/m_text",
+        "sharedassets0.assets:4259/m_text",
+        "sharedassets0.assets:4261/m_text",
+        "sharedassets0.assets:4262/m_text",
+        "sharedassets0.assets:4486/m_text",
+        "sharedassets0.assets:4487/m_text",
+        "sharedassets0.assets:4488/m_text",
+        "sharedassets0.assets:4489/m_text",
+        "sharedassets0.assets:4625/m_text",
+        "sharedassets0.assets:4626/m_text"
+      ],
+      "sourceWording": [
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key",
+        "Press any key"
+      ],
+      "targetWording": [
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу",
+        "Нажми любую клавишу"
+      ],
+      "interpretation": "Player may press any key; every existing main/glow copy receives the full same caption. Actual input coverage remains a runtime check.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "report-placeholder",
+      "ids": [
+        "level1:7530/m_text",
+        "sharedassets2.assets:16052/m_text"
+      ],
+      "sourceWording": [
+        "You can type your report with a physical keyboard.\nOr use our virtual keyboard. It supports touch and gamepad controls!",
+        "You can type your report with a physical keyboard.\nOr use our virtual keyboard. It supports touch and gamepad controls!"
+      ],
+      "targetWording": [
+        "Текст можно ввести с обычной клавиатуры\nили с экранной — она поддерживает сенсорный экран и геймпад!",
+        "Текст можно ввести с обычной клавиатуры\nили с экранной — она поддерживает сенсорный экран и геймпад!"
+      ],
+      "interpretation": "Explicit Placeholder TextMeshProUGUI field, separate from TMP_InputField entered value; retain physical/on-screen and touch/gamepad distinction.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "inventory-shortcut",
+      "ids": [
+        "sharedassets1.assets:1260/m_Text",
+        "sharedassets2.assets:15333/m_Text"
+      ],
+      "sourceWording": [
+        "Inv",
+        "Inv"
+      ],
+      "targetWording": [
+        "Инв.",
+        "Инв."
+      ],
+      "interpretation": "Mobile button label abbreviates inventory. Do not rename Atk1 or any action ID.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "dash-instruction",
+      "ids": [
+        "sharedassets15.assets:5775/m_Text",
+        "sharedassets15.assets:6137/m_Text",
+        "sharedassets15.assets:6288/m_Text",
+        "sharedassets15.assets:6953/m_Text",
+        "sharedassets15.assets:6954/m_Text",
+        "sharedassets15.assets:7021/m_Text"
+      ],
+      "sourceWording": [
+        "Press [Shift] or Gamepad [X] to Dash",
+        "Press [Shift] or Gamepad [X] to Dash",
+        "Press [Shift] or Gamepad [X] to Dash",
+        "Press [Shift] or Gamepad [X] to Dash",
+        "Press [Shift] or Gamepad [X] to Dash",
+        "Press [Shift] or Gamepad [X] to Dash"
+      ],
+      "targetWording": [
+        "Нажми [Shift] или [X] на геймпаде, чтобы сделать рывок",
+        "Нажми [Shift] или [X] на геймпаде, чтобы сделать рывок",
+        "Нажми [Shift] или [X] на геймпаде, чтобы сделать рывок",
+        "Нажми [Shift] или [X] на геймпаде, чтобы сделать рывок",
+        "Нажми [Shift] или [X] на геймпаде, чтобы сделать рывок",
+        "Нажми [Shift] или [X] на геймпаде, чтобы сделать рывок"
+      ],
+      "interpretation": "One press of physical Shift OR gamepad X triggers the existing burst-movement mechanic; preserve literal controls.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "finish-instruction",
+      "ids": [
+        "sharedassets2.assets:14231/m_Text",
+        "sharedassets2.assets:14335/m_Text",
+        "sharedassets2.assets:14523/m_Text",
+        "sharedassets2.assets:14692/m_Text",
+        "sharedassets2.assets:15000/m_Text",
+        "sharedassets2.assets:15174/m_Text",
+        "sharedassets2.assets:15513/m_Text",
+        "sharedassets2.assets:15775/m_Text",
+        "sharedassets2.assets:16367/m_Text",
+        "sharedassets2.assets:16468/m_Text",
+        "sharedassets2.assets:16555/m_Text",
+        "sharedassets2.assets:17390/m_Text"
+      ],
+      "sourceWording": [
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!",
+        "Press [Escape] or Joystick [B] when finished!"
+      ],
+      "targetWording": [
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+        "Когда закончишь, нажми [Escape] или [B] на геймпаде!"
+      ],
+      "interpretation": "Use Escape OR gamepad B when finished; retain condition and every glow copy.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "plant-button-hint",
+      "ids": [
+        "sharedassets4.assets:30436/m_Text",
+        "sharedassets4.assets:30475/m_Text",
+        "sharedassets4.assets:33737/m_Text",
+        "sharedassets4.assets:33793/m_Text",
+        "sharedassets4.assets:36464/m_Text",
+        "sharedassets4.assets:37933/m_Text"
+      ],
+      "sourceWording": [
+        "Mash [Spacebar] or Joystick [A] to clench!",
+        "Mash [Spacebar] or Joystick [A] to clench!",
+        "Mash [Spacebar] or Joystick [A] to clench!",
+        "Mash [Spacebar] or Joystick [A] to clench!",
+        "Mash [Spacebar] or Joystick [A] to clench!",
+        "Mash [Spacebar] or Joystick [A] to clench!"
+      ],
+      "targetWording": [
+        "Быстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Быстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Быстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Быстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Быстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Быстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!"
+      ],
+      "interpretation": "Rapid repeated presses, not hold: Spacebar OR gamepad A; clench without invented anatomical detail.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "plant-full-instruction",
+      "ids": [
+        "sharedassets4.assets:31102/m_Text",
+        "sharedassets4.assets:33514/m_Text",
+        "sharedassets4.assets:33870/m_Text",
+        "sharedassets4.assets:35712/m_Text",
+        "sharedassets4.assets:35937/m_Text",
+        "sharedassets4.assets:36100/m_Text"
+      ],
+      "sourceWording": [
+        "Bring the seeds to Scarlett while they're fresh and warm.\n\n\nMash [Spacebar] or Joystick [A] to clench!",
+        "Bring the seeds to Scarlett while they're fresh and warm.\n\n\nMash [Spacebar] or Joystick [A] to clench!",
+        "Bring the seeds to Scarlett while they're fresh and warm.\n\n\nMash [Spacebar] or Joystick [A] to clench!",
+        "Bring the seeds to Scarlett while they're fresh and warm.\n\n\nMash [Spacebar] or Joystick [A] to clench!",
+        "Bring the seeds to Scarlett while they're fresh and warm.\n\n\nMash [Spacebar] or Joystick [A] to clench!",
+        "Bring the seeds to Scarlett while they're fresh and warm.\n\n\nMash [Spacebar] or Joystick [A] to clench!"
+      ],
+      "targetWording": [
+        "Донеси семя до Скарлетт, пока оно свежее и тёплое.\n\n\nБыстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Донеси семя до Скарлетт, пока оно свежее и тёплое.\n\n\nБыстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Донеси семя до Скарлетт, пока оно свежее и тёплое.\n\n\nБыстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Донеси семя до Скарлетт, пока оно свежее и тёплое.\n\n\nБыстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Донеси семя до Скарлетт, пока оно свежее и тёплое.\n\n\nБыстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!",
+        "Донеси семя до Скарлетт, пока оно свежее и тёплое.\n\n\nБыстро нажимай [Spacebar] или [A] на геймпаде, чтобы сжимать мышцы!"
+      ],
+      "interpretation": "Deliver seed to Scarlett while fresh and warm; maintain reproductive/plant ambiguity, triple LF and rapid-clench instruction.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    },
+    {
+      "group": "map-instruction",
+      "ids": [
+        "bgdb:resources.assets:320/sheet/0BzeuogxqUOTnLWmTpBxVw/row/UNoALqIOw0yszJ9qgAFiaQ/field/TAthhVyZiEGyr0cvbui4cw"
+      ],
+      "sourceWording": [
+        "A gift from Scarlett. This nifty atlas helps travelers navigate the forest! Activate it with [M] or [Select]."
+      ],
+      "targetWording": [
+        "Подарок Скарлетт. Этот полезный атлас помогает путешественникам ориентироваться в лесу! Открой его клавишей [M] или [Select]."
+      ],
+      "interpretation": "Reuse accepted map description and exact M/Select controls; activation semantics/resources remain unchanged.",
+      "implementation": "proposal-only",
+      "runtime": "not-run"
+    }
+  ],
+  "wordingPrepared": 72,
+  "whole409RuntimeAccepted": false,
+  "characterRules": "Apply full171 glossary; no new pronoun/identity facts. Scarlett uses approved Скарлетт. Plant seed remains семя."
+}

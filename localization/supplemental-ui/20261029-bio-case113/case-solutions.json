@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "game": "The Forest of Love 0.45",
+  "locale": "ru",
+  "scope": "Exactly 111 BioKeyword.bio_text states and two enabled native Text headings; necessary pretranslation preparation only",
+  "wording": "ru.prepared.jsonl",
+  "sourceContext": "source-context.jsonl",
+  "solutions": [
+    {
+      "caseId": "hidden-identity-and-unlock-masks",
+      "understanding": "The Critter Log records species, age, role, personal notes and intimate interests. The player learns these through the original introduction/unlock behavior. Question marks remain ignorance, not an untranslated person's name.",
+      "displayMapping": "Replace only each exact BioKeyword.bio_text value after distinct review and parent integration. Never change name/savekey/plugin_db_trigger_name, Actor identities, BIO operands, relation IDs, defaults, tags, timestamps or hide flags.",
+      "producer": "GenerateBioKeywords copies bio_text to runtime BioKeyword.text. BioDetail uses line1/species, line2/age, line3/role. BioNote slots1..6 map to fragment indices0..5; BioKink slots1..9 map to6..14 without sorting or compaction.",
+      "reveal": "The pane requires all three categories. Detail slots display only when known; introduction attempts Detail unlocks. A Notes/Kinks value is shown only when unlocked AND NOT hidden. Hidden values can be known/saved while still masked. A null slot remains a mask. NEW requires timeUnlocked > timeLastViewed, not equality.",
+      "identityStrategy": "Use canonical actor joins, not English-looking keys or grammatical noun gender. Shared age labels use impersonal categories; shared Traveler uses a gender-neutral actor predicate. Coyote/Rabbit and Russian species noun genders do not rewrite canon. Fen's species label remains Wolf/Волк rather than prematurely naming him. Proper-name interest objects Scarlett/Claire/Rascal remain objects of interest, not renamed actors.",
+      "literalSymbolCaption": "BioKeyword row92 stores actual ???. Preserve it as one assigned symbol state, distinct from the 94 runtime-mask selectors and from absent relations. Do not count it as newly translated prose.",
+      "currentMembershipLimits": "Swinging and Question Marks have no slot in the inspected BioDetail/BioNote/BioKink tables; no actor or runtime reachability is invented. Swinging wording follows approved glossary156. No-slot does not establish global nonuse.",
+      "anomalies": "Keep original Verile and town_arial_taxi controls untouched. Verile is interpreted contextually as male sexual vigor, not fertility, bound to Oliver's orientation conversation187. Conversation299 BIO(gator,kink_sizeplay) resolves identities but has no matching current gator category slot; preserve, do not redirect it. Legacy unresolved BIO controls remain source context.",
+      "conditionalDetail": "Keep Charlotte's Main/default row2 and Vslice/nondefault row15 distinct. Main wins if both tags active; no active tags falls back to row2. The conditional role is Temporary Bodyguard only in row15. Cache/event lifecycle and reachability stay unverified.",
+      "positiveAcceptance": "Same original key unlocks its same actor/category; an unlocked nonhidden slot shows its exact authored Russian caption, and the stored ??? caption stays literal ???.",
+      "negativeAcceptance": "Locked or hidden slot reveals a Russian name/caption; a translated identity key changes unlock/save resolution; a shared keyword drops one actor/hidden relation; an absent slot is compacted; a source LF mask loses its LF.",
+      "feasibility": "Existing static loader and display consumers support a display-only mapping contract. This packet does not establish a reinsertion adapter, font coverage, rendered layout, save lifecycle or runtime behavior.",
+      "independentReview": "pending",
+      "implementation": "pending-parent-integration"
+    },
+    {
+      "caseId": "notify-only-artwork",
+      "headings": {
+        "sharedassets2.assets:14193/m_Text": "Кинки",
+        "sharedassets2.assets:17708/m_Text": "Заметки"
+      },
+      "understanding": "These are the two native Text section titles over the kink and personal-note columns of the Critter Log. They are not painted artwork. Кинки names the intimate-interest category; Заметки identifies the journal notes.",
+      "constraints": "Both components and all recorded source ancestors are enabled/active; this is static metadata, not runtime reachability. Both use native Text at size16, no BestFit, font PPtr5:369, alignment4 and horizontal/vertical overflow1. Preserve these values. RectTransform11976 belongs to Notes and12362 to Kinks; exact raw hashes are in source-context. Numeric rectangle bounds are not exported in the allowed evidence and remain a technical uncertainty.",
+      "positiveAcceptance": "Exact two native Text fields show their complete Russian headings while the 24 already accepted journal header corrections and the Pause/Residents/Active/Completed artwork bytes retain their accepted/original identities.",
+      "negativeAcceptance": "A Sprite reference exempts an enabled text component, or wording is shortened and font/layout changed merely to force fit.",
+      "pending": "The technical owner must read the bound source RectTransforms from an allowed source snapshot, verify native16px Russian glyphs and complete heading fit in an authorized build/runtime. Do not launch GUI, access original installation or alter fonts in this lane.",
+      "independentReview": "pending",
+      "implementation": "pending-parent-integration"
+    }
+  ],
+  "targetApplied": false,
+  "ordinaryTranslationEntryAllowed": false,
+  "sourceGateAccepted": false,
+  "wholeGameAccepted": false
+}

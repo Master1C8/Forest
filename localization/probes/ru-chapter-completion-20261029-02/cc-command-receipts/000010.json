@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "action": "cc-ready oos",
+  "offset": 440,
+  "process": {
+    "pid": 91560,
+    "executable": "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-chapter-completion-20261029-02/game/The Forest of Love.exe",
+    "psIdentity": "Thu Oct 29 10:43:16 2026     Y:\\Desktop\\Forest\\localization\\probes\\ru-chapter-completion-20261029-02\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/ru-chapter-completion-20261029-02/player.log"
+  },
+  "transport": {
+    "exitCode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/Users/antonkrutov/Desktop/Forest/localization/probes/ru-chapter-completion-20261029-02/cg-helpers/command.py\", line 40, in <module>\n    assert receipt and (' OK ' + args.command) in receipt, receipt or 'Timeout; outcome unknown, reconcile before resubmitting.'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2026-10-29T03:44:05.4121240Z FAIL cc-ready oos System.Exception: source-route-unavailable-ItemGetNotification-LevelSingletons/Item Get Notification\n"
+  },
+  "logReceipt": "2026-10-29T03:44:05.4121240Z FAIL cc-ready oos System.Exception: source-route-unavailable-ItemGetNotification-LevelSingletons/Item Get Notification\r"
+}

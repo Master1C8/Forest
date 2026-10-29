@@ -58,12 +58,19 @@ public sealed partial class ForestProbe {
         public float fontSize,minGlyphPointSize,fontSizeMin,fontSizeMax,width,height,preferredWidth,preferredHeight,authoredAlpha,effectiveAlpha;
         public int characters,visibleCharacters,missingGlyphs,outsideRect,outsideMasks,outsideViewport;
         public bool active,enabled,autoSize,overflow;public int viewportWidth,viewportHeight;
+        public string canvasRenderMode,rootCanvasPath,declaredCanvasCamera;
     }
     void CGGeometry(){
         if(cgLabels==null)throw new System.Exception("No native surface");UnityEngine.Canvas.ForceUpdateCanvases();var rows=new System.Text.StringBuilder();
         foreach(var t in cgLabels){t.ForceMeshUpdate(false,true);var rect=t.rectTransform.rect;float alpha=t.enabled&&t.gameObject.activeInHierarchy?t.color.a*t.canvasRenderer.GetAlpha():0;for(var a=t.transform;a!=null;a=a.parent)foreach(var group in a.GetComponents<UnityEngine.CanvasGroup>())alpha*=group.alpha;
             var m=new CGMetric{path=CGPath(t.transform),text=t.text,font=t.font.name,family=t.font.faceInfo.familyName,fontSize=t.fontSize,fontSizeMin=t.fontSizeMin,fontSizeMax=t.fontSizeMax,autoSize=t.enableAutoSizing,width=rect.width,height=rect.height,preferredWidth=t.preferredWidth,preferredHeight=t.preferredHeight,authoredAlpha=t.color.a,effectiveAlpha=alpha,active=t.gameObject.activeInHierarchy,enabled=t.enabled,characters=t.textInfo.characterCount,overflow=t.isTextOverflowing,overflowMode=t.overflowMode.ToString(),viewportWidth=UnityEngine.Screen.width,viewportHeight=UnityEngine.Screen.height};
-            m.minGlyphPointSize=float.PositiveInfinity;var generated=new System.Text.StringBuilder();var glyphs=new System.Collections.Generic.List<string>();var cameras=new System.Collections.Generic.List<string>();var canvas=t.canvas;UnityEngine.Camera camera=canvas==null?null:canvas.rootCanvas.worldCamera;
+            m.minGlyphPointSize=float.PositiveInfinity;var generated=new System.Text.StringBuilder();var glyphs=new System.Collections.Generic.List<string>();var cameras=new System.Collections.Generic.List<string>();var canvas=t.canvas;
+            var rootCanvas=canvas==null?null:canvas.rootCanvas;
+            m.canvasRenderMode=rootCanvas==null?"none":rootCanvas.renderMode.ToString();m.rootCanvasPath=rootCanvas==null?"":CGPath(rootCanvas.transform);
+            m.declaredCanvasCamera=rootCanvas==null||rootCanvas.worldCamera==null?"none":CGPath(rootCanvas.worldCamera.transform);
+            // ScreenSpaceOverlay ignores the stored worldCamera. Project its
+            // vertices with null, even when that dormant field names UI Camera.
+            UnityEngine.Camera camera=rootCanvas==null||rootCanvas.renderMode==UnityEngine.RenderMode.ScreenSpaceOverlay?null:rootCanvas.worldCamera;
             if(canvas!=null&&canvas.rootCanvas.renderMode!=UnityEngine.RenderMode.ScreenSpaceOverlay&&camera==null){foreach(var c in UnityEngine.Camera.allCameras)if(c.enabled&&c.gameObject.activeInHierarchy&&(c.cullingMask&(1<<t.gameObject.layer))!=0){if(camera!=null)throw new System.Exception("Ambiguous rendering camera; resolve native binding");camera=c;}if(camera==null)throw new System.Exception("Native UI camera unresolved");}
             cameras.Add(camera==null?"overlay":CGPath(camera.transform));
             for(int i=0;i<t.textInfo.characterCount;i++){var ch=t.textInfo.characterInfo[i];generated.Append(ch.character);glyphs.Add(((int)ch.character)+"|"+(ch.fontAsset==null?"<null>":ch.fontAsset.name)+"|"+(ch.textElement==null?0:ch.textElement.glyphIndex)+"|"+ch.isVisible+"|"+(ch.xAdvance-ch.origin));if(!char.IsWhiteSpace(ch.character)&&(ch.textElement==null||ch.textElement.glyphIndex==0||ch.character=='\u25a1'||ch.character=='\ufffd'))m.missingGlyphs++;if(!ch.isVisible)continue;m.visibleCharacters++;m.minGlyphPointSize=UnityEngine.Mathf.Min(m.minGlyphPointSize,ch.pointSize);

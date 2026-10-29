@@ -1,0 +1,33 @@
+{
+  "retained": [
+    {
+      "method": "DialogueCommands::Test",
+      "offset": "IL_001d",
+      "finding": "Existing prior preserve-diagnostic role retained; actual LogError is visible. Needs later exact-role adjudication, not an absence claim."
+    },
+    {
+      "method": "ChapterCommands::Unlock",
+      "offsets": "IL_0026-0037",
+      "finding": "Original compares input.ToLower with input.Trim, not ChapterRecord.title; no repair made."
+    }
+  ],
+  "additionalObservedContracts": [
+    {
+      "group": "TriggersCommands::Reset",
+      "fact": "LogWarning prefix is emitted even for a null lookup; no success predicate inferred."
+    },
+    {
+      "group": "TriggersCommands::Info",
+      "fact": "Null lookup leaves String.Empty status; no invented not-set or unknown status."
+    },
+    {
+      "group": "InventoryCommands::PlayerHas",
+      "fact": "Both true and false branches call LogError; truth is not inferred from severity."
+    },
+    {
+      "group": "DateCommands::Find",
+      "fact": "Original header says dialogues for the Date subset; retain dialogue wording."
+    }
+  ],
+  "reclassification": "open; no prior role edits"
+}

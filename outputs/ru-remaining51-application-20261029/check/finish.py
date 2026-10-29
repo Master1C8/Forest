@@ -1,0 +1,20 @@
+import pathlib,json,sys,importlib.util
+R=pathlib.Path('/Users/antonkrutov/Desktop/Forest');C=R/'outputs/ru-remaining51-application-20261029/check';S=R/'localization/source/remaining51-application-20261029';sys.path.insert(0,str(R/'tools'));import russian_remaining51_case as h
+h.load_inputs(locale='ru')
+frozen=C/'frozen-delivery/remaining51/russian_remaining51_case.py';spec=importlib.util.spec_from_file_location('final_frozen',frozen);f=importlib.util.module_from_spec(spec);spec.loader.exec_module(f);assert f.load_inputs(locale='ru')==h.load_inputs(locale='ru')
+manifest=h.read(S/'delivery-manifest.json')
+for name,record in manifest['files'].items():assert h.sha(R/name)==record['sha256']
+for name,pin in manifest['code'].items():assert h.sha(R/name)==pin
+for name,pin in manifest['evidence'].items():assert h.sha(R/name)==pin
+for name,pin in h.read(C/'protected-root-pins.json').items():assert h.sha(R/name)==pin
+assert h.read(C/'regression-final.json')['status']=='passed' and h.read(C/'managed-negative-controls.json')['passed']
+assert h.read(C/'additional-builder-controls.json')['status']=='passed'
+assert h.read(S/'reproduction-validation.json')['status']=='passed'
+assert len(h.rows(S/'protected-controls-ledger.jsonl'))==2135
+manifest['documentation']={str(p.relative_to(R)):h.sha(p)for p in [S/'HANDOFF.md',S/'source-application-contract.json',S/'finite-acceptance-checklist.json',C/'verification-environment.json']}
+# Manifest is finalized once all delivery checks and documentation exist.
+(S/'delivery-manifest.json').write_bytes(h.enc(manifest))
+final={'status':'passed','sourceAndTargetInputsUnchanged':True,'acceptedHelperMatchesFrozen':True,'normalBuilderMatchesFrozen':True,'allDeliveredArtifactsMatchManifest':True,'allProtected2135Accounted':True,'rootReadmeCheckpointUnchanged':True,'tests':35,'newBGCells':17,'newCompiledOperands':31,'retainedChapterOperands':3,'wholeManagedMethods':14099,'wholeBGStates':51572,'texturesPreserved':1385,'managedByteExactReversal':True,'resourcesByteExactReversal':True,'fullBuild':'not-run','actualGameRuntime':'not-run','sourceGateAccepted':False,'wholeGameAccepted':False,'gitMutations':'none by this lane; parent owns integration','deliveryManifestSha256':h.sha(S/'delivery-manifest.json')}
+h.emit(C/'final-verification.json',final)
+result={'status':'finite-russian51-normal-application-complete','locale':'ru','assignedOccurrences':51,'appliedNewOccurrences':48,'newBGDisplayCells':17,'newCompiledOperands':31,'alreadyAppliedChapterOperandsVerified':3,'targetWordingChanged':0,'sourceAndTargetUnchanged':True,'semanticJudgment':'retained exact parent-accepted48 independent+3 retained receipts; no new wording or semantic review','deterministicChecks':'passed;35 matched controls,2135 protected records,108 previously accepted assembled outputs pinned','supportedManagedPriorSha256':h.PRIOR,'managedOutputSha256':h.sha(C/'delivery-final/Assembly-CSharp.remaining51.dll'),'resourcesOutputSha256':h.sha(C/'delivery-final/resources.assets'),'BGOutputSha256':h.sha(C/'delivery-final/bg-after.bin'),'wholeManagedMethods':14099,'wholeBGStates':51572,'originalTexturesPreserved':1385,'wholeManagedAndResourceByteExactReversal':True,'frozenSnapshotRecompiledAndExactOutputsReproduced':True,'normalBuilderFlag':'--remaining-display-case','normalFullBuild':'not-run','actualGameRuntime':'not-run','actualRuntime':'not-run','visual':'not-run','ordinaryTranslationEntryAllowed':False,'sourceGateAccepted':False,'wholeGameAccepted':False,'rootREADMECheckpointChanged':False,'gitMutations':False,'nestedJobs':False,'automaticNextPhase':False,'handoff':str((S/'HANDOFF.md').relative_to(R)),'manifest':str((S/'delivery-manifest.json').relative_to(R)),'manifestSha256':h.sha(S/'delivery-manifest.json'),'finalVerification':str((C/'final-verification.json').relative_to(R)),'finalVerificationSha256':h.sha(C/'final-verification.json'),'usage':'Parent measures actual session telemetry; no subagents/nested model requests.'}
+h.emit(C/'Result.json',result);h.emit(S/'Result.json',result);print(json.dumps(result,indent=2))

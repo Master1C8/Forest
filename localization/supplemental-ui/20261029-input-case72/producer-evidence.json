@@ -1,0 +1,42 @@
+[
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/key-behavior.il",
+    "sha256": "02fdc3a00619fba3e1974c5ac84b3cd279a2f8f1bfc0bb5f5cca92d3025e725a",
+    "contract": "Awake IL_003e–IL_004a copies keyName.text to defaultLabelText; IsShiftKey compares303/304."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/keyboard-generate.il",
+    "sha256": "df93fa68aa2639c74a39e397486a6c2b194b2bae2524a22bda48b527ec07e88b",
+    "contract": "Generate parses layout, matches specialKeys by keycode, passes name to Assign atIL_0313–032a, binds existing callbacks or KeyCall, preserves doneKey; final Shift broadcasts remain exact."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/keyboard-find.il",
+    "sha256": "64f74c3142ec2f94f19c4056bc765da91ecde1d54425b341503968a2866ada2d",
+    "contract": "Special-key lookup compares keycode, not caption spelling."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/keyboard-callback.il",
+    "sha256": "fbd296061ad87085d396999a2dbf88239d5ae6e15d1522958cc52c849ce1d4ee",
+    "contract": "KeyCall focus/dictionary guards; key13 Submit, Shift303/304 case toggle, printable keycode->char/ToUpper; KeySpace emits ASCII space; OnPhysicalKeyStroke uses existing char-to-keycode map."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/key-click.il",
+    "sha256": "0846dbe2c426bf3dd1eb15da1f3422d667b7279b1c5ddcccadc5847883401df8",
+    "contract": "Click preserves isPressed guard and OnMouseDown/OnMouseUp timing; button state unchanged."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase144/producers/161.il",
+    "sha256": "877951fde0c4a1853609ab4f6fee760943b95129e491469885e78a45f11fb8d7",
+    "contract": "Assign writes key, label from explicit name or char(key), then keyType; does not derive keycode from translated label."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase145/receivers/03.il",
+    "sha256": "02c52f04cbdaa8baf8eb04989bf4325178dad813a2c70cc8c9f2b5191224bcf3",
+    "contract": "Relabel applies only to Shift303/304 or302 and uses defaultLabelText on null; it does not restore Return/Done."
+  },
+  {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/phase134/plant-label-producer.il",
+    "sha256": "fdcab3e9d2c4fdbd551a8867a22370eecb3990074773d53fd3f3081a220a4813",
+    "contract": "Plant UI Awake binds instructions/button-hint animators and timer/dash labels; observed label family preserved. Dynamic animator states and gameplay not altered."
+  }
+]

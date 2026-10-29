@@ -1,0 +1,67 @@
+{
+  "packetSha256": "7ee9de2e83b3340cb84a7f038f7f19482a53fce19bc81da28663dd8c75dcde8e",
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "19c61fd039ccb8042361295d0df8c6ca3f0c649d6d01b23a25eb989cb848f2eb.webp",
+      "sha256": "067dbcb1f44657798d05d6c3c397c900e582fabde93977705473c12305b03927",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T04:05:49.135399+00:00",
+      "observations": "Inspected the complete 1280×720 prepared WebP. Case 28's expected Russian description is fully visible on one line without clipping. Visible Cyrillic is readable, with no missing glyphs or literal markup. No external overlays appear.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top-center pause heading, approximately x=495–785, y=130–235",
+          "observed": "The prominent heading reads “Pause” in English.",
+          "expected": "Russian interface text; no exception for this English artwork is supplied.",
+          "nextAction": "Localize the heading through its owning asset path, then capture and review the affected frame again."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "550843736158dce2ef361f68fe85d7606aa65e765569d1c5b00fda05872198b1.webp",
+      "sha256": "7decc1a413d32502c3ee28021da10904182febd384234ed8abebf3b61383d916",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T04:05:49.135431+00:00",
+      "observations": "Inspected the complete 1280×720 prepared WebP. Case 32's complete expected Russian description, including the parenthetical ending, fits on one line. It remains readable across the foreground artwork. No clipping, missing glyphs, literal markup or external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top-center pause heading, approximately x=495–785, y=130–235",
+          "observed": "The prominent heading reads “Pause” in English.",
+          "expected": "Russian interface text; no exception for this English artwork is supplied.",
+          "nextAction": "Localize the heading through its owning asset path, then capture and review the affected frame again."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

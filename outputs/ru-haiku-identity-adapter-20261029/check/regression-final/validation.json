@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "name": "missing-locale",
+      "passed": true,
+      "expectedReason": "explicit-ru-locale-required"
+    },
+    {
+      "name": "wrong-locale",
+      "passed": true,
+      "expectedReason": "explicit-ru-locale-required"
+    },
+    {
+      "name": "missing-ninth-choice",
+      "passed": true,
+      "expectedReason": "exact-nine-choices-required"
+    },
+    {
+      "name": "wrong-context",
+      "passed": true,
+      "expectedReason": "wrong-context"
+    },
+    {
+      "name": "wrong-source-version",
+      "passed": true,
+      "expectedReason": "wrong-source-or-target-version"
+    },
+    {
+      "name": "wrong-target-version",
+      "passed": true,
+      "expectedReason": "wrong-source-or-target-version"
+    },
+    {
+      "name": "draft-poem-receipt",
+      "passed": true,
+      "expectedReason": "accepted-russian-choice-required"
+    },
+    {
+      "name": "wrong-choice-step",
+      "passed": true,
+      "expectedReason": "wrong-slot-identity"
+    },
+    {
+      "name": "ambiguous-exact-slot-labels",
+      "passed": true,
+      "expectedReason": "ambiguous-slot-labels"
+    },
+    {
+      "name": "wrong-target-bytes-real-loader",
+      "passed": true,
+      "expectedReason": "input-pin:localization/ru-assets/dialogue.ru.jsonl"
+    },
+    {
+      "name": "wrong-source-bytes-real-adapter",
+      "passed": true,
+      "expectedReason": "supported-input-assembly-hash"
+    },
+    {
+      "name": "actual-backend-wrong-source",
+      "passed": true,
+      "expectedReason": "supported-input-assembly-hash",
+      "stderr": "InvalidOperationException: supported-input-assembly-hash",
+      "noOutputWritten": true
+    },
+    {
+      "name": "actual-backend-repeat",
+      "passed": true,
+      "expectedReason": "patch-state-not-pristine",
+      "stderr": "InvalidOperationException: patch-state-not-pristine",
+      "noOutputWritten": true
+    },
+    {
+      "name": "normal-builder-hook",
+      "passed": true,
+      "boundary": "AST/control-order inspection only; no full game build"
+    },
+    {
+      "name": "immutable-snapshot-preflight",
+      "passed": true,
+      "files": 30
+    },
+    {
+      "name": "failure-between-payload-and-receipt-writes",
+      "passed": true,
+      "stderr": "UnauthorizedAccessException: Access to the path '/Users/antonkrutov/Desktop/Forest/outputs/ru-haiku-identity-adapter-20261029/check/regression-final/interrupted-write.dll.methods.jsonl' is denied.",
+      "unchangedSource": true,
+      "exactBeforeAndReversedPayloads": true,
+      "completionReceiptAbsent": true,
+      "repeatRejected": true,
+      "boundary": "per-file writes; no multi-file transaction; reconcile partial paths and choose a new attempt"
+    }
+  ],
+  "count": 16,
+  "positiveControl": "real pinned accepted loader and candidate patch + actual CLR fixture",
+  "fullGameBuild": "not-run",
+  "runtime": "not-run"
+}

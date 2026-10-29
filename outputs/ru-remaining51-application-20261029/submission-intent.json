@@ -1,0 +1,29 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "argv": [
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+    "exec",
+    "--ignore-user-config",
+    "--model",
+    "gpt-6.1-sol",
+    "-c",
+    "model_provider=\"openai\"",
+    "-c",
+    "model_reasoning_effort=\"high\"",
+    "-c",
+    "approval_policy=\"never\"",
+    "--sandbox",
+    "danger-full-access",
+    "--disable",
+    "multi_agent",
+    "--cd",
+    "/Users/antonkrutov/Desktop/Forest",
+    "--json",
+    "--output-last-message",
+    "/Users/antonkrutov/Desktop/Forest/outputs/ru-remaining51-application-20261029/check/last-message.txt",
+    "Execute the one finite accepted Russian51 normal-builder application in /Users/antonkrutov/Desktop/Forest/outputs/ru-remaining51-application-20261029/check/brief.md. First read brief.md and dispatch.json. Before localized content verify runtime-verification.json. Fresh no inherited history, no nested jobs, no root README/CHECKPOINT or Git mutations."
+  ]
+}

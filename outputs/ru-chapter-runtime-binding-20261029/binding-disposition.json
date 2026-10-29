@@ -1,0 +1,23 @@
+{
+  "status": "exact-runtime-envelope-repair;native-recheck-pending",
+  "cause": "Source LevelSingletons prefab is instantiated under LevelSingletons scene wrapper. Previous Replace(Clone,empty) left duplicate LevelSingletons/LevelSingletons and matched no controller.",
+  "sourceConsumers": [
+    "ItemGetNotification18057",
+    "ChapterSelectUI17041"
+  ],
+  "actualRuntimePaths": [
+    "LevelSingletons/LevelSingletons(Clone)/Item Get Notification",
+    "LevelSingletons/LevelSingletons(Clone)/ChapterSelectUI/ChapterSelectUI"
+  ],
+  "repair": "Accept exact source path or one observed LevelSingletons/LevelSingletons(Clone)/ envelope; keep exact type, scene and duplicate rejection.",
+  "preserved": [
+    "run01",
+    "run02",
+    "frozen-final-v2"
+  ],
+  "futureBundle": "outputs/chapter-completion-ui-20261029/check/frozen-final-v3",
+  "futureBundlePins": "ef29f8ba671d65fae5ab6fc230b17f5e91238a2cd54ad660c1ea4153f9620ba5",
+  "all58PinsVerified": true,
+  "gameSourceChanged": false,
+  "wholeGameAccepted": false
+}

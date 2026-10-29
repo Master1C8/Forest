@@ -1,44 +1,61 @@
 # Current Russian completion, October29
 
 The accepted935-ID UI packet includes32 reviewed corrections. The134-occurrence
-chapter/gallery packet and combined full build02 are statically verified; its1385
-original textures in26containers and all resource streams are preserved.
+chapter/gallery packet and full candidate02 are statically verified; all1385
+original textures in26containers and their resource streams remain exact.
 
-[Gallery acceptance](localization/visual-qa/ru-gallery-20261029-01-diagnostic/gallery-scoped-acceptance.json)
-binds3367 original-consumer argument fixtures and all10 reviewed frames.
-[Quest acceptance](localization/visual-qa/ru-quests-20261029-01/final-acceptance.json)
-binds195 loaded states,24 header fields, finite original pane/HUD cases and all
-seven frames plus one source-pixel border crop. These are renderer fixtures,
-not actual input, awards, ownership or progression acceptance.
+The accepted gallery fixture covers3367 original-consumer arguments and10 frames.
+The Quest fixture covers195 loaded states,24 header fields,seven frames and one
+source-pixel crop. Notebook run02 covers156 fields and all five original pages at
+1280x720 client/1440x900 physical resolution, preserving windowed mode and exact
+disposable save/settings bytes. The owner accepted only the original fading in
+three unchanged notebook illustrations. Russian text remains fully reviewed.
+See [notebook scoped acceptance](localization/visual-qa/ru-notebook-20261029-02/final-acceptance.json).
+These fixtures do not establish actual choices, ownership or progression.
 
-The latest notebook run02 verifies all156 fields and five original pages at
-actual1280x720 client/1440x900 physical resolution. Windowed mode and both exact
-disposable save/settings bytes are preserved. All five frames were independently
-reviewed: Russian text/layout/contamination are clean; three tiny faded regions
-in protected original illustrations remain needs-review. Exact Image/Sprite/Texture
-bindings prove artwork provenance, not tiny-mark readability. Old run01 and its
-failed/missing-display evidence remain unchanged. The canonical capture now
-records diagnostics; the strict preparation accepts real run02 and rejects old
-run01 for exactly its missing diagnostic before writing output.
+[Russian51 editorial acceptance](localization/supplemental-ui/20261029-remaining-case51/ru.acceptance.json)
+binds48 new independently reviewed targets and three retained chapter targets.
+Its17 active greeting cells and31 new compiled operands are now included in
+full candidate display-completion01, after the accepted Haiku adapter. All12
+delivered file hashes and1385 original texture objects/streams verify. The17 dormant sibling values and2135 control records remain exact.
+Bio113 and input72 now have clean independent wording acceptance:112 new
+Bio labels/headings,70 input captions,two reused targets and one preserved symbol.
+Console62 has a clean independent conditional wording review; actual presentation eligibility
+and log-level/native delivery remain open.
 
-The common narrative source increment retains150 selectors as25 pages under
-five owners for all30 saved locales. Existing-target review found16 conditional
-compatibility candidates, five unresolved Penny joins and four pages lacking an
-exact whole-page target, with no wording defects in the21 existing matches.
-The old Penny tutorial factory and listeners are now statically bound; actual
-activation and speaker/conversation join remain unknown. Inactive Mouse78 and
-old Penny30 remain potential resources; no target application or absence claim.
+The [haiku identity adapter](localization/source/haiku-identity-adapter-20261029/HANDOFF.md)
+preserves all194 accepted records and nine Russian choices. All27 outcomes pass
+81 CLR executions across three cultures, with exact prior-DLL reversal. Actual
+normal-game selections, callback destinations and continuation remain unrun.
+Full candidate display-completion01 includes the adapter; actual-game27-choice
+execution remains unrun.
 
-All parent-owned games closed, bridges removed and parent artifacts unchanged;
-original owner files remain unused. Current finite model assignments finished
-with explicit fresh Sol/high/OpenAI selection. One pre-delivery capacity failure
-is preserved with unknown usage; its explicit recovery retained the same model.
+The new [font readback](localization/fonts/ru-current-role-bindings-20261029-01/readback.json)
+verifies109 selected components across10 profiles,351 accepted target-role joins,
+the actual embedded Liberation face and the fictional font's exact source bytes.
+Static cmap and resource ownership do not prove remaining live corpus allocation.
+
+All23 case decisions are recorded with explicit accepted/open dispositions;
+there is no global waiver. The narrative150 inventory retains its source/speaker
+and four whole-page gaps. Three item-wordplay context decisions now bind23 complete
+source conversations and retain four accepted values/eight receipts;five precise
+resource/callback/runtime predicates remain open. The chapter56 fixture found the exact runtime prefab
+wrapper mismatch; a new frozen recipe accepts only that observed envelope and
+keeps duplicate rejection. Its native run03 correctly rejects nonempty original global notification
+listeners before the factory. Exact subscriber effects need source binding;no
+events were cleared or replaced. Description run04 measured28 arguments and all
+three frames were reviewed:descriptions readable,but a lingering Pause heading
+failed content. The first divergent route called OnPause without PauseHelper.Pause;
+run06 verifies the complete original pause entry,then correctly rejects late
+dialogue activation before chapter selection. Its actual read-only roster has
+three ordinary-show listeners and one adventure-show listener. Native dialog/
+readiness and corrected projection checks remain open;prior evidence unchanged. Prior attempts,
+receipts and restored disposable inputs remain preserved.
 
 The [finite acceptance checklist](localization/completion/ru-20261029/acceptance-checklist.json)
-records exact artifacts, evidence, uncertainty and next permitted actions.
-OOS/chapter descriptions, other source wording, all23 special-case decisions,
-font allocation, actual dialogue/choices/progression and final delivery remain
-open. Ordinary translation entry and whole-game/release acceptance remain false.
+records exact predicates, current evidence and next actions. Original installation
+and saves remain untouched; no texture editing, installer, publication or deployment.
+Ordinary translation entry and whole-game/release acceptance remain false.
 
 Earlier sections below are retained historical evidence.
 

@@ -1,0 +1,31 @@
+{
+  "status": "verified-before-localized-content",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "nestedJobs": false,
+  "evidence": [
+    {
+      "type": "session_meta",
+      "payload": {
+        "id": "01a185a7-5bed-7e13-a196-36f6cc911f60",
+        "source": "exec",
+        "model_provider": "openai",
+        "parent_thread_id": null
+      }
+    },
+    {
+      "type": "turn_context",
+      "payload": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      }
+    }
+  ],
+  "pins": {
+    "brief.md": "046c2b716ac8c5875a77e0a346b10f8b2684a3afa0c69468b03eb8261d565d1e",
+    "dispatch.json": "3402b91471fd57315f45d2c05a69ae719b748ba20835d2d2f10b070e12bba604",
+    "runtime-verification.json": "10084592da428cd772607a55f7cf3990e0e6ffff1f1b1e1f55f6bca8a73584ba"
+  }
+}

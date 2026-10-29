@@ -1,0 +1,15 @@
+{"status": "adopted-existing-native-game", "actualPid": 95982}
+ACK show-menu
+ACK menu StartScreenMainMenu OnClickStart
+ACK menu PlayMenu OnClickContinue
+{"scene": "CentralForest", "conversationActive": false, "responseCount": 0, "width": 1280, "height": 720}
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-chapter-completion-20261029-03/parent-route/route.py", line 20, in <module>
+    m.capture(run,'oos')
+    ~~~~~~~~~^^^^^^^^^^^
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-chapter-completion-20261029-03/cg-helpers/capture_chapter_completion_ui.py", line 269, in capture
+    require(error is None and restored,error)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/antonkrutov/Desktop/Forest/localization/probes/ru-chapter-completion-20261029-03/cg-helpers/capture_chapter_completion_ui.py", line 27, in require
+    raise ValueError(reason)
+ValueError: ValueError('bridge-action-failed:cc-ready oos')

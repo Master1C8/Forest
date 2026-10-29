@@ -1,0 +1,15 @@
+{"case":"missing62nd-target","expectedRejection":"assigned-id-order-coverage","observedRejection":"assigned-id-order-coverage","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"duplicate-existing-ID","expectedRejection":"duplicate-target-id","observedRejection":"duplicate-target-id","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"changed-original-source","expectedRejection":"source-record-changed","observedRejection":"source-record-changed","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"lost-format-argument","expectedRejection":"format-slots","observedRejection":"format-slots","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"swapped-slot-identity","expectedRejection":"format-slots","observedRejection":"format-slots","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"translated-protected-filter","expectedRejection":"protected-context-value","observedRejection":"protected-context-value","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"changed-protected-padding","expectedRejection":"protected-context-value","observedRejection":"protected-context-value","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"dropped-protected48th","expectedRejection":"protected-context-coverage","observedRejection":"protected-context-coverage","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"translated-command-namespace","expectedRejection":"external-identity-value","observedRejection":"external-identity-value","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"translated-scene-identity","expectedRejection":"external-identity-value","observedRejection":"external-identity-value","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"target-applied-claim","expectedRejection":"application-or-gate-promotion","observedRejection":"application-or-gate-promotion","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"target-hash-mismatch","expectedRejection":"target-hash","observedRejection":"target-hash","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"injected-newline","expectedRejection":"newline-control","observedRejection":"newline-control","matchingPositive":"actual unchanged full62/48/120 packet passes","result":"passed"}
+{"case":"lost-prefix-boundary-space","expectedRejection":"joined-output:rank-header-1","observedRejection":"joined-output:rank-header-1","matchingPositive":"Лучшие 10 совпадений среди диалогов:","result":"passed; generic schema intentionally passes before join boundary rejects"}
+{"case":"source-hash-convention","result":"passed","fact":"SourceValueSha256 hashes JSON string representation; raw UTF8 digest is a separate field. Initial helper assertion corrected before target authoring."}

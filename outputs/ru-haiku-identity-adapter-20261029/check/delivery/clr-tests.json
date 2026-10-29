@@ -1,0 +1,439 @@
+{
+  "passed": true,
+  "mechanism": "CLR executes helper bodies cloned from actual patched readback and predicate IL extracted from original/patched ExecuteTrigger",
+  "fixtures": [
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nAcross the raging waters\nTo unite our friends",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "bridge_ending",
+      "actual": "bridge_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nAcross the raging waters\nWhy must you work now?",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nAcross the raging waters\nWhere no one has gone",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nWhat is important to you?\nTo unite our friends",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nWhat is important to you?\nWhy must you work now?",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nWhat is important to you?\nWhere no one has gone",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nTake me high above the clouds\nTo unite our friends",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nTake me high above the clouds\nWhy must you work now?",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:325:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "We molded the Earth\nTake me high above the clouds\nWhere no one has gone",
+      "russian": "\u041C\u044B \u043B\u0435\u043F\u0438\u043B\u0438 \u0442\u0432\u0435\u0440\u0434\u044C\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "Busy little bug\nAcross the raging waters\nTo unite our friends",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "Busy little bug\nAcross the raging waters\nWhy must you work now?",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "Busy little bug\nAcross the raging waters\nWhere no one has gone",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "Busy little bug\nWhat is important to you?\nTo unite our friends",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "Busy little bug\nWhat is important to you?\nWhy must you work now?",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "bug_ending",
+      "actual": "bug_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "Busy little bug\nWhat is important to you?\nWhere no one has gone",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "Busy little bug\nTake me high above the clouds\nTo unite our friends",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "Busy little bug\nTake me high above the clouds\nWhy must you work now?",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:410:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "Busy little bug\nTake me high above the clouds\nWhere no one has gone",
+      "russian": "\u0425\u043B\u043E\u043F\u043E\u0442\u0443\u043D-\u0436\u0443\u0447\u043E\u043A,\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nAcross the raging waters\nTo unite our friends",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nAcross the raging waters\nWhy must you work now?",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:326:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nAcross the raging waters\nWhere no one has gone",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u0427\u0435\u0440\u0435\u0437 \u0431\u0443\u0440\u043D\u044B\u0435 \u0432\u043E\u0434\u044B\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nWhat is important to you?\nTo unite our friends",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nWhat is important to you?\nWhy must you work now?",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:411:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nWhat is important to you?\nWhere no one has gone",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u0427\u0442\u043E \u0442\u0430\u043A \u0432\u0430\u0436\u043D\u043E \u0434\u043B\u044F \u0442\u0435\u0431\u044F?\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:327:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nTake me high above the clouds\nTo unite our friends",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u0427\u0442\u043E\u0431 \u0441\u043F\u043B\u043E\u0442\u0438\u0442\u044C \u0434\u0440\u0443\u0437\u0435\u0439.",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:412:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nTake me high above the clouds\nWhy must you work now?",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u041A \u0447\u0435\u043C\u0443 \u0442\u0440\u0443\u0434 \u0441\u0435\u0439\u0447\u0430\u0441?",
+      "expected": "mixed_ending",
+      "actual": "mixed_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    },
+    {
+      "ids": [
+        "ds:303:406:Dialogue Text",
+        "ds:303:407:Dialogue Text",
+        "ds:303:408:Dialogue Text"
+      ],
+      "source": "Oh lovely Falcon\nTake me high above the clouds\nWhere no one has gone",
+      "russian": "\u0421\u043E\u043A\u043E\u043B-\u043A\u0440\u0430\u0441\u043E\u0442\u0430,\n\u041D\u0435\u0441\u0438 \u043C\u0435\u043D\u044F \u0432\u044B\u0448\u0435 \u0442\u0443\u0447,\n\u0413\u0434\u0435 \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0431\u044B\u043B.",
+      "expected": "penny_ending",
+      "actual": "penny_ending",
+      "displayOnly": "mixed_ending",
+      "fieldsUnchanged": true
+    }
+  ],
+  "cultureResults": {
+    "en-US": 27,
+    "ru-RU": 27,
+    "tr-TR": 27
+  },
+  "negative": [
+    {
+      "name": "wrong-context",
+      "expectedReason": "haiku-identity:wrong-context",
+      "passed": true
+    },
+    {
+      "name": "wrong-step",
+      "expectedReason": "haiku-identity:unknown-label-or-slot",
+      "passed": true
+    },
+    {
+      "name": "missing-step",
+      "expectedReason": "haiku-identity:unknown-label-or-slot",
+      "passed": true
+    },
+    {
+      "name": "English-key-in-Russian-label",
+      "expectedReason": "haiku-identity:unknown-label-or-slot",
+      "passed": true
+    },
+    {
+      "name": "case-not-normalized",
+      "expectedReason": "haiku-identity:unknown-label-or-slot",
+      "passed": true
+    },
+    {
+      "name": "whitespace-not-trimmed",
+      "expectedReason": "haiku-identity:unknown-label-or-slot",
+      "passed": true
+    },
+    {
+      "name": "missing-third-line-before-short-circuit",
+      "expectedReason": "haiku-identity:unknown-label-or-slot",
+      "passed": true
+    }
+  ],
+  "changedDisplayOnly": 3,
+  "structuralNegative": [
+    {
+      "name": "changed-comparison",
+      "passed": true,
+      "reason": "whole-handler-source-contract",
+      "positiveControl": "unchanged pinned original before and after single mutation"
+    },
+    {
+      "name": "changed-control-trigger",
+      "passed": true,
+      "reason": "whole-handler-source-contract",
+      "positiveControl": "unchanged pinned original before and after single mutation"
+    },
+    {
+      "name": "changed-timing",
+      "passed": true,
+      "reason": "whole-handler-source-contract",
+      "positiveControl": "unchanged pinned original before and after single mutation"
+    },
+    {
+      "name": "changed-branch",
+      "passed": true,
+      "reason": "whole-handler-source-contract",
+      "positiveControl": "unchanged pinned original before and after single mutation"
+    },
+    {
+      "name": "fully-patched-repeat",
+      "passed": true,
+      "reason": "patch-state-not-pristine",
+      "positiveControl": "pristine original"
+    },
+    {
+      "name": "partial-call-without-helpers",
+      "passed": true,
+      "reason": "patch-state-not-pristine",
+      "positiveControl": "pristine original"
+    }
+  ],
+  "boundary": "Native Unity/service/trigger scheduling/UI/callbacks are not executed; actual game 27-fixture acceptance remains not-run."
+}

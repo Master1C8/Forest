@@ -166,6 +166,10 @@ public sealed class ForestProbe : MonoBehaviour
         ObserveLifecycle("command-read");
         File.Delete(command);
         try {
+#if CHAPTER_COMPLETION_PROBE
+            if(text.StartsWith("cc-")) ChapterCompletionCommand(text.Substring(3));
+            else
+#endif
 #if CHAPTER_GALLERY_PROBE
             if(text.StartsWith("cg-")) ChapterGalleryCommand(text.Substring(3));
             else
