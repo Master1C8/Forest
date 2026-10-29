@@ -1,5 +1,11 @@
 # Russian localization: technical CLI with parallel asset translation
 
+Current multilingual next-task selection is bound by `localization/PROCESS.md`
+and `localization/completion/locale-queue.json`. Reuse the Russian mechanism and
+source evidence with explicit target-locale configuration; Russian-specific
+targets, fonts and acceptance do not transfer. Preserve this historical technical
+contract and its immutable job copies; the current request controls runtime scope.
+
 The owner requests the complete Russian standard localization of The Forest of Love
 0.45. On October 26, 2026 the owner explicitly authorized a parallel asset-translation
 CLI and then instructed: resume this technical CLI, communicate that parallel work is

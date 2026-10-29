@@ -9,7 +9,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import time
-from cli_job_support import validate_model, cli_events, digest
+from cli_job_support import validate_model, cli_events, digest, require_legacy_assignment_current
 
 MODEL, EFFORT = 'gpt-6.1-sol', 'high'
 LOCALES = ('ru','zh','es','es-419','pt-BR','de')
@@ -82,6 +82,7 @@ def run(directory, interval=30, reconciliation=None):
     plan=json.loads(plan_bytes);plan_sha=hashlib.sha256(plan_bytes).hexdigest()
     validate_model(plan['model'],plan['reasoning'],'openai')
     assert set(plan['jobs'])==set(LOCALES)
+    for path in plan['jobs'].values():require_legacy_assignment_current(Path(path))
     assert not (directory/'submission-intent.json').exists(),'Prior submission outcome needs reconciliation; never resubmit'
     for path,want in plan['executionPins'].items():assert digest(path)==want,'Frozen continuation dependency changed'
     if reconciliation:recover_observer(directory,reconciliation)

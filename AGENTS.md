@@ -1,5 +1,13 @@
 # Forest localization completion
 
+For the updated multilingual completion queue, use `localization/PROCESS.md`,
+`localization/completion/process-spec.json` and `python3 -B tools/locale_queue.py
+check`. Russian development is a mechanism/regression reference, not another
+locale's semantic, font, native or release acceptance. Existing jobs select their
+next assignment through additive `current-workflow.json` pointers; preserve old
+frozen launchers and receipts as history. Queue preparation does not start workers
+or authorize game/runtime, screenshot, installer, publication or deployment work.
+
 The canonical checkout is `/Users/antonkrutov/Desktop/Forest`. Workstation and
 owner instructions remain authoritative, including the absolute Astra ban,
 explicit Sol/high/OpenAI selection, no inherited worker history, parent-only

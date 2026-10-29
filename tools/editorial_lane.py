@@ -12,7 +12,8 @@ import sys
 import time
 import signal
 
-from cli_job_support import validate_model, cli_events, cli_turn_succeeded, assert_stopped
+from cli_job_support import (validate_model, cli_events, cli_turn_succeeded, assert_stopped,
+                             require_legacy_assignment_current)
 from cli_runtime_identity import publish_current_runtime
 
 MODEL, EFFORT = 'gpt-6.1-sol', 'high'
@@ -502,6 +503,7 @@ def stage_upgrade(directory, execution_name):
     return launch
 
 def run(directory, reconciliation=None, handoff=None):
+    require_legacy_assignment_current(directory)
     directory = directory.resolve(); config = json.loads((directory / 'config.json').read_text())
     validate_model(config['model'], config['reasoning'], 'openai')
     state = json.loads((directory / 'job.json').read_text())

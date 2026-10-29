@@ -1,5 +1,14 @@
 # Russian asset translation: automatic fresh continuation
 
+Current multilingual continuation uses `localization/PROCESS.md` and
+`tools/locale_queue.py`. Existing migrated jobs select their new finite assignment
+through `current-workflow.json`; do not resume this historical dialogue-only brief
+or replace a locale's custom adapter with the Russian one. Saved dialogue remains
+reusable subject to source/glossary/consumer applicability. The instructions below
+preserve the original lane contract and regressions; they grant no new execution
+authority. Current dispatch uses parent-only Git ownership and six linguistic
+streams plus one technical stream, with Japanese inside the six-language limit.
+
 Game: The Forest of Love 0.45; source English; target Russian `ru`; standard
 localization. Canonical checkout: `/Users/antonkrutov/Desktop/Forest`, `main`.
 The owner explicitly authorizes a translation CLI running alongside the technical

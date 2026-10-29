@@ -1,5 +1,11 @@
 # Preliminary complete dialogue-family editorial pass
 
+For the next multilingual assignment, first reconcile the owning job's
+`current-workflow.json` against `localization/PROCESS.md` and the current locale
+queue. Retain these immutable preliminary results; do not automatically rerun a
+completed full pass or promote it to all-family acceptance. The original dispatch
+description below is historical authority for that work, not a new stream grant.
+
 The owner explicitly requested six parallel CLI editorial streams for ru, zh, es,
 es-419, pt-BR and de on October27,2026, while Japanese and technical work continue.
 After being told that the complete game inventory is not yet accepted, the owner

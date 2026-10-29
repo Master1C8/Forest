@@ -8,6 +8,16 @@ import re
 MODEL, EFFORT, PROVIDER = 'gpt-6.1-sol', 'high', 'openai'
 
 
+def require_legacy_assignment_current(directory):
+    """A migrated owning job must not silently reuse its old dialogue-only brief."""
+    pointer = Path(directory) / 'current-workflow.json'
+    if pointer.exists():
+        value = json.loads(pointer.read_text())
+        if value.get('legacyResumeAllowed') is not True:
+            raise ValueError('Job migrated to '+value['revision']+
+                             '; use tools/locale_queue.py prepare for its current finite assignment')
+
+
 def validate_model(model, effort, provider):
     if 'astra' in model.lower() or (model, effort, provider) != (MODEL, EFFORT, PROVIDER):
         raise ValueError('Only explicitly pinned gpt-6.1-sol/high/OpenAI is permitted.')

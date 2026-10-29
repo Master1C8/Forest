@@ -11,7 +11,7 @@ import sys
 
 from cli_job_support import (MODEL, EFFORT, PROVIDER, validate_model, digest,
                              assert_stopped, cli_events, asset_snapshot, asset_progress,
-                             cli_turn_succeeded, known_capacity_failure)
+                             cli_turn_succeeded, known_capacity_failure, require_legacy_assignment_current)
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 
@@ -135,6 +135,7 @@ def validate_repair_restart(directory, state, receipt_path, snapshot):
 def run(directory, reconciliation=None, repair_reconciliation=None):
     directory = directory.resolve()
     validate_model(MODEL, EFFORT, PROVIDER)
+    require_legacy_assignment_current(directory)
     state_path = directory / 'job.json'
     state = json.loads(state_path.read_text())
     if state['status'] not in ('prepared', 'finished', 'held-process-or-transport-failure', 'needs-owner'):
