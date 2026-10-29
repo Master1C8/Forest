@@ -1,0 +1,115 @@
+{
+  "retainedV1Catalog": {
+    "path": "localization/supplemental-ui/20261029-pause-chapter-case576/mandatory-regressions.json",
+    "sha256": "0781e22d5a621375a8f26b9b07f619ec0ba3ee53086058d635fc17b1622a0419",
+    "rows": [
+      {
+        "id": "title-not-single-example",
+        "predicate": "Seven exact Chapter Select memberships include panel header17682 and six pause button faces; all target Выбор главы.",
+        "ids": [
+          "sharedassets2.assets:15425/m_text",
+          "sharedassets2.assets:16273/m_text",
+          "sharedassets2.assets:16709/m_text",
+          "sharedassets2.assets:17332/m_text",
+          "sharedassets2.assets:17648/m_text",
+          "sharedassets2.assets:17659/m_text",
+          "sharedassets2.assets:17682/m_text"
+        ],
+        "status": "passed-static"
+      },
+      {
+        "id": "complete-sibling-family",
+        "predicate": "Each source face/glow family keeps exact membership and has identical complete target in all nonnull siblings;164 logical groups accounted.",
+        "status": "passed-static"
+      },
+      {
+        "id": "destructive-warnings",
+        "predicate": "Quit/menu/forfeit preserve unsaved restriction; cancel-adventure preserves loss and restart later; chapter warning retains four categories and future statement.",
+        "status": "passed-author-semantic"
+      },
+      {
+        "id": "report-paragraphs",
+        "predicate": "Success/empty/cancel/send/disabled/intro instructions remain full units, with website exact and Edit Text callback wording matched.",
+        "status": "passed-author-semantic"
+      },
+      {
+        "id": "exact-current-retention",
+        "predicate": "Twelve current translated input/hint targets remain byte exact against accepted input72 receipts.",
+        "status": "passed-static-and-author-applicability"
+      },
+      {
+        "id": "display-not-input",
+        "predicate": "Keyboard letters, digits, arrows, layout labels, spaces, sentinel and + levels remain exact; no emitted/input/parser/callback keys translated.",
+        "status": "passed-static-proposal"
+      },
+      {
+        "id": "boolean-not-word-match",
+        "predicate": "24 options On/Off faces bind exact controller GO booleans;24 cheat On/Off faces plus48 other cheat-state faces remain null.",
+        "status": "passed-static-binding"
+      },
+      {
+        "id": "template-not-producer",
+        "predicate": "All17 ChapterSelect template/tooltip/debug members remain null, including source-labelled display defaults; two report info columns also null.",
+        "status": "passed-static-hold"
+      },
+      {
+        "id": "markup-and-styling",
+        "predicate": "Stored sprite=0 tags remain unchanged in held templates. All newly prepared faces have style0; no partial-grapheme styling. Full source schema/fonts/sizes preserved in proposal.",
+        "status": "passed-static-proposal"
+      },
+      {
+        "id": "dynamic-joins-and-activation",
+        "predicate": "Actual ChapterRecord title/description setters, hidden template activation/cache and cheat-state restoration need source-owner acceptance; no emitted output is inferred from initial strings.",
+        "status": "needs-source"
+      },
+      {
+        "id": "layout-font-runtime",
+        "predicate": "30pt wrapping title;14pt nonwrapping chapter warning;16pt report instructions and20pt nonwrapping labels require actual Cyrillic font/layout confirmation.",
+        "status": "not-run"
+      }
+    ],
+    "applicability": "Unchanged wording/control/title/report/font risks retained. V1 cheat/template hold assertions superseded only by revision02 explicit source disposition below."
+  },
+  "revision02": [
+    {
+      "id": "exact60-not54",
+      "predicate": "Five bound controls x2 faces x6 physical leaves;60 exact new targets, no dropped UnlockMovies offset",
+      "status": "passed-static"
+    },
+    {
+      "id": "one-shot-versus-toggle",
+      "predicate": "Three Run Cheat?/Activated pairs set true; two On/Off pairs invert state; original keys/GO/callbacks protected",
+      "status": "passed-source-and-author; runtime-not-run"
+    },
+    {
+      "id": "full-chooser-read",
+      "predicate": "All90 active chooser members plus complete18 unbound members read;96 nonnull words actually audited and separately read in Russian",
+      "status": "passed-author"
+    },
+    {
+      "id": "unbound18-hold",
+      "predicate": "Six prior heading targets preserved;12 status defaults remain null; all18 application-held, no action synthesized",
+      "status": "passed-static-and-author"
+    },
+    {
+      "id": "chapter-defaults",
+      "predicate": "Ten clone-cleared templates, mixed6 tooltip defaults and debug1 retained unchanged; generated titles/descriptions remain separate",
+      "status": "passed-static-hold"
+    },
+    {
+      "id": "diagnostic-payload-split",
+      "predicate": "Two generated diagnostic defaults stay exact; changing saved strings cannot localize transmitted data",
+      "status": "passed-static-hold"
+    },
+    {
+      "id": "current-protection",
+      "predicate": "93 protected values and12 current accepted inputs remain exact;434 scalar changes only in unapplied proposal",
+      "status": "passed-static"
+    },
+    {
+      "id": "independence-and-runtime",
+      "predicate": "No independent pass inherited, no renderer/runtime or source/ordinary/whole-game acceptance inferred",
+      "status": "pending-independent; runtime-not-run"
+    }
+  ]
+}

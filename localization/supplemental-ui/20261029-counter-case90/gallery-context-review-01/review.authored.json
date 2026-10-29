@@ -1,0 +1,185 @@
+{
+  "reviewer": "/root/counter_gallery_context_review",
+  "reviewType": "independent-new-source-context-delta; accepted wording unchanged",
+  "semanticReceipts": [
+    {
+      "joinIndex": 0,
+      "fixtureIds": [
+        "heading-01",
+        "heading-02",
+        "heading-03",
+        "heading-04",
+        "heading-05",
+        "heading-06",
+        "heading-07",
+        "heading-08",
+        "heading-09",
+        "heading-10",
+        "heading-11",
+        "heading-12"
+      ],
+      "verdict": "pass",
+      "reason": "Read the complete Stories heading and all twelve source/target joins. Истории preserves the category; открыто explicitly identifies the numerator as unlocked entries, without asserting a selected ordinal. The denominator correctly follows both secret predicates: 46, 47 for either single-secret branch, 48. All zero/one/total substitutions preserve both numbers. The line break remains after the category and the whole parenthesized status clause, including both placeholders and slash, stays inside size 12. Default formatted branch is conditioned on storyLastSelected comparing nonnull; it does not assert that a zero-count branch is reachable."
+    },
+    {
+      "joinIndex": 1,
+      "fixtureIds": [
+        "heading-13",
+        "heading-14",
+        "heading-15",
+        "heading-16"
+      ],
+      "verdict": "pass",
+      "reason": "Read the entire bare Stories operand and its target Истории in all four secret branches. When storyLastSelected compares null, no numeric or unlocked claim is displayed. The target preserves that deliberate bare category and adds no count or state. Story denominator calculation occurs before this branch but is unused by this operand."
+    },
+    {
+      "joinIndex": 2,
+      "fixtureIds": [
+        "heading-17",
+        "heading-18",
+        "heading-19",
+        "heading-20",
+        "heading-21",
+        "heading-22",
+        "heading-23",
+        "heading-24",
+        "heading-25",
+        "heading-26",
+        "heading-27",
+        "heading-28"
+      ],
+      "verdict": "pass",
+      "reason": "Read the complete UpdateStorySelectionText body and all twelve assembled Stories source/target outputs. The Int32 argument is unread; storiesUnlockedCount is the numerator and adjusted array length is the denominator. Истории and открыто retain these roles at 0,  1, 46/47/48, including both distinct47 branches. The updated category is consistent with the formatted default, and neither Russian wording nor preserved slash suggests index+1. Full status and placeholders remain inside size 12 after the actual newline."
+    },
+    {
+      "joinIndex": 3,
+      "fixtureIds": [
+        "heading-29",
+        "heading-30",
+        "heading-31"
+      ],
+      "verdict": "pass",
+      "reason": "Read the whole Movies heading against Фильмы and the 0/11, 1/11, 11/11 pairs. With movieLastSelected comparing nonnull, moviesUnlockedCount is displayed out of the actual 11 options. Открыто preserves availability rather than sequence, and the target retains category, both numbers, slash, parentheses, newline and complete size 12 status span. No eight-item or source-independent maximum is claimed."
+    },
+    {
+      "joinIndex": 4,
+      "fixtureIds": [
+        "heading-32"
+      ],
+      "verdict": "pass",
+      "reason": "Read the bare Movies operand and Фильмы in the movieLastSelected-compares-null branch. It naturally labels the whole movies category and intentionally carries no unlock fraction, ordinal or added state. It matches the first line of both formatted movie headings."
+    },
+    {
+      "joinIndex": 5,
+      "fixtureIds": [
+        "heading-33",
+        "heading-34",
+        "heading-35"
+      ],
+      "verdict": "pass",
+      "reason": "Read UpdateMovieSelectionText completely and the 0/11, 1/11, 11/11 assembled source/target pairs. The supplied index is ignored; moviesUnlockedCount/11 supplies the fraction. Фильмы with открыто expresses this count with no ordinal addition. Both placeholder identities and order, complete status span, slash and actual newline match the default formatted movie heading."
+    }
+  ],
+  "separateRussianReadReceipts": [
+    {
+      "joinIndex": 0,
+      "verdict": "pass",
+      "reason": "Separately read every heading-01 through heading-12 target as complete Russian UI. Истории is a natural category heading; the impersonal открыто: plus numerical fraction remains grammatical for0, 1, 46, 47, 48 and needs no changing noun ending. Lowercase открыто in the parenthetical second line matches a compact menu status. No awkward fragment, dangling tag or misleading ordinal appears."
+    },
+    {
+      "joinIndex": 1,
+      "verdict": "pass",
+      "reason": "Separately read heading-13 through heading-16: Истории is a complete, idiomatic plural category label in each null-selection branch. No sentence continuation or count is required."
+    },
+    {
+      "joinIndex": 2,
+      "verdict": "pass",
+      "reason": "Separately read heading-17 through heading-28. The complete Истории / (открыто: fraction) forms read naturally in each zero, one and total case; wording and register stay consistent with the default story heading. The fixed impersonal status avoids numeral-dependent agreement problems."
+    },
+    {
+      "joinIndex": 3,
+      "verdict": "pass",
+      "reason": "Separately read headings-29,30,31: Фильмы / (открыто:0/11, 1/11, 11/11) is concise natural menu Russian. Category plural and impersonal count status work together without changing grammar at one or zero."
+    },
+    {
+      "joinIndex": 4,
+      "verdict": "pass",
+      "reason": "Separately read heading-32. Фильмы is a natural complete movie-category label, with the same capitalization and noun as the formatted variants."
+    },
+    {
+      "joinIndex": 5,
+      "verdict": "pass",
+      "reason": "Separately read headings-33,34,35. Фильмы with the three complete открыто count lines is natural and consistent with the default movie display and the Истории sibling. There is no unsupported explanation or selected-item reading."
+    }
+  ],
+  "storedContextReceipts": [
+    {
+      "id": "level1:7440/m_text",
+      "verdict": "pass",
+      "reason": "Read Movie 1/8 → Фильм 1/8 and its complete NameGlowTop ancestry under movie root 1852. This enabled top glow layer retains the original singular category and 1/8 payload; the setter's unchanged full heading replaces it when included by native enumeration. Its stored receipt is not reused as acceptance of a count producer."
+    },
+    {
+      "id": "level1:7475/m_text",
+      "verdict": "pass",
+      "reason": "Read Story 1/8 → История 1/8 on story NameGlowLeft under root 1475, including ContentSizeFitter peer and initially inactive GalleryMenu ancestor. Natural singular stored label remains exact in numbers; the plural runtime heading is appropriate to total-category status. No live visibility or sizing claim follows from ancestry."
+    },
+    {
+      "id": "level1:7519/m_text",
+      "verdict": "pass",
+      "reason": "Read Movie 1/8 → Фильм 1/8 on NameGlowBottom under movie root 1852. Bottom glow agrees with the other five stored movie faces and is eligible for the same complete setter string by managed topology. 1/8 stays an initial payload, not an11-option limit repair."
+    },
+    {
+      "id": "level1:7614/m_text",
+      "verdict": "pass",
+      "reason": "Read Movie 1/8 → Фильм 1/8 on the Name child of NameGlowLeft under 1852. The main named child shares the category and digits of its glow companions; its ancestry supports the movie setter binding. Native enumeration/exposure remains untested."
+    },
+    {
+      "id": "level1:7643/m_text",
+      "verdict": "pass",
+      "reason": "Read Story 1/8 → История 1/8 on story Name under NameGlowLeft/root 1475. It is a complete natural singular stored identity caption, consistent with the separate accepted Story {0} identity phrase. It does not license interpreting the actual Истории/открыто heading as an ordinal."
+    },
+    {
+      "id": "level1:7659/m_text",
+      "verdict": "pass",
+      "reason": "Read Movie 1/8 → Фильм 1/8 for the movie NameGlowRight child under 1852. The right glow has identical stored wording/numbers to the other movie layers and receives the complete movie heading through the shared setter when enumerated; no fragment joining or digit substitution is assumed."
+    },
+    {
+      "id": "level1:7694/m_text",
+      "verdict": "pass",
+      "reason": "Read Movie 1/8 → Фильм 1/8 on movie NameGlowLeft with its ContentSizeFitter peer. Root1852 and all enabled child ancestors bind it to the movie setter; inactive GalleryMenu prevents a static visibility assertion. Stored singular wording remains sound; fit/clipping is not established."
+    },
+    {
+      "id": "level1:7771/m_text",
+      "verdict": "pass",
+      "reason": "Read Story 1/8 → История 1/8 on story NameGlowRight/root 1475. It matches every stored story layer exactly in term and 1/8. New source context supplies a whole unlocked-count heading, not a replacement of the8 or a concatenation with this singular caption."
+    },
+    {
+      "id": "level1:7792/m_text",
+      "verdict": "pass",
+      "reason": "Read Story 1/8 → История 1/8 on NameGlowBottom/root 1475. The bottom story glow retains all original numeric content and natural category term, and is accounted independently rather than dropped because text repeats. Actual TMP child inclusion is an external boundary."
+    },
+    {
+      "id": "level1:7804/m_text",
+      "verdict": "pass",
+      "reason": "Read Story 1/8 → История 1/8 on the outer NameContainer/root 1475 including its ContentSizeFitter peer. This separate text component remains in the six-story membership. The runtime setter forwards the complete Истории/открыто status, preserving counterpart coherence; no layout pass is inferred."
+    },
+    {
+      "id": "level1:7813/m_text",
+      "verdict": "pass",
+      "reason": "Read Movie 1/8 → Фильм 1/8 on the outer movie NameContainer/root 1852 with ContentSizeFitter peer. It is distinct from NameGlowLeft and the four named glow children and remains accounted. Its stored singular wording and digits stay accepted; the category heading's plural reflects a separate producer contract."
+    },
+    {
+      "id": "level1:7824/m_text",
+      "verdict": "pass",
+      "reason": "Read Story 1/8 → История 1/8 on NameGlowTop/root 1475. The top story glow agrees with the five other story captions, retains 1/8 unchanged, and binds by its full ancestor chain. All twelve layers have enabled text components beneath an initially inactive GalleryMenu; runtime visibility is not claimed."
+    }
+  ],
+  "objectiveWordingFindings": [],
+  "proposedFullReplacements": [],
+  "changedWordingIds": [],
+  "exactFinalDelta": [],
+  "representationClarification": "Decoded ui935 source/target strings, adopted sourceRawOperand, raw ldstr and actual gallery-targets strings contain U+000A, not literal U+005C U+006E. JSON on disk represents LF using backslash-n. The actual pinned builder parses JSON and assigns GetString directly to ldstr, with exact source comparison; no extra unescape repair is warranted.",
+  "sourceBoundaryClarification": "Eight secret-story zero/one fixtures are symbolic formatting controls inconsistent with an initialized snapshot's minimum unlocked secret count. They are read linguistically but not accepted as reachable gameplay states. All other endpoint fixtures also retain not-proven reachability.",
+  "targetApplied": false,
+  "actualGameRuntime": "not-run"
+}

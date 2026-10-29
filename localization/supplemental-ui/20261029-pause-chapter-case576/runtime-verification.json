@@ -1,0 +1,54 @@
+{
+  "status": "verified-non-Astra-before-localized-content",
+  "sessionPath": "/Users/antonkrutov/.codex/sessions/2026/10/29/rollout-2026-10-29T12-48-51-01a18634-381a-71e1-9143-4ca2d43dd59b.jsonl",
+  "recordEvidence": [
+    {
+      "line": 1,
+      "type": "session_meta",
+      "timestamp": "2026-10-29T05:48:51.722Z",
+      "id": "01a18634-381a-71e1-9143-4ca2d43dd59b",
+      "model_provider": "openai",
+      "source": {
+        "subagent": {
+          "thread_spawn": {
+            "parent_thread_id": "01a18600-c637-7542-a3ad-5e1cbcfbb3a0",
+            "depth": 1,
+            "agent_path": "/root/pause_chapter576_wording",
+            "agent_nickname": "Boyle",
+            "agent_role": null
+          }
+        }
+      },
+      "parent_thread_id": "01a18600-c637-7542-a3ad-5e1cbcfbb3a0"
+    },
+    {
+      "line": 10,
+      "type": "turn_context",
+      "timestamp": "2026-10-29T05:48:55.144Z",
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  ],
+  "freshNoInheritedHistory": "Parent explicit fork_turns none; no nested models/jobs",
+  "firstTokenTelemetry": {
+    "line": 23,
+    "timestamp": "2026-10-29T05:49:02.686Z",
+    "total": {
+      "input_tokens": 26093,
+      "cached_input_tokens": 12800,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 219,
+      "reasoning_output_tokens": 32,
+      "total_tokens": 26312
+    },
+    "last": {
+      "input_tokens": 26093,
+      "cached_input_tokens": 12800,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 219,
+      "reasoning_output_tokens": 32,
+      "total_tokens": 26312
+    }
+  },
+  "mutatingSessionLog": false
+}

@@ -1,0 +1,43 @@
+{
+  "sessionId": "01a18634-381a-71e1-9143-4ca2d43dd59b",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "cutoff": "2026-10-29T06:14:02.538Z",
+  "cumulativeOwnSession": {
+    "input_tokens": 6857164,
+    "cached_input_tokens": 6468864,
+    "output_tokens": 45507,
+    "reasoning_output_tokens": 9599,
+    "total_tokens": 6902671
+  },
+  "revision02Baseline": {
+    "sessionId": "01a18634-381a-71e1-9143-4ca2d43dd59b",
+    "timestamp": "2026-10-29T06:00:45.801Z",
+    "usage": {
+      "input_tokens": 4740332,
+      "cached_input_tokens": 4566656,
+      "output_tokens": 28546,
+      "reasoning_output_tokens": 5904,
+      "total_tokens": 4768878
+    },
+    "boundary": "Last exposed cumulative own-session count before revision02 preparation; prior v1 reporting tail is excluded from revision02 added usage. No estimates."
+  },
+  "revision02AddedNonoverlapping": {
+    "input_tokens": 2116832,
+    "cached_input_tokens": 1902208,
+    "output_tokens": 16961,
+    "reasoning_output_tokens": 3695,
+    "total_tokens": 2133793
+  },
+  "priorReportingTailToBaselineNonoverlapping": {
+    "input_tokens": 1244194,
+    "cached_input_tokens": 1241216,
+    "output_tokens": 3008,
+    "reasoning_output_tokens": 881,
+    "total_tokens": 1247202
+  },
+  "priorReportedCutoff": "2026-10-29T05:59:15.164Z",
+  "measurement": "Actual own-session cumulative deltas. Cumulative is the complete measured subtotal through cutoff; do not add it again to the segment deltas. Cached input is part of input, reasoning part of output. Final reporting tail after cutoff remains unmeasured. No descendants.",
+  "parentCoordinatorOrchestration": "Unavailable here; parent accounts its own preparation/monitoring/review separately."
+}

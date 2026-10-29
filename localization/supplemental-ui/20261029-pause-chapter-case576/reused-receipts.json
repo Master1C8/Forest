@@ -1,0 +1,602 @@
+[
+  {
+    "id": "sharedassets2.assets:14523/m_Text",
+    "source": "Press [Escape] or Joystick [B] when finished!",
+    "target": "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:14523/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The ChapterSelect bottom glow preserves when finished and both control alternatives without adding a selection or confirmation action.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 40,
+            "nativeSchemaId": "sharedassets2.assets:14523/m_Text",
+            "hierarchy": "LevelSingletons/ChapterSelectUI/ChapterSelectUI/ButtonsHintContainer/ButtonsHintGlowLeft/ButtonsHintGlowBottom",
+            "solutionGroup": "finish-instruction",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:14523/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The complete Russian sentence is idiomatic and properly punctuated.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:14692/m_Text",
+    "source": "Press [Escape] or Joystick [B] when finished!",
+    "target": "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:14692/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The ChapterSelect right glow preserves the finished condition and exact Escape/B identities in an alternative relationship.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 41,
+            "nativeSchemaId": "sharedassets2.assets:14692/m_Text",
+            "hierarchy": "LevelSingletons/ChapterSelectUI/ChapterSelectUI/ButtonsHintContainer/ButtonsHintGlowLeft/ButtonsHintGlowRight",
+            "solutionGroup": "finish-instruction",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:14692/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "Когда закончишь reads naturally and avoids unnecessary gender marking.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:15174/m_Text",
+    "source": "Press [Escape] or Joystick [B] when finished!",
+    "target": "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:15174/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The ChapterSelect parent hint preserves the completion condition and Escape OR B; it does not imply either control must be pressed together.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 43,
+            "nativeSchemaId": "sharedassets2.assets:15174/m_Text",
+            "hierarchy": "LevelSingletons/ChapterSelectUI/ChapterSelectUI/ButtonsHintContainer",
+            "solutionGroup": "finish-instruction",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:15174/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The sentence is clear Russian with a natural imperative.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:15775/m_Text",
+    "source": "Press [Escape] or Joystick [B] when finished!",
+    "target": "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:15775/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The ChapterSelect foreground hint retains completion timing, press action and both literal controls, with no invented gameplay consequence.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 46,
+            "nativeSchemaId": "sharedassets2.assets:15775/m_Text",
+            "hierarchy": "LevelSingletons/ChapterSelectUI/ChapterSelectUI/ButtonsHintContainer/ButtonsHintGlowLeft/ButtonsHint",
+            "solutionGroup": "finish-instruction",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:15775/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The Russian instruction is grammatical, clear and consistent with its parent.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:15883/m_text",
+    "source": "ENTER",
+    "target": "ВВОД",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:15883/m_text",
+          "sourceValueSha256": "439fa9246e995e45003db398fbd754149142da152f068b8ea82f255785d2be19",
+          "sourceUtf8Sha256": "d50187dd170f377fe06e9b01c9995bea6c685a371c4772e73d42f5d59b021d4b",
+          "targetUtf8Sha256": "702beda77e5e47ceb1e50a2244f253742cc4bdd52c851a563f10e1a4dc6a4ce6",
+          "verdict": "pass",
+          "rationale": "The level report numeric-layout Return13 caption ВВОД preserves submission; the keycode and callback remain independent of the display translation.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 47,
+            "nativeSchemaId": "sharedassets2.assets:15883/m_text",
+            "hierarchy": "LevelSingletons/PauseScreenUI/Pause Screen Ui Panel/BugReportMenu/VirtualKeyboardPanel/KeyBoard (2)/Return/KeyName",
+            "solutionGroup": "key-actions",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:15883/m_text",
+          "sourceValueSha256": "439fa9246e995e45003db398fbd754149142da152f068b8ea82f255785d2be19",
+          "sourceUtf8Sha256": "d50187dd170f377fe06e9b01c9995bea6c685a371c4772e73d42f5d59b021d4b",
+          "targetUtf8Sha256": "702beda77e5e47ceb1e50a2244f253742cc4bdd52c851a563f10e1a4dc6a4ce6",
+          "verdict": "pass",
+          "rationale": "ВВОД is natural and matches the corresponding generated caption.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:15933/m_text",
+    "source": "DONE",
+    "target": "ГОТОВО",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:15933/m_text",
+          "sourceValueSha256": "94630a03a897be3cb2beef6fe78a122540752cd112f5a24682d2d42c0c6bd1db",
+          "sourceUtf8Sha256": "283e91eb85d58ffc2ad922884b644c41b54140660f6d1fda3c403d543eedd839",
+          "targetUtf8Sha256": "133be3928eeac21180c7dbf0fc1769d62313426e59bcf522a12e7eda79b88c93",
+          "verdict": "pass",
+          "rationale": "The level numeric-layout Done509 uses the close-keyboard callback; ГОТОВО correctly conveys finishing rather than Return submission.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 48,
+            "nativeSchemaId": "sharedassets2.assets:15933/m_text",
+            "hierarchy": "LevelSingletons/PauseScreenUI/Pause Screen Ui Panel/BugReportMenu/VirtualKeyboardPanel/KeyBoard (2)/Done/KeyName",
+            "solutionGroup": "key-actions",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:15933/m_text",
+          "sourceValueSha256": "94630a03a897be3cb2beef6fe78a122540752cd112f5a24682d2d42c0c6bd1db",
+          "sourceUtf8Sha256": "283e91eb85d58ffc2ad922884b644c41b54140660f6d1fda3c403d543eedd839",
+          "targetUtf8Sha256": "133be3928eeac21180c7dbf0fc1769d62313426e59bcf522a12e7eda79b88c93",
+          "verdict": "pass",
+          "rationale": "ГОТОВО is an idiomatic completion label in this context.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:16052/m_text",
+    "source": "You can type your report with a physical keyboard.\nOr use our virtual keyboard. It supports touch and gamepad controls!",
+    "target": "Текст можно ввести с обычной клавиатуры\nили с экранной — она поддерживает сенсорный экран и геймпад!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:16052/m_text",
+          "sourceValueSha256": "9d932f100b82a04be170fb9d1fab8d09e9791f587bf1284b96bb14f1d1ee7db9",
+          "sourceUtf8Sha256": "66490020adba137246b3cd4efc2c3eace3758cead6791fc781e1700df8e02a40",
+          "targetUtf8Sha256": "bec7ddbcc79fc5a2dae1470bb588419436be493a5d77f916070b7644e49f062b",
+          "verdict": "pass",
+          "rationale": "The explicit report Placeholder retains physical versus virtual keyboard alternatives and touch/gamepad support. Report context supplies the referent of Текст; the one LF remains.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 49,
+            "nativeSchemaId": "sharedassets2.assets:16052/m_text",
+            "hierarchy": "LevelSingletons/PauseScreenUI/Pause Screen Ui Panel/BugReportMenu/InputText/InputField (TMP)/Text Area/Placeholder",
+            "solutionGroup": "report-placeholder",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:16052/m_text",
+          "sourceValueSha256": "9d932f100b82a04be170fb9d1fab8d09e9791f587bf1284b96bb14f1d1ee7db9",
+          "sourceUtf8Sha256": "66490020adba137246b3cd4efc2c3eace3758cead6791fc781e1700df8e02a40",
+          "targetUtf8Sha256": "bec7ddbcc79fc5a2dae1470bb588419436be493a5d77f916070b7644e49f062b",
+          "verdict": "pass",
+          "rationale": "The two-line sentence is fluent; она unambiguously refers to the экранная клавиатура, and both input methods are clear.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:16103/m_text",
+    "source": "SHIFT",
+    "target": "РЕГИСТР",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:16103/m_text",
+          "sourceValueSha256": "1d2e48dfbe44f53769c8a72ae84fd4c58ca8f3b0c20dbf86e35260758e96753f",
+          "sourceUtf8Sha256": "34f4461607521e62b2645b505e7af2267f46a86bc29770063f6710c03f4f1152",
+          "targetUtf8Sha256": "f40fe593dfedf378965681377a587379345143b99ecbb29f211d456209502209",
+          "verdict": "pass",
+          "rationale": "The level initial LeftShift304 text РЕГИСТР preserves case switching; it agrees with specialKeys[0] for the Awake/defaultLabelText contract.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 52,
+            "nativeSchemaId": "sharedassets2.assets:16103/m_text",
+            "hierarchy": "LevelSingletons/PauseScreenUI/Pause Screen Ui Panel/BugReportMenu/VirtualKeyboardPanel/KeyBoard (1)/LeftShift/KeyName",
+            "solutionGroup": "key-actions",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:16103/m_text",
+          "sourceValueSha256": "1d2e48dfbe44f53769c8a72ae84fd4c58ca8f3b0c20dbf86e35260758e96753f",
+          "sourceUtf8Sha256": "34f4461607521e62b2645b505e7af2267f46a86bc29770063f6710c03f4f1152",
+          "targetUtf8Sha256": "f40fe593dfedf378965681377a587379345143b99ecbb29f211d456209502209",
+          "verdict": "pass",
+          "rationale": "The Russian case label is grammatical, concise and consistently capitalized.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:16112/m_text",
+    "source": "DONE",
+    "target": "ГОТОВО",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:16112/m_text",
+          "sourceValueSha256": "94630a03a897be3cb2beef6fe78a122540752cd112f5a24682d2d42c0c6bd1db",
+          "sourceUtf8Sha256": "283e91eb85d58ffc2ad922884b644c41b54140660f6d1fda3c403d543eedd839",
+          "targetUtf8Sha256": "133be3928eeac21180c7dbf0fc1769d62313426e59bcf522a12e7eda79b88c93",
+          "verdict": "pass",
+          "rationale": "The level alphabetic Done509 caption ГОТОВО fits OnClickVirtualKeyboardDone and remains distinct from Enter13's submission caption.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 54,
+            "nativeSchemaId": "sharedassets2.assets:16112/m_text",
+            "hierarchy": "LevelSingletons/PauseScreenUI/Pause Screen Ui Panel/BugReportMenu/VirtualKeyboardPanel/KeyBoard (1)/Done/KeyName",
+            "solutionGroup": "key-actions",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:16112/m_text",
+          "sourceValueSha256": "94630a03a897be3cb2beef6fe78a122540752cd112f5a24682d2d42c0c6bd1db",
+          "sourceUtf8Sha256": "283e91eb85d58ffc2ad922884b644c41b54140660f6d1fda3c403d543eedd839",
+          "targetUtf8Sha256": "133be3928eeac21180c7dbf0fc1769d62313426e59bcf522a12e7eda79b88c93",
+          "verdict": "pass",
+          "rationale": "ГОТОВО is a natural finalization label for this keyboard action.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:16190/m_text",
+    "source": "ENTER",
+    "target": "ВВОД",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:16190/m_text",
+          "sourceValueSha256": "439fa9246e995e45003db398fbd754149142da152f068b8ea82f255785d2be19",
+          "sourceUtf8Sha256": "d50187dd170f377fe06e9b01c9995bea6c685a371c4772e73d42f5d59b021d4b",
+          "targetUtf8Sha256": "702beda77e5e47ceb1e50a2244f253742cc4bdd52c851a563f10e1a4dc6a4ce6",
+          "verdict": "pass",
+          "rationale": "The level alphabetic Return13 caption ВВОД preserves submission and agrees with its special-key display name, without modifying emitted identities.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 55,
+            "nativeSchemaId": "sharedassets2.assets:16190/m_text",
+            "hierarchy": "LevelSingletons/PauseScreenUI/Pause Screen Ui Panel/BugReportMenu/VirtualKeyboardPanel/KeyBoard (1)/Return/KeyName",
+            "solutionGroup": "key-actions",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:16190/m_text",
+          "sourceValueSha256": "439fa9246e995e45003db398fbd754149142da152f068b8ea82f255785d2be19",
+          "sourceUtf8Sha256": "d50187dd170f377fe06e9b01c9995bea6c685a371c4772e73d42f5d59b021d4b",
+          "targetUtf8Sha256": "702beda77e5e47ceb1e50a2244f253742cc4bdd52c851a563f10e1a4dc6a4ce6",
+          "verdict": "pass",
+          "rationale": "ВВОД is idiomatic and consistent across the Return caption family.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:16367/m_Text",
+    "source": "Press [Escape] or Joystick [B] when finished!",
+    "target": "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:16367/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The ChapterSelect left glow keeps when-finished timing and Escape OR gamepad B, matching its parent and foreground text.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 56,
+            "nativeSchemaId": "sharedassets2.assets:16367/m_Text",
+            "hierarchy": "LevelSingletons/ChapterSelectUI/ChapterSelectUI/ButtonsHintContainer/ButtonsHintGlowLeft",
+            "solutionGroup": "finish-instruction",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:16367/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The Russian sentence is fluent and uses clear singular address.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  },
+  {
+    "id": "sharedassets2.assets:17390/m_Text",
+    "source": "Press [Escape] or Joystick [B] when finished!",
+    "target": "Когда закончишь, нажми [Escape] или [B] на геймпаде!",
+    "reference": "localization/supplemental-ui/20261029-input-case72/ru.prepared.jsonl",
+    "referenceSha256": "6cb08e98a3e53e8079f80b95f0bc566ace05a2d4a98f1d416ce3774a6229ed3e",
+    "acceptanceSha256": "db8277d4e5de521f0485efa020634905faf98de6cc019014497d0fc9224c0085",
+    "receipts": [
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/reviews.jsonl",
+        "sha256": "5382e4611777ef4de8b54398194dd00e4c090f1981c7aacc06337e4f6e98a3b5",
+        "receipt": {
+          "id": "sharedassets2.assets:17390/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The ChapterSelect upper glow preserves when finished plus the press action and both literal control alternatives.",
+          "findings": [],
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555",
+          "reviewKind": "new-independent-source-to-target-semantic",
+          "context": {
+            "sourceContextRow": 59,
+            "nativeSchemaId": "sharedassets2.assets:17390/m_Text",
+            "hierarchy": "LevelSingletons/ChapterSelectUI/ChapterSelectUI/ButtonsHintContainer/ButtonsHintGlowLeft/ButtonsHintGlowTop",
+            "solutionGroup": "finish-instruction",
+            "assembledOutput": "Complete display leaf; same wording in all parent/foreground/glow copies. No concatenation with adjacent flattened rows.",
+            "contracts": "display-cache-dispatch-proposal.json and all eight pinned producer bodies read; input seeds/protected symbols remain distinct"
+          },
+          "targetApplied": false
+        }
+      },
+      {
+        "path": "outputs/ru-input72-independent-20261029/check/native-read.jsonl",
+        "sha256": "eb90576888c8f34981fb96f2a3e1fbeaa66e2e3928295895885255e1ea97ec90",
+        "receipt": {
+          "id": "sharedassets2.assets:17390/m_Text",
+          "sourceValueSha256": "ec7abd61db0e3bc7e7cc39fcd42c1964a99890150c53b81c02646febe07f230e",
+          "sourceUtf8Sha256": "a951b2527e725b7c4c62660372648d8f8d11664f02400ed3091fb320d0afa36e",
+          "targetUtf8Sha256": "0152c1b88a1419a46037bee2aaf6fcb4faed643b2d82aa0194b97a027d03c101",
+          "verdict": "pass",
+          "rationale": "The instruction is grammatical Russian and consistent with the ChapterSelect family.",
+          "findings": [],
+          "reviewKind": "separate-native-Russian-read",
+          "reviewer": "01a185bd-9e1f-7fb1-bf23-8c8abc777555"
+        }
+      }
+    ],
+    "applicability": "Same exact physical ID/source/current target. Newly read in complete Pause/Chapter576 context; inherited pass applies only to unchanged wording, no new runtime/source acceptance."
+  }
+]

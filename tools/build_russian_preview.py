@@ -96,7 +96,20 @@ def main():
     parser.add_argument('--haiku-option-identity', action='store_true', help='Preserve the nine accepted Russian haiku option identities at the original evaluation boundary; requires the supported chapter/gallery stage')
     parser.add_argument('--remaining-display-case', action='store_true', help='Apply accepted Russian51 display occurrences after supported Haiku identity stage; 17 BG cells and 31 new operands, retaining 3 chapter labels')
     parser.add_argument('--bio-input-display-case', action='store_true', help='Apply accepted Bio113/input72 display fields after the supported remaining51 stage; preserves input identities and all managed code')
+    parser.add_argument('--pause-chapter-display-case', action='store_true', help='Apply accepted434 static Pause/Chapter captions after Bio/input; preserve all held/protected fields and controller state')
     args = parser.parse_args()
+    if args.pause_chapter_display_case:
+        if not args.bio_input_display_case:
+            parser.error('--pause-chapter-display-case requires --bio-input-display-case')
+        frozen_pause = Path(__file__).parent / 'pause-chapter/russian_pause_chapter_case.py'
+        if frozen_pause.is_file():
+            import importlib.util
+            spec = importlib.util.spec_from_file_location('forest_pause_chapter_bootstrap', frozen_pause)
+            pause_adapter = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(pause_adapter)
+        else:
+            import russian_pause_chapter_case as pause_adapter
+        pause_adapter.load_inputs(locale='ru')
     if args.bio_input_display_case:
         if not args.remaining_display_case:
             parser.error('--bio-input-display-case requires --remaining-display-case')
@@ -204,6 +217,8 @@ def main():
     shutil.copy2(PROJECT / 'localization/source/tutorial-quest-ru-20261027/plan.json', out / 'tutorial-quest-plan.json')
     if args.bio_input_display_case:
         frozen_bio = bio_adapter.snapshot(out, locale='ru')
+    if args.pause_chapter_display_case:
+        frozen_pause = pause_adapter.snapshot(out, locale='ru')
     shutil.copy2(Path(__file__).parent / 'legacy_choice_font.py', out / 'legacy_choice_font.py')
     shutil.copy2(Path(__file__).parent / 'russian_native_font_roles.py', out / 'russian_native_font_roles.py')
     shutil.copy2(Path(__file__).parent / 'tmp_uniform_fallback.py', out / 'tmp_uniform_fallback.py')
@@ -614,6 +629,20 @@ def main():
                                            purpose='Accepted finite Bio/input display fields'))
             else:
                 existing['probeSha256'] = expected_hash
+    if args.pause_chapter_display_case:
+        staged = out / 'pause-chapter-resources'
+        subprocess.run([str(frozen_pause / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_pause / 'russian_pause_chapter_case.py'), '--locale', 'ru', 'apply',
+                        '--source', str(target), '--output', str(staged)], check=True)
+        report['pauseChapterDisplayCase'] = True
+        report['pauseChapterDisplayProjection'] = json.loads((staged / 'Result.json').read_text())
+        for name, expected_hash in report['pauseChapterDisplayProjection']['files'].items():
+            assert sha(staged / name) == expected_hash
+            shutil.copy2(staged / name, target / name)
+            assert sha(target / name) == expected_hash
+            existing = [row for row in report['files'] if row['path'] == name]
+            assert len(existing) == 1, 'Pause stage updates an existing file report row'
+            existing[0]['probeSha256'] = expected_hash
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})
