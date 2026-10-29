@@ -9,7 +9,7 @@ from apply_tutorial_notification_hotfix import apply as apply_resource
 RELEASE = PROJECT / 'dist/Forest-Russian-Test-20261029/bell-notification-hotfix'
 
 
-def apply(candidate, release=RELEASE, *, processes=running_game, failpoint=None):
+def apply_overlay(candidate, release, previous, *, processes=running_game, failpoint=None, label='bell'):
     candidate, release = Path(candidate).resolve(), Path(release).resolve()
     spec = json.loads((release / 'manifest.json').read_text())
     data = candidate / 'game/The Forest of Love_Data'
@@ -18,15 +18,19 @@ def apply(candidate, release=RELEASE, *, processes=running_game, failpoint=None)
     current = sha(data / 'sharedassets2.assets')
     if current == spec['targetSha256']:
         if sha(data / 'resources.assets') != spec['requiredResourcesSha256']:
-            raise ValueError('Later bell resource requires the compact journal data')
+            raise ValueError('Later ' + label + ' resource requires the compact journal data')
     elif current != spec['sourceSha256'] or sha(data / 'resources.assets') != spec['requiredResourcesSha256']:
         # Earlier recognized stages recover through their owning installer.
         # A valid later bell state never reaches the older journal-only check.
-        from apply_journal_compact_hotfix import apply as prerequisite
-        prerequisite(candidate, processes=processes)
+        previous(candidate, processes=processes)
     if sha(data / 'resources.assets') != spec['requiredResourcesSha256']:
-        raise ValueError('Unexpected bell prerequisite data')
+        raise ValueError('Unexpected ' + label + ' prerequisite data')
     return apply_resource(candidate, release, processes=processes, failpoint=failpoint)
+
+
+def apply(candidate, release=RELEASE, *, processes=running_game, failpoint=None):
+    from apply_journal_compact_hotfix import apply as previous
+    return apply_overlay(candidate, release, previous, processes=processes, failpoint=failpoint)
 
 
 if __name__ == '__main__':

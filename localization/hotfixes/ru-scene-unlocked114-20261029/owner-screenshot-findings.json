@@ -1,0 +1,40 @@
+{
+  "source": {
+    "scope": "Single owner screenshot of Scene Unlocked title and partial preview; not full page or game coverage",
+    "sourceImage": {
+      "path": "/Users/antonkrutov/Desktop/Снимок экрана — 2026-10-29 в 16.40.59.png",
+      "filename": "Снимок экрана — 2026-10-29 в 16.40.59.png",
+      "sha256": "f052fc61507e7d60eff87ddc272ca134baea48e72136aaf7111f7d71b65b5e0f",
+      "width": 2300,
+      "height": 690
+    },
+    "assistantGameLaunches": 0,
+    "captureBuildIdentity": "Owner-supplied historical image, independently unverified"
+  },
+  "representation": "WebP80,1280x384; original2300x690 unchanged",
+  "reviewLedgerSha256": "6f72f0a8e808fba3d43baf6ff23d431f75af67725ceb96370ec0a66786bb1670",
+  "images": [
+    {
+      "observations": "Inspected the entire delivered 1280×384 prepared WebP. The only visible text is “SCENE UNLOCKED!” above partial preview artwork. No external overlays, literal tags or replacement glyphs are visible. Russian is LTR. The lower gallery hint is outside this frame. Native build provenance and Cyrillic rendering are not established by this image.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Notification title, approximately x=50–880, y=0–65",
+          "observed": "The title remains English: “SCENE UNLOCKED!”.",
+          "expected": "Russian title “СЦЕНА ОТКРЫТА!” retaining the specified original 22/36 initial-letter emphasis.",
+          "nextAction": "Trace the title’s authored value and packaged binding against the captured build. After an authorized correction, review newly bound evidence; this packet does not establish correction acceptance."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Top frame boundary, especially enlarged initial S near x=50–118 and U near x=380–449",
+          "observed": "The enlarged initials extend beyond the top image boundary, preventing inspection of their complete glyph contours and upper padding. The screenshot does not establish whether capture framing or game layout caused the cut.",
+          "expected": "Evidence showing the complete title and its actual field boundaries, with intact glyphs and padding.",
+          "nextAction": "Provide an appropriately prepared source-bound view containing the complete title and field. Verify native framing and build provenance before attributing the cut to game layout."
+        }
+      ]
+    }
+  ],
+  "correctedRuntimeVisualAccepted": false
+}

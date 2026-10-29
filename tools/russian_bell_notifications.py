@@ -68,15 +68,13 @@ def validate_groups(contract, trees):
         assert all(initial[k] + remainder[k] == title for k in initial)
 
 
-def apply(source, output, *, locale, fail_after_resource=False):
-    assert locale == 'ru'
-    contract = load_inputs()
-    source, output = Path(source), Path(output)
-    assert not output.exists(), 'New bell output required'
-    assert sha(source / contract['resource']) == contract['sourceSha256']
-    assert sha(source / 'resources.assets') == contract['requiredResourcesSha256']
-    assert sha(source / 'Managed/Assembly-CSharp.dll') == contract['requiredAssemblySha256']
-    assert sha(source / 'sharedassets0.assets') == json.loads((PACKET / 'font-requirements.json').read_text())['fontContainerSha256']
+def _project_native_tmp(source, output, contract, group_validator):
+    """Project an already-validated finite contract; check disk readback/reversal.
+
+    Callers own packet/editorial/font/source admission and output exclusivity.
+    Only contract m_text fields may differ; the complete other-object raw-byte
+    equality also protects artwork, geometry, masks and native unlock state.
+    """
     import UnityPy
     from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
     from extract_assets import read_tree, canonical
@@ -90,7 +88,7 @@ def apply(source, output, *, locale, fail_after_resource=False):
     for row in contract['rows']:
         obj = objects[row['pathId']]
         before = canonical(read_tree(obj, generator))
-        assert before == row['beforeTree']
+        assert before == row['beforeTree'], ('Native TMP before tree', row['id'])
         tree = copy.deepcopy(before)
         tree['m_text'] = row['target']
         script = obj.parse_monobehaviour_head().m_Script.deref().read()
@@ -98,9 +96,12 @@ def apply(source, output, *, locale, fail_after_resource=False):
         assert fullname == 'TMPro.TextMeshProUGUI'
         obj.save_typetree(tree, nodes=generator.cache[('forest-header-aligned:' + script.m_AssemblyName, fullname)])
         expected[row['pathId']] = tree
-    validate_groups(contract, expected)
+    group_validator(contract, expected)
     data = env.file.save()
-    back = UnityPy.load(data)
+    output.mkdir(parents=True)
+    (output / contract['resource']).write_bytes(data)
+    assert (output / contract['resource']).read_bytes() == data
+    back = UnityPy.load(str(output / contract['resource']))
     back.path = str(source)
     after = back.file.objects
     actual_raw = {pid: obj.get_raw_data() for pid, obj in after.items()}
@@ -108,13 +109,23 @@ def apply(source, output, *, locale, fail_after_resource=False):
     assert {pid for pid in raw if raw[pid] != actual_raw[pid]} == set(expected)
     actual = {pid: canonical(read_tree(after[pid], generator)) for pid in expected}
     assert actual == expected
-    validate_groups(contract, actual)
+    group_validator(contract, actual)
     for pid in expected:
         after[pid].set_raw_data(raw[pid])
     assert back.file.save() == (source / contract['resource']).read_bytes()
-    output.mkdir(parents=True)
-    (output / contract['resource']).write_bytes(data)
-    assert sha(output / contract['resource']) == hashlib.sha256(data).hexdigest()
+    return data
+
+
+def apply(source, output, *, locale, fail_after_resource=False):
+    assert locale == 'ru'
+    contract = load_inputs()
+    source, output = Path(source), Path(output)
+    assert not output.exists(), 'New bell output required'
+    assert sha(source / contract['resource']) == contract['sourceSha256']
+    assert sha(source / 'resources.assets') == contract['requiredResourcesSha256']
+    assert sha(source / 'Managed/Assembly-CSharp.dll') == contract['requiredAssemblySha256']
+    assert sha(source / 'sharedassets0.assets') == json.loads((PACKET / 'font-requirements.json').read_text())['fontContainerSha256']
+    _project_native_tmp(source, output, contract, validate_groups)
     if fail_after_resource:
         raise RuntimeError('injected-after-bell-resource-before-receipt')
     result = dict(status='finite-bell72-resource-pass', locale=locale, changedTextFields=72,
