@@ -1,0 +1,35 @@
+{
+  "scenarios": [
+    {
+      "scenario": "running",
+      "passed": true
+    },
+    {
+      "scenario": "unknown-hash",
+      "passed": true
+    },
+    {
+      "scenario": "bad-payload",
+      "passed": true
+    },
+    {
+      "scenario": "after-backup",
+      "passed": true
+    },
+    {
+      "scenario": "after-dll",
+      "passed": true
+    },
+    {
+      "scenario": "game-started",
+      "passed": true
+    },
+    {
+      "scenario": "normal",
+      "passed": true
+    }
+  ],
+  "savesSettingsProgressSentinelsPreserved": true,
+  "scope": "Isolated file install/receipt recovery boundaries; no game execution or real save files",
+  "commitBoundary": "Atomic DLL replacement; receipt recovers after interrupted second write"
+}

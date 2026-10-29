@@ -1,0 +1,60 @@
+{
+  "scope": "Independent complete semantic/diff review of two existing common-inventory display IDs only. No other text translation or release acceptance.",
+  "modelRequirement": "gpt-6.1-sol/high/OpenAI; no Astra",
+  "sourceInventory": "localization/source/shared-source-completion-20261028/admission-v1/compiled-wording-source.jsonl",
+  "sourceInventorySha256": "d60d903d579928cef332c696ba24358c217d8702e5f7890baedcada21614339e",
+  "glossarySha256": "355faf2be478ddd9693327ca5fcdc39cae7a8804871abf0dcb426d20434320a0",
+  "units": [
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)/IL_0646",
+      "family": "managed-literal",
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)",
+      "offset": 1606,
+      "sourceLine": 3848,
+      "sourceValueSha256": "2e66ae32b615efc8ec84f82eabc1e01f0b6d7ee82305bbd4dd3f8b9e9037f7b0",
+      "role": "potential-display-notification-step",
+      "decision": "phase144:typed:System.Void TheForestOfLove.QuestUpdatedUI::ShowNotification(System.String,System.String)",
+      "application": "bounded-owner-reported-notification-repair",
+      "source": "Check in with Scarlett.",
+      "target": "Загляни к Скарлетт.",
+      "displayRole": "previousStepText"
+    },
+    {
+      "id": "il:Assembly-CSharp.dll/System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)/IL_064b",
+      "family": "managed-literal",
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)",
+      "offset": 1611,
+      "sourceLine": 3849,
+      "sourceValueSha256": "29252f5278ecafe0d2a862b9f07e8ddc24f24063ef9848b328c27959311ba647",
+      "role": "potential-display-notification-step",
+      "decision": "phase144:typed:System.Void TheForestOfLove.QuestUpdatedUI::ShowNotification(System.String,System.String)",
+      "application": "bounded-owner-reported-notification-repair",
+      "source": "Say hi to four more critters.",
+      "target": "Поздоровайся ещё с четырьмя зверушками.",
+      "displayRole": "currentStepText"
+    }
+  ],
+  "context": {
+    "receiver": "QuestUpdatedUI.ShowNotification(previousStepText,currentStepText) enqueues both string arguments unchanged into QuestUpdateNode fields.",
+    "caller": "Act1 ExecuteTrigger loads QuestUpdatedUI, tests it against null, then loads exactly these two display strings and calls ShowNotification. Neighboring greetingsquest_critter_introduced_* trigger comparison operands remain technical and must remain exact.",
+    "quest": "Introduction / Будем знакомы. Scarlett first introduces the player to residents. The notification moves from checking in with Scarlett to greeting four additional residents; more must be retained.",
+    "register": "Existing accepted quest UI uses informal singular imperative: Поздоровайся со всеми четырьмя зверушками. / Снова загляни к Скарлетт.",
+    "glossary": {
+      "Scarlett": "Скарлетт Нежнолапка; female gardener; short name Скарлетт indeclinable",
+      "critter": "зверушка",
+      "player": "Плут Рыжехвост; male player character"
+    },
+    "previousSourceRead": "Both direct operands and complete receiver inspected; neither controls quest identity/state."
+  },
+  "authorSemanticPass": {
+    "readAllIds": true,
+    "findings": [],
+    "reason": "Both imperatives preserve direction, additional four, friendly register and glossary. No variables/markup/protected spans occur inside either string."
+  },
+  "authorRussianRead": {
+    "readAllIds": true,
+    "findings": [],
+    "reason": "Natural informal quest instructions; with четырьмя requires зверушками. Скарлетт stays indeclinable."
+  },
+  "globalSourceAndReleaseGatesWaived": false
+}

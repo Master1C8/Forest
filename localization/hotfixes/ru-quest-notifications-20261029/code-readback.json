@@ -1,0 +1,933 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "6bb930ea1fa5befcd1f8a13f13d140347a7dc96419ce2c81aa95682c7625861d",
+  "targetSha256": "94b5d36e5e6f8a1a0a12280754ae5c87c3f13338f40b085864d32df13c0ce750",
+  "targetsSha256": "f504af2346d87448c8755584462dbe291094c457689776a2a182c2b8e44fa2b9",
+  "displayOperands": 2,
+  "changedMethods": [
+    "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)"
+  ],
+  "allMethodBodiesReadback": true,
+  "allOriginalMethodBodiesRestored": true,
+  "allOtherInstructionsPreservedExactly": true,
+  "metadataPreserved": true,
+  "metadataFingerprint": "81a8680d22981077b8fa5923273432889c8773a508fad15fd334e2a8bbce5db8",
+  "methodCount": 14099,
+  "notificationCallsites": 13,
+  "sitesBefore": [
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 64,
+      "offset": 269,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "gator"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0112: ldloc.s V_6"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Августусом."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 72,
+      "offset": 300,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "bird"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0131: ldloc.s V_6"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Пенни."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 80,
+      "offset": 331,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "dash"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0150: ldloc.s V_6"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Дастином."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 88,
+      "offset": 362,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "introduction"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_016f: ret"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Финли."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 173,
+      "offset": 703,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "maverickandmabel"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_02c4: ldloc.s V_9"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_13"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_12"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 181,
+      "offset": 731,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "intothestorm"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_02e0: ldloc.s V_9"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_13"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_16"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 189,
+      "offset": 759,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "scarlettandpeter"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_02fc: ldloc.s V_9"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_14"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_12"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 213,
+      "offset": 853,
+      "preceding": [
+        {
+          "opcode": "ldstr",
+          "operand": "Act3_StormQuest_5a"
+        },
+        {
+          "opcode": "call",
+          "operand": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)"
+        },
+        {
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text"
+        },
+        {
+          "opcode": "stloc.s",
+          "operand": "V_12"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_15"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_12"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 221,
+      "offset": 884,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "lastpage"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0379: ret"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_16"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Задание выполнено!"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 273,
+      "offset": 1015,
+      "preceding": [
+        {
+          "opcode": "ldsfld",
+          "operand": "System.Boolean Globals::isChapterSelect"
+        },
+        {
+          "opcode": "brtrue",
+          "operand": "IL_03fc: ret"
+        },
+        {
+          "opcode": "ldsfld",
+          "operand": "System.Boolean Globals::isCheatCode"
+        },
+        {
+          "opcode": "brtrue",
+          "operand": "IL_03fc: ret"
+        },
+        {
+          "opcode": "call",
+          "operand": "!!0 UnityEngine.Object::FindObjectOfType<TheForestOfLove.QuestUpdatedUI>()"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_5"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_4"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)",
+      "instructionIndex": 523,
+      "offset": 1616,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_14"
+        },
+        {
+          "opcode": "ldnull",
+          "operand": null
+        },
+        {
+          "opcode": "call",
+          "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)"
+        },
+        {
+          "opcode": "brfalse.s",
+          "operand": "IL_0655: ldarg.1"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_14"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Check in with Scarlett."
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Say hi to four more critters."
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3::OnCollectedAllTheFlyingPages_StormQuest()",
+      "instructionIndex": 38,
+      "offset": 143,
+      "preceding": [
+        {
+          "opcode": "ldstr",
+          "operand": "Act3_StormQuest_2"
+        },
+        {
+          "opcode": "call",
+          "operand": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)"
+        },
+        {
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text"
+        },
+        {
+          "opcode": "stloc.1",
+          "operand": null
+        },
+        {
+          "opcode": "call",
+          "operand": "T TheForestOfLove.Services.ServiceLocator::Get<TheForestOfLove.QuestUpdatedUI>()"
+        },
+        {
+          "opcode": "ldloc.0",
+          "operand": null
+        },
+        {
+          "opcode": "ldloc.1",
+          "operand": null
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3/<>c::<OnCollectedAllTheFlyingPages_StormQuest>b__16_0()",
+      "instructionIndex": 11,
+      "offset": 39,
+      "preceding": [
+        {
+          "opcode": "ldstr",
+          "operand": "Act3_StormQuest_5a"
+        },
+        {
+          "opcode": "call",
+          "operand": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)"
+        },
+        {
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text"
+        },
+        {
+          "opcode": "stloc.1",
+          "operand": null
+        },
+        {
+          "opcode": "call",
+          "operand": "T TheForestOfLove.Services.ServiceLocator::Get<TheForestOfLove.QuestUpdatedUI>()"
+        },
+        {
+          "opcode": "ldloc.0",
+          "operand": null
+        },
+        {
+          "opcode": "ldloc.1",
+          "operand": null
+        }
+      ]
+    }
+  ],
+  "sitesAfter": [
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 64,
+      "offset": 269,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "gator"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0112: ldloc.s V_6"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Августусом."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 72,
+      "offset": 300,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "bird"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0131: ldloc.s V_6"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Пенни."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 80,
+      "offset": 331,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "dash"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0150: ldloc.s V_6"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Дастином."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 88,
+      "offset": 362,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_6"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "introduction"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_016f: ret"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_7"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Познакомься с Финли."
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_8"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 173,
+      "offset": 703,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "maverickandmabel"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_02c4: ldloc.s V_9"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_13"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_12"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 181,
+      "offset": 731,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "intothestorm"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_02e0: ldloc.s V_9"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_13"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_16"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 189,
+      "offset": 759,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "scarlettandpeter"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_02fc: ldloc.s V_9"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_14"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_12"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 213,
+      "offset": 853,
+      "preceding": [
+        {
+          "opcode": "ldstr",
+          "operand": "Act3_StormQuest_5a"
+        },
+        {
+          "opcode": "call",
+          "operand": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)"
+        },
+        {
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text"
+        },
+        {
+          "opcode": "stloc.s",
+          "operand": "V_12"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_15"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_12"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 221,
+      "offset": 884,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_9"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "lastpage"
+        },
+        {
+          "opcode": "callvirt",
+          "operand": "System.Boolean System.String::Contains(System.String)"
+        },
+        {
+          "opcode": "brfalse",
+          "operand": "IL_0379: ret"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_10"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_16"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Задание выполнено!"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.QuestLog::OnQuestLogUpdated(TheForestOfLove.Narrative.Quest)",
+      "instructionIndex": 273,
+      "offset": 1015,
+      "preceding": [
+        {
+          "opcode": "ldsfld",
+          "operand": "System.Boolean Globals::isChapterSelect"
+        },
+        {
+          "opcode": "brtrue",
+          "operand": "IL_03fc: ret"
+        },
+        {
+          "opcode": "ldsfld",
+          "operand": "System.Boolean Globals::isCheatCode"
+        },
+        {
+          "opcode": "brtrue",
+          "operand": "IL_03fc: ret"
+        },
+        {
+          "opcode": "call",
+          "operand": "!!0 UnityEngine.Object::FindObjectOfType<TheForestOfLove.QuestUpdatedUI>()"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_5"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_4"
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)",
+      "instructionIndex": 523,
+      "offset": 1616,
+      "preceding": [
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_14"
+        },
+        {
+          "opcode": "ldnull",
+          "operand": null
+        },
+        {
+          "opcode": "call",
+          "operand": "System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)"
+        },
+        {
+          "opcode": "brfalse.s",
+          "operand": "IL_0655: ldarg.1"
+        },
+        {
+          "opcode": "ldloc.s",
+          "operand": "V_14"
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Загляни к Скарлетт."
+        },
+        {
+          "opcode": "ldstr",
+          "operand": "Поздоровайся ещё с четырьмя зверушками."
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3::OnCollectedAllTheFlyingPages_StormQuest()",
+      "instructionIndex": 38,
+      "offset": 143,
+      "preceding": [
+        {
+          "opcode": "ldstr",
+          "operand": "Act3_StormQuest_2"
+        },
+        {
+          "opcode": "call",
+          "operand": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)"
+        },
+        {
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text"
+        },
+        {
+          "opcode": "stloc.1",
+          "operand": null
+        },
+        {
+          "opcode": "call",
+          "operand": "T TheForestOfLove.Services.ServiceLocator::Get<TheForestOfLove.QuestUpdatedUI>()"
+        },
+        {
+          "opcode": "ldloc.0",
+          "operand": null
+        },
+        {
+          "opcode": "ldloc.1",
+          "operand": null
+        }
+      ]
+    },
+    {
+      "method": "System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3/<>c::<OnCollectedAllTheFlyingPages_StormQuest>b__16_0()",
+      "instructionIndex": 11,
+      "offset": 39,
+      "preceding": [
+        {
+          "opcode": "ldstr",
+          "operand": "Act3_StormQuest_5a"
+        },
+        {
+          "opcode": "call",
+          "operand": "TheForestOfLove.Narrative.QuestProgressLogEntry TheForestOfLove.Services.Persistence.DataService::GetQuestProgressLogByDbName(System.String)"
+        },
+        {
+          "opcode": "ldfld",
+          "operand": "System.String TheForestOfLove.Narrative.QuestProgressLogEntry::text"
+        },
+        {
+          "opcode": "stloc.1",
+          "operand": null
+        },
+        {
+          "opcode": "call",
+          "operand": "T TheForestOfLove.Services.ServiceLocator::Get<TheForestOfLove.QuestUpdatedUI>()"
+        },
+        {
+          "opcode": "ldloc.0",
+          "operand": null
+        },
+        {
+          "opcode": "ldloc.1",
+          "operand": null
+        }
+      ]
+    }
+  ],
+  "saveSchemaChanged": false,
+  "runtimeAndVisualAcceptance": false
+}
