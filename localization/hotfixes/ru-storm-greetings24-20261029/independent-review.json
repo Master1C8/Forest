@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "status": "clean",
+  "reviewType": "independent bounded source-to-target Russian wording review",
+  "reviewedAtUtc": "2026-10-29T12:39:11.399970+00:00",
+  "reviewer": {
+    "agentPath": "/root/storm24_wording_review",
+    "threadId": "01a187aa-0f03-7443-9ff2-6749a761cd3c",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "modelVerifiedFrom": "/Users/antonkrutov/.codex/sessions/2026/10/29/rollout-2026-10-29T19-37-11-01a187aa-0f03-7443-9ff2-6749a761cd3c.jsonl",
+    "independentFromAuthor": true,
+    "descendantsLaunched": false
+  },
+  "targetsSha256": "593609b867b9a678025c03879d8fc756b945fabaa993f19d516015e1aa2e0f3f",
+  "packetSha256": "0fca3138058013907eaba7b9f8fd46154141967edcd673a20682b15930920192",
+  "scope": "Exactly 24 native TMP m_text memberships, four complete six-layer groups in the BunniesWithTarp and DustinAct3StormQuest source prefab roots. The packet is the complete bounded review scope; this receipt grants no global inventory or release acceptance.",
+  "contextReviewed": "Rascal is male player, approved name Плут(tfol001). Source singular informal call for help maps Плут, помоги!; generic attention greeting Hey Rascal! maps Эй, Плут!. Preserve punctuation/urgency and trailing U0020 where present. Text-only native fields, provider/face/glows synchronized. No game/font-fit acceptance.",
+  "coverage": {
+    "status": "complete",
+    "memberships": 24,
+    "groups": 4,
+    "sourcePhrases": 2,
+    "allMembershipIds": [
+      "sharedassets4.assets:27911/m_text",
+      "sharedassets4.assets:27919/m_text",
+      "sharedassets4.assets:27921/m_text",
+      "sharedassets4.assets:27924/m_text",
+      "sharedassets4.assets:27926/m_text",
+      "sharedassets4.assets:27929/m_text",
+      "sharedassets4.assets:27947/m_text",
+      "sharedassets4.assets:28406/m_text",
+      "sharedassets4.assets:31072/m_text",
+      "sharedassets4.assets:31131/m_text",
+      "sharedassets4.assets:31453/m_text",
+      "sharedassets4.assets:31551/m_text",
+      "sharedassets4.assets:31717/m_text",
+      "sharedassets4.assets:31752/m_text",
+      "sharedassets4.assets:32220/m_text",
+      "sharedassets4.assets:32234/m_text",
+      "sharedassets4.assets:34474/m_text",
+      "sharedassets4.assets:35028/m_text",
+      "sharedassets4.assets:37777/m_text",
+      "sharedassets4.assets:37779/m_text",
+      "sharedassets4.assets:37788/m_text",
+      "sharedassets4.assets:37790/m_text",
+      "sharedassets4.assets:37792/m_text",
+      "sharedassets4.assets:37797/m_text"
+    ],
+    "method": "Every source-target-hierarchy row and the full supplied context were read. Semantic judgments were made for all four contexts, with every provider, face, and glow membership checked; no sampling or mechanically generated default-pass judgments."
+  },
+  "groups": [
+    {
+      "id": "bunnies-help",
+      "prefix": "BunniesWithTarp/ScarlettGhost/RascalHelp",
+      "source": "Rascal, help! ",
+      "target": "Плут, помоги! ",
+      "semanticJudgment": "The storm-help call directly addresses the player by the approved short name Плут. The singular informal imperative помоги preserves the request for help and urgency without adding the speaker's or addressee's gender. The vocative comma and exclamation are appropriate; the final U+0020 remains present.",
+      "allMembershipIds": [
+        "sharedassets4.assets:27911/m_text",
+        "sharedassets4.assets:27919/m_text",
+        "sharedassets4.assets:27921/m_text",
+        "sharedassets4.assets:27924/m_text",
+        "sharedassets4.assets:27926/m_text",
+        "sharedassets4.assets:27929/m_text"
+      ],
+      "membershipCount": 6,
+      "status": "clean",
+      "layerSynchronization": "All six supplied provider/face/glow source-target memberships were read and match within this group."
+    },
+    {
+      "id": "dustin-gift-attention",
+      "prefix": "DustinAct3StormQuest/Interaction/InteractionUiController/NewGiftAvailable",
+      "source": "Hey Rascal!",
+      "target": "Эй, Плут!",
+      "semanticJudgment": "The gift-available attention label calls to the same player. Эй preserves the informal attention-getting function of Hey without adding a gift claim or changing this into a help request. Плут is the approved direct-address name; comma and exclamation are natural Russian punctuation. No gender wording is introduced.",
+      "allMembershipIds": [
+        "sharedassets4.assets:27947/m_text",
+        "sharedassets4.assets:31072/m_text",
+        "sharedassets4.assets:31131/m_text",
+        "sharedassets4.assets:31717/m_text",
+        "sharedassets4.assets:31752/m_text",
+        "sharedassets4.assets:35028/m_text"
+      ],
+      "membershipCount": 6,
+      "status": "clean",
+      "layerSynchronization": "All six supplied provider/face/glow source-target memberships were read and match within this group."
+    },
+    {
+      "id": "bunnies-gift-attention",
+      "prefix": "BunniesWithTarp/ScarlettGhost/Interaction/InteractionUiController/NewGiftAvailable",
+      "source": "Hey Rascal!",
+      "target": "Эй, Плут!",
+      "semanticJudgment": "This neighboring same-root gift-available label is an attention greeting, distinct from RascalHelp. Эй, Плут! preserves that function and the approved name with informal register. It does not invent a request, gift contents, speaker identity, or gender. The comma correctly separates the address and the exclamation keeps the call energetic.",
+      "allMembershipIds": [
+        "sharedassets4.assets:28406/m_text",
+        "sharedassets4.assets:31453/m_text",
+        "sharedassets4.assets:31551/m_text",
+        "sharedassets4.assets:32220/m_text",
+        "sharedassets4.assets:32234/m_text",
+        "sharedassets4.assets:34474/m_text"
+      ],
+      "membershipCount": 6,
+      "status": "clean",
+      "layerSynchronization": "All six supplied provider/face/glow source-target memberships were read and match within this group."
+    },
+    {
+      "id": "dustin-help",
+      "prefix": "DustinAct3StormQuest/RascalHelp",
+      "source": "Rascal, help! ",
+      "target": "Плут, помоги! ",
+      "semanticJudgment": "Dustin's storm-quest help label is the same urgent player-directed appeal. Плут, помоги! preserves the name, request direction, informal singular address, and urgency. It adds no gender or story facts. The final U+0020 is retained on all six memberships.",
+      "allMembershipIds": [
+        "sharedassets4.assets:37777/m_text",
+        "sharedassets4.assets:37779/m_text",
+        "sharedassets4.assets:37788/m_text",
+        "sharedassets4.assets:37790/m_text",
+        "sharedassets4.assets:37792/m_text",
+        "sharedassets4.assets:37797/m_text"
+      ],
+      "membershipCount": 6,
+      "status": "clean",
+      "layerSynchronization": "All six supplied provider/face/glow source-target memberships were read and match within this group."
+    }
+  ],
+  "deterministicChecks": {
+    "targetsHashMatchesPacket": true,
+    "packetRowsExactlyEqualTargets": true,
+    "uniqueMembershipIds": 24,
+    "fourCompleteSixLayerGroups": true,
+    "eachGroupExactSourceTargetConsistency": true,
+    "helpTrailingU0020PreservedOnAll12Memberships": true,
+    "greetingNoTrailingSpaceAddedOnAll12Memberships": true,
+    "boundary": "These checks cover the immutable review inputs, not native asset reinsertion, runtime rendering, or packaged resources."
+  },
+  "semanticFindings": [],
+  "acceptance": {
+    "boundedWordingReview": true,
+    "nativeLayoutAcceptance": false,
+    "fontFitAcceptance": false,
+    "runtimeAcceptance": false,
+    "globalSourceInventoryAcceptance": false,
+    "globalLocalizationAcceptance": false,
+    "releaseAcceptance": false
+  },
+  "remainingUncertainty": [
+    "No native layout or font fit was inspected.",
+    "No game/runtime, installer, screenshot, package, or final artifact was exercised.",
+    "The parent owns native source trees, font/source guards, packaging, and canonical Git integration."
+  ],
+  "usage": {
+    "measurement": "Own agent-session cumulative total only, from a zero-history first request; first total equals first request usage. Cached input is included in input and reasoning is included in output. No descendants.",
+    "cutoffUtc": "2026-10-29T12:38:09.011Z",
+    "sourceLog": "/Users/antonkrutov/.codex/sessions/2026/10/29/rollout-2026-10-29T19-37-11-01a187aa-0f03-7443-9ff2-6749a761cd3c.jsonl",
+    "completedRequestsObserved": 8,
+    "input_tokens": 333779,
+    "cached_input_tokens": 295552,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 2055,
+    "reasoning_output_tokens": 294,
+    "total_tokens": 335834,
+    "unmeasuredTail": "Receipt writing/verification and final reporting after this cutoff are excluded. Parent orchestration and platform overhead are not measured here."
+  }
+}

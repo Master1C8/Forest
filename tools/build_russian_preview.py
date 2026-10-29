@@ -41,6 +41,7 @@ from russian_scene_notifications import load_inputs as load_scene_notifications,
 from russian_dates_titleflow import load_inputs as load_dates_titleflow, snapshot as snapshot_dates_titleflow
 from russian_speaker_display import load_inputs as load_speaker_display, snapshot as snapshot_speaker_display, patch as patch_speaker_display
 from russian_journal_age import load_inputs as load_journal_age, snapshot as snapshot_journal_age
+from russian_storm_greetings import load_inputs as load_storm_greetings, snapshot as snapshot_storm_greetings
 from legacy_choice_font import CHOICE_SAMPLES, choice_font_plan
 from russian_native_font_roles import native_role_plan, apply_native_role
 from tmp_uniform_fallback import uniform_fallback_primary
@@ -116,6 +117,7 @@ def main():
         load_dates_titleflow()
         load_speaker_display()
         load_journal_age()
+        load_storm_greetings()
         if not args.pause_chapter_display_case:
             parser.error('--narrative-display-case requires --pause-chapter-display-case')
         frozen_narrative = Path(__file__).parent / 'narrative/russian_narrative_case.py'
@@ -197,6 +199,8 @@ def main():
     assert (SOURCE / DATA_NAME / 'Managed/Assembly-CSharp.dll').is_file()
     expected = json.loads((INPUT_ROOT / 'assets/source-v2/source-files.json').read_text())
     required = ['globalgamemanagers', 'resources.assets', 'level1', 'level5', 'level6', 'sharedassets0.assets', 'sharedassets1.assets', 'sharedassets2.assets', BUNDLE]
+    if args.narrative_display_case:
+        assert sha(SOURCE / DATA_NAME / 'sharedassets4.assets') == expected['sharedassets4.assets']['sha256']
     for name in required:
         assert sha(SOURCE / DATA_NAME / name) == expected[name]['sha256'], name
     overlay, validation = validate_overlay()
@@ -239,6 +243,7 @@ def main():
         frozen_dates_titleflow = snapshot_dates_titleflow(out)
         frozen_speaker_display = snapshot_speaker_display(out)
         frozen_journal_age = snapshot_journal_age(out)
+        frozen_storm_greetings = snapshot_storm_greetings(out)
     snapshot_journal_headers(out)
     snapshot_ui935(out,locale='ru')
     if args.chapter_gallery_case:
@@ -777,6 +782,17 @@ def main():
         assert sha(target / 'resources.assets') == report['journalAgeRepair']['targetSha256']
         prior_report, = [row for row in report['files'] if row['path'] == 'resources.assets']
         prior_report['probeSha256'] = report['journalAgeRepair']['targetSha256']
+        storm_resources = out / 'storm-greeting-resources'
+        subprocess.run([str(frozen_narrative / 'runtime/python/bin/python3.14'), '-B',
+                        str(frozen_storm_greetings / 'russian_storm_greetings.py'), '--locale', 'ru',
+                        '--source', str(target), '--output', str(storm_resources)], check=True)
+        report['stormGreetingRepair'] = json.loads((storm_resources / 'Result.json').read_text())
+        shutil.copy2(storm_resources / 'sharedassets4.assets', target / 'sharedassets4.assets')
+        assert sha(target / 'sharedassets4.assets') == report['stormGreetingRepair']['targetSha256']
+        prior_report, = [row for row in report['files'] if row['path'] == 'sharedassets4.assets']
+        assert prior_report['probeSha256'] == report['stormGreetingRepair']['sourceSha256']
+        prior_report['probeSha256'] = report['stormGreetingRepair']['targetSha256']
+        prior_report['stormGreetingTextFields'] = 24
     report['files'].append(dict(path='Managed/VNRevivalQuestLayout.dll',probeSha256=report['questCodeRepair']['layoutAssemblySha256'],purpose='Native Quest layout;existing ScrollRect'))
     report['files'].append({'path':'Managed/Assembly-CSharp.dll','sourceSha256':report['galleryCodeRepair']['sourceSha256'],
                             'probeSha256':sha(target/'Managed/Assembly-CSharp.dll'),'wholeMethodReadback':'passed'})

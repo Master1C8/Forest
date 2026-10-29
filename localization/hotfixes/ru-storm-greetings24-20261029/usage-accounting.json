@@ -1,0 +1,36 @@
+{
+  "scope": "Current storm greeting repair only; prior cases excluded",
+  "worker": {
+    "task": "storm24_wording_review",
+    "sessionId": "01a187aa-0f03-7443-9ff2-6749a761cd3c",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "cutoff": "2026-10-29T12:39:29.727Z",
+    "usage": {
+      "input_tokens": 535790,
+      "cached_input_tokens": 495488,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5984,
+      "reasoning_output_tokens": 950,
+      "total_tokens": 541774
+    }
+  },
+  "coordinator": {
+    "baseline": {
+      "input_tokens": 161138069,
+      "cached_input_tokens": 159486080,
+      "output_tokens": 688288,
+      "total_tokens": 161826357
+    },
+    "cutoff": "2026-10-29T12:47:21.301Z",
+    "measuredDelta": {
+      "input_tokens": 5431328,
+      "cached_input_tokens": 5414912,
+      "output_tokens": 26864,
+      "total_tokens": 5458192
+    },
+    "attribution": "Mixed preparation, dispatch, result review, integration, validation and accounting; orchestration-only split unavailable"
+  },
+  "limits": "Fresh worker cumulative requests counted once; replaces interim count. Cache/reasoning subsets. Early coordinator work before baseline and remaining Git/reporting tail/platform overhead unmeasured. No descendants or cost claim."
+}
