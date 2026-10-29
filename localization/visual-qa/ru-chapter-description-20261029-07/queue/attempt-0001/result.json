@@ -1,0 +1,67 @@
+{
+  "packetSha256": "cbb2fd37b3cccd53b1c91671d5e09f0e85e41cd54842d60747fe542ec06caadd",
+  "images": [
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "c9880c3da79e257f81a38e2cac7487704d9742facd3ae0497e1fa920ada5d5a8.webp",
+      "sha256": "c5ac08c30a3199a13f989d5b8e525e05086b14f0006890c8c16d74cbc27d867a",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T05:37:32.639467+00:00",
+      "observations": "Inspected the full 1280×720 prepared WebP. Case 28 description matches the expected Russian sentence completely and remains readable within the viewport. Visible Cyrillic renders correctly; no clipping, literal markup or external overlays observed. The title remains English.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Upper panel title, approximately x525–758, y190–222",
+          "observed": "The interface title reads “Chapter Select” in English.",
+          "expected": "A localized Russian title; no exception is provided for this interface text.",
+          "nextAction": "Trace the title's localization binding and packaged value, correct the English fallback, and review a newly bound capture."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "the-forest-of-love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "e790642b5dd983f835edaa3a3fe71cc2c4b5b5323a77d201b24a1bcdefd43561.webp",
+      "sha256": "1f26f718db002a253173578d4783cf2c7fffafc7780482ee09cd5b12f786494b",
+      "width": 1280,
+      "height": 720,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-10-29T05:37:32.639505+00:00",
+      "observations": "Inspected the full 1280×720 prepared WebP. Case 48 description matches the expected Russian sentence completely, including its ending. The single line remains readable over the artwork and fits within the viewport. Visible Cyrillic renders correctly; no clipping, literal markup or external overlays observed. The title remains English.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Upper panel title, approximately x525–758, y190–222",
+          "observed": "The interface title reads “Chapter Select” in English.",
+          "expected": "A localized Russian title; no exception is provided for this interface text.",
+          "nextAction": "Trace the title's localization binding and packaged value, correct the English fallback, and review a newly bound capture."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

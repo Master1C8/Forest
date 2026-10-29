@@ -1,4 +1,17 @@
 // Disposable display-argument fixtures. No unlocks, gameplay or scene callbacks.
+public static class ForestUiProjectionBounds {
+    static bool Finite(float value){return !float.IsNaN(value)&&!float.IsInfinity(value);}
+    public static bool Outside(float sx,float sy,float width,float height,bool hasCamera,float vx,float vy,float depth,float near,float far){
+        if(!Finite(sx)||!Finite(sy)||!Finite(width)||!Finite(height)||width<=0||height<=0)return true;
+        if(sx<0||sx>width||sy<0||sy>height)return true;
+        if(!hasCamera)return false;
+        if(!Finite(vx)||!Finite(vy)||!Finite(depth)||!Finite(near)||!Finite(far)||near>far)return true;
+        // Orthographic cameras may render the inclusive depth-zero near plane.
+        // The camera's real clip interval also handles perspective and negative
+        // orthographic near planes; a universal depth<=0 test is incorrect.
+        return vx<0||vx>1||vy<0||vy>1||depth<near||depth>far;
+    }
+}
 public sealed partial class ForestProbe {
     readonly System.Reflection.BindingFlags cgFlags=System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Static;
     readonly System.Collections.Generic.Dictionary<TMPro.TMP_Text,string> cgSaved=new System.Collections.Generic.Dictionary<TMPro.TMP_Text,string>();
@@ -59,6 +72,11 @@ public sealed partial class ForestProbe {
         public int characters,visibleCharacters,missingGlyphs,outsideRect,outsideMasks,outsideViewport;
         public bool active,enabled,autoSize,overflow;public int viewportWidth,viewportHeight;
         public string canvasRenderMode,rootCanvasPath,declaredCanvasCamera;
+        public int projectionDiagnosticVersion,outsideScreenXY,legacyBehindCamera,outsideCameraClip,nonfiniteProjectionVertices;
+        public bool cameraOrthographic,cameraRendersToTexture;
+        public float cameraNearClip,cameraFarClip,cameraPixelX,cameraPixelY,cameraPixelWidth,cameraPixelHeight;
+        public int cameraTargetWidth,cameraTargetHeight;
+        public float projectedMinX,projectedMaxX,projectedMinY,projectedMaxY,viewportMinX,viewportMaxX,viewportMinY,viewportMaxY,cameraDepthMin,cameraDepthMax;
     }
     void CGGeometry(){
         if(cgLabels==null)throw new System.Exception("No native surface");UnityEngine.Canvas.ForceUpdateCanvases();var rows=new System.Text.StringBuilder();
@@ -73,10 +91,25 @@ public sealed partial class ForestProbe {
             UnityEngine.Camera camera=rootCanvas==null||rootCanvas.renderMode==UnityEngine.RenderMode.ScreenSpaceOverlay?null:rootCanvas.worldCamera;
             if(canvas!=null&&canvas.rootCanvas.renderMode!=UnityEngine.RenderMode.ScreenSpaceOverlay&&camera==null){foreach(var c in UnityEngine.Camera.allCameras)if(c.enabled&&c.gameObject.activeInHierarchy&&(c.cullingMask&(1<<t.gameObject.layer))!=0){if(camera!=null)throw new System.Exception("Ambiguous rendering camera; resolve native binding");camera=c;}if(camera==null)throw new System.Exception("Native UI camera unresolved");}
             cameras.Add(camera==null?"overlay":CGPath(camera.transform));
+            // Record both coordinate systems before changing any acceptance
+            // predicate. A visible frame can contradict the legacy z<=0 test.
+            m.projectionDiagnosticVersion=2;
+            if(camera!=null){var pixel=camera.pixelRect;m.cameraOrthographic=camera.orthographic;m.cameraNearClip=camera.nearClipPlane;m.cameraFarClip=camera.farClipPlane;m.cameraPixelX=pixel.x;m.cameraPixelY=pixel.y;m.cameraPixelWidth=pixel.width;m.cameraPixelHeight=pixel.height;m.cameraRendersToTexture=camera.targetTexture!=null;if(camera.targetTexture!=null){m.cameraTargetWidth=camera.targetTexture.width;m.cameraTargetHeight=camera.targetTexture.height;}}
+            bool hasProjection=false;
             for(int i=0;i<t.textInfo.characterCount;i++){var ch=t.textInfo.characterInfo[i];generated.Append(ch.character);glyphs.Add(((int)ch.character)+"|"+(ch.fontAsset==null?"<null>":ch.fontAsset.name)+"|"+(ch.textElement==null?0:ch.textElement.glyphIndex)+"|"+ch.isVisible+"|"+(ch.xAdvance-ch.origin));if(!char.IsWhiteSpace(ch.character)&&(ch.textElement==null||ch.textElement.glyphIndex==0||ch.character=='\u25a1'||ch.character=='\ufffd'))m.missingGlyphs++;if(!ch.isVisible)continue;m.visibleCharacters++;m.minGlyphPointSize=UnityEngine.Mathf.Min(m.minGlyphPointSize,ch.pointSize);
                 foreach(var point in new[]{ch.bottomLeft,ch.topLeft,ch.topRight,ch.bottomRight}){
                     if(point.x<rect.xMin-.25f||point.x>rect.xMax+.25f||point.y<rect.yMin-.25f||point.y>rect.yMax+.25f)m.outsideRect++;
-                    var world=t.transform.TransformPoint(point);var screen=UnityEngine.RectTransformUtility.WorldToScreenPoint(camera,world);if(screen.x<0||screen.x>UnityEngine.Screen.width||screen.y<0||screen.y>UnityEngine.Screen.height||(camera!=null&&camera.WorldToViewportPoint(world).z<=0))m.outsideViewport++;
+                    var world=t.transform.TransformPoint(point);var screen=UnityEngine.RectTransformUtility.WorldToScreenPoint(camera,world);
+                    var viewport=camera==null?new UnityEngine.Vector3(screen.x/UnityEngine.Screen.width,screen.y/UnityEngine.Screen.height,0):camera.WorldToViewportPoint(world);
+                    bool outsideXY=screen.x<0||screen.x>UnityEngine.Screen.width||screen.y<0||screen.y>UnityEngine.Screen.height;
+                    bool legacyDepth=camera!=null&&viewport.z<=0;
+                    if(outsideXY)m.outsideScreenXY++;if(legacyDepth)m.legacyBehindCamera++;
+                    if(ForestUiProjectionBounds.Outside(screen.x,screen.y,UnityEngine.Screen.width,UnityEngine.Screen.height,camera!=null,viewport.x,viewport.y,viewport.z,camera==null?0:camera.nearClipPlane,camera==null?0:camera.farClipPlane))m.outsideViewport++;
+                    if(viewport.x<0||viewport.x>1||viewport.y<0||viewport.y>1||(camera!=null&&(viewport.z<camera.nearClipPlane||viewport.z>camera.farClipPlane)))m.outsideCameraClip++;
+                    bool finite=!(float.IsNaN(screen.x)||float.IsInfinity(screen.x)||float.IsNaN(screen.y)||float.IsInfinity(screen.y)||float.IsNaN(viewport.x)||float.IsInfinity(viewport.x)||float.IsNaN(viewport.y)||float.IsInfinity(viewport.y)||float.IsNaN(viewport.z)||float.IsInfinity(viewport.z));
+                    if(!finite)m.nonfiniteProjectionVertices++;
+                    else if(!hasProjection){m.projectedMinX=m.projectedMaxX=screen.x;m.projectedMinY=m.projectedMaxY=screen.y;m.viewportMinX=m.viewportMaxX=viewport.x;m.viewportMinY=m.viewportMaxY=viewport.y;m.cameraDepthMin=m.cameraDepthMax=viewport.z;hasProjection=true;}
+                    else{m.projectedMinX=UnityEngine.Mathf.Min(m.projectedMinX,screen.x);m.projectedMaxX=UnityEngine.Mathf.Max(m.projectedMaxX,screen.x);m.projectedMinY=UnityEngine.Mathf.Min(m.projectedMinY,screen.y);m.projectedMaxY=UnityEngine.Mathf.Max(m.projectedMaxY,screen.y);m.viewportMinX=UnityEngine.Mathf.Min(m.viewportMinX,viewport.x);m.viewportMaxX=UnityEngine.Mathf.Max(m.viewportMaxX,viewport.x);m.viewportMinY=UnityEngine.Mathf.Min(m.viewportMinY,viewport.y);m.viewportMaxY=UnityEngine.Mathf.Max(m.viewportMaxY,viewport.y);m.cameraDepthMin=UnityEngine.Mathf.Min(m.cameraDepthMin,viewport.z);m.cameraDepthMax=UnityEngine.Mathf.Max(m.cameraDepthMax,viewport.z);}
                     for(var a=t.transform.parent;a!=null;a=a.parent){var mask=a.GetComponent<UnityEngine.UI.Mask>();var mask2=a.GetComponent<UnityEngine.UI.RectMask2D>();if((mask!=null&&mask.IsActive())||(mask2!=null&&mask2.IsActive())){var r=(UnityEngine.RectTransform)a;var local=r.InverseTransformPoint(world);if(!r.rect.Contains(local))m.outsideMasks++;}}
                 }
             }if(float.IsPositiveInfinity(m.minGlyphPointSize))m.minGlyphPointSize=0;m.generatedText=generated.ToString();m.glyphs=glyphs.ToArray();m.cameras=cameras.ToArray();rows.Append(UnityEngine.JsonUtility.ToJson(m)).Append('\n');

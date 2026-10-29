@@ -1,0 +1,47 @@
+{
+  "packetSha256": "cbb2fd37b3cccd53b1c91671d5e09f0e85e41cd54842d60747fe542ec06caadd",
+  "images": [
+    {
+      "index": 0,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the full 1280×720 prepared WebP. Case 28 description matches the expected Russian sentence completely and remains readable within the viewport. Visible Cyrillic renders correctly; no clipping, literal markup or external overlays observed. The title remains English.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Upper panel title, approximately x525–758, y190–222",
+          "observed": "The interface title reads “Chapter Select” in English.",
+          "expected": "A localized Russian title; no exception is provided for this interface text.",
+          "nextAction": "Trace the title's localization binding and packaged value, correct the English fallback, and review a newly bound capture."
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "observations": "Inspected the full 1280×720 prepared WebP. Case 48 description matches the expected Russian sentence completely, including its ending. The single line remains readable over the artwork and fits within the viewport. Visible Cyrillic renders correctly; no clipping, literal markup or external overlays observed. The title remains English.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Upper panel title, approximately x525–758, y190–222",
+          "observed": "The interface title reads “Chapter Select” in English.",
+          "expected": "A localized Russian title; no exception is provided for this interface text.",
+          "nextAction": "Trace the title's localization binding and packaged value, correct the English fallback, and review a newly bound capture."
+        }
+      ]
+    }
+  ]
+}

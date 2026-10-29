@@ -20,6 +20,14 @@ SURFACES = ('oos', 'description')
 CANDIDATE = ROOT / 'localization/previews/ru-20261029-chapter-gallery-02'
 BUILD_SHA = '3dcfd4fb1ed8a4bc5e164c993c9d85e2e6e0c740303aa4105aecf93a13ac5143'
 ASSEMBLY_SHA = '84f70452d94741489b37d97c8125bf107b4261d4a87e5a2ba294ebdf107dfacf'
+# A new immutable bundle may carry a separately verified finite candidate
+# admission. Historical bundles keep their original exact candidate02 guard.
+CANDIDATE_ADMISSION_PATH = Path(__file__).resolve().parent/'cc-candidate-admission.json'
+CANDIDATE_ADMISSION = json.loads(CANDIDATE_ADMISSION_PATH.read_bytes()) if CANDIDATE_ADMISSION_PATH.is_file() else None
+if CANDIDATE_ADMISSION is not None:
+    CANDIDATE = ROOT/CANDIDATE_ADMISSION['candidate']
+    BUILD_SHA = CANDIDATE_ADMISSION['buildSha256']
+    ASSEMBLY_SHA = CANDIDATE_ADMISSION['assemblySha256']
 
 
 def require(ok, reason):
@@ -75,8 +83,25 @@ def legacy():
 def candidate_validation(candidate, *, locale):
     require(locale == 'ru', 'explicit-supported-locale-required')
     candidate = Path(candidate).resolve()
-    require(candidate == CANDIDATE and sha(candidate / 'build.json') == BUILD_SHA, 'exact-full-candidate02-build-required')
+    require(candidate == CANDIDATE and sha(candidate / 'build.json') == BUILD_SHA, 'exact-pinned-completion-build-required')
     cg = legacy()
+    if CANDIDATE_ADMISSION is not None:
+        admission = CANDIDATE_ADMISSION
+        require(admission['status'] == 'bounded-description-candidate-static-admission' and admission['locale'] == locale, 'finite-candidate-admission')
+        require((admission['unchangedDatabaseStates'], admission['unchangedNativeTextObjects'], admission['unchangedGameClasses'], admission['unchangedGameMethodBodies'], admission['unchangedFontObjects']) == (129,12,14,204,7), 'complete-description-candidate-boundaries')
+        require(not admission['sourceGateAccepted'] and not admission['wholeGameAccepted'], 'no-global-candidate-waiver')
+        for name, digest in admission['evidence'].items():
+            require(sha(ROOT/name) == digest, 'candidate-admission-evidence:' + name)
+        plan = cg.adapter().load_inputs(locale=locale)
+        require(json.loads(plan.acceptance_bytes)['targetSha256'] == admission['targetSha256'], 'candidate-admission-target')
+        build = read(candidate/'build.json')
+        files = {r['path']:r['probeSha256'] for r in build['files']}
+        require(files == admission['files'] and len(files) == len(build['files']) == 14, 'candidate-admission-file-set')
+        for name, digest in files.items():
+            path = (candidate/'game'/DATA/name).resolve()
+            require(path.is_relative_to(candidate/'game'/DATA) and sha(path) == digest, 'admitted-candidate-artifact:' + name)
+        require(files['Managed/Assembly-CSharp.dll'] == ASSEMBLY_SHA, 'admitted-candidate-assembly')
+        return plan, finite_plan(cg.make_plan(plan)), build
     # Preserve original03 admission instead of weakening it. Reuse its complete
     # accepted readback only for four BYTE-IDENTICAL consumer-bearing artifacts.
     plan, original, b03 = cg.validate_candidate(ROOT / 'localization/previews/ru-20261029-chapter-gallery-03', locale=locale)

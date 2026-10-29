@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Prepare one isolated future UI run, or compile only; never launch a game.
-Frozen recipe execution is required. Full candidate02 is read-only.
+Frozen recipe execution is required. Its exact admitted candidate is read-only.
 """
 import argparse
 import copy
@@ -69,7 +69,7 @@ def stage(candidate,run,fixture,locale):
     cc.require(locale=='ru','explicit-supported-locale-required')
     run=cc.checked_run(run);candidate=Path(candidate).resolve();fixture=Path(fixture).resolve()
     plan,work,build=source_bundle()
-    cc.require(candidate==cc.CANDIDATE,'exact-full-candidate02-required')
+    cc.require(candidate==cc.CANDIDATE,'exact-pinned-completion-candidate-required')
     cc.require(not run.exists(),'new-run-required-reconcile-prior-staging')
     cc.process().no_game_process(run)
     manifest=cc.read(fixture/'manifest.json')
@@ -123,7 +123,7 @@ def stage(candidate,run,fixture,locale):
     tracked += [run/n for n in ['build.json','qa-preparation.json','cc-workload.json','cg-workload.json','cg-values.tsv','cg-words.tsv','cg-cases.tsv','cc-selectors.tsv','Assembly-CSharp.localized-original.dll','Assembly-CSharp.hook.dll']]
     tracked += [p for p in (run/'game').rglob('*') if p.is_file() and p.name not in ['tfol.savegame','tfol.settings']]
     cc.write(run/'cc-execution-pins.json',{str(p.relative_to(run)):cc.sha(p) for p in tracked},True)
-    cc.write(run/'cc-preparation.json',dict(status='prepared-not-run',counts=work['counts'],parentBuild=str(candidate),parentBuildSha256=cc.BUILD_SHA,executionPinsSha256=cc.sha(run/'cc-execution-pins.json'),fixtureDirectory=str(inputs),fixtureBefore={n:r['sha256'] for n,r in manifest['files'].items()},fixtureManifestSha256=cc.sha(inputs/'manifest.json'),originalAssemblySha256=cc.ASSEMBLY_SHA,bridgeSha256=receipt['bridgeSha256'],sourceSidecarsBefore=[],nativeRoutes='OOS original factory requires empty global listeners. Description requires existing visible original source-bound panel; ShowUi/Show are not invoked by this harness.',preparedNotLaunched=True,runtime='not-run',wholeGameAccepted=False),True)
+    cc.write(run/'cc-preparation.json',dict(status='prepared-not-run',counts=work['counts'],parentBuild=str(candidate),parentBuildSha256=cc.BUILD_SHA,executionPinsSha256=cc.sha(run/'cc-execution-pins.json'),fixtureDirectory=str(inputs),fixtureBefore={n:r['sha256'] for n,r in manifest['files'].items()},fixtureManifestSha256=cc.sha(inputs/'manifest.json'),originalAssemblySha256=cc.ASSEMBLY_SHA,bridgeSha256=receipt['bridgeSha256'],sourceSidecarsBefore=[],nativeRoutes='OOS original subscriber effects remain held. Description follows guarded original PauseHelper.Pause and bound OnClickChapterSelect route; measure requires its visible source-selected panel. No chapter selection/progression callback.',preparedNotLaunched=True,runtime='not-run',wholeGameAccepted=False),True)
     print(json.dumps(dict(status='prepared-not-launched',run=str(run),product=product,cases=56)))
 
 
