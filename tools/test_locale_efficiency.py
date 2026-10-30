@@ -12,6 +12,66 @@ from locale_queue import sha,read
 
 
 class EfficiencyTests(unittest.TestCase):
+    def decode_pages(self, root, pages):
+        definitions={};actual=[]
+        for pin in pages:
+            path=root/pin['path'];self.assertEqual(sha(path),pin['sha256'])
+            for line in path.read_text().splitlines():
+                item=json.loads(line)
+                if 'definition' in item:definitions[item['definition']]=item['value']
+                else:actual.append(item)
+        def decode(value):
+            if isinstance(value,dict):
+                if set(value)=={e.REF}:return decode(definitions[value[e.REF]])
+                return {key:decode(item) for key,item in value.items()}
+            if isinstance(value,list):return [decode(item) for item in value]
+            return value
+        return [dict(item,value=decode(item['value'])) for item in actual]
+
+    def test_reading_view_preserves_all_rows_context_unknown_fields_and_archive(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();packet=root/'packet.jsonl'
+            rows=[dict(id=str(i),source='Exact source\r\n',target='Exact target\u200f\n',
+                sourceSha256=('a'*64),targetSha256=('b'*64),originalRowSha256=('c'*64),
+                originalPacket='owning/complete.jsonl',
+                context=dict(sourceSha256='nested value must remain',body='Entire required context '*100),
+                unseenRequirement=[False,0,None,'a\u0301','中'],reviewed=False) for i in range(21)]
+            packet.write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in rows));before=packet.read_bytes()
+            manifest=e.make_view(root,[packet],root/'view')
+            archive=self.decode_pages(root,manifest['pages'])
+            reading=self.decode_pages(root,manifest['readingView']['pages'])
+            self.assertEqual([x['value'] for x in archive],rows)
+            self.assertEqual([x['rowIndex'] for x in reading],list(range(len(rows))))
+            for actual,original in zip(reading,rows):
+                expected={k:v for k,v in original.items() if k not in ('sourceSha256','targetSha256','originalRowSha256','originalPacket')}
+                self.assertEqual(actual['value'],expected)
+            self.assertEqual(manifest['readingView']['omittedFields'],84)
+            self.assertEqual(manifest['readingView']['rows'],21)
+            self.assertLess(manifest['readingView']['viewBytes'],manifest['viewBytes'])
+            self.assertEqual(packet.read_bytes(),before)
+            unusual=dict(sourceSha256=False,targetSha256='unknown',originalRowSha256=None,
+                originalPacket='Important semantic explanation',source='Keep',unknown={'path':'x','sha256':'d'*64})
+            self.assertEqual(e.reading_row(unusual),unusual)
+
+    def test_inspect_selects_complete_reading_pages_and_rejects_tampering(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase=root/'phase';phase.mkdir()
+            packet=root/'packet.jsonl';packet.write_text(json.dumps(dict(id='one',source='S',target='T',sourceSha256='a'*64))+'\n')
+            manifest=e.make_view(root,[packet],phase/'view');mp=phase/'view/manifest.json'
+            runtime=dict(threadId='fresh',actualRuntime=dict(turn=dict(model='gpt-6.1-sol',effort='high'),
+                session=dict(model_provider='openai',parent_thread_id=None)))
+            (phase/'runtime-verification.json').write_text(json.dumps(runtime))
+            (phase/'task.json').write_text(json.dumps(dict(job=dict(immutablePins={}),
+                losslessView=dict(path=str(mp.relative_to(root)),sha256=sha(mp)))))
+            real_local=e.local
+            with patch.object(e,'local',side_effect=lambda ignored,path:real_local(root,path)):
+                result=e.inspect_phase(phase)
+                self.assertEqual(result['readingView']['readingPages'],[pin['path'] for pin in manifest['readingView']['pages']])
+                self.assertNotIn('requiredPages',result['losslessView'])
+                self.assertEqual(result['readingView']['rows'],1)
+                path=root/manifest['readingView']['pages'][0]['path'];path.write_text('tampered')
+                with self.assertRaisesRegex(ValueError,'Lossless view dependency changed'):e.inspect_phase(phase)
+
     def test_unread_inherited_nonpass_is_carried_without_acceptance(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp).resolve();phase=root/'job/phase';phase.mkdir(parents=True)

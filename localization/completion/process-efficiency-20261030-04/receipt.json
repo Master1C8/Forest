@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "kind": "complete-reading-view-process-repair",
+  "recordedAt": "2026-10-30T16:31:52.530854+00:00",
+  "scope": "Future review input presentation and verified observer handoff; no coordinator translation.",
+  "config": {
+    "path": "localization/completion/process-efficiency-20261030-04/config.json",
+    "sha256": "dc2925abba82d17d9f1f2474f39e600e70db8c7d8004f02ee1b0d1106453d18e"
+  },
+  "run": "outputs/locale-assets-20261026/workflow-v11-reading-20261030-01",
+  "observerPid": 39763,
+  "executionPinsVerified": true,
+  "implementation": [
+    {
+      "path": "tools/locale_efficiency.py",
+      "sha256": "8d18652f5e94eb0f37da408a1d90b6dde8960f262050d590d74c710625cadd37"
+    },
+    {
+      "path": "tools/test_locale_efficiency.py",
+      "sha256": "579c164b5732581574dd7db04ff2fa7def4d0c2d1eeb51fbdfb716ca8b051c1a"
+    },
+    {
+      "path": "localization/PROCESS.md",
+      "sha256": "f6c0543ffbec056304f1c2c1e4a397399cbbad96941aed94f65e5eca9417bb56"
+    }
+  ],
+  "comparison": {
+    "path": "localization/completion/process-efficiency-20261030-04/representation-check.json",
+    "sha256": "c3064e5384b6548424d9597ed126d095c8a0c020155fd396ad3c95572166bfc9"
+  },
+  "representationManifest": {
+    "path": "localization/completion/process-efficiency-20261030-04/verified-reading-view/manifest.json",
+    "sha256": "d4b87651c6849a5473f3755b39e2c9cdbe1d6521ca6296a61385a9ed70cf35b0"
+  },
+  "tests": {
+    "command": "python3 -B -m unittest discover -s tools -p 'test_locale*.py'",
+    "count": 122,
+    "exitCode": 0,
+    "scope": "Real serialization/hash files and supervisor fixtures; model launches are replaced by test children, so these tests do not establish model semantic judgment."
+  },
+  "activeRequestPreservation": {
+    "technical": {
+      "pid": 15187,
+      "phase": 95,
+      "threadId": "01a18d97-5a09-7ff1-a6a6-f8e47ab8d725",
+      "frozenRun": "outputs/locale-assets-20261026/workflow-v10-cost-20261030-01"
+    },
+    "es419": {
+      "completedPhase": 77,
+      "completedThreadId": "01a18d9f-3da2-7fc2-b83c-5dc88c9c1ce1",
+      "newPhase": 78,
+      "newThreadId": "01a18da6-6077-7523-affa-092184eab9e9",
+      "newPhaseCount": 1,
+      "priorRequestReplayed": false
+    }
+  },
+  "workerCompletion": {
+    "identity": "es-419/0077-review",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "outcome": "112 independently judged passes; no unread IDs",
+    "usage": {
+      "input_tokens": 3983252,
+      "cached_input_tokens": 3837696,
+      "output_tokens": 18378,
+      "reasoning_output_tokens": 3792,
+      "total_tokens": 4001630
+    },
+    "attribution": "Existing production request, not an extra repair/audit worker."
+  },
+  "coordinatorUsage": {
+    "status": "unknown",
+    "attribution": "Mixed diagnosis, code repair, tests, observer orchestration and reporting. No exact orchestration split is available.",
+    "cutoff": "Receipt creation; later verification and reporting are unmeasured."
+  },
+  "noAdditionalAuditWorker": true,
+  "remainingLimits": [
+    "Only future review phases use the new reading representation; active original frozen inputs are preserved.",
+    "Reading bytes decreased from420945 to267805 on identical inputs; actual token/cost or elapsed-time savings are not yet measured.",
+    "Resource composition is still active; no target native/runtime/package/release acceptance is asserted."
+  ],
+  "gitOwnership": "This chat is the sole index/commit coordinator. The previous parent chat is archived and its last turn was aborted; existing lane contracts prohibit worker Git. Unrelated live lane changes and root README/CHECKPOINT remain outside this change."
+}

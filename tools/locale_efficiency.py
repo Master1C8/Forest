@@ -24,6 +24,11 @@ reading. Mechanical hash lists, origin arrays, preserved raw properties and
 unchanged metadata are checked by code; do not reread them all in the model.
 Original complete evidence stays available for concrete ambiguity. No sampling,
 missing semantic context, default passes or automatic semantic judgments.
+When inspect supplies readingView, use its readingPages instead of dumping the
+lossless archive pages or original packets as well. This view omits only top-level
+SHA-256 fields and original-packet provenance; all wording, IDs, context, flags,
+unknown fields and nested objects remain exact. The complete lossless archive
+retains every omitted value. Open that archive only for a concrete discrepancy.
 
 Use the frozen locale_review_work.py prepare-scope command when preparing a new
 wording review. Give the complete authored candidate file and original packet.
@@ -110,11 +115,8 @@ def load_rows(path):
             for line in path.read_text().splitlines() if line.strip()]
 
 
-def make_view(root, paths, directory):
-    """Deduplicate exact repeated structures/long strings, preserving every field."""
-    root = root.resolve()
-    paths = list(dict.fromkeys(p.resolve() for p in paths))
-    originals = [(p, load_rows(p)) for p in paths]
+def _intern_pages(root, originals, directory, prefix):
+    """Encode one representation; each page set has its own reference namespace."""
     counts = collections.Counter()
     values = {}
 
@@ -159,7 +161,6 @@ def make_view(root, paths, directory):
     for item, (_, original) in zip(encoded, originals):
         if canonical(decode(item['rows'])) != canonical(original):
             raise ValueError('Lossless view roundtrip failed')
-    directory.mkdir()
     entries = [dict(definition=k, value=v) for k,v in definitions.items()]
     entries += [dict(packet=packet_index, rowIndex=i, value=row)
                 for packet_index,item in enumerate(encoded) for i,row in enumerate(item['rows'])]
@@ -168,21 +169,60 @@ def make_view(root, paths, directory):
     def publish():
         nonlocal lines,size
         if not lines:return
-        path = directory/f'page-{len(pages)+1:04d}.jsonl'
+        path = directory/f'{prefix}-{len(pages)+1:04d}.jsonl'
         path.write_text(''.join(lines))
         pages.append(dict(path=str(path.relative_to(root)), sha256=sha(path), bytes=path.stat().st_size))
         lines = [];size = 0
 
     for entry in entries:
-        line = canonical(entry)+'\n'
-        if size+len(line)>16000:publish()
-        lines.append(line);size+=len(line)
+        line = canonical(entry)+'\n';line_bytes=len(line.encode())
+        if size+line_bytes>16000:publish()
+        lines.append(line);size+=line_bytes
     publish()
-    manifest = dict(representation='Exact interning; read every definition and row page. No fields omitted; no semantic credit.',
+    return dict(viewBytes=sum(p['bytes'] for p in pages), definitions=len(definitions), pages=pages, roundtrip=True)
+
+
+def reading_row(row):
+    """Keep all semantic/unknown/nested data; separate only known row provenance.
+
+    This is a presentation projection, never a review decision or coverage receipt.
+    Unexpected types and non-digest values stay visible rather than being hidden.
+    """
+    if not isinstance(row, dict):
+        return row
+    digests = {'sourceSha256', 'targetSha256', 'originalRowSha256'}
+    def metadata(key, value):
+        if key in digests:
+            return (isinstance(value, str) and len(value) == 64
+                    and all(c in '0123456789abcdef' for c in value))
+        return (key == 'originalPacket' and isinstance(value, str)
+                and '\n' not in value and Path(value).suffix == '.jsonl')
+    return {key: value for key, value in row.items() if not metadata(key, value)}
+
+
+def make_view(root, paths, directory):
+    """Preserve the full archive and provide a separate complete reading view."""
+    root = root.resolve()
+    paths = list(dict.fromkeys(p.resolve() for p in paths))
+    originals = [(p, load_rows(p)) for p in paths]
+    # Reject ambiguous input before publishing any view or launching a reviewer.
+    # Packet roles may intentionally repeat an ID with source-only context, so
+    # version consistency remains owned by the existing review-scope validator.
+    directory.mkdir()
+    archive = _intern_pages(root, originals, directory, 'page')
+    projected = [(p, [reading_row(row) for row in rows]) for p, rows in originals]
+    reading = _intern_pages(root, projected, directory, 'reading')
+    reading.update(representation='All rows and all non-provenance fields, exactly interned; no semantic acceptance.',
+        separatedTopLevelFields=['sourceSha256', 'targetSha256', 'originalRowSha256', 'originalPacket'],
+        rows=sum(len(rows) for _, rows in originals),
+        omittedFields=sum(len(row)-len(reading_row(row)) for _, rows in originals for row in rows if isinstance(row, dict)),
+        completeArchive='pages')
+    manifest = dict(representation='Complete lossless archive; use readingView for wording/context. No semantic credit.',
         referenceKey=REF, roundtrip=True, originalBytes=sum(p.stat().st_size for p,_ in originals),
-        viewBytes=sum(p['bytes'] for p in pages), definitions=len(definitions),
+        viewBytes=archive['viewBytes'], definitions=archive['definitions'],
         inputs=[dict(path=str(p.relative_to(root)),sha256=sha(p),rows=len(rows),
-                     decodedSha256=hashlib.sha256(canonical(rows).encode()).hexdigest()) for p,rows in originals],pages=pages)
+                     decodedSha256=hashlib.sha256(canonical(rows).encode()).hexdigest()) for p,rows in originals],
+        pages=archive['pages'], readingView=reading)
     (directory/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     return manifest
 
@@ -221,10 +261,18 @@ def inspect_phase(phase, include_usage=False):
         manifest=local(root,view['path'])
         if sha(manifest)!=view['sha256']:raise ValueError('Lossless view manifest changed')
         content=read(manifest)
-        for pin in [*content['inputs'],*content['pages']]:
+        reading=content.get('readingView')
+        for pin in [*content['inputs'],*content['pages'],*(reading['pages'] if reading else [])]:
             if sha(local(root,pin['path']))!=pin['sha256']:raise ValueError('Lossless view dependency changed')
         result['losslessView']=dict(originalBytes=content['originalBytes'],viewBytes=content['viewBytes'],
-            requiredPages=[pin['path'] for pin in content['pages']],roundtrip=content['roundtrip'])
+            archiveManifest=view['path'],roundtrip=content['roundtrip'])
+        if reading:
+            result['readingView']=dict(bytes=reading['viewBytes'],rows=reading['rows'],
+                separatedMetadataFields=reading['omittedFields'],
+                readingPages=[pin['path'] for pin in reading['pages']],
+                roundtrip=reading['roundtrip'],coverage='All rows; no semantic acceptance')
+        else:
+            result['losslessView']['requiredPages']=[pin['path'] for pin in content['pages']]
     if include_usage:
         usage=latest_usage(Path(runtime['sessionMetadataPath']));result['usage']=usage
         if usage:

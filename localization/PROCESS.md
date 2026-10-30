@@ -149,6 +149,18 @@ Astra, fallback, resume/fork history, nested jobs or additional model streams.
 Load bounded mandatory instructions and the complete compact working glossary
 once. Read exact source/target/context, not prior chats or unrelated audits.
 
+The frozen efficiency helper exposes `readingView.readingPages` for new review
+packets. Read this complete representation instead of printing both the archive
+and the original packets. It preserves every row and all wording, IDs, context,
+flags, nested objects and unknown fields; only recognized top-level SHA-256 and
+original-packet provenance move out of the reading representation. The separately
+hashed lossless archive retains those exact values for deterministic verification
+and named discrepancies. Both representations are checked against frozen inputs;
+neither grants semantic coverage. Old active packets keep their frozen helper.
+Regression: a source-context packet with repeated hash/provenance fields exposes
+every source and target plus null/false/zero, CR/LF, Unicode and unknown context in
+the reading pages; changing either representation rejects before review input.
+
 Each phase saves substantive evidence before continuing. Unknown submission
 outcomes, capacity errors and interrupted observers require reconciliation by job,
 thread/process identity and immutable inputs; no automatic duplicate/retry loop.
