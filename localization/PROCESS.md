@@ -63,6 +63,15 @@ Reuse source/method/resource evidence by fingerprint. Linguistic lanes author an
 review their own wording only after its applicable gates; they do not each reverse
 engineer the same engine. Do not automatically reread unrelated accepted units.
 
+For new narrative150 and haiku27 resource deliveries, use the common
+`tools/locale_resources.py` entry point and pinned data-only locale profiles in
+[resource-profiles/README.md](resource-profiles/README.md). Add locale data and
+version-matching receipts, not another per-language builder. Accumulate disjoint
+reviewed packets without rereading unchanged wording. Preserve existing running
+jobs and frozen helpers; adopt this interface at the next applicable resource
+assignment, without interrupting an unrelated phase or adding a planning-only
+phase. Other shared mechanisms retain their existing owners and gates.
+
 The family catalog deliberately includes overlapping physical copies and repeated
 glow fields. Family counts cannot be summed into a unique visible-string total.
 Equal English text, a matching filename or a Russian acceptance receipt is not a

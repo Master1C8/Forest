@@ -1,0 +1,221 @@
+{
+  "applicationAllowed": false,
+  "applied": false,
+  "engine": {
+    "path": "tools/locale_resources.py",
+    "sha256": "6d45833ba4e2de4d02cbe3af69d18722c14d8bbd68fe1eb6bf84f56e3727e1e3"
+  },
+  "independentTechnicalReview": "pending-for-new-factory",
+  "modelRequestsIssued": 0,
+  "nativeAccepted": false,
+  "ready": false,
+  "runtime": "not-run",
+  "schemaVersion": 1,
+  "scope": "Shared resource preparation only; no new translation or readiness percentage credited.",
+  "sourceGateAccepted": false,
+  "status": "passed",
+  "tests": [
+    {
+      "boundary": "Synthetic wording/reviews; real common filesystem publisher. No semantic or native proof.",
+      "command": [
+        "/Users/antonkrutov/Desktop/Forest/.venv-assets314/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_locale_resources.py",
+        "-q"
+      ],
+      "exitCode": 0,
+      "name": "unit-regressions",
+      "output": "----------------------------------------------------------------------\nRan 11 tests in 0.242s\n\nOK"
+    },
+    {
+      "manifest": {
+        "path": "outputs/locale-assets-20261026/shared-resource-factory/pt-BR/narrative150-v4/manifest.json",
+        "sha256": "1ce00859aa6a670b086dc803149d94c4a2d64409fb125251ffc19d78b0839424"
+      },
+      "name": "real-artifact-check",
+      "profile": {
+        "path": "localization/resource-profiles/narrative150.pt-BR.json",
+        "sha256": "d65956220c205c0f692510a8ad339b7af118b9f77d206387760757da7dd93b24"
+      },
+      "result": {
+        "applicationAllowed": false,
+        "applied": false,
+        "counts": {
+          "pendingSelectors": 0,
+          "preparedPages": 25,
+          "reviewedSelectors": 150,
+          "roles": {
+            "face": 25,
+            "glow": 100,
+            "layout-provider": 25
+          },
+          "sourcePages": 25,
+          "sourceSelectors": 150
+        },
+        "family": "narrative150",
+        "locale": "pt-BR",
+        "mode": "check",
+        "nativeAccepted": false,
+        "ready": false,
+        "runtime": "not-run",
+        "sourceGateAccepted": false
+      }
+    },
+    {
+      "manifest": {
+        "path": "outputs/locale-assets-20261026/shared-resource-factory/de/narrative150-v4/manifest.json",
+        "sha256": "5994e05c56b5d4cc8a1f9c7b3e7bbed526882f50d750954043481bf69ee36234"
+      },
+      "name": "real-artifact-check",
+      "profile": {
+        "path": "localization/resource-profiles/narrative150.de.json",
+        "sha256": "4ce9c68b8d2479dd2ef015c284bd836a1b0a1ebc30dfc9cb316ac88636812b66"
+      },
+      "result": {
+        "applicationAllowed": false,
+        "applied": false,
+        "counts": {
+          "pendingSelectors": 108,
+          "preparedPages": 7,
+          "reviewedSelectors": 42,
+          "roles": {
+            "face": 25,
+            "glow": 100,
+            "layout-provider": 25
+          },
+          "sourcePages": 25,
+          "sourceSelectors": 150
+        },
+        "family": "narrative150",
+        "locale": "de",
+        "mode": "check",
+        "nativeAccepted": false,
+        "ready": false,
+        "runtime": "not-run",
+        "sourceGateAccepted": false
+      }
+    },
+    {
+      "manifest": {
+        "path": "outputs/locale-assets-20261026/shared-resource-factory/pt-BR/haiku27-v4/manifest.json",
+        "sha256": "a77131e2923652f7a3aa77f23a29ef99aa017061f10e79c1ba4aa4c9d2080024"
+      },
+      "name": "real-artifact-check",
+      "profile": {
+        "path": "localization/resource-profiles/haiku27.pt-BR.json",
+        "sha256": "426ba1de9f0ad81c0baf3a4f32a95c41ee30c366e4149d0c76fdbbe6ab46c6f2"
+      },
+      "result": {
+        "applicationAllowed": false,
+        "applied": false,
+        "counts": {
+          "choices": 9,
+          "outcomes": 27
+        },
+        "family": "haiku27",
+        "locale": "pt-BR",
+        "mode": "check",
+        "nativeAccepted": false,
+        "profileSha256": "426ba1de9f0ad81c0baf3a4f32a95c41ee30c366e4149d0c76fdbbe6ab46c6f2",
+        "ready": false,
+        "runtime": "not-run",
+        "sharedBackendSha256": "7b77b30a0a5db9a394c9e6ceb38cdb5b835c29ac5d6fd3125d8286af9d79ec19",
+        "sourceGateAccepted": false
+      }
+    },
+    {
+      "manifest": {
+        "path": "outputs/locale-assets-20261026/shared-resource-factory/es/haiku27-v4/manifest.json",
+        "sha256": "f750d791d7976b254d5f0bdb71d4eae820dd959c7defc88765ef9b7220ef6102"
+      },
+      "name": "real-artifact-check",
+      "profile": {
+        "path": "localization/resource-profiles/haiku27.es.json",
+        "sha256": "a68e21ab03411dd7baba019b56c5d784b1245b1c3896a3551bf81d9c1752ca6e"
+      },
+      "result": {
+        "applicationAllowed": false,
+        "applied": false,
+        "counts": {
+          "choices": 9,
+          "outcomes": 27
+        },
+        "family": "haiku27",
+        "locale": "es",
+        "mode": "check",
+        "nativeAccepted": false,
+        "profileSha256": "a68e21ab03411dd7baba019b56c5d784b1245b1c3896a3551bf81d9c1752ca6e",
+        "ready": false,
+        "runtime": "not-run",
+        "sharedBackendSha256": "7b77b30a0a5db9a394c9e6ceb38cdb5b835c29ac5d6fd3125d8286af9d79ec19",
+        "sourceGateAccepted": false
+      }
+    },
+    {
+      "boundary": "Exact original/target strings, hashes, physical membership, roles, font/material/sprite/size/color and reviewer identity; historical metadata retained by pinned references. Not whole-file byte equality.",
+      "name": "Portuguese-legacy-parity",
+      "pages": 25,
+      "selectors": 150
+    },
+    {
+      "boundary": "Generated C# and saved maps/fixtures/dispositions match prior delivery. Only isolated extracted CIL fixtures execute; original game, callbacks, Unity UI and native rendering remain untested. Compiled DLL byte equality is not claimed.",
+      "cultureResults": {
+        "en-US": 27,
+        "pt-BR": 27,
+        "tr-TR": 27
+      },
+      "factoryBinding": {
+        "path": "outputs/locale-assets-20261026/shared-resource-factory/pt-BR/haiku27-v4/factory-binding.json",
+        "sha256": "a66597dae19b0361d99ca555d70f06cd4973562a7fb264ec1b0fef9a844da871"
+      },
+      "locale": "pt-BR",
+      "mapControls": 7,
+      "name": "haiku-legacy-parity-and-isolated-CLR",
+      "runtimeNegatives": 8,
+      "structuralNegatives": 6,
+      "tuples": 27
+    },
+    {
+      "locale": "pt-BR",
+      "name": "real-culture-negative",
+      "outputCreated": false,
+      "positiveControl": "Same pinned snapshot and backend passed above; only profile culture changed.",
+      "reason": "explicit-culture"
+    },
+    {
+      "boundary": "Generated C# and saved maps/fixtures/dispositions match prior delivery. Only isolated extracted CIL fixtures execute; original game, callbacks, Unity UI and native rendering remain untested. Compiled DLL byte equality is not claimed.",
+      "cultureResults": {
+        "en-US": 27,
+        "es-ES": 27,
+        "tr-TR": 27
+      },
+      "factoryBinding": {
+        "path": "outputs/locale-assets-20261026/shared-resource-factory/es/haiku27-v4/factory-binding.json",
+        "sha256": "9136528a0095e5ed2d913514bbfa4d031729ae4d7976d6e805266681d36c98b1"
+      },
+      "locale": "es",
+      "mapControls": 7,
+      "name": "haiku-legacy-parity-and-isolated-CLR",
+      "runtimeNegatives": 7,
+      "structuralNegatives": 6,
+      "tuples": 27
+    },
+    {
+      "locale": "es",
+      "name": "real-culture-negative",
+      "outputCreated": false,
+      "positiveControl": "Same pinned snapshot and backend passed above; only profile culture changed.",
+      "reason": "explicit-culture"
+    }
+  ],
+  "verificationRecipe": {
+    "path": "localization/completion/shared-resource-factory-20261030/verify.py",
+    "sha256": "fb31c9042de67cdd870176c614eaa35086f167714e135814d8bf2d481395b3ce"
+  }
+}
