@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "checkedAt": "2026-10-30T13:08:22.213905+00:00",
+  "code": [
+    {
+      "path": "tools/locale_dependencies.py",
+      "sha256": "7ef731744ed64c4292139324608a61ae70904b2bcae0cee8ec9e8e75a6710eb8"
+    },
+    {
+      "path": "tools/locale_progress.py",
+      "sha256": "b16bc3dedcdc416308b28a287c1722f0850b796d2625795deb2235c6309e16b9"
+    },
+    {
+      "path": "tools/test_locale_dependencies.py",
+      "sha256": "abcceedcc25f34da2c6d3eb1ad129b2589f9b74eaff39353cc5057f4eefc0059"
+    },
+    {
+      "path": "tools/test_locale_progress.py",
+      "sha256": "9642ae2687da4f074a0bcdddeda6034afc4689db3238bc8d5e5b36a5307029cb"
+    }
+  ],
+  "registry": {
+    "path": "localization/completion/russian-reuse-20261030-01/registry.json",
+    "sha256": "c6b8a958291b10b506933a50c82578aae07e71f16fe52013da97e83fcb79ce13"
+  },
+  "tests": {
+    "count": 85,
+    "exitCode": 0,
+    "log": {
+      "path": "outputs/locale-assets-20261026/russian-reuse-20261030-01/tests.log",
+      "sha256": "7a8cc6c5672acda15a5d7b9be0d710dc70f89f0ba42196a92bfd86238fe59be2"
+    },
+    "boundary": "Synthetic wording/reviews and mocked CLI jobs exercise transport/guards. No game, native rendering, new worker request or semantic review is implied."
+  },
+  "realInputs": {
+    "report": {
+      "path": "outputs/locale-assets-20261026/russian-reuse-20261030-01/dependencies.json",
+      "sha256": "aa24149eff6c54e6f29847f1315be585f26e00953b5a09971edf23daca4b8f46"
+    },
+    "sourceReviewUnits": 301,
+    "processFamilies": 28,
+    "policySelectorsAccepted": 3,
+    "obsoletePortugueseWaitsRemoved": 2,
+    "heldSourceCategories": 4
+  },
+  "publicReport": {
+    "path": "outputs/locale-assets-20261026/russian-reuse-20261030-01/progress.json",
+    "sha256": "70d7cb1737b588c6f0c9d050fdec14acd15b553989ac4e8ad365d52653101dd5"
+  },
+  "unchangedBlockedLocaleIndex": {
+    "zh": 56.77,
+    "pt-BR": 54.18
+  },
+  "canonicalSourceManifestUnchanged": {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/manifest.json",
+    "sha256": "7d3af97c8a5af23eecc3ba12a3b989e19c2d6bf59c0aaa97c35d5de85eb80403"
+  },
+  "frozenBlockedResultsUnchanged": [
+    {
+      "path": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030/0082-review/result.json",
+      "sha256": "cec86376acf279df6918a4d7fd850424b119da4cf2d52af8a1a6ced496dfeb9e"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0063-review/result.json",
+      "sha256": "94878602b42d543a58372be6253dbc3c219121a2f04cdfa21e6cc2434e914e72"
+    }
+  ],
+  "newWorkerRequests": 0,
+  "applicationAllowed": false,
+  "ready": false,
+  "remaining": "Four aggregate source categories and actual locale resource/font/native/runtime/package/release predicates remain open. No new language selector admission or model wake is granted."
+}

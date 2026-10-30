@@ -285,10 +285,12 @@ def collect_locale(ev, policy, locale, families):
                     if known_wording(row, locale):
                         primary[row['id']] = version(row)
             # Completed author phases publish exact primary IDs and pinned wording files.
-            authored = set(result.get('progress', {}).get('unitIds', [])) if result.get('progress', {}).get('kind') == 'authored' else set()
-            proposed = result.get('nextTask', {}).get('reviewPacket')
+            progress = result.get('progress') or {}
+            next_task = result.get('nextTask') or {}
+            authored = set(progress.get('unitIds', [])) if progress.get('kind') == 'authored' else set()
+            proposed = next_task.get('reviewPacket')
             if proposed:
-                expected = result['nextTask'].get('reviewPacketSha256') or refs.get(proposed)
+                expected = next_task.get('reviewPacketSha256') or refs.get(proposed)
                 if expected:
                     for row in ev.row_list(proposed, expected):
                         if known_wording(row, locale) and (not authored or row['id'] in authored):
@@ -353,6 +355,8 @@ def collect_locale(ev, policy, locale, families):
                 blocker = 'model-at-capacity'
     return dict(locale=locale, laneStatus=lane['status'], lastCompletedPhase=max(valid_phases, default=None),
                 workerAlive=running,
+                lastResult=dict(path=str(ev.path(Path(last['phase'])/'result.json').relative_to(ev.root)),
+                                sha256=last['resultSha256']) if last.get('resultSha256') else None,
                 lastPhase=lane.get('phases', [{}])[-1].get('number'),
                 lastActivityAt=lane.get('phases', [{}])[-1].get('startedAt'),
                 blocker=blocker, families=rows)
@@ -425,6 +429,7 @@ def calculate_score(policy, families, accepted_stages=None):
 
 
 def report(root=ROOT, locale=None):
+    from locale_dependencies import reconcile, current_lane_state
     ev = Evidence(root)
     policy = ev.json(POLICY)
     if sum(c['points'] for c in policy['components']) != 100:
@@ -433,6 +438,7 @@ def report(root=ROOT, locale=None):
         ev.read(path, expected)
     families = {family['id']: expected_ids(ev, family) for family in policy['families']}
     source_gate = ev.json('localization/source/shared-source-completion-20261028/admission-v1/manifest.json')
+    dependencies = reconcile(ev)
     scope_hash = hashed(json.dumps(policy['sourcePins'], sort_keys=True).encode())
     rows = []
     for code in ([locale] if locale else LOCALES):
@@ -443,13 +449,19 @@ def report(root=ROOT, locale=None):
         row.update(calculate_score(policy, row['families'], accepted))
         row['gates'] = {stage: ('passed' if stage in accepted else 'not-accepted') for stage in policy['requiredGates']}
         row['wholeGameSourceAccepted'] = source_gate['commonSourceAccepted']
+        dependency_state=current_lane_state(row,dependencies)
+        if dependency_state is not None:
+            row['historicalBlocker']=row['blocker']
+            row['dependencyState']=dependency_state
+            row['blocker']='; '.join(dependency_state['remaining'])
         row['releaseReady'] = row.pop('ready') and source_gate['commonSourceAccepted']
         rows.append(row)
     ev.stable()
     return dict(schemaVersion=1, measuredAt=datetime.now(timezone.utc).isoformat(), revision=policy['revision'],
                 meaning=policy['meaning'], sourceScopeSha256=scope_hash,
                 calculatorSha256=hashed(Path(__file__).read_bytes()),
-                locales=rows, evidencePins=ev.pins, warnings=list(dict.fromkeys(ev.errors)),
+                locales=rows, sharedDependencies=dependencies,
+                evidencePins=ev.pins, warnings=list(dict.fromkeys(ev.errors)),
                 recoveredExactPacketPrefixes=ev.recovered_prefixes,
                 unknownWholeGameInventory=not source_gate['commonSourceAccepted'], modelRequestsStarted=0)
 
@@ -461,6 +473,9 @@ def table(data):
              '|---|---:|---|---|']
     for row in data['locales']:
         state = states.get(row['laneStatus'], row['laneStatus'])
+        if row.get('dependencyState'):
+            state = ('Стоит: общие решения и CJK-шрифт' if row['locale']=='zh' else
+                     'Стоит: интеграция, исходные смыслы и шрифты')
         if row.get('blocker') == 'model-at-capacity':
             state = 'Остановлен: модель недоступна'
         elif row['laneStatus'] == 'running' and not row['workerAlive']:

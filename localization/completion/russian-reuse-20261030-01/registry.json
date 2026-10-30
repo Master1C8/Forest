@@ -1,0 +1,1368 @@
+{
+  "schemaVersion": 1,
+  "russianReference": {
+    "manifest": "dist/Forest-Russian-Test-20261029/manifest.json",
+    "build": "localization/previews/ru-20261029-narrative42-01/build.json",
+    "sourceManifest": "assets/source-v2/source-files.json",
+    "haikuStageMethodReadback": "localization/previews/ru-20261029-narrative42-01/Assembly-CSharp.haiku.dll.methods.jsonl"
+  },
+  "processSpec": "localization/completion/process-spec.json",
+  "parentDecision": "localization/source/shared-source-completion-20261028/parent-integration-20261030-01/decision.json",
+  "originalPolicies": "localization/source/locale-completion-20261030/critical-path-0051/static-field-policies.json",
+  "baseGateMatrix": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/source-gate-delivery/gate-matrix.json",
+  "policyApprovalId": "static-identity-policy-review",
+  "families": [
+    {
+      "id": "dialogue",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "overlay"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/source/dialogue-candidates.jsonl",
+        "localization/source/dialogue-manifest.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "ui935",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "exactUiBindings"
+        ],
+        [
+          "settingsTranslations"
+        ],
+        [
+          "reportTranslations"
+        ],
+        [
+          "menuTranslations"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261027/source-catalog.json",
+        "localization/supplemental-ui/20261027/manifest.json",
+        "localization/supplemental-ui/20261029-existing935/ru.acceptance.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "inventory52",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "inventoryDescriptionProjection"
+        ],
+        [
+          "inventoryEmptyCellCodeRepair"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/source/inventory-display-completion-20261028/manifest.json",
+        "localization/source/inventory-display-completion-20261028/source.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "inventory-glitch",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "inventoryGlitchCodeRepair"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261028-glitch/ru.authored.json",
+        "localization/fonts/russian-runtime-20261028/CURRENT.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "chapter-gallery134",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "chapterGalleryDatabaseProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/source/chapter-gallery-case-20261029/source.jsonl",
+        "localization/source/chapter-gallery-case-20261029/manifest.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "remaining51",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "remainingDisplayBGProjection"
+        ],
+        [
+          "remainingDisplayManagedProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl",
+        "localization/supplemental-ui/20261029-remaining-case51/preserve-exactly.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "bio113",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "bioInputDisplayProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261029-bio-case113/source-context.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "input72",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "bioInputDisplayProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261029-input-case72/source-context.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "counter90",
+      "referenceStatus": "source-contract-reference;whole-family-application-unproved",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261029-counter-case90/source-context.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "console62",
+      "referenceStatus": "source-contract-reference;whole-family-application-unproved",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261029-console-case62/source-context.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "pause576",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "pauseChapterDisplayProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/source/chapter-select-heading-20261029/pause-chapter-576.source.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "ornamental569",
+      "referenceStatus": "source-contract-reference;whole-family-application-unproved",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/supplemental-ui/20261029-ornamental-case569/groups.source.jsonl"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "narrative150",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "narrativeDisplayProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/source/narrative150-resource-contract-20261029/selectors150.jsonl",
+        "localization/source/narrative150-resource-contract-20261029/allowlists.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "haiku27",
+      "referenceStatus": "russian-static-mechanism-reference",
+      "buildPointers": [
+        [
+          "haikuIdentityCodeProjection"
+        ]
+      ],
+      "sourceContracts": [
+        "localization/source/haiku-identity-adapter-20261029/source-adapter-contract.json",
+        "localization/source/haiku-identity-adapter-20261029/runtime27-fixtures.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "special-cases23",
+      "referenceStatus": "source-contract-reference;whole-family-application-unproved",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/source/shared-source-completion-20261028/admission-v1/special-cases.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "tutorial-notifications66",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/source/tutorial-notifications66-20261029/source-contract.json",
+        "localization/source/tutorial-notifications66-20261029/targets.json",
+        "dist/Forest-Russian-Test-20261029/tutorial-notification-hotfix/manifest.json"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-adventures24-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-adventures24-20261029/contract.json",
+        "localization/hotfixes/ru-adventures24-20261029/review-packet.json",
+        "localization/hotfixes/ru-adventures24-20261029/targets.json",
+        "localization/hotfixes/ru-adventures24-20261029/resource-readback.json",
+        "localization/hotfixes/ru-adventures24-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-bell-notifications72-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-bell-notifications72-20261029/contract.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/review-packet.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/targets.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/resource-readback.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-completion12-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-completion12-20261029/contract.json",
+        "localization/hotfixes/ru-completion12-20261029/review-packet.json",
+        "localization/hotfixes/ru-completion12-20261029/targets.json",
+        "localization/hotfixes/ru-completion12-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-dam-minigame30-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-dam-minigame30-20261029/contract.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/review-packet.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/targets.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/resource-readback.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-dates-titleflow-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-dates-titleflow-20261029/dates-contract.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/review-packet.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/targets.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/resource-readback.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-journal-age-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-journal-age-20261029/review-packet-final.json",
+        "localization/hotfixes/ru-journal-age-20261029/review-packet.json",
+        "localization/hotfixes/ru-journal-age-20261029/target-final.json",
+        "localization/hotfixes/ru-journal-age-20261029/resource-readback.json",
+        "localization/hotfixes/ru-journal-age-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-journal-compact-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-journal-compact-20261029/layout-contract.json",
+        "localization/hotfixes/ru-journal-compact-20261029/wording-review-packet.json",
+        "localization/hotfixes/ru-journal-compact-20261029/compact-targets.json",
+        "localization/hotfixes/ru-journal-compact-20261029/resource-readback.json",
+        "localization/hotfixes/ru-journal-compact-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-lantern30-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-lantern30-20261029/contract.json",
+        "localization/hotfixes/ru-lantern30-20261029/review-packet.json",
+        "localization/hotfixes/ru-lantern30-20261029/targets.json",
+        "localization/hotfixes/ru-lantern30-20261029/resource-readback.json",
+        "localization/hotfixes/ru-lantern30-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-quest-notifications-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-quest-notifications-20261029/review-packet.json",
+        "localization/hotfixes/ru-quest-notifications-20261029/targets.json",
+        "localization/hotfixes/ru-quest-notifications-20261029/code-readback.json",
+        "localization/hotfixes/ru-quest-notifications-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-scene-unlocked114-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-scene-unlocked114-20261029/contract.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/review-packet.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/targets.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/resource-readback.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-speaker-display24-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-speaker-display24-20261029/source-labels.json",
+        "localization/hotfixes/ru-speaker-display24-20261029/review-packet.json",
+        "localization/hotfixes/ru-speaker-display24-20261029/targets.json",
+        "localization/hotfixes/ru-speaker-display24-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    },
+    {
+      "id": "repair-storm-greetings24-20261029",
+      "referenceStatus": "russian-hotfix-contract-reference",
+      "buildPointers": [],
+      "sourceContracts": [
+        "localization/hotfixes/ru-storm-greetings24-20261029/contract.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/review-packet.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/targets.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/resource-readback.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/README.md"
+      ],
+      "nextAction": "Reuse matching source selectors and existing common code. Add only own-locale reviewed targets/resource configuration; retain the family-specific source/renderer holds. Russian wording, sizes and runtime acceptance do not transfer."
+    }
+  ],
+  "approvals": [
+    {
+      "id": "bg3279-classification",
+      "packet": {
+        "path": "localization/source/locale-completion-20261030/source-admission-v1/review-packet.jsonl",
+        "sha256": "9b0ff7dde035ca57853803b1d38ea56885320d3adf7614a2bea1af580e7a5312"
+      },
+      "judgments": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/combined-reviews.jsonl",
+        "sha256": "e5e18eb9e3bfb05afa7c087808c0df3276cf4274edc6ca026187201129c137e4"
+      },
+      "expectedUnits": 194,
+      "authorRuntime": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0003-technical/runtime-verification.json",
+        "sha256": "cf25a0f92a979fa7e9c8c6d0a680a46d4703db2ba7c30e87138613ab87a9cf99"
+      },
+      "reviewerRuntimes": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0004-review/runtime-verification.json",
+          "sha256": "1308e81f7efc3e5ed64eabfec18e79d44750b2d0d33374a46a4ad57732094383"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/runtime-verification.json",
+          "sha256": "3857409d5213c7bb5047a7f208b4cfcbe8d3f323e4c45b983da804f93fb98c32"
+        }
+      ],
+      "receipt": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/scoped-review-receipt.json",
+        "sha256": "3886b72cc05826edb9d2c42d4e312feb2d52c595679110d2d6a82a29276e3ca9"
+      },
+      "assertions": [
+        {
+          "path": [
+            "status"
+          ],
+          "equals": "accepted-source-classifications-and-honest-holds-only"
+        },
+        {
+          "path": [
+            "coverage",
+            "uniqueStatesWithCompleteColumnReview"
+          ],
+          "equals": 3279
+        },
+        {
+          "path": [
+            "coverage",
+            "explicitlyUnreadRemaining"
+          ],
+          "equals": 0
+        },
+        {
+          "path": [
+            "counts",
+            "partitions",
+            "held"
+          ],
+          "equals": 1239
+        },
+        {
+          "path": [
+            "globalSourceGatePassed"
+          ],
+          "equals": false
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "localization/source/locale-completion-20261030/source-admission-v1/manifest.json",
+          "sha256": "6642454b09adeac564126ebd71661c32d78a09534e2c1c0bce9c579ac512009a"
+        }
+      ],
+      "acceptedStatus": "accepted-bounded-static-dependency",
+      "legacyUnstampedPartitions": [
+        {
+          "judgments": {
+            "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/reviews.jsonl",
+            "sha256": "b21023bc249cf34950a56e7f7b66275c5951675825ef40a12edd54e2bb680a52"
+          },
+          "result": {
+            "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/result.json",
+            "sha256": "3d2d6c9adaaa9782bcf5ce9cb1c18f00a8ded45451be255bb9003aaf993fdbaf"
+          },
+          "runtime": {
+            "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/runtime-verification.json",
+            "sha256": "3857409d5213c7bb5047a7f208b4cfcbe8d3f323e4c45b983da804f93fb98c32"
+          },
+          "expectedUnits": 27,
+          "assignedPacket": {
+            "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0004-review/remaining-review-packet.jsonl",
+            "sha256": "5ba77a0cb0721406eb1665ad5fc4b13c2ff9372a423184773c1dd28fe4414403"
+          }
+        }
+      ],
+      "reviewTask": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/task.json",
+        "sha256": "fda18e02c506c0d3930b056a7c3f9946d719e6b3308cb1617403550c1e165547"
+      }
+    },
+    {
+      "id": "pt-BR-narrative150-dispositions",
+      "packet": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0061-technical/review-scope/review-packet.jsonl",
+        "sha256": "0469dc39dbbdf4c0312b83c6466002ba4cb474469b0ddae375c977278f5f5120"
+      },
+      "judgments": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/review-output/reviews.jsonl",
+        "sha256": "b8a66b19eca9982ce295e9bcd8c2679a89f585b2aaea9ca2ac12812e948d640b"
+      },
+      "expectedUnits": 33,
+      "authorRuntime": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0061-technical/runtime-verification.json",
+        "sha256": "453c61427d979005c205caa062f977eb797a63e3e9a05cf662bd5855568c4b22"
+      },
+      "reviewerRuntimes": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/runtime-verification.json",
+          "sha256": "6d9a2331e4e9c114ccd5689b2f7ffd5e39bebbfc5d673e8b2a8eb771f5ded53f"
+        }
+      ],
+      "receipt": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/technical-review-receipt.json",
+        "sha256": "2e6574abf3ec31f81223d98e4f5887c5098e3f2977b7ae1db99e6702434b333b"
+      },
+      "assertions": [
+        {
+          "path": [
+            "status"
+          ],
+          "equals": "accepted-bounded-static-dispositions"
+        },
+        {
+          "path": [
+            "findings"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "unreadPrimary"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "unreadContexts"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "requestDisposition",
+            "resolved"
+          ],
+          "equals": true
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0061-technical/delivery/manifest.json",
+          "sha256": "a6d8b784c066d30d6fd4cb951516e62d810c2e66d611a2006af1782381f7d00a"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/independent-readback.json",
+          "sha256": "04260f43c55965bdf9fd390ab66959d10dcd2d3dee3ddafbf4b2b8a7ed8bd3f5"
+        }
+      ],
+      "acceptedStatus": "accepted-bounded-static-dependency",
+      "reviewTask": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/task.json",
+        "sha256": "12d3a9f0230965501aa1eeca28d80f0b4833dd2723a7cedcf56d8bc64de61bc7"
+      }
+    },
+    {
+      "id": "pt-BR-haiku-isolated-resource",
+      "packet": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/review-scope/review-packet.jsonl",
+        "sha256": "8b497105e7bfd21f5f91354e43199a33933d585e2e43b724a43c4220982f0008"
+      },
+      "judgments": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/review-output/reviews.jsonl",
+        "sha256": "ffc8a44ae3d1383bb79f74fe4badc51995ec32fa3952491a5c1026044baf342e"
+      },
+      "expectedUnits": 44,
+      "authorRuntime": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/runtime-verification.json",
+        "sha256": "6378df1fc4e3aad6416e26729486e1ea6f81657864ff0261fe56bafda7bcae56"
+      },
+      "reviewerRuntimes": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/runtime-verification.json",
+          "sha256": "469d9f67c1f871a05f2a25eb954ec1964acc3aabc70497ba338a3ad27aa10402"
+        }
+      ],
+      "receipt": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/technical-review-receipt.json",
+        "sha256": "bba3ecc9d1f015d1c02783c87fa07a5a4eb36e538bf7a8642531e7fbb224b9f6"
+      },
+      "assertions": [
+        {
+          "path": [
+            "status"
+          ],
+          "equals": "accepted-bounded-static-resource"
+        },
+        {
+          "path": [
+            "findings"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "requestDisposition",
+            "resolved"
+          ],
+          "equals": false
+        },
+        {
+          "path": [
+            "gates",
+            "applicationAllowed"
+          ],
+          "equals": false
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/delivery/manifest.json",
+          "sha256": "13ed81372ef949a0d27207d329e05d8e4f27c67a5cdf3bce79ff748bb506b7a4"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/delivery/mapping.json",
+          "sha256": "3350289db40dc94446d8cdc995a729e7dde8d398a9c0c8b5a89bda8937302139"
+        },
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/delivery/clr-tests.json",
+          "sha256": "8e573aa06a5c0caaf1213c60731941dcb09ac1328125769de200ea012a19fc2c"
+        }
+      ],
+      "acceptedStatus": "accepted-isolated-resource;production-request-held",
+      "reviewTask": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/task.json",
+        "sha256": "50ef602d358823fbc81a8be5cf4bbfa8c7f8307e78f52efe3aa381b45c35708e"
+      }
+    },
+    {
+      "id": "static-identity-policy-review",
+      "packet": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/review-scope-final/review-packet.jsonl",
+        "sha256": "b6cbece6fd81948abeaf774f6ef3c6453e9d6d6240d76bd047b680351d833194"
+      },
+      "judgments": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/review-output/reviews.jsonl",
+        "sha256": "6aa5dc9bf2b8e11676edf946f3f49a8f40b5da52bc935d6c545f2356b640ad2a"
+      },
+      "expectedUnits": 12,
+      "authorRuntime": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/runtime-verification.json",
+        "sha256": "81390ee41f8cd8a118a52f811f8fe2de0c4cb6627beffb9bd763db4c015d4bfc"
+      },
+      "reviewerRuntimes": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/runtime-verification.json",
+          "sha256": "ba5363b8462cb141d8127c1ce714b8b727d89626862958434be48f14f84c6a64"
+        }
+      ],
+      "receipt": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/technical-review-receipt.json",
+        "sha256": "b5b543703b0e2442b1983418e6d45c814576ac6325a7c571526bd71fd5f15323"
+      },
+      "assertions": [
+        {
+          "path": [
+            "status"
+          ],
+          "equals": "accepted-bounded-technical-source-policy-review"
+        },
+        {
+          "path": [
+            "findings"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "unreadPrimary"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "unreadNecessaryContext"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "completePredicateClosures"
+          ],
+          "equals": 0
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/source-gate-delivery/gate-proposal.json",
+          "sha256": "e0c938caf18d48c6f15eea25b4e45b29a123d00dcf3bbc313aba48009f4e99da"
+        }
+      ],
+      "acceptedStatus": "accepted-bounded-static-dependency",
+      "reviewTask": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/task.json",
+        "sha256": "53b0b351d0506614578b935395212190427b7413a89516bab40598079ec3fa3a"
+      }
+    },
+    {
+      "id": "supported-original-source-effect-candidate",
+      "packet": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/review-scope-v2/review-packet.jsonl",
+        "sha256": "ad3dffa8cdb20c6bfd4c2db6547bd1799d493052c8d3d22c137dbaf6c1117a1a"
+      },
+      "judgments": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/review-output/reviews.jsonl",
+        "sha256": "a750b342fb31ed705a41f3fa2544973ce327b14041fc4bd69e214ab4f91d1aa6"
+      },
+      "expectedUnits": 18,
+      "authorRuntime": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/runtime-verification.json",
+        "sha256": "4a39ecab9831dbc706a1c7ccc6ffe58d1e6cc5e7efbb97cbd87829b0f3d1a572"
+      },
+      "reviewerRuntimes": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/runtime-verification.json",
+          "sha256": "9daa20686687a46b8b2d437ca9e6eaf88270031f00533deb580ad39ffa72e3b2"
+        }
+      ],
+      "receipt": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/result.json",
+        "sha256": "207ddb7eab1219d406ffc4a558c09be213c76ffeb5c73e77a11ac222907be2cd"
+      },
+      "assertions": [
+        {
+          "path": [
+            "verifiedReviewCoverage",
+            "assigned"
+          ],
+          "equals": 18
+        },
+        {
+          "path": [
+            "verifiedReviewCoverage",
+            "judged"
+          ],
+          "equals": 18
+        },
+        {
+          "path": [
+            "verifiedReviewCoverage",
+            "unreadIds"
+          ],
+          "equals": []
+        },
+        {
+          "path": [
+            "verifiedReviewCoverage",
+            "nonPassRows"
+          ],
+          "equals": 0
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/integration-v2/manifest.json",
+          "sha256": "77fa11e590a29da05dbc82b7dc4b6862876dc39143343fd427a5bf1981ab6abf"
+        }
+      ],
+      "acceptedStatus": "accepted-supported-reference-static-candidate;production-and-native-held",
+      "reviewTask": {
+        "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/task.json",
+        "sha256": "b170257e0a4217092774fe38fbd6fdcc9742f8261388c9b52b06aa0de737c510"
+      }
+    }
+  ],
+  "gateUpdates": {
+    "source/dialogue-callback-consumers": {
+      "remainingMissingFacts": [
+        "The supported-reference original Subtitle/source-format projection and all eight written source/effect ports are independently accepted by CP72. The earlier CP67 description of an exclusively .NET8 bridge is superseded for this candidate.",
+        "Production owner/source/event provider registration and actual scene/listener lifetime remain unaccepted; complete game callback/special-scene coverage and protected source meanings are still open."
+      ],
+      "nextPermittedAction": "Reuse the actual Russian display/evaluation separation and its bound source version, together with the accepted CP71 integration-v2 candidate. Supply the named production registration/adapter dependency, retaining exact original fields, callbacks and source values. Verify the written artifact statically before separately authorized native route tests. No repeated predicate/effect/framework audit."
+    }
+  },
+  "locales": {
+    "zh": {
+      "owningBlockedResult": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030/0082-review/result.json",
+      "closedWaits": [],
+      "completedSubdependencies": [],
+      "remaining": [
+        "shared-selected-source-consumers",
+        "24-dialogue-source-holds-and-protected-meanings",
+        "89-ornamental-selection-or-grammar-holds",
+        "CJK-font-import-and-actual-native-role-allocation",
+        "native-runtime-package-release"
+      ]
+    },
+    "pt-BR": {
+      "owningBlockedResult": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0063-review/result.json",
+      "closedWaits": [
+        {
+          "id": "await-bg3279-independent-review",
+          "approvalId": "bg3279-classification",
+          "scope": "The classification review is complete. All1239 held states and the whole-source gate remain held."
+        },
+        {
+          "id": "await-narrative150-disposition-delivery",
+          "approvalId": "pt-BR-narrative150-dispositions",
+          "scope": "The exact requested25-page/150-selector disposition is delivered and independently accepted. Original application/native/source holds remain."
+        }
+      ],
+      "completedSubdependencies": [
+        "pt-BR-haiku-isolated-resource"
+      ],
+      "remaining": [
+        "shared-selected-source-consumers",
+        "61-dialogue-source-holds-and-protected-meanings",
+        "haiku-production-stage-and-six-template-receivers",
+        "78-inactive-Mouse-and30-activation-unknown-Penny-members",
+        "final-font-roles-native-runtime-package-release"
+      ]
+    }
+  },
+  "pins": [
+    {
+      "path": "assets/source-v2/source-files.json",
+      "sha256": "05741788febb466a7641bbc680a60bad715708325aba0f07c542d9f9d377ea3e"
+    },
+    {
+      "path": "dist/Forest-Russian-Test-20261029/manifest.json",
+      "sha256": "c5e1b2ea142b2af372b66fe0e038613e229d92e8a2089d69a68838fc378e3030"
+    },
+    {
+      "path": "dist/Forest-Russian-Test-20261029/tutorial-notification-hotfix/manifest.json",
+      "sha256": "f3037a9f078b50fe620ac00f15b33f7cc64af1faf04eacd02b1ec78d0f1a2783"
+    },
+    {
+      "path": "localization/completion/process-spec.json",
+      "sha256": "87253d90b2ef53f9e37ad6d23510650e6fd5ae0527ae49ac7df3820b93420ea3"
+    },
+    {
+      "path": "localization/fonts/russian-runtime-20261028/CURRENT.md",
+      "sha256": "229e99f1dcacfbfe64bc4a169c74f095661a22b9b0ad65a3cd633c1e21e1588c"
+    },
+    {
+      "path": "localization/hotfixes/ru-adventures24-20261029/README.md",
+      "sha256": "282cc751c4a4c3fc7c6d1f2c0df251d4b80c873004338d80b58d48cbdcc998a9"
+    },
+    {
+      "path": "localization/hotfixes/ru-adventures24-20261029/contract.json",
+      "sha256": "d251992b610b0e3703158a57983a267ca5d80dd8eebf0b038569bcb07a7b203e"
+    },
+    {
+      "path": "localization/hotfixes/ru-adventures24-20261029/resource-readback.json",
+      "sha256": "cee686fda992277d31576d8366d741136170a52c7f862886e00218bc5d858125"
+    },
+    {
+      "path": "localization/hotfixes/ru-adventures24-20261029/review-packet.json",
+      "sha256": "119b695af58cd5c7af9723d859df60b11dad1e21d5bfaefb0e59c41727800cdb"
+    },
+    {
+      "path": "localization/hotfixes/ru-adventures24-20261029/targets.json",
+      "sha256": "0633ef78ec65b86ffd15f992cb107910413b937577ebb7211df605f78d3c1cfa"
+    },
+    {
+      "path": "localization/hotfixes/ru-bell-notifications72-20261029/README.md",
+      "sha256": "53e88aa58aadd5d57a35d3acf4392b979fd42e96d35263d7b12a7030989850a0"
+    },
+    {
+      "path": "localization/hotfixes/ru-bell-notifications72-20261029/contract.json",
+      "sha256": "e8e0513bf0f7af94030c633a3e8ffc4b5ec6f3f4135490a31ec8028ae6f6eed8"
+    },
+    {
+      "path": "localization/hotfixes/ru-bell-notifications72-20261029/resource-readback.json",
+      "sha256": "ab91bcd5c5b3176d1a3dcdc28dc0b9630b371980f3f4b9f1b877c3cc18c6422c"
+    },
+    {
+      "path": "localization/hotfixes/ru-bell-notifications72-20261029/review-packet.json",
+      "sha256": "1c8b60131d1c116b0a0061be09236f8a3d5ed368f16b345ca9ff203f2bb80f8b"
+    },
+    {
+      "path": "localization/hotfixes/ru-bell-notifications72-20261029/targets.json",
+      "sha256": "39516a3f170c297fa14631944df7e38cfae44da40100a732b0d540939b483416"
+    },
+    {
+      "path": "localization/hotfixes/ru-completion12-20261029/README.md",
+      "sha256": "641433d4f44407396e3a91367969b2529e50d4bfefab1c62e0fc2752b9ef92e0"
+    },
+    {
+      "path": "localization/hotfixes/ru-completion12-20261029/contract.json",
+      "sha256": "0cf7b3415eba122e43dba084969310fddae62d34be7659af6ac312456a3706e8"
+    },
+    {
+      "path": "localization/hotfixes/ru-completion12-20261029/review-packet.json",
+      "sha256": "91154773658ef85340eb116f7bed0103747d83608e42909edb198932e7d6c9d9"
+    },
+    {
+      "path": "localization/hotfixes/ru-completion12-20261029/targets.json",
+      "sha256": "23f2c1d8267e0ed4d58aa40a7014e10ba88c61b6df1ac09cbe557023b0fff75f"
+    },
+    {
+      "path": "localization/hotfixes/ru-dam-minigame30-20261029/README.md",
+      "sha256": "ea1e98de34b04a568eb78b80fecdcf0ce87333843a67bf7c5c3d38c372265ae0"
+    },
+    {
+      "path": "localization/hotfixes/ru-dam-minigame30-20261029/contract.json",
+      "sha256": "08d63d4260c36d59e4fe8bd733d4a214dcaab69f2f540377306ad19f209562cf"
+    },
+    {
+      "path": "localization/hotfixes/ru-dam-minigame30-20261029/resource-readback.json",
+      "sha256": "6d4551d566db162e6a0e48e824da493d645223ea2724dbe62a9e2ca15445a764"
+    },
+    {
+      "path": "localization/hotfixes/ru-dam-minigame30-20261029/review-packet.json",
+      "sha256": "a0ef1c3f87b561643418337ef3de0dfb3537c35485a48fb86e52a0c38cd4d8ba"
+    },
+    {
+      "path": "localization/hotfixes/ru-dam-minigame30-20261029/targets.json",
+      "sha256": "be6bb603ccd0ffa9af98a3e3edc509062c968a80177c7a004906e8ff8d052e87"
+    },
+    {
+      "path": "localization/hotfixes/ru-dates-titleflow-20261029/README.md",
+      "sha256": "3f0dac5e235318c76c9a411a65ab166c6dab69b768bf407b7928ba91d59f2f27"
+    },
+    {
+      "path": "localization/hotfixes/ru-dates-titleflow-20261029/dates-contract.json",
+      "sha256": "9970d36ba3221c3e62215fbf7cf60b77e03159673f98528af082b1b916f1195e"
+    },
+    {
+      "path": "localization/hotfixes/ru-dates-titleflow-20261029/resource-readback.json",
+      "sha256": "56b205867c017ef4316fff4dc309b45d5bd2eaed920329d2d0c42edb5b6ffaa4"
+    },
+    {
+      "path": "localization/hotfixes/ru-dates-titleflow-20261029/review-packet.json",
+      "sha256": "c761b0fda6009e5b6d96c95704006bd0f5f5eeb879a9b4de51bb8566c28c9749"
+    },
+    {
+      "path": "localization/hotfixes/ru-dates-titleflow-20261029/targets.json",
+      "sha256": "9001ba60120553541ab5068a6ae74e4f20f07d3d87ce335ab701871ab765adcd"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-age-20261029/README.md",
+      "sha256": "6e3d9b616e5c316724757512744460055d98d3824cb30e88ed2cb83703cbc0b8"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-age-20261029/resource-readback.json",
+      "sha256": "ed55db0a7dbcdee7ae8bae8da3cf209c6a5c37292029e416d6dbd1418d61f6c6"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-age-20261029/review-packet-final.json",
+      "sha256": "ad074746bbb8634cf39eec3f60497c012cc4f5971426e9743404363880d5fb5d"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-age-20261029/review-packet.json",
+      "sha256": "87178e752ac0e3dc51ced24a6ee504a91630d32fc90169963e5985018ce6ac51"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-age-20261029/target-final.json",
+      "sha256": "96747d49f8cc91070bffd487529999229c5bcb887a3dfcdb988d486f936e4ac8"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-compact-20261029/README.md",
+      "sha256": "6ca7d48d4d41b8c864892d2a2b1a1553a967fe90da5bf840554cbff92b6535ab"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-compact-20261029/compact-targets.json",
+      "sha256": "c6662cbb0f0d60f5e63ea9078675472275855ba371a3a78740c4419fa82265ee"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-compact-20261029/layout-contract.json",
+      "sha256": "8f99e73ca3e99af1342776e956d0d4f747de73df298a9a1fc5fded263dac2448"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-compact-20261029/resource-readback.json",
+      "sha256": "857aa3d224ebd4d0a779f2d7d985c7b7ed7b5cc12fdff2564ab806fa311d8729"
+    },
+    {
+      "path": "localization/hotfixes/ru-journal-compact-20261029/wording-review-packet.json",
+      "sha256": "88357a737c2edc3281850c73b1a24879f19d2abe8429078a03fa67bb20b79789"
+    },
+    {
+      "path": "localization/hotfixes/ru-lantern30-20261029/README.md",
+      "sha256": "5cb94f7680f2734f18ca056904ae7e395c1f1e864fb1f667f36ce7f131dd94ba"
+    },
+    {
+      "path": "localization/hotfixes/ru-lantern30-20261029/contract.json",
+      "sha256": "96ccd11dbb4e72660bab83f262556e9cc8722fae5fbe602feb9fa39c198f5295"
+    },
+    {
+      "path": "localization/hotfixes/ru-lantern30-20261029/resource-readback.json",
+      "sha256": "8d7bb048e5de9287022077e29165444619fdd0a56625f10d2caa62672fc19324"
+    },
+    {
+      "path": "localization/hotfixes/ru-lantern30-20261029/review-packet.json",
+      "sha256": "543c1358f4bee5f663232fe22b9fe6aa1e375495a31eaee33a718985284986bf"
+    },
+    {
+      "path": "localization/hotfixes/ru-lantern30-20261029/targets.json",
+      "sha256": "b5a74fedf5487504973af99d413dc880f0291700297bbd17dce222eb6b923405"
+    },
+    {
+      "path": "localization/hotfixes/ru-quest-notifications-20261029/README.md",
+      "sha256": "3a1076dec0f2accf93f96db0d7a3b4dce81614cf3b04091bbcac26d6d102798b"
+    },
+    {
+      "path": "localization/hotfixes/ru-quest-notifications-20261029/code-readback.json",
+      "sha256": "eb0895c696702dffd751c3c6856f7ae325a4073b2a0c88c315ae2ec74321b998"
+    },
+    {
+      "path": "localization/hotfixes/ru-quest-notifications-20261029/review-packet.json",
+      "sha256": "a5213a98c8e0cd5c44011653da1764e5cb3392e9b470b41732a7e4f5267f296b"
+    },
+    {
+      "path": "localization/hotfixes/ru-quest-notifications-20261029/targets.json",
+      "sha256": "f504af2346d87448c8755584462dbe291094c457689776a2a182c2b8e44fa2b9"
+    },
+    {
+      "path": "localization/hotfixes/ru-scene-unlocked114-20261029/README.md",
+      "sha256": "b7e4ec0d6535935db30ef7643a2e5caa756819b8edb6fd5d730062ab98b3a5f7"
+    },
+    {
+      "path": "localization/hotfixes/ru-scene-unlocked114-20261029/contract.json",
+      "sha256": "01201ef8155c8d7f50e5ccbeea003c6cd3051ab6934210d9cf47c9df2d9fc567"
+    },
+    {
+      "path": "localization/hotfixes/ru-scene-unlocked114-20261029/resource-readback.json",
+      "sha256": "2fc687352938680d1f8204abdb8183a2f8edc2c6fa5e04b089d50f77ccc6b293"
+    },
+    {
+      "path": "localization/hotfixes/ru-scene-unlocked114-20261029/review-packet.json",
+      "sha256": "1b0dc0f94a4c995566cad191e9be774c45cf24b49fe09e4ee2a7c7494208a622"
+    },
+    {
+      "path": "localization/hotfixes/ru-scene-unlocked114-20261029/targets.json",
+      "sha256": "b86a531d27b043add5c26cd857f0eb1315595d44c1f18e95789a9c05c91020dc"
+    },
+    {
+      "path": "localization/hotfixes/ru-speaker-display24-20261029/README.md",
+      "sha256": "9d787ae15bce2b4c4d7d1ae0f157ec0c27f93640a33f824754f4483cdec949b0"
+    },
+    {
+      "path": "localization/hotfixes/ru-speaker-display24-20261029/review-packet.json",
+      "sha256": "9bfe58c76d2475efe954b142fe682752542a95f9f9b59b71f3e3025fdbca8440"
+    },
+    {
+      "path": "localization/hotfixes/ru-speaker-display24-20261029/source-labels.json",
+      "sha256": "684959b252ce7200775af3b12372efc34b8fe583adc56dad16b02cbec9510e1b"
+    },
+    {
+      "path": "localization/hotfixes/ru-speaker-display24-20261029/targets.json",
+      "sha256": "d7886c1f0a1a90c955579a2a4b46544c9fb8005f248f334270ff670f13efbd7a"
+    },
+    {
+      "path": "localization/hotfixes/ru-storm-greetings24-20261029/README.md",
+      "sha256": "5c64965d9fd8870ea2f67a65157abec3f3094738b7762f4f44af2250b0702d51"
+    },
+    {
+      "path": "localization/hotfixes/ru-storm-greetings24-20261029/contract.json",
+      "sha256": "b5fdaa4ce4b09ef0af803502a237f58fe8efaabe907226acce0899fddfc15b6c"
+    },
+    {
+      "path": "localization/hotfixes/ru-storm-greetings24-20261029/resource-readback.json",
+      "sha256": "81921087f73fc6c26bbf717b4441ebca61208c78a7fee63b4a40e6f202ae64e2"
+    },
+    {
+      "path": "localization/hotfixes/ru-storm-greetings24-20261029/review-packet.json",
+      "sha256": "0fca3138058013907eaba7b9f8fd46154141967edcd673a20682b15930920192"
+    },
+    {
+      "path": "localization/hotfixes/ru-storm-greetings24-20261029/targets.json",
+      "sha256": "593609b867b9a678025c03879d8fc756b945fabaa993f19d516015e1aa2e0f3f"
+    },
+    {
+      "path": "localization/previews/ru-20261029-narrative42-01/Assembly-CSharp.haiku.dll.methods.jsonl",
+      "sha256": "5642acf8fc33ac722f3c52377a1c9338f2cc417a5840b293a4a6b32b8165488a"
+    },
+    {
+      "path": "localization/previews/ru-20261029-narrative42-01/build.json",
+      "sha256": "f56bdd0ccb8d63cb0629fe29e8e548fba94cb191b69e8e694506d54ebf1b8f6f"
+    },
+    {
+      "path": "localization/source/chapter-gallery-case-20261029/manifest.json",
+      "sha256": "b67d6f728f41f00406d63979dba6ee65bcdc625dd6caede724745f7f99a33287"
+    },
+    {
+      "path": "localization/source/chapter-gallery-case-20261029/source.jsonl",
+      "sha256": "0f4cf89d7e3f4ffb78d82fd286f46cea82c5f853259199dfee6afa73a4bdd4e7"
+    },
+    {
+      "path": "localization/source/chapter-select-heading-20261029/pause-chapter-576.source.jsonl",
+      "sha256": "a9ad466ac810a5403fd3384bb4807a491860e365ffc59e1335c69451bcb6d682"
+    },
+    {
+      "path": "localization/source/dialogue-candidates.jsonl",
+      "sha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f"
+    },
+    {
+      "path": "localization/source/dialogue-manifest.json",
+      "sha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de"
+    },
+    {
+      "path": "localization/source/haiku-identity-adapter-20261029/runtime27-fixtures.json",
+      "sha256": "324949b9edd95825ed2b0260dfc688262030d9a1123e34e9dfca38a9a736adf9"
+    },
+    {
+      "path": "localization/source/haiku-identity-adapter-20261029/source-adapter-contract.json",
+      "sha256": "1a5c9067889f662f5ec5cbdce019742e4d35142936a6e0cb2a3df041f7ebaefb"
+    },
+    {
+      "path": "localization/source/inventory-display-completion-20261028/manifest.json",
+      "sha256": "9cc31fc0453f0826432a380119906efe1f605f3bd9fb9d586b8be6024d0a38ae"
+    },
+    {
+      "path": "localization/source/inventory-display-completion-20261028/source.jsonl",
+      "sha256": "e2e4440c5ba102d9410014f3f333c2b6a004d039ec8757b1dcb8e51e151fbeca"
+    },
+    {
+      "path": "localization/source/locale-completion-20261030/critical-path-0051/static-field-policies.json",
+      "sha256": "0dbd4dd8ebd8109586534dc2126734b06e81606ebcc259ef8c6bce0eaddf28e2"
+    },
+    {
+      "path": "localization/source/locale-completion-20261030/source-admission-v1/manifest.json",
+      "sha256": "6642454b09adeac564126ebd71661c32d78a09534e2c1c0bce9c579ac512009a"
+    },
+    {
+      "path": "localization/source/locale-completion-20261030/source-admission-v1/review-packet.jsonl",
+      "sha256": "9b0ff7dde035ca57853803b1d38ea56885320d3adf7614a2bea1af580e7a5312"
+    },
+    {
+      "path": "localization/source/narrative150-resource-contract-20261029/allowlists.json",
+      "sha256": "c22a105239790513ef614aeaf294d79cbc282e48e512a152b28d45f87f53adce"
+    },
+    {
+      "path": "localization/source/narrative150-resource-contract-20261029/selectors150.jsonl",
+      "sha256": "cab7e8d7118f561d9619408897d136fdfbcd52120ba2d0cecb6cfc0558d76f20"
+    },
+    {
+      "path": "localization/source/shared-source-completion-20261028/admission-v1/special-cases.json",
+      "sha256": "c553f5ff30ba1db5be80cc9ab8f0ca089e5871dff2c3006a7d0e80d809f75256"
+    },
+    {
+      "path": "localization/source/shared-source-completion-20261028/parent-integration-20261030-01/decision.json",
+      "sha256": "533fcfac8b896aae91c024b18aa979512c45e40cc415bd6aae69f6b50d97b48b"
+    },
+    {
+      "path": "localization/source/tutorial-notifications66-20261029/source-contract.json",
+      "sha256": "38077996809e0ec8af69652cde82d527ed443f5ef9e521d189adcc7757ac2c34"
+    },
+    {
+      "path": "localization/source/tutorial-notifications66-20261029/targets.json",
+      "sha256": "6a50952184fee04c10d7c2d9e832ce83c91ef12a1a1fc0eff9b6335a7ae1d7be"
+    },
+    {
+      "path": "localization/supplemental-ui/20261027/manifest.json",
+      "sha256": "187adaa6736c53f7e908a1f1a41d4f13f67eba5166913d73e76fdb71d8c6f510"
+    },
+    {
+      "path": "localization/supplemental-ui/20261027/source-catalog.json",
+      "sha256": "560667aa58bbe8f0429ee1020db0ff8170338017c7c576e494951d0f0a2fedd0"
+    },
+    {
+      "path": "localization/supplemental-ui/20261028-glitch/ru.authored.json",
+      "sha256": "213d457b32fb411e6e05999c20c531248c1c6c10979d22fc9973f7520c2ee196"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-bio-case113/source-context.jsonl",
+      "sha256": "7241e57efff6883894a2523fb4ae2fb534f5611043566c8289fb2a8fa3f2aa74"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-console-case62/source-context.jsonl",
+      "sha256": "397c9f3e2bd0196fa64c8fa49bb57bad449efc76b1983afb56193313ff311c39"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-counter-case90/source-context.jsonl",
+      "sha256": "10aafd70d9f617d4de4a823470d80f2ae9569843e60f337741f13cfaa2f35d58"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-existing935/ru.acceptance.json",
+      "sha256": "c9fb5952e9b4c78e59dd2584402e2bd74e1a97d96b9efada923f314c31a9931c"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-input-case72/source-context.jsonl",
+      "sha256": "ce68c26b5aa67484f152ace8fe6f81049213dc0ace959b31df974b09fea411cf"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-ornamental-case569/groups.source.jsonl",
+      "sha256": "3b1913ad57d57d4d2249ab474a9bf5e6c1fff30a0b4a6a8c7b1eee586484f206"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-remaining-case51/preserve-exactly.jsonl",
+      "sha256": "9e894c46c41140bece616e1a05d945544dc4113a09666454fefa6c09429e1ccc"
+    },
+    {
+      "path": "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl",
+      "sha256": "12f064636dac12f8f245126ce11ae3ced1f5a652b20690ee1d51f5b149d701c1"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0063-review/result.json",
+      "sha256": "94878602b42d543a58372be6253dbc3c219121a2f04cdfa21e6cc2434e914e72"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0003-technical/runtime-verification.json",
+      "sha256": "cf25a0f92a979fa7e9c8c6d0a680a46d4703db2ba7c30e87138613ab87a9cf99"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0004-review/runtime-verification.json",
+      "sha256": "1308e81f7efc3e5ed64eabfec18e79d44750b2d0d33374a46a4ad57732094383"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/combined-reviews.jsonl",
+      "sha256": "e5e18eb9e3bfb05afa7c087808c0df3276cf4274edc6ca026187201129c137e4"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/runtime-verification.json",
+      "sha256": "3857409d5213c7bb5047a7f208b4cfcbe8d3f323e4c45b983da804f93fb98c32"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/scoped-review-receipt.json",
+      "sha256": "3886b72cc05826edb9d2c42d4e312feb2d52c595679110d2d6a82a29276e3ca9"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/delivery/clr-tests.json",
+      "sha256": "8e573aa06a5c0caaf1213c60731941dcb09ac1328125769de200ea012a19fc2c"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/delivery/manifest.json",
+      "sha256": "13ed81372ef949a0d27207d329e05d8e4f27c67a5cdf3bce79ff748bb506b7a4"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/delivery/mapping.json",
+      "sha256": "3350289db40dc94446d8cdc995a729e7dde8d398a9c0c8b5a89bda8937302139"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/review-scope/review-packet.jsonl",
+      "sha256": "8b497105e7bfd21f5f91354e43199a33933d585e2e43b724a43c4220982f0008"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0059-technical/runtime-verification.json",
+      "sha256": "6378df1fc4e3aad6416e26729486e1ea6f81657864ff0261fe56bafda7bcae56"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/review-output/reviews.jsonl",
+      "sha256": "ffc8a44ae3d1383bb79f74fe4badc51995ec32fa3952491a5c1026044baf342e"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/runtime-verification.json",
+      "sha256": "469d9f67c1f871a05f2a25eb954ec1964acc3aabc70497ba338a3ad27aa10402"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/technical-review-receipt.json",
+      "sha256": "bba3ecc9d1f015d1c02783c87fa07a5a4eb36e538bf7a8642531e7fbb224b9f6"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0061-technical/delivery/manifest.json",
+      "sha256": "a6d8b784c066d30d6fd4cb951516e62d810c2e66d611a2006af1782381f7d00a"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0061-technical/review-scope/review-packet.jsonl",
+      "sha256": "0469dc39dbbdf4c0312b83c6466002ba4cb474469b0ddae375c977278f5f5120"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0061-technical/runtime-verification.json",
+      "sha256": "453c61427d979005c205caa062f977eb797a63e3e9a05cf662bd5855568c4b22"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/independent-readback.json",
+      "sha256": "04260f43c55965bdf9fd390ab66959d10dcd2d3dee3ddafbf4b2b8a7ed8bd3f5"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/review-output/reviews.jsonl",
+      "sha256": "b8a66b19eca9982ce295e9bcd8c2679a89f585b2aaea9ca2ac12812e948d640b"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/runtime-verification.json",
+      "sha256": "6d9a2331e4e9c114ccd5689b2f7ffd5e39bebbfc5d673e8b2a8eb771f5ded53f"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/technical-review-receipt.json",
+      "sha256": "2e6574abf3ec31f81223d98e4f5887c5098e3f2977b7ae1db99e6702434b333b"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/review-scope-final/review-packet.jsonl",
+      "sha256": "b6cbece6fd81948abeaf774f6ef3c6453e9d6d6240d76bd047b680351d833194"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/runtime-verification.json",
+      "sha256": "81390ee41f8cd8a118a52f811f8fe2de0c4cb6627beffb9bd763db4c015d4bfc"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/source-gate-delivery/gate-matrix.json",
+      "sha256": "77c642fb8c2fb08b7589cb23010c3de0b202a251e860fef99429e944ce79c64b"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0067-technical/source-gate-delivery/gate-proposal.json",
+      "sha256": "e0c938caf18d48c6f15eea25b4e45b29a123d00dcf3bbc313aba48009f4e99da"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/review-output/reviews.jsonl",
+      "sha256": "6aa5dc9bf2b8e11676edf946f3f49a8f40b5da52bc935d6c545f2356b640ad2a"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/runtime-verification.json",
+      "sha256": "ba5363b8462cb141d8127c1ce714b8b727d89626862958434be48f14f84c6a64"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/technical-review-receipt.json",
+      "sha256": "b5b543703b0e2442b1983418e6d45c814576ac6325a7c571526bd71fd5f15323"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/integration-v2/manifest.json",
+      "sha256": "77fa11e590a29da05dbc82b7dc4b6862876dc39143343fd427a5bf1981ab6abf"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/review-scope/review-packet.jsonl",
+      "sha256": "b9b5a249111f44d2ed0914a79f792cb514c73acc5a05591c5284f2f4d7dcf452"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/runtime-verification.json",
+      "sha256": "4a39ecab9831dbc706a1c7ccc6ffe58d1e6cc5e7efbb97cbd87829b0f3d1a572"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/result.json",
+      "sha256": "207ddb7eab1219d406ffc4a558c09be213c76ffeb5c73e77a11ac222907be2cd"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/review-output/reviews.jsonl",
+      "sha256": "a750b342fb31ed705a41f3fa2544973ce327b14041fc4bd69e214ab4f91d1aa6"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/runtime-verification.json",
+      "sha256": "9daa20686687a46b8b2d437ca9e6eaf88270031f00533deb580ad39ffa72e3b2"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030/0082-review/result.json",
+      "sha256": "cec86376acf279df6918a4d7fd850424b119da4cf2d52af8a1a6ced496dfeb9e"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/reviews.jsonl",
+      "sha256": "b21023bc249cf34950a56e7f7b66275c5951675825ef40a12edd54e2bb680a52"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/result.json",
+      "sha256": "3d2d6c9adaaa9782bcf5ce9cb1c18f00a8ded45451be255bb9003aaf993fdbaf"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0005-review/task.json",
+      "sha256": "fda18e02c506c0d3930b056a7c3f9946d719e6b3308cb1617403550c1e165547"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0004-review/remaining-review-packet.jsonl",
+      "sha256": "5ba77a0cb0721406eb1665ad5fc4b13c2ff9372a423184773c1dd28fe4414403"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0062-review/task.json",
+      "sha256": "12d3a9f0230965501aa1eeca28d80f0b4833dd2723a7cedcf56d8bc64de61bc7"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0060-review/task.json",
+      "sha256": "50ef602d358823fbc81a8be5cf4bbfa8c7f8307e78f52efe3aa381b45c35708e"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0068-review/task.json",
+      "sha256": "53b0b351d0506614578b935395212190427b7413a89516bab40598079ec3fa3a"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0072-review/task.json",
+      "sha256": "b170257e0a4217092774fe38fbd6fdcc9742f8261388c9b52b06aa0de737c510"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0071-technical/review-scope-v2/review-packet.jsonl",
+      "sha256": "ad3dffa8cdb20c6bfd4c2db6547bd1799d493052c8d3d22c137dbaf6c1117a1a"
+    }
+  ],
+  "canonicalSourceManifest": {
+    "path": "localization/source/shared-source-completion-20261028/admission-v1/manifest.json",
+    "sha256": "7d3af97c8a5af23eecc3ba12a3b989e19c2d6bf59c0aaa97c35d5de85eb80403"
+  }
+}

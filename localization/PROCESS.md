@@ -72,6 +72,15 @@ jobs and frozen helpers; adopt this interface at the next applicable resource
 assignment, without interrupting an unrelated phase or adding a planning-only
 phase. Other shared mechanisms retain their existing owners and gates.
 
+Resolve shared dependencies through `python3 -B tools/locale_dependencies.py`
+and [the Russian-reference integration](completion/russian-reuse-20261030-01/README.md).
+The current progress report consumes exact independently accepted receipts and
+parent source-policy overlays; an old blocked result or historical `pending`
+author manifest must not reopen completed unchanged work. Reuse matching Russian
+mechanisms once for all locales. New locale wording, resource/native acceptance
+and held consumers remain separate. A changed canonical source version or lane
+result invalidates its old blocker overlay. Keep immutable execution inputs intact.
+
 The family catalog deliberately includes overlapping physical copies and repeated
 glow fields. Family counts cannot be summed into a unique visible-string total.
 Equal English text, a matching filename or a Russian acceptance receipt is not a

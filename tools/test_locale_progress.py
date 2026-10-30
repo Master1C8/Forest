@@ -108,7 +108,8 @@ class ProgressTests(unittest.TestCase):
         reviews = self.root / base / 'reviews.jsonl'
         reviews.write_text('\n'.join(json.dumps(receipt) for _ in range(50)) + '\n')
         self.write(base + '/task.json', {'task': {'kind': 'review', 'reviewPacket': str(packet), 'reviewPacketSha256': packet_sha}})
-        result, result_sha = self.write(base + '/result.json', dict(outcome='continue', reviews=str(reviews.relative_to(self.root)),
+        result, result_sha = self.write(base + '/result.json', dict(outcome='blocked', nextTask=None, progress=None,
+                    reviews=str(reviews.relative_to(self.root)),
                     evidence=[dict(path=str(reviews.relative_to(self.root)), sha256=hashed(reviews.read_bytes()))]))
         status, _ = self.write('outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/status.json',
                     dict(status='blocked', phases=[dict(number=1, kind='review', phase=str(result.parent), resultSha256=result_sha)]))
