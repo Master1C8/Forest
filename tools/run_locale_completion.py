@@ -460,7 +460,7 @@ def run_lane(directory,plan,job):
         for name in ['status.json','continuation.lock']:
             with (archive/name).open('xb') as f:f.write((lane/name).read_bytes())
         (lane/'continuation.lock').unlink()
-        state.update(status='starting',supervisorPid=os.getpid(),**wake)
+        state.update(status='starting',supervisorPid=os.getpid(),automaticContinuation=True,**wake)
         consume_dependency(state,task)
         state.pop('reason',None)
     elif recovery and recovery.get('kind')=='owner-stopped-efficiency-restart':

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-10-30T20:06:31.320218+00:00",
+  "sharedBlockerResolved": true,
+  "locale": "de",
+  "status": "independent-review-running",
+  "run": "outputs/locale-assets-20261026/workflow-v14-german-fonts-20261031-01",
+  "resourceManifest": {
+    "path": "outputs/locale-assets-20261026/de/font-resource-candidate-20261031-02/manifest.json",
+    "sha256": "75313dc4adf610c851ca8753ec5c15aeff400a374e88bd6c42f3cd8fe6553c94"
+  },
+  "profile": {
+    "path": "localization/resource-profiles/fonts.de.json",
+    "sha256": "b1637c2e83d77b8567e53b46a8b560335c55a15e299a3f5ba10a9f9f078e9f0c"
+  },
+  "sharedCommand": "tools/locale_fonts.py --profile localization/resource-profiles/fonts.de.json --locale de --output OWN_OUTPUT --mode build|resume|check",
+  "oldSelfPinnedSavedBuilderUnchanged": true,
+  "workerPid": 94627,
+  "threadId": "01a18e6a-1717-7a43-be38-af8be34d0df2",
+  "model": {
+    "session": {
+      "id": "01a18e6a-1717-7a43-be38-af8be34d0df2",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "freshExecNoResumeNoFork": true,
+  "automaticContinuation": true,
+  "otherFiveLaneStatesAndClaimsUnchanged": true,
+  "technicalStreamRunning": false,
+  "actualResourceChecksPassed": true,
+  "testsPassed": 27,
+  "interruptedPublicationResumePassed": true,
+  "authoredTextChanged": false,
+  "textureObjectsExact": 1220,
+  "sourceCompanionsExact": 31,
+  "unselectedObjectsExact": 124216,
+  "ordinaryRoleCodepointsCovered": 108,
+  "native": "not-run",
+  "runtime": "not-run",
+  "applicationAllowed": false,
+  "releaseReady": false,
+  "usage": "New independent worker still running at this cutoff; final usage not yet available. Coordinator repair/preparation/monitoring are mixed and separately attributable counters are unavailable, not zero."
+}

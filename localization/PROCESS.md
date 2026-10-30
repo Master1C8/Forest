@@ -189,6 +189,21 @@ data or acknowledge a handoff. Continue existing accepted work by exact version.
 If only an actual source decision, missing adapter or unauthorized native action
 remains, record that precise predicate rather than waiting for a retired worker.
 
+For an explicit saved-locale font transform, `tools/locale_font_profile.py`
+prepares pinned font-only operations from the accepted Russian implementation;
+`tools/locale_fonts.py --profile localization/resource-profiles/fonts.de.json
+--locale de --output <own-new-candidate> --mode build|resume|check` applies them.
+The profile retains exact native file IDs, materials, atlas textures, fictional
+font roles and authored wording. The ordinary face requirements exclude the
+separately inventoried known-fictional-preserved role, never its original data.
+Missing ordinary characters reject preparation. Cmap supply is static evidence;
+actual fallback loading, mark placement and layout remain native checks.
+Regression: German U+201E and U+0308 are supplied by the exact embedded439 face
+through the accepted native/TMP mechanisms, all unselected raw objects and texture
+streams stay exact, and interrupted manifest-last publication resumes the same
+partial files. A missing shared profile is fixed with this actual resource
+deliverable before another locale mapping or acknowledgement phase is dispatched.
+
 Historical technical inboxes, frozen implementations, delivered evidence and
 interrupted drafts remain immutable reconstruction inputs. Interrupted technical
 work has no newly accepted coverage. New observers configure exactly the six locale
