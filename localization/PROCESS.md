@@ -18,8 +18,8 @@ helpers, holds, audit cycles and immutable execution versions. Their additive
 `current-workflow.json` pointers select the new assignment. Historical group
 submissions and job completion receipts are not rewritten as current activity.
 The remaining configured target languages are planned, not newly authorized CLI
-streams. At most six linguistic streams, including Japanese, and one separate
-technical stream may run when authorized. Parent alone owns Git/index operations.
+streams. At most six locale-owned streams, including Japanese, may run. The owner removed
+the permanent technical stream on October 30, 2026. Parent alone owns Git/index operations.
 
 `prepare --locale CODE --output PATH` prepares the first bounded reconciliation
 packet. It does not launch a model. Use the existing job's directory for its new
@@ -39,7 +39,7 @@ remains explicit; reconcile it before another update or worker submission.
 | --- | --- |
 | scope | Exact locale, original English source, 0.45, approved glossary, current queue revision and existing job identity. Reconcile saved hashes before new wording. |
 | probe | Reuse matching source traces. Verify the locale's actual script/renderer requirements; Cyrillic success does not accept CJK, shaping, combining marks or bidi. Existing provisional dialogue exceptions remain bounded. |
-| source | Reconcile the complete BG database, native text, managed display literals, dynamic producers and source admissions once in the technical lane. Keep technical operands, dormant alternatives, missing values and unresolved consumers explicit. No whole-game denominator is inferred from dialogue coverage. |
+| source | Reconcile the complete BG database, native text, managed display literals, dynamic producers and source admissions once through the shared coordinator-owned implementation. Keep technical operands, dormant alternatives, missing values and unresolved consumers explicit. No whole-game denominator is inferred from dialogue coverage. |
 | glossary | Check source/locale glossary versions and the actual applicability of old reviews, including the Finley correction. Preserve canonical facts, anonymity/reveal timing and locale address rules. Protected source changes remain separate. |
 | translate-edit | Resolve admitted special scenes and text-dependent logic before new ordinary batches. Reuse valid dialogue and existing 935-unit supplements. Translate each new admitted source family directly from English and the locale glossary, with immediate editing. Never translate from Russian or copy Russian grammatical decisions. |
 | editorial | Deterministic preflight, one complete source-to-target semantic pass, consolidated adjudication/repairs, reproducible closure, distinct independent diff and exact correction deltas, final deterministic gate. Apply the universal full-restart boundary when source/inventory/glossary/mapping changes; never silently promote preliminary dialogue reviews. |
@@ -59,7 +59,7 @@ write scope, predicate and stop condition. Source-held selectors cannot enter an
 application allowlist. A source/renderer blocker does not erase independent saved
 work, and a preliminary exception never becomes whole-game acceptance.
 
-The technical lane resolves shared consumer/adaptation requirements once. It must
+The coordinator resolves a named shared consumer/adaptation defect once and must
 not recursively trace another framework method without a named game predicate.
 Reuse source/method/resource evidence by fingerprint. Linguistic lanes author and
 review their own wording only after its applicable gates; they do not each reverse
@@ -166,50 +166,40 @@ outcomes, capacity errors and interrupted observers require reconciliation by jo
 thread/process identity and immutable inputs; no automatic duplicate/retry loop.
 An unchanged blocker is a stop condition, not another framework-tracing task.
 
-Resource dependencies use the shared protocol in
-[the process repair contract](completion/process-repair-20261030-02/config.json).
-The coordinator repairs scheduling and verifies evidence; the existing language
-lanes own target wording and the single technical lane owns shared engineering.
-A stopped language lane resumes its own exact finite task only after all required
-request versions have actual saved resource outputs and a complete clean distinct
-review. The observer publishes immutable ready receipts, rechecks input/output
-hashes and consumes each new version once. Quiet dependency waiting makes no model
-requests or unchanged status writes. An absent next task never creates work.
+Locale jobs apply the common accepted-Russian procedures directly, with their
+own reviewed wording and explicit locale parameters. There is no permanent
+technical stream, technical inbox wait or separate receipt-consumption model
+phase. `tools/locale_build.py --profile <profile> --locale <code> --output
+<own-output> --mode build|resume|check` materializes the exact saved candidate
+resources and managed outputs after verifying their complete pinned recipe,
+readbacks and actual hashes. `tools/locale_resources.py` remains the common
+entry point for its supported data-driven families. Neither tool calls a model.
 
-The observer now enforces ownership before creating a paid phase. Language author
-tasks require `taskClass: linguistic-work`; explicit resource/data-binding review
-packets and unclassified work are deferred as `held-dispatch-policy` and routed
-once to the existing technical inbox. This preserves their completed owning result
-without launching another language model for metadata. The observer's verified
-dependency-consumption path remains admitted; a worker-supplied receipt field alone
-does not bypass dispatch. Mechanical target binding, manifests, retained-receipt
-wrapping and hash checks use the shared implementation. Review new engineering
-decisions together with the actual composed artifact, preserving every genuinely
-unreviewed wording/context requirement. Read active assignments to their existing
-bounded completion; do not interrupt/replay them to retrofit this rule.
+The candidate publisher writes files sequentially and publishes its manifest
+last. Resume verifies existing partial bytes; a conflicting partial output,
+foreign locale/output path, changed recipe or changed actual resource rejects.
+An unchanged completed candidate uses check, not a repeated build. Candidate
+transport adds no semantic coverage and leaves independent integration, font,
+native, runtime and release acceptance explicit.
 
-Dispatch routing has a stable directory across observer handoffs. A hold document
-and its inbox envelope are individually atomic, with no cross-file transaction.
-Resume the same verified partial publication after interruption; a changed partial
-or unknown version is an error, never a reason to create another model request.
-Regression: a language worker proposes a resource-binding review or another
-unclassified data-transport author task. Preserve the completed phase, publish one
-routing correction and create no new model phase, including after handoff/replay.
+The coordinator repairs a concrete shared code defect once. Locale jobs retain
+normal work/review phases for actual target wording and affected integration
+judgments; they never create model phases merely to wrap manifests, copy reviewed
+data or acknowledge a handoff. Continue existing accepted work by exact version.
+If only an actual source decision, missing adapter or unauthorized native action
+remains, record that precise predicate rather than waiting for a retired worker.
 
-Preserve both historical `id` and `requestId` request formats through the same
-identity reader. Always finalize a successfully adopted worker's result hash,
-summary and review coverage before a terminal return. Verified legacy metadata
-omissions are journal repairs, not grounds for repeating the completed model turn.
-Use `tools/reconcile_locale_terminal.py` only for its verified idle terminal
-startup-error scope; retain its immutable before/after repair plan and resume that
-same plan after interruption between files. No cross-file transaction is claimed.
+Historical technical inboxes, frozen implementations, delivered evidence and
+interrupted drafts remain immutable reconstruction inputs. Interrupted technical
+work has no newly accepted coverage. New observers contain exactly the six locale
+jobs and reject a seventh technical job before submission. Language jobs already
+running keep their immutable phase inputs and are adopted without replay.
 
-Regression: two required deliveries exist only as drafts, then only one has a
-clean review. The language model must remain asleep. Publish the second exact
-reviewed delivery and continue the prepared task once; reject changed profile or
-resource bytes and never publish producer receipts from the consumer. A handoff
-of a live worker that later returns blocked must retain its result and usage,
-without rerunning it or leaving a missing result hash in terminal state.
+Regression: saved reviewed locale text and resource bytes exist while an old
+result waits on a technical receipt. Build/check those bytes directly in the own
+locale, retain all genuine holds, and continue the finite locale assignment.
+Retiring the technical request preserves its outputs and the other live worker;
+observer handoff must never recreate the retired job or inflate review coverage.
 
 Report the same universal stages for every language with passed / failed /
 not-run / needs-review / not-applicable, concrete artifacts and remaining action.

@@ -54,7 +54,7 @@ def rows(path):
 def validate_spec(spec):
     if spec['model'] != {'name':'gpt-6.1-sol', 'reasoning':'high', 'provider':'openai', 'inheritedHistory':False}:
         raise ValueError('Only fresh explicitly pinned Sol/high/OpenAI; NEVER Astra/fallback')
-    if spec['limits'] != {'linguistic':6, 'technical':1} or tuple(spec['stages']) != STAGES:
+    if spec['limits'] not in ({'linguistic':6, 'technical':0}, {'linguistic':6, 'technical':1}) or tuple(spec['stages']) != STAGES:
         raise ValueError('Shared stage or concurrency contract changed')
     family_ids = [f['id'] for f in spec['families']]
     if len(set(family_ids)) != len(family_ids):

@@ -29,9 +29,9 @@ authored versions and evidence-backed invalidations form the primary review;
 unchanged surrounding dialogue stays source context unless a concrete semantic
 dependency invalidates its prior evidence. Keep the original complete evidence.
 Sparse review output carries every missing ID as unread, never as pass. Declared
-context judgments are separate from primary coverage. Language lanes hand shared
-engineering to the one technical inbox and continue remaining linguistic work;
-they do not create resource-contract or reporting loops. Fix a failed cheap
+context judgments are separate from primary coverage. Locale jobs apply the shared parameterized build tools directly. There is no
+permanent technical stream or inbox dependency; the coordinator fixes a named
+shared defect once. Do not create resource-contract or reporting loops. Fix a failed cheap
 prerequisite before spending model context on its expensive dependent workload.
 
 For the updated multilingual completion queue, use `localization/PROCESS.md`,
@@ -47,10 +47,12 @@ owner instructions remain authoritative, including the absolute Astra ban,
 explicit Sol/high/OpenAI selection, no inherited worker history, parent-only
 Git ownership, and existing restrictions on runtime and publication.
 
-The owner has authorized six linguistic CLI streams, with Japanese included in
-that limit, and one separate technical stream. Preserve active work and its
-immutable execution versions. Do not stop a language lane because another
-authorized lane is present. No additional agent or server authority is granted.
+Owner instruction, October 30, 2026: remove the permanent technical stream.
+Keep the six existing locale-owned CLI jobs, including Japanese. Each owns its
+wording, editing, review and direct resource application through common explicit
+locale configuration. Preserve historical technical outputs and interrupted drafts;
+they are reusable inputs, not a worker dependency or accepted interrupted coverage.
+No new technical job, replacement stream, nested agent or server authority is granted.
 
 ## Accepted Russian baseline
 
@@ -68,10 +70,11 @@ resource/adapter inputs, CJK font import and actual target layout/runtime checks
 Russian acceptance does not automatically accept another language's wording,
 fonts or native output, or authorize a new game/GUI/installer/publication action.
 
-## Complete the finite technical deliverables
+## Complete shared mechanisms without a permanent worker
 
-Honor the exact bounded assignment of a phase already in progress. When selecting
-its next assignment, prioritize the outstanding game deliverables:
+The coordinator owns concrete shared code repairs. Existing locale jobs use the
+accepted Russian mechanisms directly, rather than sending them to a technical
+queue. Prioritize the actual outstanding game deliverables:
 
 1. Port the accepted Russian build mechanisms through shared explicit locale
    configuration, preserving exact source/control identities and existing verified
@@ -108,8 +111,8 @@ inventory/resource deliverable. A historic Russian not-run flag does not reopen
 the accepted baseline. New target editorial, font and runtime acceptance still
 requires its own actual evidence.
 
-The technical worker remains the sole writer of root `README.md` and
-`CHECKPOINT.json` while its lane is active. Preserve their existing sections.
+The coordinator owns root `README.md` and `CHECKPOINT.json` after retiring the
+technical worker. Preserve existing sections and unfinished-worker provenance.
 When reconciling editorial state, use the owning jobs and immutable
 `localization/editorial-delivery/` manifests rather than stale draft counters.
 
@@ -141,3 +144,8 @@ Preserve active jobs, their helpers, captures and ledgers. Migrate only
 future work after the old owner has reconciled its output. No game launch,
 new review/model request, publication or deployment is authorized by this rule.
 <!-- END: unified-screenshot-review -->
+
+Regression: a locale has reviewed wording and saved static resource bytes but
+its old result waits for a technical inbox receipt. Materialize/check those exact
+bytes through tools/locale_build.py and continue that locale directly. No seventh
+model stream, receipt-only model phase or missing editorial/native pass is created.

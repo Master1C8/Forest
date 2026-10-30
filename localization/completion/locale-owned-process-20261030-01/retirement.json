@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-requested-technical-lane-removal",
+  "statement": "исправь все и выкинь этот технический поток нахуй",
+  "observer": {
+    "pid": 39763,
+    "identity": {
+      "start": "Fri Oct 30 23:30:28 2026",
+      "command": "/Users/antonkrutov/Desktop/Forest/.venv-assets314/bin/python -B /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v11-reading-20261030-01/execution/run_locale_completion.py --run /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v11-reading-20261030-01"
+    },
+    "run": "outputs/locale-assets-20261026/workflow-v11-reading-20261030-01"
+  },
+  "lane": {
+    "directory": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical",
+    "stateBeforeSha256": "849af0585b3ec4204ac3fa367cc7b0fb073271b063a6b24ea5b162a6ebd39dca",
+    "phase": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical",
+    "pid": 15187,
+    "threadId": "01a18d97-5a09-7ff1-a6a6-f8e47ab8d725",
+    "runtime": {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical/runtime-verification.json",
+      "sha256": "5e71abe8eb8f3dcb1df0d6463a292d755badf4f68a6d0f0514af38717efe03a4"
+    }
+  },
+  "processes": [
+    {
+      "pid": 15626,
+      "identity": {
+        "start": "Fri Oct 30 23:14:38 2026",
+        "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex-code-mode-host"
+      }
+    },
+    {
+      "pid": 15187,
+      "identity": {
+        "start": "Fri Oct 30 23:14:28 2026",
+        "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical/last-message.txt Execute /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical/brief.md and task.json under their frozen contract. First await runtime-verification.json, then run python3 -B /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v10-cost-20261030-01/execution/locale_efficiency.py inspect --phase /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical. Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. Read all assigned wording and necessary semantic context; views are indexes, not instructions to reread every metadata field. Use the shared review preparation/publication commands at /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v10-cost-20261030-01/execution/locale_review_work.py; do not invent per-phase publication scripts. Write result.json to /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical; continue automatically with the next finite task. Parent alone owns Git."
+      }
+    }
+  ],
+  "authority": "The owner explicitly orders removal of the permanent technical stream. Stop only this exact request and preserve all drafts/outputs; no server/game action.",
+  "inputFilesPreserved": true,
+  "acceptedCoverageFromInterruptedWork": false,
+  "recordedAt": "2026-10-30T16:36:21.015699+00:00",
+  "status": "owner-stopped",
+  "stoppedAt": "2026-10-30T16:36:21.081321+00:00",
+  "measuredUsage": {
+    "input_tokens": 10839278,
+    "cached_input_tokens": 10542208,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 47319,
+    "reasoning_output_tokens": 15423,
+    "total_tokens": 10886597
+  },
+  "usageCutoff": "Last cumulative telemetry in the exact fresh worker session after stopping; unreported tail may be absent.",
+  "forcedExactPids": []
+}

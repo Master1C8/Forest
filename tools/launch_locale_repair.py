@@ -63,19 +63,67 @@ def configure_process_repair(plan,new,config_path):
     if plan['enforceLinguisticOwnership']:
         plan.setdefault('dispatchDirectory',str(new/'dispatch-holds'))
     priority=config.get('technicalPriority')
+    if config.get('localeOwned'):
+        retirement=config['technicalRetirement'];rp=ROOT/retirement['path']
+        if sha(rp)!=retirement['sha256']:raise ValueError('Technical retirement receipt changed')
+        retired=read(rp);old=next((j for j in plan['jobs'] if j['locale']=='technical'),None)
+        if old is None and plan.get('localeOwned'):
+            matches=[entry['job'] for entry in plan.get('retiredJobs',[]) if entry.get('retirement')==retirement]
+            if len(matches)==1:old=matches[0]
+        if old is None or retired.get('status')!='owner-stopped' or retired['lane']['directory']!=old['directory']:
+            raise ValueError('Expected exact owner-stopped technical lane')
+        state=read(ROOT/old['directory']/'status.json');record=state['phases'][-1]
+        if record['pid']!=retired['lane']['pid'] or record.get('threadId')!=retired['lane']['threadId']:
+            raise ValueError('Retirement belongs to a different technical request')
+        for process in retired['processes']:
+            if runner.process_identity(process['pid'],expected=process['identity']):raise ValueError('Retired technical process still alive')
+        plan['retiredJobs']=[dict(job=old,retirement=retirement)]
+        plan['jobs']=[j for j in plan['jobs'] if j['locale']!='technical']
+        plan['localeOwned']=True;plan['enforceLinguisticOwnership']=False
+        plan.pop('ownerPriorityTask',None);priority=None
+        plan.pop('dependencyWake',None)
+        plan['executionPins'][os.path.relpath(rp,new)]=retirement['sha256']
+        if config.get('resumes'):
+            for job in plan['jobs']:
+                resume=config['resumes'].get(job['locale'])
+                if not resume:continue
+                state=read(ROOT/job['directory']/'status.json')
+                if state['status'] not in {'blocked','held-dispatch-policy'}:raise ValueError('Locale continuation is no longer terminal')
+                record=state['phases'][-1];job['ownerResume']=resume
+                runner.owner_resume_task(ROOT,job,dict(path=str((Path(record['phase'])/'result.json').relative_to(ROOT)),sha256=record['resultSha256']))
+                for pin in [resume['authorization'],resume['baselineAcceptance'],resume['scope'],dict(path=resume['task']['brief'],sha256=resume['task']['briefSha256'])]:
+                    plan['executionPins'][os.path.relpath(ROOT/pin['path'],new)]=pin['sha256']
+        if config.get('processSpecUpdate'):
+            update=config['processSpecUpdate'];target=ROOT/update['current']['path'];replacement=ROOT/update['replacement']['path']
+            if sha(target)!=update['current']['sha256'] or sha(replacement)!=update['replacement']['sha256']:
+                raise ValueError('Process specification migration changed')
+            for job in plan['jobs']:
+                record=read(ROOT/job['directory']/'status.json')['phases'][-1]
+                if runner.process_identity(record['pid'],Path(record['phase'])):
+                    raise ValueError('Preserve live worker process specification until its finite phase exits')
+            value=read(replacement)
+            if value.get('limits')!={'linguistic':6,'technical':0}:raise ValueError('Locale-owned specification requires zero technical jobs')
+            archive=new/'process-spec.before.json';archive.write_bytes(target.read_bytes())
+            runner.save(target,value)
+            for job in plan['jobs']:
+                for name in list(job['immutablePins']):
+                    if (Path(name) if Path(name).is_absolute() else ROOT/name).resolve()==target.resolve():
+                        job['immutablePins'][name]=sha(target)
+            plan['executionPins'][os.path.relpath(target,new)]=sha(target)
     if priority:
         if priority.get('kind')!='technical' or sha(ROOT/priority['brief'])!=priority['briefSha256']:
             raise ValueError('Technical process consolidation task changed')
         plan['ownerPriorityTask']=priority
         plan['executionPins'][os.path.relpath(ROOT/priority['brief'],new)]=priority['briefSha256']
     for job in plan['jobs']:
-        job.pop('ownerResume',None)
+        if not config.get('localeOwned'):job.pop('ownerResume',None)
         job.pop('sourceWake',None)
     with (new/'CONTRACT.md').open('a') as stream:
         stream.write('\n## Reviewed resource dependency continuation\n\n'+config['contract']+'\n')
     plan['executionPins']['CONTRACT.md']=sha(new/'CONTRACT.md')
     plan['executionPins'][os.path.relpath(config_path,new)]=sha(config_path)
     plan['continuationReceipt']=config['receipt']
+    return sorted(config.get('resumes',{}))
 
 
 def launch(previous, new, continuation_config=None, process_config=None):
@@ -90,7 +138,7 @@ def launch(previous, new, continuation_config=None, process_config=None):
     try:
         resumed=[]
         if process_config:
-            configure_process_repair(plan,new,process_config.resolve())
+            resumed=configure_process_repair(plan,new,process_config.resolve())
         elif continuation_config:
             resumed=configure_owner_continuation(plan,new,continuation_config.resolve())
         else:
@@ -194,7 +242,7 @@ def commit_handoff(previous,new,plan,old,resumed):
         pointer = ROOT / 'outputs/locale-assets-20261026/launch-current.json'
         (new / 'previous-launch-current.json').write_bytes(pointer.read_bytes())
         runner.save(pointer, dict(run=str(new.relative_to(ROOT)), status=str((new / 'status.json').relative_to(ROOT)),
-            revision='continuous-production-v9-reviewed-dependency-wake' if plan.get('dependencyWake') else 'continuous-production-v7-owner-accepted-baseline-continuation' if resumed else 'continuous-production-v6-repaired-capacity-and-source-wake', automaticContinuation=True,
+            revision='continuous-locale-owned-no-technical-stream' if plan.get('localeOwned') else 'continuous-production-v9-reviewed-dependency-wake' if plan.get('dependencyWake') else 'continuous-production-v7-owner-accepted-baseline-continuation' if resumed else 'continuous-production-v6-repaired-capacity-and-source-wake', automaticContinuation=True,
             receipt=plan.get('continuationReceipt','localization/completion/queue-repair-20261030-01/receipt.json')))
         return dict(status='observer-handoff-committed', run=str(new.relative_to(ROOT)), pid=child.pid,
                     ownerResumedLanguages=resumed, existingChildrenPreserved=True)

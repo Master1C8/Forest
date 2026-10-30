@@ -63,24 +63,21 @@ Mechanical checks use one reproducible command and compact output. Reuse verifie
 recipes and unchanged deterministic results by fingerprint; do not create another
 validator, publisher, manifest hierarchy or fault-injection suite without a named
 unmet deliverable requiring it. A routine evidence publication is not its own
-model assignment. Shared engineering stays in the sole technical lane.
+model assignment. Apply shared parameterized procedures directly in each locale.
 Review finite shared resource contracts together across the authorized locales
 when their actual combined input fits; do not create six processes for two cells
 each. Keep author and independent reviewer distinct fresh contexts.
 
-Language lanes own wording, author editing, semantic review and local application
-through verified existing adapters. They do not implement shared resource/font
-allocation frameworks, metadata validators or packaging contracts. Preserve the
-exact bounded phase already in progress; after it, send a compact immutable
-technical handoff (predicate, affected versions, evidence, required result) to
-the one technical lane and continue actual remaining linguistic work. If useful
-authorized linguistic work is exhausted, record the shared dependency rather
-than manufacture another resource-proof loop. Technical work first fixes a
-failed cheap prerequisite before reading/rechecking its expensive workload.
-Publish technicalHandoffs as pinned own-lane JSON requests with predicate,
-affectedIds, evidence and requiredResult. The coordinator forwards data only.
-The technical lane closes completed requests through resolvedTechnicalHandoffs
-with pinned request and verified delivery; handled requests are not requeued.
+Locale jobs own wording, editing, semantic review and direct local resource
+application through shared accepted-Russian procedures and explicit locale data.
+There is no permanent technical stream or inbox dependency. The coordinator
+repairs a named shared defect once; locale jobs reuse that implementation.
+Use tools/locale_build.py for exact saved candidate materialization/checks without
+a paid metadata phase. Keep target review, font, native and runtime gates separate.
+Do not manufacture author/reviewer exchanges for mechanical wrapping, manifests
+or unchanged evidence. A concrete missing adapter, source decision or native
+authorization is a precise blocker, never a wait for a retired worker. Preserve
+historical handoffs, frozen code, packets and interrupted drafts.
 
 Use the compact usage command at substantive checkpoints. Size work by actual
 text and required context, not cumulative cached replays or report-writing volume.

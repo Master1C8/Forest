@@ -213,8 +213,6 @@ def validate_result(root,job,phase,task,result,seen):
         next_task=result['nextTask']
         if context_debt:next_task['contextCarryover']=list(context_debt.values())
         else:next_task.pop('contextCarryover',None)
-        if job.get('locale')!='technical' and next_task.get('taskClass')=='shared-engineering':
-            raise ValueError('Language lane must hand shared engineering to technicalHandoffs and select remaining linguistic work')
         if next_task.get('kind') not in KINDS or not next_task.get('title'):raise ValueError('Concrete next task required')
         brief=local(root,next_task['brief'])
         if not brief.is_relative_to(phase.resolve()) or not 0<brief.stat().st_size<=MAX_BRIEF_BYTES:
@@ -433,7 +431,7 @@ def run_lane(directory,plan,job):
     if recovery and recovery.get('kind')=='retained-terminal-lane':
         state=retained_terminal(root,lane,recovery)
         config=job.get('sourceWake')
-        if state['status']!='blocked':
+        if state['status']!='blocked' and not (plan.get('localeOwned') and job.get('ownerResume') and state['status']=='held-dispatch-policy'):
             persist_terminal_reconciliation(root,lane,recovery,state);return state
         if job.get('ownerResume'):
             task=owner_resume_task(root,job,dict(path=str((Path(state['phases'][-1]['phase'])/'result.json').relative_to(root)),sha256=recovery['resultSha256']))
@@ -543,7 +541,7 @@ def run_lane(directory,plan,job):
             if old.get('resultSha256') and sha(previous)!=old['resultSha256']:raise ValueError('Retained previous result changed')
             if previous.exists():seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
         fresh=validate_result(root,job,phase,old_task,result,seen)
-        publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
+        if not plan.get('localeOwned'):publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
         dependency_wake.publish(root,plan,job,phase,old_task,result)
         if result['outcome']!='continue':
             if not adopting:raise ValueError('Recovery does not contain an authorized continuation')
@@ -587,7 +585,9 @@ def run_lane(directory,plan,job):
                 path=Path(name) if Path(name).is_absolute() else local(root,name)
                 if sha(path)!=digest:raise ValueError('Immutable source/glossary/contract changed: '+name)
             task=priority_task(root,plan,job,state,task)
-            if plan.get('enforceLinguisticOwnership') and not verified_dependency_task:
+            if plan.get('localeOwned') and task.get('kind')=='technical':
+                raise ValueError('Permanent technical stream retired; select locale work/review')
+            if plan.get('enforceLinguisticOwnership') and not plan.get('localeOwned') and not verified_dependency_task:
                 why=dispatch_policy.reason(root,job,task)
                 if why:
                     dispatch_policy.defer(root,directory,plan,job,state,task,why)
@@ -603,7 +603,10 @@ def run_lane(directory,plan,job):
                 phase_config['efficiencyHelper']=plan['efficiencyHelper']
                 phase_config['reviewHelper']=str(Path(plan['efficiencyHelper']).parent/'locale_review_work.py')
                 phase_config['laneRole']='shared-technical' if job['locale']=='technical' else 'linguistic'
-                phase_config['technicalInbox']=plan.get('technicalInbox',str(directory/'technical-inbox'))
+                if not plan.get('localeOwned'):
+                    phase_config['technicalInbox']=plan.get('technicalInbox',str(directory/'technical-inbox'))
+                else:
+                    phase_config['laneRole']='locale-owned'
                 packets=[]
                 if task.get('reviewPacket'):
                     packet=local(root,task['reviewPacket'])
@@ -631,7 +634,7 @@ def run_lane(directory,plan,job):
             if not cli_turn_succeeded(code,usage,errors):
                 record['status']='held-request-outcome';state.update(status='held-request-outcome',reason='Reconcile this exact request; no automatic retry');save(status,state);return state
             result=read(phase/'result.json');fresh=validate_result(root,job,phase,task,result,seen)
-            published=publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
+            published=[] if plan.get('localeOwned') else publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
             if published:record['technicalHandoffs']=published
             deliveries=dependency_wake.publish(root,plan,job,phase,task,result)
             if deliveries:record['dependencyDeliveries']=deliveries
@@ -660,6 +663,8 @@ def run(directory):
     directory=directory.resolve();plan=read(directory/'plan.json')
     validate_model(plan['model']['name'],plan['model']['reasoning'],plan['model']['provider'])
     jobs=plan['jobs'];languages=[j for j in jobs if j['locale']!='technical']
+    if any(j['locale']=='technical' for j in jobs):
+        raise ValueError('Permanent technical stream retired; locale-owned execution requires zero technical jobs')
     if len(languages)!=6 or len({j['locale'] for j in languages})!=6 or sum(j['locale']=='technical' for j in jobs)>1:
         raise ValueError('Exactly six linguistic lanes plus at most one technical lane')
     if sha(Path(plan['cli']))!=plan['cliSha256']:raise ValueError('CLI executable changed')

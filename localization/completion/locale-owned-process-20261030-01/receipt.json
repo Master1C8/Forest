@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "kind": "locale-owned-process-without-technical-stream",
+  "recordedAt": "2026-10-30T16:54:26.731161+00:00",
+  "authority": {
+    "path": "localization/completion/locale-owned-process-20261030-01/authorization.json",
+    "sha256": "838cc480e3c91dbe99633c0c87eecc23d746089a015ae09138bfb42d046fb977"
+  },
+  "retirement": {
+    "path": "localization/completion/locale-owned-process-20261030-01/retirement.json",
+    "sha256": "b2a694f79c289245f640a3ead86c1f684d1716255e411b121251adfbcc4766c8"
+  },
+  "run": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01",
+  "plan": {
+    "path": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/plan.json",
+    "sha256": "c2bd8504b153b759613eedf5753369850c4c2e8ccff1298966855086e3f2114b"
+  },
+  "observerPid": 62146,
+  "localeOwned": true,
+  "technicalJobs": 0,
+  "dependencyWakeEnabled": false,
+  "enforcedTechnicalDispatch": false,
+  "executionPinsVerified": true,
+  "lanes": [
+    {
+      "locale": "zh",
+      "phase": 86,
+      "pid": 62194,
+      "threadId": "01a18db8-6dee-7500-be39-58312d9508b4",
+      "status": "running",
+      "actualRuntime": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "provider": "openai",
+      "parentThreadId": null,
+      "runtime": {
+        "path": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030/0086-work/runtime-verification.json",
+        "sha256": "d67f807672d2e731c358f95d222c31ad2c57f9c04185bf6fa734167f5f37367b"
+      },
+      "usage": null
+    },
+    {
+      "locale": "es",
+      "phase": 108,
+      "pid": 62195,
+      "threadId": "01a18db8-6ef9-7380-9ac8-1be4756108e6",
+      "status": "running",
+      "actualRuntime": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "provider": "openai",
+      "parentThreadId": null,
+      "runtime": {
+        "path": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/0108-work/runtime-verification.json",
+        "sha256": "5adb1062aeeb436a075c2fe29718227eef82cb998d69bd2e33ea2a45e8c4e7fa"
+      },
+      "usage": null
+    },
+    {
+      "locale": "es-419",
+      "phase": 79,
+      "pid": 62204,
+      "threadId": "01a18db8-6f83-7003-a0e9-1d784d872be7",
+      "status": "running",
+      "actualRuntime": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "provider": "openai",
+      "parentThreadId": null,
+      "runtime": {
+        "path": "outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/0079-review/runtime-verification.json",
+        "sha256": "b9d6b5d88a1cce64fd3afe98c5ff5fb5e89577429374494d01e3f175315e4dc8"
+      },
+      "usage": null
+    },
+    {
+      "locale": "pt-BR",
+      "phase": 69,
+      "pid": 62193,
+      "threadId": "01a18db8-6def-7fb0-8c19-3e34dfe39e00",
+      "status": "running",
+      "actualRuntime": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "provider": "openai",
+      "parentThreadId": null,
+      "runtime": {
+        "path": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0069-work/runtime-verification.json",
+        "sha256": "44ce67f2043b3b40a132b35ece559721c8ce1ffb407474405b2a82b3048b9349"
+      },
+      "usage": null
+    },
+    {
+      "locale": "ja",
+      "phase": 123,
+      "pid": 62196,
+      "threadId": "01a18db8-6f80-75b1-a0f5-85c9d372f99d",
+      "status": "running",
+      "actualRuntime": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "provider": "openai",
+      "parentThreadId": null,
+      "runtime": {
+        "path": "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0123-work/runtime-verification.json",
+        "sha256": "eab1b5b112a9ab7347c1be59ce8e2b8906b3e72c3fabbcd33914acdeb3e46205"
+      },
+      "usage": null
+    },
+    {
+      "locale": "de",
+      "phase": 72,
+      "pid": 62192,
+      "threadId": "01a18db8-6df1-7fe2-8939-78bfd2966df6",
+      "status": "running",
+      "actualRuntime": {
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "provider": "openai",
+      "parentThreadId": null,
+      "runtime": {
+        "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0072-work/runtime-verification.json",
+        "sha256": "90c2201d07ee3daebdb3442581b6979e3767d7669899fa29616062f636915d91"
+      },
+      "usage": null
+    }
+  ],
+  "directBuilds": {
+    "path": "localization/completion/locale-owned-process-20261030-01/direct-builds.json",
+    "sha256": "e29e4404ffbbbb3b4d3bec3e184ed40f05e5293633071fe6705f381bcbd3e9bb"
+  },
+  "tests": {
+    "command": "python3 -B -m unittest discover -s tools -p 'test_locale*.py' -q",
+    "count": 128,
+    "exitCode": 0,
+    "log": {
+      "path": "localization/completion/locale-owned-process-20261030-01/tests.log",
+      "sha256": "a6f27a3d73d808bf12aa2efc24d820cb3fb44bfbaffbffb256f9fb1196b65372"
+    },
+    "scope": "Real pinned-file publisher/resume tests and explicit model-child fixtures; no native/semantic acceptance."
+  },
+  "rootAuthoring": "Coordinator repaired scheduling and deterministic resource transport; did not author target wording.",
+  "preserved": {
+    "historicalTechnicalOutputs": true,
+    "interruptedTechnicalAccepted": false,
+    "priorLanguagePhaseReplayed": false,
+    "protectedSourceAndGlossaryUnchanged": true,
+    "originalGameAndSavesUnchanged": true
+  },
+  "remaining": [
+    "Six static candidates are version-bound salvaged outputs, not final game/release acceptance.",
+    "Real own-locale integration, held source/haiku, font/native/runtime gates remain explicit.",
+    "No permanent technical model stream, replacement stream, paid transport/acknowledgment phase or extra worker is authorized."
+  ],
+  "coordinatorUsage": {
+    "status": "unknown",
+    "attribution": "Mixed process diagnosis, implementation, tests, direct local builds and orchestration. No exact orchestration-only counters are available.",
+    "cutoff": "Receipt creation; later integration and reporting tail are unmeasured."
+  },
+  "completedWorkersDuringRepair": [
+    {
+      "identity": "es-419/0078-work",
+      "threadId": "01a18da6-6077-7523-affa-092184eab9e9",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "112 accepted versions stored;114 new wording memberships prepared for independent review;no native/release acceptance.",
+      "usage": {
+        "input_tokens": 3648874,
+        "cached_input_tokens": 3489152,
+        "output_tokens": 25542,
+        "reasoning_output_tokens": 6807,
+        "total_tokens": 3674416
+      }
+    }
+  ],
+  "gitOwnership": "This chat is the sole Git/index coordinator; active locale workers are prohibited from Git. Only this process repair and its data profiles/evidence are committed. Unrelated active locale edits, old interrupted common-code changes, README and CHECKPOINT are preserved.",
+  "followupChecks": {
+    "repairTests": 17,
+    "queueTests": 9,
+    "status": "passed after final launcher reporting/retirement changes; overlapping suite counts are not added."
+  }
+}

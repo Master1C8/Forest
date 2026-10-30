@@ -1,0 +1,27 @@
+{
+  "locale": "de",
+  "kind": "locale-owned-resource-integration",
+  "owningStoppedResult": {
+    "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0071-review/result.json",
+    "sha256": "ffc8db91906af4f68eadbf55cb8e1066916857bf31b094f8cba0ff03c076c46d"
+  },
+  "affectedIds": [
+    "locale-resource:de:serialized",
+    "locale-resource:de:managed",
+    "locale-resource:de:dialogue",
+    "locale-resource:de:fonts",
+    "locale-resource:de:haiku"
+  ],
+  "inputs": [
+    {
+      "path": "localization/resource-profiles/composed.de.json",
+      "sha256": "ea00c25e5817594409b3344dde2370f3cc8abd38a2b167e1cd85bda69e5f218f"
+    },
+    {
+      "path": "outputs/locale-assets-20261026/de/local-resource-candidate-20261030-01/manifest.json",
+      "sha256": "6f5d801f1a01bc246a42cc3582e6b6a49930c5d106601e88c9dfcd293ad41325"
+    }
+  ],
+  "newEvidence": "New own-locale static candidate, direct build/check procedure and owner removal of technical-stream dependency. This is not an unchanged-blocker replay.",
+  "independentReviewPending": true
+}

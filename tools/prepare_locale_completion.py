@@ -15,8 +15,8 @@ LOCALES=('zh','es','es-419','pt-BR','ja','de')
 CONTRACT='''# Continuous Forest completion contract
 
 The current owner explicitly ordered actual continuous completion of the six
-existing localization queues, plus the already authorized separate technical
-lane. Execute local wording/editing/review/resource work within your lane.
+existing locale-owned localization queues. There is no permanent technical
+stream. Execute wording/editing/review/resource work directly within your locale.
 Previous reconciliation results are accepted as planning/evidence handoffs only,
 not semantic or release acceptance. Their old "stop for parent review" clauses
 are superseded for routine authorized local continuation. Do not repeat them.
@@ -39,8 +39,8 @@ fewer for complex prose/verse). Finish before context exhaustion. A phase bounda
 is not a job stop. Write a concise next brief within this phase and outcome
 continue; the supervisor automatically starts the next fresh phase. Context size,
 parent review, an ordinary batch end or an expected disjoint parent Git commit
-are not blockers. Six linguistic streams include Japanese; one technical stream
-is separate. Never stop another lane. Only the parent may mutate Git/index/HEAD.
+are not blockers. Six locale-owned streams include Japanese. Never create a technical stream
+or stop another locale. Only the parent may mutate Git/index/HEAD.
 
 Perform real work: author/edit admitted target phrases, finish outstanding
 independent review, apply adjudicated corrections, implement/reproduce resources,
@@ -89,11 +89,14 @@ Keep dormant/source-held selectors, fictional mouse mappings and technical keys.
 All original textures/streams, source compression/CAB and Addressables CRC/size
 must survive. Existing owner test build/saves are never disposable fixtures.
 
-Shared engineering belongs to the one technical lane, not six duplicate reverse
-engineering jobs. Technical work publishes frozen, verified deliveries in its job
-with a manifest last. Language lanes consume only those immutable deliveries,
-not code the technical lane may still be editing. Source-held global completion
-does not erase permitted preliminary work or admit unproven new selectors.
+Apply the shared accepted-Russian procedures directly with explicit locale data.
+Use tools/locale_build.py for saved candidate materialization/checks and the
+existing tools/locale_resources.py for supported data-driven resource families.
+These commands do not need a model to wrap manifests or acknowledge receipts.
+Reuse historical immutable implementations and matching reviews by fingerprint.
+The coordinator fixes a concrete shared defect once; never wait for a retired
+technical stream, repeat whole-framework research or create per-family metadata
+phases. Keep every genuine source/editorial/font/native/runtime gate explicit.
 
 No game/GUI/image/screenshot/installer launch, owner installation/save write,
 publication/deployment/server action. Required native checks remain not-run.
@@ -104,7 +107,7 @@ Write result.json using this exact continuation schema:
   "outcome":"continue|blocked|static-complete", "summary":"concrete result",
   "progress":{"kind":"authored|edited|reviewed|source-decisions|resource-build|technical-proof","unitIds":["actual IDs"]},
   "evidence":[{"path":"project-relative own-lane artifact","sha256":"actual hash"}],
-  "nextTask":{"kind":"work|review|technical","title":"finite deliverable","brief":"project-relative path to this phase's next.md"}
+  "nextTask":{"kind":"work|review","title":"finite deliverable","brief":"project-relative path to this phase's next.md"}
 }
 For a review phase also provide reviews (project-relative JSONL path). A next
 review task also provides reviewPacket (project-relative JSONL path). Put enough
@@ -187,49 +190,10 @@ def prepare(directory):
             writePrefixes=[f'localization/{loc}-assets',str(lane.relative_to(ROOT))],
             immutablePins={str(p):queue.sha(p) for p in [*common,ROOT/f'localization/glossary/{loc}.json',prior]},
             requiredDeliverables=[f['id'] for f in spec['families']],firstTask=first_task))
-    technical=directory/'technical';technical.mkdir()
-    first=technical/'first.md'
-    first.write_text('''# Produce shared portable inventory resources, then finite source/font completion
-
-Implement a new explicit-locale inventory52 resource adapter using existing
-tools/russian_inventory_descriptions.py and shared source family
-localization/source/inventory-display-completion-20261028/. Do not duplicate
-extraction. Bind the finite52 display units to their real consumers and exact
-selectors; preserve all51,572 BG states except reviewed selected display fields,
-all textures/streams and the original bundle/catalog invariants. Require locale-
-specific reviewed target hashes; reject missing/unknown/foreign locale and stale
-source/review/companion bindings. Reuse verified Russian mechanics, not wording.
-Use data-only fixtures and actual saved-resource readback/reversal; no game launch.
-Publish an immutable complete dependency snapshot and delivery manifest for the
-language lanes. Do not let them consume mutable work-in-progress helpers.
-
-New shared code belongs under tools/locale_completion/. New source/admission and
-font evidence belongs under localization/source/locale-completion-20261030/ and
-localization/fonts/locale-completion-20261030/. No edits to old frozen helpers,
-glossaries, source inventories, language assets or owner game copies. Root README
-and CHECKPOINT may be updated only by this technical lane, preserving sections.
-
-Continue automatically to the remaining concrete shared source-family consumer
-admissions across the28 registered families and corpus-bound font/resource roles
-for the six locales; use existing traces by fingerprint and explicit gaps. Read
-additional IL only for a named game predicate. Never recursively audit a framework
-or rerun unchanged extraction. Technical completion requires three actual outputs:
-portable-inventory52, finite-source-admission, six-locale-font-resource-contract.
-Use the group's CONTRACT.md. A finished adapter is continue to the next finite
-technical output, not a parent-review stop. No Git, games, images, deployment or
-server lifecycle. Only true exhausted-work source/runtime decisions may block.
-''')
-    jobs.append(dict(locale='technical',directory=str(technical.relative_to(ROOT)),
-        writePrefixes=['tools/locale_completion','localization/source/locale-completion-20261030','README.md','CHECKPOINT.json',
-                       'localization/fonts/locale-completion-20261030',str(technical.relative_to(ROOT))],
-        immutablePins={str(p):queue.sha(p) for p in common},
-        requiredDeliverables=['portable-inventory52','finite-source-admission','six-locale-font-resource-contract'],
-        firstTask=dict(kind='technical',title='Build portable inventory52 and finish finite shared source/font contracts',
-                       brief=str(first.relative_to(ROOT)),briefSha256=queue.sha(first))))
     cli=Path(shutil.which('codex')).resolve()
-    plan=dict(root=str(ROOT),model=spec['model'],cli=str(cli),cliSha256=queue.sha(cli),jobs=jobs,
+    plan=dict(root=str(ROOT),model=spec['model'],cli=str(cli),cliSha256=queue.sha(cli),jobs=jobs,localeOwned=True,
               efficiencyPolicy=True,efficiencyHelper=str(execution/'locale_efficiency.py'),
-              authorization='Owner explicitly ordered continuous execution; six linguistic plus existing separate technical lane',
+              authorization='Owner explicitly ordered six locale-owned streams and removal of the permanent technical stream',
               previousReconciliation=str(old.relative_to(ROOT)),
               executionPins={str(p.relative_to(directory)):queue.sha(p) for p in [*execution.iterdir(),directory/'CONTRACT.md']})
     queue.write(directory/'plan.json',plan)

@@ -20,6 +20,31 @@ class RepairTests(unittest.TestCase):
         path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True)
         path.write_text(json.dumps(value));return path
 
+    def test_locale_owned_configuration_removes_exact_stopped_technical_job(self):
+        old=dict(locale='technical',directory='technical',immutablePins={})
+        self.write('technical/status.json',dict(phases=[dict(pid=123,threadId='stopped')]))
+        retirement=self.write('retirement.json',dict(status='owner-stopped',lane=dict(directory='technical',pid=123,threadId='stopped'),
+            processes=[dict(pid=123,identity=dict(start='exact-start',command='exact-worker'))]))
+        config=self.write('config.json',dict(schemaVersion=1,kind='owner-requested-process-repair',localeOwned=True,
+            technicalRetirement=dict(path='retirement.json',sha256=sha(retirement)),contract='No permanent technical worker.',receipt='receipt.json'))
+        new=self.root/'new';new.mkdir();(new/'CONTRACT.md').write_text('Preserved contract\n')
+        plan=dict(jobs=[old,dict(locale='de')],executionPins={},ownerPriorityTask=dict(kind='technical'))
+        with patch.object(launcher,'ROOT',self.root),patch.object(runner,'process_identity',return_value={'still':'alive'}):
+            with self.assertRaisesRegex(ValueError,'still alive'):launcher.configure_process_repair(plan,new,config)
+        with patch.object(launcher,'ROOT',self.root),patch.object(runner,'process_identity',return_value=None):
+            launcher.configure_process_repair(plan,new,config)
+        self.assertTrue(plan['localeOwned']);self.assertEqual([j['locale'] for j in plan['jobs']],['de'])
+        self.assertNotIn('ownerPriorityTask',plan);self.assertNotIn('dependencyWake',plan)
+        self.assertEqual(plan['retiredJobs'][0]['job'],old)
+        self.assertFalse(plan['enforceLinguisticOwnership'])
+        # A later observer handoff retains the removal instead of inventing a
+        # replacement technical job or replaying its stopped request.
+        later=self.root/'later';later.mkdir();(later/'CONTRACT.md').write_text('Fresh frozen contract\n')
+        with patch.object(launcher,'ROOT',self.root),patch.object(runner,'process_identity',return_value=None):
+            launcher.configure_process_repair(plan,later,config)
+        self.assertEqual([j['locale'] for j in plan['jobs']],['de'])
+        self.assertEqual(len(plan['retiredJobs']),1)
+
     def test_priority_preserves_required_review_and_uses_next_work_boundary(self):
         brief=self.root/'priority.md';brief.write_text('Concrete source admission work')
         task=dict(kind='technical',brief='priority.md',briefSha256=sha(brief),title='Close named blockers')

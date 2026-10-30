@@ -29,7 +29,7 @@ class CompletionTests(unittest.TestCase):
             root=Path(tmp).resolve();phase,job=self.fixture(root)
             first=root/'first.md';first.write_text('Actually author a fixture target')
             job['firstTask']=dict(kind='work',title='Author',brief='first.md',briefSha256=sha(first))
-            plan=dict(root=str(root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False),cli='fixture-codex',executionPins={})
+            plan=dict(root=str(root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False),cli='fixture-codex',executionPins={},localeOwned=True,enforceLinguisticOwnership=True)
             calls=[]
             class Child:
                 pid=99999999
@@ -56,12 +56,23 @@ class CompletionTests(unittest.TestCase):
             self.assertEqual([p['kind'] for p in result['phases']],['work','review'])
             self.assertNotEqual(calls[0],calls[1]);self.assertTrue(all('resume' not in a and 'fork' not in a for a in calls))
 
+    def test_retired_technical_job_rejects_before_any_submission_even_in_legacy_plan(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve()
+            plan=dict(root=str(root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False),
+                jobs=[dict(locale=loc) for loc in ['zh','es','es-419','pt-BR','ja','de','technical']])
+            put(root/'plan.json',plan)
+            with patch.object(c.subprocess,'Popen') as model:
+                with self.assertRaisesRegex(ValueError,'zero technical jobs'):c.run(root)
+                model.assert_not_called()
+            self.assertFalse((root/'run.claim').exists())
+
     def test_no_progress_copy_does_not_continue_and_parent_stop_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp).resolve();phase,job=self.fixture(root);e=phase/'decisions.json';put(e,dict(id='case'))
             brief=phase/'next.md';brief.write_text('Next real task')
             result=dict(outcome='continue',summary='Test',progress=dict(kind='source-decisions',unitIds=['case']),
-                        evidence=[dict(path=str(e.relative_to(root)),sha256=sha(e))],nextTask=dict(kind='work',title='Next',brief=str(brief.relative_to(root))))
+                        evidence=[dict(path=str(e.relative_to(root)),sha256=sha(e))],nextTask=dict(kind='work',taskClass='shared-engineering',title='Next own-locale adapter work',brief=str(brief.relative_to(root))))
             c.validate_result(root,job,phase,dict(kind='work'),result,set())
             with self.assertRaisesRegex(ValueError,'No new substantive evidence'):
                 c.validate_result(root,job,phase,dict(kind='work'),result,{sha(e)})

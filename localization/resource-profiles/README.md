@@ -1,5 +1,16 @@
 # Shared locale resource preparation
 
+The six `composed.<locale>.json` profiles bind preserved saved resource candidates
+to the locale-owned process. Run `python3 -B tools/locale_build.py --profile
+localization/resource-profiles/composed.<locale>.json --locale <locale> --output
+outputs/locale-assets-20261026/<locale>/<candidate> --mode build|resume|check`.
+This common procedure verifies the complete pinned recipe, actual serialized and
+managed output hashes and saved readbacks, then materializes the exact candidate
+in the locale's own directory. Completed output uses check. It calls no model,
+installer or game, and leaves integration review/native/runtime acceptance pending.
+Historical technical directories are immutable inputs; no technical worker or
+inbox receipt is needed. The coordinator owns concrete common-code repairs once.
+
 Use one entry point for new narrative-page and haiku identity resources:
 
 ```sh
@@ -31,8 +42,8 @@ the same algorithm. Missing reviewed material stays missing; another locale's
 translation or semantic judgment is never substituted.
 
 These four profiles instantiate existing saved evidence, not a complete list of
-ready locales. An unsupported family needs a shared adapter in the technical lane
-only when a named game predicate actually requires it. Source/target wording and
+ready locales. An unsupported family needs one coordinator-owned shared adapter repair
+only when a named game predicate actually requires it; no technical stream is created. Source/target wording and
 independent linguistic review remain language-specific.
 
 ## Narrative150 contract

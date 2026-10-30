@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 2,
+  "revision": "forest-locale-owned-v3-20261030",
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "inheritedHistory": false
+  },
+  "limits": {
+    "linguistic": 6,
+    "technical": 0
+  },
+  "stages": [
+    "scope",
+    "probe",
+    "source",
+    "glossary",
+    "translate-edit",
+    "editorial",
+    "resources",
+    "package",
+    "runtime",
+    "screenshot-upload",
+    "screenshot-review",
+    "delivery"
+  ],
+  "localeScope": "localization/supplemental-ui/20261027/locale-scope.json",
+  "dialogueSource": "localization/source/dialogue-candidates.jsonl",
+  "languages": {
+    "zh": "Chinese (Simplified)",
+    "ru": "Russian",
+    "es": "Spanish (Spain)",
+    "es-419": "Spanish (Latin America)",
+    "pt-BR": "Portuguese (Brazil)",
+    "ja": "Japanese",
+    "de": "German",
+    "ko": "Korean",
+    "fr": "French",
+    "tr": "Turkish",
+    "pl": "Polish",
+    "zh-TW": "Chinese (Traditional)",
+    "it": "Italian",
+    "th": "Thai",
+    "vi": "Vietnamese",
+    "id": "Indonesian",
+    "uk": "Ukrainian",
+    "ar": "Arabic",
+    "cs": "Czech",
+    "hu": "Hungarian",
+    "nl": "Dutch",
+    "fa": "Persian",
+    "ro": "Romanian",
+    "hi": "Hindi",
+    "fil": "Filipino",
+    "el": "Greek",
+    "bg": "Bulgarian",
+    "sr": "Serbian",
+    "sw": "Swahili",
+    "he": "Hebrew"
+  },
+  "universalReferences": [
+    "/Users/antonkrutov/.codex/instructions/sitefor-mods.md",
+    "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md",
+    "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md"
+  ],
+  "sharedEvidence": [
+    "localization/source/shared-source-completion-20261028/admission-v1/manifest.json",
+    "localization/source/bgdatabase-complete-values-20261027/readback-validation.json",
+    "localization/fonts/ru-current-role-bindings-20261029-01/readback.json",
+    "localization/completion/ru-20261029/acceptance-checklist.json",
+    "localization/fonts/README.md",
+    "localization/glossary/en.json",
+    "AGENTS.md",
+    "localization/ASSET-CLI-TASK.md",
+    "localization/EDITORIAL-CLI-TASK.md",
+    "localization/CLI-TASK.md",
+    "tools/cli_job_support.py",
+    "tools/cli_runtime_identity.py",
+    "tools/run_asset_ru.py",
+    "tools/editorial_lane.py",
+    "tools/after_editorial.py",
+    "tools/build_russian_preview.py",
+    "tools/addressables_catalog.py",
+    "tools/review_screenshots.py"
+  ],
+  "sharedTasks": [
+    {
+      "id": "shared-source-reconcile",
+      "stage": "source",
+      "state": "prepared",
+      "postcondition": "Version-bound common source-family/selector admission with exact explicit gaps; no changed frozen dialogue inputs"
+    },
+    {
+      "id": "shared-adapter-portability",
+      "stage": "package",
+      "state": "prepared",
+      "postcondition": "Explicit locale parameter and reviewed source/target/resource bindings in common mechanisms; no implicit Russian wording/fonts or direct use of Russian-only patchers"
+    },
+    {
+      "id": "shared-font-and-package-contract",
+      "stage": "resources",
+      "state": "prepared",
+      "postcondition": "Concrete per-locale corpus/font/material/script requirements; preserved fictional mapping/textures/compression and exact catalog/package guards"
+    }
+  ],
+  "families": [
+    {
+      "id": "dialogue",
+      "evidence": [
+        "localization/source/dialogue-candidates.jsonl",
+        "localization/source/dialogue-manifest.json"
+      ],
+      "predicate": "Exact 12246 logical IDs and 24492 physical occurrences; protected syntax and actual source context",
+      "nextAction": "Reuse saved valid wording and verified audits; reconcile only invalidated dependencies; no whole-game completion claim",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "ui935",
+      "evidence": [
+        "localization/supplemental-ui/20261027/source-catalog.json",
+        "localization/supplemental-ui/20261027/manifest.json",
+        "localization/supplemental-ui/20261029-existing935/ru.acceptance.json"
+      ],
+      "predicate": "Settings/report/menu/actor/item/quest/notebook/header coverage and actual consumer joins",
+      "nextAction": "Reconcile the existing target-locale 935 packet and apply universal editorial corrections; Russian 32 corrections are findings to assess, not translations to copy",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "inventory52",
+      "evidence": [
+        "localization/source/inventory-display-completion-20261028/manifest.json",
+        "localization/source/inventory-display-completion-20261028/source.jsonl"
+      ],
+      "predicate": "48 descriptions and four empty-slot units; preserve original selector policy and technical values",
+      "nextAction": "Prepare admitted locale wording and exact application bindings; reuse source traces",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "inventory-glitch",
+      "evidence": [
+        "localization/supplemental-ui/20261028-glitch/ru.authored.json",
+        "localization/fonts/russian-runtime-20261028/CURRENT.md"
+      ],
+      "predicate": "Two display units, CR/non-CR output, all611 source starts, unchanged selection/timer/control behavior",
+      "nextAction": "Extract original English/source-bound contract from evidence; author locale wording and test assembled fragment layout without copying Russian size assumptions",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "chapter-gallery134",
+      "evidence": [
+        "localization/source/chapter-gallery-case-20261029/source.jsonl",
+        "localization/source/chapter-gallery-case-20261029/manifest.json"
+      ],
+      "predicate": "134 occurrences, 129 BG states including16 absent; original UI argument/eligibility boundaries",
+      "nextAction": "Prepare locale title/description/hint decisions; preserve held headings and separate actual gameplay from gallery fixtures",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "remaining51",
+      "evidence": [
+        "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl",
+        "localization/supplemental-ui/20261029-remaining-case51/preserve-exactly.jsonl"
+      ],
+      "predicate": "51 display occurrences including retained chapter labels, active greeting cells and compiled operands",
+      "nextAction": "Verify source admission, reused labels and protected dormant siblings before locale-specific preparation",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "bio113",
+      "evidence": [
+        "localization/supplemental-ui/20261029-bio-case113/source-context.jsonl"
+      ],
+      "predicate": "All113 assigned occurrences with original producers and protected controls",
+      "nextAction": "Resolve locale-specific wording/assembly only for source-admitted selectors; console visibility and log-level delivery remain conditional",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "input72",
+      "evidence": [
+        "localization/supplemental-ui/20261029-input-case72/source-context.jsonl"
+      ],
+      "predicate": "All72 assigned occurrences with original producers and protected controls",
+      "nextAction": "Resolve locale-specific wording/assembly only for source-admitted selectors; console visibility and log-level delivery remain conditional",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "counter90",
+      "evidence": [
+        "localization/supplemental-ui/20261029-counter-case90/source-context.jsonl"
+      ],
+      "predicate": "All90 assigned occurrences with original producers and protected controls",
+      "nextAction": "Resolve locale-specific wording/assembly only for source-admitted selectors; console visibility and log-level delivery remain conditional",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "console62",
+      "evidence": [
+        "localization/supplemental-ui/20261029-console-case62/source-context.jsonl"
+      ],
+      "predicate": "All62 assigned occurrences with original producers and protected controls",
+      "nextAction": "Resolve locale-specific wording/assembly only for source-admitted selectors; console visibility and log-level delivery remain conditional",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "pause576",
+      "evidence": [
+        "localization/source/chapter-select-heading-20261029/pause-chapter-576.source.jsonl"
+      ],
+      "predicate": "576 source memberships: retain translated/protected/held selectors; no blanket434 admission for another locale",
+      "nextAction": "Prepare bounded locale captions and exact source allowlist, then size actual face/glow pairs; original pause-entry behavior is separate",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "ornamental569",
+      "evidence": [
+        "localization/supplemental-ui/20261029-ornamental-case569/groups.source.jsonl"
+      ],
+      "predicate": "569 memberships, ornamental source-case and unsupported font/adapter holds preserved",
+      "nextAction": "Resolve finite source and locale case decisions; never flatten stylized or fictional glyph identities",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "narrative150",
+      "evidence": [
+        "localization/source/narrative150-resource-contract-20261029/selectors150.jsonl",
+        "localization/source/narrative150-resource-contract-20261029/allowlists.json"
+      ],
+      "predicate": "150 fields/25pages: only seven admitted pages42 fields; Mouse78 protected and Penny30 source-held",
+      "nextAction": "Use original English whole pages and source admissions; prepare locale whole-page solutions without exposing held/inactive content",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "haiku27",
+      "evidence": [
+        "localization/source/haiku-identity-adapter-20261029/source-adapter-contract.json",
+        "localization/source/haiku-identity-adapter-20261029/runtime27-fixtures.json"
+      ],
+      "predicate": "Nine choice identities and27 combinations; source evaluation keys distinct from translated verse; culture controls",
+      "nextAction": "Use existing locale poem decisions; generalize exact evaluation adapter to the explicit locale and retain actual-game callback gap",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "special-cases23",
+      "evidence": [
+        "localization/source/shared-source-completion-20261028/admission-v1/special-cases.json"
+      ],
+      "predicate": "Every registered source/locale case has an explicit accepted or held disposition",
+      "nextAction": "Reconcile prior decisions and source/glossary changes before new ordinary translation; preserve canonical anonymity and wordplay facts",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "tutorial-notifications66",
+      "evidence": [
+        "localization/source/tutorial-notifications66-20261029/source-contract.json",
+        "localization/source/tutorial-notifications66-20261029/targets.json"
+      ],
+      "predicate": "66 native tutorial/Bell memberships and all face/glow copies",
+      "nextAction": "Extract original English fields and source selectors; prepare reviewed locale targets and full-group application",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-adventures24-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-adventures24-20261029/contract.json",
+        "localization/hotfixes/ru-adventures24-20261029/review-packet.json",
+        "localization/hotfixes/ru-adventures24-20261029/targets.json",
+        "localization/hotfixes/ru-adventures24-20261029/resource-readback.json",
+        "localization/hotfixes/ru-adventures24-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-bell-notifications72-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-bell-notifications72-20261029/contract.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/review-packet.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/targets.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/resource-readback.json",
+        "localization/hotfixes/ru-bell-notifications72-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-completion12-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-completion12-20261029/contract.json",
+        "localization/hotfixes/ru-completion12-20261029/review-packet.json",
+        "localization/hotfixes/ru-completion12-20261029/targets.json",
+        "localization/hotfixes/ru-completion12-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-dam-minigame30-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-dam-minigame30-20261029/contract.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/review-packet.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/targets.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/resource-readback.json",
+        "localization/hotfixes/ru-dam-minigame30-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-dates-titleflow-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-dates-titleflow-20261029/dates-contract.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/review-packet.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/targets.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/resource-readback.json",
+        "localization/hotfixes/ru-dates-titleflow-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-journal-age-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-journal-age-20261029/review-packet-final.json",
+        "localization/hotfixes/ru-journal-age-20261029/review-packet.json",
+        "localization/hotfixes/ru-journal-age-20261029/target-final.json",
+        "localization/hotfixes/ru-journal-age-20261029/resource-readback.json",
+        "localization/hotfixes/ru-journal-age-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-journal-compact-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-journal-compact-20261029/layout-contract.json",
+        "localization/hotfixes/ru-journal-compact-20261029/wording-review-packet.json",
+        "localization/hotfixes/ru-journal-compact-20261029/compact-targets.json",
+        "localization/hotfixes/ru-journal-compact-20261029/resource-readback.json",
+        "localization/hotfixes/ru-journal-compact-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-lantern30-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-lantern30-20261029/contract.json",
+        "localization/hotfixes/ru-lantern30-20261029/review-packet.json",
+        "localization/hotfixes/ru-lantern30-20261029/targets.json",
+        "localization/hotfixes/ru-lantern30-20261029/resource-readback.json",
+        "localization/hotfixes/ru-lantern30-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-quest-notifications-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-quest-notifications-20261029/review-packet.json",
+        "localization/hotfixes/ru-quest-notifications-20261029/targets.json",
+        "localization/hotfixes/ru-quest-notifications-20261029/code-readback.json",
+        "localization/hotfixes/ru-quest-notifications-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-scene-unlocked114-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-scene-unlocked114-20261029/contract.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/review-packet.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/targets.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/resource-readback.json",
+        "localization/hotfixes/ru-scene-unlocked114-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-speaker-display24-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-speaker-display24-20261029/source-labels.json",
+        "localization/hotfixes/ru-speaker-display24-20261029/review-packet.json",
+        "localization/hotfixes/ru-speaker-display24-20261029/targets.json",
+        "localization/hotfixes/ru-speaker-display24-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    },
+    {
+      "id": "repair-storm-greetings24-20261029",
+      "evidence": [
+        "localization/hotfixes/ru-storm-greetings24-20261029/contract.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/review-packet.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/targets.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/resource-readback.json",
+        "localization/hotfixes/ru-storm-greetings24-20261029/README.md"
+      ],
+      "predicate": "Finite original-source display family and exact consumers recorded in the bound Russian repair; duplicates and later superseding changes are not additive coverage",
+      "nextAction": "Port the shared mechanism once; derive target wording from English and approved locale glossary, review independently under universal protocol, preserve all source/state/resource guards",
+      "admission": "per-selector;Russian receipts do not accept another locale"
+    }
+  ],
+  "executionOwnership": "Six locale-owned jobs apply shared parameterized procedures directly; no permanent technical stream or inbox dependency."
+}
