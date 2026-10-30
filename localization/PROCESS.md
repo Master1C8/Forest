@@ -2,7 +2,9 @@
 
 Russian development supplies verified mechanisms and regression examples. Russian
 wording, font coverage, layout sizes, screenshots and acceptance are locale-specific
-evidence. The Russian delivery is an owner test build, not a complete release.
+evidence. The owner has confirmed that the Russian localization is complete and
+working. Its accepted build is the common implementation baseline. Historical
+test/pending flags do not revoke that owner acceptance; retain their old records.
 This binding applies the existing universal stages and editorial algorithm to
 every Forest 0.45 locale; it adds no extra full semantic rereads.
 
@@ -80,6 +82,14 @@ author manifest must not reopen completed unchanged work. Reuse matching Russian
 mechanisms once for all locales. New locale wording, resource/native acceptance
 and held consumers remain separate. A changed canonical source version or lane
 result invalidates its old blocker overlay. Keep immutable execution inputs intact.
+
+The current owner confirmation is recorded in
+`completion/russian-owner-baseline-20261030-01/acceptance.json`. Reuse the accepted
+Russian build's actual source/display/evaluation behavior and selection policies.
+Do not require another global source/framework audit before porting those same
+mechanisms. Work on concrete target-locale differences: reviewed wording, adapter
+configuration, font/glyph resources and target layout/runtime checks. Russian
+acceptance does not grant another locale's semantic or rendering pass.
 
 The family catalog deliberately includes overlapping physical copies and repeated
 glow fields. Family counts cannot be summed into a unique visible-string total.

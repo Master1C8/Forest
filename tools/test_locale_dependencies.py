@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from locale_dependencies import REGISTRY, current_lane_state, digest, reconcile, verified_review
+from locale_dependencies import OWNER_ACCEPTANCE, REGISTRY, current_lane_state, digest, reconcile
 from locale_progress import Evidence
 
 
@@ -24,6 +24,11 @@ class DependencyTests(unittest.TestCase):
         save('canonical-gate.json',dict(commonSourceAccepted=False))
         save('ru/build.json',dict(siteLocale='ru',sourceManifestSha256=self.files['source.json']['sha256'],projection={'static':'passed'}))
         save('ru/manifest.json',dict(candidate='ru',wholeGameReleaseAccepted=False))
+        self.owner=dict(authority='owner',accepted=True,locale='ru',gameVersion='0.45',sharedMechanismReuseAllowed=True,
+            artifact=self.files['ru/manifest.json'],sourceManifest=self.files['source.json'],
+            targetLocaleAcceptanceGranted=False,targetEditorialAcceptanceGranted=False,targetFontAndNativeAcceptanceGranted=False,
+            coordinatorFollowUp={'pt-BR':['actual-target-port-and-checks']})
+        save(OWNER_ACCEPTANCE,self.owner)
         self.packet=[dict(id='unit',source='Source',target='Judged target',sourceSha256=digest(b'Source'),targetSha256=digest(b'Judged target'))]
         self.judgments=[dict(id='unit',sourceSha256=digest(b'Source'),targetSha256=digest(b'Judged target'),reviewerThreadId='reviewer',reviewed=True,verdict='pass',rationale='Actual fixture judgment.')]
         save('packet.jsonl',self.packet,True);save('judgments.jsonl',self.judgments,True)
@@ -45,7 +50,7 @@ class DependencyTests(unittest.TestCase):
         self.registry=dict(schemaVersion=1,russianReference=dict(manifest='ru/manifest.json',build='ru/build.json',sourceManifest='source.json',haikuStageMethodReadback='methods.jsonl'),
             canonicalSourceManifest=self.files['canonical-gate.json'],
             processSpec='spec.json',parentDecision='decision.json',originalPolicies='policies.json',baseGateMatrix='base.json',policyApprovalId='policy',
-            families=[dict(id='one',buildPointers=[['projection']],sourceContracts=[])],approvals=[self.claim],gateUpdates={},
+            families=[dict(id='one',referenceStatus='historical-static',buildPointers=[['projection']],sourceContracts=[])],approvals=[self.claim],gateUpdates={},
             locales={'pt-BR':dict(owningBlockedResult='blocked.json',closedWaits=[dict(id='old-wait',approvalId='policy')],completedSubdependencies=[],remaining=['actual-resource-binding'])})
 
     def evaluate(self):
@@ -55,11 +60,23 @@ class DependencyTests(unittest.TestCase):
 
     def test_exact_policy_closes_without_language_source_native_or_wake_credit(self):
         result=self.evaluate()
-        self.assertEqual(sum(g['status']=='held' for g in result['gates']),4)
+        self.assertEqual(sum(g['historicalStatus']=='held' for g in result['gates']),4)
+        self.assertTrue(result['sharedBaseAccepted'])
+        self.assertTrue(all(g['blocksRussianBaselineReuse'] is False for g in result['gates']))
         self.assertFalse(result['commonSourceAccepted']);self.assertFalse(result['newModelWakeAllowed'])
         self.assertEqual(result['sourceExclusions'],[])
         self.assertEqual(result['approvals'][0]['linguisticCoverageAdded'],0)
         self.assertFalse(result['families'][0]['localeWordingAccepted'])
+
+    def test_owner_acceptance_supersedes_both_false_and_true_historical_release_flags(self):
+        self.assertTrue(self.evaluate()['sharedBaseAccepted'])
+        self.owner['artifact']=self.save('ru/manifest.json',dict(candidate='ru',wholeGameReleaseAccepted=True))
+        self.save(OWNER_ACCEPTANCE,self.owner)
+        self.assertTrue(self.evaluate()['sharedBaseAccepted'])
+
+    def test_russian_owner_confirmation_does_not_accept_another_locale(self):
+        self.owner['targetLocaleAcceptanceGranted']=True;self.save(OWNER_ACCEPTANCE,self.owner)
+        with self.assertRaisesRegex(ValueError,'russian-owner-target-boundary'):self.evaluate()
 
     def test_current_blocker_overlay_requires_the_exact_owning_terminal_result(self):
         result=self.evaluate();row=dict(locale='pt-BR',laneStatus='blocked',lastResult=self.files['blocked.json'])

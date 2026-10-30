@@ -449,6 +449,7 @@ def report(root=ROOT, locale=None):
         row.update(calculate_score(policy, row['families'], accepted))
         row['gates'] = {stage: ('passed' if stage in accepted else 'not-accepted') for stage in policy['requiredGates']}
         row['wholeGameSourceAccepted'] = source_gate['commonSourceAccepted']
+        row['sharedRussianBaseAccepted'] = dependencies['sharedBaseAccepted']
         dependency_state=current_lane_state(row,dependencies)
         if dependency_state is not None:
             row['historicalBlocker']=row['blocker']
@@ -474,8 +475,8 @@ def table(data):
     for row in data['locales']:
         state = states.get(row['laneStatus'], row['laneStatus'])
         if row.get('dependencyState'):
-            state = ('Стоит: общие решения и CJK-шрифт' if row['locale']=='zh' else
-                     'Стоит: интеграция, исходные смыслы и шрифты')
+            state = ('Ожидает переноса сборки и CJK-шрифта' if row['locale']=='zh' else
+                     'Ожидает переноса готовой сборки на язык')
         if row.get('blocker') == 'model-at-capacity':
             state = 'Остановлен: модель недоступна'
         elif row['laneStatus'] == 'running' and not row['workerAlive']:

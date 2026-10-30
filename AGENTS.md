@@ -1,7 +1,7 @@
 # Forest localization completion
 
-When `outputs/locale-assets-20261026/launch-current.json` selects a workflow-v3, workflow-v4 or workflow-v5
-continuous run, use that run's plan, lane status, frozen contract and
+When `outputs/locale-assets-20261026/launch-current.json` selects a continuous
+run, use that run's plan, lane status, frozen contract and
 `immutablePins` for current execution. The v2 `locale-queue.py check` snapshot is
 historical after authorized locale edits; its expected target/recipe drift is
 not a new source blocker or a reason to stop other lanes. Preserve the v2
@@ -36,7 +36,7 @@ prerequisite before spending model context on its expensive dependent workload.
 
 For the updated multilingual completion queue, use `localization/PROCESS.md`,
 `localization/completion/process-spec.json` and `python3 -B tools/locale_queue.py
-check`. Russian development is a mechanism/regression reference, not another
+progress`. Russian development is a mechanism/regression reference, not another
 locale's semantic, font, native or release acceptance. Existing jobs select their
 next assignment through additive `current-workflow.json` pointers; preserve old
 frozen launchers and receipts as history. Queue preparation does not start workers
@@ -52,15 +52,31 @@ that limit, and one separate technical stream. Preserve active work and its
 immutable execution versions. Do not stop a language lane because another
 authorized lane is present. No additional agent or server authority is granted.
 
+## Accepted Russian baseline
+
+Owner confirmation, October 30, 2026: the Russian localization is complete,
+works correctly and is accepted. Its exact version binding and direct owner
+statement are in `localization/completion/russian-owner-baseline-20261030-01/acceptance.json`.
+Historical test/pending/not-run flags do not revoke that acceptance. Preserve
+those records and the owner's installed game/saves; do not rewrite them.
+
+Use the accepted Russian implementation and its actual source/display/evaluation,
+selection and preservation behavior as the shared baseline for the other locales.
+Do not reopen an unchanged global source/framework audit before porting those
+mechanisms. Finish concrete target differences: own reviewed wording, parameterized
+resource/adapter inputs, CJK font import and actual target layout/runtime checks.
+Russian acceptance does not automatically accept another language's wording,
+fonts or native output, or authorize a new game/GUI/installer/publication action.
+
 ## Complete the finite technical deliverables
 
 Honor the exact bounded assignment of a phase already in progress. When selecting
 its next assignment, prioritize the outstanding game deliverables:
 
-1. Reconcile the complete supported-version source families and their actual
-   display/technical consumers, with stable IDs, preserved values and explicit
-   gaps. Keep the existing ready-dialogue inventory and active review inputs
-   unchanged; new evidence is append-only until the owning source gate accepts it.
+1. Port the accepted Russian build mechanisms through shared explicit locale
+   configuration, preserving exact source/control identities and existing verified
+   target receipts. Investigate a source/consumer only for a named concrete target
+   difference that the accepted baseline does not resolve. Keep frozen inputs unchanged.
 2. Resolve concrete font roles, character requirements and resource bindings for
    the saved locales, using the corpus-bound checks and pinned candidates in
    `localization/fonts/README.md`. Preserve the fictional-language font mapping.
@@ -76,26 +92,21 @@ Each proposed next phase must identify a concrete deliverable and postcondition.
 If useful authorized static work is exhausted, record the actual runtime or
 source decision needed rather than generating unchanged continuation work.
 
-The parent has now completed the whole BGDatabase value inventory in
-`localization/source/bgdatabase-complete-values-20261027/`. Both normal runs,
-independent cell readback and exact whole-payload restoration pass: all51,572
-states, including the previously missing43,759, are enumerated. Existing7,813
-values and selector identities match. This supersedes the old missing-value
-count, not consumer acceptance. After the bounded phase already in progress,
-prioritize classifying its remaining3,279 text states across29 columns
-(3,263 stored strings;3,959 words). Use `readback-validation.json` for the exact
-field list and `verified/cells.jsonl` for complete values and source spans.
-Resolve this whole finite text-column scope using existing game-consumer
-evidence; preserve unresolved cases explicitly. Do not change frozen dialogue
-inputs or rerun extraction unchanged. Further sprite/material/framework tracing
-needs a named predicate that actually blocks this game deliverable. A hypothetical
-frame-coordinate discrepancy alone must not displace the remaining text inventory.
+The complete51,572-state BGDatabase readback and the3,279-state/29-column
+classification are already delivered. CP5 independently accepted all194 exact
+classification units, retaining1,239 explicit held states. Reuse their exact
+receipts; neither an old candidate manifest nor an old next-step instruction
+reopens that review. Held source values stay inventoried and unchanged; they do
+not invalidate the owner's accepted Russian build. Follow its existing behavior
+unless a concrete target-language difference requires a new decision. Do not
+rerun extraction, alter protected source/glossary values or invent display absence.
 
 Regression: corpus evidence proves missing CJK coverage while successive phases
 keep following font collection internals without resolving a game font role or
 source-family gap. Retain those valid method traces, then select the next finite
-inventory/resource deliverable. No source, editorial, font or runtime gate is
-waived by this prioritization.
+inventory/resource deliverable. A historic Russian not-run flag does not reopen
+the accepted baseline. New target editorial, font and runtime acceptance still
+requires its own actual evidence.
 
 The technical worker remains the sole writer of root `README.md` and
 `CHECKPOINT.json` while its lane is active. Preserve their existing sections.

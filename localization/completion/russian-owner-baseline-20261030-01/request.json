@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "predicate": "Direct latest owner confirmation: the Russian localization is complete, working and accepted. Old baseline test/source/runtime flags cannot block reuse of its actual mechanisms.",
+  "affectedIds": [
+    "all28-Russian-baseline-families",
+    "shared-source-and-implementation-reuse",
+    "Chinese-CJK-target-difference",
+    "Portuguese-target-transfer"
+  ],
+  "evidence": [
+    {
+      "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+      "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+    },
+    {
+      "path": "localization/completion/russian-owner-baseline-20261030-01/README.md",
+      "sha256": "de5adaec6dac8a3de3ff26d8f690b4a53facf404dd9eb43050296c8715eb4fdf"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "68bded7df7c1cbb842796a471da4b81b163a95f63d37851b3cad558b5bd76488"
+    },
+    {
+      "path": "localization/PROCESS.md",
+      "sha256": "79eb87b31e54295a9f28489168eb69e89d371a49403712379dc35cd435dc06fb"
+    }
+  ],
+  "requiredResult": "Complete the current finite production-registration assignment and its required review. Reuse the accepted Russian implementation, actual active/inactive selection and preserved identities for subsequent locale adaptation. Do not re-prove unchanged global source/framework behavior or treat historical Russian not-run flags as a blocker. Work on real target differences: one shared configurable port, own reviewed targets, Chinese font import, target resource loading/layout. Name any actual target blocker precisely; no bookkeeping-only phase or extra stream. Preserve protected source/glossary values and all target editorial/font/runtime requirements. No game/GUI/installer/publication/deployment/server action is newly authorized.",
+  "command": "python3 -B tools/locale_dependencies.py",
+  "ownerStatementIsAuthoritative": true,
+  "newWorkerRequest": false
+}

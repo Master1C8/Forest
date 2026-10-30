@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "checkedAt": "2026-10-30T13:38:47.685937+00:00",
+  "ownerAcceptance": {
+    "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+    "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+  },
+  "code": [
+    {
+      "path": "tools/locale_dependencies.py",
+      "sha256": "92dfe3b76cfd610f79eb300b2f8760acaafd1f4386977e982d5ee3e83be5787a"
+    },
+    {
+      "path": "tools/locale_progress.py",
+      "sha256": "eb8d10431f34023a259f2416cd8ea0ffb7c403292e7475f3467ba37da7d20b32"
+    },
+    {
+      "path": "tools/test_locale_dependencies.py",
+      "sha256": "b1040435f437cfbf2fa37f413eaa8c7689a10354c3760e79f2cdb833e719c54a"
+    }
+  ],
+  "currentInstructions": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "68bded7df7c1cbb842796a471da4b81b163a95f63d37851b3cad558b5bd76488"
+    },
+    {
+      "path": "localization/PROCESS.md",
+      "sha256": "79eb87b31e54295a9f28489168eb69e89d371a49403712379dc35cd435dc06fb"
+    }
+  ],
+  "tests": {
+    "count": 87,
+    "exitCode": 0,
+    "log": {
+      "path": "outputs/locale-assets-20261026/russian-owner-baseline-20261030-01/tests.log",
+      "sha256": "494b6ffd7049d650df9bce41f8f1e7f327e0b7195bb9c301c5b94a5c53bfefe5"
+    }
+  },
+  "publicProgress": {
+    "path": "outputs/locale-assets-20261026/russian-owner-baseline-20261030-01/progress.json",
+    "sha256": "beb2c288b474665be86356ff17115d633830eb35e7d469ffd907708bbe156cf8"
+  },
+  "russianBaselineAccepted": true,
+  "oldAuditCategoriesBlockBaselineReuse": false,
+  "otherLocaleAcceptanceGranted": false,
+  "newWorkerRequests": 0,
+  "ownerGameAndSavesUnmodified": true,
+  "activeFrozenExecutionInputsUnmodified": true
+}
