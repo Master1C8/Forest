@@ -8,6 +8,7 @@ from contextlib import contextmanager
 from unittest.mock import patch
 
 import locale_review_work as work
+import locale_efficiency as efficiency
 import run_locale_completion as runner
 import recover_locale_completion as recovery
 from locale_queue import read,sha
@@ -102,6 +103,16 @@ class ReviewWorkTests(unittest.TestCase):
             self.assertEqual((phase/'input.jsonl').read_bytes(),input_before)
             self.assertEqual(read(phase/'result.json')['verifiedReviewCoverage']['judged'],1)
 
+    def test_complete_packet_continues_without_claiming_whole_localization_ready(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase,rows,task,job=self.fixture(root);j=phase/'judgments.jsonl'
+            write_rows(j,[dict(id=r['id'],verdict='pass',rationale='Actual complete source/native/context reading') for r in rows])
+            brief=phase/'next.md';brief.write_text('Author the next actual wording family')
+            out=work.finish_review(root,phase,j,'Complete finite packet',True,dict(kind='work',title='Next wording family',brief=str(brief.relative_to(root))))
+            self.assertEqual(out['pending'],0);result=read(phase/'result.json')
+            self.assertEqual(result['outcome'],'continue');self.assertEqual(result['verifiedReviewCoverage']['judged'],3)
+            self.assertNotIn('dispositionMatrix',result)
+
     def test_hash_mismatch_and_unread_context_do_not_publish_a_success(self):
         for mismatch in [True,False]:
             with self.subTest(mismatch=mismatch),tempfile.TemporaryDirectory() as tmp:
@@ -142,6 +153,12 @@ class ReviewWorkTests(unittest.TestCase):
                 one=runner.publish_technical_handoffs(root,group,job,result);two=runner.publish_technical_handoffs(root,group,job,result)
                 model.assert_not_called()
             self.assertEqual(one,two);self.assertEqual(len(list((group/'technical-inbox').glob('*.json'))),1)
+            delivery=phase/'delivery.json';delivery.write_text('{"actualResult":"finite adapter contract completed"}')
+            closure=dict(request=dict(path=one[0],sha256=sha(root/one[0])),delivery=dict(path=str(delivery.relative_to(root)),sha256=sha(delivery)))
+            runner.publish_technical_handoffs(root,group,dict(job,locale='technical'),dict(resolvedTechnicalHandoffs=[closure]))
+            config=read(phase/'task.json');config.update(laneRole='shared-technical',technicalInbox=str(group/'technical-inbox'));(phase/'task.json').write_text(json.dumps(config))
+            (phase/'runtime-verification.json').write_text(json.dumps(dict(threadId='fixture',actualRuntime=dict(turn=dict(model='gpt-6.1-sol',effort='high'),session=dict(model_provider='openai',parent_thread_id=None)))))
+            self.assertEqual(efficiency.inspect_phase(phase)['technicalInbox']['pendingCount'],0)
 
     def test_adopted_terminal_metadata_survives_invalid_result(self):
         with tempfile.TemporaryDirectory() as tmp:

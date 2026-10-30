@@ -1,0 +1,473 @@
+{
+  "status": "focused-workflow-active",
+  "verifiedAt": "2026-10-30T07:54:22.417949+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v5-focused-20261030-02",
+  "implementationCommits": [
+    "7c2ef454b036eed7661a8bfa8508765de3620085",
+    "5c896b2b"
+  ],
+  "uniqueTestsPassed": 46,
+  "testEvidence": "45-test focused suite, then11 publisher tests including one additional complete-packet continuation case; overlapping tests not added twice",
+  "lanes": [
+    {
+      "locale": "zh",
+      "state": "running",
+      "phase": 78,
+      "pid": 34514,
+      "threadId": "01a18bca-1169-7353-b91e-f4cc90da4ba6",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'cat /Users/antonkrutov/.codex/skills/vn-game-localize/references/COMMON.md /Users/antonkrutov/.codex/skills/vn-game-localize/references/WORKFLOW.md /Users/antonkrutov/.codex/skills/vn-game-localize/references/CHECKPOINT.md; python3 -B outputs/locale-assets-20261026/workflow-v5-focused-"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc \"wc -l /Users/antonkrutov/.codex/instructions/game-localization-prompt.md /Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md; python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py finish-review --help; python3 -"
+        }
+      ],
+      "usage": null
+    },
+    {
+      "locale": "es",
+      "state": "running",
+      "phase": 50,
+      "pid": 34246,
+      "threadId": "01a18bc9-50ba-78b0-90b5-d7ad4e68f080",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help; python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py finish-review --help; rg --files -g AGENTS.md -g PROCESS.md -g SCR"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc \"sed -n '1,260p' outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py; python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_efficiency.py --help\""
+        }
+      ],
+      "usage": null
+    },
+    {
+      "locale": "es-419",
+      "state": "running",
+      "phase": 39,
+      "pid": 33698,
+      "threadId": "01a18bc8-bd1c-7710-83b2-9a1ef0ad7fad",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help'"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'cat outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/CONTRACT.md localization/PROCESS.md && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py finish-review --help'"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc \"sed -n '1,240p' outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py\""
+        }
+      ],
+      "usage": null
+    },
+    {
+      "locale": "pt-BR",
+      "state": "running",
+      "phase": 48,
+      "pid": 33912,
+      "threadId": "01a18bc9-1ee6-7171-96b8-0c6024b414a4",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'ls -l outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0047-review && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help'"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'cat localization/PROCESS.md && cat outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0047-review/next-input-manifest.json && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py prepare-scope --help && ls -l locali"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc \"python3 -B - <<'PY'\nimport json\np='outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/0047-review/next-inputs/haiku-source-context.json'\nx=json.load(open(p));print('Conversations',x['conversations']);print('Boundary',x['boundary']);print('node schema',json.dumps(x['no"
+        }
+      ],
+      "usage": null
+    },
+    {
+      "locale": "ja",
+      "state": "running",
+      "phase": 87,
+      "pid": 34736,
+      "threadId": "01a18bca-ae68-7f43-b539-acce7d0ae68a",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help && git status --short'"
+        }
+      ],
+      "usage": null
+    },
+    {
+      "locale": "de",
+      "state": "running",
+      "phase": 33,
+      "pid": 33061,
+      "threadId": "01a18bc7-24a3-70f0-8179-f5942ec3d14f",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'cat AGENTS.md outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/CONTRACT.md outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/CONTRACT.md && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help && "
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'cat outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/CONTRACT.md outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/CONTRACT.md && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help && python3 -B"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'cat /Users/antonkrutov/.codex/skills/vn-game-localize/references/COMMON.md /Users/antonkrutov/.codex/skills/vn-game-localize/references/WORKFLOW.md && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py finish-review --help && pytho"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc \"sed -n '1,250p' outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py\""
+        }
+      ],
+      "usage": null
+    },
+    {
+      "locale": "technical",
+      "state": "running",
+      "phase": 48,
+      "pid": 34064,
+      "threadId": "01a18bc9-2595-7021-a0e6-08c5cdb6b99e",
+      "reason": null,
+      "reviewHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py",
+      "sharedHelperCommands": [
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py --help && git status --short'"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py finish-review --help && python3 -B outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_efficiency.py --help'"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc 'rg -n \"def finish|contextStatus|judgments|verdict|evidence|nextTask\" outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py'"
+        },
+        {
+          "exitCode": 0,
+          "command": "/bin/zsh -lc \"sed -n '54,125p' outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/locale_review_work.py && rg -n 'REVIEW_VERDICTS' outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/execution/*.py\""
+        }
+      ],
+      "usage": null
+    }
+  ],
+  "actualPacketChecks": {
+    "es419": {
+      "originalRows": 531,
+      "authoredPrimary": 9,
+      "sourceContext": 522,
+      "originalSourceAndTargetFieldsPreserved": true,
+      "semanticAcceptance": "None from scoping; reviewer must check actual affected dependencies and required context"
+    },
+    "de": {
+      "assignedPrimary": 223,
+      "judgedPrimary": 61,
+      "separateContextJudgments": 27,
+      "pendingPrimary": 162
+    },
+    "technical": {
+      "assignedPrimary": 12,
+      "judgedPrimary": 0,
+      "separateContextJudgments": 3,
+      "pendingPrimary": 12
+    }
+  },
+  "changes": [
+    "New authored versions and evidence-backed semantic invalidations are primary; unchanged dialogue remains source context",
+    "One reusable review preparation and publication tool; scripts attach metadata but never write judgments",
+    "Sparse partial output preserves every missing ID as unread and carries it exactly",
+    "Declared context observations have separate version-checked coverage",
+    "Technical-only requests go to one immutable inbox with delivery-based handled receipts",
+    "Current and future prerequisite repairs preserve pending review debt",
+    "Removed compulsory reading of every metadata view page and arbitrary cumulative token/output checkpoint thresholds",
+    "BR resumed actual25 pending narrative pages, keeping physical78 as context",
+    "Japanese10 pending source decisions resume actual review instead of a standalone partition job",
+    "Technical reader/input prerequisite repaired before expensive inventory52 workload review"
+  ],
+  "requestAccounting": [
+    {
+      "task": "zh/phase-76",
+      "threadId": "01a18b90-b083-72d2-924d-3cc71fd73c12",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "interrupted-capacity-closeout",
+      "measurementBasis": "last exposed partial session counter; final total unavailable",
+      "usage": {
+        "input_tokens": 3630710,
+        "cached_input_tokens": 3439488,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15302,
+        "reasoning_output_tokens": 2370,
+        "total_tokens": 3646012
+      },
+      "oldOSExitKnown": true
+    },
+    {
+      "task": "es/phase-48",
+      "threadId": "01a18b9c-bdd5-7990-ad99-2f4cd1fe82f4",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "interrupted-capacity-closeout",
+      "measurementBasis": "last exposed partial session counter; final total unavailable",
+      "usage": {
+        "input_tokens": 140641,
+        "cached_input_tokens": 106752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1026,
+        "reasoning_output_tokens": 177,
+        "total_tokens": 141667
+      },
+      "oldOSExitKnown": true
+    },
+    {
+      "task": "es-419/phase-38",
+      "threadId": "01a18bbd-53c2-7112-845e-ed8464b08598",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "live-observer-handoff",
+      "measurementBasis": "terminal CLI turn",
+      "usage": {
+        "input_tokens": 4870416,
+        "cached_input_tokens": 4716416,
+        "output_tokens": 26341,
+        "reasoning_output_tokens": 6871,
+        "total_tokens": 4896757
+      },
+      "oldOSExitKnown": false
+    },
+    {
+      "task": "pt-BR/phase-46",
+      "threadId": "01a18b89-b186-7db0-8904-86262aaffb14",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "completed-turn-supervisor-schema-repair",
+      "measurementBasis": "terminal CLI turn",
+      "usage": {
+        "input_tokens": 3833193,
+        "cached_input_tokens": 3655680,
+        "output_tokens": 21661,
+        "reasoning_output_tokens": 9885,
+        "total_tokens": 3854854
+      },
+      "oldOSExitKnown": true
+    },
+    {
+      "task": "ja/phase-85",
+      "threadId": "01a18b91-bb27-7fa1-8212-e0a9a7a99d28",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "completed-turn-supervisor-schema-repair",
+      "measurementBasis": "terminal CLI turn",
+      "usage": {
+        "input_tokens": 2223478,
+        "cached_input_tokens": 2118272,
+        "output_tokens": 15663,
+        "reasoning_output_tokens": 6953,
+        "total_tokens": 2239141
+      },
+      "oldOSExitKnown": true
+    },
+    {
+      "task": "de/phase-31",
+      "threadId": "01a18b6a-2143-79d1-88c3-bca6091ce0cc",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "completed-turn-supervisor-schema-repair",
+      "measurementBasis": "terminal CLI turn",
+      "usage": {
+        "input_tokens": 3726368,
+        "cached_input_tokens": 3558144,
+        "output_tokens": 18173,
+        "reasoning_output_tokens": 5479,
+        "total_tokens": 3744541
+      },
+      "oldOSExitKnown": false
+    },
+    {
+      "task": "technical/phase-46",
+      "threadId": "01a18b65-fcbb-7ef1-9a84-59e5ad970ed2",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcome": "completed-turn-supervisor-schema-repair",
+      "measurementBasis": "terminal CLI turn",
+      "usage": {
+        "input_tokens": 3561966,
+        "cached_input_tokens": 3408384,
+        "output_tokens": 21755,
+        "reasoning_output_tokens": 5848,
+        "total_tokens": 3583721
+      },
+      "oldOSExitKnown": false
+    }
+  ],
+  "requestAccountingNote": "Each thread counted once here; some records overlap earlier reports. Partial counters are measured subtotals, not complete totals. Cached input/reasoning are subsets, never added twice. Active request totals remain unknown.",
+  "coordinator": {
+    "threadId": "01a1885f-db27-7363-9eec-eb65423f5f46",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "isolatedOrchestrationUsage": null,
+    "attribution": "Mixed diagnosis, implementation, tests, preparation, dispatch, result review and accounting; no pre-assignment isolated baseline",
+    "unmeasured": "Initial preparation, separated orchestration, reporting tail and platform overhead"
+  },
+  "preserved": "Original requests/artifacts/receipts and all source/editorial/font/runtime/release gates; no game or server action",
+  "tokenSavings": "Not yet established by equivalent completed workloads; packet size/role repair is not a billed-token measurement",
+  "failedPreparation": {
+    "run": "workflow-v5-focused-20261030-01",
+    "reason": "Legacy adopted continuation claim still named prior observer",
+    "modelRequestsStarted": 0,
+    "repaired": true
+  },
+  "postSwitchCompletedEvidence": [
+    {
+      "locale": "zh",
+      "state": "running",
+      "currentPhase": 78,
+      "lastCompletedPhase": 77,
+      "summary": "Closed interrupted Chinese review S059-S085: independently judged all27 exact saved versions and81 conditional allocations, no new findings;27 held-source, zero new linguistic coverage. Verified357 continuation pins and54 candidate/accepted rows; retained60 earlier matching judgments, cumulative87/162. Continue with all75 exact unread units: S086-S145,10 exclusions and5 complete requirement/origin-map units. Required preserved context read; source/font/runtime/application holds unchanged; ready false. Detailed evidence:0077-review/independent-checks.json,reading-evidence.json,findings.json,coverage.json. Usage cutoff precedes shared publication; remaining tail unmeasured.",
+      "threadId": "01a18bc2-0d3e-7833-8861-f796e57df5ff",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 2578992,
+        "cached_input_tokens": 2450688,
+        "output_tokens": 15259,
+        "reasoning_output_tokens": 4199,
+        "total_tokens": 2594251
+      }
+    },
+    {
+      "locale": "es",
+      "state": "running",
+      "currentPhase": 50,
+      "lastCompletedPhase": 49,
+      "summary": "Completed author fidelity and Spain-Spanish native judgments for all17 Notes labels and6 complete outputs. Corrected the shared Town Gossip person-label from Cotilleos del pueblo to Cotilla del pueblo in two phase-owned outputs. Static preflight passes;111 exact context receipts retained. No independent acceptance or source/application/release promotion. Prepared final17-ID independent review through the shared helper.",
+      "threadId": "01a18bc2-08a5-7bf2-8442-64257a25fbd3",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 2638212,
+        "cached_input_tokens": 2501504,
+        "output_tokens": 17634,
+        "reasoning_output_tokens": 3772,
+        "total_tokens": 2655846
+      }
+    },
+    {
+      "locale": "es-419",
+      "state": "running",
+      "currentPhase": 40,
+      "lastCompletedPhase": 39,
+      "summary": "Independently reviewed all18 new inventory descriptions against complete required source/item/quest/joining context and approved171-entry glossary:18 wording passes, zero findings, zero unread;24 context pins and exact120/450 repetition verified. No new corpus, source, resource or runtime acceptance; ready:false. Continue with guarded storage and finite glitch adaptation.",
+      "threadId": "01a18bc8-bd1c-7710-83b2-9a1ef0ad7fad",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 1699507,
+        "cached_input_tokens": 1582336,
+        "output_tokens": 7915,
+        "reasoning_output_tokens": 1145,
+        "total_tokens": 1707422
+      }
+    },
+    {
+      "locale": "pt-BR",
+      "state": "running",
+      "currentPhase": 48,
+      "lastCompletedPhase": 47,
+      "summary": "Independently reviewed all25 complete pt-BR narrative pages against their full315-entry source context and assembled output:25 conditional wording passes,zero findings,zero target edits and zero unread primary IDs. Exact150 physical source/control states and six-member proposal bindings pass mechanical checks; source,resource,application and runtime gates remain held. Frozen194-record haiku literary author/edit family and27 assembled choice poems are next; narrative source/resource request goes to the sole technical lane.",
+      "threadId": "01a18bc2-0d88-7163-affb-d8d9348986fe",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 3491705,
+        "cached_input_tokens": 3339136,
+        "output_tokens": 15677,
+        "reasoning_output_tokens": 3649,
+        "total_tokens": 3507382
+      }
+    },
+    {
+      "locale": "ja",
+      "state": "running",
+      "currentPhase": 87,
+      "lastCompletedPhase": 86,
+      "summary": "Reviewed all ten complete inventory source-special decisions with necessary source/consumer context: nine bounded candidate passes, one exact Rosetta factual finding, zero unread and zero new Japanese game-text credit. Verified54 input pins and1751 context records; preserved all source/renderer/runtime holds. Supplied five-group technical handoff and finite Rosetta correction plus chapter/gallery wording continuation. Ready no.",
+      "threadId": "01a18bc2-0e5a-7f62-abc1-3178f0171390",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 3716448,
+        "cached_input_tokens": 3563264,
+        "output_tokens": 16216,
+        "reasoning_output_tokens": 3184,
+        "total_tokens": 3732664
+      }
+    },
+    {
+      "locale": "de",
+      "state": "running",
+      "currentPhase": 33,
+      "lastCompletedPhase": 32,
+      "summary": "Independently reviewed all66 pause-menu wording memberships across11 complete groups:66 pass,0 findings. Retained88 version-matching context-only receipts;96 confirmation memberships remain pending. Ready:false; all source/application/font/runtime gates retained.",
+      "threadId": "01a18bc2-0d30-76d0-9e2e-1aebebc61d05",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 2253944,
+        "cached_input_tokens": 2114304,
+        "output_tokens": 10823,
+        "reasoning_output_tokens": 2227,
+        "total_tokens": 2264767
+      }
+    },
+    {
+      "locale": "technical",
+      "state": "running",
+      "currentPhase": 48,
+      "lastCompletedPhase": 47,
+      "summary": "Repaired inventory52 receipt preflight in a new frozen own-phase successor. Exact777-input/12-cell/312-row readback passed with112239 origin occurrences; nine focused positive/negative controls passed. Reused104 matching context readings, with all12 primary resource versions and208 allocation contexts still pending; prepared one exact independent review using the shared helper. No semantic/font/native/runtime acceptance.",
+      "threadId": "01a18bc2-0935-7190-a6d2-dfb728cf1a81",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "usage": {
+        "input_tokens": 1577096,
+        "cached_input_tokens": 1490816,
+        "output_tokens": 14827,
+        "reasoning_output_tokens": 3603,
+        "total_tokens": 1591923
+      }
+    }
+  ],
+  "measuredOutcomes": [
+    "pt-BR:25 complete narrative pages actually independently judged in one request;150 physical states checked mechanically",
+    "es-419:18 ordinary inventory descriptions authored/edited in one request;all21 pending selectors explicitly disposed",
+    "ja:all10 source-special decisions read in one request;one actual Rosetta finding retained",
+    "technical:actual12-cell/312-row workload executes after prerequisite repair;no synthetic or empty-workload acceptance"
+  ]
+}
