@@ -15,6 +15,7 @@ from cli_job_support import validate_model, cli_events, cli_turn_succeeded
 from cli_runtime_identity import publish_current_runtime
 from locale_queue import sha, read, local
 from locale_efficiency import make_view
+import locale_dependency_wake as dependency_wake
 
 KINDS = {'work','review','technical'}
 MAX_BRIEF_BYTES = 65536
@@ -342,6 +343,21 @@ def source_wake_ready(root,config):
             and value.get('completeVisibleTranslationDenominator') is not None)
 
 
+def wait_dependency(root,plan,job,state):
+    while True:
+        selected=dependency_wake.waiting_task(root,plan,job,state)
+        if selected != []:
+            return selected
+        time.sleep(10)
+
+
+def consume_dependency(state,task):
+    receipts=task.get('dependencyReceipts') or ([task['dependencyReceipt']] if task.get('dependencyReceipt') else [])
+    for receipt in receipts:
+        used=state.setdefault('consumedDependencyReceipts',[])
+        if receipt['sha256'] not in used:used.append(receipt['sha256'])
+
+
 def owner_resume_task(root,job,stopped_result=None):
     """Explicit finite target work, independent of a historical whole-source wake."""
     config=job['ownerResume']
@@ -393,7 +409,19 @@ def retained_terminal(root,lane,recovery):
     if sha(phase/'result.json')!=recovery['resultSha256']:raise ValueError('Terminal result changed')
     if sha(lane/'continuation.lock')!=recovery['previousClaimSha256']:raise ValueError('Terminal claim changed')
     if process_identity(record['pid'],phase) is not None:raise ValueError('Terminal worker is alive')
+    if recovery.get('terminalReconciliation'):
+        record.update(recovery['terminalReconciliation'])
     return state
+
+
+def persist_terminal_reconciliation(root,lane,recovery,state):
+    if not recovery.get('terminalReconciliation'):return
+    archive=local(root,recovery['archive']);archive.mkdir(parents=True)
+    for name in ['status.json','continuation.lock']:
+        with (archive/name).open('xb') as stream:stream.write((lane/name).read_bytes())
+    save(lane/'continuation.lock',dict(pid=os.getpid(),at=now(),reconciledTerminalFrom=read(lane/'continuation.lock')['pid']))
+    state['supervisorPid']=os.getpid()
+    save(lane/'status.json',state)
 
 
 def run_lane(directory,plan,job):
@@ -403,16 +431,23 @@ def run_lane(directory,plan,job):
     if recovery and recovery.get('kind')=='retained-terminal-lane':
         state=retained_terminal(root,lane,recovery)
         config=job.get('sourceWake')
-        if state['status']!='blocked':return state
+        if state['status']!='blocked':
+            persist_terminal_reconciliation(root,lane,recovery,state);return state
         if job.get('ownerResume'):
             task=owner_resume_task(root,job,dict(path=str((Path(state['phases'][-1]['phase'])/'result.json').relative_to(root)),sha256=recovery['resultSha256']))
             wake=dict(ownerResumeAt=now(),ownerResumeAuthorizationSha256=job['ownerResume']['authorization']['sha256'])
         else:
-            if not config:return state
-            # Quiet data-only wait. No new model request for an unchanged blocker.
-            while not source_wake_ready(root,config):time.sleep(10)
-            task=copy.deepcopy(config['task'])
-            wake=dict(sourceWakeAt=now(),sourceWakeSha256=sha(local(root,config['sourceManifest'])))
+            if plan.get('dependencyWake'):
+                task=wait_dependency(root,plan,job,state)
+                if task is None:
+                    persist_terminal_reconciliation(root,lane,recovery,state);return state
+                wake=dict(dependencyWakeAt=now())
+            else:
+                if not config:return state
+                # Quiet data-only wait. No new model request for an unchanged blocker.
+                while not source_wake_ready(root,config):time.sleep(10)
+                task=copy.deepcopy(config['task'])
+                wake=dict(sourceWakeAt=now(),sourceWakeSha256=sha(local(root,config['sourceManifest'])))
         state=retained_terminal(root,lane,recovery)
         seen=set()
         for old in state['phases']:
@@ -425,6 +460,7 @@ def run_lane(directory,plan,job):
             with (archive/name).open('xb') as f:f.write((lane/name).read_bytes())
         (lane/'continuation.lock').unlink()
         state.update(status='starting',supervisorPid=os.getpid(),**wake)
+        consume_dependency(state,task)
         state.pop('reason',None)
     elif recovery and recovery.get('kind')=='owner-stopped-efficiency-restart':
         if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Stopped checkpoint changed')
@@ -505,9 +541,17 @@ def run_lane(directory,plan,job):
             if previous.exists():seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
         fresh=validate_result(root,job,phase,old_task,result,seen)
         publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
+        dependency_wake.publish(root,plan,job,phase,old_task,result)
         if result['outcome']!='continue':
             if not adopting:raise ValueError('Recovery does not contain an authorized continuation')
-            state.update(status=result['outcome'],reason=result['summary'],finishedAt=now());save(lane/'status.json',state);return state
+            record.update(status='phase-complete-after-adoption',resultSha256=sha(phase/'result.json'),
+                          outcome=result['outcome'],summary=result['summary'],progress=result.get('progress'),
+                          verifiedReviewCoverage=result.get('verifiedReviewCoverage'))
+            state.update(status=result['outcome'],reason=result['summary'],finishedAt=now());save(lane/'status.json',state)
+            resumed=wait_dependency(root,plan,job,state)
+            if resumed is None:return state
+            result['nextTask']=resumed
+            consume_dependency(state,resumed)
         if not adopting and result['nextTask']!=receipt['validatedNextTask']:raise ValueError('Recovery next assignment differs')
         if not adopting:
             archive=local(root,receipt['archive']);archive.mkdir(parents=True)
@@ -520,7 +564,7 @@ def run_lane(directory,plan,job):
             if sha(claim)!=receipt['previousClaimSha256']:raise ValueError('Previous continuation claim changed')
             claim.unlink()
         record.update(status='partial-review-reassigned' if result.get('verifiedReviewCoverage',{}).get('unreadIds') else 'phase-complete-after-supervisor-repair',
-                      resultSha256=sha(phase/'result.json'),summary=result['summary'],progress=result.get('progress'),outcome='continue',
+                      resultSha256=sha(phase/'result.json'),summary=result['summary'],progress=result.get('progress'),outcome=result['outcome'],
                       verifiedReviewCoverage=result.get('verifiedReviewCoverage'))
         state.setdefault('recoveries',[]).append(dict(receipt=job['resumeReceipt'],at=now(),priorReason=state.get('reason')))
         state.update(status='starting',supervisorPid=os.getpid());state.pop('reason',None);state.pop('warning',None);state.pop('observedAt',None)
@@ -579,13 +623,20 @@ def run_lane(directory,plan,job):
             result=read(phase/'result.json');fresh=validate_result(root,job,phase,task,result,seen)
             published=publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
             if published:record['technicalHandoffs']=published
+            deliveries=dependency_wake.publish(root,plan,job,phase,task,result)
+            if deliveries:record['dependencyDeliveries']=deliveries
             record.update(status='partial-review-reassigned' if result.get('verifiedReviewCoverage',{}).get('unreadIds') else 'phase-complete',
                           resultSha256=sha(phase/'result.json'),summary=result['summary'],progress=result.get('progress'),outcome=result['outcome'],
                           verifiedReviewCoverage=result.get('verifiedReviewCoverage'))
             seen.update(fresh);save(status,state)
             print(json.dumps(dict(locale=job['locale'],phase=record['number'],outcome=result['outcome'],usage=usage)),flush=True)
             if result['outcome']!='continue':
-                state.update(status=result['outcome'],reason=result['summary'],finishedAt=now());save(status,state);return state
+                state.update(status=result['outcome'],reason=result['summary'],finishedAt=now());save(status,state)
+                resumed=wait_dependency(root,plan,job,state)
+                if resumed is None:return state
+                task=resumed;consume_dependency(state,task)
+                state.update(status='starting',supervisorPid=os.getpid());state.pop('reason',None);save(status,state)
+                continue
             task=result['nextTask']
     except BaseException as error:
         state.update(status='held-supervisor-error',reason=repr(error),observedAt=now(),

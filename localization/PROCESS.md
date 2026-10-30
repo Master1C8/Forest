@@ -154,6 +154,31 @@ outcomes, capacity errors and interrupted observers require reconciliation by jo
 thread/process identity and immutable inputs; no automatic duplicate/retry loop.
 An unchanged blocker is a stop condition, not another framework-tracing task.
 
+Resource dependencies use the shared protocol in
+[the process repair contract](completion/process-repair-20261030-02/config.json).
+The coordinator repairs scheduling and verifies evidence; the existing language
+lanes own target wording and the single technical lane owns shared engineering.
+A stopped language lane resumes its own exact finite task only after all required
+request versions have actual saved resource outputs and a complete clean distinct
+review. The observer publishes immutable ready receipts, rechecks input/output
+hashes and consumes each new version once. Quiet dependency waiting makes no model
+requests or unchanged status writes. An absent next task never creates work.
+
+Preserve both historical `id` and `requestId` request formats through the same
+identity reader. Always finalize a successfully adopted worker's result hash,
+summary and review coverage before a terminal return. Verified legacy metadata
+omissions are journal repairs, not grounds for repeating the completed model turn.
+Use `tools/reconcile_locale_terminal.py` only for its verified idle terminal
+startup-error scope; retain its immutable before/after repair plan and resume that
+same plan after interruption between files. No cross-file transaction is claimed.
+
+Regression: two required deliveries exist only as drafts, then only one has a
+clean review. The language model must remain asleep. Publish the second exact
+reviewed delivery and continue the prepared task once; reject changed profile or
+resource bytes and never publish producer receipts from the consumer. A handoff
+of a live worker that later returns blocked must retain its result and usage,
+without rerunning it or leaving a missing result hash in terminal state.
+
 Report the same universal stages for every language with passed / failed /
 not-run / needs-review / not-applicable, concrete artifacts and remaining action.
 Keep dialogue IDs, physical occurrences, additional-family coverage, editorial,

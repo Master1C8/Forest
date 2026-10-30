@@ -143,7 +143,7 @@ def prepare(directory):
     registry=queue.read(Path.home()/'.codex/models_cache.json')
     if not any(r.get('slug')=='gpt-6.1-sol' for r in registry['models']):raise ValueError('Exact Sol model unavailable')
     directory.mkdir(parents=True);execution=directory/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py','locale_dependency_wake.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     (directory/'CONTRACT.md').write_text(CONTRACT+'\n'+POLICY)
     common=[ROOT/'localization/source/dialogue-candidates.jsonl',ROOT/'localization/source/dialogue-manifest.json',

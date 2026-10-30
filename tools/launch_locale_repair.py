@@ -53,16 +53,36 @@ def configure_owner_continuation(plan,new,config_path):
     return sorted(selected)
 
 
-def launch(previous, new, continuation_config=None):
+def configure_process_repair(plan,new,config_path):
+    if not config_path.is_relative_to(ROOT):raise ValueError('Process config outside canonical project')
+    config=read(config_path)
+    if config.get('schemaVersion')!=1 or config.get('kind')!='owner-requested-process-repair':
+        raise ValueError('Expected explicit process repair configuration')
+    plan['dependencyWake']=dict(schemaVersion=1,authorization=dict(path=str(config_path.relative_to(ROOT)),sha256=sha(config_path)))
+    for job in plan['jobs']:
+        job.pop('ownerResume',None)
+        job.pop('sourceWake',None)
+    with (new/'CONTRACT.md').open('a') as stream:
+        stream.write('\n## Reviewed resource dependency continuation\n\n'+config['contract']+'\n')
+    plan['executionPins']['CONTRACT.md']=sha(new/'CONTRACT.md')
+    plan['executionPins'][os.path.relpath(config_path,new)]=sha(config_path)
+    plan['continuationReceipt']=config['receipt']
+
+
+def launch(previous, new, continuation_config=None, process_config=None):
+    if continuation_config is not None and process_config is not None:
+        raise ValueError('Choose finite continuation or process repair, not both')
     acceptance=ROOT/'localization/completion/russian-owner-baseline-20261030-01/acceptance.json'
-    if continuation_config is None and acceptance.is_file() and read(acceptance).get('accepted') is True:
+    if continuation_config is None and process_config is None and acceptance.is_file() and read(acceptance).get('accepted') is True:
         raise ValueError('Accepted Russian baseline requires an explicit finite continuation config; legacy source-wake launch is obsolete')
     previous, new = previous.resolve(), new.resolve()
     plan = recover.prepare(previous, new, handoff=True)
     old = plan['observerHandoff']
     try:
         resumed=[]
-        if continuation_config:
+        if process_config:
+            configure_process_repair(plan,new,process_config.resolve())
+        elif continuation_config:
             resumed=configure_owner_continuation(plan,new,continuation_config.resolve())
         else:
             configure_legacy_priority(plan,new)
@@ -165,7 +185,7 @@ def commit_handoff(previous,new,plan,old,resumed):
         pointer = ROOT / 'outputs/locale-assets-20261026/launch-current.json'
         (new / 'previous-launch-current.json').write_bytes(pointer.read_bytes())
         runner.save(pointer, dict(run=str(new.relative_to(ROOT)), status=str((new / 'status.json').relative_to(ROOT)),
-            revision='continuous-production-v7-owner-accepted-baseline-continuation' if resumed else 'continuous-production-v6-repaired-capacity-and-source-wake', automaticContinuation=True,
+            revision='continuous-production-v9-reviewed-dependency-wake' if plan.get('dependencyWake') else 'continuous-production-v7-owner-accepted-baseline-continuation' if resumed else 'continuous-production-v6-repaired-capacity-and-source-wake', automaticContinuation=True,
             receipt=plan.get('continuationReceipt','localization/completion/queue-repair-20261030-01/receipt.json')))
         return dict(status='observer-handoff-committed', run=str(new.relative_to(ROOT)), pid=child.pid,
                     ownerResumedLanguages=resumed, existingChildrenPreserved=True)
@@ -184,5 +204,6 @@ if __name__ == '__main__':
     parser.add_argument('--previous', type=Path, required=True)
     parser.add_argument('--run', type=Path, required=True)
     parser.add_argument('--continuation-config', type=Path)
+    parser.add_argument('--process-config', type=Path)
     args = parser.parse_args()
-    print(json.dumps(launch(args.previous, args.run,args.continuation_config), ensure_ascii=False))
+    print(json.dumps(launch(args.previous, args.run,args.continuation_config,args.process_config), ensure_ascii=False))

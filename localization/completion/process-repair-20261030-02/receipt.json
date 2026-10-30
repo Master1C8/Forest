@@ -1,0 +1,96 @@
+{
+  "kind": "shared-process-repair-installed",
+  "recordedAt": "2026-10-30T15:41:58.548316+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v9-process-20261030-03",
+  "observerPid": 80816,
+  "handoff": {
+    "newPid": 80816,
+    "oldPid": 76480,
+    "at": "2026-10-30T15:40:15.239504+00:00",
+    "activeChildrenPreserved": true
+  },
+  "allExecutionPinsVerified": true,
+  "states": [
+    {
+      "locale": "zh",
+      "status": "blocked",
+      "phase": 85,
+      "pid": 38099
+    },
+    {
+      "locale": "es",
+      "status": "running",
+      "phase": 104,
+      "pid": 79614,
+      "runtimeVerified": true
+    },
+    {
+      "locale": "es-419",
+      "status": "running",
+      "phase": 72,
+      "pid": 75812,
+      "runtimeVerified": true
+    },
+    {
+      "locale": "pt-BR",
+      "status": "blocked",
+      "phase": 68,
+      "pid": 51543
+    },
+    {
+      "locale": "ja",
+      "status": "blocked",
+      "phase": 122,
+      "pid": 45087
+    },
+    {
+      "locale": "de",
+      "status": "blocked",
+      "phase": 71,
+      "pid": 59903
+    },
+    {
+      "locale": "technical",
+      "status": "running",
+      "phase": 91,
+      "pid": 80890,
+      "runtimeVerified": true
+    }
+  ],
+  "languageLaneCount": 6,
+  "technicalLaneCount": 1,
+  "parentAuthoredTranslationsAfterClarification": 0,
+  "tests": {
+    "count": 114,
+    "status": "passed",
+    "log": "outputs/locale-assets-20261026/dependency-repair-tests.log",
+    "boundaries": "Real local files, hashes, receipts and supervisor continuation. Stubbed model transport and sample bytes do not establish Unity, linguistic or native acceptance.",
+    "sha256": "7834938df28a18f0ed10334b0fc76042dfe9e85df6078961c50d91e2e74c9d22"
+  },
+  "attempts": [
+    {
+      "run": "workflow-v9-process-20261030-01",
+      "outcome": "Preparation stopped before a new observer/model. Old observer resumed. Exposed missing legacy adopted terminal metadata."
+    },
+    {
+      "run": "workflow-v9-process-20261030-02",
+      "outcome": "Committed live observer handoff, preserved live children. Two idle lanes hit startup schema/metadata errors; repaired by exact saved journals without a model request."
+    },
+    {
+      "run": "workflow-v9-process-20261030-03",
+      "outcome": "Committed replacement observer; all lanes reconciled, existing children preserved, no observer errors at cutoff."
+    }
+  ],
+  "terminalRepair": {
+    "plan": "outputs/locale-assets-20261026/workflow-v9-process-20261030-02/terminal-journal-repair/plan.json",
+    "paths": 4,
+    "modelRequests": 0
+  },
+  "productionDependencyWake": "Enabled and regression-tested; no claim that a full production resource delivery has already arrived and been consumed.",
+  "releaseAccepted": false,
+  "coordinatorTokens": {
+    "status": "unknown",
+    "attribution": "mixed implementation, orchestration, accounting and prior work; no per-assignment counter available"
+  },
+  "usage": "localization/completion/process-repair-20261030-02/usage.json"
+}

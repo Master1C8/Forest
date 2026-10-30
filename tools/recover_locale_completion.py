@@ -19,6 +19,19 @@ from cli_job_support import cli_events,cli_turn_succeeded,validate_model
 ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 
 
+def reconcile_adopted_terminal(state,record,result,phase,thread,usage):
+    """Repair the old observer's missing final metadata, never repeat its turn."""
+    actual=sha(phase/'result.json')
+    if record.get('resultSha256')==actual:return None
+    if not (record.get('resultSha256') is None and record.get('status')=='running-adopted'
+            and record.get('exitCodeKnown') is False and record.get('threadId')==thread
+            and record.get('measuredUsage')==usage and result['outcome']==state['status']):
+        raise ValueError('Terminal lane differs from accepted result')
+    return dict(status='phase-complete-after-adoption-reconciliation',resultSha256=actual,
+                summary=result['summary'],progress=result.get('progress'),outcome=result['outcome'],
+                verifiedReviewCoverage=result.get('verifiedReviewCoverage'))
+
+
 def owns_claim(root,job,state,record,claim,group):
     if read(claim)['pid']==group['pid']:return True
     if not job.get('resumeReceipt'):return False
@@ -104,7 +117,7 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
         for name,digest in job['immutablePins'].items():
             p=Path(name) if Path(name).is_absolute() else local(ROOT,name)
             if sha(p)!=digest:raise ValueError('Immutable input changed: '+name)
-        result=None;task=read(phase/'task.json')['task'];seen=set()
+        result=None;terminal_reconciliation=None;task=read(phase/'task.json')['task'];seen=set()
         for old in state['phases'][:-1]:
             p=Path(old['phase'])/'result.json'
             if old.get('resultSha256') and sha(p)!=old['resultSha256']:raise ValueError('Accepted previous result changed')
@@ -115,17 +128,18 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
             if correction:result['nextTask']=copy.deepcopy(correction)
             runner.validate_result(ROOT,job,phase,task,result,seen)
             if retained:
-                if sha(phase/'result.json')!=record.get('resultSha256') or result['outcome']!=state['status']:
+                if result['outcome']!=state['status']:
                     raise ValueError('Terminal lane differs from accepted result')
+                terminal_reconciliation=reconcile_adopted_terminal(state,record,result,phase,thread,usage)
                 if runner.process_identity(record['pid'],phase) is not None:raise ValueError('Terminal lane still has a live worker')
             elif result['outcome']!='continue':raise ValueError('Completed worker did not request continuation')
         claim=lane/'continuation.lock'
         if not claim.is_file() or not owns_claim(ROOT,job,state,record,claim,group):raise ValueError('Old claim identity differs')
         child_identity=runner.process_identity(record['pid'],phase) if adopting else None
-        resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained))
+        resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained,terminal_reconciliation))
     if not handoff:new.mkdir(parents=True)
     execution=new/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py','locale_dependency_wake.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     contract=BASE_CONTRACT+'\n'+POLICY
     (new/'CONTRACT.md').write_text(contract)
@@ -136,7 +150,7 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
     if new_plan.get('efficiencyPolicy'):new_plan['efficiencyHelper']=str(execution/'locale_efficiency.py')
     if handoff:new_plan['observerHandoff']=dict(oldPid=group['pid'],oldIdentity=observer_identity)
     else:new_plan.pop('observerHandoff',None)
-    for job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained in resolved:
+    for job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained,terminal_reconciliation in resolved:
         receipt_path=new/'receipts'/(job['locale']+'.json')
         interrupted_pins={};closeout=None
         if capacity:
@@ -175,6 +189,7 @@ nested jobs, game/GUI/runtime, publication, deployment or Git work.
             archive=str((new/'old-checkpoints'/job['locale']).relative_to(ROOT)),
             kind='retained-terminal-lane' if retained else 'live-observer-handoff' if adopting else 'interrupted-capacity-closeout' if capacity else 'completed-turn-supervisor-schema-repair',threadId=record['threadId'],
             childIdentity=child_identity,reconciledTerminal=reconciled,workerReplay=False,priorError=state.get('reason'))
+        if terminal_reconciliation:receipt['terminalReconciliation']=terminal_reconciliation
         override_file=new/'assignment-overrides.json'
         if override_file.exists() and job['locale'] in read(override_file):
             entry=read(override_file)[job['locale']]
