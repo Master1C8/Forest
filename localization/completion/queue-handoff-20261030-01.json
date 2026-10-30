@@ -1,0 +1,134 @@
+{
+  "status": "all-seven-running",
+  "verifiedAt": "2026-10-30T03:21:04.118330+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v3-handoff-20261030-01",
+  "sourceCommit": "73856674763f313d6895ffff6c081390ea17f050",
+  "testsPassed": 19,
+  "lanes": [
+    {
+      "locale": "zh",
+      "state": "running",
+      "phase": 55,
+      "pid": 53852,
+      "threadId": "01a18ad1-69b2-7df1-87e0-3dff124ed541",
+      "runtimeReceiptSha256": "bef85dd508841a43d82fa13a5e34531b86164c5bcb55511c25ab2057f6d848f5",
+      "handoffKind": "interrupted-capacity-closeout",
+      "previousRequestReplayed": false,
+      "unreadCarried": 0,
+      "deferred": 0
+    },
+    {
+      "locale": "es",
+      "state": "running",
+      "phase": 26,
+      "pid": 53766,
+      "threadId": "01a18ad1-6923-7480-bffe-939ca969f259",
+      "runtimeReceiptSha256": "9d4eb6bf5eaf81a469582a6b5f23b58fe1499fe72ed0dde92302bc5729dd280d",
+      "handoffKind": "completed-turn-supervisor-schema-repair",
+      "previousRequestReplayed": false,
+      "unreadCarried": 0,
+      "deferred": 0
+    },
+    {
+      "locale": "es-419",
+      "state": "running",
+      "phase": 20,
+      "pid": 53765,
+      "threadId": "01a18ad1-687e-7c00-83c9-394af7c63897",
+      "runtimeReceiptSha256": "206a47ae345e986fa125b1efd08b267cb85bfa68f4c474b3a10098adcbcd8ebc",
+      "handoffKind": "completed-turn-supervisor-schema-repair",
+      "previousRequestReplayed": false,
+      "unreadCarried": 0,
+      "deferred": 0
+    },
+    {
+      "locale": "pt-BR",
+      "state": "running",
+      "phase": 31,
+      "pid": 53768,
+      "threadId": "01a18ad1-698c-7420-83fc-92a6a90698e7",
+      "runtimeReceiptSha256": "08535a410a51e4bc2ef0cea54b5db976dd644c0a71c21a6002c4192bb6546f29",
+      "handoffKind": "completed-turn-supervisor-schema-repair",
+      "previousRequestReplayed": false,
+      "unreadCarried": 310,
+      "deferred": 166
+    },
+    {
+      "locale": "ja",
+      "state": "running",
+      "phase": 62,
+      "pid": 53292,
+      "threadId": "01a18ace-2585-7ab1-8a14-ac190afc0ade",
+      "runtimeReceiptSha256": "0b7330ef470db2e2294f3207a2e7da9b80ee2f20fc1f8cc61cef7b5a57ff5e3a",
+      "handoffKind": "live-observer-handoff",
+      "previousRequestReplayed": false,
+      "unreadCarried": 0,
+      "deferred": 0
+    },
+    {
+      "locale": "de",
+      "state": "running",
+      "phase": 17,
+      "pid": 53764,
+      "threadId": "01a18ad1-6871-7971-aecb-06f4e481dd10",
+      "runtimeReceiptSha256": "ec2557b505ae67d95660447debb735ad1f12b14c84b036b4f9456ab2cd9eb6a9",
+      "handoffKind": "completed-turn-supervisor-schema-repair",
+      "previousRequestReplayed": false,
+      "unreadCarried": 0,
+      "deferred": 0
+    },
+    {
+      "locale": "technical",
+      "state": "running",
+      "phase": 28,
+      "pid": 53788,
+      "threadId": "01a18ad1-695c-7761-9833-c6d6dfcb2a8a",
+      "runtimeReceiptSha256": "76a54742966afd18c05ab5adc49546e4ec5644f7ba27f06101a3829f923cad72",
+      "handoffKind": "completed-turn-supervisor-schema-repair",
+      "previousRequestReplayed": false,
+      "unreadCarried": 0,
+      "deferred": 0
+    }
+  ],
+  "automaticContinuation": true,
+  "readyLocales": 0,
+  "totalLocales": 6,
+  "repairs": [
+    "Preserve translated context without conflating source/target bytes",
+    "Accept separate fidelity and native-language rationales",
+    "Carry all unread IDs across bounded review batches",
+    "Allow owned next briefs up to64KiB",
+    "Drain live adopted model process without inventing an OS exit code",
+    "Finish exactly reconciled capacity-interrupted draft in a fresh bounded assignment; no automatic retry"
+  ],
+  "handoff": {
+    "oldPid": 1091,
+    "newPid": 53739,
+    "at": "2026-10-30T03:19:01.674026+00:00",
+    "adopted": [
+      {
+        "locale": "ja",
+        "pid": 53292,
+        "threadId": "01a18ace-2585-7ab1-8a14-ac190afc0ade",
+        "liveBeforeHandoff": true,
+        "identity": {
+          "start": "Fri Oct 30 10:15:28 2026",
+          "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0062-review/last-message.txt Execute the current finite production assignment at /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0062-review/brief.md. FIRST await and verify /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0062-review/runtime-verification.json before localized inputs. Then read /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0062-review/task.json and the frozen lane contract named there. Exact fresh gpt-6.1-sol/high/OpenAI, no inherited/resumed/forked history, Astra, defaults, fallback, nested agents or model jobs. The owner has explicitly instructed continuous completion of these queues. A normal phase boundary MUST write the next finite task and outcome continue; the supervisor launches it automatically. Do not stop for parent review or request permission for already authorized local work. Distinct fresh independent review phases remain mandatory. Do actual editing, review or resource work; do not repeat reconciliation or spend a phase merely planning. Parent alone owns Git. Follow exact lane write scope and all source/editorial/font/renderer gates; no game/GUI/image/installer/production/server actions. Write the required result to /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0062-review/result.json. Unknown request errors and true exhausted-work blockers remain explicit."
+        },
+        "liveAfterHandoff": true
+      }
+    ],
+    "oldObserverOnlyTerminated": true
+  },
+  "acceptance": "No non-pass or unread row promoted. Five successful completed requests reused without replay. Existing Japanese phase62 remained live across observer replacement. Failed Chinese phase54 remains failed and is preserved for phase55 closeout.",
+  "usageReport": "localization/completion/worker-usage-handoff-20261030-01.json",
+  "coordinator": {
+    "threadId": "01a1885f-db27-7363-9eec-eb65423f5f46",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "orchestrationTokens": null,
+    "attribution": "mixed",
+    "limitation": "No isolated orchestration baseline was captured before repair preparation. Status inspection, diagnosis, repair, monitoring and accounting share the parent request. No estimate or zero substituted; reporting tail is unmeasured."
+  }
+}
