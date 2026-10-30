@@ -1,0 +1,98 @@
+{
+  "status": "all-seven-running",
+  "verifiedAt": "2026-10-30T06:12:15.460296+00:00",
+  "sourceCommit": "533e928495a1d2f9a65ccb3cd4c6c153daaa65dc",
+  "testsPassed": 35,
+  "run": "outputs/locale-assets-20261026/workflow-v4-pending-handoff-20261030-01",
+  "lanes": [
+    {
+      "locale": "zh",
+      "state": "running",
+      "phase": 71,
+      "threadId": "01a18b65-7732-7550-b9c6-7b9932430012",
+      "pid": 8646,
+      "runtimeReceiptSha256": "4ac0a194f011df9404458f27010f1126e6711188631b13555304c2d58ddbf012"
+    },
+    {
+      "locale": "es",
+      "state": "running",
+      "phase": 42,
+      "threadId": "01a18b6a-53dd-73f3-8988-0ec2ecbc2920",
+      "pid": 10219,
+      "runtimeReceiptSha256": "53ac86b7195f2d6b017d1af206ecce8aa73ae82f06f23b183d7f2725e59951a8"
+    },
+    {
+      "locale": "es-419",
+      "state": "running",
+      "phase": 31,
+      "threadId": "01a18b6f-6ac6-73f2-ad65-f62f84aed3ed",
+      "pid": 13954,
+      "runtimeReceiptSha256": "2035decc7084da5e7b10a31ad0a285acb2cff7aa79ee94b1a7711f48cf6e4274"
+    },
+    {
+      "locale": "pt-BR",
+      "state": "running",
+      "phase": 43,
+      "threadId": "01a18b6e-b279-70f3-8ce0-5ef55e28bea4",
+      "pid": 13011,
+      "runtimeReceiptSha256": "000d96a44ffe6bc58ad67bd2b840685866f0ab733d5bd26c5efd826eea5957ab"
+    },
+    {
+      "locale": "ja",
+      "state": "running",
+      "phase": 82,
+      "threadId": "01a18b6e-c15c-7081-80e0-199df00117bf",
+      "pid": 13210,
+      "runtimeReceiptSha256": "30578df7533d2bba0f05a42adf33d966eea1d6ad2964f221498b8715b872da39"
+    },
+    {
+      "locale": "de",
+      "state": "running",
+      "phase": 31,
+      "threadId": "01a18b6a-2143-79d1-88c3-bca6091ce0cc",
+      "pid": 9998,
+      "runtimeReceiptSha256": "9b2a617e609044e9acfc84638e2211f0eb46b4fe26fc80e6626483f1dba7da9e"
+    },
+    {
+      "locale": "technical",
+      "state": "running",
+      "phase": 46,
+      "threadId": "01a18b65-fcbb-7ef1-9a84-59e5ad970ed2",
+      "pid": 8934,
+      "runtimeReceiptSha256": "aceb922da0709f445f283005110b80a8ac8cbc2913451155c9e7c988a8798e83"
+    }
+  ],
+  "repair": "Version-bound inherited non-pass dispositions remain explicitly unread; no acceptance promoted",
+  "coverage": {
+    "assigned": 531,
+    "judged": 96,
+    "pending": 435,
+    "nextBatch": 120,
+    "deferred": 315
+  },
+  "uninterruptedAdoptedRequests": 6,
+  "completedWorkerReplayed": false,
+  "completedWorker": {
+    "task": "es-419/phase-30",
+    "threadId": "01a18b4b-8546-70b2-8706-62eea109a849",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "outcome": "successful partial checkpoint retained;435 units unread and explicitly carried",
+    "usage": {
+      "input_tokens": 5911510,
+      "cached_input_tokens": 5655680,
+      "output_tokens": 21714,
+      "reasoning_output_tokens": 8038,
+      "total_tokens": 5933224
+    }
+  },
+  "coordinator": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "attribution": "Mixed status audit, diagnosis, repair, orchestration and reporting",
+    "isolatedOrchestrationUsage": null,
+    "limitation": "No isolated baseline; current reporting tail and platform overhead unmeasured"
+  },
+  "acceptance": "All source/editorial/font/native/runtime/release gates retained; no game or server lifecycle operation"
+}
