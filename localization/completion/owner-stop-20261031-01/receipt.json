@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-stopped-all-Forest-localization",
+  "at": "2026-10-30T18:04:34.767936+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01",
+  "observerStopped": true,
+  "exactProcessIds": [
+    62146,
+    94661,
+    94508,
+    95726,
+    93939,
+    95990,
+    93789
+  ],
+  "forcedExactPids": [],
+  "verifiedRemainingProcesses": [],
+  "lanes": [
+    {
+      "locale": "zh",
+      "previousStatus": "blocked",
+      "status": "blocked",
+      "interrupted": false,
+      "phase": 89,
+      "threadId": "01a18dd4-7b65-7601-adae-328833a8329c",
+      "usage": null,
+      "usageCutoff": null
+    },
+    {
+      "locale": "es",
+      "previousStatus": "running",
+      "status": "owner-stopped",
+      "interrupted": true,
+      "phase": 116,
+      "threadId": "01a18def-ae5d-7832-a135-c5ec7461a6b3",
+      "usage": {
+        "input_tokens": 6538926,
+        "cached_input_tokens": 6361600,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33125,
+        "reasoning_output_tokens": 9789,
+        "total_tokens": 6572051
+      },
+      "usageCutoff": "Last cumulative telemetry in the exact fresh session after stop; unreported tail may be absent."
+    },
+    {
+      "locale": "es-419",
+      "previousStatus": "running",
+      "status": "owner-stopped",
+      "interrupted": true,
+      "phase": 88,
+      "threadId": "01a18dfb-2290-7142-937f-5af9471d88c2",
+      "usage": {
+        "input_tokens": 663468,
+        "cached_input_tokens": 577024,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2482,
+        "reasoning_output_tokens": 168,
+        "total_tokens": 665950
+      },
+      "usageCutoff": "Last cumulative telemetry in the exact fresh session after stop; unreported tail may be absent."
+    },
+    {
+      "locale": "pt-BR",
+      "previousStatus": "blocked",
+      "status": "blocked",
+      "interrupted": false,
+      "phase": 70,
+      "threadId": "01a18dbf-e518-7563-9648-35620af4f5e0",
+      "usage": null,
+      "usageCutoff": null
+    },
+    {
+      "locale": "ja",
+      "previousStatus": "blocked",
+      "status": "blocked",
+      "interrupted": false,
+      "phase": 129,
+      "threadId": "01a18de5-eab2-7713-bfd3-377fd59aefe5",
+      "usage": null,
+      "usageCutoff": null
+    },
+    {
+      "locale": "de",
+      "previousStatus": "running",
+      "status": "owner-stopped",
+      "interrupted": true,
+      "phase": 79,
+      "threadId": "01a18df4-8307-7662-81f1-ff84d90e2c32",
+      "usage": {
+        "input_tokens": 4497014,
+        "cached_input_tokens": 4308864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19888,
+        "reasoning_output_tokens": 3899,
+        "total_tokens": 4516902
+      },
+      "usageCutoff": "Last cumulative telemetry in the exact fresh session after stop; unreported tail may be absent."
+    }
+  ],
+  "outputsPreserved": true,
+  "interruptedCoverageAccepted": false,
+  "automaticContinuation": false,
+  "coordinatorUsage": "Unknown; mixed stop orchestration and verification. Final reporting tail is unmeasured."
+}
