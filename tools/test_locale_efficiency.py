@@ -12,6 +12,29 @@ from locale_queue import sha,read
 
 
 class EfficiencyTests(unittest.TestCase):
+    def test_unread_inherited_nonpass_is_carried_without_acceptance(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase=root/'job/phase';phase.mkdir(parents=True)
+            pair=dict(id='one',sourceSha256='s',targetSha256='t');packet=phase/'packet.jsonl';packet.write_text(json.dumps(pair)+'\n')
+            task=dict(kind='review',reviewPacket=str(packet.relative_to(root)),reviewPacketSha256=sha(packet))
+            reviews=phase/'reviews.jsonl';prior=dict(pair,verdict='needs-context')
+            row=dict(prior,reviewed=False,rationale='Current complete context reading pending',pendingSemanticReview=True,
+                inheritedVerdictUnchanged=True,inheritedNonPassEvidence=dict(original=prior))
+            reviews.write_text(json.dumps(row)+'\n');brief=phase/'next.md';brief.write_text('Read the exact pending version')
+            result=dict(outcome='continue',summary='Explicit unread checkpoint',reviews=str(reviews.relative_to(root)),
+                progress=dict(kind='reviewed',unitIds=['context-already-read']),evidence=[dict(path=str(reviews.relative_to(root)),sha256=sha(reviews))],
+                nextTask=dict(kind='review',title='Read pending',brief=str(brief.relative_to(root)),reviewPacket=str(packet.relative_to(root))))
+            runner.validate_result(root,dict(writePrefixes=['job']),phase,task,result,set())
+            self.assertEqual(result['verifiedReviewCoverage']['judged'],0)
+            self.assertEqual(result['verifiedReviewCoverage']['pendingIds'],['one'])
+            wrapped=copy.deepcopy(row);wrapped['inheritedNonPassEvidence']['original']=dict(pair,receipt=prior)
+            reviews.write_text(json.dumps(wrapped)+'\n');result['evidence'][0]['sha256']=sha(reviews)
+            runner.validate_result(root,dict(writePrefixes=['job']),phase,task,result,set())
+            self.assertEqual(result['verifiedReviewCoverage']['judged'],0)
+            for change in [dict(verdict='pass'),dict(inheritedVerdictUnchanged=False),dict(sourceSha256='changed')]:
+                bad=dict(row,**change);reviews.write_text(json.dumps(bad)+'\n');result['evidence'][0]['sha256']=sha(reviews)
+                with self.assertRaises(ValueError):runner.validate_result(root,dict(writePrefixes=['job']),phase,task,result,set())
+
     def test_lossless_view_preserves_every_field_and_deduplicates_exact_context(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp).resolve();packet=root/'packet.jsonl'

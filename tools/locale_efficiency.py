@@ -30,6 +30,11 @@ descriptions per context. Small exact repair deltas and true family tails remain
 valid. Collect findings before one repair, then independent exact-delta review.
 Unchanged held/context-only units retain version-matching receipts. They are not
 new linguistic coverage. Preserve every source/editorial/font/runtime gate.
+An unread row normally has reviewed:false and needs-review. It may retain an
+exact prior non-pass verdict only with pendingSemanticReview:true,
+inheritedVerdictUnchanged:true and inheritedNonPassEvidence.original binding its
+id/sourceSha256/targetSha256/verdict. Such rows still count as unread and must
+carry forward; no inherited pass/clean or completed coverage is permitted.
 
 Mechanical checks use one reproducible command and compact output. Reuse verified
 recipes and unchanged deterministic results by fingerprint; do not create another

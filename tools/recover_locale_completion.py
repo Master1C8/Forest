@@ -11,6 +11,7 @@ import subprocess
 import time
 
 import run_locale_completion as runner
+from locale_efficiency import POLICY
 from locale_queue import read,sha,write,local,assert_idle
 from cli_job_support import cli_events,cli_turn_succeeded,validate_model
 
@@ -89,6 +90,8 @@ def finish_prepare(previous,new,plan,group,observer_identity):
     for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     contract=(previous/'CONTRACT.md').read_text()
+    if plan.get('efficiencyPolicy') and '\n# Efficient continuous execution' in contract:
+        contract=contract.split('\n# Efficient continuous execution',1)[0]
     contract=contract.replace('context-only-preserve requires unchanged source/target hashes, targetEdited:false',
         'context-only-preserve requires both hashes to match the packet, targetEdited:false')
     contract=contract.replace('Carry exactly those unread IDs\nand versions into the next fresh review packet.',
@@ -114,6 +117,7 @@ An explicitly reconciled capacity failure may receive one fresh bounded closeout
  accepted judgments without verification. A repeated failure holds for diagnosis;
  no fallback model or automatic failed-request retry is permitted.
 '''
+    if plan.get('efficiencyPolicy'):contract+='\n'+POLICY
     (new/'CONTRACT.md').write_text(contract)
     new_plan=copy.deepcopy(plan);new_plan['recoveredFrom']=str(previous);new_plan['jobs']=[]
     if new_plan.get('efficiencyPolicy'):new_plan['efficiencyHelper']=str(execution/'locale_efficiency.py')

@@ -108,7 +108,13 @@ def validate_result(root,job,phase,task,result,seen):
                 raise ValueError('Reviewed source/target versions differ')
             if 'reviewed' in row and not isinstance(row['reviewed'],bool):raise ValueError('reviewed must be an explicit boolean')
             if row.get('reviewed') is False:
-                if row['verdict']!='needs-review':raise ValueError('Unread rows can never carry a pass or completed disposition')
+                prior=(row.get('inheritedNonPassEvidence') or {}).get('original')
+                if isinstance(prior,dict) and prior.get('verdict') is None and isinstance(prior.get('receipt'),dict):
+                    if all(prior.get(k)==row.get(k) for k in ['id','sourceSha256','targetSha256']):prior=prior['receipt']
+                pending_prior=(row.get('pendingSemanticReview') is True and row.get('inheritedVerdictUnchanged') is True
+                    and row['verdict'] in {'needs-context','source-defect','technical-preservation','held-source','needs-repair'}
+                    and isinstance(prior,dict) and all(prior.get(k)==row.get(k) for k in ['id','sourceSha256','targetSha256','verdict']))
+                if row['verdict']!='needs-review' and not pending_prior:raise ValueError('Unread rows can never carry a pass or completed disposition')
                 unread.append(row['id'])
             if row['verdict']=='context-only-preserve':
                 if row.get('notLinguisticCoverage') is not True or row.get('targetEdited') is not False:
