@@ -145,7 +145,7 @@ class DependencyWakeTests(unittest.TestCase):
             resultSha256=sha(self.blocked),previousClaimSha256=sha(claim),archive='old-checkpoints',childIdentity={}))
         job=dict(locale='zh',directory='language',writePrefixes=['language'],immutablePins={},requiredDeliverables=[],
                  resumeReceipt='recovery.json',resumeReceiptSha256=sha(recovery))
-        plan=dict(self.plan,root=str(self.root),executionPins={},cli='fixture',model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False))
+        plan=dict(self.plan,root=str(self.root),executionPins={},enforceLinguisticOwnership=True,cli='fixture',model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False))
         calls=[]
         class Child:
             pid=99999999

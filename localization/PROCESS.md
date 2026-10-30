@@ -164,6 +164,26 @@ review. The observer publishes immutable ready receipts, rechecks input/output
 hashes and consumes each new version once. Quiet dependency waiting makes no model
 requests or unchanged status writes. An absent next task never creates work.
 
+The observer now enforces ownership before creating a paid phase. Language author
+tasks require `taskClass: linguistic-work`; explicit resource/data-binding review
+packets and unclassified work are deferred as `held-dispatch-policy` and routed
+once to the existing technical inbox. This preserves their completed owning result
+without launching another language model for metadata. The observer's verified
+dependency-consumption path remains admitted; a worker-supplied receipt field alone
+does not bypass dispatch. Mechanical target binding, manifests, retained-receipt
+wrapping and hash checks use the shared implementation. Review new engineering
+decisions together with the actual composed artifact, preserving every genuinely
+unreviewed wording/context requirement. Read active assignments to their existing
+bounded completion; do not interrupt/replay them to retrofit this rule.
+
+Dispatch routing has a stable directory across observer handoffs. A hold document
+and its inbox envelope are individually atomic, with no cross-file transaction.
+Resume the same verified partial publication after interruption; a changed partial
+or unknown version is an error, never a reason to create another model request.
+Regression: a language worker proposes a resource-binding review or another
+unclassified data-transport author task. Preserve the completed phase, publish one
+routing correction and create no new model phase, including after handoff/replay.
+
 Preserve both historical `id` and `requestId` request formats through the same
 identity reader. Always finalize a successfully adopted worker's result hash,
 summary and review coverage before a terminal return. Verified legacy metadata

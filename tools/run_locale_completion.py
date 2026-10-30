@@ -16,6 +16,7 @@ from cli_runtime_identity import publish_current_runtime
 from locale_queue import sha, read, local
 from locale_efficiency import make_view
 import locale_dependency_wake as dependency_wake
+import locale_dispatch_policy as dispatch_policy
 
 KINDS = {'work','review','technical'}
 MAX_BRIEF_BYTES = 65536
@@ -405,7 +406,7 @@ def owner_resume_task(root,job,stopped_result=None):
 def retained_terminal(root,lane,recovery):
     if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Terminal checkpoint changed')
     state=read(lane/'status.json');record=state['phases'][-1];phase=Path(record['phase'])
-    if state['status'] not in {'blocked','static-complete'}:raise ValueError('Expected terminal lane')
+    if state['status'] not in {'blocked','static-complete','held-dispatch-policy'}:raise ValueError('Expected terminal lane')
     if sha(phase/'result.json')!=recovery['resultSha256']:raise ValueError('Terminal result changed')
     if sha(lane/'continuation.lock')!=recovery['previousClaimSha256']:raise ValueError('Terminal claim changed')
     if process_identity(record['pid'],phase) is not None:raise ValueError('Terminal worker is alive')
@@ -426,6 +427,7 @@ def persist_terminal_reconciliation(root,lane,recovery,state):
 
 def run_lane(directory,plan,job):
     root=Path(plan['root']);lane=local(root,job['directory']);lane.mkdir(parents=True,exist_ok=True)
+    verified_dependency_task=False
     recovery=read(local(root,job['resumeReceipt'])) if job.get('resumeReceipt') else None
     if recovery and sha(local(root,job['resumeReceipt']))!=job['resumeReceiptSha256']:raise ValueError('Recovery receipt changed')
     if recovery and recovery.get('kind')=='retained-terminal-lane':
@@ -441,6 +443,7 @@ def run_lane(directory,plan,job):
                 task=wait_dependency(root,plan,job,state)
                 if task is None:
                     persist_terminal_reconciliation(root,lane,recovery,state);return state
+                verified_dependency_task=True
                 wake=dict(dependencyWakeAt=now())
             else:
                 if not config:return state
@@ -552,6 +555,7 @@ def run_lane(directory,plan,job):
             if resumed is None:return state
             result['nextTask']=resumed
             consume_dependency(state,resumed)
+            verified_dependency_task=True
         if not adopting and result['nextTask']!=receipt['validatedNextTask']:raise ValueError('Recovery next assignment differs')
         if not adopting:
             archive=local(root,receipt['archive']);archive.mkdir(parents=True)
@@ -583,6 +587,12 @@ def run_lane(directory,plan,job):
                 path=Path(name) if Path(name).is_absolute() else local(root,name)
                 if sha(path)!=digest:raise ValueError('Immutable source/glossary/contract changed: '+name)
             task=priority_task(root,plan,job,state,task)
+            if plan.get('enforceLinguisticOwnership') and not verified_dependency_task:
+                why=dispatch_policy.reason(root,job,task)
+                if why:
+                    dispatch_policy.defer(root,directory,plan,job,state,task,why)
+                    save(status,state)
+                    return state
             phase=lane/f'{len(state["phases"])+1:04d}-{task["kind"]}';phase.mkdir()
             brief=local(root,task['brief'])
             if sha(brief)!=task['briefSha256']:raise ValueError('Next assignment changed after its receipt')
@@ -635,9 +645,11 @@ def run_lane(directory,plan,job):
                 resumed=wait_dependency(root,plan,job,state)
                 if resumed is None:return state
                 task=resumed;consume_dependency(state,task)
+                verified_dependency_task=True
                 state.update(status='starting',supervisorPid=os.getpid());state.pop('reason',None);save(status,state)
                 continue
             task=result['nextTask']
+            verified_dependency_task=False
     except BaseException as error:
         state.update(status='held-supervisor-error',reason=repr(error),observedAt=now(),
                      warning='Preserve surviving children and immutable inputs; reconcile before resubmission')

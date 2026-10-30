@@ -39,7 +39,7 @@ def owns_claim(root,job,state,record,claim,group):
     if sha(path)!=job['resumeReceiptSha256']:return False
     prior=read(path)
     if prior.get('kind')=='retained-terminal-lane':
-        return (state.get('status') in {'blocked','static-complete'}
+        return (state.get('status') in {'blocked','static-complete','held-dispatch-policy'}
                 and prior.get('previousStatusSha256')==sha(local(root,job['directory'])/'status.json')
                 and prior.get('previousClaimSha256')==sha(claim)
                 and prior.get('threadId')==record.get('threadId'))
@@ -91,7 +91,7 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
         lane=local(ROOT,job['directory'])
         state=read(lane/'status.json')
         adopting=handoff and state['status']=='running'
-        retained=state['status'] in {'blocked','static-complete'}
+        retained=state['status'] in {'blocked','static-complete','held-dispatch-policy'}
         capacity=state['status']=='held-request-outcome' and runner.capacity_failure(state['phases'][-1],Path(state['phases'][-1]['phase'])/'events.jsonl')
         if state['status']!='held-supervisor-error' and not adopting and not capacity and not retained:raise ValueError('Only verified running, terminal or failed lanes are recoverable')
         if not adopting:assert_idle(lane)
@@ -128,7 +128,10 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
             if correction:result['nextTask']=copy.deepcopy(correction)
             runner.validate_result(ROOT,job,phase,task,result,seen)
             if retained:
-                if result['outcome']!=state['status']:
+                deferred=state['status']=='held-dispatch-policy'
+                if deferred and (result['outcome']!='continue' or state.get('pendingTask')!=result.get('nextTask')):
+                    raise ValueError('Deferred task differs from its completed owning result')
+                if not deferred and result['outcome']!=state['status']:
                     raise ValueError('Terminal lane differs from accepted result')
                 terminal_reconciliation=reconcile_adopted_terminal(state,record,result,phase,thread,usage)
                 if runner.process_identity(record['pid'],phase) is not None:raise ValueError('Terminal lane still has a live worker')
@@ -139,7 +142,7 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
         resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained,terminal_reconciliation))
     if not handoff:new.mkdir(parents=True)
     execution=new/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py','locale_dependency_wake.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py','locale_dependency_wake.py','locale_dispatch_policy.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     contract=BASE_CONTRACT+'\n'+POLICY
     (new/'CONTRACT.md').write_text(contract)

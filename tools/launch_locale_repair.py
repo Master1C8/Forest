@@ -59,6 +59,15 @@ def configure_process_repair(plan,new,config_path):
     if config.get('schemaVersion')!=1 or config.get('kind')!='owner-requested-process-repair':
         raise ValueError('Expected explicit process repair configuration')
     plan['dependencyWake']=dict(schemaVersion=1,authorization=dict(path=str(config_path.relative_to(ROOT)),sha256=sha(config_path)))
+    plan['enforceLinguisticOwnership']=config.get('enforceLinguisticOwnership',False)
+    if plan['enforceLinguisticOwnership']:
+        plan.setdefault('dispatchDirectory',str(new/'dispatch-holds'))
+    priority=config.get('technicalPriority')
+    if priority:
+        if priority.get('kind')!='technical' or sha(ROOT/priority['brief'])!=priority['briefSha256']:
+            raise ValueError('Technical process consolidation task changed')
+        plan['ownerPriorityTask']=priority
+        plan['executionPins'][os.path.relpath(ROOT/priority['brief'],new)]=priority['briefSha256']
     for job in plan['jobs']:
         job.pop('ownerResume',None)
         job.pop('sourceWake',None)

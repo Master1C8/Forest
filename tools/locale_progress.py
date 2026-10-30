@@ -469,7 +469,8 @@ def report(root=ROOT, locale=None):
 
 def table(data):
     names = dict(zh='Китайский', es='Испанский', **{'es-419': 'Латиноамериканский испанский', 'pt-BR': 'Бразильский португальский'}, ja='Японский', de='Немецкий')
-    states = {'running': 'Работает', 'blocked': 'Заблокирован', 'held-request-outcome': 'Остановлен: запрос требует сверки'}
+    states = {'running': 'Работает', 'blocked': 'Заблокирован', 'held-request-outcome': 'Остановлен: запрос требует сверки',
+              'held-dispatch-policy': 'Передано в техническую очередь'}
     lines = ['| Язык | Общий индекс готовности | Готова к выпуску | Состояние |',
              '|---|---:|---|---|']
     for row in data['locales']:

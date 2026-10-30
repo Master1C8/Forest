@@ -36,7 +36,7 @@ def prepare(directory):
         if sha(previous/pin)!=digest:raise ValueError('Old immutable execution changed')
     if sha(Path(plan['cli']))!=plan['cliSha256']:raise ValueError('CLI changed')
     execution=directory/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py','locale_dependency_wake.py','locale_dispatch_policy.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     (directory/'CONTRACT.md').write_text((previous/'CONTRACT.md').read_text()+'\n'+POLICY)
     jobs=[]

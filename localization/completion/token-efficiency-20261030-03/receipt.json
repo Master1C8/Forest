@@ -1,0 +1,112 @@
+{
+  "kind": "enforced-resource-dispatch-consolidation",
+  "recordedAt": "2026-10-30T16:18:08.936891+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v10-cost-20261030-02",
+  "observerPid": 17322,
+  "enforcementEnabled": true,
+  "executionPinsVerified": true,
+  "states": [
+    {
+      "locale": "zh",
+      "status": "blocked",
+      "phase": 85,
+      "title": "Bind reviewed Chinese117 transfer/profile and publish the pinned technical handoff"
+    },
+    {
+      "locale": "es",
+      "status": "held-dispatch-policy",
+      "phase": 107,
+      "title": "Independently review56 Spanish inventory conditional transfer bindings and contracts",
+      "pendingTask": {
+        "kind": "work",
+        "title": "Deliver Spanish glitch conditional data for two reviewed strings and all611 consumer outputs",
+        "brief": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/0107-review/next.md",
+        "briefSha256": "2351aead5f5b00c888d232846ac750ec7404674145fd3165fb4860daadf57710",
+        "inputBindings": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/0106-work/after-review-input-bindings.json",
+        "inputBindingsSha256": "7d7e06d7f13400ef12776913c7647aa8667e03f9b49722b7af445094c7c065de"
+      },
+      "routingCorrection": {
+        "path": "outputs/locale-assets-20261026/workflow-v10-cost-20261030-02/dispatch-holds/es/2351aead5f5b00c888d232846ac750ec7404674145fd3165fb4860daadf57710/request.json",
+        "sha256": "8ed3596b7f63a44a9177c969fbe7a000b5180be0369489205377ab2be801b777"
+      }
+    },
+    {
+      "locale": "es-419",
+      "status": "running",
+      "phase": 76,
+      "title": "Store accepted UI375 and complete remaining actor/notebook/journal/tutorial wording",
+      "runtimeVerified": true
+    },
+    {
+      "locale": "pt-BR",
+      "status": "blocked",
+      "phase": 68,
+      "title": "Integrate accepted Portuguese Viril display into authored data and baseline-transfer-v3"
+    },
+    {
+      "locale": "ja",
+      "status": "blocked",
+      "phase": 122,
+      "title": "Independently review Japanese Sugar and Map conditional inventory descriptions"
+    },
+    {
+      "locale": "de",
+      "status": "blocked",
+      "phase": 71,
+      "title": "Independently review the two exact final German dialogue repairs"
+    },
+    {
+      "locale": "technical",
+      "status": "running",
+      "phase": 95,
+      "title": "Complete remaining six-locale resource integration in one shared implementation batch",
+      "runtimeVerified": true
+    }
+  ],
+  "tests": {
+    "count": 120,
+    "status": "passed",
+    "log": "outputs/locale-assets-20261026/dispatch-repair-tests.log",
+    "sha256": "d617d51ce01afc6aeff500d5b131fd666c73c3accebd8868903f25253061fedf"
+  },
+  "observedPreventedRequest": {
+    "locale": "es",
+    "completedPhase": 107,
+    "pendingTask": {
+      "kind": "work",
+      "title": "Deliver Spanish glitch conditional data for two reviewed strings and all611 consumer outputs",
+      "brief": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/0107-review/next.md",
+      "briefSha256": "2351aead5f5b00c888d232846ac750ec7404674145fd3165fb4860daadf57710",
+      "inputBindings": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/0106-work/after-review-input-bindings.json",
+      "inputBindingsSha256": "7d7e06d7f13400ef12776913c7647aa8667e03f9b49722b7af445094c7c065de"
+    },
+    "newModelPhaseCreated": false
+  },
+  "consolidatedTechnicalPhase": 95,
+  "completedResultsPreserved": true,
+  "activeRequestsPreserved": true,
+  "noAdditionalWorkerRequestForAuditOrTests": true,
+  "diagnosis": {
+    "spanish104105": {
+      "inputTokens": 9119288,
+      "cachedInputTokens": 8805120,
+      "uncachedInputTokens": 314168,
+      "outputTokens": 50081,
+      "totalTokens": 9169369,
+      "newWording": 0,
+      "scope": "Useful conditional resource data plus repeated metadata handling, not a claim every token was wasted."
+    },
+    "spanish105ToolOutputBytes": 1522927,
+    "largestTwoOutputsBytes": [
+      615437,
+      303533
+    ],
+    "byteCountsAreNotTokenEstimates": true
+  },
+  "remainingLimits": [
+    "Existing finite active assignments finish under their original scope.",
+    "No measured before/after savings or monetary estimate yet.",
+    "The consolidated build and native/release acceptance remain unfinished."
+  ],
+  "coordinatorUsage": "Unknown; mixed diagnosis, implementation, orchestration and reporting. Not counted as worker production usage."
+}
