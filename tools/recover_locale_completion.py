@@ -12,13 +12,14 @@ import time
 
 import run_locale_completion as runner
 from locale_efficiency import POLICY
+from prepare_locale_completion import CONTRACT as BASE_CONTRACT
 from locale_queue import read,sha,write,local,assert_idle
 from cli_job_support import cli_events,cli_turn_succeeded,validate_model
 
 ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 
 
-def prepare(previous,new,handoff=False):
+def prepare(previous,new,handoff=False,overrides=None):
     previous=previous.resolve();new=new.resolve()
     if new.exists() or not new.is_relative_to(ROOT/'outputs/locale-assets-20261026'):
         raise ValueError('Fresh task-owned recovery execution directory required')
@@ -47,15 +48,16 @@ def prepare(previous,new,handoff=False):
                 os.kill(group['pid'],signal.SIGCONT);raise ValueError('Observer pause unverified')
             time.sleep(.05)
     try:
-        return finish_prepare(previous,new,plan,group,observer_identity)
+        return finish_prepare(previous,new,plan,group,observer_identity,overrides)
     except BaseException:
         if handoff and runner.process_identity(group['pid'],previous,observer_identity):
             os.kill(group['pid'],signal.SIGCONT)
         raise
 
 
-def finish_prepare(previous,new,plan,group,observer_identity):
+def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
     handoff=observer_identity is not None;resolved=[]
+    selections=read(overrides) if overrides else {}
     for job in plan['jobs']:
         lane=local(ROOT,job['directory'])
         state=read(lane/'status.json')
@@ -65,8 +67,20 @@ def finish_prepare(previous,new,plan,group,observer_identity):
         if not adopting:assert_idle(lane)
         record=state['phases'][-1];phase=Path(record['phase'])
         thread,usage,errors=cli_events(phase/'events.jsonl')
-        if not adopting and not capacity and (record.get('exitCode')!=0 or not cli_turn_succeeded(0,usage,errors) or thread!=record.get('threadId') or usage!=record.get('measuredUsage')):
-            raise ValueError('Actual successful turn is not verified; no retry')
+        reconciled=None
+        if not adopting and not capacity:
+            if not cli_turn_succeeded(0,usage,errors) or thread!=record.get('threadId'):
+                raise ValueError('Actual successful turn is not verified; no retry')
+            if record.get('exitCode')!=0:
+                prior_path=local(ROOT,job['resumeReceipt'])
+                if sha(prior_path)!=job['resumeReceiptSha256']:raise ValueError('Adoption provenance changed')
+                prior=read(prior_path)
+                if prior.get('kind')!='live-observer-handoff' or prior.get('threadId')!=thread or runner.process_identity(record['pid'],phase):
+                    raise ValueError('Unknown OS result lacks exact adopted-turn provenance')
+                reconciled=dict(exitCode=None,exitCodeKnown=False,threadId=thread,measuredUsage=usage,errors=errors,
+                    terminalObservedAt=runner.now(),completionEvidence='Reconciled successful model turn and absent exact adopted process; OS exit code remains unknown')
+            elif usage!=record.get('measuredUsage'):
+                raise ValueError('Terminal usage differs from checkpoint')
         runtime=read(phase/'runtime-verification.json')
         if runtime['threadId']!=thread or runtime['actualRuntime']['turn']!={'model':'gpt-6.1-sol','effort':'high'} or runtime['actualRuntime']['session']['model_provider']!='openai' or runtime['actualRuntime']['session']['parent_thread_id'] is not None:
             raise ValueError('Prior request model/history provenance differs')
@@ -79,51 +93,27 @@ def finish_prepare(previous,new,plan,group,observer_identity):
             if old.get('resultSha256') and sha(p)!=old['resultSha256']:raise ValueError('Accepted previous result changed')
             if p.exists():seen.update(r['sha256'] for r in read(p).get('evidence',[]))
         if not adopting and not capacity:
-            result=read(phase/'result.json');runner.validate_result(ROOT,job,phase,task,result,seen)
+            result=read(phase/'result.json')
+            correction=selections.get(job['locale'],{}).get('validationNextTask')
+            if correction:result['nextTask']=copy.deepcopy(correction)
+            runner.validate_result(ROOT,job,phase,task,result,seen)
             if result['outcome']!='continue':raise ValueError('Completed worker did not request continuation')
         claim=lane/'continuation.lock'
         if not claim.is_file() or read(claim)['pid']!=group['pid']:raise ValueError('Old claim identity differs')
         child_identity=runner.process_identity(record['pid'],phase) if adopting else None
-        resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity))
+        resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled))
     if not handoff:new.mkdir(parents=True)
     execution=new/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
-    contract=(previous/'CONTRACT.md').read_text()
-    if plan.get('efficiencyPolicy') and '\n# Efficient continuous execution' in contract:
-        contract=contract.split('\n# Efficient continuous execution',1)[0]
-    contract=contract.replace('context-only-preserve requires unchanged source/target hashes, targetEdited:false',
-        'context-only-preserve requires both hashes to match the packet, targetEdited:false')
-    contract=contract.replace('Carry exactly those unread IDs\nand versions into the next fresh review packet.',
-        'Carry all unread IDs and versions in the pending ledger; select a bounded nonempty subset for each fresh review packet.')
-    contract+='''
-
-## Review transport clarification
-
-Context-only preservation may retain an already translated target. Source and
- target hashes must match their frozen packet values; targetEdited must be false,
- and no new linguistic coverage is credited. Detached exact-source preservation
- still requires equal hashes. Give either rationale, or both fidelityRationale
- and a native-language/naturalness rationale; preserve separate dimensions.
-
-A fresh review may take a bounded nonempty subset of unread IDs. The supervisor
- carries all pending and deferred IDs across phases. Omitted rows receive no
- credit and completion cannot skip them. Preserve other required context
- components. Next briefs are bounded to 64 KiB and owned by the completed phase.
-
-An explicitly reconciled capacity failure may receive one fresh bounded closeout
- assignment on the same pinned model. Preserve failed-request provenance and
- draft artifacts, read all assigned IDs/context, and never credit drafts as
- accepted judgments without verification. A repeated failure holds for diagnosis;
- no fallback model or automatic failed-request retry is permitted.
-'''
-    if plan.get('efficiencyPolicy'):contract+='\n'+POLICY
+    contract=BASE_CONTRACT+'\n'+POLICY
     (new/'CONTRACT.md').write_text(contract)
+    if overrides:shutil.copyfile(overrides,new/'assignment-overrides.json')
     new_plan=copy.deepcopy(plan);new_plan['recoveredFrom']=str(previous);new_plan['jobs']=[]
     if new_plan.get('efficiencyPolicy'):new_plan['efficiencyHelper']=str(execution/'locale_efficiency.py')
     if handoff:new_plan['observerHandoff']=dict(oldPid=group['pid'],oldIdentity=observer_identity)
     else:new_plan.pop('observerHandoff',None)
-    for job,state,record,result,claim,phase,adopting,child_identity,capacity in resolved:
+    for job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled in resolved:
         receipt_path=new/'receipts'/(job['locale']+'.json')
         interrupted_pins={};closeout=None
         if capacity:
@@ -153,7 +143,17 @@ nested jobs, game/GUI/runtime, publication, deployment or Git work.
             validatedNextTask=result['nextTask'] if result else closeout,interruptedArtifactPins=interrupted_pins,verifiedReviewCoverage=result.get('verifiedReviewCoverage') if result else None,
             archive=str((new/'old-checkpoints'/job['locale']).relative_to(ROOT)),
             kind='live-observer-handoff' if adopting else 'interrupted-capacity-closeout' if capacity else 'completed-turn-supervisor-schema-repair',threadId=record['threadId'],
-            childIdentity=child_identity,workerReplay=False,priorError=state.get('reason'))
+            childIdentity=child_identity,reconciledTerminal=reconciled,workerReplay=False,priorError=state.get('reason'))
+        override_file=new/'assignment-overrides.json'
+        if override_file.exists() and job['locale'] in read(override_file):
+            entry=read(override_file)[job['locale']]
+            selected=entry.get('selectedNextTask',entry)
+            if adopting or not result:raise ValueError('An active bounded assignment cannot be overridden')
+            if selected.get('reviewCarryover')!=result['nextTask'].get('reviewCarryover'):
+                raise ValueError('Assignment override must preserve exact pending review debt')
+            if sha(local(ROOT,selected['brief']))!=selected['briefSha256']:raise ValueError('Override brief changed')
+            receipt['selectedNextTask']=selected
+            if entry.get('validationNextTask'):receipt['validationNextTask']=entry['validationNextTask']
         write(receipt_path,receipt)
         updated=copy.deepcopy(job);updated['resumeReceipt']=str(receipt_path.relative_to(ROOT));updated['resumeReceiptSha256']=sha(receipt_path)
         new_plan['jobs'].append(updated)
@@ -165,5 +165,6 @@ nested jobs, game/GUI/runtime, publication, deployment or Git work.
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--previous',required=True,type=Path);parser.add_argument('--run',required=True,type=Path)
     parser.add_argument('--handoff-active',action='store_true')
-    args=parser.parse_args();plan=prepare(args.previous,args.run,handoff=args.handoff_active)
+    parser.add_argument('--overrides',type=Path)
+    args=parser.parse_args();plan=prepare(args.previous,args.run,handoff=args.handoff_active,overrides=args.overrides)
     print(json.dumps(dict(recoveredLanes=[j['locale'] for j in plan['jobs']],completedTurnsReplayed=0),indent=2))

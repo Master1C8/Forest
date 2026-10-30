@@ -64,11 +64,19 @@ sourceSha256/targetSha256. The next task kind is review. Reviewer writes JSONL
 reviews with those IDs/hashes, explicit verdict and objective rationale. Findings
 lead automatically to a work repair phase and then exact independent delta.
 
-Japanese starts with the next150 of the actual3241 unread semantic IDs, retaining
-192 matching judgments. Continue successive fresh packets through the remaining
-IDs and all still-unread required context/topology components. Preserve the
-reproduced three context-only retirements and all5022 selections. Collect all
-findings before one consolidated repair; a partial packet is never full coverage.
+Current phase tasks and version-matching owning receipts define each locale's
+resume point. Never restart an old initial packet or reread completed units
+because a historical task description names them. Keep explicitly unread units
+and context in the exact current pending ledger.
+
+Review transport: explicit verdict/rationale (or fidelity plus native-language
+rationale) and exact source/target hashes are required. A partial continue may
+supply sparse judgments; every missing primary ID remains unread and version-bound
+in its next review carryover. Declared context rows have separate coverage and
+must not inflate primary counts. Unknown or changed context versions reject.
+Retain exact inherited non-pass evidence without crediting unread units. Next
+briefs remain owned by the completed phase and bounded to64KiB. Scope a new
+wording packet with the shared preparation tool; preserve the complete evidence.
 
 After the initial task, continue all useful admitted work in the28-family catalog:
 saved dialogue repairs, 935 UI, inventory52/glitch, chapter/gallery, remaining51,
@@ -135,7 +143,7 @@ def prepare(directory):
     registry=queue.read(Path.home()/'.codex/models_cache.json')
     if not any(r.get('slug')=='gpt-6.1-sol' for r in registry['models']):raise ValueError('Exact Sol model unavailable')
     directory.mkdir(parents=True);execution=directory/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     (directory/'CONTRACT.md').write_text(CONTRACT+'\n'+POLICY)
     common=[ROOT/'localization/source/dialogue-candidates.jsonl',ROOT/'localization/source/dialogue-manifest.json',

@@ -17,12 +17,30 @@ Use the supplied frozen efficiency helper for runtime/pin/usage checks. Do not
 dump raw session logs, all pin rows, full regression reports or unrelated history.
 Print counts, hashes and failing records; expand only concrete discrepancies.
 
-For packet input, consume every supplied lossless-view page and definition once.
-The helper proves exact decoded roundtrip and source fingerprints; it gives NO
-semantic acceptance. References preserve complete values, never summaries.
-Judge all assigned IDs, full wording/assemblies and required context. Original
-files remain authoritative for ambiguity. No default passes, sampling, skipped
-context, narrower dependency selectors or automatic semantic judgments.
+Lossless views are exact indexes, not mandatory reading lists of every metadata
+field. Read every assigned source/target, full relevant assembled output and all
+required source/scene/glossary context. Resolve view references used by that
+reading. Mechanical hash lists, origin arrays, preserved raw properties and
+unchanged metadata are checked by code; do not reread them all in the model.
+Original complete evidence stays available for concrete ambiguity. No sampling,
+missing semantic context, default passes or automatic semantic judgments.
+
+Use the frozen locale_review_work.py prepare-scope command when preparing a new
+wording review. Give the complete authored candidate file and original packet.
+The new review comprises those exact primary versions plus explicitly caused
+invalidations with evidence. Unchanged neighboring dialogue is SOURCE context;
+do not automatically give it another full target-language audit. Include actual
+joined outputs, changed terminology/referents and other real dependencies. Unknown
+dependency bounds require a broader explicit scope. Keep scope.json and use its
+review-packet.jsonl plus source-context.jsonl in the next task. A full semantic
+audit's genuinely unreviewed IDs remain mandatory; this is not a shortcut for them.
+
+For review output, write only newly judged primary IDs, verdicts and actual brief
+rationales, then use locale_review_work.py finish-review. It attaches hashes,
+writes the pending ledger and publishes the normal result. Missing rows remain
+unread, never pass. Keep context notes separate; declared matching context rows
+never increase primary/linguistic coverage. Do not write a new publication script
+or copy whole inherited receipts into every output row.
 
 Batch a complete finite family or normally100–300 primary units per author/review
 context, subject to actual required context volume. Do not default to three
@@ -45,12 +63,26 @@ Review finite shared resource contracts together across the authorized locales
 when their actual combined input fits; do not create six processes for two cells
 each. Keep author and independent reviewer distinct fresh contexts.
 
-Run the supplied usage command after bootstrap and each roughly10 commands.
-At100k uncached input or18k output, finish the current coherent unit and checkpoint
-the exact remaining IDs/context. Aim below150k uncached input and30k output per
-context. These are checkpoint thresholds, not permission to drop required reading,
-fabricate progress or stop useful authorized work. The supervisor continues it.
-Never auto-kill or retry an unknown request to enforce a token threshold.
+Language lanes own wording, author editing, semantic review and local application
+through verified existing adapters. They do not implement shared resource/font
+allocation frameworks, metadata validators or packaging contracts. Preserve the
+exact bounded phase already in progress; after it, send a compact immutable
+technical handoff (predicate, affected versions, evidence, required result) to
+the one technical lane and continue actual remaining linguistic work. If useful
+authorized linguistic work is exhausted, record the shared dependency rather
+than manufacture another resource-proof loop. Technical work first fixes a
+failed cheap prerequisite before reading/rechecking its expensive workload.
+Publish technicalHandoffs as pinned own-lane JSON requests with predicate,
+affectedIds, evidence and requiredResult. The coordinator forwards data only.
+The technical lane closes completed requests through resolvedTechnicalHandoffs
+with pinned request and verified delivery; handled requests are not requeued.
+
+Use the compact usage command at substantive checkpoints. Size work by actual
+text and required context, not cumulative cached replays or report-writing volume.
+Checkpoint before real context exhaustion, carrying exact unread versions and
+context; do not stop after two objects merely because a generic output counter
+crossed a threshold. No total token budget was assigned. Never auto-kill or retry
+an unknown request to enforce an invented limit.
 
 Return the established result.json schema. Supply nextTask.reviewPacket explicitly
 for each review. Use nextTask.contextPackets for other required JSONL context so
@@ -180,6 +212,10 @@ def inspect_phase(phase, include_usage=False):
         if sha(path)!=digest:mismatches.append(name)
     if mismatches:raise ValueError('Immutable input changed: '+repr(mismatches[:5]))
     result['immutablePinsVerified']=len(task['job']['immutablePins'])
+    if task.get('laneRole')=='shared-technical' and task.get('technicalInbox'):
+        inbox=Path(task['technicalInbox'])
+        pending=[p for p in sorted(inbox.glob('*.json')) if not (inbox/'handled'/p.name).exists()]
+        result['technicalInbox']=dict(path=str(inbox),pendingCount=len(pending),requests=[str(p) for p in pending[:16]])
     view=task.get('losslessView')
     if view:
         manifest=local(root,view['path'])
@@ -193,7 +229,7 @@ def inspect_phase(phase, include_usage=False):
         usage=latest_usage(Path(runtime['sessionMetadataPath']));result['usage']=usage
         if usage:
             fresh=usage['input_tokens']-usage.get('cached_input_tokens',0)
-            result.update(uncachedInput=fresh,checkpointDue=fresh>=100000 or usage.get('output_tokens',0)>=18000)
+            result.update(uncachedInput=fresh,usageIsNotAContextLimit=True)
     return result
 
 

@@ -35,6 +35,38 @@ def permitted(root,path,prefixes):
     return any(resolved.is_relative_to(local(root,prefix)) for prefix in prefixes)
 
 
+def publish_technical_handoffs(root,directory,job,result):
+    """Forward pinned data to the existing technical lane, never launch a model."""
+    published=[]
+    for pin in result.get('technicalHandoffs',[]):
+        path=local(root,pin['path'])
+        if not permitted(root,path,job['writePrefixes']) or sha(path)!=pin['sha256']:
+            raise ValueError('Technical handoff outside own scope or changed')
+        data=read(path)
+        if not all(data.get(k) for k in ['predicate','affectedIds','evidence','requiredResult']):
+            raise ValueError('Technical handoff needs its actual finite predicate and evidence')
+        inbox=directory/'technical-inbox';inbox.mkdir(exist_ok=True)
+        target=inbox/(job['locale']+'-'+pin['sha256']+'.json')
+        body=dict(locale=job['locale'],request=pin,finiteDeliverable=data['requiredResult'])
+        if target.exists():
+            if read(target)!=body:raise ValueError('Existing immutable handoff differs')
+        else:save(target,body)
+        published.append(str(target.relative_to(root)))
+    for item in result.get('resolvedTechnicalHandoffs',[]):
+        if job.get('locale')!='technical':raise ValueError('Only the technical lane can close shared work')
+        request=local(root,item['request']['path']);delivery=local(root,item['delivery']['path'])
+        if request.parent!=(directory/'technical-inbox').resolve() or sha(request)!=item['request']['sha256']:
+            raise ValueError('Resolved request identity differs')
+        if not permitted(root,delivery,job['writePrefixes']) or sha(delivery)!=item['delivery']['sha256']:
+            raise ValueError('Resolved technical delivery differs')
+        handled=directory/'technical-inbox/handled';handled.mkdir(exist_ok=True)
+        receipt=handled/request.name
+        if receipt.exists():
+            if read(receipt)!=item:raise ValueError('Existing technical closure differs')
+        else:save(receipt,item)
+    return published
+
+
 def resolve_review_packet(root,job,next_task,result):
     """Resolve an explicit packet or one unique, fully pinned structured binding."""
     selected=next_task.get('reviewPacket')
@@ -86,7 +118,7 @@ def validate_result(root,job,phase,task,result,seen):
         if sha(path)!=row['sha256']:raise ValueError('Evidence hash mismatch')
         # Changing a filename alone never creates progress.
         fresh.add(row['sha256'])
-    unread=[];expected={}
+    unread=[];expected={};context_debt={r['id']:r for r in task.get('contextCarryover',[])}
     if task['kind']=='review':
         packet=local(root,task['reviewPacket'])
         if sha(packet)!=task['reviewPacketSha256']:raise ValueError('Independent review packet changed')
@@ -95,16 +127,34 @@ def validate_result(root,job,phase,task,result,seen):
         if len(expected)!=len(pairs) or not pairs:raise ValueError('Nonempty unique review packet required')
         reviews=local(root,result['reviews'])
         if not permitted(root,reviews,job['writePrefixes']):raise ValueError('Foreign review output')
-        actual=[json.loads(s) for s in reviews.read_text().splitlines() if s.strip()]
-        ids=[r['id'] for r in actual]
-        if len(set(ids))!=len(ids) or set(ids)!=set(expected):raise ValueError('Incomplete independent review coverage')
-        for row in actual:
+        supplied=[json.loads(s) for s in reviews.read_text().splitlines() if s.strip()]
+        ids=[r['id'] for r in supplied]
+        if len(set(ids))!=len(ids):raise ValueError('Duplicate independent review judgment')
+        contexts=dict(context_debt)
+        for name in task.get('contextPackets',[]):
+            for line in local(root,name).read_text().splitlines():
+                if not line.strip():continue
+                row=json.loads(line)
+                if not isinstance(row,dict) or not all(row.get(k) for k in ['id','sourceSha256','targetSha256']):continue
+                if row['id'] in contexts and any(contexts[row['id']][k]!=row[k] for k in ['sourceSha256','targetSha256']):
+                    raise ValueError('Conflicting declared context versions')
+                contexts[row['id']]=row
+        extras=[r for r in supplied if r['id'] not in expected]
+        for row in extras:
+            if row['id'] not in contexts or row.get('notLinguisticCoverage') is not True or row.get('targetEdited') is not False:
+                raise ValueError('Undeclared context review outside assigned primary coverage')
+        actual=[r for r in supplied if r['id'] in expected]
+        missing=set(expected)-{r['id'] for r in actual}
+        if missing and outcome!='continue':raise ValueError('Incomplete independent review coverage')
+        unread.extend(sorted(missing))
+        for row in supplied:
             combined=isinstance(row.get('rationale'),str) and bool(row['rationale'].strip())
             natural=[v for k,v in row.items() if k=='naturalnessRationale' or (k.startswith('native') and k.endswith('Rationale'))]
             separate=isinstance(row.get('fidelityRationale'),str) and bool(row['fidelityRationale'].strip()) and any(isinstance(v,str) and v.strip() for v in natural)
             if row.get('verdict') not in REVIEW_VERDICTS or not (combined or separate):
                 raise ValueError('Every review row needs an explicit verdict and rationale')
-            if any(row.get(k)!=expected[row['id']].get(k) for k in ['sourceSha256','targetSha256']):
+            version=expected.get(row['id'],contexts.get(row['id']))
+            if any(row.get(k)!=version.get(k) for k in ['sourceSha256','targetSha256']):
                 raise ValueError('Reviewed source/target versions differ')
             if 'reviewed' in row and not isinstance(row['reviewed'],bool):raise ValueError('reviewed must be an explicit boolean')
             if row.get('reviewed') is False:
@@ -115,12 +165,16 @@ def validate_result(root,job,phase,task,result,seen):
                     and row['verdict'] in {'needs-context','source-defect','technical-preservation','held-source','needs-repair'}
                     and isinstance(prior,dict) and all(prior.get(k)==row.get(k) for k in ['id','sourceSha256','targetSha256','verdict']))
                 if row['verdict']!='needs-review' and not pending_prior:raise ValueError('Unread rows can never carry a pass or completed disposition')
-                unread.append(row['id'])
+                if row['id'] in expected:unread.append(row['id'])
             if row['verdict']=='context-only-preserve':
                 if row.get('notLinguisticCoverage') is not True or row.get('targetEdited') is not False:
                     raise ValueError('Context-only preservation must retain the reviewed target and stay outside new linguistic coverage')
                 if row.get('sourceDisposition')=='preserved-detached-source' and row['sourceSha256']!=row['targetSha256']:
                     raise ValueError('Detached exact-source preservation cannot change source bytes')
+            if row['id'] not in expected and row.get('reviewed') is False:
+                context_debt[row['id']]={k:row[k] for k in ['id','sourceSha256','targetSha256']}
+            elif row.get('reviewed') is not False:
+                context_debt.pop(row['id'],None)
         carry=task.get('reviewCarryover')
         inherited=set()
         if carry:
@@ -131,17 +185,32 @@ def validate_result(root,job,phase,task,result,seen):
             if not set(expected)<=inherited or not inherited<=set(basis_rows):raise ValueError('Current review packet escaped pending carryover')
             if any(any(r.get(k)!=basis_rows[r['id']].get(k) for k in ['sourceSha256','targetSha256']) for r in pairs):raise ValueError('Carryover review versions differ')
         pending=(inherited-set(expected))|set(unread)
-        result['verifiedReviewCoverage']=dict(assigned=len(actual),judged=len(actual)-len(unread),unreadIds=unread,
+        result['verifiedReviewCoverage']=dict(assigned=len(expected),judged=len(expected)-len(unread),unreadIds=unread,
             pendingIds=sorted(pending),
+            missingReviewIds=sorted(missing),declaredContextJudgments=len(extras),
             contextOnlyPreservations=sum(r['verdict']=='context-only-preserve' for r in actual),
             nonPassRows=sum(r['verdict'] not in {'pass','clean'} for r in actual),
             acceptance='Coverage classification only; original non-pass verdicts are retained, never promoted')
+    elif task.get('reviewCarryover'):
+        carry=task['reviewCarryover'];basis=local(root,carry['packet'])
+        if sha(basis)!=carry['sha256']:raise ValueError('Prerequisite repair review debt changed')
+        basis_ids={json.loads(line)['id'] for line in basis.read_text().splitlines() if line.strip()}
+        if not set(carry['pendingIds'])<=basis_ids:raise ValueError('Repair debt escaped the frozen review basis')
+        result['verifiedReviewCoverage']=dict(assigned=0,judged=0,pendingIds=carry['pendingIds'],unreadIds=[],
+            acceptance='Unreviewed debt carried through prerequisite repair; no new semantic coverage')
+    if context_debt:
+        result.setdefault('verifiedReviewCoverage',{})['pendingContextIds']=sorted(context_debt)
+        if outcome!='continue':raise ValueError('Unread required context prevents terminal acceptance')
     if outcome=='continue':
         progress=result.get('progress',{})
         if progress.get('kind') not in {'authored','edited','reviewed','source-decisions','resource-build','technical-proof'} or not progress.get('unitIds'):
             raise ValueError('Real authored/reviewed/resolved/built units required; plans and counters are not progress')
         if not fresh-seen:raise ValueError('No new substantive evidence; do not loop unchanged')
         next_task=result['nextTask']
+        if context_debt:next_task['contextCarryover']=list(context_debt.values())
+        else:next_task.pop('contextCarryover',None)
+        if job.get('locale')!='technical' and next_task.get('taskClass')=='shared-engineering':
+            raise ValueError('Language lane must hand shared engineering to technicalHandoffs and select remaining linguistic work')
         if next_task.get('kind') not in KINDS or not next_task.get('title'):raise ValueError('Concrete next task required')
         brief=local(root,next_task['brief'])
         if not brief.is_relative_to(phase.resolve()) or not 0<brief.stat().st_size<=MAX_BRIEF_BYTES:
@@ -209,7 +278,8 @@ def argv(plan,phase):
         prompt=(f'Execute {phase}/brief.md and task.json under their frozen contract. First await runtime-verification.json, '
                 f'then run python3 -B {Path(plan["efficiencyHelper"])} inspect --phase {phase}. '
                 'Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. '
-                'Read every supplied lossless-view page once, retain required semantic/context coverage, and use compact deterministic output. '
+                'Read all assigned wording and necessary semantic context; views are indexes, not instructions to reread every metadata field. '
+                f'Use the shared review preparation/publication commands at {Path(plan["efficiencyHelper"]).parent/"locale_review_work.py"}; do not invent per-phase publication scripts. '
                 f'Write result.json to {phase}; continue automatically with the next finite task. Parent alone owns Git.')
     return [plan['cli'],'exec','--ignore-user-config','--model','gpt-6.1-sol',
             '-c','model_provider="openai"','-c','model_reasoning_effort="high"','-c','approval_policy="never"',
@@ -307,18 +377,23 @@ def run_lane(directory,plan,job):
                 thread,usage,errors=cli_events(phase/'events.jsonl')
                 record.update(exitCode=None,exitCodeKnown=False,measuredUsage=usage,errors=errors,finishedAt=now(),
                     completionEvidence='Verified model turn.completed and exited adopted process; OS exit code unavailable')
+                save(lane/'status.json',state)
                 if usage is None or any(e.get('type')=='turn.failed' for e in errors) or thread!=record.get('threadId'):
                     state.update(status='held-request-outcome',reason='Adopted request lacks verified terminal completion; no retry');save(lane/'status.json',state);return state
             except Exception as error:
                 state.update(status='held-supervisor-error',reason=repr(error));save(lane/'status.json',state);return state
         else:
-            if record.get('exitCode')!=0 or not cli_turn_succeeded(record['exitCode'],record.get('measuredUsage'),record.get('errors',[])):
+            if receipt.get('reconciledTerminal'):
+                record.update(receipt['reconciledTerminal'])
+            known_success=record.get('exitCode')==0 or record.get('exitCodeKnown') is False and bool(receipt.get('reconciledTerminal'))
+            if not known_success or not cli_turn_succeeded(0,record.get('measuredUsage'),record.get('errors',[])):
                 raise ValueError('Prior request outcome is not a verified successful turn')
             thread,usage,errors=cli_events(phase/'events.jsonl')
-            if not cli_turn_succeeded(record['exitCode'],usage,errors) or thread!=record.get('threadId') or usage!=record.get('measuredUsage'):
+            if not cli_turn_succeeded(0,usage,errors) or thread!=record.get('threadId') or usage!=record.get('measuredUsage'):
                 raise ValueError('Actual prior terminal request receipt differs from checkpoint')
             if sha(phase/'result.json')!=receipt['resultSha256']:raise ValueError('Completed result changed after recovery validation')
         old_task=read(phase/'task.json')['task'];result=read(phase/'result.json');seen=set()
+        if receipt.get('validationNextTask'):result['nextTask']=copy.deepcopy(receipt['validationNextTask'])
         for old in state['phases'][:-1]:
             previous=Path(old['phase'])/'result.json'
             if old.get('resultSha256') and sha(previous)!=old['resultSha256']:raise ValueError('Retained previous result changed')
@@ -343,7 +418,7 @@ def run_lane(directory,plan,job):
                       verifiedReviewCoverage=result.get('verifiedReviewCoverage'))
         state.setdefault('recoveries',[]).append(dict(receipt=job['resumeReceipt'],at=now(),priorReason=state.get('reason')))
         state.update(status='starting',supervisorPid=os.getpid());state.pop('reason',None);state.pop('warning',None);state.pop('observedAt',None)
-        task=copy.deepcopy(result['nextTask']);seen.update(fresh)
+        task=copy.deepcopy(receipt.get('selectedNextTask') or result['nextTask']);seen.update(fresh)
     else:
         state=dict(locale=job['locale'],status='starting',supervisorPid=os.getpid(),startedAt=now(),
                    phases=[],automaticContinuation=True,automaticFailedRequestRetry=False)
@@ -365,6 +440,9 @@ def run_lane(directory,plan,job):
                 supervisorOwnedFiles=['task.json','brief.md','events.jsonl','stderr.log','runtime-verification.json'])
             if plan.get('efficiencyPolicy'):
                 phase_config['efficiencyHelper']=plan['efficiencyHelper']
+                phase_config['reviewHelper']=str(Path(plan['efficiencyHelper']).parent/'locale_review_work.py')
+                phase_config['laneRole']='shared-technical' if job['locale']=='technical' else 'linguistic'
+                phase_config['technicalInbox']=str(directory/'technical-inbox')
                 packets=[]
                 if task.get('reviewPacket'):
                     packet=local(root,task['reviewPacket'])
@@ -392,6 +470,8 @@ def run_lane(directory,plan,job):
             if not cli_turn_succeeded(code,usage,errors):
                 record['status']='held-request-outcome';state.update(status='held-request-outcome',reason='Reconcile this exact request; no automatic retry');save(status,state);return state
             result=read(phase/'result.json');fresh=validate_result(root,job,phase,task,result,seen)
+            published=publish_technical_handoffs(root,directory,job,result)
+            if published:record['technicalHandoffs']=published
             record.update(status='partial-review-reassigned' if result.get('verifiedReviewCoverage',{}).get('unreadIds') else 'phase-complete',
                           resultSha256=sha(phase/'result.json'),summary=result['summary'],progress=result.get('progress'),outcome=result['outcome'],
                           verifiedReviewCoverage=result.get('verifiedReviewCoverage'))

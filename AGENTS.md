@@ -1,6 +1,6 @@
 # Forest localization completion
 
-When `outputs/locale-assets-20261026/launch-current.json` selects a workflow-v3 or workflow-v4
+When `outputs/locale-assets-20261026/launch-current.json` selects a workflow-v3, workflow-v4 or workflow-v5
 continuous run, use that run's plan, lane status, frozen contract and
 `immutablePins` for current execution. The v2 `locale-queue.py check` snapshot is
 historical after authorized locale edits; its expected target/recipe drift is
@@ -11,8 +11,9 @@ routine already-authorized work. Semantic independence and real source/runtime
 gates still apply.
 
 For future efficient runs, `tools/locale_efficiency.py` owns lossless packet views,
-compact runtime/pin checks and measured checkpoint alerts. Read each required
-definition and row once; exact interning never grants semantic acceptance. Keep
+compact runtime/pin checks and measured usage. Views are indexes, not an order to
+read every metadata field. Read all required wording and semantic context;
+exact interning never grants semantic acceptance. Keep
 complete source/target/context coverage, independent reviewers and all held gates.
 Batch a whole finite family or a context-sized substantial subset; do not default
 to three ordinary descriptions or one fresh model per two technical resource cells.
@@ -22,6 +23,16 @@ without losing fields, false/zero/null distinctions, CR/LF, Unicode or source/ta
 hashes; conflicting same-ID combined packets reject before any model request.
 An explicitly owner-stopped request resumes through a new pinned phase, preserves
 its original drafts, and never turns interrupted judgments into accepted coverage.
+
+`tools/locale_review_work.py` owns reusable review preparation/publication. New
+authored versions and evidence-backed invalidations form the primary review;
+unchanged surrounding dialogue stays source context unless a concrete semantic
+dependency invalidates its prior evidence. Keep the original complete evidence.
+Sparse review output carries every missing ID as unread, never as pass. Declared
+context judgments are separate from primary coverage. Language lanes hand shared
+engineering to the one technical inbox and continue remaining linguistic work;
+they do not create resource-contract or reporting loops. Fix a failed cheap
+prerequisite before spending model context on its expensive dependent workload.
 
 For the updated multilingual completion queue, use `localization/PROCESS.md`,
 `localization/completion/process-spec.json` and `python3 -B tools/locale_queue.py
