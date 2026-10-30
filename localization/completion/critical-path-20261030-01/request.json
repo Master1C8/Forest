@@ -1,0 +1,32 @@
+{
+  "priority": 0,
+  "ownerInstruction": "Prioritize actual delivery progress over expanding report/contract phases",
+  "predicate": "Shared source/application gates remain unaccepted and no target locale build exists",
+  "affectedIds": [
+    "source/static-fields-331-332-4948",
+    "source/rewired-display-aliases",
+    "source/dialogue-callback-consumers",
+    "source/runtime-application-selectors",
+    "source/noncandidate-db-and-resource-joins"
+  ],
+  "evidence": [
+    {
+      "path": "localization/source/shared-source-completion-20261028/admission-v1/manifest.json",
+      "sha256": "7d3af97c8a5af23eecc3ba12a3b989e19c2d6bf59c0aaa97c35d5de85eb80403"
+    },
+    {
+      "path": "localization/source/shared-source-completion-20261028/admission-v1/phase146/static-field-holds.json",
+      "sha256": "6cb08bf9789d140644ed2b11d2943c19ebfb8f76808ccab2f1a988e5c47c7f0b"
+    },
+    {
+      "path": "localization/completion/critical-path-20261030-01/TASK.md",
+      "sha256": "53d4f85248dede6a5c0adbb7e7a97d03587c312a72313dc064ad40984716787d"
+    }
+  ],
+  "requiredResult": "Close provable shared delivery blockers; identify an actually permitted build or the exact remaining external/owner dependency",
+  "task": {
+    "path": "localization/completion/critical-path-20261030-01/TASK.md",
+    "sha256": "53d4f85248dede6a5c0adbb7e7a97d03587c312a72313dc064ad40984716787d"
+  },
+  "runtimeAuthority": "unchanged: no game/GUI/installer/publication/server action"
+}
