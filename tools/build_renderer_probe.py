@@ -299,6 +299,9 @@ def main():
                                 'unselectedRawBytesEquality': 'passed', 'probeReadback': 'passed',
                                 'changes': changes})
         (out / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+        # Keep the verified hash and readback receipt, not the temporary round trip.
+        # A failed check or receipt write leaves the file available for diagnosis.
+        noop_path.unlink()
         print(name, 'no-op and exact readback passed', flush=True)
     (target / 'app.info').write_text('VNRevivalQA\nForestRuRendererProbe')
     report['addressables'] = update_catalog(

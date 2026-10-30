@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-10-30T18:16:53.846005+00:00",
+  "ownerRequest": "Remove unnecessary temporary files; keep all localization work stopped.",
+  "deletedFiles": 81,
+  "deletedLogicalBytes": 1925375505,
+  "compactedFiles": 2776,
+  "compactedLogicalBytes": 22358789765,
+  "freeBefore": 4541120512,
+  "freeAfter": 27931574272,
+  "observedFreeSpaceIncrease": 23390453760,
+  "heldUnverified": [
+    "localization/probes/ru-20261026-01/noop-globalgamemanagers",
+    "localization/probes/ru-20261026-08/noop-sharedassets0.assets"
+  ],
+  "protectedPinsUnchanged": true,
+  "acceptedRussianBuildNotModified": true,
+  "unrelatedGitEntriesPreserved": 2033,
+  "postconditions": [
+    "All selected deletions absent",
+    "Every compacted file SHA-256 verified before and after replacement during execution",
+    "All compacted paths retained with separate inodes and copy-on-write semantics",
+    "File modes, mtime, ownership and extended attributes retained",
+    "Native copy-on-write isolation positive control passed",
+    "Two builder cleanup success/failure boundary regressions passed"
+  ],
+  "attempts": [
+    {
+      "action": "compaction",
+      "outcome": "Failed before first replacement: macOS Python has no os.listxattr; empty journal verified",
+      "changedFiles": 0
+    },
+    {
+      "action": "compaction",
+      "outcome": "Completed after using native Darwin extended-attribute reads; different attributes held"
+    }
+  ],
+  "limits": [
+    "Filesystem free-space delta includes concurrent system activity and APFS accounting",
+    "No game, GUI, localization/model worker, installer, publication, deployment or server lifecycle action",
+    "Builder regression replaces asset processing with a successful fixture; no full game build"
+  ],
+  "builderRecipeChange": "Current source builders discard noop output only after successful readback and receipt write; failures preserve it. Historical frozen builders unchanged."
+}
