@@ -370,6 +370,10 @@ def run_lane(directory,plan,job):
                 path=lane/name
                 if path.exists():
                     with (archive/name).open('xb') as f:f.write(path.read_bytes())
+            claim=lane/'continuation.lock'
+            if sha(claim)!=receipt['previousClaimSha256']:raise ValueError('Adopted continuation claim changed')
+            save(claim,dict(pid=os.getpid(),at=now(),adoptedFrom=read(claim)['pid']))
+            receipt['previousClaimSha256']=sha(claim)
             state.update(supervisorPid=os.getpid(),status='running');record['status']='running-adopted'
             save(lane/'status.json',state)
             try:

@@ -19,6 +19,16 @@ from cli_job_support import cli_events,cli_turn_succeeded,validate_model
 ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 
 
+def owns_claim(root,job,state,record,claim,group):
+    if read(claim)['pid']==group['pid']:return True
+    if state.get('supervisorPid')!=group['pid'] or not job.get('resumeReceipt'):return False
+    path=local(root,job['resumeReceipt'])
+    if sha(path)!=job['resumeReceiptSha256']:return False
+    prior=read(path)
+    return (prior.get('kind')=='live-observer-handoff' and prior.get('threadId')==record.get('threadId')
+            and prior.get('previousClaimSha256')==sha(claim))
+
+
 def prepare(previous,new,handoff=False,overrides=None):
     previous=previous.resolve();new=new.resolve()
     if new.exists() or not new.is_relative_to(ROOT/'outputs/locale-assets-20261026'):
@@ -99,7 +109,7 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
             runner.validate_result(ROOT,job,phase,task,result,seen)
             if result['outcome']!='continue':raise ValueError('Completed worker did not request continuation')
         claim=lane/'continuation.lock'
-        if not claim.is_file() or read(claim)['pid']!=group['pid']:raise ValueError('Old claim identity differs')
+        if not claim.is_file() or not owns_claim(ROOT,job,state,record,claim,group):raise ValueError('Old claim identity differs')
         child_identity=runner.process_identity(record['pid'],phase) if adopting else None
         resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled))
     if not handoff:new.mkdir(parents=True)

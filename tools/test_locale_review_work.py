@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 import locale_review_work as work
 import run_locale_completion as runner
+import recover_locale_completion as recovery
 from locale_queue import read,sha
 
 
@@ -30,6 +31,16 @@ def pair(ident):
 
 
 class ReviewWorkTests(unittest.TestCase):
+    def test_old_adopted_claim_requires_exact_pinned_handoff_provenance(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();claim=root/'claim.json';claim.write_text('{"pid":111}')
+            receipt=root/'receipt.json';receipt.write_text(json.dumps(dict(kind='live-observer-handoff',threadId='exact-thread',previousClaimSha256=sha(claim))))
+            job=dict(resumeReceipt='receipt.json',resumeReceiptSha256=sha(receipt));state=dict(supervisorPid=222);record=dict(threadId='exact-thread')
+            self.assertTrue(recovery.owns_claim(root,job,state,record,claim,dict(pid=222)))
+            self.assertFalse(recovery.owns_claim(root,job,state,dict(threadId='foreign'),claim,dict(pid=222)))
+            claim.write_text('{"pid":333}')
+            self.assertFalse(recovery.owns_claim(root,job,state,record,claim,dict(pid=222)))
+
     def test_relative_cli_paths_bind_the_same_real_project_files(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp).resolve();phase,rows,task,job=self.fixture(root)
