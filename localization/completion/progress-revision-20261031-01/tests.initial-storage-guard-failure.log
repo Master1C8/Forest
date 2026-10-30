@@ -1,0 +1,60 @@
+{"locale": "de", "phase": 2, "status": "running", "pid": 99999999, "threadId": "new"}
+{"locale": "de", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "de", "phase": 2, "status": "running", "pid": 99999999, "threadId": "new"}
+{"locale": "de", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "de", "phase": 1, "status": "running", "pid": 99999999, "threadId": "verified-fixture"}
+{"locale": "de", "phase": 1, "outcome": "continue", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "de", "phase": 2, "status": "running", "pid": 99999999, "threadId": "verified-fixture"}
+{"locale": "de", "phase": 2, "outcome": "static-complete", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "de", "phase": 2, "status": "running", "pid": 99999999, "threadId": "new"}
+{"locale": "de", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "zh", "phase": 2, "status": "running", "pid": 99999999, "threadId": "consumer"}
+{"locale": "zh", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "zh", "phase": 2, "status": "running", "pid": 99999999, "threadId": "consumer"}
+{"locale": "zh", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "de", "phase": 2, "status": "running", "pid": 99999999, "threadId": "fresh"}
+{"locale": "de", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "zh", "phase": 2, "status": "running", "pid": 99999999, "threadId": "owner-target"}
+{"locale": "zh", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+{"locale": "zh", "phase": 2, "status": "running", "pid": 99999999, "threadId": "fresh"}
+{"locale": "zh", "phase": 2, "outcome": "blocked", "usage": {"input_tokens": 10, "cached_input_tokens": 0, "output_tokens": 2, "reasoning_output_tokens": 0, "total_tokens": 12}}
+======================================================================
+ERROR: test_actual_partial_write_resumes_same_inode_and_conflict_rejects (test_locale_build.LocaleBuildTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/tools/test_locale_build.py", line 67, in test_actual_partial_write_resumes_same_inode_and_conflict_rejects
+    build.run(profile,'zh',out,root=self.root,fail_after=1)
+  File "/Users/antonkrutov/Desktop/Forest/tools/locale_build.py", line 96, in run
+    need(shutil.disk_usage(root).free - sum(map(len, files.values())) >= 5*1024**3, 'build-five-GiB-reserve')
+  File "/Users/antonkrutov/Desktop/Forest/tools/locale_build.py", line 21, in need
+    raise ValueError(why)
+ValueError: build-five-GiB-reserve
+
+======================================================================
+ERROR: test_own_locale_and_changed_actual_resource_fail_at_intended_boundary (test_locale_build.LocaleBuildTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/tools/test_locale_build.py", line 59, in test_own_locale_and_changed_actual_resource_fail_at_intended_boundary
+    build.run(profile,'zh',out,root=self.root)
+  File "/Users/antonkrutov/Desktop/Forest/tools/locale_build.py", line 96, in run
+    need(shutil.disk_usage(root).free - sum(map(len, files.values())) >= 5*1024**3, 'build-five-GiB-reserve')
+  File "/Users/antonkrutov/Desktop/Forest/tools/locale_build.py", line 21, in need
+    raise ValueError(why)
+ValueError: build-five-GiB-reserve
+
+======================================================================
+ERROR: test_six_locales_materialize_actual_bytes_without_acceptance (test_locale_build.LocaleBuildTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/tools/test_locale_build.py", line 46, in test_six_locales_materialize_actual_bytes_without_acceptance
+    result=build.run(profile,locale,out,root=self.root)
+  File "/Users/antonkrutov/Desktop/Forest/tools/locale_build.py", line 96, in run
+    need(shutil.disk_usage(root).free - sum(map(len, files.values())) >= 5*1024**3, 'build-five-GiB-reserve')
+  File "/Users/antonkrutov/Desktop/Forest/tools/locale_build.py", line 21, in need
+    raise ValueError(why)
+ValueError: build-five-GiB-reserve
+
+----------------------------------------------------------------------
+Ran 135 tests in 4.414s
+
+FAILED (errors=3)

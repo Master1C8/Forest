@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+from collections import namedtuple
 
 import locale_build as build
 from locale_queue import sha
@@ -12,6 +14,11 @@ class LocaleBuildTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name).resolve()
+        # These tiny fixtures test transport, not the workstation's changing
+        # storage load. Production reserve checks remain enabled below.
+        self.disk=namedtuple('DiskUsage','total used free')
+        self.disk_patch=patch.object(build.shutil,'disk_usage',return_value=self.disk(20*1024**3,0,20*1024**3))
+        self.space=self.disk_patch.start();self.addCleanup(self.disk_patch.stop)
 
     def put(self, name, value):
         p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True)
@@ -86,6 +93,16 @@ class LocaleBuildTests(unittest.TestCase):
         self.fixture()
         with self.assertRaisesRegex(ValueError,'build-output-outside-own-locale'):
             build.run(profile,'zh',self.root/'outputs/locale-assets-20261026/de/candidate',root=self.root)
+
+    def test_real_reserve_guard_rejects_low_space_before_publication(self):
+        profile,out=self.fixture()
+        self.space.return_value=self.disk(20*1024**3,16*1024**3,4*1024**3)
+        with self.assertRaisesRegex(ValueError,'build-five-GiB-reserve'):
+            build.run(profile,'zh',out,root=self.root)
+        self.assertFalse(out.exists())
+        self.space.return_value=self.disk(20*1024**3,0,20*1024**3)
+        build.run(profile,'zh',out,root=self.root)
+        self.assertTrue((out/'manifest.json').exists())
 
 
 if __name__=='__main__':unittest.main()

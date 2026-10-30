@@ -1,104 +1,115 @@
-# Evidence-derived completion index
+# Evidence-derived completion index, revision 2
 
-Run `python3 -B tools/locale_queue.py progress` for the six current language lanes.
-Add `--json` for the underlying counts, exact proof/input hashes, individual stage
-gates and warnings. `--locale CODE` is a read-only individual view. `--output PATH`
-writes an additional exclusively created snapshot; an existing path is refused.
-This command does not invoke the historical v2 queue check, change a job, start a
-model or operate a game. The existing queue remains authoritative.
+Run `python3 -B tools/locale_queue.py progress` for the six current locale jobs.
+`--json` includes counts, pins, gates and warnings. `--locale CODE` is read-only;
+`--locale ru` verifies the owner-accepted 100-point reference. A full six-locale
+report saves an immutable snapshot and then replaces `progress/current.json`.
+No model, game, installer, source edit or workflow restart is invoked.
 
-The percentage is a **confirmed completion index on a fixed work breakdown**,
-not a measured fraction of elapsed labor, remaining hours, token cost, or chance
-of release. The 28 existing content families and Russian owner-test artifact
-define the common reference scope. Russian wording, review verdicts, rendering
-and runtime acceptance never become another locale's proof. The Russian artifact
-is a working reference; any unrun whole-game/release checks remain unaccepted.
+## Reference and meaning
 
-The point allocation is an explicit planning policy, not an empirically measured
-cost model. Every locale uses this same versioned allocation, totaling 100 points:
+The exact owner acceptance in `russian-owner-baseline-20261030-01/acceptance.json`
+binds the Russian artifact, source and effective installed behavior. It is the
+100-point reference control. Historical unrun flags do not revoke it. Its shared
+mechanisms/selection policy are reusable, while target wording, fonts, native
+output and release acceptance still require their own evidence. The historical
+expanded global-source audit remains visible; it does not reopen accepted
+unchanged Russian behavior or independently block this reference-scope index.
 
-| Work | Points | Proof/partial-credit boundary |
+This is a confirmed completion index, not remaining hours, token cost or a
+probability of release. Weights are declared planning policy, not measured labor.
+Revision 2 retains the same stage totals and the same 28 content families:
+
+| Work | Points | Evidence |
 | --- | ---: | --- |
-| Scope | 2 | Exact common source IDs/values and locale corpus identity |
-| Renderer feasibility | 3 | Applicable native feasibility acceptance |
-| Complete shared source | 3 | Owning shared admission gate passes |
-| Glossary | 4 | Complete source/locale editorial acceptance |
-| Translation and immediate editing | 38 | 28 dialogue coverage, 8 additional-family coverage, 2 final stage acceptance |
-| Editorial | 25 | 17 dialogue matched-version review coverage, 5 additional-family coverage, 3 final universal audit/closure/delta acceptance |
-| Final fonts/resources | 10 | Final-corpus resource acceptance |
-| Actual package | 5 | Verified packaged locale |
-| Native gameplay/save checks | 6 | Actual applicable runtime acceptance |
+| Scope | 2 | Exact source and corpus identities |
+| Renderer feasibility | 3 | Actual applicable target feasibility |
+| Shared baseline/source selection | 3 | Exact owner-accepted Russian reference reuse |
+| Glossary | 4 | Actual complete target glossary acceptance |
+| Translation/editing | 38 | Dialogue28, other families8, final acceptance2 |
+| Editorial | 25 | Dialogue17, other families5, final universal acceptance3 |
+| Resources/fonts | 10 | Matching reviewed/preserved units in saved resources6; actual saved candidate2; final target acceptance2 |
+| Package | 5 | Actual complete packaged locale acceptance |
+| Native gameplay/saves | 6 | Actual target runtime acceptance |
 | Screenshot upload | 1 | Complete delivered inventory |
-| Screenshot review | 1 | All delivered frames reviewed |
+| Screenshot review | 1 | Actual complete review |
 | Canonical delivery | 2 | Accepted integrated delivery |
 
-Coverage credit is `allocated points × confirmed units / fixed expected units`.
-The 27 additional families split their allocated share equally as work packages.
-Their memberships overlap; the index never sums them into a unique word/string
-count or treats a family as a labor estimate. Haiku wording counts nine distinct
-fragments. Its 27 assembled outcomes remain separate acceptance obligations.
+The 27 supplemental families split their allocated share equally. Memberships
+can overlap; these are work packages, not a sum of unique visible strings.
+Unknown adapters retain their full unverified share. No denominator is silently
+reduced. Haiku wording counts nine fragments; its27 outcomes remain separate.
 
-Draft credit requires a saved exact source/target version in the canonical corpus
-or a completed author's/reviewer's primary packet. Unapplied supplemental wording
-may earn draft/review coverage points, while resource application stays unaccepted.
-Preserved detached/source-warning/constructed-language dialogue rows do not turn
-into translated wording merely because their target cells are nonempty.
+## Wording and preservation
 
-Review credit requires actual pass/clean rows against the same source/target
-hashes in an owning completed job. Direct and explicitly hash-bound nested review
-manifests are supported, including archived receipts. Matching-version preliminary
-reading is partial progress, not final editorial acceptance. Complete dependency,
-source/context, independent-closure and delta requirements retain their final
-stage gate. No default passes, phase counters, model tokens, duplicate receipts,
-context-only decisions or technical-preservation rows supply linguistic credit.
-When an authoring JSONL has only grown by appending records, the reader can retain
-an old packet only by matching its **entire original SHA-256 byte stream** at a
-line boundary. It records both fingerprints and the exact byte length. Appended
-rows receive no historical review credit; edits within the old prefix reject.
-This avoids discarding 31 verified inventory records merely because 18 new ones
-were appended, while never guessing a previous packet from matching individual IDs.
+`drafted` and `reviewed` remain linguistic counts. `preserved` is separate.
+`resolved = drafted + preserved`; `reviewResolved = reviewed + preserved`.
+Only these explicit disposition-aware numerators contribute wording-work points.
+A preserved original is never reported as a translated phrase or semantic pass.
 
-Each source adapter is explicit in `progress-policy.json`; technical operands are
-excluded by their recorded roles. A missing adapter reserves its full point share
-as unverified, without silently shrinking the denominator. Remaining unaccepted
-stages earn no confirmed credit. 100 points requires every mandatory stage gate;
-a synthetic renderer/build validator cannot supply a native runtime proof.
+Baseline whole-field preservation requires the exact source hash and unchanged
+target. The mask must match the hash in the accepted Russian build's overlay
+binding; its source, artifact and build metadata are pinned. A status label or
+source equality alone is insufficient. Unmatched held rows stay unresolved.
+An assigned primary independent judgment may also affirm exact preservation with
+reviewed:true, notLinguisticCoverage:true, targetEdited:false, exact equal source/
+target hashes and an explicit preserved-detached-source, preserve-as-baseline or
+accepted-baseline-preservation disposition. Context extras and unread rows do not
+qualify. Later changed versions invalidate the old disposition.
 
-Final stage owners can supply
-`localization/completion/acceptance/LOCALE.json`. It must bind `locale`,
-`policyRevision`, `sourceScopeSha256`, `wordingVersionSha256` (the SHA-256 of the
-JSON list of family ID/version-digest pairs), and `stages`. Each passed stage has
-the exact `proofKind` from the policy and a nonempty `evidence` array of project
-paths and SHA-256 values. These are owning-stage attestations of real work, never
-self-generated pass certificates. The reader checks their type, current versions
-and file bindings; it does not recreate semantic judgment, native execution or
-visual inspection. No such final certificate is fabricated by this implementation.
-The global source gate is read from the actual owning admission manifest.
+Actual pass/clean wording receipts must match current source/target hashes.
+Completed producer outcomes include continue, blocked and static-complete.
+Technical/context judgments never add linguistic coverage or erase an unchanged
+linguistic pass; genuine wording findings still invalidate it. Absolute and
+project-relative paths resolve to the same declared pinned review file. Appended
+JSONL evidence can retain only its exact entire old byte prefix at a line boundary.
 
-Source/reference fingerprints and calculation code are bound to every report.
-Inventory expansion/reclassification requires an explicit policy/scope revision.
-History labels a changed calculation/scope as a rebase, not new localization work.
-Target edits can reduce credit until matching review evidence exists. Retained
-receipts survive unrelated edits; old targets cannot validate a changed wording.
+## Saved resources and final gates
 
-The full command saves a complete immutable snapshot under the existing queue's
-`outputs/locale-assets-20261026/progress/`, then atomically replaces `current.json`.
-This two-file publication is not a transaction: failure before pointer replacement
-leaves the old current view and possibly an extra complete history snapshot.
-The next comparable report includes the point delta. History is a derived view,
-not a second acceptance checkpoint. A report refuses input changes during capture;
-unavailable/stale proof stays visible in warnings and receives no new credit.
+`locale_progress_evidence.py` reads known saved candidate manifests from the
+existing version-bound initial candidates and completed owning-phase evidence.
+It verifies actual output bytes, recipe/config/plan versions, own-locale identity,
+managed readbacks and current reviewed/preserved target versions. Both physical
+dialogue bindings must exist together. Missing, changed, foreign or unbound bytes
+earn no resource credit. Binary files are hash-checked without retaining them in
+RAM. Separate candidate fragments do not become one completed game package.
 
-Lane activity is reported independently. Capacity-held/blocked states are stopped
-work; an unchanged index alone does not establish that a live task stalled.
-The process liveness check is bounded and is not itself evidence of useful work.
+Resource progress is incremental and is not final integration, font or native
+acceptance. A real final resources acceptance covers the earlier partial resource
+milestones and completes their10 points. Partial saved bytes never supply native,
+package or release passes. Unchanged accepted implementation and wording evidence
+is reused by fingerprint, without model receipt-only phases.
+
+Actual final stage attestations can be in a completed owning result's
+`stageAcceptance`, `localization/LOCALE-assets/completion/acceptance.json`, or the
+legacy `localization/completion/acceptance/LOCALE.json`. All use locale,
+policyRevision, sourceScopeSha256, wordingVersionSha256 and stages. Each passed
+stage must name its exact policy proofKind and nonempty evidence pins. All current
+versions are checked. These are attestations of actual owning-stage work, not
+self-generated pass certificates. No final acceptance file is manufactured by the
+calculator. Missing acceptance remains not-accepted, not an inferred pass.
+
+## History, consistency and activity
+
+Revision 2 is an explicit rebase. An increase caused by the changed policy or
+calculator is not new localization work. History compares point deltas only when
+policy revision, source scope and calculation fingerprint match. The fingerprint
+includes both calculation modules. Workflow concurrency/settings are recorded as
+process context, not treated as changed game source; editing them cannot silently
+invalidate all content or acceptance evidence.
+
+Snapshot and pointer writes are individually atomic, not one transaction. Failure
+between them preserves the old pointer and may leave a complete extra snapshot.
+Inputs are rehashed before publication; concurrent changes reject the capture.
+Warnings retain stale proof details. Activity/liveness is separate from completion;
+a stopped worker or unchanged index alone is not a new quality judgment.
 
 ## Regression verification
 
-`python3 -B -m unittest discover -s tools -p test_locale_progress.py -v` tests
-real receipt collection, duplicate credit, changed targets, stale proofs, exact
-wording hashes, context/technical exclusion, relative manifest paths (including
-macOS path aliases), fixed unknown shares, 100-point gates, typed runtime proof,
-input changes, history rebasing and failure between snapshot and pointer writes.
-Fixture judgments replace semantic/native judgments: these tests establish the
-accounting/transport boundary and never establish localization quality themselves.
+`python3 -B -m unittest discover -s tools -p test_locale_progress.py -v` covers
+exact receipt versions/prefixes, duplicate credit, static-complete, nonlinguistic
+review isolation, affirmative preservation, the accepted Russian100 control,
+actual saved bytes and both dialogue copies, partial/final resource milestones,
+unknown denominators, strict native proof typing, input drift, rebase history and
+failure between snapshot/pointer writes. Synthetic fixture judgments replace
+semantic/native judgments; tests establish accounting and transport only.

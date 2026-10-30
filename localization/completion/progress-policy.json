@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 1,
-  "revision": "forest-reference-completion-index-v1",
-  "meaning": "Confirmed completion points on the fixed Russian-reference work breakdown; not a time/cost forecast or release acceptance.",
+  "schemaVersion": 2,
+  "revision": "forest-owner-baseline-completion-index-v2",
+  "meaning": "Confirmed completion within the owner-accepted Russian reference scope; preserved decisions and saved resource increments are explicit, not linguistic/native/release acceptance or a time/cost forecast.",
   "reference": "dist/Forest-Russian-Test-20261029/manifest.json",
-  "referenceBoundary": "Working Russian owner test delivery defines surfaces and mechanisms; its language-specific judgments and unrun release gates do not transfer.",
+  "referenceBoundary": "Russian owner acceptance is the 100-point reference control. It permits shared mechanism/selection reuse but never grants target wording, font, native or release acceptance.",
   "components": [
     {
       "id": "scope",
@@ -18,7 +18,8 @@
     {
       "id": "source",
       "stage": "source",
-      "points": 3
+      "points": 3,
+      "boundary": "Exact accepted Russian baseline behavior reusable; historical expanded-source gates remain separate."
     },
     {
       "id": "glossary",
@@ -32,7 +33,7 @@
       "families": [
         "dialogue"
       ],
-      "numerator": "drafted"
+      "numerator": "resolved"
     },
     {
       "id": "supplemental-draft",
@@ -67,7 +68,7 @@
         "repair-speaker-display24-20261029",
         "repair-storm-greetings24-20261029"
       ],
-      "numerator": "drafted"
+      "numerator": "resolved"
     },
     {
       "id": "dialogue-review",
@@ -76,7 +77,7 @@
       "families": [
         "dialogue"
       ],
-      "numerator": "reviewed"
+      "numerator": "reviewResolved"
     },
     {
       "id": "supplemental-review",
@@ -111,12 +112,53 @@
         "repair-speaker-display24-20261029",
         "repair-storm-greetings24-20261029"
       ],
-      "numerator": "reviewed"
+      "numerator": "reviewResolved"
+    },
+    {
+      "id": "resource-bindings",
+      "stage": "resources",
+      "points": 6,
+      "families": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "numerator": "resourceBound"
+    },
+    {
+      "id": "resource-saved",
+      "stage": "resources",
+      "points": 2
     },
     {
       "id": "resources",
       "stage": "resources",
-      "points": 10
+      "points": 2
     },
     {
       "id": "package",
@@ -327,7 +369,6 @@
   ],
   "sourcePins": {
     "dist/Forest-Russian-Test-20261029/manifest.json": "c5e1b2ea142b2af372b66fe0e038613e229d92e8a2089d69a68838fc378e3030",
-    "localization/completion/process-spec.json": "87253d90b2ef53f9e37ad6d23510650e6fd5ae0527ae49ac7df3820b93420ea3",
     "localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
     "localization/hotfixes/ru-adventures24-20261029/targets.json": "0633ef78ec65b86ffd15f992cb107910413b937577ebb7211df605f78d3c1cfa",
     "localization/hotfixes/ru-bell-notifications72-20261029/targets.json": "39516a3f170c297fa14631944df7e38cfae44da40100a732b0d540939b483416",
@@ -356,7 +397,10 @@
     "localization/supplemental-ui/20261029-counter-case90/source-context.jsonl": "10aafd70d9f617d4de4a823470d80f2ae9569843e60f337741f13cfaa2f35d58",
     "localization/supplemental-ui/20261029-input-case72/source-context.jsonl": "ce68c26b5aa67484f152ace8fe6f81049213dc0ace959b31df974b09fea411cf",
     "localization/supplemental-ui/20261029-ornamental-case569/groups.source.jsonl": "3b1913ad57d57d4d2249ab474a9bf5e6c1fff30a0b4a6a8c7b1eee586484f206",
-    "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl": "12f064636dac12f8f245126ce11ae3ced1f5a652b20690ee1d51f5b149d701c1"
+    "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl": "12f064636dac12f8f245126ce11ae3ced1f5a652b20690ee1d51f5b149d701c1",
+    "localization/completion/russian-owner-baseline-20261030-01/acceptance.json": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a",
+    "localization/ru-assets/preserve-exactly.json": "eb3def24b1319ba963467d62dac2b5fdac8f2c7a620ad731d26e3807cb867833",
+    "localization/previews/ru-20261029-narrative42-01/build.json": "f56bdd0ccb8d63cb0629fe29e8e548fba94cb191b69e8e694506d54ebf1b8f6f"
   },
   "proofKinds": {
     "probe": "native-renderer-feasibility",
@@ -369,5 +413,51 @@
     "screenshot-upload": "complete-delivered-screenshot-inventory",
     "screenshot-review": "complete-delivered-screenshot-review",
     "delivery": "canonical-integrated-delivery-acceptance"
+  },
+  "ownerBaseline": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+  "preservationManifest": "localization/ru-assets/preserve-exactly.json",
+  "resourceCandidates": {
+    "zh": [
+      {
+        "path": "outputs/locale-assets-20261026/zh/local-resource-candidate-20261030-01/manifest.json",
+        "sha256": "b683c10380408c91f4ab92f9df55ec815d3dcfc1b30a0220179a3bde897c7ca9"
+      }
+    ],
+    "es": [
+      {
+        "path": "outputs/locale-assets-20261026/es/local-resource-candidate-20261030-01/manifest.json",
+        "sha256": "744cd6ebdb44a194c87bb957d670e470e6252a9282c3bfd06ec5da7e0d56edb2"
+      }
+    ],
+    "es-419": [
+      {
+        "path": "outputs/locale-assets-20261026/es-419/local-resource-candidate-20261030-01/manifest.json",
+        "sha256": "201e58ad85fbd3934f92b9f03773d7adb898ce8add07b08699d6d2daf54009e3"
+      }
+    ],
+    "pt-BR": [
+      {
+        "path": "outputs/locale-assets-20261026/pt-BR/local-resource-candidate-20261030-01/manifest.json",
+        "sha256": "80a4da748d8d17b8d4c33de2779fca37f0d5ccfcc58ad190435f7c73946f3a24"
+      }
+    ],
+    "ja": [
+      {
+        "path": "outputs/locale-assets-20261026/ja/local-resource-candidate-20261030-01/manifest.json",
+        "sha256": "16620c23fbfc5ae981070ebb040ae08f29df87037ff326b5c01f7ce4403158e3"
+      }
+    ],
+    "de": [
+      {
+        "path": "outputs/locale-assets-20261026/de/local-resource-candidate-20261030-01/manifest.json",
+        "sha256": "6f5d801f1a01bc246a42cc3582e6b6a49930c5d106601e88c9dfcd293ad41325"
+      }
+    ]
+  },
+  "processContext": "localization/completion/process-spec.json",
+  "rebasedFrom": {
+    "revision": "forest-reference-completion-index-v1",
+    "policySha256": "e1a66d5dff95018a8b157467e9b2ad290f0fd409d37c418b27b5056a8cd58ef4",
+    "reason": "Recognize owner-accepted baseline preservation and version-bound saved resource increments; fix completion outcome and stale process coupling. Not newly performed localization work."
   }
 }

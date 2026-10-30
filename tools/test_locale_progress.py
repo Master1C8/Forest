@@ -7,7 +7,8 @@ import unittest
 from unittest.mock import patch
 
 from locale_progress import (Evidence, accepted_stages, calculate_score, collect_locale, hashed,
-                             linguistic_pass, proof_refs, snapshot, version)
+                             linguistic_pass, proof_refs, snapshot, version, report)
+from locale_progress_evidence import resources
 
 
 class ProgressTests(unittest.TestCase):
@@ -122,6 +123,128 @@ class ProgressTests(unittest.TestCase):
         changed = collect_locale(Evidence(self.root), policy, 'ja', families)
         self.assertEqual(changed['families'][0]['drafted'], 1)
         self.assertEqual(changed['families'][0]['reviewed'], 0)
+
+    def test_static_complete_producer_outcome_retains_actual_review_coverage(self):
+        self.test_real_collector_deduplicates_receipts_and_invalidates_changed_target()
+        corpus=self.root/'localization/ja-assets/dialogue.ja.jsonl'
+        row=json.loads(corpus.read_text());row['target']='A';corpus.write_text(json.dumps(row))
+        status=self.root/'outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/status.json'
+        state=json.loads(status.read_text());path=Path(state['phases'][0]['phase'])/'result.json';result=json.loads(path.read_text())
+        for outcome in ('blocked','static-complete'):
+            result['outcome']=outcome;path.write_text(json.dumps(result));state['phases'][0]['resultSha256']=hashed(path.read_bytes());status.write_text(json.dumps(state))
+            measured=collect_locale(Evidence(self.root),dict(families=[dict(id='dialogue')]),'ja',dict(dialogue={'one'}))
+            self.assertEqual(measured['families'][0]['reviewed'],1)
+
+    def test_nonlinguistic_integration_review_does_not_erase_matching_wording_pass(self):
+        self.test_real_collector_deduplicates_receipts_and_invalidates_changed_target()
+        corpus=self.root/'localization/ja-assets/dialogue.ja.jsonl';wording=json.loads(corpus.read_text());wording['target']='A';corpus.write_text(json.dumps(wording))
+        base='outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0002-review'
+        packet,digest=self.write(base+'/packet.jsonl',wording)
+        self.write(base+'/task.json',dict(task=dict(kind='review',reviewPacket=str(packet),reviewPacketSha256=digest)))
+        status=self.root/'outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/status.json';state=json.loads(status.read_text())
+        phase=dict(number=2,kind='review',phase=str(packet.parent));state['phases'].append(phase)
+        for extra,expected in [(dict(notLinguisticCoverage=True,verdict='pass'),1),(dict(verdict='finding'),0)]:
+            review=packet.parent/'reviews.jsonl';review.write_text(json.dumps(dict(id='one',sourceSha256=hashed(b'English'),targetSha256=hashed(b'A'),rationale='Explicit fixture judgment',**extra))+'\n')
+            result,result_sha=self.write(base+'/result.json',dict(outcome='blocked',reviews=str(review),evidence=[dict(path=str(review),sha256=hashed(review.read_bytes()))]))
+            phase['resultSha256']=result_sha;status.write_text(json.dumps(state))
+            measured=collect_locale(Evidence(self.root),dict(families=[dict(id='dialogue')]),'ja',dict(dialogue={'one'}))
+            self.assertEqual(measured['families'][0]['reviewed'],expected)
+
+    def test_final_resource_acceptance_completes_partial_milestones(self):
+        policy=dict(components=[dict(id='resource-bindings',stage='resources',points=6,families=['one'],numerator='resourceBound'),
+            dict(id='resource-saved',stage='resources',points=2),dict(id='resources',stage='resources',points=2)],requiredGates=['resources'])
+        rows=[dict(id='one',expected=10,resourceBound=5)]
+        self.assertEqual(calculate_score(policy,rows,{'resource-saved'})['percent'],5)
+        self.assertEqual(calculate_score(policy,rows,{'resources'})['percent'],10)
+
+    def test_preservation_is_a_version_bound_disposition_never_a_linguistic_pass(self):
+        self.test_real_collector_deduplicates_receipts_and_invalidates_changed_target()
+        corpus=self.root/'localization/ja-assets/dialogue.ja.jsonl';row=json.loads(corpus.read_text())
+        row.update(target='English',status='preserved-detached-source');corpus.write_text(json.dumps(row))
+        def measure(mask):
+            return collect_locale(Evidence(self.root),dict(families=[dict(id='dialogue')]),'ja',dict(dialogue={'one'}),mask)['families'][0]
+        for mask in ({},{'one':hashed(b'Other source')}):
+            self.assertEqual(measure(mask)['resolved'],0)
+        accepted=measure({'one':hashed(b'English')})
+        self.assertEqual((accepted['drafted'],accepted['reviewed'],accepted['preserved'],accepted['resolved'],accepted['reviewResolved']),(0,0,1,1,1))
+        row['target']='A';corpus.write_text(json.dumps(row))
+        self.assertEqual(measure({'one':hashed(b'English')})['preserved'],0)
+
+    def test_affirmative_primary_preservation_requires_exact_version_and_explicit_judgment(self):
+        self.test_real_collector_deduplicates_receipts_and_invalidates_changed_target()
+        corpus=self.root/'localization/ja-assets/dialogue.ja.jsonl';wording=json.loads(corpus.read_text());wording.update(target='English',status='preserved-detached-source');corpus.write_text(json.dumps(wording))
+        base='outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0002-review';packet,digest=self.write(base+'/packet.jsonl',wording)
+        self.write(base+'/task.json',dict(task=dict(kind='review',reviewPacket=str(packet),reviewPacketSha256=digest)))
+        status=self.root/'outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/status.json';state=json.loads(status.read_text());phase=dict(number=2,kind='review',phase=str(packet.parent));state['phases'].append(phase)
+        judgment=dict(id='one',sourceSha256=hashed(b'English'),targetSha256=hashed(b'English'),verdict='context-only-preserve',
+            reviewed=True,notLinguisticCoverage=True,targetEdited=False,sourceDisposition='preserved-detached-source',rationale='Affirmative exact original preservation')
+        for delta,expected in [({},1),(dict(reviewed=False),0),(dict(targetEdited=True),0),(dict(verdict='held-source'),0)]:
+            reviews,review_sha=self.write(base+'/reviews.jsonl',dict(judgment,**delta))
+            result,result_sha=self.write(base+'/result.json',dict(outcome='blocked',reviews=str(reviews),evidence=[dict(path=str(reviews),sha256=review_sha)]))
+            phase['resultSha256']=result_sha;status.write_text(json.dumps(state))
+            measured=collect_locale(Evidence(self.root),dict(families=[dict(id='dialogue')]),'ja',dict(dialogue={'one'}))['families'][0]
+            self.assertEqual(measured['preserved'],expected);self.assertEqual(measured['reviewed'],0)
+        # A later genuine semantic finding must invalidate the matching
+        # preservation too; a disposition is not permanent immunity to findings.
+        reviews,review_sha=self.write(base+'/reviews.jsonl',judgment)
+        result,result_sha=self.write(base+'/result.json',dict(outcome='blocked',reviews=str(reviews),evidence=[dict(path=str(reviews),sha256=review_sha)]))
+        phase['resultSha256']=result_sha
+        following=base.replace('0002-review','0003-review')
+        self.write(following+'/task.json',dict(task=dict(kind='review',reviewPacket=str(packet),reviewPacketSha256=digest)))
+        finding,finding_sha=self.write(following+'/reviews.jsonl',dict(id='one',sourceSha256=hashed(b'English'),targetSha256=hashed(b'English'),verdict='finding',reviewed=True,rationale='Concrete target preservation defect'))
+        result,result_sha=self.write(following+'/result.json',dict(outcome='blocked',reviews=str(finding),evidence=[dict(path=str(finding),sha256=finding_sha)]))
+        status.write_text(json.dumps(state))
+        before=collect_locale(Evidence(self.root),dict(families=[dict(id='dialogue')]),'ja',dict(dialogue={'one'}))
+        self.assertEqual(before['families'][0]['preserved'],1)
+        state['phases'].append(dict(number=3,kind='review',phase=str(finding.parent),resultSha256=result_sha));status.write_text(json.dumps(state))
+        after=collect_locale(Evidence(self.root),dict(families=[dict(id='dialogue')]),'ja',dict(dialogue={'one'}))
+        self.assertEqual(after['families'][0]['preserved'],0)
+
+    def test_owner_accepted_russian_reference_is_100_without_transferring_native_proof(self):
+        artifact,artifact_sha=self.write('reference.json',dict(candidate='ru-build'))
+        source,source_sha=self.write('source.json',dict(source='fixed'))
+        masks,mask_sha=self.write('preservation.json',dict(records=[dict(id='one',mode='whole-field',sourceSha256=hashed(b'Original'))]))
+        self.write('ru-build/build.json',dict(sourceManifestSha256=source_sha,overlay=dict(overlayAndGuardHashes={'preservation.json':mask_sha})))
+        self.write('owner.json',dict(authority='owner',accepted=True,locale='ru',statement='Accepted reference',
+            sharedMechanismReuseAllowed=True,targetLocaleAcceptanceGranted=False,build='ru-build',
+            artifact=dict(path='reference.json',sha256=artifact_sha),sourceManifest=dict(path='source.json',sha256=source_sha)))
+        self.write('localization/completion/progress-policy.json',dict(revision='test',meaning='fixture',ownerBaseline='owner.json',
+            preservationManifest='preservation.json',sourcePins={},families=[],components=[dict(id='scope',points=100)],requiredGates=['runtime']))
+        self.write('localization/source/shared-source-completion-20261028/admission-v1/manifest.json',dict(commonSourceAccepted=False,translationEntryAllowed=False))
+        result=report(self.root,'ru');reference=result['locales'][0]
+        self.assertEqual(reference['percent'],100);self.assertTrue(reference['deliveryAccepted'])
+        self.assertFalse(reference['releaseReady']);self.assertEqual(result['referenceBenchmark']['percent'],100)
+        artifact.write_text('changed')
+        with self.assertRaisesRegex(ValueError,'Stale evidence'):report(self.root,'ru')
+
+    def resource_fixture(self,physical=2):
+        id_='ds:1:2:Dialogue Text';wording=dict(id=id_,source='Original',target='Own target')
+        key=version(wording)
+        def pin(path):return dict(path=str(path.relative_to(self.root)),sha256=hashed(path.read_bytes()))
+        assets=['left.assets','right.bundle'][:physical]
+        plan,plan_sha=self.write('recipe/plan.json',dict(locale='ja',edits=[dict(wording,asset=name,pathId=i,pointer='/text') for i,name in enumerate(assets)]))
+        config,config_sha=self.write('recipe/config.json',dict(locales=dict(ja=dict(plan='plan.json'))))
+        recipe,recipe_sha=self.write('recipe/manifest.json',dict(files={'config.json':config_sha,'plan.json':plan_sha}))
+        outputs={}
+        for name in assets:
+            path=self.root/'saved'/name;path.parent.mkdir(exist_ok=True);path.write_bytes(b'saved candidate bytes '+name.encode())
+            outputs[name]=dict(sha256=hashed(path.read_bytes()),bytes=path.stat().st_size)
+        manifest,digest=self.write('saved/manifest.json',dict(kind='composed-sparse-target-resource-candidate',locale='ja',frozenRecipeSha256=recipe_sha,outputs=outputs))
+        row=dict(locale='ja',families=[dict(id='dialogue',expected=1,drafted=1,reviewed=1)],
+            _acceptedVersions={id_:key},_familyIds={'dialogue':{id_}},_resourceRefs={str(recipe.relative_to(self.root)):recipe_sha})
+        policy=dict(resourceCandidates=dict(ja=[dict(path=str(manifest.relative_to(self.root)),sha256=digest)]))
+        return row,policy
+
+    def test_resource_credit_needs_both_saved_bindings_and_matching_target(self):
+        row,policy=self.resource_fixture(1);ev=Evidence(self.root)
+        self.assertFalse(resources(ev,policy,row));self.assertEqual(row['families'][0]['resourceBound'],0)
+        row,policy=self.resource_fixture(2);ev=Evidence(self.root)
+        self.assertTrue(resources(ev,policy,row));self.assertEqual(row['families'][0]['resourceBound'],1)
+        self.assertFalse(row['resources']['nativeAccepted']);self.assertFalse(row['resources']['completePackageAccepted'])
+        row,policy=self.resource_fixture(2);row['_acceptedVersions']={}
+        self.assertFalse(resources(Evidence(self.root),policy,row))
+        row,policy=self.resource_fixture(2);(self.root/'saved/right.bundle').write_bytes(b'changed')
+        ev=Evidence(self.root);self.assertFalse(resources(ev,policy,row));self.assertTrue(any('Stale evidence' in e for e in ev.errors))
 
     def test_100_requires_every_gate_and_full_coverage(self):
         policy = dict(components=[dict(id='draft', stage='translate-edit', points=60,

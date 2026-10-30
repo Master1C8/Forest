@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-requested-progress-mechanism-repair-and-six-locale-assessment",
+  "authority": "исправь механику и очени те 6 локализаций по новому",
+  "assessment": {
+    "path": "localization/completion/progress-revision-20261031-01/assessment.verified.json",
+    "sha256": "2c263d4604cd89c743e2cd2ca86e39c48992584a18eeb67db3260a5707d996b3"
+  },
+  "measuredAt": "2026-10-30T17:53:10.150796+00:00",
+  "policy": {
+    "path": "localization/completion/progress-policy.json",
+    "sha256": "a3ae953e1c2228421a221aea854f868f39ac06fddac19b9fc31df5988932a113"
+  },
+  "previousPolicy": {
+    "path": "localization/completion/progress-revision-20261031-01/policy.before.json",
+    "sha256": "e1a66d5dff95018a8b157467e9b2ad290f0fd409d37c418b27b5056a8cd58ef4"
+  },
+  "previousAssessment": {
+    "path": "outputs/locale-assets-20261026/progress/2026-10-30T162451.949432_0000.json",
+    "sha256": "ec6b51b371a88e8d5a63c408c145181c1c8031cd374762731f0ea5a84858ea1d"
+  },
+  "historyRebase": {
+    "comparable": false,
+    "previousAt": "2026-10-30T17:46:40.778438+00:00",
+    "previousPercent": 67.38,
+    "pointDelta": null,
+    "reason": "calculation-or-scope-revised"
+  },
+  "scores": [
+    {
+      "locale": "zh",
+      "percent": 67.38,
+      "releaseReady": false,
+      "state": "blocked"
+    },
+    {
+      "locale": "es",
+      "percent": 65.35,
+      "releaseReady": false,
+      "state": "running"
+    },
+    {
+      "locale": "es-419",
+      "percent": 65.68,
+      "releaseReady": false,
+      "state": "running"
+    },
+    {
+      "locale": "pt-BR",
+      "percent": 63.32,
+      "releaseReady": false,
+      "state": "blocked"
+    },
+    {
+      "locale": "ja",
+      "percent": 67.61,
+      "releaseReady": false,
+      "state": "blocked"
+    },
+    {
+      "locale": "de",
+      "percent": 67.67,
+      "releaseReady": false,
+      "state": "running"
+    }
+  ],
+  "russianReference": {
+    "locale": "ru",
+    "percent": 100.0,
+    "accepted": true,
+    "authority": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json"
+  },
+  "implementation": [
+    {
+      "path": "tools/locale_progress.py",
+      "sha256": "18557895f49c85c3a48edd853ad4359f6fd9bcfe5dd118fbcbf2466eb8c20f36"
+    },
+    {
+      "path": "tools/locale_progress_evidence.py",
+      "sha256": "e8a1495028898838b64d6e707079543a98e707681eba6721461cd4b4c7582603"
+    },
+    {
+      "path": "tools/test_locale_progress.py",
+      "sha256": "fde6932914d9033e5b0abaed92f2e6a564be5fbc013917a535cb2633f0dd00f0"
+    },
+    {
+      "path": "tools/test_locale_build.py",
+      "sha256": "23ed87b106028fe966cc2e609457a310d50001ddcea20b787e6b93853ce0f035"
+    }
+  ],
+  "regressions": [
+    "Producer static-complete preserves exact reviewed coverage.",
+    "Source/target/version-bound baseline preservation is resolved work, never new linguistic coverage.",
+    "Affirmative own primary preservation remains separate from context extras and semantic passes.",
+    "Nonlinguistic resource review retains unchanged wording passes; genuine semantic findings still invalidate them.",
+    "Both physical dialogue copies and actual resource/managed bytes bind partial materialization credit.",
+    "Russian owner reference is100 without target/native/release acceptance transfer.",
+    "Own-locale/completed-stage acceptance can bind real final proof without a new global certificate-only phase.",
+    "Policy/code/source changes rebase history; workflow settings are not game source changes."
+  ],
+  "tests": {
+    "fullSuite": 136,
+    "fullCommand": "python3 -B -m unittest discover -s tools -p 'test_locale*.py' -q",
+    "log": {
+      "path": "localization/completion/progress-revision-20261031-01/tests.final.log",
+      "sha256": "74169ad1eabbfbc54517c826bfa760ae550c0dd5ac278045f0056c8a39a70875"
+    },
+    "targetedProgressTests": 21,
+    "status": "passed",
+    "initialAttempt": {
+      "path": "localization/completion/progress-revision-20261031-01/tests.initial-storage-guard-failure.log",
+      "sha256": "799c6f6dc88b01e67da667b59d0549179ea3b03d232e90e5e48c05ef0e259a42"
+    },
+    "initialFailure": "Three synthetic writer fixtures hit the real host five-GiB reserve. Fixtures now supply deterministic capacity and separately exercise the unchanged real low-space rejection. No production guard is disabled.",
+    "supersededPassingLog": {
+      "path": "localization/completion/progress-revision-20261031-01/tests.log",
+      "sha256": "2641872f4c5c58522f704355334cda2188fad662cebc5f51003ef7ddecf6f796"
+    }
+  },
+  "actualEvidence": {
+    "pinnedFiles": 3005,
+    "warnings": [
+      "Stale evidence: /Users/antonkrutov/Desktop/Forest/localization/es-assets/editorial-validation-binding.json",
+      "Stale evidence: /Users/antonkrutov/Desktop/Forest/localization/es-419-assets/editorial-validation-bindings.json"
+    ],
+    "allSixPublished": true,
+    "modelRequestsStarted": 0,
+    "newAssessmentWorkers": 0
+  },
+  "limitations": [
+    "These are declared confirmed-work points within the accepted Russian scope, not measured remaining hours or release probability.",
+    "No target has confirmed release readiness; final language/font/native/package gates remain separate.",
+    "The two stale legacy editorial bindings are reported and supply no unverifiable credit.",
+    "Live jobs, frozen execution helpers, source, glossary, game/saves and acceptance receipts are preserved."
+  ],
+  "disk": {
+    "freeGiB": 4.48,
+    "requiredBuildReserveGiB": 5
+  },
+  "workerAccounting": {
+    "path": "localization/completion/progress-revision-20261031-01/worker-completions.json",
+    "sha256": "aae9d2f44443433dcfff24c2b19282ce7756a1830e1a16dfbcd6c60610938c3c"
+  },
+  "coordinatorUsage": "Unknown: mixed implementation, tests, calculation/evidence capture and orchestration; no exact orchestration-only attribution. Subsequent final integration/reporting is an unmeasured tail.",
+  "canonicalGitOwnership": "This chat is the sole index/commit coordinator; the locale workers are prohibited from Git. Only progress accounting, regression fixtures, documentation and assessment evidence are committed.",
+  "calculationCodeMatchesCapture": true
+}

@@ -95,9 +95,20 @@ class Evidence:
     def row_list(self, name, expected=None):
         return list(self.rows(name, expected))
 
+    def pin_file(self, name, expected):
+        """Verify saved binary bytes without retaining game files in RAM."""
+        from locale_queue import sha
+        p=self.path(name);before=p.stat();actual=sha(p);after=p.stat()
+        if (before.st_ino,before.st_size,before.st_mtime_ns)!=(after.st_ino,after.st_size,after.st_mtime_ns):
+            raise ValueError(f'Evidence changed during read: {p}')
+        if actual!=expected:raise ValueError(f'Stale evidence: {p}')
+        self.pins[str(p.relative_to(self.root))]=actual
+        return actual
+
     def stable(self):
+        from locale_queue import sha
         for name, expected in self.pins.items():
-            if hashed((self.root / name).read_bytes()) != expected:
+            if sha(self.root / name) != expected:
                 raise ValueError(f'Input changed before report publication: {name}')
 
 
@@ -120,6 +131,14 @@ def linguistic_pass(row):
             and row.get('reviewed') is not False
             and row.get('coverageRole') not in ('context', 'source-context', 'context-only', 'technical-preservation', 'held-source')
             and row.get('reviewRole') not in ('context', 'source-context', 'context-only', 'technical-preservation', 'held-source'))
+
+
+def nonlinguistic(row):
+    return (row.get('notLinguisticCoverage') or row.get('contextOnly')
+        or row.get('coverageRole') in ('context','source-context','context-only','technical-preservation','held-source')
+        or row.get('reviewRole') in ('context','source-context','context-only','technical-preservation','held-source')
+        or row.get('verdict') in ('technical-preservation','context-only-preserve')
+        or row.get('reviewKind') in ('new-data-binding-only','technical-review','resource-binding','resource-contract'))
 
 
 def declared_refs(value):
@@ -232,20 +251,25 @@ def expected_ids(ev, family):
 def known_wording(row, locale):
     return (isinstance(row.get('source'), str) and isinstance(row.get('target'), str)
             and bool(row['target'].strip()) and row.get('locale', locale) == locale
+            and not nonlinguistic(row)
             and not str(row.get('status', '')).startswith(('preserved-', 'held-', 'needs-source')))
 
 
-def collect_locale(ev, policy, locale, families):
+def collect_locale(ev, policy, locale, families, preservation=None):
     current, decisions = {}, {}
+    preserved={};resource_refs={};preservation=preservation or {};stage_claims=[]
     source = {r['id']: r for r in ev.row_list('localization/source/dialogue-candidates.jsonl')}
     dialogue = ev.row_list(f'localization/{locale}-assets/dialogue.{locale}.jsonl')
+    dialogue_versions={r['id']:version(r) for r in dialogue}
     if len(dialogue) != len({r['id'] for r in dialogue}) or set(r['id'] for r in dialogue) != set(source):
         raise ValueError(f'{locale}: dialogue identity/denominator mismatch')
     for row in dialogue:
         if row['source'] != source[row['id']]['source']:
             raise ValueError(f'{locale}: dialogue source differs: {row["id"]}')
         key = version(row)
-        if known_wording(row, locale):
+        if (preservation.get(row['id'])==key[1] and row['target']==row['source']):
+            preserved[row['id']]=key
+        elif known_wording(row, locale):
             current[row['id']] = key
     ui = ev.row_list(f'localization/supplemental-ui/20261027/{locale}.jsonl')
     ui_source = {r['id']: r for r in ev.json('localization/supplemental-ui/20261027/source-catalog.json')['units']}
@@ -258,11 +282,11 @@ def collect_locale(ev, policy, locale, families):
             current[row['id']] = version(row)
     for row in initial_reviews(ev, locale):
         key = version(row)
-        if key:
+        if key and not nonlinguistic(row):
             decisions[key] = linguistic_pass(row)
     for row in retained_reviews(ev, locale):
         key = version(row)
-        if key:
+        if key and not nonlinguistic(row):
             decisions[key] = linguistic_pass(row)
     status_path = f'outputs/locale-assets-20261026/{locale}/workflow-v3-completion-20261030/status.json'
     lane = ev.json(status_path)
@@ -273,16 +297,25 @@ def collect_locale(ev, policy, locale, families):
         directory = Path(phase['phase'])
         try:
             result = ev.json(directory / 'result.json', phase['resultSha256'])
-            if result.get('outcome') not in ('continue', 'blocked', 'complete'):
+            if result.get('outcome') not in ('continue', 'blocked', 'complete', 'static-complete'):
                 continue
             task = ev.json(directory / 'task.json')['task']
             if task.get('taskClass') == 'technical' or phase['kind'] == 'technical':
                 continue
             refs = proof_refs(ev, result.get('evidence', []))
-            primary, packet = {}, task.get('reviewPacket')
+            resource_refs.update(refs)
+            if isinstance(result.get('stageAcceptance'),dict):stage_claims.append(result['stageAcceptance'])
+            reviews=result.get('reviews')
+            review_name=str(ev.path(reviews).relative_to(ev.root)) if isinstance(reviews,str) else None
+            judgments=(ev.row_list(review_name,refs[review_name])
+                if phase['kind']=='review' and review_name in refs else [])
+            nonlinguistic_ids={r['id'] for r in judgments if nonlinguistic(r)}
+            primary, assigned, packet = {}, {}, task.get('reviewPacket')
             if packet and task.get('reviewPacketSha256'):
                 for row in ev.row_list(packet, task['reviewPacketSha256']):
-                    if known_wording(row, locale):
+                    key=version(row)
+                    if key:assigned[row['id']]=key
+                    if known_wording(row, locale) and row['id'] not in nonlinguistic_ids:
                         primary[row['id']] = version(row)
             # Completed author phases publish exact primary IDs and pinned wording files.
             progress = result.get('progress') or {}
@@ -290,7 +323,8 @@ def collect_locale(ev, policy, locale, families):
             authored = set(progress.get('unitIds', [])) if progress.get('kind') == 'authored' else set()
             proposed = next_task.get('reviewPacket')
             if proposed:
-                expected = next_task.get('reviewPacketSha256') or refs.get(proposed)
+                proposed_name=str(ev.path(proposed).relative_to(ev.root))
+                expected = next_task.get('reviewPacketSha256') or refs.get(proposed_name)
                 if expected:
                     for row in ev.row_list(proposed, expected):
                         if known_wording(row, locale) and (not authored or row['id'] in authored):
@@ -315,12 +349,23 @@ def collect_locale(ev, policy, locale, families):
             for id_, key in primary.items():
                 if id_ not in source:
                     current[id_] = key
-            reviews = result.get('reviews')
-            if phase['kind'] == 'review' and isinstance(reviews, str) and reviews in refs:
-                for row in ev.row_list(reviews, refs[reviews]):
+                    if preserved.get(id_)!=key:preserved.pop(id_,None)
+            if phase['kind'] == 'review' and review_name in refs:
+                for row in judgments:
                     key = version(row)
-                    if key and primary.get(row['id']) == key:
+                    if (key and assigned.get(row['id'])==key and key[1]==key[2]
+                            and (row['id'] not in source or dialogue_versions[row['id']]==key)
+                            and row.get('reviewed') is True and row.get('notLinguisticCoverage') is True
+                            and row.get('targetEdited') is False
+                            and row.get('verdict') in ('context-only-preserve','technical-preservation')
+                            and row.get('sourceDisposition') in ('preserved-detached-source','preserve-as-baseline','accepted-baseline-preservation')):
+                        # An affirmative primary disposition is resolved work,
+                        # not a translated/reviewed phrase or a context extra.
+                        preserved[row['id']]=key;current.pop(row['id'],None)
+                    if key and not nonlinguistic(row) and (primary.get(row['id']) == key or assigned.get(row['id']) == key):
                         decisions[key] = linguistic_pass(row)
+                        if not decisions[key] and preserved.get(row['id'])==key:
+                            preserved.pop(row['id'],None)
             valid_phases.append(phase['number'])
         except (OSError, ValueError, KeyError, TypeError) as exc:
             ev.errors.append(f'{locale} phase {phase["number"]}: {exc}')
@@ -332,8 +377,12 @@ def collect_locale(ev, policy, locale, families):
             continue
         drafted = {id_ for id_ in ids if id_ in current}
         reviewed = {id_ for id_ in drafted if decisions.get(current[id_]) is True}
+        retained=set(preserved)&ids
         rows.append(dict(id=family['id'], expected=len(ids), drafted=len(drafted), reviewed=len(reviewed),
-                         wordingVersionSha256=hashed(json.dumps(sorted(current[id_] for id_ in drafted)).encode()),
+                         preserved=len(retained),resolved=len(drafted|retained),reviewResolved=len(reviewed|retained),
+                         resolvedPercent=round(100*len(drafted|retained)/len(ids),2),
+                         reviewResolvedPercent=round(100*len(reviewed|retained)/len(ids),2),
+                         wordingVersionSha256=hashed(json.dumps(sorted([current[id_] for id_ in drafted]+[preserved[id_] for id_ in retained])).encode()),
                          status='measured', draftPercent=round(100 * len(drafted) / len(ids), 2),
                          reviewPercent=round(100 * len(reviewed) / len(ids), 2)))
     last = lane.get('phases', [{}])[-1]
@@ -359,17 +408,27 @@ def collect_locale(ev, policy, locale, families):
                                 sha256=last['resultSha256']) if last.get('resultSha256') else None,
                 lastPhase=lane.get('phases', [{}])[-1].get('number'),
                 lastActivityAt=lane.get('phases', [{}])[-1].get('startedAt'),
-                blocker=blocker, families=rows)
+                blocker=blocker, families=rows,
+                _acceptedVersions={**{id_:key for id_,key in current.items() if decisions.get(key) is True},**preserved},
+                _resourceRefs=resource_refs,_familyIds=families,_stageClaims=stage_claims)
 
 
 def accepted_stages(ev, policy, row, scope_hash, source_gate):
     accepted = {'scope'}
-    if source_gate['commonSourceAccepted'] is True and source_gate['translationEntryAllowed'] is True:
+    if (source_gate['commonSourceAccepted'] is True and source_gate['translationEntryAllowed'] is True
+            or source_gate.get('acceptedBaselineReuse') is True):
         accepted.add('source')
-    path = f'localization/completion/acceptance/{row["locale"]}.json'
-    if not (ev.root / path).is_file():
-        return accepted
-    data = ev.json(path)
+    paths=[f'localization/completion/acceptance/{row["locale"]}.json',
+           f'localization/{row["locale"]}-assets/completion/acceptance.json']
+    claims=list(row.pop('_stageClaims',[]))
+    claims.extend(ev.json(path) for path in paths if (ev.root/path).is_file())
+    for data in claims:
+        accepted.update(_accepted_claim(ev,policy,row,scope_hash,data))
+    return accepted
+
+
+def _accepted_claim(ev,policy,row,scope_hash,data):
+    accepted=set()
     wording_hash = hashed(json.dumps([(f['id'], f.get('wordingVersionSha256')) for f in row['families']], sort_keys=True).encode())
     if (data.get('locale') != row['locale'] or data.get('policyRevision') != policy['revision']
             or data.get('sourceScopeSha256') != scope_hash or data.get('wordingVersionSha256') != wording_hash):
@@ -391,7 +450,7 @@ def accepted_stages(ev, policy, row, scope_hash, source_gate):
         except (OSError, ValueError) as exc:
             ev.errors.append(str(exc))
             continue
-        if stage == 'translate-edit' and any(f['expected'] is None or f['drafted'] != f['expected'] for f in row['families']):
+        if stage == 'translate-edit' and any(f['expected'] is None or f.get('resolved',f['drafted']) != f['expected'] for f in row['families']):
             continue
         accepted.add(stage)
     return accepted
@@ -403,7 +462,9 @@ def calculate_score(policy, families, accepted_stages=None):
     components = []
     for component in policy['components']:
         earned, unverified = 0.0, 0.0
-        if component.get('families'):
+        if component['id'] in ('resource-bindings','resource-saved') and 'resources' in accepted_stages:
+            earned=component['points']
+        elif component.get('families'):
             ids = component['families']
             share = component['points'] / len(ids)
             for id_ in ids:
@@ -429,48 +490,72 @@ def calculate_score(policy, families, accepted_stages=None):
 
 
 def report(root=ROOT, locale=None):
-    from locale_dependencies import reconcile, current_lane_state
+    from locale_progress_evidence import baseline,resources
     ev = Evidence(root)
     policy = ev.json(POLICY)
     if sum(c['points'] for c in policy['components']) != 100:
         raise ValueError('Policy weights must total exactly 100')
     for path, expected in policy['sourcePins'].items():
         ev.read(path, expected)
+    owner,preservation=baseline(ev,policy)
+    process_context=ev.json(policy['processContext']) if policy.get('processContext') else None
     families = {family['id']: expected_ids(ev, family) for family in policy['families']}
     source_gate = ev.json('localization/source/shared-source-completion-20261028/admission-v1/manifest.json')
-    dependencies = reconcile(ev)
+    if owner:
+        dependencies=dict(sharedBaseAccepted=True,russianOwnerAcceptance=owner,
+            scope='Reuse of the exact owner-accepted Russian behavior; no target language/native acceptance.')
+        source_gate=dict(source_gate,acceptedBaselineReuse=True)
+    else:
+        from locale_dependencies import reconcile
+        dependencies=reconcile(ev)
     scope_hash = hashed(json.dumps(policy['sourcePins'], sort_keys=True).encode())
     rows = []
     for code in ([locale] if locale else LOCALES):
+        if code=='ru' and owner:
+            rows.append(dict(locale='ru',percent=100.0,releaseReady=False,deliveryAccepted=True,
+                acceptanceBasis='direct-owner-accepted-reference',laneStatus='owner-accepted',workerAlive=False,
+                ownerStatement=owner['statement'],evidence=owner['artifact'],families=[],components=[],
+                boundary='Accepted Russian scope; historic unrun flags retained, publication/release not inferred.'))
+            continue
         if code not in LOCALES:
             raise ValueError(f'Unsupported progress locale: {code}')
-        row = collect_locale(ev, policy, code, families)
+        row = collect_locale(ev, policy, code, families,preservation)
+        saved=resources(ev,policy,row) if owner else False
+        if not owner:
+            for key in ('_acceptedVersions','_resourceRefs','_familyIds'):row.pop(key,None)
         accepted = accepted_stages(ev, policy, row, scope_hash, source_gate)
+        if saved:accepted.add('resource-saved')
         row.update(calculate_score(policy, row['families'], accepted))
         row['gates'] = {stage: ('passed' if stage in accepted else 'not-accepted') for stage in policy['requiredGates']}
         row['wholeGameSourceAccepted'] = source_gate['commonSourceAccepted']
         row['sharedRussianBaseAccepted'] = dependencies['sharedBaseAccepted']
-        dependency_state=current_lane_state(row,dependencies)
+        if owner:dependency_state=None
+        else:
+            from locale_dependencies import current_lane_state
+            dependency_state=current_lane_state(row,dependencies)
         if dependency_state is not None:
             row['historicalBlocker']=row['blocker']
             row['dependencyState']=dependency_state
             row['blocker']='; '.join(dependency_state['remaining'])
-        row['releaseReady'] = row.pop('ready') and source_gate['commonSourceAccepted']
+        row['releaseReady'] = row.pop('ready') and (bool(owner) or source_gate['commonSourceAccepted'])
         rows.append(row)
     ev.stable()
     return dict(schemaVersion=1, measuredAt=datetime.now(timezone.utc).isoformat(), revision=policy['revision'],
                 meaning=policy['meaning'], sourceScopeSha256=scope_hash,
-                calculatorSha256=hashed(Path(__file__).read_bytes()),
+                policyRebase=policy.get('rebasedFrom'),
+                calculatorSha256=hashed(Path(__file__).read_bytes()+Path(__file__).with_name('locale_progress_evidence.py').read_bytes()),
                 locales=rows, sharedDependencies=dependencies,
+                processRevision=process_context.get('revision') if process_context else None,
+                referenceBenchmark=dict(locale='ru',percent=100.0,accepted=True,authority=policy['ownerBaseline']) if owner else None,
                 evidencePins=ev.pins, warnings=list(dict.fromkeys(ev.errors)),
                 recoveredExactPacketPrefixes=ev.recovered_prefixes,
                 unknownWholeGameInventory=not source_gate['commonSourceAccepted'], modelRequestsStarted=0)
 
 
 def table(data):
-    names = dict(zh='Китайский', es='Испанский', **{'es-419': 'Латиноамериканский испанский', 'pt-BR': 'Бразильский португальский'}, ja='Японский', de='Немецкий')
+    names = dict(zh='Китайский', es='Испанский', **{'es-419': 'Латиноамериканский испанский', 'pt-BR': 'Бразильский португальский'}, ja='Японский', de='Немецкий',ru='Русский — принятый эталон')
     states = {'running': 'Работает', 'blocked': 'Заблокирован', 'held-request-outcome': 'Остановлен: запрос требует сверки',
-              'held-dispatch-policy': 'Передано в техническую очередь'}
+              'held-dispatch-policy': 'Историческая приостановка очереди','owner-accepted':'Принят владельцем'}
     lines = ['| Язык | Общий индекс готовности | Готова к выпуску | Состояние |',
              '|---|---:|---|---|']
     for row in data['locales']:
@@ -503,6 +588,7 @@ def snapshot(data, root=ROOT):
             before = old.get(row['locale'])
             if before:
                 row['sincePrevious'] = dict(comparable=same_policy, previousAt=previous['measuredAt'],
+                                            previousPercent=before['percent'],
                                             pointDelta=round(row['percent'] - before['percent'], 2) if same_policy else None,
                                             reason='same-calculation-and-scope' if same_policy else 'calculation-or-scope-revised')
     path = directory / (data['measuredAt'].replace(':', '').replace('+', '_') + '.json')
