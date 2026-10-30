@@ -91,6 +91,15 @@ mechanisms. Work on concrete target-locale differences: reviewed wording, adapte
 configuration, font/glyph resources and target layout/runtime checks. Russian
 acceptance does not grant another locale's semantic or rendering pass.
 
+An explicit owner request to repair/resume a stopped lane uses a pinned finite
+`ownerResume` assignment and owner authorization, as recorded in
+`completion/resume-stopped-20261030-01/`. It does not wait for a historical global
+source wake or change old gate files. Use the shared repair launcher with its
+`--continuation-config`; the old default source-wake launch is rejected after
+Russian owner acceptance. Preserve active children through the verified observer
+handoff and verify actual fresh runtime before target input. Unchanged blockers
+without new work/authority still launch nothing.
+
 The family catalog deliberately includes overlapping physical copies and repeated
 glow fields. Family counts cannot be summed into a unique visible-string total.
 Equal English text, a matching filename or a Russian acceptance receipt is not a

@@ -341,6 +341,41 @@ def source_wake_ready(root,config):
             and value.get('completeVisibleTranslationDenominator') is not None)
 
 
+def owner_resume_task(root,job,stopped_result=None):
+    """Explicit finite target work, independent of a historical whole-source wake."""
+    config=job['ownerResume']
+    def pinned(pin):
+        path=local(root,pin['path'])
+        if sha(path)!=pin['sha256']:raise ValueError('Owner continuation dependency changed')
+        return read(path)
+    authority=pinned(config['authorization']);baseline=pinned(config['baselineAcceptance'])
+    if (authority.get('kind')!='direct-owner-repair-and-resume' or
+            job['locale'] not in authority.get('locales',[]) or
+            authority.get('baselineAcceptance')!=config['baselineAcceptance']):
+        raise ValueError('Owner continuation authorization scope')
+    if (baseline.get('authority')!='owner' or baseline.get('accepted') is not True or
+            baseline.get('locale')!='ru' or baseline.get('sharedMechanismReuseAllowed') is not True or
+            baseline.get('targetLocaleAcceptanceGranted') is not False):
+        raise ValueError('Owner baseline acceptance scope')
+    for pin in [baseline['artifact'],baseline['sourceManifest']]:
+        if sha(local(root,pin['path']))!=pin['sha256']:raise ValueError('Owner baseline artifact changed')
+    scope=pinned(config['scope']);ids=scope.get('affectedIds',[])
+    if stopped_result is not None:
+        owning=scope.get('owningStoppedResult') or {}
+        if (owning.get('sha256')!=stopped_result['sha256'] or not owning.get('path') or
+                local(root,owning['path'])!=local(root,stopped_result['path'])):
+            raise ValueError('Owner continuation belongs to a different stopped result; prepare changed work')
+    if scope.get('locale')!=job['locale'] or not ids or len(ids)!=len(set(ids)):
+        raise ValueError('Finite owner continuation scope')
+    for pin in scope.get('inputs',[]):
+        if sha(local(root,pin['path']))!=pin['sha256']:raise ValueError('Target continuation input changed')
+    task=config['task']
+    if (task.get('kind')!='work' or not task.get('title') or
+            sha(local(root,task['brief']))!=task['briefSha256']):
+        raise ValueError('Owner continuation task changed')
+    return copy.deepcopy(task)
+
+
 def retained_terminal(root,lane,recovery):
     if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Terminal checkpoint changed')
     state=read(lane/'status.json');record=state['phases'][-1];phase=Path(record['phase'])
@@ -358,9 +393,16 @@ def run_lane(directory,plan,job):
     if recovery and recovery.get('kind')=='retained-terminal-lane':
         state=retained_terminal(root,lane,recovery)
         config=job.get('sourceWake')
-        if not config or state['status']!='blocked':return state
-        # Quiet data-only wait. No new model request for an unchanged blocker.
-        while not source_wake_ready(root,config):time.sleep(10)
+        if state['status']!='blocked':return state
+        if job.get('ownerResume'):
+            task=owner_resume_task(root,job,dict(path=str((Path(state['phases'][-1]['phase'])/'result.json').relative_to(root)),sha256=recovery['resultSha256']))
+            wake=dict(ownerResumeAt=now(),ownerResumeAuthorizationSha256=job['ownerResume']['authorization']['sha256'])
+        else:
+            if not config:return state
+            # Quiet data-only wait. No new model request for an unchanged blocker.
+            while not source_wake_ready(root,config):time.sleep(10)
+            task=copy.deepcopy(config['task'])
+            wake=dict(sourceWakeAt=now(),sourceWakeSha256=sha(local(root,config['sourceManifest'])))
         state=retained_terminal(root,lane,recovery)
         seen=set()
         for old in state['phases']:
@@ -372,8 +414,7 @@ def run_lane(directory,plan,job):
         for name in ['status.json','continuation.lock']:
             with (archive/name).open('xb') as f:f.write((lane/name).read_bytes())
         (lane/'continuation.lock').unlink()
-        task=copy.deepcopy(config['task'])
-        state.update(status='starting',supervisorPid=os.getpid(),sourceWakeAt=now(),sourceWakeSha256=sha(local(root,config['sourceManifest'])))
+        state.update(status='starting',supervisorPid=os.getpid(),**wake)
         state.pop('reason',None)
     elif recovery and recovery.get('kind')=='owner-stopped-efficiency-restart':
         if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Stopped checkpoint changed')

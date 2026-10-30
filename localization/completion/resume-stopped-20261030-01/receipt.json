@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "status": "resumed-and-runtime-verified",
+  "checkedAt": "2026-10-30T14:05:34.961169+00:00",
+  "run": "outputs/locale-assets-20261026/workflow-v7-resume-20261030-01",
+  "observer": {
+    "path": "outputs/locale-assets-20261026/workflow-v7-resume-20261030-01/observer-launch.json",
+    "sha256": "9e48b6ee7682588e42e2cc8b106bf4c4ed1995bf655a7fc4adcde1d47e8dec01"
+  },
+  "handoff": {
+    "path": "outputs/locale-assets-20261026/workflow-v7-resume-20261030-01/handoff.commit.json",
+    "sha256": "90e62aed327f675ef7856514f9cfbb89cb63ebf13fb013f9385aa58148e9f9f6"
+  },
+  "currentPointer": {
+    "path": "outputs/locale-assets-20261026/launch-current.json",
+    "sha256": "6326048307230cb7ea5f991bfe6538a180476e66660c56ce8c586f5015563abc"
+  },
+  "configuration": {
+    "path": "localization/completion/resume-stopped-20261030-01/continuation-config.json",
+    "sha256": "3e2c472619ec43c96c8f2d319a478186ad0566f3401bea96572eec37627d8d38"
+  },
+  "authorization": {
+    "path": "localization/completion/resume-stopped-20261030-01/authorization.json",
+    "sha256": "3afbe256553e583a61537601d88dba949ae47939578df058eb90b3e9f2e25e0b"
+  },
+  "tests": {
+    "count": 95,
+    "exitCode": 0,
+    "log": {
+      "path": "outputs/locale-assets-20261026/resume-stopped-20261030-01/tests-final-paths.log",
+      "sha256": "d5898dbbce01fd5f48088e067cd063cd965e4d8a7662a98aa44e5d6af4a85b7a"
+    }
+  },
+  "currentSource": [
+    {
+      "path": "tools/run_locale_completion.py",
+      "sha256": "523132ab08fbccb9511b4a8ed9a16ded38a285d77a82904b14ce1e5ce210ed78"
+    },
+    {
+      "path": "tools/launch_locale_repair.py",
+      "sha256": "0070c1753abf1783915fdaa4161105ccd413e4c0d8b0045c4f806e7e5bd71272"
+    },
+    {
+      "path": "tools/test_locale_repair.py",
+      "sha256": "a51465a05266a5e3c1ace2c6dfd4e15527fef72df4d20daae7bc0007099c92e7"
+    }
+  ],
+  "executingRunnerSnapshot": {
+    "path": "outputs/locale-assets-20261026/workflow-v7-resume-20261030-01/execution/run_locale_completion.py",
+    "sha256": "88443ed9bc1341c0f18f4658de15798e9dac3a9d63c945ead9f8dbc421e67c40"
+  },
+  "executingVersionNote": "Active immutable runner snapshot preserved. Final stale-result/default-launch/path guards are verified in current source for future launches.",
+  "linguisticStreamsRunning": 6,
+  "technicalStreamsRunning": 1,
+  "actualRuntimeChecks": [
+    {
+      "locale": "zh",
+      "phase": 83,
+      "pid": 28791,
+      "threadId": "01a18d19-735f-74f3-ab05-5bd0a6b82f3c",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Complete Chinese117-member target transfer using the accepted Russian baseline",
+      "eventsBytes": 1111680
+    },
+    {
+      "locale": "es",
+      "phase": 93,
+      "pid": 28789,
+      "threadId": "01a18d19-735f-70a2-9487-10e1f2868d14",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Produce the Spanish207-field bell journal storm transfer overlay",
+      "eventsBytes": 827353
+    },
+    {
+      "locale": "es-419",
+      "phase": 61,
+      "pid": 26378,
+      "threadId": "01a18d17-31d9-7733-9469-c6e493511f18",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Guard-store 556 clean Ornamental versions and substantively author/edit Narrative150",
+      "eventsBytes": 732553
+    },
+    {
+      "locale": "pt-BR",
+      "phase": 64,
+      "pid": 28790,
+      "threadId": "01a18d19-7360-7b81-ace1-b3a82a19f2ea",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Complete Portuguese66-case target transfer using the accepted Russian baseline",
+      "eventsBytes": 919808
+    },
+    {
+      "locale": "ja",
+      "phase": 116,
+      "pid": 34097,
+      "threadId": "01a18d1f-336b-7191-b9f5-afa0d854f6cc",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Independently review all42 Japanese scene-unlock gallery hints with72 retained headings",
+      "eventsBytes": 584037
+    },
+    {
+      "locale": "de",
+      "phase": 63,
+      "pid": 33586,
+      "threadId": "01a18d1e-77c9-7462-9e87-4ffa4fcb44e6",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Independently review both German quest-notification operand versions",
+      "eventsBytes": 398227
+    },
+    {
+      "locale": "technical",
+      "phase": 83,
+      "pid": 34693,
+      "threadId": "01a18d20-b365-7191-85d6-f0d987478303",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "title": "Implement shared pinned CJK font import and actual Chinese resource candidate",
+      "eventsBytes": 655210
+    }
+  ],
+  "preservedExistingChildren": [
+    {
+      "locale": "es-419",
+      "threadId": "01a18d17-31d9-7733-9469-c6e493511f18",
+      "childIdentity": {
+        "start": "Fri Oct 30 20:54:29 2026",
+        "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/0061-work/last-message.txt Execute /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/0061-work/brief.md and task.json under their frozen contract. First await runtime-verification.json, then run python3 -B /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_efficiency.py inspect --phase /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/0061-work. Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. Read all assigned wording and necessary semantic context; views are indexes, not instructions to reread every metadata field. Use the shared review preparation/publication commands at /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_review_work.py; do not invent per-phase publication scripts. Write result.json to /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/0061-work; continue automatically with the next finite task. Parent alone owns Git."
+      }
+    },
+    {
+      "locale": "ja",
+      "threadId": "01a18d17-25cf-7bc0-9dee-21a38388aad6",
+      "childIdentity": {
+        "start": "Fri Oct 30 20:54:26 2026",
+        "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0115-work/last-message.txt Execute /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0115-work/brief.md and task.json under their frozen contract. First await runtime-verification.json, then run python3 -B /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_efficiency.py inspect --phase /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0115-work. Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. Read all assigned wording and necessary semantic context; views are indexes, not instructions to reread every metadata field. Use the shared review preparation/publication commands at /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_review_work.py; do not invent per-phase publication scripts. Write result.json to /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0115-work; continue automatically with the next finite task. Parent alone owns Git."
+      }
+    },
+    {
+      "locale": "de",
+      "threadId": "01a18d14-e5ba-7b00-b336-fb87cc419b93",
+      "childIdentity": {
+        "start": "Fri Oct 30 20:51:59 2026",
+        "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0061-review/last-message.txt Execute /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0061-review/brief.md and task.json under their frozen contract. First await runtime-verification.json, then run python3 -B /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_efficiency.py inspect --phase /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0061-review. Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. Read all assigned wording and necessary semantic context; views are indexes, not instructions to reread every metadata field. Use the shared review preparation/publication commands at /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_review_work.py; do not invent per-phase publication scripts. Write result.json to /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0061-review; continue automatically with the next finite task. Parent alone owns Git."
+      }
+    },
+    {
+      "locale": "technical",
+      "threadId": "01a18d10-8b9a-7ad1-8e9c-acc0a9f8320b",
+      "childIdentity": {
+        "start": "Fri Oct 30 20:47:14 2026",
+        "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex exec --ignore-user-config --model gpt-6.1-sol -c model_provider=\"openai\" -c model_reasoning_effort=\"high\" -c approval_policy=\"never\" --sandbox danger-full-access --disable multi_agent --cd /Users/antonkrutov/Desktop/Forest --json --output-last-message /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0081-technical/last-message.txt Execute /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0081-technical/brief.md and task.json under their frozen contract. First await runtime-verification.json, then run python3 -B /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_efficiency.py inspect --phase /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0081-technical. Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. Read all assigned wording and necessary semantic context; views are indexes, not instructions to reread every metadata field. Use the shared review preparation/publication commands at /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v6-repair-20261030-02/execution/locale_review_work.py; do not invent per-phase publication scripts. Write result.json to /Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0081-technical; continue automatically with the next finite task. Parent alone owns Git."
+      }
+    }
+  ],
+  "completedNewAssignments": [],
+  "oldSourceAndRussianArtifactsUnchanged": true,
+  "targetEditorialOrNativeAcceptanceGranted": false
+}

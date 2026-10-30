@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 import run_locale_completion as runner
 import recover_locale_completion as recover
+import launch_locale_repair as launcher
 from locale_queue import sha
 
 
@@ -39,6 +40,98 @@ class RepairTests(unittest.TestCase):
         self.assertFalse(runner.source_wake_ready(self.root,config))
         self.write('source.json',dict(commonSourceAccepted=True,translationEntryAllowed=True,completeVisibleTranslationDenominator=100))
         self.assertTrue(runner.source_wake_ready(self.root,config))
+
+    def owner_config(self):
+        def pin(p):return dict(path=str(p.relative_to(self.root)),sha256=sha(p))
+        artifact=self.write('accepted-russian.json',dict(delivered=True))
+        source=self.write('original-source.json',dict(version='0.45'))
+        target=self.write('target-input.json',dict(source='Original',target='Saved'))
+        baseline=self.write('baseline.json',dict(authority='owner',accepted=True,locale='ru',
+            sharedMechanismReuseAllowed=True,targetLocaleAcceptanceGranted=False,
+            artifact=pin(artifact),sourceManifest=pin(source)))
+        authority=self.write('owner-repair.json',dict(kind='direct-owner-repair-and-resume',
+            locales=['zh','es','pt-BR'],baselineAcceptance=pin(baseline)))
+        stopped=self.write('stopped.json',dict(outcome='blocked'))
+        scope=self.write('scope.json',dict(locale='zh',affectedIds=['one'],inputs=[pin(target)],owningStoppedResult=pin(stopped)))
+        brief=self.root/'actual-work.md';brief.write_text('Produce the bounded target overlay from actual saved wording.')
+        config=dict(authorization=pin(authority),baselineAcceptance=pin(baseline),scope=pin(scope),
+            task=dict(kind='work',title='Produce actual target overlay',brief='actual-work.md',briefSha256=sha(brief)))
+        return config
+
+    def test_owner_can_resume_real_target_work_without_changing_old_source_flags(self):
+        config=self.owner_config()
+        source=self.write('old-gate.json',dict(commonSourceAccepted=False,translationEntryAllowed=False,completeVisibleTranslationDenominator=None))
+        original=source.read_bytes()
+        self.assertEqual(runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config)),config['task'])
+        self.assertEqual(source.read_bytes(),original)
+
+    def test_owner_accepted_baseline_rejects_a_new_legacy_source_wake_launch_before_pause(self):
+        self.write('localization/completion/russian-owner-baseline-20261030-01/acceptance.json',dict(accepted=True))
+        with patch.object(launcher,'ROOT',self.root),patch.object(launcher.recover,'prepare') as prepare:
+            with self.assertRaisesRegex(ValueError,'legacy source-wake launch is obsolete'):
+                launcher.launch(self.root/'previous',self.root/'new')
+            prepare.assert_not_called()
+            prepare.side_effect=RuntimeError('explicit-config-passed-legacy-guard')
+            with self.assertRaisesRegex(RuntimeError,'explicit-config-passed-legacy-guard'):
+                launcher.launch(self.root/'previous',self.root/'new',self.root/'config.json')
+            prepare.assert_called_once()
+
+    def test_owner_resume_rejects_another_locale_after_valid_authority(self):
+        config=self.owner_config()
+        with self.assertRaisesRegex(ValueError,'Finite owner continuation scope'):
+            runner.owner_resume_task(self.root,dict(locale='pt-BR',ownerResume=config))
+
+    def test_owner_resume_rejects_an_empty_scope_with_consistent_pin(self):
+        config=self.owner_config();scope=self.write('scope.json',dict(locale='zh',affectedIds=[]))
+        config['scope']['sha256']=sha(scope)
+        with self.assertRaisesRegex(ValueError,'Finite owner continuation scope'):
+            runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config))
+
+    def test_owner_resume_rejects_drift_in_a_real_target_dependency(self):
+        config=self.owner_config();job=dict(locale='zh',ownerResume=config)
+        runner.owner_resume_task(self.root,job)
+        self.write('target-input.json',dict(source='Original',target='Changed'))
+        with self.assertRaisesRegex(ValueError,'Target continuation input changed'):
+            runner.owner_resume_task(self.root,job)
+
+    def test_prior_finite_assignment_cannot_be_replayed_after_a_new_stopped_result(self):
+        config=self.owner_config();job=dict(locale='zh',ownerResume=config)
+        scope=json.loads((self.root/'scope.json').read_text())
+        runner.owner_resume_task(self.root,job,scope['owningStoppedResult'])
+        with self.assertRaisesRegex(ValueError,'different stopped result'):
+            runner.owner_resume_task(self.root,job,dict(path='new-result.json',sha256='different'))
+
+    def test_stopped_result_binding_accepts_equivalent_absolute_and_relative_paths(self):
+        config=self.owner_config();scope=json.loads((self.root/'scope.json').read_text())
+        original=scope['owningStoppedResult']
+        runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config),dict(original,path=str(self.root/original['path'])))
+
+    def test_owner_resume_continues_same_terminal_lane_once_and_preserves_old_checkpoint(self):
+        config=self.owner_config();lane=self.root/'lane';phase=lane/'0001-review'
+        result=self.write('lane/0001-review/result.json',dict(outcome='blocked',summary='Old whole-source flag'))
+        scope=json.loads((self.root/'scope.json').read_text())
+        scope['owningStoppedResult']=dict(path='lane/0001-review/result.json',sha256=sha(result))
+        scope_path=self.write('scope.json',scope);config['scope']['sha256']=sha(scope_path)
+        status=self.write('lane/status.json',dict(status='blocked',phases=[dict(number=1,pid=123,phase=str(phase),resultSha256=sha(result))]))
+        claim=self.write('lane/continuation.lock',dict(pid=456))
+        receipt=self.write('recovery.json',dict(kind='retained-terminal-lane',previousStatusSha256=sha(status),resultSha256=sha(result),previousClaimSha256=sha(claim),archive='archive'))
+        job=dict(locale='zh',directory='lane',writePrefixes=['lane'],requiredDeliverables=[],immutablePins={},
+            resumeReceipt='recovery.json',resumeReceiptSha256=sha(receipt),ownerResume=config)
+        plan=dict(root=str(self.root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False),cli='fixture',executionPins={})
+        original=status.read_bytes();calls=[]
+        class Child:
+            pid=99999999
+            def __init__(child,argv,**kwargs):
+                calls.append(argv);p=Path(argv[argv.index('--output-last-message')+1]).parent
+                (p/'result.json').write_text(json.dumps(dict(outcome='blocked',summary='Actual target-native boundary',independentWorkRemaining=False,
+                    blockers=[dict(predicate='Native target output',evidence='Not run',nextAction='Authorized target test')])) )
+                kwargs['stdout'].write(json.dumps(dict(type='thread.started',thread_id='owner-target'))+'\n'+json.dumps(dict(type='turn.completed',usage=dict(input_tokens=10,output_tokens=2)))+'\n');kwargs['stdout'].flush()
+            def wait(child):return 0
+        with patch.object(runner,'process_identity',return_value=None),patch.object(runner.subprocess,'Popen',side_effect=Child),patch.object(runner,'publish_current_runtime',return_value=dict(threadId='owner-target')):
+            state=runner.run_lane(self.root,plan,job)
+        self.assertEqual(len(calls),1);self.assertEqual(len(state['phases']),2)
+        self.assertEqual((self.root/'archive/status.json').read_bytes(),original)
+        self.assertEqual(state['ownerResumeAuthorizationSha256'],config['authorization']['sha256'])
 
     def test_retained_blocked_lane_launches_nothing_and_preserves_inputs(self):
         lane=self.root/'lane';phase=lane/'0001-review'
