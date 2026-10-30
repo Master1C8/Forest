@@ -667,6 +667,14 @@ def run(directory):
         raise ValueError('Permanent technical stream retired; locale-owned execution requires zero technical jobs')
     if len(languages)!=6 or len({j['locale'] for j in languages})!=6 or sum(j['locale']=='technical' for j in jobs)>1:
         raise ValueError('Exactly six linguistic lanes plus at most one technical lane')
+    selected=plan.get('executionLocales')
+    if selected is not None:
+        available={j['locale'] for j in jobs}
+        if (not isinstance(selected,list) or not selected or
+                any(not isinstance(locale,str) for locale in selected) or
+                len(selected)!=len(set(selected)) or not set(selected)<=available):
+            raise ValueError('Execution locales must be a nonempty unique subset of configured languages')
+        jobs=[j for j in jobs if j['locale'] in selected]
     if sha(Path(plan['cli']))!=plan['cliSha256']:raise ValueError('CLI executable changed')
     with (directory/'run.claim').open('x') as f:json.dump(dict(pid=os.getpid(),at=now()),f)
     if plan.get('observerHandoff'):

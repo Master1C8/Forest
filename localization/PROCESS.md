@@ -191,8 +191,13 @@ remains, record that precise predicate rather than waiting for a retired worker.
 
 Historical technical inboxes, frozen implementations, delivered evidence and
 interrupted drafts remain immutable reconstruction inputs. Interrupted technical
-work has no newly accepted coverage. New observers contain exactly the six locale
-jobs and reject a seventh technical job before submission. Language jobs already
+work has no newly accepted coverage. New observers configure exactly the six locale
+jobs and reject a seventh technical job before submission. An explicit owner request
+to resume only selected languages records a nonempty, unique `executionLocales`
+subset in the new frozen plan; only that subset is dispatched or reconciled.
+Regression: `executionLocales: ["de"]` starts only German and leaves all other
+stopped lane states and claims untouched; empty, duplicate or unknown selections
+reject before a claim or model submission. Language jobs already
 running keep their immutable phase inputs and are adopted without replay.
 
 Regression: saved reviewed locale text and resource bytes exist while an old

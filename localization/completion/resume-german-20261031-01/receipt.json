@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-30T18:22:22.564515+00:00",
+  "status": "running",
+  "locale": "de",
+  "run": "outputs/locale-assets-20261026/workflow-v13-german-20261031-01",
+  "observerPid": 29692,
+  "phase": 80,
+  "workerPid": 29695,
+  "threadId": "01a18e0b-b63d-74a3-a41e-0dcee8adb80c",
+  "actualModel": {
+    "session": {
+      "id": "01a18e0b-b63d-74a3-a41e-0dcee8adb80c",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "freshExecNoResumeNoFork": true,
+  "priorPhase79PreservedUnaccepted": true,
+  "otherFiveLaneStatesAndClaimsUnchanged": true,
+  "permanentTechnicalStreamRunning": false,
+  "authorization": {
+    "path": "localization/completion/resume-german-20261031-01/authorization.json",
+    "sha256": "8bd215f1c4a883a2d87bacf459a85272a65f5ed170c74c5320f569282562bca4"
+  },
+  "task": "Finish the saved122 German UI and pause consumer bindings, then continue finite own-locale work/review.",
+  "modelRequestsSubmitted": 1,
+  "nestedAgentsAllowed": false,
+  "usageStatus": "Worker is running; completion usage not yet available. Runtime and usage remain in the owning phase journal.",
+  "verification": {
+    "completionTestsPassed": 17,
+    "selectionTest": "Only de reaches run_lane; native/model work replaced by fixture in tests",
+    "realRuntimeVerified": true
+  },
+  "noGameGuiInstallerPublicationDeploymentServerAction": true
+}

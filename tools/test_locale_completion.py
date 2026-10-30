@@ -67,6 +67,32 @@ class CompletionTests(unittest.TestCase):
                 model.assert_not_called()
             self.assertFalse((root/'run.claim').exists())
 
+    def test_explicit_german_selection_never_starts_other_stopped_lanes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();cli=root/'fixture-cli';cli.write_text('fixture')
+            jobs=[dict(locale=loc,directory='jobs/'+loc) for loc in ['zh','es','es-419','pt-BR','ja','de']]
+            plan=dict(root=str(root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai'),
+                      jobs=jobs,executionLocales=['de'],cli=str(cli),cliSha256=sha(cli))
+            put(root/'plan.json',plan)
+            with patch.object(c,'run_lane',return_value=dict(status='blocked')) as lane:
+                c.run(root)
+            self.assertEqual(lane.call_count,1)
+            self.assertEqual(lane.call_args.args[2]['locale'],'de')
+            self.assertEqual([x['locale'] for x in read(root/'status.json')['lanes']],['de'])
+
+    def test_invalid_locale_selection_rejects_before_claim_or_submission(self):
+        for selection in [[],['de','de'],['technical'],['fr'],'de',[None]]:
+            with self.subTest(selection=selection),tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp).resolve()
+                plan=dict(root=str(root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai'),
+                          jobs=[dict(locale=loc) for loc in ['zh','es','es-419','pt-BR','ja','de']],
+                          executionLocales=selection)
+                put(root/'plan.json',plan)
+                with patch.object(c,'run_lane') as lane:
+                    with self.assertRaisesRegex(ValueError,'nonempty unique subset'):c.run(root)
+                    lane.assert_not_called()
+                self.assertFalse((root/'run.claim').exists())
+
     def test_no_progress_copy_does_not_continue_and_parent_stop_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp).resolve();phase,job=self.fixture(root);e=phase/'decisions.json';put(e,dict(id='case'))
