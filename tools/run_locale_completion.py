@@ -35,7 +35,7 @@ def permitted(root,path,prefixes):
     return any(resolved.is_relative_to(local(root,prefix)) for prefix in prefixes)
 
 
-def publish_technical_handoffs(root,directory,job,result):
+def publish_technical_handoffs(root,directory,job,result,inbox_directory=None):
     """Forward pinned data to the existing technical lane, never launch a model."""
     published=[]
     for pin in result.get('technicalHandoffs',[]):
@@ -45,7 +45,7 @@ def publish_technical_handoffs(root,directory,job,result):
         data=read(path)
         if not all(data.get(k) for k in ['predicate','affectedIds','evidence','requiredResult']):
             raise ValueError('Technical handoff needs its actual finite predicate and evidence')
-        inbox=directory/'technical-inbox';inbox.mkdir(exist_ok=True)
+        inbox=Path(inbox_directory) if inbox_directory else directory/'technical-inbox';inbox.mkdir(exist_ok=True)
         target=inbox/(job['locale']+'-'+pin['sha256']+'.json')
         body=dict(locale=job['locale'],request=pin,finiteDeliverable=data['requiredResult'])
         if target.exists():
@@ -55,11 +55,12 @@ def publish_technical_handoffs(root,directory,job,result):
     for item in result.get('resolvedTechnicalHandoffs',[]):
         if job.get('locale')!='technical':raise ValueError('Only the technical lane can close shared work')
         request=local(root,item['request']['path']);delivery=local(root,item['delivery']['path'])
-        if request.parent!=(directory/'technical-inbox').resolve() or sha(request)!=item['request']['sha256']:
+        inbox=Path(inbox_directory) if inbox_directory else directory/'technical-inbox'
+        if request.parent!=inbox.resolve() or sha(request)!=item['request']['sha256']:
             raise ValueError('Resolved request identity differs')
         if not permitted(root,delivery,job['writePrefixes']) or sha(delivery)!=item['delivery']['sha256']:
             raise ValueError('Resolved technical delivery differs')
-        handled=directory/'technical-inbox/handled';handled.mkdir(exist_ok=True)
+        handled=inbox/'handled';handled.mkdir(exist_ok=True)
         receipt=handled/request.name
         if receipt.exists():
             if read(receipt)!=item:raise ValueError('Existing technical closure differs')
@@ -321,11 +322,60 @@ def restore_capacity_closeout(root,lane,job,receipt):
     return state,seen,copy.deepcopy(task)
 
 
+def priority_task(root,plan,job,state,task):
+    selected=plan.get('ownerPriorityTask')
+    if job['locale']!='technical' or not selected or task['kind']=='review' or task.get('reviewCarryover'):
+        return task
+    if state.get('ownerPriorityApplied')==selected['briefSha256']:return task
+    if sha(local(root,selected['brief']))!=selected['briefSha256']:raise ValueError('Owner priority assignment changed')
+    state['deferredTechnicalTask']=copy.deepcopy(task)
+    state['ownerPriorityApplied']=selected['briefSha256']
+    return copy.deepcopy(selected)
+
+
+def source_wake_ready(root,config):
+    path=local(root,config['sourceManifest'])
+    if sha(path)==config['baselineSha256']:return False
+    value=read(path)
+    return (value.get('commonSourceAccepted') is True and value.get('translationEntryAllowed') is True
+            and value.get('completeVisibleTranslationDenominator') is not None)
+
+
+def retained_terminal(root,lane,recovery):
+    if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Terminal checkpoint changed')
+    state=read(lane/'status.json');record=state['phases'][-1];phase=Path(record['phase'])
+    if state['status'] not in {'blocked','static-complete'}:raise ValueError('Expected terminal lane')
+    if sha(phase/'result.json')!=recovery['resultSha256']:raise ValueError('Terminal result changed')
+    if sha(lane/'continuation.lock')!=recovery['previousClaimSha256']:raise ValueError('Terminal claim changed')
+    if process_identity(record['pid'],phase) is not None:raise ValueError('Terminal worker is alive')
+    return state
+
+
 def run_lane(directory,plan,job):
     root=Path(plan['root']);lane=local(root,job['directory']);lane.mkdir(parents=True,exist_ok=True)
     recovery=read(local(root,job['resumeReceipt'])) if job.get('resumeReceipt') else None
     if recovery and sha(local(root,job['resumeReceipt']))!=job['resumeReceiptSha256']:raise ValueError('Recovery receipt changed')
-    if recovery and recovery.get('kind')=='owner-stopped-efficiency-restart':
+    if recovery and recovery.get('kind')=='retained-terminal-lane':
+        state=retained_terminal(root,lane,recovery)
+        config=job.get('sourceWake')
+        if not config or state['status']!='blocked':return state
+        # Quiet data-only wait. No new model request for an unchanged blocker.
+        while not source_wake_ready(root,config):time.sleep(10)
+        state=retained_terminal(root,lane,recovery)
+        seen=set()
+        for old in state['phases']:
+            previous=Path(old['phase'])/'result.json'
+            if old.get('resultSha256'):
+                if sha(previous)!=old['resultSha256']:raise ValueError('Accepted blocked-lane evidence changed')
+                seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
+        archive=local(root,recovery['archive']);archive.mkdir(parents=True)
+        for name in ['status.json','continuation.lock']:
+            with (archive/name).open('xb') as f:f.write((lane/name).read_bytes())
+        (lane/'continuation.lock').unlink()
+        task=copy.deepcopy(config['task'])
+        state.update(status='starting',supervisorPid=os.getpid(),sourceWakeAt=now(),sourceWakeSha256=sha(local(root,config['sourceManifest'])))
+        state.pop('reason',None)
+    elif recovery and recovery.get('kind')=='owner-stopped-efficiency-restart':
         if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Stopped checkpoint changed')
         state=read(lane/'status.json')
         if state['status']!='owner-stopped':raise ValueError('Owner stop was not reconciled')
@@ -403,6 +453,7 @@ def run_lane(directory,plan,job):
             if old.get('resultSha256') and sha(previous)!=old['resultSha256']:raise ValueError('Retained previous result changed')
             if previous.exists():seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
         fresh=validate_result(root,job,phase,old_task,result,seen)
+        publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
         if result['outcome']!='continue':
             if not adopting:raise ValueError('Recovery does not contain an authorized continuation')
             state.update(status=result['outcome'],reason=result['summary'],finishedAt=now());save(lane/'status.json',state);return state
@@ -436,6 +487,7 @@ def run_lane(directory,plan,job):
             for name,digest in job['immutablePins'].items():
                 path=Path(name) if Path(name).is_absolute() else local(root,name)
                 if sha(path)!=digest:raise ValueError('Immutable source/glossary/contract changed: '+name)
+            task=priority_task(root,plan,job,state,task)
             phase=lane/f'{len(state["phases"])+1:04d}-{task["kind"]}';phase.mkdir()
             brief=local(root,task['brief'])
             if sha(brief)!=task['briefSha256']:raise ValueError('Next assignment changed after its receipt')
@@ -446,7 +498,7 @@ def run_lane(directory,plan,job):
                 phase_config['efficiencyHelper']=plan['efficiencyHelper']
                 phase_config['reviewHelper']=str(Path(plan['efficiencyHelper']).parent/'locale_review_work.py')
                 phase_config['laneRole']='shared-technical' if job['locale']=='technical' else 'linguistic'
-                phase_config['technicalInbox']=str(directory/'technical-inbox')
+                phase_config['technicalInbox']=plan.get('technicalInbox',str(directory/'technical-inbox'))
                 packets=[]
                 if task.get('reviewPacket'):
                     packet=local(root,task['reviewPacket'])
@@ -474,7 +526,7 @@ def run_lane(directory,plan,job):
             if not cli_turn_succeeded(code,usage,errors):
                 record['status']='held-request-outcome';state.update(status='held-request-outcome',reason='Reconcile this exact request; no automatic retry');save(status,state);return state
             result=read(phase/'result.json');fresh=validate_result(root,job,phase,task,result,seen)
-            published=publish_technical_handoffs(root,directory,job,result)
+            published=publish_technical_handoffs(root,directory,job,result,plan.get('technicalInbox'))
             if published:record['technicalHandoffs']=published
             record.update(status='partial-review-reassigned' if result.get('verifiedReviewCoverage',{}).get('unreadIds') else 'phase-complete',
                           resultSha256=sha(phase/'result.json'),summary=result['summary'],progress=result.get('progress'),outcome=result['outcome'],

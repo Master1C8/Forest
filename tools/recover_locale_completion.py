@@ -21,10 +21,16 @@ ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 
 def owns_claim(root,job,state,record,claim,group):
     if read(claim)['pid']==group['pid']:return True
-    if state.get('supervisorPid')!=group['pid'] or not job.get('resumeReceipt'):return False
+    if not job.get('resumeReceipt'):return False
     path=local(root,job['resumeReceipt'])
     if sha(path)!=job['resumeReceiptSha256']:return False
     prior=read(path)
+    if prior.get('kind')=='retained-terminal-lane':
+        return (state.get('status') in {'blocked','static-complete'}
+                and prior.get('previousStatusSha256')==sha(local(root,job['directory'])/'status.json')
+                and prior.get('previousClaimSha256')==sha(claim)
+                and prior.get('threadId')==record.get('threadId'))
+    if state.get('supervisorPid')!=group['pid']:return False
     return (prior.get('kind')=='live-observer-handoff' and prior.get('threadId')==record.get('threadId')
             and prior.get('previousClaimSha256')==sha(claim))
 
@@ -72,13 +78,14 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
         lane=local(ROOT,job['directory'])
         state=read(lane/'status.json')
         adopting=handoff and state['status']=='running'
+        retained=state['status'] in {'blocked','static-complete'}
         capacity=state['status']=='held-request-outcome' and runner.capacity_failure(state['phases'][-1],Path(state['phases'][-1]['phase'])/'events.jsonl')
-        if state['status']!='held-supervisor-error' and not adopting and not capacity:raise ValueError('Only running handoffs or exact supervisor failures are recoverable')
+        if state['status']!='held-supervisor-error' and not adopting and not capacity and not retained:raise ValueError('Only verified running, terminal or failed lanes are recoverable')
         if not adopting:assert_idle(lane)
         record=state['phases'][-1];phase=Path(record['phase'])
         thread,usage,errors=cli_events(phase/'events.jsonl')
         reconciled=None
-        if not adopting and not capacity:
+        if not adopting and not capacity and not retained:
             if not cli_turn_succeeded(0,usage,errors) or thread!=record.get('threadId'):
                 raise ValueError('Actual successful turn is not verified; no retry')
             if record.get('exitCode')!=0:
@@ -107,11 +114,15 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
             correction=selections.get(job['locale'],{}).get('validationNextTask')
             if correction:result['nextTask']=copy.deepcopy(correction)
             runner.validate_result(ROOT,job,phase,task,result,seen)
-            if result['outcome']!='continue':raise ValueError('Completed worker did not request continuation')
+            if retained:
+                if sha(phase/'result.json')!=record.get('resultSha256') or result['outcome']!=state['status']:
+                    raise ValueError('Terminal lane differs from accepted result')
+                if runner.process_identity(record['pid'],phase) is not None:raise ValueError('Terminal lane still has a live worker')
+            elif result['outcome']!='continue':raise ValueError('Completed worker did not request continuation')
         claim=lane/'continuation.lock'
         if not claim.is_file() or not owns_claim(ROOT,job,state,record,claim,group):raise ValueError('Old claim identity differs')
         child_identity=runner.process_identity(record['pid'],phase) if adopting else None
-        resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled))
+        resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained))
     if not handoff:new.mkdir(parents=True)
     execution=new/'execution';execution.mkdir()
     for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py','locale_review_work.py']:
@@ -120,24 +131,34 @@ def finish_prepare(previous,new,plan,group,observer_identity,overrides=None):
     (new/'CONTRACT.md').write_text(contract)
     if overrides:shutil.copyfile(overrides,new/'assignment-overrides.json')
     new_plan=copy.deepcopy(plan);new_plan['recoveredFrom']=str(previous);new_plan['jobs']=[]
+    # Keep one inbox identity across observer handoffs, including active requests.
+    new_plan['technicalInbox']=plan.get('technicalInbox',str(previous/'technical-inbox'))
     if new_plan.get('efficiencyPolicy'):new_plan['efficiencyHelper']=str(execution/'locale_efficiency.py')
     if handoff:new_plan['observerHandoff']=dict(oldPid=group['pid'],oldIdentity=observer_identity)
     else:new_plan.pop('observerHandoff',None)
-    for job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled in resolved:
+    for job,state,record,result,claim,phase,adopting,child_identity,capacity,reconciled,retained in resolved:
         receipt_path=new/'receipts'/(job['locale']+'.json')
         interrupted_pins={};closeout=None
         if capacity:
             interrupted_pins={str(p.relative_to(ROOT)):sha(p) for p in phase.rglob('*') if p.is_file()}
             brief=new/'capacity-closeout'/job['locale']/'brief.md';brief.parent.mkdir(parents=True)
-            brief.write_text(f"""# Finish the interrupted {job['locale']} review packet
+            prior_task=read(phase/'task.json')['task']
+            scope='independent review packet' if prior_task['kind']=='review' else 'author/edit assignment'
+            brief.write_text(f"""# Finish the interrupted {job['locale']} {scope}
 
 The prior request at {phase} exited with code1 with a verified capacity failure after
 producing draft artifacts; its terminal result is absent. This is a new bounded
 closeout assignment, with no accepted coverage credited to that failed turn.
 Read its original brief.md and task.json for the exact scope and full required
-context. Independently read every assigned source/target ID and required context.
-Inspect the existing draft reviews, findings and validations, preserve their
+context. Read every assigned source/target ID and necessary context. This is a
+{scope}; preserve its original role and do not invent another audit layer.
+Inspect existing drafts, findings, side effects and validations, preserve their
 provenance, and verify/reuse unchanged deterministic work by fingerprint.
+First verify any recorded first-application postconditions against the actual
+canonical files. Already stored accepted wording stays stored; do not replay an
+application or overwrite existing phase-owned artifacts. Complete remaining work
+in this new phase and the original permitted locale paths. Author/edit tasks
+must hand new wording to a distinct independent reviewer, never self-accept it.
 Do not rerun extraction or reset a completed accepted receipt. Draft judgments
 need verification; never promote them by default. Write fresh reviewed output
 and result.json under this new phase, retaining explicit unread/held cases.
@@ -145,14 +166,14 @@ Close the finite review packet and produce its exact next authorized task.
 The same pinned Sol/high/OpenAI model is mandatory; no capacity fallback,
 nested jobs, game/GUI/runtime, publication, deployment or Git work.
 """)
-            closeout=copy.deepcopy(read(phase/'task.json')['task'])
-            closeout.update(title='Close interrupted '+job['locale']+' independent review packet',
+            closeout=copy.deepcopy(prior_task)
+            closeout.update(title='Finish interrupted '+job['locale']+' '+scope,
                 brief=str(brief.relative_to(ROOT)),briefSha256=sha(brief))
         receipt=dict(locale=job['locale'],previousStatusSha256=sha(local(ROOT,job['directory'])/'status.json'),
             resultSha256=sha(phase/'result.json') if not adopting and not capacity else None,previousClaimSha256=sha(claim),
-            validatedNextTask=result['nextTask'] if result else closeout,interruptedArtifactPins=interrupted_pins,verifiedReviewCoverage=result.get('verifiedReviewCoverage') if result else None,
+            validatedNextTask=result.get('nextTask') if result else closeout,interruptedArtifactPins=interrupted_pins,verifiedReviewCoverage=result.get('verifiedReviewCoverage') if result else None,
             archive=str((new/'old-checkpoints'/job['locale']).relative_to(ROOT)),
-            kind='live-observer-handoff' if adopting else 'interrupted-capacity-closeout' if capacity else 'completed-turn-supervisor-schema-repair',threadId=record['threadId'],
+            kind='retained-terminal-lane' if retained else 'live-observer-handoff' if adopting else 'interrupted-capacity-closeout' if capacity else 'completed-turn-supervisor-schema-repair',threadId=record['threadId'],
             childIdentity=child_identity,reconciledTerminal=reconciled,workerReplay=False,priorError=state.get('reason'))
         override_file=new/'assignment-overrides.json'
         if override_file.exists() and job['locale'] in read(override_file):
