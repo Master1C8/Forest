@@ -326,11 +326,24 @@ def prepare(root, locale, output):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command',choices=['update','check','status','prepare'])
+    parser.add_argument('command',choices=['update','check','status','prepare','progress'])
     parser.add_argument('--locale');parser.add_argument('--output',type=Path)
     parser.add_argument('--reconcile',action='store_true',help='Archive superseded queue/pointers before publishing reconciled inputs')
+    parser.add_argument('--json',action='store_true',help='Print machine-readable progress')
     args=parser.parse_args()
-    if args.command=='update':
+    if args.command=='progress':
+        from locale_progress import report, table, snapshot
+        data=report(ROOT,args.locale)
+        if not args.locale:
+            snapshot(data,ROOT)
+        if args.output:
+            # A report is a derived immutable snapshot, never a competing checkpoint.
+            args.output.parent.mkdir(parents=True,exist_ok=True)
+            with args.output.open('x') as stream:
+                json.dump(data,stream,ensure_ascii=False,indent=2)
+                stream.write('\n')
+        print(json.dumps(data,ensure_ascii=False,indent=2) if args.json else table(data))
+    elif args.command=='update':
         print(json.dumps(update(ROOT,reconcile=args.reconcile),ensure_ascii=False,indent=2))
     elif args.command=='prepare':
         if not args.locale or not args.output:

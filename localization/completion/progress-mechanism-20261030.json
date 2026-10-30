@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "status": "implemented-and-verified",
+  "revision": "forest-reference-completion-index-v1",
+  "measuredAt": "2026-10-30T09:48:54.939636+00:00",
+  "command": "python3 -B tools/locale_queue.py progress",
+  "sourceScopeSha256": "6ec26d57912515af6d7a490560ca13bf5bb916645d2f85bf871ab80e32ae1359",
+  "calculatorSha256": "ced4e1bec60f22264e98052b60034e68154111006629029109ca3d4b56a1b84c",
+  "snapshot": {
+    "path": "outputs/locale-assets-20261026/progress/2026-10-30T094854.939636_0000.json",
+    "sha256": "269b36f7ced28cb13de9ef292201d77ed0bbd9b71b70a6bb43c4c4ab7f748462"
+  },
+  "locales": [
+    {
+      "locale": "zh",
+      "percent": 56.77,
+      "releaseReady": false,
+      "laneStatus": "blocked"
+    },
+    {
+      "locale": "es",
+      "percent": 50.32,
+      "releaseReady": false,
+      "laneStatus": "running"
+    },
+    {
+      "locale": "es-419",
+      "percent": 46.0,
+      "releaseReady": false,
+      "laneStatus": "held-request-outcome"
+    },
+    {
+      "locale": "pt-BR",
+      "percent": 54.18,
+      "releaseReady": false,
+      "laneStatus": "blocked"
+    },
+    {
+      "locale": "ja",
+      "percent": 43.77,
+      "releaseReady": false,
+      "laneStatus": "held-request-outcome"
+    },
+    {
+      "locale": "de",
+      "percent": 50.81,
+      "releaseReady": false,
+      "laneStatus": "held-request-outcome"
+    }
+  ],
+  "verification": {
+    "progressTests": 14,
+    "existingQueueTests": 9,
+    "realSixLocaleCalculation": true,
+    "exactAppendOnlyPacketRecoveries": 4,
+    "unavailableOrStaleProofWarnings": [
+      "Stale evidence: /Users/antonkrutov/Desktop/Forest/localization/es-assets/editorial-validation-binding.json",
+      "Stale evidence: /Users/antonkrutov/Desktop/Forest/localization/es-419-assets/editorial-validation-bindings.json"
+    ],
+    "inputAndEvidenceFilesFingerprinted": 2009
+  },
+  "modelRequestsStarted": 0,
+  "existingExecutionInputsPreserved": true,
+  "limits": [
+    "Versioned completion index on declared Russian-reference work breakdown; weights are planning policy, not measured labor.",
+    "Whole-game source admission remains open; no stage acceptance, runtime or release pass was fabricated.",
+    "Earlier implementation snapshots are calculation revisions, not new production progress."
+  ]
+}

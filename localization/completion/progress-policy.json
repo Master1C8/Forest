@@ -1,0 +1,373 @@
+{
+  "schemaVersion": 1,
+  "revision": "forest-reference-completion-index-v1",
+  "meaning": "Confirmed completion points on the fixed Russian-reference work breakdown; not a time/cost forecast or release acceptance.",
+  "reference": "dist/Forest-Russian-Test-20261029/manifest.json",
+  "referenceBoundary": "Working Russian owner test delivery defines surfaces and mechanisms; its language-specific judgments and unrun release gates do not transfer.",
+  "components": [
+    {
+      "id": "scope",
+      "stage": "scope",
+      "points": 2
+    },
+    {
+      "id": "probe",
+      "stage": "probe",
+      "points": 3
+    },
+    {
+      "id": "source",
+      "stage": "source",
+      "points": 3
+    },
+    {
+      "id": "glossary",
+      "stage": "glossary",
+      "points": 4
+    },
+    {
+      "id": "dialogue-draft",
+      "stage": "translate-edit",
+      "points": 28,
+      "families": [
+        "dialogue"
+      ],
+      "numerator": "drafted"
+    },
+    {
+      "id": "supplemental-draft",
+      "stage": "translate-edit",
+      "points": 8,
+      "families": [
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "numerator": "drafted"
+    },
+    {
+      "id": "dialogue-review",
+      "stage": "editorial",
+      "points": 17,
+      "families": [
+        "dialogue"
+      ],
+      "numerator": "reviewed"
+    },
+    {
+      "id": "supplemental-review",
+      "stage": "editorial",
+      "points": 5,
+      "families": [
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "numerator": "reviewed"
+    },
+    {
+      "id": "resources",
+      "stage": "resources",
+      "points": 10
+    },
+    {
+      "id": "package",
+      "stage": "package",
+      "points": 5
+    },
+    {
+      "id": "runtime",
+      "stage": "runtime",
+      "points": 6
+    },
+    {
+      "id": "screenshot-upload",
+      "stage": "screenshot-upload",
+      "points": 1
+    },
+    {
+      "id": "screenshot-review",
+      "stage": "screenshot-review",
+      "points": 1
+    },
+    {
+      "id": "delivery",
+      "stage": "delivery",
+      "points": 2
+    },
+    {
+      "id": "translate-edit",
+      "stage": "translate-edit",
+      "points": 2
+    },
+    {
+      "id": "editorial",
+      "stage": "editorial",
+      "points": 3
+    }
+  ],
+  "requiredGates": [
+    "scope",
+    "probe",
+    "source",
+    "glossary",
+    "translate-edit",
+    "editorial",
+    "resources",
+    "package",
+    "runtime",
+    "screenshot-upload",
+    "screenshot-review",
+    "delivery"
+  ],
+  "families": [
+    {
+      "id": "dialogue",
+      "source": "localization/source/dialogue-candidates.jsonl",
+      "mode": "rows"
+    },
+    {
+      "id": "ui935",
+      "source": "localization/supplemental-ui/20261027/source-catalog.json",
+      "mode": "units"
+    },
+    {
+      "id": "inventory52",
+      "source": "localization/source/inventory-display-completion-20261028/source.jsonl",
+      "mode": "rows"
+    },
+    {
+      "id": "inventory-glitch",
+      "source": "localization/supplemental-ui/20261028-glitch/ru.authored.json",
+      "mode": "targets-keys"
+    },
+    {
+      "id": "chapter-gallery134",
+      "source": "localization/source/chapter-gallery-case-20261029/source.jsonl",
+      "mode": "rows"
+    },
+    {
+      "id": "remaining51",
+      "source": "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl",
+      "mode": "rows"
+    },
+    {
+      "id": "bio113",
+      "source": "localization/supplemental-ui/20261029-bio-case113/source-context.jsonl",
+      "mode": "rows",
+      "idKey": "bindingId"
+    },
+    {
+      "id": "input72",
+      "source": "localization/supplemental-ui/20261029-input-case72/source-context.jsonl",
+      "mode": "assigned",
+      "idKey": "bindingId",
+      "roles": [
+        "display-candidate",
+        "display-source"
+      ]
+    },
+    {
+      "id": "counter90",
+      "source": "localization/supplemental-ui/20261029-counter-case90/source-context.jsonl",
+      "mode": "rows",
+      "idKey": "id",
+      "roles": [
+        "display-prefix",
+        "display-source"
+      ]
+    },
+    {
+      "id": "console62",
+      "source": "localization/supplemental-ui/20261029-console-case62/source-context.jsonl",
+      "mode": "rows",
+      "idKey": "bindingId",
+      "roles": [
+        "display-console-wording"
+      ]
+    },
+    {
+      "id": "pause576",
+      "source": "localization/source/chapter-select-heading-20261029/pause-chapter-576.source.jsonl",
+      "mode": "rows"
+    },
+    {
+      "id": "ornamental569",
+      "source": "localization/supplemental-ui/20261029-ornamental-case569/groups.source.jsonl",
+      "mode": "members"
+    },
+    {
+      "id": "narrative150",
+      "source": "localization/source/narrative150-resource-contract-20261029/selectors150.jsonl",
+      "mode": "rows"
+    },
+    {
+      "id": "haiku27",
+      "source": "localization/source/haiku-identity-adapter-20261029/runtime27-fixtures.json",
+      "mode": "haiku"
+    },
+    {
+      "id": "special-cases23",
+      "source": "localization/source/shared-source-completion-20261028/admission-v1/special-cases.json",
+      "mode": "cases"
+    },
+    {
+      "id": "tutorial-notifications66",
+      "source": "localization/source/tutorial-notifications66-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-adventures24-20261029",
+      "source": "localization/hotfixes/ru-adventures24-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-bell-notifications72-20261029",
+      "source": "localization/hotfixes/ru-bell-notifications72-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-completion12-20261029",
+      "source": "localization/hotfixes/ru-completion12-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-dam-minigame30-20261029",
+      "source": "localization/hotfixes/ru-dam-minigame30-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-dates-titleflow-20261029",
+      "source": "localization/hotfixes/ru-dates-titleflow-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-journal-age-20261029",
+      "source": "localization/hotfixes/ru-journal-age-20261029/target-final.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-journal-compact-20261029",
+      "source": "localization/hotfixes/ru-journal-compact-20261029/compact-targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-lantern30-20261029",
+      "source": "localization/hotfixes/ru-lantern30-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-quest-notifications-20261029",
+      "source": "localization/hotfixes/ru-quest-notifications-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-scene-unlocked114-20261029",
+      "source": "localization/hotfixes/ru-scene-unlocked114-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-speaker-display24-20261029",
+      "source": "localization/hotfixes/ru-speaker-display24-20261029/targets.json",
+      "mode": "rows"
+    },
+    {
+      "id": "repair-storm-greetings24-20261029",
+      "source": "localization/hotfixes/ru-storm-greetings24-20261029/targets.json",
+      "mode": "rows"
+    }
+  ],
+  "sourcePins": {
+    "dist/Forest-Russian-Test-20261029/manifest.json": "c5e1b2ea142b2af372b66fe0e038613e229d92e8a2089d69a68838fc378e3030",
+    "localization/completion/process-spec.json": "87253d90b2ef53f9e37ad6d23510650e6fd5ae0527ae49ac7df3820b93420ea3",
+    "localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+    "localization/hotfixes/ru-adventures24-20261029/targets.json": "0633ef78ec65b86ffd15f992cb107910413b937577ebb7211df605f78d3c1cfa",
+    "localization/hotfixes/ru-bell-notifications72-20261029/targets.json": "39516a3f170c297fa14631944df7e38cfae44da40100a732b0d540939b483416",
+    "localization/hotfixes/ru-completion12-20261029/targets.json": "23f2c1d8267e0ed4d58aa40a7014e10ba88c61b6df1ac09cbe557023b0fff75f",
+    "localization/hotfixes/ru-dam-minigame30-20261029/targets.json": "be6bb603ccd0ffa9af98a3e3edc509062c968a80177c7a004906e8ff8d052e87",
+    "localization/hotfixes/ru-dates-titleflow-20261029/targets.json": "9001ba60120553541ab5068a6ae74e4f20f07d3d87ce335ab701871ab765adcd",
+    "localization/hotfixes/ru-journal-age-20261029/target-final.json": "96747d49f8cc91070bffd487529999229c5bcb887a3dfcdb988d486f936e4ac8",
+    "localization/hotfixes/ru-journal-compact-20261029/compact-targets.json": "c6662cbb0f0d60f5e63ea9078675472275855ba371a3a78740c4419fa82265ee",
+    "localization/hotfixes/ru-lantern30-20261029/targets.json": "b5a74fedf5487504973af99d413dc880f0291700297bbd17dce222eb6b923405",
+    "localization/hotfixes/ru-quest-notifications-20261029/targets.json": "f504af2346d87448c8755584462dbe291094c457689776a2a182c2b8e44fa2b9",
+    "localization/hotfixes/ru-scene-unlocked114-20261029/targets.json": "b86a531d27b043add5c26cd857f0eb1315595d44c1f18e95789a9c05c91020dc",
+    "localization/hotfixes/ru-speaker-display24-20261029/targets.json": "d7886c1f0a1a90c955579a2a4b46544c9fb8005f248f334270ff670f13efbd7a",
+    "localization/hotfixes/ru-storm-greetings24-20261029/targets.json": "593609b867b9a678025c03879d8fc756b945fabaa993f19d516015e1aa2e0f3f",
+    "localization/source/chapter-gallery-case-20261029/source.jsonl": "0f4cf89d7e3f4ffb78d82fd286f46cea82c5f853259199dfee6afa73a4bdd4e7",
+    "localization/source/chapter-select-heading-20261029/pause-chapter-576.source.jsonl": "a9ad466ac810a5403fd3384bb4807a491860e365ffc59e1335c69451bcb6d682",
+    "localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+    "localization/source/haiku-identity-adapter-20261029/runtime27-fixtures.json": "324949b9edd95825ed2b0260dfc688262030d9a1123e34e9dfca38a9a736adf9",
+    "localization/source/inventory-display-completion-20261028/source.jsonl": "e2e4440c5ba102d9410014f3f333c2b6a004d039ec8757b1dcb8e51e151fbeca",
+    "localization/source/narrative150-resource-contract-20261029/selectors150.jsonl": "cab7e8d7118f561d9619408897d136fdfbcd52120ba2d0cecb6cfc0558d76f20",
+    "localization/source/shared-source-completion-20261028/admission-v1/special-cases.json": "c553f5ff30ba1db5be80cc9ab8f0ca089e5871dff2c3006a7d0e80d809f75256",
+    "localization/source/tutorial-notifications66-20261029/targets.json": "6a50952184fee04c10d7c2d9e832ce83c91ef12a1a1fc0eff9b6335a7ae1d7be",
+    "localization/supplemental-ui/20261027/source-catalog.json": "560667aa58bbe8f0429ee1020db0ff8170338017c7c576e494951d0f0a2fedd0",
+    "localization/supplemental-ui/20261028-glitch/ru.authored.json": "213d457b32fb411e6e05999c20c531248c1c6c10979d22fc9973f7520c2ee196",
+    "localization/supplemental-ui/20261029-bio-case113/source-context.jsonl": "7241e57efff6883894a2523fb4ae2fb534f5611043566c8289fb2a8fa3f2aa74",
+    "localization/supplemental-ui/20261029-console-case62/source-context.jsonl": "397c9f3e2bd0196fa64c8fa49bb57bad449efc76b1983afb56193313ff311c39",
+    "localization/supplemental-ui/20261029-counter-case90/source-context.jsonl": "10aafd70d9f617d4de4a823470d80f2ae9569843e60f337741f13cfaa2f35d58",
+    "localization/supplemental-ui/20261029-input-case72/source-context.jsonl": "ce68c26b5aa67484f152ace8fe6f81049213dc0ace959b31df974b09fea411cf",
+    "localization/supplemental-ui/20261029-ornamental-case569/groups.source.jsonl": "3b1913ad57d57d4d2249ab474a9bf5e6c1fff30a0b4a6a8c7b1eee586484f206",
+    "localization/supplemental-ui/20261029-remaining-case51/source-context.jsonl": "12f064636dac12f8f245126ce11ae3ced1f5a652b20690ee1d51f5b149d701c1"
+  },
+  "proofKinds": {
+    "probe": "native-renderer-feasibility",
+    "glossary": "complete-glossary-editorial-acceptance",
+    "translate-edit": "complete-source-bound-edited-coverage",
+    "editorial": "universal-semantic-independent-closure-delta-acceptance",
+    "resources": "final-corpus-font-resource-acceptance",
+    "package": "actual-packaged-locale-acceptance",
+    "runtime": "native-gameplay-and-save-acceptance",
+    "screenshot-upload": "complete-delivered-screenshot-inventory",
+    "screenshot-review": "complete-delivered-screenshot-review",
+    "delivery": "canonical-integrated-delivery-acceptance"
+  }
+}

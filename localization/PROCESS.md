@@ -99,6 +99,13 @@ and other per-selector decisions until their owning gate accepts them.
 
 ## Fresh CLI execution and reporting
 
+For current percentages, run `python3 -B tools/locale_queue.py progress`.
+This is a deterministic view of the owning jobs, not the historical v2 `status`
+snapshot. [Completion-index rules](completion/PROGRESS.md) define the single fixed
+100-point policy, source/version bindings, real receipt requirements and separate
+release gates. Unknown work is never silently removed from the denominator;
+calculation/scope revisions are recorded as rebases, not production progress.
+
 Use only explicitly selected gpt-6.1-sol/high/OpenAI, ignoring user defaults.
 Verify actual fresh runtime metadata and argv before localized input. Never use
 Astra, fallback, resume/fork history, nested jobs or additional model streams.
