@@ -1,7 +1,12 @@
 """Continuous phase boundaries; model/native work is replaced with explicit fixtures."""
 import json
+import os
 from pathlib import Path
+import signal
+import subprocess
+import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -126,7 +131,7 @@ class CompletionTests(unittest.TestCase):
             self.assertEqual(result['verifiedReviewCoverage']['judged'],1)
             self.assertEqual(result['verifiedReviewCoverage']['unreadIds'],['unread'])
             next_packet.write_text(json.dumps(pairs[0])+'\n')
-            with self.assertRaisesRegex(ValueError,'exactly the unread IDs'):c.validate_result(root,job,phase,task,result,set())
+            with self.assertRaisesRegex(ValueError,'pending unread IDs'):c.validate_result(root,job,phase,task,result,set())
             rows=[dict(pairs[0],verdict='pass',reviewed=True,rationale='Read'),dict(pairs[1],verdict='pass',reviewed=False,rationale='Cannot pass unread')]
             reviews.write_text(''.join(json.dumps(r)+'\n' for r in rows));result['evidence'][0]['sha256']=sha(reviews)
             with self.assertRaisesRegex(ValueError,'Unread rows can never'):c.validate_result(root,job,phase,task,result,set())
@@ -185,6 +190,121 @@ class CompletionTests(unittest.TestCase):
             self.assertEqual(state['phases'][0]['status'],'phase-complete-after-supervisor-repair')
             for p in [phase/'result.json',reviews,events,phase/'task.json']:self.assertEqual(p.read_bytes(),original[p])
             self.assertEqual((root/'recovery/old-checkpoint/status.json').read_bytes(),original[lane/'status.json'])
+
+    def test_translated_context_is_preserved_without_source_target_equality(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase,job=self.fixture(root)
+            packet=phase/'packet.jsonl';packet.write_text(json.dumps(dict(id='a',sourceSha256='english',targetSha256='spanish'))+'\n')
+            task=dict(kind='review',reviewPacket=str(packet.relative_to(root)),reviewPacketSha256=sha(packet))
+            reviews=phase/'reviews.jsonl';row=dict(id='a',sourceSha256='english',targetSha256='spanish',verdict='context-only-preserve',
+                rationale='Retain the existing translated contextual unit',notLinguisticCoverage=True,targetEdited=False)
+            reviews.write_text(json.dumps(row)+'\n')
+            result=dict(outcome='blocked',summary='Actual boundary',reviews=str(reviews.relative_to(root)),independentWorkRemaining=False,
+                blockers=[dict(predicate='P',evidence='E',nextAction='A')])
+            c.validate_result(root,job,phase,task,result,set())
+            self.assertEqual(result['verifiedReviewCoverage']['contextOnlyPreservations'],1)
+            row['targetEdited']=True;reviews.write_text(json.dumps(row)+'\n')
+            with self.assertRaisesRegex(ValueError,'retain the reviewed target'):c.validate_result(root,job,phase,task,result,set())
+
+    def test_separate_fidelity_and_native_rationales_remain_separate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase,job=self.fixture(root)
+            packet=phase/'packet.jsonl';packet.write_text(json.dumps(dict(id='a',sourceSha256='s',targetSha256='t'))+'\n')
+            task=dict(kind='review',reviewPacket=str(packet.relative_to(root)),reviewPacketSha256=sha(packet))
+            reviews=phase/'reviews.jsonl';row=dict(id='a',sourceSha256='s',targetSha256='t',verdict='pass',fidelityRationale='Source facts retained',nativeGermanRationale='Natural German')
+            reviews.write_text(json.dumps(row)+'\n');result=dict(outcome='blocked',summary='Boundary',reviews=str(reviews.relative_to(root)),independentWorkRemaining=False,blockers=[dict(predicate='P',evidence='E',nextAction='A')])
+            c.validate_result(root,job,phase,task,result,set());self.assertNotIn('rationale',json.loads(reviews.read_text()))
+            del row['nativeGermanRationale'];reviews.write_text(json.dumps(row)+'\n')
+            with self.assertRaisesRegex(ValueError,'explicit verdict and rationale'):c.validate_result(root,job,phase,task,result,set())
+
+    def test_batched_unread_review_carries_deferred_ids_until_reviewed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase,job=self.fixture(root)
+            pairs=[dict(id=i,sourceSha256='s',targetSha256='t') for i in ['a','b','c']]
+            packet=phase/'packet.jsonl';packet.write_text(''.join(json.dumps(r)+'\n' for r in pairs))
+            task=dict(kind='review',reviewPacket=str(packet.relative_to(root)),reviewPacketSha256=sha(packet))
+            reviews=phase/'reviews.jsonl';reviews.write_text(''.join(json.dumps(dict(r,reviewed=r['id']=='a',verdict='pass' if r['id']=='a' else 'needs-review',rationale='Explicit read/unread'))+'\n' for r in pairs))
+            next_packet=phase/'next.jsonl';next_packet.write_text(json.dumps(pairs[1])+'\n');brief=phase/'next.md';brief.write_text('Read next bounded batch')
+            result=dict(outcome='continue',summary='One read',reviews=str(reviews.relative_to(root)),progress=dict(kind='reviewed',unitIds=['a']),
+                evidence=[dict(path=str(reviews.relative_to(root)),sha256=sha(reviews))],nextTask=dict(kind='review',title='Read b',brief=str(brief.relative_to(root)),reviewPacket=str(next_packet.relative_to(root))))
+            c.validate_result(root,job,phase,task,result,set())
+            self.assertEqual(result['verifiedReviewCoverage']['deferredIds'],['c'])
+            next_task=result['nextTask'];next_reviews=phase/'b-reviews.jsonl';next_reviews.write_text(json.dumps(dict(pairs[1],reviewed=True,verdict='pass',rationale='Read b'))+'\n')
+            final_packet=phase/'c.jsonl';final_packet.write_text(json.dumps(pairs[2])+'\n')
+            result2=dict(outcome='continue',summary='b read',reviews=str(next_reviews.relative_to(root)),progress=dict(kind='reviewed',unitIds=['b']),
+                evidence=[dict(path=str(next_reviews.relative_to(root)),sha256=sha(next_reviews))],nextTask=dict(kind='review',title='Read c',brief=str(brief.relative_to(root)),reviewPacket=str(final_packet.relative_to(root))))
+            c.validate_result(root,job,phase,next_task,result2,set())
+            self.assertEqual(result2['verifiedReviewCoverage']['pendingIds'],['c'])
+            self.assertEqual(result2['verifiedReviewCoverage']['deferredIds'],[])
+
+    def test_adoption_and_capacity_closeout_preserve_prior_request_provenance(self):
+        for kind in ['live-observer-handoff','interrupted-capacity-closeout']:
+            with self.subTest(kind=kind),tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp).resolve();phase,job=self.fixture(root);lane=root/'job'
+                brief=phase/'next.md';brief.write_text('Complete the next bounded fixture assignment')
+                next_task=dict(kind='work',title='Next',brief=str(brief.relative_to(root)),briefSha256=sha(brief))
+                evidence=phase/'evidence.json';put(evidence,dict(id='one',actual='reviewed'))
+                put(phase/'task.json',dict(task=dict(kind='work')))
+                result=dict(outcome='continue',summary='Actual fixture judgment',progress=dict(kind='reviewed',unitIds=['one']),
+                    evidence=[dict(path=str(evidence.relative_to(root)),sha256=sha(evidence))],nextTask=next_task)
+                put(phase/'result.json',result)
+                event=dict(type='turn.completed',usage=dict(input_tokens=10,output_tokens=2)) if kind=='live-observer-handoff' else dict(type='turn.failed',error=dict(message='Selected model is at capacity. Please try a different model.'))
+                events=phase/'events.jsonl';events.write_text(json.dumps(dict(type='thread.started',thread_id='old'))+'\n'+json.dumps(event)+'\n')
+                if kind=='interrupted-capacity-closeout':(phase/'result.json').unlink()
+                record=dict(number=1,kind='work',phase=str(phase),pid=99999998,threadId='old',status='running')
+                if kind=='interrupted-capacity-closeout':record.update(exitCode=1,status='held-request-outcome')
+                put(lane/'status.json',dict(status='running' if kind=='live-observer-handoff' else 'held-request-outcome',phases=[record]))
+                put(lane/'continuation.lock',dict(pid=123))
+                receipt=root/'recovery.json';put(receipt,dict(kind=kind,previousStatusSha256=sha(lane/'status.json'),
+                    previousClaimSha256=sha(lane/'continuation.lock'),validatedNextTask=next_task,
+                    archive='recovery/old-checkpoint',interruptedArtifactPins={str(events.relative_to(root)):sha(events)}))
+                job.update(resumeReceipt='recovery.json',resumeReceiptSha256=sha(receipt))
+                plan=dict(root=str(root),model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False),cli='fixture-codex',executionPins={})
+                original=events.read_bytes();calls=[]
+                class Child:
+                    pid=99999999
+                    def __init__(self,argv,**kwargs):
+                        calls.append(argv);p=Path(argv[argv.index('--output-last-message')+1]).parent
+                        put(p/'result.json',dict(outcome='blocked',summary='Actual native boundary',independentWorkRemaining=False,
+                            blockers=[dict(predicate='Native',evidence='Static fixture done',nextAction='Owner runtime scope')]))
+                        kwargs['stdout'].write(json.dumps(dict(type='thread.started',thread_id='new'))+'\n'+json.dumps(dict(type='turn.completed',usage=dict(input_tokens=10,output_tokens=2)))+'\n');kwargs['stdout'].flush()
+                    def wait(self):return 0
+                if kind=='interrupted-capacity-closeout':
+                    record['exitCode']=0;put(lane/'status.json',dict(status='held-request-outcome',phases=[record]))
+                    changed=read(receipt);changed['previousStatusSha256']=sha(lane/'status.json');put(receipt,changed);job['resumeReceiptSha256']=sha(receipt)
+                    with patch.object(c,'process_identity',return_value=None),patch.object(c.subprocess,'Popen') as send:
+                        with self.assertRaisesRegex(ValueError,'reconciled exited request'):c.run_lane(root,plan,job)
+                        send.assert_not_called()
+                    record['exitCode']=1;put(lane/'status.json',dict(status='held-request-outcome',phases=[record]))
+                    changed['previousStatusSha256']=sha(lane/'status.json');put(receipt,changed);job['resumeReceiptSha256']=sha(receipt)
+                with patch.object(c,'process_identity',return_value=None),patch.object(c.subprocess,'Popen',side_effect=Child),patch.object(c,'publish_current_runtime',return_value=dict(threadId='new')):
+                    state=c.run_lane(root,plan,job)
+                self.assertEqual(len(calls),1);self.assertEqual(state['phases'][-1]['number'],2);self.assertEqual(events.read_bytes(),original)
+                prior=state['phases'][0]
+                if kind=='live-observer-handoff':self.assertIsNone(prior['exitCode']);self.assertFalse(prior['exitCodeKnown'])
+                else:self.assertEqual(prior['exitCode'],1);self.assertEqual(prior['status'],'held-request-outcome');self.assertFalse((phase/'result.json').exists())
+
+    def test_real_observer_replacement_preserves_live_child(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();script=root/'observer.py';marker=root/'child-finished';info=root/'child.json'
+            child_code='import time;from pathlib import Path;time.sleep(.5);Path('+repr(str(marker))+').write_text("alive after observer exit");time.sleep(5)'
+            script.write_text('import subprocess,sys,json,time\nfrom pathlib import Path\np=subprocess.Popen([sys.executable,"-c",'+repr(child_code)+'])\nPath('+repr(str(info))+').write_text(json.dumps({"pid":p.pid}))\ntime.sleep(60)\n')
+            observer=subprocess.Popen([sys.executable,'-B',str(script)],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True)
+            child_pid=None;identity=None
+            try:
+                deadline=time.monotonic()+3
+                while not info.exists() and time.monotonic()<deadline:time.sleep(.02)
+                child_pid=read(info)['pid'];identity=c.process_identity(child_pid,root)
+                self.assertIsNotNone(identity)
+                os.kill(observer.pid,signal.SIGSTOP)
+                self.assertIsNotNone(c.process_identity(child_pid,root,identity))
+                os.kill(observer.pid,signal.SIGKILL);observer.wait(timeout=3)
+                self.assertIsNotNone(c.process_identity(child_pid,root,identity))
+                while not marker.exists() and time.monotonic()<deadline:time.sleep(.02)
+                self.assertEqual(marker.read_text(),'alive after observer exit')
+            finally:
+                if observer.poll() is None:os.kill(observer.pid,signal.SIGKILL);observer.wait(timeout=3)
+                if child_pid and c.process_identity(child_pid,root,identity):os.kill(child_pid,signal.SIGTERM)
 
 
 if __name__=='__main__':unittest.main()

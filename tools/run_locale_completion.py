@@ -15,6 +15,7 @@ from cli_runtime_identity import publish_current_runtime
 from locale_queue import sha, read, local
 
 KINDS = {'work','review','technical'}
+MAX_BRIEF_BYTES = 65536
 REVIEW_VERDICTS = {'pass','clean','finding','needs-context','source-defect','technical-preservation',
                    'needs-repair','needs-review','held-source','context-only-preserve'}
 
@@ -68,6 +69,7 @@ def resolve_review_packet(root,job,next_task,result):
 
 
 def validate_result(root,job,phase,task,result,seen):
+    result.pop('verifiedReviewCoverage',None)
     outcome=result.get('outcome')
     if outcome not in {'continue','blocked','static-complete'}:
         raise ValueError('Expected continue, blocked or static-complete; normal phase boundaries never await parent')
@@ -93,7 +95,10 @@ def validate_result(root,job,phase,task,result,seen):
         ids=[r['id'] for r in actual]
         if len(set(ids))!=len(ids) or set(ids)!=set(expected):raise ValueError('Incomplete independent review coverage')
         for row in actual:
-            if row.get('verdict') not in REVIEW_VERDICTS or not isinstance(row.get('rationale'),str) or not row['rationale'].strip():
+            combined=isinstance(row.get('rationale'),str) and bool(row['rationale'].strip())
+            natural=[v for k,v in row.items() if k=='naturalnessRationale' or (k.startswith('native') and k.endswith('Rationale'))]
+            separate=isinstance(row.get('fidelityRationale'),str) and bool(row['fidelityRationale'].strip()) and any(isinstance(v,str) and v.strip() for v in natural)
+            if row.get('verdict') not in REVIEW_VERDICTS or not (combined or separate):
                 raise ValueError('Every review row needs an explicit verdict and rationale')
             if any(row.get(k)!=expected[row['id']].get(k) for k in ['sourceSha256','targetSha256']):
                 raise ValueError('Reviewed source/target versions differ')
@@ -102,9 +107,22 @@ def validate_result(root,job,phase,task,result,seen):
                 if row['verdict']!='needs-review':raise ValueError('Unread rows can never carry a pass or completed disposition')
                 unread.append(row['id'])
             if row['verdict']=='context-only-preserve':
-                if row.get('notLinguisticCoverage') is not True or row.get('targetEdited') is not False or row['sourceSha256']!=row['targetSha256']:
-                    raise ValueError('Context-only preservation must remain exact and outside linguistic coverage')
+                if row.get('notLinguisticCoverage') is not True or row.get('targetEdited') is not False:
+                    raise ValueError('Context-only preservation must retain the reviewed target and stay outside new linguistic coverage')
+                if row.get('sourceDisposition')=='preserved-detached-source' and row['sourceSha256']!=row['targetSha256']:
+                    raise ValueError('Detached exact-source preservation cannot change source bytes')
+        carry=task.get('reviewCarryover')
+        inherited=set()
+        if carry:
+            inherited=set(carry['pendingIds'])
+            basis=local(root,carry['packet'])
+            if sha(basis)!=carry['sha256']:raise ValueError('Unread carryover basis changed')
+            basis_rows={r['id']:r for r in [json.loads(s) for s in basis.read_text().splitlines() if s.strip()]}
+            if not set(expected)<=inherited or not inherited<=set(basis_rows):raise ValueError('Current review packet escaped pending carryover')
+            if any(any(r.get(k)!=basis_rows[r['id']].get(k) for k in ['sourceSha256','targetSha256']) for r in pairs):raise ValueError('Carryover review versions differ')
+        pending=(inherited-set(expected))|set(unread)
         result['verifiedReviewCoverage']=dict(assigned=len(actual),judged=len(actual)-len(unread),unreadIds=unread,
+            pendingIds=sorted(pending),
             contextOnlyPreservations=sum(r['verdict']=='context-only-preserve' for r in actual),
             nonPassRows=sum(r['verdict'] not in {'pass','clean'} for r in actual),
             acceptance='Coverage classification only; original non-pass verdicts are retained, never promoted')
@@ -116,17 +134,25 @@ def validate_result(root,job,phase,task,result,seen):
         next_task=result['nextTask']
         if next_task.get('kind') not in KINDS or not next_task.get('title'):raise ValueError('Concrete next task required')
         brief=local(root,next_task['brief'])
-        if not brief.is_relative_to(phase.resolve()) or not 0<brief.stat().st_size<=24576:
+        if not brief.is_relative_to(phase.resolve()) or not 0<brief.stat().st_size<=MAX_BRIEF_BYTES:
             raise ValueError('Next brief must be bounded and owned by the completed phase')
         next_task['briefSha256']=sha(brief)
         if next_task['kind']=='review':
             packet=resolve_review_packet(root,job,next_task,result)
-        if unread:
+        pending=set(result.get('verifiedReviewCoverage',{}).get('pendingIds',unread))
+        if pending:
             if next_task['kind']!='review':raise ValueError('Explicit unread rows require a fresh review continuation')
             remaining=[json.loads(s) for s in packet.read_text().splitlines() if s.strip()]
-            if len(remaining)!=len(unread) or {r['id'] for r in remaining}!=set(unread):raise ValueError('Next packet must reassign exactly the unread IDs')
-            if any(any(r.get(k)!=expected[r['id']].get(k) for k in ['sourceSha256','targetSha256']) for r in remaining):
+            ids=[r['id'] for r in remaining]
+            if not ids or len(ids)!=len(set(ids)) or not set(ids)<=pending:raise ValueError('Next packet must select unique pending unread IDs')
+            carry=task.get('reviewCarryover')
+            basis=local(root,carry['packet']) if carry else local(root,task['reviewPacket'])
+            basis_rows={r['id']:r for r in [json.loads(s) for s in basis.read_text().splitlines() if s.strip()]}
+            if any(any(r.get(k)!=basis_rows[r['id']].get(k) for k in ['sourceSha256','targetSha256']) for r in remaining):
                 raise ValueError('Unread continuation versions differ')
+            next_task['reviewCarryover']=dict(packet=str(basis.relative_to(root.resolve())),sha256=sha(basis),pendingIds=sorted(pending))
+            result['verifiedReviewCoverage']['nextBatchIds']=ids
+            result['verifiedReviewCoverage']['deferredIds']=sorted(pending-set(ids))
     elif outcome=='blocked':
         if result.get('independentWorkRemaining') is not False or not result.get('blockers'):
             raise ValueError('Blocked requires concrete blockers and no remaining independent authorized work')
@@ -134,13 +160,26 @@ def validate_result(root,job,phase,task,result,seen):
             if not all(blocker.get(k) for k in ['predicate','evidence','nextAction']):
                 raise ValueError('Blocker must identify the actual boundary, evidence and next action')
     else:
-        if unread:raise ValueError('Unread review rows prevent static completion')
+        if result.get('verifiedReviewCoverage',{}).get('pendingIds',unread):raise ValueError('Unread review rows prevent static completion')
         matrix=read(local(root,result['dispositionMatrix']))
         if {r['id'] for r in matrix}!=set(job['requiredDeliverables']) or len(matrix)!=len(job['requiredDeliverables']):
             raise ValueError('Static completion needs every required deliverable, not just the current packet')
         if any(r.get('status') not in {'accepted','not-applicable'} or not r.get('evidence') for r in matrix):
             raise ValueError('Unaccepted deliverables remain blocked, not static-complete')
     return fresh
+
+
+def process_identity(pid,phase=None,expected=None):
+    def field(name):
+        result=subprocess.run(['ps','-p',str(pid),'-o',name+'='],capture_output=True,text=True)
+        return result.stdout.strip() if result.returncode==0 else None
+    if (field('stat') or '').startswith('Z'):return None
+    command=field('command')
+    if command is None:return None
+    identity=dict(start=field('lstart'),command=command)
+    if expected and identity!=expected:raise ValueError('Process identity/lifetime changed')
+    if phase and str(phase) not in command:raise ValueError('Process no longer owns the expected phase')
+    return identity
 
 
 def argv(plan,phase):
@@ -162,34 +201,94 @@ def argv(plan,phase):
             '--output-last-message',str(phase/'last-message.txt'),prompt]
 
 
+def capacity_failure(record,events):
+    thread,usage,errors=cli_events(events)
+    failures=[e for e in errors if e.get('type')=='turn.failed']
+    return (record.get('exitCode')==1 and record.get('threadId')==thread and usage is None
+            and bool(failures) and all('Selected model is at capacity' in json.dumps(e) for e in failures))
+
+
+def restore_capacity_closeout(root,lane,job,receipt):
+    state=read(lane/'status.json');record=state['phases'][-1];phase=Path(record['phase'])
+    if sha(lane/'status.json')!=receipt['previousStatusSha256'] or state['status']!='held-request-outcome':
+        raise ValueError('Capacity closeout checkpoint changed')
+    if process_identity(record['pid'],phase) is not None or not capacity_failure(record,phase/'events.jsonl'):
+        raise ValueError('Capacity failure is not a reconciled exited request')
+    task=receipt['validatedNextTask']
+    for name,digest in receipt['interruptedArtifactPins'].items():
+        if sha(local(root,name))!=digest:raise ValueError('Interrupted closeout input changed')
+    if sha(local(root,task['brief']))!=task['briefSha256']:raise ValueError('Capacity closeout assignment changed')
+    claim=lane/'continuation.lock'
+    if sha(claim)!=receipt['previousClaimSha256']:raise ValueError('Previous continuation claim changed')
+    seen=set()
+    for old in state['phases'][:-1]:
+        previous=Path(old['phase'])/'result.json'
+        if old.get('resultSha256') and sha(previous)!=old['resultSha256']:raise ValueError('Accepted result changed')
+        if previous.exists():seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
+    archive=local(root,receipt['archive']);archive.mkdir(parents=True)
+    for name in ['status.json','continuation.lock']:
+        with (archive/name).open('xb') as f:f.write((lane/name).read_bytes())
+    claim.unlink()
+    record['capacityCloseoutReceipt']=job['resumeReceipt']
+    state.setdefault('recoveries',[]).append(dict(receipt=job['resumeReceipt'],at=now(),priorReason=state.get('reason')))
+    state.update(status='starting',supervisorPid=os.getpid());state.pop('reason',None)
+    return state,seen,copy.deepcopy(task)
+
+
 def run_lane(directory,plan,job):
     root=Path(plan['root']);lane=local(root,job['directory']);lane.mkdir(parents=True,exist_ok=True)
-    if job.get('resumeReceipt'):
+    recovery=read(local(root,job['resumeReceipt'])) if job.get('resumeReceipt') else None
+    if recovery and sha(local(root,job['resumeReceipt']))!=job['resumeReceiptSha256']:raise ValueError('Recovery receipt changed')
+    if recovery and recovery.get('kind')=='interrupted-capacity-closeout':
+        state,seen,task=restore_capacity_closeout(root,lane,job,recovery)
+    elif job.get('resumeReceipt'):
         if sha(local(root,job['resumeReceipt']))!=job['resumeReceiptSha256']:raise ValueError('Recovery receipt changed')
         receipt=read(local(root,job['resumeReceipt']))
         if sha(lane/'status.json')!=receipt['previousStatusSha256']:raise ValueError('Recovery checkpoint changed')
         state=read(lane/'status.json')
-        if state['status']!='held-supervisor-error':raise ValueError('Recovery is only for reconciled supervisor errors')
+        adopting=receipt.get('kind')=='live-observer-handoff'
+        if state['status']!=('running' if adopting else 'held-supervisor-error'):raise ValueError('Recovery state differs from the verified handoff')
         record=state['phases'][-1];phase=Path(record['phase'])
-        if record.get('exitCode')!=0 or not cli_turn_succeeded(record['exitCode'],record.get('measuredUsage'),record.get('errors',[])):
-            raise ValueError('Prior request outcome is not a verified successful turn')
-        thread,usage,errors=cli_events(phase/'events.jsonl')
-        if not cli_turn_succeeded(record['exitCode'],usage,errors) or thread!=record.get('threadId') or usage!=record.get('measuredUsage'):
-            raise ValueError('Actual prior terminal request receipt differs from checkpoint')
-        if sha(phase/'result.json')!=receipt['resultSha256']:raise ValueError('Completed result changed after recovery validation')
+        if adopting:
+            archive=local(root,receipt['archive']);archive.mkdir(parents=True)
+            for name in ['status.json','continuation.lock']:
+                path=lane/name
+                if path.exists():
+                    with (archive/name).open('xb') as f:f.write(path.read_bytes())
+            state.update(supervisorPid=os.getpid(),status='running');record['status']='running-adopted'
+            save(lane/'status.json',state)
+            try:
+                while process_identity(record['pid'],phase,receipt.get('childIdentity')):time.sleep(1)
+                thread,usage,errors=cli_events(phase/'events.jsonl')
+                record.update(exitCode=None,exitCodeKnown=False,measuredUsage=usage,errors=errors,finishedAt=now(),
+                    completionEvidence='Verified model turn.completed and exited adopted process; OS exit code unavailable')
+                if usage is None or any(e.get('type')=='turn.failed' for e in errors) or thread!=record.get('threadId'):
+                    state.update(status='held-request-outcome',reason='Adopted request lacks verified terminal completion; no retry');save(lane/'status.json',state);return state
+            except Exception as error:
+                state.update(status='held-supervisor-error',reason=repr(error));save(lane/'status.json',state);return state
+        else:
+            if record.get('exitCode')!=0 or not cli_turn_succeeded(record['exitCode'],record.get('measuredUsage'),record.get('errors',[])):
+                raise ValueError('Prior request outcome is not a verified successful turn')
+            thread,usage,errors=cli_events(phase/'events.jsonl')
+            if not cli_turn_succeeded(record['exitCode'],usage,errors) or thread!=record.get('threadId') or usage!=record.get('measuredUsage'):
+                raise ValueError('Actual prior terminal request receipt differs from checkpoint')
+            if sha(phase/'result.json')!=receipt['resultSha256']:raise ValueError('Completed result changed after recovery validation')
         old_task=read(phase/'task.json')['task'];result=read(phase/'result.json');seen=set()
         for old in state['phases'][:-1]:
             previous=Path(old['phase'])/'result.json'
             if old.get('resultSha256') and sha(previous)!=old['resultSha256']:raise ValueError('Retained previous result changed')
             if previous.exists():seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
         fresh=validate_result(root,job,phase,old_task,result,seen)
-        if result['outcome']!='continue':raise ValueError('Recovery does not contain an authorized continuation')
-        if result['nextTask']!=receipt['validatedNextTask']:raise ValueError('Recovery next assignment differs')
-        archive=local(root,receipt['archive']);archive.mkdir(parents=True)
-        for name in ['status.json','continuation.lock']:
-            path=lane/name
-            if path.exists():
-                with (archive/name).open('xb') as f:f.write(path.read_bytes())
+        if result['outcome']!='continue':
+            if not adopting:raise ValueError('Recovery does not contain an authorized continuation')
+            state.update(status=result['outcome'],reason=result['summary'],finishedAt=now());save(lane/'status.json',state);return state
+        if not adopting and result['nextTask']!=receipt['validatedNextTask']:raise ValueError('Recovery next assignment differs')
+        if not adopting:
+            archive=local(root,receipt['archive']);archive.mkdir(parents=True)
+            for name in ['status.json','continuation.lock']:
+                path=lane/name
+                if path.exists():
+                    with (archive/name).open('xb') as f:f.write(path.read_bytes())
         claim=lane/'continuation.lock'
         if claim.exists():
             if sha(claim)!=receipt['previousClaimSha256']:raise ValueError('Previous continuation claim changed')
@@ -257,13 +356,30 @@ def run(directory):
         raise ValueError('Exactly six linguistic lanes plus at most one technical lane')
     if sha(Path(plan['cli']))!=plan['cliSha256']:raise ValueError('CLI executable changed')
     with (directory/'run.claim').open('x') as f:json.dump(dict(pid=os.getpid(),at=now()),f)
+    if plan.get('observerHandoff'):
+        handoff=plan['observerHandoff']
+        if process_identity(handoff['oldPid'],expected=handoff['oldIdentity']) is None:raise ValueError('Old observer vanished before handoff readiness')
+        save(directory/'handoff.ready.json',dict(pid=os.getpid(),oldPid=handoff['oldPid'],at=now()))
+        deadline=time.monotonic()+120
+        while not (directory/'handoff.commit.json').exists():
+            if time.monotonic()>deadline:raise ValueError('Observer handoff not committed; no model submissions made')
+            time.sleep(.1)
+        commit=read(directory/'handoff.commit.json')
+        if commit.get('newPid')!=os.getpid() or commit.get('oldPid')!=handoff['oldPid']:raise ValueError('Handoff commit identity differs')
+        if process_identity(handoff['oldPid']) is not None:raise ValueError('Old observer still active; refuse duplicate ownership')
     state=dict(status='running',pid=os.getpid(),startedAt=now(),automaticContinuation=True,
                lanes=[dict(locale=j['locale'],statusFile=str(Path(j['directory'])/'status.json')) for j in jobs])
     save(directory/'status.json',state)
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(jobs)) as pool:
         pending={pool.submit(run_lane,directory,plan,j):j for j in jobs}
         for future in concurrent.futures.as_completed(pending):
-            job=pending[future];result=future.result()
+            job=pending[future]
+            try:result=future.result()
+            except Exception as error:
+                path=local(Path(plan['root']),job['directory'])/'status.json'
+                result=read(path) if path.exists() else dict(locale=job['locale'],phases=[])
+                result.update(status='held-supervisor-error',reason=repr(error),failureBoundary='lane-startup-or-adoption',observedAt=now())
+                save(path,result)
             print(json.dumps(dict(locale=job['locale'],terminalStatus=result['status'],reason=result.get('reason'))),flush=True)
     state.update(status='all-lanes-terminal',finishedAt=now());save(directory/'status.json',state)
 
