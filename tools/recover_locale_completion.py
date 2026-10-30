@@ -86,7 +86,7 @@ def finish_prepare(previous,new,plan,group,observer_identity):
         resolved.append((job,state,record,result,claim,phase,adopting,child_identity,capacity))
     if not handoff:new.mkdir(parents=True)
     execution=new/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
     contract=(previous/'CONTRACT.md').read_text()
     contract=contract.replace('context-only-preserve requires unchanged source/target hashes, targetEdited:false',
@@ -116,6 +116,7 @@ An explicitly reconciled capacity failure may receive one fresh bounded closeout
 '''
     (new/'CONTRACT.md').write_text(contract)
     new_plan=copy.deepcopy(plan);new_plan['recoveredFrom']=str(previous);new_plan['jobs']=[]
+    if new_plan.get('efficiencyPolicy'):new_plan['efficiencyHelper']=str(execution/'locale_efficiency.py')
     if handoff:new_plan['observerHandoff']=dict(oldPid=group['pid'],oldIdentity=observer_identity)
     else:new_plan.pop('observerHandoff',None)
     for job,state,record,result,claim,phase,adopting,child_identity,capacity in resolved:

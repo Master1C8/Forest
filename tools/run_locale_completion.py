@@ -13,6 +13,7 @@ import time
 from cli_job_support import validate_model, cli_events, cli_turn_succeeded
 from cli_runtime_identity import publish_current_runtime
 from locale_queue import sha, read, local
+from locale_efficiency import make_view
 
 KINDS = {'work','review','technical'}
 MAX_BRIEF_BYTES = 65536
@@ -46,9 +47,12 @@ def resolve_review_packet(root,job,next_task,result):
             manifest=read(manifest_path)
             if not isinstance(manifest,dict):continue
             binding=manifest.get('reviewPacket')
-            files=manifest.get('files')
+            files=manifest.get('files',manifest.get('artifacts'))
             if not isinstance(binding,dict) or not {'path','sha256'}<=binding.keys() or not isinstance(files,list):continue
-            if not any(isinstance(r,dict) and r.get('path')==next_task['brief'] and r.get('sha256')==sha(brief) for r in files):continue
+            brief_pin=manifest.get('nextBrief')
+            brief_bound=any(isinstance(r,dict) and r.get('path')==next_task['brief'] and r.get('sha256')==sha(brief) for r in files)
+            if isinstance(brief_pin,dict):brief_bound|=brief_pin.get('path')==next_task['brief'] and brief_pin.get('sha256')==sha(brief)
+            if not brief_bound:continue
             for row in [*files,*manifest.get('sourceEvidencePins',[])]:
                 path=local(root,row['path'])
                 if sha(path)!=row['sha256']:raise ValueError('Structured review binding dependency changed')
@@ -195,6 +199,12 @@ def argv(plan,phase):
             'do not repeat reconciliation or spend a phase merely planning. Parent alone owns Git. Follow exact lane write scope and all '
             'source/editorial/font/renderer gates; no game/GUI/image/installer/production/server actions. '
             f'Write the required result to {phase}/result.json. Unknown request errors and true exhausted-work blockers remain explicit.')
+    if plan.get('efficiencyPolicy'):
+        prompt=(f'Execute {phase}/brief.md and task.json under their frozen contract. First await runtime-verification.json, '
+                f'then run python3 -B {Path(plan["efficiencyHelper"])} inspect --phase {phase}. '
+                'Fresh explicitly pinned Sol/high/OpenAI; no inherited history, nested agents or models. '
+                'Read every supplied lossless-view page once, retain required semantic/context coverage, and use compact deterministic output. '
+                f'Write result.json to {phase}; continue automatically with the next finite task. Parent alone owns Git.')
     return [plan['cli'],'exec','--ignore-user-config','--model','gpt-6.1-sol',
             '-c','model_provider="openai"','-c','model_reasoning_effort="high"','-c','approval_policy="never"',
             '--sandbox','danger-full-access','--disable','multi_agent','--cd',plan['root'],'--json',
@@ -239,7 +249,36 @@ def run_lane(directory,plan,job):
     root=Path(plan['root']);lane=local(root,job['directory']);lane.mkdir(parents=True,exist_ok=True)
     recovery=read(local(root,job['resumeReceipt'])) if job.get('resumeReceipt') else None
     if recovery and sha(local(root,job['resumeReceipt']))!=job['resumeReceiptSha256']:raise ValueError('Recovery receipt changed')
-    if recovery and recovery.get('kind')=='interrupted-capacity-closeout':
+    if recovery and recovery.get('kind')=='owner-stopped-efficiency-restart':
+        if sha(lane/'status.json')!=recovery['previousStatusSha256']:raise ValueError('Stopped checkpoint changed')
+        state=read(lane/'status.json')
+        if state['status']!='owner-stopped':raise ValueError('Owner stop was not reconciled')
+        for name,digest in recovery['stoppedPhasePins'].items():
+            if sha(local(root,name))!=digest:raise ValueError('Stopped phase changed')
+        for name,digest in recovery.get('currentInputPins',{}).items():
+            if sha(local(root,name))!=digest:raise ValueError('Restart input changed')
+        record=state['phases'][-1]
+        if process_identity(record['pid'],Path(record['phase'])) is not None:raise ValueError('Stopped request still alive')
+        seen=set()
+        for old in state['phases']:
+            previous=Path(old['phase'])/'result.json'
+            if old.get('resultSha256'):
+                if sha(previous)!=old['resultSha256']:raise ValueError('Accepted result changed')
+                seen.update(r['sha256'] for r in read(previous).get('evidence',[]))
+        if recovery.get('acceptedResult'):
+            result=read(Path(record['phase'])/'result.json')
+            fresh=validate_result(root,job,Path(record['phase']),read(Path(record['phase'])/'task.json')['task'],result,seen)
+            record.update(outcome=result['outcome'],summary=result['summary'],progress=result.get('progress'),
+                resultSha256=sha(Path(record['phase'])/'result.json'),status='phase-complete-after-supervisor-repair')
+            seen.update(fresh)
+        else:
+            record.update(status='owner-interrupted-unaccepted',osExitCodeKnown=False,measuredUsage=recovery.get('terminalUsage'))
+        claim=lane/'continuation.lock'
+        if sha(claim)!=recovery['previousClaimSha256']:raise ValueError('Stopped continuation claim changed')
+        claim.unlink();state.update(status='starting',supervisorPid=os.getpid());state.pop('reason',None)
+        state.setdefault('recoveries',[]).append(dict(receipt=job['resumeReceipt'],at=now(),priorRequestReplayed=False))
+        task=copy.deepcopy(recovery['validatedNextTask'])
+    elif recovery and recovery.get('kind')=='interrupted-capacity-closeout':
         state,seen,task=restore_capacity_closeout(root,lane,job,recovery)
     elif job.get('resumeReceipt'):
         if sha(local(root,job['resumeReceipt']))!=job['resumeReceiptSha256']:raise ValueError('Recovery receipt changed')
@@ -316,8 +355,21 @@ def run_lane(directory,plan,job):
             brief=local(root,task['brief'])
             if sha(brief)!=task['briefSha256']:raise ValueError('Next assignment changed after its receipt')
             (phase/'brief.md').write_bytes(brief.read_bytes())
-            save(phase/'task.json',dict(task=task,job=job,contract=str(directory/'CONTRACT.md'),
-                                      phaseResult=str(phase/'result.json'),supervisorOwnedFiles=['task.json','brief.md','events.jsonl','stderr.log','runtime-verification.json']))
+            phase_config=dict(task=task,job=job,contract=str(directory/'CONTRACT.md'),phaseResult=str(phase/'result.json'),
+                supervisorOwnedFiles=['task.json','brief.md','events.jsonl','stderr.log','runtime-verification.json'])
+            if plan.get('efficiencyPolicy'):
+                phase_config['efficiencyHelper']=plan['efficiencyHelper']
+                packets=[]
+                if task.get('reviewPacket'):
+                    packet=local(root,task['reviewPacket'])
+                    if sha(packet)!=task['reviewPacketSha256']:raise ValueError('Review packet changed before view creation')
+                    packets.append(packet)
+                for name in task.get('contextPackets',[]):packets.append(local(root,name))
+                if packets:
+                    view=phase/'lossless-view';manifest=make_view(root,packets,view)
+                    phase_config['losslessView']=dict(path=str((view/'manifest.json').relative_to(root)),sha256=sha(view/'manifest.json'),
+                        originalBytes=manifest['originalBytes'],viewBytes=manifest['viewBytes'],pages=len(manifest['pages']))
+            save(phase/'task.json',phase_config)
             command=argv(plan,phase);record=dict(number=len(state['phases'])+1,title=task['title'],kind=task['kind'],
                 phase=str(phase),startedAt=now(),status='submission-intent',argv=command)
             with (phase/'submission-intent.json').open('x') as f:json.dump(record,f,indent=2)

@@ -1,6 +1,6 @@
 # Forest localization completion
 
-When `outputs/locale-assets-20261026/launch-current.json` selects a workflow-v3
+When `outputs/locale-assets-20261026/launch-current.json` selects a workflow-v3 or workflow-v4
 continuous run, use that run's plan, lane status, frozen contract and
 `immutablePins` for current execution. The v2 `locale-queue.py check` snapshot is
 historical after authorized locale edits; its expected target/recipe drift is
@@ -9,6 +9,19 @@ snapshot/receipts and all active frozen execution files. Normal finite phase
 completion writes `continue` and its next task; do not await parent review for
 routine already-authorized work. Semantic independence and real source/runtime
 gates still apply.
+
+For future efficient runs, `tools/locale_efficiency.py` owns lossless packet views,
+compact runtime/pin checks and measured checkpoint alerts. Read each required
+definition and row once; exact interning never grants semantic acceptance. Keep
+complete source/target/context coverage, independent reviewers and all held gates.
+Batch a whole finite family or a context-sized substantial subset; do not default
+to three ordinary descriptions or one fresh model per two technical resource cells.
+Reuse matching deterministic mechanisms instead of generating bookkeeping phases.
+Regression: a 21-wording packet with repeated group trees is losslessly deduplicated
+without losing fields, false/zero/null distinctions, CR/LF, Unicode or source/target
+hashes; conflicting same-ID combined packets reject before any model request.
+An explicitly owner-stopped request resumes through a new pinned phase, preserves
+its original drafts, and never turns interrupted judgments into accepted coverage.
 
 For the updated multilingual completion queue, use `localization/PROCESS.md`,
 `localization/completion/process-spec.json` and `python3 -B tools/locale_queue.py

@@ -8,6 +8,7 @@ import subprocess
 
 import locale_queue as queue
 from cli_job_support import validate_model
+from locale_efficiency import POLICY
 
 ROOT=Path('/Users/antonkrutov/Desktop/Forest')
 LOCALES=('zh','es','es-419','pt-BR','ja','de')
@@ -134,9 +135,9 @@ def prepare(directory):
     registry=queue.read(Path.home()/'.codex/models_cache.json')
     if not any(r.get('slug')=='gpt-6.1-sol' for r in registry['models']):raise ValueError('Exact Sol model unavailable')
     directory.mkdir(parents=True);execution=directory/'execution';execution.mkdir()
-    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py']:
+    for name in ['run_locale_completion.py','cli_job_support.py','cli_runtime_identity.py','locale_queue.py','locale_efficiency.py']:
         shutil.copyfile(ROOT/'tools'/name,execution/name)
-    (directory/'CONTRACT.md').write_text(CONTRACT)
+    (directory/'CONTRACT.md').write_text(CONTRACT+'\n'+POLICY)
     common=[ROOT/'localization/source/dialogue-candidates.jsonl',ROOT/'localization/source/dialogue-manifest.json',
             ROOT/'localization/glossary/en.json',ROOT/'localization/completion/process-spec.json',
             Path('/Users/antonkrutov/.codex/instructions/sitefor-mods.md'),
@@ -219,6 +220,7 @@ server lifecycle. Only true exhausted-work source/runtime decisions may block.
                        brief=str(first.relative_to(ROOT)),briefSha256=queue.sha(first))))
     cli=Path(shutil.which('codex')).resolve()
     plan=dict(root=str(ROOT),model=spec['model'],cli=str(cli),cliSha256=queue.sha(cli),jobs=jobs,
+              efficiencyPolicy=True,efficiencyHelper=str(execution/'locale_efficiency.py'),
               authorization='Owner explicitly ordered continuous execution; six linguistic plus existing separate technical lane',
               previousReconciliation=str(old.relative_to(ROOT)),
               executionPins={str(p.relative_to(directory)):queue.sha(p) for p in [*execution.iterdir(),directory/'CONTRACT.md']})
