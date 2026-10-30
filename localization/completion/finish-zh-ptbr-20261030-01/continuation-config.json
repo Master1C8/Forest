@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "receipt": "localization/completion/finish-zh-ptbr-20261030-01/launch-receipt.json",
+  "resumes": {
+    "pt-BR": {
+      "authorization": {
+        "path": "localization/completion/finish-zh-ptbr-20261030-01/authorization.json",
+        "sha256": "a77f78fdcb6ee50afc5f5ead6212fbf152da44d7bc5395753daabc19b8f0d9cb"
+      },
+      "baselineAcceptance": {
+        "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+        "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+      },
+      "scope": {
+        "path": "localization/completion/finish-zh-ptbr-20261030-01/pt-BR-scope.json",
+        "sha256": "03b8af52587bb42662e4fac642d02b6c638149163adfab22480936640a88c4d9"
+      },
+      "task": {
+        "kind": "review",
+        "title": "Independently decide the final Portuguese Verile display adjective",
+        "brief": "localization/completion/finish-zh-ptbr-20261030-01/pt-BR-review.md",
+        "briefSha256": "34fb53ba5264c553d133eaeb2f30004b45f939f54f2199969fb046ac92d08369",
+        "reviewPacket": "localization/pt-BR-assets/completion/verile-final-v1/review-packet.jsonl",
+        "reviewPacketSha256": "839c6a3d7ed73f3abf09f040caa4c618d5385d08f4ffad70471ab94fa93182fa",
+        "contextPackets": [
+          "localization/pt-BR-assets/completion/verile-final-v1/conversation187.jsonl"
+        ]
+      }
+    }
+  },
+  "technicalPriority": {
+    "kind": "technical",
+    "title": "Compose actual final Portuguese and Chinese resource artifacts from the accepted Russian pipeline",
+    "brief": "localization/completion/finish-zh-ptbr-20261030-01/technical.md",
+    "briefSha256": "9af51bf060802703d2e822e1c18088cf5f7c7558c7d9910923eacec582c43aa7"
+  }
+}

@@ -106,6 +106,21 @@ class RepairTests(unittest.TestCase):
         original=scope['owningStoppedResult']
         runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config),dict(original,path=str(self.root/original['path'])))
 
+    def review_config(self):
+        config=self.owner_config();packet=self.root/'review.jsonl'
+        packet.write_text(json.dumps(dict(id='one',source='Source',target='Target',sourceSha256=runner.hashlib.sha256(b'Source').hexdigest(),targetSha256=runner.hashlib.sha256(b'Target').hexdigest()))+'\n')
+        config['task'].update(kind='review',reviewPacket='review.jsonl',reviewPacketSha256=sha(packet))
+        return config
+
+    def test_owner_can_resume_an_exact_independent_review_packet(self):
+        config=self.review_config();task=runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config))
+        self.assertEqual(task['kind'],'review')
+
+    def test_independent_resume_rejects_another_reviewed_id_after_valid_hashes(self):
+        config=self.review_config();p=self.root/'review.jsonl';row=json.loads(p.read_text());row['id']='another';p.write_text(json.dumps(row)+'\n');config['task']['reviewPacketSha256']=sha(p)
+        with self.assertRaisesRegex(ValueError,'Owner review scope differs'):
+            runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config))
+
     def test_owner_resume_continues_same_terminal_lane_once_and_preserves_old_checkpoint(self):
         config=self.owner_config();lane=self.root/'lane';phase=lane/'0001-review'
         result=self.write('lane/0001-review/result.json',dict(outcome='blocked',summary='Old whole-source flag'))

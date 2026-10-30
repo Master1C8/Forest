@@ -4,6 +4,7 @@ import argparse
 import copy
 import concurrent.futures
 import datetime
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -370,9 +371,18 @@ def owner_resume_task(root,job,stopped_result=None):
     for pin in scope.get('inputs',[]):
         if sha(local(root,pin['path']))!=pin['sha256']:raise ValueError('Target continuation input changed')
     task=config['task']
-    if (task.get('kind')!='work' or not task.get('title') or
+    if (task.get('kind') not in {'work','review'} or not task.get('title') or
             sha(local(root,task['brief']))!=task['briefSha256']):
         raise ValueError('Owner continuation task changed')
+    if task['kind']=='review':
+        packet=local(root,task['reviewPacket'])
+        if sha(packet)!=task.get('reviewPacketSha256'):raise ValueError('Owner review packet changed')
+        rows=[json.loads(line) for line in packet.read_text().splitlines() if line.strip()]
+        if len(rows)!=len(ids) or {r['id'] for r in rows}!=set(ids):raise ValueError('Owner review scope differs')
+        for row in rows:
+            for key in ['source','target']:
+                if hashlib.sha256(row[key].encode()).hexdigest()!=row[key+'Sha256']:
+                    raise ValueError('Owner review wording hash differs')
     return copy.deepcopy(task)
 
 

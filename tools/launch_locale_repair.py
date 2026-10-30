@@ -17,10 +17,13 @@ ROOT = Path('/Users/antonkrutov/Desktop/Forest')
 def configure_owner_continuation(plan,new,config_path):
     if not config_path.is_relative_to(ROOT):raise ValueError('Continuation config outside canonical project')
     config=read(config_path)
-    if config.get('schemaVersion')!=1 or set(config['resumes'])!={'zh','es','pt-BR'}:
-        raise ValueError('Expected exact three stopped-language continuations')
+    selected=set(config.get('resumes',{}));available={j['locale'] for j in plan['jobs'] if j['locale']!='technical'}
+    if config.get('schemaVersion')!=1 or not selected or not selected.issubset(available):
+        raise ValueError('Expected named existing stopped-language continuations')
     for job in plan['jobs']:
-        if job['locale'] not in config['resumes']:continue
+        if job['locale'] not in selected:
+            job.pop('ownerResume',None)
+            continue
         state=read(ROOT/job['directory']/'status.json')
         if state['status']!='blocked':raise ValueError('Owner-selected continuation is no longer blocked')
         job['ownerResume']=config['resumes'][job['locale']]
@@ -46,8 +49,8 @@ def configure_owner_continuation(plan,new,config_path):
             'all original controls and the current game/GUI/installer/publication restrictions. '
             'Do substantive target work and its required distinct review; never schedule acknowledgment-only phases.\n')
     plan['executionPins']['CONTRACT.md']=sha(new/'CONTRACT.md')
-    plan['continuationReceipt']='localization/completion/resume-stopped-20261030-01/receipt.json'
-    return ['zh','es','pt-BR']
+    plan['continuationReceipt']=config.get('receipt','localization/completion/resume-stopped-20261030-01/receipt.json')
+    return sorted(selected)
 
 
 def launch(previous, new, continuation_config=None):
