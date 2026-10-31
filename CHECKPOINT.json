@@ -1,4 +1,24 @@
 {
+  "spanishSingleFileLocalization": {
+    "status": "single-file-converted-static-build-verified;final-editorial-pending",
+    "locale": "es",
+    "culture": "es-ES",
+    "language": "localization/languages/es.json",
+    "languageSha256": "b419595e61ea7d99cabcb60019e5a8d8bef5cccc4e441ae946eb91dcb680dd14",
+    "framework": "localization/framework/forest045-shared-v2/framework.json",
+    "entries": 14606,
+    "missingTargets": 0,
+    "artifact": "dist/Forest-es-b419595e61ea",
+    "resourceFiles": 16,
+    "report": "localization/language-imports/es-20261031/verification.json",
+    "sourcePreservation": "619 original values retained;2 service prefixes repaired;old drafts preserved",
+    "newAuthoredIds": 47,
+    "editorial": "Existing receipts retained;full final-version independent acceptance pending",
+    "native": "not-run",
+    "runtime": "not-run",
+    "release": "not-accepted",
+    "workers": "Owner-stopped queues not resumed"
+  },
   "germanSingleFileRuntimeTest": {
     "status": "tested-in-game-with-two-open-findings",
     "report": "localization/runtime-tests/de-single-file-20261031-01/report.json",
@@ -21,11 +41,15 @@
     "verification": "localization/framework/verification-20261031.json",
     "languageFiles": {
       "ru": "localization/languages/ru.json",
-      "de": "localization/languages/de.json"
+      "de": "localization/languages/de.json",
+      "es": "localization/languages/es.json"
     },
     "localeWorkers": "owner-stopped; not resumed",
     "newGameExecution": "not-run",
-    "newReleaseAcceptance": false
+    "newReleaseAcceptance": false,
+    "catalogExtensions": {
+      "forest045-shared-v2": "localization/framework/forest045-shared-v2/framework.json"
+    }
   },
   "schemaVersion": 1,
   "game": "The Forest of Love",
@@ -255,23 +279,27 @@
       "nextAction": "Run owner-authorized locale-configured fresh CLI batches; real progress is derived from outputs/locale-assets-20261026/zh/progress.json"
     },
     "es": {
-      "phase": "translate-edit",
+      "phase": "editorial",
       "translatedVisibleIds": 0,
       "totalVisibleIds": null,
       "draftSourceFamilyUnits": 12246,
       "source": "needs-review; same pinned dialogue candidate family, complete game inventory pending",
       "glossary": "passed;171 IDs, exact accepted two-layer snapshot d6875d757ce39d0b35a5c3ee77b1d6987ed3dd49e8a4a84acca53eb2548fb767",
-      "editorial": "not-run",
-      "fonts": "not-run; locale renderer feasibility unaccepted",
+      "editorial": "needs-review;retained prior receipts plus47 new authored IDs;final independent coverage not accepted",
+      "fonts": "Static Liberation Sans Spanish coverage verified;native allocation/fallback/layout pending",
       "textures": "not-run",
-      "build": "not-run",
+      "build": "passed;16-file deterministic overlay dist/Forest-es-b419595e61ea",
       "runtime": "not-run",
       "visual": "not-run",
       "screenshot-upload": "not-applicable; not requested",
       "screenshot-review": "not-applicable; not requested",
       "release": "not-run",
-      "blocker": "No drafting blocker under explicit owner parallel-draft instruction; final source/renderer/editorial/resource gates remain pending.",
-      "nextAction": "Run owner-authorized locale-configured fresh CLI batches; real progress is derived from outputs/locale-assets-20261026/es/progress.json"
+      "blocker": "Final version-matching independent editorial and native/runtime acceptance remain open;no old worker resumed",
+      "nextAction": "Reconcile retained review receipts against this exact language version and complete genuinely missing independent review before final authorized game checks.",
+      "savedLanguageEntries": 14606,
+      "missingLanguageTargets": 0,
+      "languageFile": "localization/languages/es.json",
+      "framework": "localization/framework/forest045-shared-v2/framework.json"
     },
     "es-419": {
       "phase": "translate-edit",

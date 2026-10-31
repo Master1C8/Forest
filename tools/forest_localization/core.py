@@ -151,6 +151,81 @@ def framework_manifest(directory):
     return data, catalog
 
 
+def native_additions(catalog, rows, original, baseline):
+    """Register inventoried native fields even when Russian left them unchanged."""
+    result = copy.deepcopy(catalog)
+    ids = {r['id'] for r in result}
+    selectors = {(s['asset'], s['pathId'], s['pointer']) for r in result
+                 for s in r['selectors'] if s['kind'] == 'field'}
+    for row in rows:
+        need(set(row) == {'id', 'source', 'selector'}, 'native-addition-schema')
+        s = row['selector']
+        need(set(s) == {'kind', 'asset', 'pathId', 'pointer'} and s['kind'] == 'field'
+             and s['pointer'] in {'/m_text', '/m_Text'} and type(s['pathId']) is int,
+             'native-addition-display-field')
+        key = s['asset'], s['pathId'], s['pointer']
+        need(row['id'] == s['asset'] + ':' + str(s['pathId']) + s['pointer'], 'native-addition-identity')
+        need(row['id'] not in ids and key not in selectors, 'native-addition-overlap:' + row['id'])
+        need(isinstance(row['source'], str) and original[key] == row['source'], 'native-addition-source:' + row['id'])
+        need(isinstance(baseline[key], str), 'native-addition-baseline:' + row['id'])
+        result.append(dict(id=row['id'], source=row['source'], baseline=baseline[key], selectors=[s]))
+        ids.add(row['id']); selectors.add(key)
+    return sorted(result, key=lambda r:r['id'])
+
+
+def extend_native_framework(directory, original, packet, output, ident, resume=False):
+    """Version a finite missing-selector repair without mutating frozen inputs."""
+    directory, original, packet, output = (p.resolve() for p in [directory, original, packet, output])
+    need(directory.is_relative_to(ROOT) and packet.is_relative_to(ROOT), 'project-owned-framework-and-packet')
+    framework, catalog = framework_manifest(directory)
+    need(re.fullmatch(r'[a-zA-Z0-9._-]+', ident), 'framework-id')
+    need(output.resolve() == (directory.parent/ident).resolve() and output.resolve() != directory.resolve(),
+         'new-sibling-framework-required')
+    rows = [json.loads(line) for line in packet.read_text().splitlines() if line]
+    need(rows, 'empty-native-addition-packet')
+    stamp = dict(baseFramework=binding(directory/'framework.json'), packet=binding(packet), id=ident)
+    need(not output.exists() or resume, 'occupied-framework-output')
+    if output.exists():
+        need(read(output/'extension-input.json') == stamp, 'native-extension-input-changed')
+    assets = {r['selector']['asset'] for r in rows}
+    need(assets <= set(framework['resources']), 'native-addition-outside-existing-resources')
+    U, Generator, tree, _, comp, _, _ = engines()
+    gen = Generator('2020.3.24f1'); gen.load_local_dll_folder(str(directory/'references'))
+    values = [{}, {}]
+    for asset in sorted(assets):
+        need(binding(child(original, asset)) == framework['sourceMembers'][asset], 'native-original-version:' + asset)
+        for index, root in enumerate([original, directory/'base']):
+            env = U.load(str(child(root, asset))); env.path = str(root)
+            objects = comp.objects(env)
+            for row in rows:
+                s = row['selector']
+                if s['asset'] == asset:
+                    values[index][asset, s['pathId'], s['pointer']] = value(tree(objects[s['pathId']], gen), s['pointer'])
+    updated = native_additions(catalog, rows, *values)
+    marker = copy.deepcopy(framework)
+    marker.update(id=ident, catalogUnits=len(updated), extendedFrom=dict(
+        path=str(directory.relative_to(ROOT)), **binding(directory/'framework.json')),
+        nativeExtension=dict(path=str(packet.relative_to(ROOT)), **binding(packet), units=len(rows)))
+    output.mkdir(parents=True, exist_ok=resume)
+    def publish(name, data):
+        path = child(output, name)
+        if path.exists():
+            need(resume and path.read_bytes() == data, 'native-extension-output-conflict:' + name)
+        else:
+            write_new(path, data)
+    publish('extension-input.json', encode(stamp))
+    for name in framework['files']:
+        if name != 'extension-input.json':
+            publish(name, encode(updated) if name == 'catalog.json' else child(directory, name).read_bytes())
+    marker['files']['catalog.json'] = binding(output/'catalog.json')
+    marker['files']['extension-input.json'] = binding(output/'extension-input.json')
+    need({p.relative_to(output).as_posix() for p in output.rglob('*') if p.is_file()}
+         <= set(marker['files']) | {'framework.json'}, 'unexpected-native-extension-members')
+    publish('framework.json', encode(marker))
+    framework_manifest(output)
+    return dict(framework=ident, addedUnits=len(rows), units=len(updated), preservedBase=True, newModelRequests=0)
+
+
 def create_framework(original, baseline, output, russian_output, framework_id, resume=False):
     """One-time migration of the accepted Russian implementation, not an audit.
 
@@ -410,6 +485,17 @@ def load_language(path, frameworks):
     return doc, directory, framework, catalog, missing
 
 
+def wording_rows(path):
+    """Read saved author rows or an existing shared resource plan, as data."""
+    if path.suffix == '.jsonl':
+        rows = [json.loads(line) for line in path.read_text().splitlines() if line]
+    else:
+        document = read(path)
+        rows = document.get('edits') if isinstance(document, dict) else document
+    need(isinstance(rows, list) and all(isinstance(r, dict) for r in rows), 'saved-wording-rows:' + str(path))
+    return rows
+
+
 def import_existing(candidate_path, frameworks, ident, locale, culture, output, wording=()):
     """Import saved target data once; no reinterpretation of review receipts.
 
@@ -446,8 +532,7 @@ def import_existing(candidate_path, frameworks, ident, locale, culture, output, 
         return tree_cache[key]
     known = collections.defaultdict(set)
     for path in wording:
-        for line in path.read_text().splitlines():
-            r = json.loads(line)
+        for r in wording_rows(path):
             if isinstance(r.get('source'), str) and isinstance(r.get('target'), str):
                 known[r['source']].add(r['target'])
     for row in catalog:
@@ -536,8 +621,7 @@ def merge_wording(language, wording, output):
     need(doc.get('format') == FORMAT, 'language-format')
     by_source, by_id = collections.defaultdict(set), collections.defaultdict(set)
     for path in wording:
-        for line in path.read_text().splitlines():
-            r = json.loads(line)
+        for r in wording_rows(path):
             if isinstance(r.get('source'), str) and isinstance(r.get('target'), str):
                 by_source[r['source']].add(r['target'])
                 by_id[(r.get('id'), r['source'])].add(r['target'])
@@ -757,6 +841,10 @@ def main():
     q = sub.add_parser('template', help='Create a complete untranslated language file')
     q.add_argument('--framework', required=True); q.add_argument('--locale', required=True); q.add_argument('--culture', required=True)
     q.add_argument('--output', type=Path, required=True)
+    q = sub.add_parser('extend-native', help='Version inventoried missing native fields without changing the baseline')
+    q.add_argument('--framework', required=True); q.add_argument('--id', required=True)
+    q.add_argument('--original', type=Path, required=True); q.add_argument('--packet', type=Path, required=True)
+    q.add_argument('--resume', action='store_true')
     q = sub.add_parser('validate', help='Report exact missing targets without calling a model')
     q.add_argument('language', type=Path)
     q.add_argument('--details', action='store_true')
@@ -773,6 +861,9 @@ def main():
     a = p.parse_args()
     if a.command == 'migrate-russian':
         result = create_framework(a.original, a.baseline, a.output, a.language_output, a.id, a.resume)
+    elif a.command == 'extend-native':
+        result = extend_native_framework(child(a.frameworks, a.framework), a.original, a.packet,
+                                         child(a.frameworks, a.id), a.id, a.resume)
     elif a.command == 'template':
         folder = child(a.frameworks, a.framework); framework, catalog = framework_manifest(folder)
         write_new(a.output, encode(language_document(framework, binding(folder/'framework.json')['sha256'], catalog, a.locale, a.culture)))

@@ -3,7 +3,11 @@
 Use `./forest-localize build localization/languages/<locale>.json` for new Forest
 resource builds. One shared accepted-Russian framework applies the language file;
 no locale model job or per-language builder is required. See [LOCALIZATION.md](LOCALIZATION.md).
-Current Russian terminology and saved German wording are migrated to this format.
+Current Russian terminology, German and Spanish (Spain) wording are migrated to
+this format. Spanish uses the shared v2 catalog, including all twelve inventory
+heading layers. Its 14,606 entries compile to 16 resource files; final independent
+editorial and native/game acceptance remain separate. See
+[Spanish conversion evidence](localization/language-imports/es-20261031/README.md).
 Static build verification is separate from editorial and final game acceptance.
 Existing locale workers remain owner-stopped.
 

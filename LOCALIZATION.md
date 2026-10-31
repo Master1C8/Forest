@@ -20,7 +20,9 @@ the accepted Russian build and player saves remain read-only.
 The included `ru.json` carries the current saved Russian terminology revision;
 `ru-baseline.json` reproduces the accepted earlier implementation unchanged.
 `de.json` imports existing German data and authored wording into the same
-framework. These files retain their own editorial provenance; the compiler
+framework. `es.json` supplies Spanish (Spain), `es-ES`, through the shared v2
+catalog. Build it with `./forest-localize build localization/languages/es.json`.
+These files retain their own editorial provenance; the compiler
 does not award editorial, native or release acceptance.
 
 ## Language authoring
@@ -28,14 +30,14 @@ does not award editorial, native or release acceptance.
 Prepare a complete file with the fixed English inventory:
 
 ```sh
-./forest-localize template --framework forest045-shared \
+./forest-localize template --framework forest045-shared-v2 \
   --locale fr --culture fr-FR --output localization/languages/fr.json
 ./forest-localize validate localization/languages/fr.json --details
 ```
 
 Fill each `target` in the resulting JSON. Preserve the IDs and `source` values.
 `null` means unread/untranslated and prevents compilation; an empty string is an
-explicit value. The complete 14,594-entry inventory includes preserved dialogue
+explicit value. The v2 14,606-entry inventory includes preserved dialogue
 and technical values, which must follow their original control/preservation
 rules. A source-equal target is not automatically an editorial pass.
 
@@ -111,11 +113,33 @@ platform launchers and player data. `--resume` checks existing snapshot bytes
 after a partial migration. It never rebuilds the historical Russian launcher.
 
 `import-existing` imports a hash-verified saved locale candidate. `merge-wording`
-fills missing targets from existing authored JSONL rows, selecting an exact
+fills missing targets from existing authored JSONL rows or shared JSON resource
+plans with an `edits` array, selecting an exact
 ID/source match or a unique source/target mapping. Conflicts remain unread.
 These are migration commands; ordinary builds depend only on the language JSON,
 the shared framework and the local compiler dependencies, not historic phases,
 editorial queues, technical inboxes or model jobs.
+
+The v1 difference-only catalog omitted twelve inventoried native inventory-heading
+layers whose stored text was unchanged in the Russian baseline. The shared v2
+catalog adds their exact original field identities. Reproduce this finite repair
+from the verified v1 framework without changing it:
+
+```sh
+./forest-localize extend-native --framework forest045-shared \
+  --id forest045-shared-v2 \
+  --original /absolute/path/to/original/The\ Forest\ of\ Love_Data \
+  --packet localization/framework/native-inventory-headings-20261031.jsonl
+```
+
+The command checks the original resource version and every original/baseline field,
+copies the unchanged pinned companions, and publishes the new manifest last.
+`--resume` verifies an existing partial output before continuing. Writes are
+sequential, not a multi-file transaction. The regression test interrupts actual
+file publication and resumes it; its Unity decoding boundary is replaced by a
+fixture. The real Spanish saved-resource check separately reads all twelve layers.
+Future unchanged-field omissions use this same explicit inventory mechanism.
+Existing v1 language files and tested packages retain their exact old binding.
 
 Run the small input/publication regressions with:
 
@@ -133,11 +157,19 @@ installer creation, publication and deployment retain their separate authority.
 The [2026-10-31 in-game test](localization/runtime-tests/de-single-file-20261031-01/README.md)
 passed original UI/loading/choice and bounded inventory/quest checks. It found
 twelve English inventory-heading layers omitted by the difference-only catalog,
-and a German compound split without a hyphen in the quest list. The six-frame
+and a German compound split without a hyphen in the quest list. The shared v2
+catalog fixes the selector omission for new builds; Spanish includes all twelve
+localized layers. The six-frame
 visual gate is not accepted. The tested package remains unchanged; the findings
-need a shared catalog/layout repair.
+still need a German rebuild and layout verification.
 
 Filled JSON entries establish schema completeness only. Target selectors must
 also cover the existing canonical inventory, including fields unchanged in the
 Russian baseline. Reuse accepted mechanisms and exact target data; do not reopen
 a global source audit or create another model stream.
+
+Spanish conversion evidence and outstanding editorial/native predicates are in
+`localization/language-imports/es-20261031/README.md`. Its source-preservation
+receipt retains the old translated drafts for 619 protected original values and
+two repaired service prefixes. Those source-contract repairs are not new Spanish
+semantic passes. Ordinary builds consume the final language JSON directly.

@@ -8,7 +8,9 @@ import copy
 import json
 from pathlib import Path
 import tempfile
+from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 from forest_localization import core as c
 
@@ -85,6 +87,69 @@ class LanguageCompilerTests(unittest.TestCase):
         (self.frameworks/'fixture/base/a.bin').write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError, 'framework-file-changed:base/a.bin'):
             c.load_language(self.language, self.frameworks)
+
+    def test_native_catalog_keeps_unchanged_baseline_field_and_rejects_overlap(self):
+        selector = dict(kind='field', asset='a.bin', pathId=3, pointer='/m_text')
+        row = dict(id='a.bin:3/m_text', source='Inventory', selector=selector)
+        values = {('a.bin', 3, '/m_text'):'Inventory'}
+        extended = c.native_additions(self.catalog, [row], values, values)
+        self.assertEqual(len(extended), 2)
+        self.assertEqual(extended[0]['source'], extended[0]['baseline'])
+        self.assertEqual(self.catalog, [dict(id='label', source='Source', baseline='Target', selectors=[])])
+        with self.assertRaisesRegex(ValueError, 'native-addition-overlap:'):
+            c.native_additions(extended, [row], values, values)
+        row['id'] = 'a.bin:4/m_text'; row['selector']['pathId'] = 4
+        values = {('a.bin', 4, '/m_text'):'Different'}
+        with self.assertRaisesRegex(ValueError, 'native-addition-source:'):
+            c.native_additions(self.catalog, [row], values, values)
+
+    def test_saved_plan_wording_preserves_identity_and_leaves_ambiguity_unread(self):
+        self.doc['translations'] = {
+            'speaker':dict(source='Mouse', target=None),
+            'unknown':dict(source='Mouse', target=None)}
+        self.save()
+        plan = self.root/'saved-plan.json'
+        c.write_new(plan, c.encode(dict(edits=[
+            dict(id='speaker', source='Mouse', target='Ratón'),
+            dict(id='other', source='Mouse', target='Ratona')])))
+        output = self.root/'merged.json'
+        result = c.merge_wording(self.language, [plan], output)
+        self.assertEqual(result['filled'], 1)
+        self.assertEqual(c.read(output)['translations']['speaker']['target'], 'Ratón')
+        self.assertIsNone(c.read(output)['translations']['unknown']['target'])
+
+    def test_native_extension_resumes_real_partial_publication(self):
+        # Unity decoding is replaced here; file publication/resume is real.
+        folder = self.frameworks/'fixture'
+        original = self.root/'source'; original.mkdir()
+        (original/'a.bin').write_bytes(b'first')
+        self.f['sourceMembers'] = {'a.bin':c.binding(original/'a.bin')}
+        (folder/'framework.json').write_bytes(c.encode(self.f))
+        packet = self.root/'native.jsonl'
+        packet.write_text(json.dumps(dict(id='a.bin:3/m_text', source='Inventory',
+            selector=dict(kind='field', asset='a.bin', pathId=3, pointer='/m_text'))) + '\n')
+        generator = lambda _:SimpleNamespace(load_local_dll_folder=lambda _:None)
+        engines = (SimpleNamespace(load=lambda _:SimpleNamespace()), generator,
+            lambda obj, _:obj, None,
+            SimpleNamespace(objects=lambda _:{3:{'m_text':'Inventory'}}), None, None)
+        output = self.frameworks/'extended'; write = c.write_new; calls = []
+        def interrupted(path, data):
+            calls.append(path)
+            if len(calls) == 3:
+                raise RuntimeError('injected-native-publication-interruption')
+            write(path, data)
+        with patch.object(c, 'engines', return_value=engines):
+            with patch.object(c, 'write_new', side_effect=interrupted):
+                with self.assertRaisesRegex(RuntimeError, 'injected-native-publication-interruption'):
+                    c.extend_native_framework(folder, original, packet, output, 'extended')
+            self.assertFalse((output/'framework.json').exists())
+            partial = {p.relative_to(output):p.read_bytes() for p in output.rglob('*') if p.is_file()}
+            self.assertGreater(len(partial), 1)
+            c.extend_native_framework(folder, original, packet, output, 'extended', resume=True)
+        for name, data in partial.items():
+            self.assertEqual((output/name).read_bytes(), data)
+        self.assertEqual(len(c.framework_manifest(output)[1]), 2)
+        self.assertEqual((folder/'base/a.bin').read_bytes(), b'first')
 
     def test_output_escape_and_unknown_render_role(self):
         with self.assertRaisesRegex(ValueError, 'output-must-be-new-project-dist-child'):
