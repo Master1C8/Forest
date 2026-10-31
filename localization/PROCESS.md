@@ -59,6 +59,29 @@ write scope, predicate and stop condition. Source-held selectors cannot enter an
 application allowlist. A source/renderer blocker does not erase independent saved
 work, and a preliminary exception never becomes whole-game acceptance.
 
+Local completion is autonomous within the current locale authorization. Missing
+receipt pointers, recoverable source/target data, locale configuration and permitted
+local tool repairs are work, not owner decisions. Before declaring static work
+exhausted, trace every proposed blocker to its owning current source/target,
+consumer or permission boundary. Historical unresolved counts and null hashes are
+not evidence of a protected-source question. Reuse the accepted Russian selection
+and preservation behavior, retaining every genuine target difference and review.
+Regression: a historical257-row receipt index has null source/target versions;
+recover and bind the actual family inputs before asking the owner to resolve257
+supposed source decisions. Recovery alone adds no semantic coverage.
+
+Normal finite work returns `continue` with its concrete next task. If a result is
+mistakenly labelled `blocked` but explicitly declares `localWorkReady:true`, its
+next work/review task must name `workCategory` as locale-content, locale-resource
+or local-tool-repair and nonempty exact `entryPins`. The supervisor verifies those
+inputs and applies all ordinary progress, ownership, independent-review and
+no-repeat guards before continuing. Unready conditional/native tasks never gain
+authority from this flag. Real owner decisions, protected source changes,
+unauthorized game/runtime actions and external failures remain explicit stops.
+`tools/launch_locale_repair.py --terminal-config CONFIG` prepares a new pinned
+execution for named blocked lanes without a live observer handoff or rewriting
+unselected lanes. A saved submission intent must be reconciled, never resubmitted.
+
 The coordinator resolves a named shared consumer/adaptation defect once and must
 not recursively trace another framework method without a named game predicate.
 Reuse source/method/resource evidence by fingerprint. Linguistic lanes author and

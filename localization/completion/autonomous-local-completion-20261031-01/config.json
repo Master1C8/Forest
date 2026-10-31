@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-authorized-local-completion",
+  "resumes": {
+    "de": {
+      "authorization": {
+        "path": "localization/completion/autonomous-local-completion-20261031-01/authorization.json",
+        "sha256": "627ea71ed6297a86d3d63440d5054a7e9d86ae213e6d1fada369f1f9c9415ea8"
+      },
+      "baselineAcceptance": {
+        "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+        "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+      },
+      "scope": {
+        "path": "localization/completion/autonomous-local-completion-20261031-01/scope.json",
+        "sha256": "35af88572372b8216ea2ec0b47a0abcc94e37ad43cd94c141457830f54b05d84"
+      },
+      "task": {
+        "kind": "work",
+        "taskClass": "autonomous-local-completion",
+        "title": "Complete actual remaining German work without owner micro-management",
+        "brief": "localization/de-assets/completion/autonomous-local-20261031-01/brief.md",
+        "briefSha256": "2a9cd36275e1b294db84b0166179059026d11f652e9d35f5c11c55048a0a09fe"
+      }
+    }
+  },
+  "extraWritePrefixes": {
+    "de": [
+      "tools/locale_completion/baseline_completion_v1",
+      "tools/test_baseline_completion.py"
+    ]
+  },
+  "contract": "Only German resumes. The owner rejects per-step micro-control. Authorized local recovery, wording/editing, resource work, necessary local configuration and scoped tool repairs continue automatically. Historical null receipt counts are not owner/source decisions. The current brief grants the limited new baseline_completion_v1 helper/test lease; it supersedes old wait-for-coordinator wording only for those exact new paths. Parent alone owns Git. Preserve old frozen/self-pinned inputs and other locales. No new technical stream, nested model, inherited history, game/native/GUI/screenshot/installer, protected-source, production or server authority. A real external/owner boundary is recorded only after independent permitted local work is exhausted.",
+  "receipt": "localization/completion/autonomous-local-completion-20261031-01/receipt.json"
+}

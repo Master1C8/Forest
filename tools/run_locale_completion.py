@@ -111,6 +111,17 @@ def resolve_review_packet(root,job,next_task,result):
 def validate_result(root,job,phase,task,result,seen):
     result.pop('verifiedReviewCoverage',None)
     outcome=result.get('outcome')
+    if outcome=='blocked' and result.get('localWorkReady') is True:
+        next_task=result.get('nextTask',{})
+        if (next_task.get('kind') not in {'work','review'} or
+                next_task.get('workCategory') not in {'locale-content','locale-resource','local-tool-repair'} or
+                not next_task.get('entryPins')):
+            raise ValueError('Local continuation needs an authorized work category and actual pinned inputs')
+        for pin in next_task['entryPins']:
+            if sha(local(root,pin['path']))!=pin['sha256']:
+                raise ValueError('Local continuation prerequisite changed')
+        result['automaticLocalContinuation']='Explicit ready local task; normal continuation guards still apply'
+        result['outcome']=outcome='continue'
     if outcome not in {'continue','blocked','static-complete'}:
         raise ValueError('Expected continue, blocked or static-complete; normal phase boundaries never await parent')
     if not result.get('summary'):raise ValueError('Concrete phase summary required')

@@ -90,6 +90,44 @@ class RepairTests(unittest.TestCase):
         self.assertEqual(runner.owner_resume_task(self.root,dict(locale='zh',ownerResume=config)),config['task'])
         self.assertEqual(source.read_bytes(),original)
 
+    def terminal_fixture(self):
+        config=self.owner_config();previous=self.root/'previous';new=self.root/'next'
+        phase=self.root/'lane/0001-work';result=self.write('lane/0001-work/result.json',dict(outcome='blocked'))
+        scope=json.loads((self.root/'scope.json').read_text());scope['owningStoppedResult']=dict(path='lane/0001-work/result.json',sha256=sha(result))
+        self.write('scope.json',scope);config['scope']['sha256']=sha(self.root/'scope.json')
+        self.write('lane/status.json',dict(status='blocked',phases=[dict(number=1,pid=123,phase=str(phase),resultSha256=sha(result))]))
+        self.write('lane/continuation.lock',dict(pid=456))
+        jobs=[dict(locale=loc,directory='lane' if loc=='zh' else 'disabled/'+loc,writePrefixes=['lane'],immutablePins={}) for loc in ['zh','es','es-419','pt-BR','ja','de']]
+        for job in jobs[1:]:
+            self.write(job['directory']+'/status.json',dict(status='owner-stopped'))
+            self.write(job['directory']+'/continuation.lock',dict(pid=999))
+        cli=self.root/'fixture-cli';cli.write_text('fixture')
+        helper=self.root/'tools/run_locale_completion.py';helper.parent.mkdir();helper.write_text('current fixture helper')
+        old=previous/'execution/run_locale_completion.py';old.parent.mkdir(parents=True);old.write_text('old fixture helper')
+        (previous/'CONTRACT.md').write_text('Frozen fixture contract')
+        self.write('previous/status.json',dict(status='all-lanes-terminal',pid=456))
+        self.write('previous/plan.json',dict(root=str(self.root),jobs=jobs,model=dict(name='gpt-6.1-sol',reasoning='high',provider='openai',inheritedHistory=False),
+            cli=str(cli),cliSha256=sha(cli),executionPins={'execution/run_locale_completion.py':sha(old),'CONTRACT.md':sha(previous/'CONTRACT.md')}))
+        path=self.write('terminal.json',dict(kind='owner-authorized-local-completion',resumes={'zh':config},contract='Continue real authorized local work',receipt='receipt.json'))
+        return previous,new,path,phase,jobs
+
+    def test_terminal_preparation_resumes_only_selected_locale_and_preserves_stopped_peers(self):
+        previous,new,path,phase,jobs=self.terminal_fixture()
+        before={job['locale']:(self.root/job['directory']/'status.json').read_bytes() for job in jobs}
+        with patch.object(launcher,'ROOT',self.root),patch.object(runner,'process_identity',return_value=None),patch.object(launcher.subprocess,'Popen') as model:
+            plan=launcher.prepare_terminal(previous,new,path);model.assert_not_called()
+        self.assertEqual(plan['executionLocales'],['zh'])
+        self.assertEqual((new/'execution/run_locale_completion.py').read_text(),'current fixture helper')
+        self.assertEqual(len(list((new/'receipts').glob('*.json'))),1)
+        for job in jobs:self.assertEqual((self.root/job['directory']/'status.json').read_bytes(),before[job['locale']])
+
+    def test_terminal_preparation_does_not_duplicate_a_surviving_worker(self):
+        previous,new,path,phase,jobs=self.terminal_fixture()
+        with patch.object(launcher,'ROOT',self.root),patch.object(runner,'process_identity',side_effect=[None,dict(command='codex exec '+str(phase),start='exact')]),patch.object(launcher.subprocess,'Popen') as model:
+            with self.assertRaisesRegex(ValueError,'worker still alive'):launcher.prepare_terminal(previous,new,path)
+            model.assert_not_called()
+        self.assertFalse(new.exists())
+
     def test_owner_accepted_baseline_rejects_a_new_legacy_source_wake_launch_before_pause(self):
         self.write('localization/completion/russian-owner-baseline-20261030-01/acceptance.json',dict(accepted=True))
         with patch.object(launcher,'ROOT',self.root),patch.object(launcher.recover,'prepare') as prepare:

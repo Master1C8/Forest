@@ -1,5 +1,6 @@
 """Explicit owner-authorized repair handoff; preserves live language children."""
 import argparse
+import copy
 import json
 import os
 from pathlib import Path
@@ -12,6 +13,94 @@ import run_locale_completion as runner
 from locale_queue import read, sha, write
 
 ROOT = Path('/Users/antonkrutov/Desktop/Forest')
+
+
+def prepare_terminal(previous,new,config_path):
+    """Resume named blocked lanes after a delivered change; no live handoff/model.
+
+    Unselected lanes are never reconciled or rewritten. Existing request outcomes
+    and immutable execution versions remain in place.
+    """
+    previous,new,config_path=previous.resolve(),new.resolve(),config_path.resolve()
+    if not all(p.is_relative_to(ROOT) for p in [previous,new,config_path]):
+        raise ValueError('Terminal continuation must stay in canonical project')
+    config=read(config_path);plan=copy.deepcopy(read(previous/'plan.json'))
+    selected=set(config.get('resumes',{}));jobs={j['locale']:j for j in plan['jobs']}
+    if (config.get('kind')!='owner-authorized-local-completion' or not selected or
+            'technical' in selected or not selected<=set(jobs)):
+        raise ValueError('Explicit existing locale continuations required')
+    runner.validate_model(plan['model']['name'],plan['model']['reasoning'],plan['model']['provider'])
+    if plan['model'].get('inheritedHistory') is not False or plan['root']!=str(ROOT):
+        raise ValueError('Fresh canonical runtime required')
+    if sha(Path(plan['cli']))!=plan['cliSha256']:raise ValueError('CLI executable changed')
+    observer=read(previous/'status.json');identity=runner.process_identity(observer['pid'])
+    if identity and str(previous) in identity['command']:
+        raise ValueError('Live observer needs the existing handoff workflow')
+    recoveries={};untouched={}
+    for locale,job in jobs.items():
+        lane=ROOT/job['directory'];status=lane/'status.json'
+        if locale not in selected:
+            if status.exists():untouched[locale]={n:sha(lane/n) for n in ['status.json','continuation.lock'] if (lane/n).exists()}
+            continue
+        state=read(status);last=state['phases'][-1];phase=Path(last['phase'])
+        if state['status']!='blocked':raise ValueError('Selected lane is no longer blocked')
+        identity=runner.process_identity(last['pid'])
+        if identity and str(phase) in identity['command']:raise ValueError('Selected worker still alive')
+        job['ownerResume']=config['resumes'][locale]
+        stopped=dict(path=str((phase/'result.json').relative_to(ROOT)),sha256=last['resultSha256'])
+        runner.owner_resume_task(ROOT,job,stopped)
+        if sha(phase/'result.json')!=stopped['sha256']:raise ValueError('Stopped result changed')
+        recoveries[locale]=dict(kind='retained-terminal-lane',previousStatusSha256=sha(status),
+            previousClaimSha256=sha(lane/'continuation.lock'),resultSha256=stopped['sha256'],
+            archive=str((new/'prior-state'/locale).relative_to(ROOT)))
+        job.pop('sourceWake',None)
+        for prefix in config.get('extraWritePrefixes',{}).get(locale,[]):
+            runner.local(ROOT,prefix)  # No escape from canonical project.
+            if prefix not in job['writePrefixes']:job['writePrefixes'].append(prefix)
+    if new.exists():raise ValueError('Reconcile existing continuation directory; do not duplicate submission')
+    new.mkdir(parents=True);(new/'execution').mkdir();(new/'receipts').mkdir()
+    for source in (previous/'execution').glob('*.py'):
+        target=new/'execution'/source.name;target.write_bytes((ROOT/'tools'/source.name).read_bytes())
+    (new/'CONTRACT.md').write_text((previous/'CONTRACT.md').read_text()+'\n## Current authorized local completion\n\n'+config['contract']+'\n')
+    pins={str(p.relative_to(new)):sha(p) for p in [*(new/'execution').glob('*.py'),new/'CONTRACT.md']}
+    for name,digest in plan['executionPins'].items():
+        if name.startswith('execution/') or name=='CONTRACT.md':continue
+        path=(previous/name).resolve()
+        if sha(path)!=digest:raise ValueError('Prior frozen dependency changed')
+        pins[os.path.relpath(path,new)]=digest
+    pins[os.path.relpath(config_path,new)]=sha(config_path)
+    for locale in selected:
+        path=new/'receipts'/f'{locale}.json';write(path,recoveries[locale])
+        job=jobs[locale];job['resumeReceipt']=str(path.relative_to(ROOT));job['resumeReceiptSha256']=sha(path)
+        resume=job['ownerResume']
+        for pin in [resume['authorization'],resume['baselineAcceptance'],resume['scope'],
+                    dict(path=resume['task']['brief'],sha256=resume['task']['briefSha256'])]:
+            pins[os.path.relpath(ROOT/pin['path'],new)]=pin['sha256']
+    for key in ['observerHandoff','ownerPriorityTask','dependencyWake']:plan.pop(key,None)
+    plan.update(executionLocales=sorted(selected),executionPins=pins,recoveredFrom=str(previous),
+        efficiencyHelper=str(new/'execution/locale_efficiency.py'),continuationReceipt=config['receipt'])
+    write(new/'disabled-lanes.before.json',untouched);write(new/'plan.json',plan)
+    return plan
+
+
+def launch_terminal(previous,new,config_path):
+    plan=prepare_terminal(previous,new,config_path)
+    new=new.resolve();argv=[str(ROOT/'.venv-assets314/bin/python'),'-B',str(new/'execution/run_locale_completion.py'),'--run',str(new)]
+    write(new/'observer-submission-intent.json',dict(argv=argv,at=runner.now(),model=plan['model'],executionLocales=plan['executionLocales']))
+    with (new/'observer.stdout.jsonl').open('x') as out,(new/'observer.stderr.log').open('x') as err:
+        child=subprocess.Popen(argv,cwd=ROOT,stdin=subprocess.DEVNULL,stdout=out,stderr=err,start_new_session=True)
+    write(new/'observer-launch.json',dict(pid=child.pid,argv=argv,at=runner.now()))
+    deadline=time.monotonic()+20
+    while not (new/'status.json').exists():
+        if child.poll() is not None:raise RuntimeError('Observer exited; reconcile this exact saved launch, never resubmit blindly')
+        if time.monotonic()>deadline:return dict(status='submitted-readiness-pending',pid=child.pid,run=str(new.relative_to(ROOT)))
+        time.sleep(.1)
+    pointer=ROOT/'outputs/locale-assets-20261026/launch-current.json'
+    if pointer.exists():(new/'previous-launch-current.json').write_bytes(pointer.read_bytes())
+    runner.save(pointer,dict(run=str(new.relative_to(ROOT)),status=str((new/'status.json').relative_to(ROOT)),
+        executionLocales=plan['executionLocales'],automaticContinuation=True,otherLocalesRemainStopped=True,
+        revision='autonomous-authorized-local-completion',receipt=plan['continuationReceipt']))
+    return dict(status='observer-started',pid=child.pid,run=str(new.relative_to(ROOT)),executionLocales=plan['executionLocales'])
 
 
 def configure_owner_continuation(plan,new,config_path):
@@ -262,5 +351,10 @@ if __name__ == '__main__':
     parser.add_argument('--run', type=Path, required=True)
     parser.add_argument('--continuation-config', type=Path)
     parser.add_argument('--process-config', type=Path)
+    parser.add_argument('--terminal-config', type=Path,help='Explicit finite work for named blocked lanes; preserves all unselected lanes')
     args = parser.parse_args()
-    print(json.dumps(launch(args.previous, args.run,args.continuation_config,args.process_config), ensure_ascii=False))
+    if args.terminal_config:
+        if args.continuation_config or args.process_config:parser.error('Choose terminal continuation or live handoff configuration')
+        result=launch_terminal(args.previous,args.run,args.terminal_config)
+    else:result=launch(args.previous,args.run,args.continuation_config,args.process_config)
+    print(json.dumps(result, ensure_ascii=False))

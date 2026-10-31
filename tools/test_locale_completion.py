@@ -105,6 +105,31 @@ class CompletionTests(unittest.TestCase):
             result['outcome']='needs-parent'
             with self.assertRaisesRegex(ValueError,'never await parent'):c.validate_result(root,job,phase,dict(kind='work'),result,set())
 
+    def test_ready_pinned_local_work_continues_instead_of_waiting_for_owner(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase,job=self.fixture(root)
+            evidence=phase/'actual.json';put(evidence,dict(recovered=['one']))
+            brief=phase/'next.md';brief.write_text('Apply the recovered actual locale target')
+            result=dict(outcome='blocked',summary='Recovered an actual locale input',localWorkReady=True,
+                progress=dict(kind='source-decisions',unitIds=['one']),
+                evidence=[dict(path=str(evidence.relative_to(root)),sha256=sha(evidence))],
+                nextTask=dict(kind='work',workCategory='locale-content',title='Apply target',
+                    brief=str(brief.relative_to(root)),entryPins=[dict(path=str(evidence.relative_to(root)),sha256=sha(evidence))]))
+            c.validate_result(root,job,phase,dict(kind='work'),result,set())
+            self.assertEqual(result['outcome'],'continue')
+            self.assertEqual(result['nextTask']['briefSha256'],sha(brief))
+            stale=dict(result,outcome='blocked');stale['nextTask']=dict(result['nextTask'],entryPins=[dict(path=str(evidence.relative_to(root)),sha256='changed')])
+            with self.assertRaisesRegex(ValueError,'prerequisite changed'):c.validate_result(root,job,phase,dict(kind='work'),stale,set())
+
+    def test_unready_conditional_task_is_not_automatically_replayed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();phase,job=self.fixture(root)
+            result=dict(outcome='blocked',summary='Actual unavailable native boundary',localWorkReady=False,
+                independentWorkRemaining=False,blockers=[dict(predicate='Native test',evidence='Not run',nextAction='Owner-authorized native test')],
+                nextTask=dict(kind='work',title='Conditional native test',brief='not-ready.md'))
+            c.validate_result(root,job,phase,dict(kind='work'),result,set())
+            self.assertEqual(result['outcome'],'blocked')
+
     def test_partial_or_wrong_version_independent_review_never_completes(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp).resolve();phase,job=self.fixture(root)
