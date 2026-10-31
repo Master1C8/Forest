@@ -127,6 +127,17 @@ mechanisms. Work on concrete target-locale differences: reviewed wording, adapte
 configuration, font/glyph resources and target layout/runtime checks. Russian
 acceptance does not grant another locale's semantic or rendering pass.
 
+For Russian wording revisions after that acceptance, resolve
+`ru-assets/current-terminology.json` before preparing new text or delivery. It
+selects the current complete authored corpus, exact glossary exports, finite
+dialogue/database deltas, build profile and verified update. The accepted old
+build remains the mechanism and preservation reference; its frozen corpus and
+reviews are historical inputs. New wording does not inherit their acceptance.
+Use the explicit current profile with `tools/locale_terminology.py`; preserve the
+accepted build and saves. Regression: after the owner chooses верхний/нижний,
+домин/саб and смазка, a new Russian update must consume the selected revision
+instead of silently rebuilding old terminology from the accepted baseline.
+
 An explicit owner request to repair/resume a stopped lane uses a pinned finite
 `ownerResume` assignment and owner authorization, as recorded in
 `completion/resume-stopped-20261030-01/`. It does not wait for a historical global
