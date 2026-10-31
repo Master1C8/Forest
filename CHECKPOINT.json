@@ -1,23 +1,55 @@
 {
   "spanishSingleFileLocalization": {
-    "status": "single-file-converted-static-build-verified;final-editorial-pending",
+    "status": "editorial-complete;static-build-verified;native-not-run",
     "locale": "es",
     "culture": "es-ES",
     "language": "localization/languages/es.json",
-    "languageSha256": "b419595e61ea7d99cabcb60019e5a8d8bef5cccc4e441ae946eb91dcb680dd14",
+    "languageSha256": "430891663f1010bad39151d62f2eedbf3f31e658c2995ae69ed4aac363dca03a",
     "framework": "localization/framework/forest045-shared-v2/framework.json",
     "entries": 14606,
     "missingTargets": 0,
-    "artifact": "dist/Forest-es-b419595e61ea",
+    "artifact": "dist/Forest-es-430891663f10",
     "resourceFiles": 16,
-    "report": "localization/language-imports/es-20261031/verification.json",
-    "sourcePreservation": "619 original values retained;2 service prefixes repaired;old drafts preserved",
+    "report": "localization/editorial-delivery/es-single-file-20261031-01/acceptance.json",
+    "sourcePreservation": "1781 exact-source entries preserved; original conversion restorations/prefix repairs and old drafts retained",
     "newAuthoredIds": 47,
-    "editorial": "Existing receipts retained;full final-version independent acceptance pending",
+    "editorial": "12825 exact semantic passes; clean independent final delta 254/254",
     "native": "not-run",
     "runtime": "not-run",
     "release": "not-accepted",
-    "workers": "Owner-stopped queues not resumed"
+    "workers": "Owner-stopped queues not resumed",
+    "semanticReviewed": 12825,
+    "sourcePreservedEntries": 1781,
+    "changedTargets": 67,
+    "finalDeltaReviewed": 254,
+    "objectiveFindings": 0,
+    "needsContext": 0,
+    "ownerTerminology": "top/bottom",
+    "glossarySnapshots": {
+      "en": "localization/editorial-delivery/es-single-file-20261031-01/repair-01/glossary/en.json",
+      "es": "localization/editorial-delivery/es-single-file-20261031-01/repair-01/glossary/es.json",
+      "storage": "localization/editorial-delivery/es-single-file-20261031-01/evidence.tar.gz"
+    },
+    "usage": "localization/editorial-delivery/es-single-file-20261031-01/usage.json",
+    "reviewer": {
+      "count": 1,
+      "cli": true,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai"
+    },
+    "staticVerification": "localization/editorial-delivery/es-single-file-20261031-01/static-verification.json",
+    "fontsAndLayout": "not-accepted",
+    "updatedAt": "2026-10-31T18:41:46.932526+00:00",
+    "conversionHistory": {
+      "languageSha256": "b419595e61ea7d99cabcb60019e5a8d8bef5cccc4e441ae946eb91dcb680dd14",
+      "artifact": "dist/Forest-es-b419595e61ea",
+      "report": "localization/language-imports/es-20261031/verification.json",
+      "sourcePreservation": "619 original values retained;2 service prefixes repaired;old drafts preserved",
+      "newAuthoredIds": 47
+    },
+    "nextAction": "No wording correction pending. Target native/font/layout acceptance remains separate and requires applicable owner instruction.",
+    "serializationApplicability": "localization/editorial-delivery/es-single-file-20261031-01/serialization-rebind.json"
   },
   "germanSingleFileRuntimeTest": {
     "status": "tested-in-game-with-two-open-findings",

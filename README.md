@@ -5,9 +5,12 @@ resource builds. One shared accepted-Russian framework applies the language file
 no locale model job or per-language builder is required. See [LOCALIZATION.md](LOCALIZATION.md).
 Current Russian terminology, German and Spanish (Spain) wording are migrated to
 this format. Spanish uses the shared v2 catalog, including all twelve inventory
-heading layers. Its 14,606 entries compile to 16 resource files; final independent
-editorial and native/game acceptance remain separate. See
-[Spanish conversion evidence](localization/language-imports/es-20261031/README.md).
+heading layers. Its 14,606 entries compile to 16 resource files. Spanish wording
+has 12,825 exact semantic passes, 1,781 preserved source entries and a clean
+254-ID independent final delta on the owner-selected top/bottom glossary. See
+[Spanish proofreading acceptance](localization/editorial-delivery/es-single-file-20261031-01/README.md)
+and the preserved [conversion evidence](localization/language-imports/es-20261031/README.md).
+Spanish native/game/font/layout acceptance remains separate and untested.
 Static build verification is separate from editorial and final game acceptance.
 Existing locale workers remain owner-stopped.
 

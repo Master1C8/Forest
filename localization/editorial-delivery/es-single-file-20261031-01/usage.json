@@ -1,0 +1,61 @@
+{
+  "reviewer": {
+    "threadId": "01a192e3-b09b-7651-8430-373cdab347cb",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "initialHistory": "fresh exec; null parent",
+    "subsequentHistory": "same assignment only; no parent history or second reviewer"
+  },
+  "phases": [
+    {
+      "name": "initial-1134",
+      "usage": {
+        "input_tokens": 5754784,
+        "cached_input_tokens": 5538304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30412,
+        "reasoning_output_tokens": 9189,
+        "total_tokens": 5785196
+      }
+    },
+    {
+      "name": "glossary-restart-12825",
+      "usage": {
+        "input_tokens": 39020358,
+        "cached_input_tokens": 37801216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 66349,
+        "reasoning_output_tokens": 17179,
+        "total_tokens": 39086707
+      }
+    },
+    {
+      "name": "final-delta-254",
+      "usage": {
+        "input_tokens": 5968444,
+        "cached_input_tokens": 5886208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19935,
+        "reasoning_output_tokens": 5132,
+        "total_tokens": 5988379
+      }
+    }
+  ],
+  "total": {
+    "input_tokens": 50743586,
+    "cached_input_tokens": 49225728,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 116696,
+    "reasoning_output_tokens": 31500,
+    "total_tokens": 50860282
+  },
+  "measurement": "Actual same-session nonoverlapping cumulative deltas, reconciled after terminal CLI exits. Cached input is part of input; reasoning is part of output; neither added twice.",
+  "cutoff": "2026-10-31T18:31:37.953560+00:00",
+  "coordinator": {
+    "status": "unknown",
+    "scope": "Preparation, dispatch, monitoring, follow-ups, result review and accounting mixed with author proofreading; desktop root telemetry unavailable. Git/reporting tail unmeasured."
+  },
+  "descendantAgents": "none",
+  "platformOverhead": "not exposed; token counts are not monetary charges"
+}
