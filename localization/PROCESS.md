@@ -61,8 +61,13 @@ dynamic fragments and special scenes. Bind final resources and the complete pack
 to those exact accepted wording versions before gameplay, saves or native screenshots.
 The common supervisor and explicit-locale native runner check
 `python3 -B tools/locale_queue.py text-gate --locale CODE --json` before model/runtime
-submission. This requires current version-bound translate-edit/editorial/resource/package
-acceptance and complete family translation/review coverage. A saved candidate, old owner runtime
+submission. This requires current version-bound translate-edit/editorial acceptance
+and complete family translation/review coverage. Resource-only author/review tasks
+and packaging are gated too, even when an inherited `executionStage` still says
+translate-edit; work category, task class and resource packet identity determine
+the downstream work. Text stages allow substantive wording/editing/source-disposition
+review and their immediate deterministic safety checks, not separate resource/code
+review or archive phases. A saved candidate, old owner runtime
 authorization, preliminary dialogue passes or native-not-run flags cannot bypass it.
 New tasks declare `executionStage`; child assignments inherit it unless explicitly
 changed. Runtime authority remains deferred until this gate passes. Existing useful
@@ -75,6 +80,16 @@ Only then present the exact remaining game test and obtain its applicable owner
 instruction when it has not already been granted. Existing applicable permission
 does not need to be requested again after the prerequisite gate passes. This ordering
 grants no installer or publication authority.
+
+Text readiness is distinct from final resource/native/style acceptance. After the
+text gate passes, prepare and statically verify the final resources/package, then
+run the authorized final game tests. Do not require a native-dependent font/style
+or resource acceptance to pass before the very game test that establishes it.
+Retained controls, exact symbols and accepted baseline preservation are separate
+from untranslated phrases; resolve their actual version-bound dispositions in the
+owning text evidence rather than manufacturing linguistic passes or inferring a
+missing translation from raw held counters. Regression: an Item400 stored-only
+caption or preserved ??? is not automatically an untranslated ordinary phrase.
 Regression: a ready static payload coexists with current unaccepted text versions;
 recover valid archived reviews and finish the actual remaining editorial work
 before proposing a game launch.

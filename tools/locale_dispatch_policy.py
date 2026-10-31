@@ -18,7 +18,7 @@ def text_gate(root, locale, report=None):
     if len(rows) != 1:
         raise ValueError('Runtime text gate requires one exact locale')
     row = rows[0]
-    missing = [stage for stage in ['translate-edit', 'editorial', 'resources', 'package']
+    missing = [stage for stage in ['translate-edit', 'editorial']
                if row.get('gates', {}).get(stage) != 'passed']
     families = row.get('families', [])
     if not families:
@@ -31,14 +31,26 @@ def text_gate(root, locale, report=None):
     return dict(locale=locale, passed=not missing, missing=missing,
                 policyRevision=report.get('revision'), sourceScopeSha256=report.get('sourceScopeSha256'),
                 wordingVersions=[dict(id=f['id'], sha256=f.get('wordingVersionSha256')) for f in families],
-                meaning='Current full translation/editing, independent editorial, final resources and package acceptance before game execution; not runtime acceptance.')
+                meaning='Current full translation/editing and independent editorial acceptance. Final resource/native/style acceptance is separate and cannot be its own prerequisite.')
 
 
 def runtime_reason(root, job, task):
-    if task.get('executionStage') not in {'runtime', 'screenshot-upload', 'screenshot-review'}:
+    # Classify the actual assignment as well as its stage tag. Historical tasks
+    # inherited translate-edit even while doing only packaging/resource review.
+    downstream = task.get('executionStage') in {'resources','package','runtime','screenshot-upload','screenshot-review'}
+    downstream |= task.get('workCategory') == 'locale-resource'
+    downstream |= task.get('taskClass') in {'locale-integration','independent-resource-review',
+        'resource-build','package-build','font-resource-build','technical-integration'}
+    if task.get('kind') == 'review':
+        packet = local(root,task['reviewPacket'])
+        if sha(packet) != task['reviewPacketSha256']:raise ValueError('Dispatch review packet changed')
+        rows = [json.loads(line) for line in packet.read_text().splitlines() if line.strip()]
+        downstream |= any(r.get('reviewKind') in {'new-data-binding-only','technical-review','resource-binding','resource-contract'}
+            or str(r.get('id','')).startswith(('resource-binding:','technical:')) for r in rows)
+    if not downstream:
         return None
     gate = text_gate(root, job['locale'])
-    return None if gate['passed'] else 'Finish current translation and editorial acceptance before runtime: ' + ', '.join(gate['missing'])
+    return None if gate['passed'] else 'Finish current translation and editorial acceptance before resource/package/game work: ' + ', '.join(gate['missing'])
 
 
 def locale_owned_reason(root, task):
