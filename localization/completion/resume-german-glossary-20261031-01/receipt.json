@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-31T05:50:13.501010+00:00",
+  "status": "running-runtime-verified",
+  "run": "outputs/locale-assets-20261026/workflow-v17-german-glossary-20261031-01",
+  "observerPid": 36719,
+  "phase": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0115-work",
+  "workerPid": 36726,
+  "workerThreadId": "01a19081-a0c2-7ef1-aae1-916971906910",
+  "runtimeVerification": {
+    "path": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0115-work/runtime-verification.json",
+    "sha256": "d02b31793695804bf0f27818c12e47a8ca3f8732f1bffdef6224db924957ffa9"
+  },
+  "actualRuntime": {
+    "session": {
+      "id": "01a19081-a0c2-7ef1-aae1-916971906910",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "otherFiveLaneStateAndClaimsUnchanged": true,
+  "automaticContinuation": true,
+  "sourceGlossaryChanges": 1,
+  "targetGlossaryChanges": 2,
+  "firstAffectedDialogueHolds": 9,
+  "coordinatorAuthoredGermanWording": false,
+  "coordinatorUsage": {
+    "baseline": {
+      "input_tokens": 108315148,
+      "cached_input_tokens": 107318144,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 499147,
+      "reasoning_output_tokens": 286649,
+      "total_tokens": 108814295
+    },
+    "cutoff": {
+      "input_tokens": 108668885,
+      "cached_input_tokens": 107670784,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 502269,
+      "reasoning_output_tokens": 287088,
+      "total_tokens": 109171154
+    },
+    "measuredDelta": {
+      "input_tokens": 353737,
+      "cached_input_tokens": 352640,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3122,
+      "reasoning_output_tokens": 439,
+      "total_tokens": 356859
+    },
+    "scope": "Assignment preparation, dispatch and readiness verification from this baseline; earlier task diagnosis is outside this delta.",
+    "limitations": "Earlier German resume diagnosis is excluded; this receipt, canonical commit verification and user-facing reporting tail are unmeasured. Tokens are not costs."
+  },
+  "workerUsage": {
+    "status": "running; no final outcome or complete usage yet",
+    "accounting": "Use existing runtime-bound locale_efficiency.py usage command at milestones and report measured per-request totals on phase completion."
+  }
+}

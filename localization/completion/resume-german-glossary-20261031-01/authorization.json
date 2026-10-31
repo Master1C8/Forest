@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "kind": "direct-owner-repair-and-resume",
+  "recordedAt": "2026-10-31T05:49:32.242954+00:00",
+  "ownerStatement": "а теперь продолжай немецкую локализацию; ты не делай ты задачу наладь",
+  "interpretation": "Configure and resume the existing German CLI lane; the coordinator does not author German translation. German only, normal autonomous finite continuation, no new technical stream.",
+  "locales": [
+    "de"
+  ],
+  "baselineAcceptance": {
+    "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+    "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+  },
+  "coordinatorModel": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "provider": "openai"
+  }
+}
