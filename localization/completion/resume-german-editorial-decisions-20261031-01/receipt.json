@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-31T06:54:52.621116+00:00",
+  "status": "running-runtime-verified",
+  "run": "outputs/locale-assets-20261026/workflow-v18-german-editorial-decisions-20261031-01",
+  "observerPid": 55933,
+  "phase": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0120-work",
+  "workerPid": 55944,
+  "workerThreadId": "01a190bc-d702-77b0-94fd-23427b1f7855",
+  "actualRuntime": {
+    "session": {
+      "id": "01a190bc-d702-77b0-94fd-23427b1f7855",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "runtimeVerification": {
+    "path": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0120-work/runtime-verification.json",
+    "sha256": "6c526bce644af5ab18134935d98657aa85b73ca99432a12529793f653c2defed"
+  },
+  "automaticContinuation": true,
+  "otherFiveLaneStateAndClaimsUnchanged": true,
+  "updatedDispatchGuardFrozen": true,
+  "coordinatorAuthoredGermanWording": false,
+  "taskScope": "One consolidated five-ID target adjudication/repair and actual candidate, followed by fresh independent semantic/consumer review; deterministic work stays within substantive phases.",
+  "coordinatorUsage": {
+    "baseline": {
+      "input_tokens": 112321646,
+      "cached_input_tokens": 111294208,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 518691,
+      "reasoning_output_tokens": 293682,
+      "total_tokens": 112840337
+    },
+    "cutoff": {
+      "input_tokens": 112659314,
+      "cached_input_tokens": 111625088,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 523017,
+      "reasoning_output_tokens": 295287,
+      "total_tokens": 113182331
+    },
+    "measuredDelta": {
+      "input_tokens": 337668,
+      "cached_input_tokens": 330880,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4326,
+      "reasoning_output_tokens": 1605,
+      "total_tokens": 341994
+    },
+    "attribution": "Preparation, dispatch and readiness verification for this explicit owner-requested restart; earlier diagnosis and dispatch repair excluded.",
+    "unmeasuredTail": "Receipt write, canonical commit verification and final report."
+  },
+  "workerUsage": {
+    "status": "Running; final outcome and final usage not yet available. Existing runtime-bound usage telemetry owns subsequent accounting."
+  }
+}

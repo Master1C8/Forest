@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-authorized-local-completion",
+  "resumes": {
+    "de": {
+      "authorization": {
+        "path": "localization/completion/resume-german-editorial-decisions-20261031-01/authorization.json",
+        "sha256": "76c41373c3073ebfc995700ddfe67cdedb8f2fbdac962731b639bbc7f6223486"
+      },
+      "baselineAcceptance": {
+        "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+        "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+      },
+      "scope": {
+        "path": "localization/completion/resume-german-editorial-decisions-20261031-01/scope.json",
+        "sha256": "ae15f54fe2dafad94d34550c466d9ecaf53777609ae7db5e9ce4ae473e0051f8"
+      },
+      "task": {
+        "kind": "work",
+        "taskClass": "locale-integration",
+        "workCategory": "locale-content",
+        "title": "Repair all five German editorial holds and build one real review candidate",
+        "brief": "localization/de-assets/completion/editorial-decisions-20261031-01/brief.md",
+        "briefSha256": "5c645730230845316f4883ab298b4c4206dfc0dd99b1c1c1128a15dd8d570b4a",
+        "entryPins": [
+          {
+            "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0115-work/residual-held-versions.jsonl",
+            "sha256": "28607b2d30f63544d2755354b88604fe22ae03d0578827cde7f467240700556d"
+          },
+          {
+            "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0119-work/consumer-trace.json",
+            "sha256": "5114c4c75dd98067d7e323186aacdaddae4fdd5f0244609dae2d21c538b167a7"
+          },
+          {
+            "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0118-review/result.json",
+            "sha256": "0147a5c942cb838996eedf4682220ae24b82b7ae9172b5651731161d96afff1e"
+          },
+          {
+            "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0117-work/static-payload-final/manifest.json",
+            "sha256": "ad3e43b37fd7ad33a574fe3d2ee3ca724423b3e79005ceb599a1df064723e8ee"
+          },
+          {
+            "path": "localization/de-assets/dialogue.de.jsonl",
+            "sha256": "f7c598e733225191a0d778d3b76a137e2e0cb4d0073b5500266881ef2ba18017"
+          },
+          {
+            "path": "localization/source/dialogue-candidates.jsonl",
+            "sha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f"
+          },
+          {
+            "path": "localization/source/dialogue-manifest.json",
+            "sha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de"
+          },
+          {
+            "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.en.json",
+            "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+          },
+          {
+            "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.de.json",
+            "sha256": "befcac9712fa687bdbd3b75875b01227ac72432d932190b962c94672c2407435"
+          }
+        ]
+      }
+    }
+  },
+  "extraWritePrefixes": {
+    "de": [
+      "dist/Forest-German-Candidate-20261031-01",
+      "dist/Forest-German-Candidate-20261031-01.zip"
+    ]
+  },
+  "contract": "Direct owner repair-and-start instruction: existing German task adjudicates the five target holds together, preserves genuine original uncertainty, and delivers an additive actual candidate. Do not repeat0119 source tracing. Bundle deterministic application/readback/archive/receipt checks into the substantive author and independent semantic/consumer phases. Current locale-owned dispatch guard applies; no paid transport-only/resource acknowledgement phases. Use the effective corrected glossary and retain all valid earlier evidence. Other languages stay stopped. No new technical stream, inherited history, Astra, nested agents/models, protected-source edit, game/GUI/installer/publication/deployment/server authority. Parent alone owns Git.",
+  "receipt": "localization/completion/resume-german-editorial-decisions-20261031-01/receipt.json"
+}
