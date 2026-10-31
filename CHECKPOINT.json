@@ -1,4 +1,18 @@
 {
+  "germanSingleFileRuntimeTest": {
+    "status": "tested-in-game-with-two-open-findings",
+    "report": "localization/runtime-tests/de-single-file-20261031-01/report.json",
+    "nativeFrames": 6,
+    "visualPassFrames": 4,
+    "openFindings": [
+      "DE-SF-001-inventory-heading",
+      "DE-SF-002-German-compound-wrap"
+    ],
+    "originalGameAndPackagePreserved": true,
+    "testGamesClosed": true,
+    "languageQueuesResumed": false,
+    "releaseAccepted": false
+  },
   "singleFileLocalization": {
     "status": "implemented-static-verified",
     "command": "./forest-localize build <language.json>",

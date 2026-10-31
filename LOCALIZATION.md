@@ -127,3 +127,17 @@ Actual resource tests, byte comparisons and build provenance are recorded in
 `localization/framework/verification-20261031.json`. The previous German queue
 remains owner-stopped. Final gameplay/visual review, activation in a game copy,
 installer creation, publication and deployment retain their separate authority.
+
+## German native test findings
+
+The [2026-10-31 in-game test](localization/runtime-tests/de-single-file-20261031-01/README.md)
+passed original UI/loading/choice and bounded inventory/quest checks. It found
+twelve English inventory-heading layers omitted by the difference-only catalog,
+and a German compound split without a hyphen in the quest list. The six-frame
+visual gate is not accepted. The tested package remains unchanged; the findings
+need a shared catalog/layout repair.
+
+Filled JSON entries establish schema completeness only. Target selectors must
+also cover the existing canonical inventory, including fields unchanged in the
+Russian baseline. Reuse accepted mechanisms and exact target data; do not reopen
+a global source audit or create another model stream.
