@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-31T10:45:41.033222+00:00",
+  "status": "translation-editing-running-runtime-deferred",
+  "run": "outputs/locale-assets-20261026/workflow-v20-german-text-first-20261031-01",
+  "phase": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0130-work",
+  "workerPid": 14305,
+  "threadId": "01a1918c-2a03-7380-9174-97100d038229",
+  "actualRuntime": {
+    "session": {
+      "id": "01a1918c-2a03-7380-9174-97100d038229",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "executionStage": "translate-edit",
+  "ordering": [
+    "complete-translation-and-editing",
+    "independent-editorial-closure-and-deltas",
+    "final-resources-and-package",
+    "final-game-tests"
+  ],
+  "tests": {
+    "dispatch": 11,
+    "completion": 20,
+    "repair": 20,
+    "actualGermanTextGate": "Rejected with nonzero status and exact incomplete text/editorial/resource/package reasons",
+    "actualNativeMain": "Executed owning main function with only its required gate inputs; rejected at text-gate before fixture/output/Wine. This verifies the guard, not game rendering.",
+    "scope": "Synthetic model processes in supervisor tests; actual current evidence gate in project; native tests intentionally deferred."
+  },
+  "preservation": {
+    "native21Cleanup": "passed",
+    "ownerGameAndSavesUsed": false,
+    "frozenRunsAndDraftsRetained": true,
+    "otherFiveLanesUnchanged": true,
+    "interrupted129Accepted": false
+  },
+  "stoppedWorker": {
+    "phase": "0129-work",
+    "threadId": "01a1916d-a68f-7a52-a6fe-a1ba830b349c",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "outcome": "owner-stopped; incomplete draft not accepted",
+    "usage": {
+      "input_tokens": 11436939,
+      "cached_input_tokens": 11223936,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 41229,
+      "reasoning_output_tokens": 13874,
+      "total_tokens": 11478168
+    },
+    "measurement": "Latest exposed cumulative telemetry for that exact session; interrupted/reporting tail may be unavailable, no estimate."
+  },
+  "coordinator": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "usageSincePreviousReportedCutoff": {
+      "input_tokens": 8658349,
+      "cached_input_tokens": 8622848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 40214,
+      "reasoning_output_tokens": 24151,
+      "total_tokens": 8698563
+    },
+    "attribution": "Mixed: monitoring/stop orchestration, workflow implementation, tests, task preparation/dispatch and result review. Earlier reported counters excluded.",
+    "unmeasuredTail": "This receipt, canonical commit inspection and final report."
+  },
+  "newWorkerUsage": "Running; completion usage not yet available."
+}

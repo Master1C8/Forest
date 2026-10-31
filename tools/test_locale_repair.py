@@ -8,7 +8,7 @@ from unittest.mock import patch
 import run_locale_completion as runner
 import recover_locale_completion as recover
 import launch_locale_repair as launcher
-from locale_queue import sha
+from locale_queue import sha, read
 
 
 class RepairTests(unittest.TestCase):
@@ -127,6 +127,29 @@ class RepairTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'worker still alive'):launcher.prepare_terminal(previous,new,path)
             model.assert_not_called()
         self.assertFalse(new.exists())
+
+    def test_owner_stopped_draft_resumes_fresh_without_fabricated_result(self):
+        previous,new,path,phase,jobs=self.terminal_fixture()
+        task=self.write('lane/0001-work/task.json',dict(task=dict(kind='work')))
+        session=self.root/'interrupted.jsonl';session.write_text('')
+        runtime=self.write('lane/0001-work/runtime-verification.json',dict(sessionMetadataPath=str(session)))
+        (phase/'result.json').unlink()
+        stop=self.write('stop.json',dict(kind='owner-stopped-request',phase=str(phase),threadId='stopped',
+            processesAbsent=True,taskSha256=sha(task),runtimeSha256=sha(runtime)))
+        stop_pin=dict(path='stop.json',sha256=sha(stop))
+        scope=read(self.root/'scope.json');scope['owningStoppedRequest']=stop_pin
+        self.write('scope.json',scope)
+        config=read(path);config['resumes']['zh']['scope']['sha256']=sha(self.root/'scope.json');config['textFirst']=True
+        self.write('terminal.json',config)
+        self.write('lane/status.json',dict(status='owner-stopped',ownerStopReceipt=stop_pin,
+            phases=[dict(number=1,pid=123,phase=str(phase),threadId='stopped')]))
+        with patch.object(launcher,'ROOT',self.root),patch.object(runner,'process_identity',return_value=None),patch.object(launcher.subprocess,'Popen') as model:
+            plan=launcher.prepare_terminal(previous,new,path);model.assert_not_called()
+        receipt=read(new/'receipts/zh.json')
+        self.assertEqual(receipt['kind'],'owner-stopped-efficiency-restart')
+        self.assertFalse(receipt['acceptedResult']);self.assertTrue(plan['textFirst'])
+        self.assertFalse((phase/'result.json').exists())
+        self.assertEqual(receipt['validatedNextTask'],config['resumes']['zh']['task'])
 
     def test_owner_accepted_baseline_rejects_a_new_legacy_source_wake_launch_before_pause(self):
         self.write('localization/completion/russian-owner-baseline-20261030-01/acceptance.json',dict(accepted=True))

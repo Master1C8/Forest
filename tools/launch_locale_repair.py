@@ -43,16 +43,35 @@ def prepare_terminal(previous,new,config_path):
             if status.exists():untouched[locale]={n:sha(lane/n) for n in ['status.json','continuation.lock'] if (lane/n).exists()}
             continue
         state=read(status);last=state['phases'][-1];phase=Path(last['phase'])
-        if state['status']!='blocked':raise ValueError('Selected lane is no longer blocked')
+        if state['status'] not in {'blocked','owner-stopped'}:raise ValueError('Selected lane is no longer blocked or owner-stopped')
         identity=runner.process_identity(last['pid'])
         if identity and str(phase) in identity['command']:raise ValueError('Selected worker still alive')
         job['ownerResume']=config['resumes'][locale]
-        stopped=dict(path=str((phase/'result.json').relative_to(ROOT)),sha256=last['resultSha256'])
-        runner.owner_resume_task(ROOT,job,stopped)
-        if sha(phase/'result.json')!=stopped['sha256']:raise ValueError('Stopped result changed')
-        recoveries[locale]=dict(kind='retained-terminal-lane',previousStatusSha256=sha(status),
-            previousClaimSha256=sha(lane/'continuation.lock'),resultSha256=stopped['sha256'],
-            archive=str((new/'prior-state'/locale).relative_to(ROOT)))
+        if state['status']=='owner-stopped':
+            stop_pin=state['ownerStopReceipt'];stop_path=ROOT/stop_pin['path']
+            if sha(stop_path)!=stop_pin['sha256']:raise ValueError('Owner stop receipt changed')
+            stop=read(stop_path);scope=read(ROOT/job['ownerResume']['scope']['path'])
+            if (stop.get('kind')!='owner-stopped-request' or stop.get('phase')!=str(phase)
+                    or stop.get('threadId')!=last.get('threadId') or stop.get('processesAbsent') is not True
+                    or scope.get('owningStoppedRequest')!=stop_pin
+                    or sha(phase/'task.json')!=stop['taskSha256']
+                    or sha(phase/'runtime-verification.json')!=stop['runtimeSha256']):
+                raise ValueError('Owner stopped request identity differs')
+            task=runner.owner_resume_task(ROOT,job)
+            from locale_efficiency import latest_usage
+            runtime=read(phase/'runtime-verification.json')
+            recoveries[locale]=dict(kind='owner-stopped-efficiency-restart',previousStatusSha256=sha(status),
+                previousClaimSha256=sha(lane/'continuation.lock'),acceptedResult=False,
+                stoppedPhasePins={str(p.relative_to(ROOT)):sha(p) for p in [phase/'task.json',phase/'runtime-verification.json',stop_path]},
+                currentInputPins={p['path']:p['sha256'] for p in task.get('entryPins',[])},
+                validatedNextTask=task,terminalUsage=latest_usage(Path(runtime['sessionMetadataPath'])))
+        else:
+            stopped=dict(path=str((phase/'result.json').relative_to(ROOT)),sha256=last['resultSha256'])
+            runner.owner_resume_task(ROOT,job,stopped)
+            if sha(phase/'result.json')!=stopped['sha256']:raise ValueError('Stopped result changed')
+            recoveries[locale]=dict(kind='retained-terminal-lane',previousStatusSha256=sha(status),
+                previousClaimSha256=sha(lane/'continuation.lock'),resultSha256=stopped['sha256'],
+                archive=str((new/'prior-state'/locale).relative_to(ROOT)))
         job.pop('sourceWake',None)
         for prefix in config.get('extraWritePrefixes',{}).get(locale,[]):
             runner.local(ROOT,prefix)  # No escape from canonical project.
@@ -79,6 +98,7 @@ def prepare_terminal(previous,new,config_path):
     for key in ['observerHandoff','ownerPriorityTask','dependencyWake']:plan.pop(key,None)
     plan.update(executionLocales=sorted(selected),executionPins=pins,recoveredFrom=str(previous),
         efficiencyHelper=str(new/'execution/locale_efficiency.py'),continuationReceipt=config['receipt'])
+    if config.get('textFirst') is True:plan['textFirst']=True
     write(new/'disabled-lanes.before.json',untouched);write(new/'plan.json',plan)
     return plan
 

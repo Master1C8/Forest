@@ -52,15 +52,29 @@ remains explicit; reconcile it before another update or worker submission.
 
 ## Finite task selection
 
-Game testing is the final verification stage. Complete all independent authorized
-non-game prerequisites first: current wording/editorial decisions and corrections,
-glossary applicability, fonts, resource composition and permitted package checks.
-Bind the actual candidate to the final text versions after any late edit. A saved
-candidate or a native-not-run flag does not prove these prerequisites complete.
+Game testing is the final verification stage. Finish the complete translation and
+editing, then the universal independent editorial review and correction deltas.
+Every shared text family must have an exact final translated/edited or justified
+preserved disposition; unknown coverage and visible English artwork are unfinished,
+not a default baseline exemption. Include all primary menu layers, image headings,
+dynamic fragments and special scenes. Bind final resources and the complete package
+to those exact accepted wording versions before gameplay, saves or native screenshots.
+The common supervisor and explicit-locale native runner check
+`python3 -B tools/locale_queue.py text-gate --locale CODE --json` before model/runtime
+submission. This requires current version-bound translate-edit/editorial/resource/package
+acceptance and complete family translation/review coverage. A saved candidate, old owner runtime
+authorization, preliminary dialogue passes or native-not-run flags cannot bypass it.
+New tasks declare `executionStage`; child assignments inherit it unless explicitly
+changed. Runtime authority remains deferred until this gate passes. Existing useful
+captures remain evidence, not final acceptance. Regression: a saved candidate with
+English Inventory/Active/Completed headings or unresolved text families does not start
+another game test just because its resource readback and five local repairs passed.
 Reconcile missing evidence through its pinned owning editorial manifest before
 assigning another semantic review; calculation recovery is not new translation.
 Only then present the exact remaining game test and obtain its applicable owner
-instruction. This ordering grants no game, GUI, installer or publication authority.
+instruction when it has not already been granted. Existing applicable permission
+does not need to be requested again after the prerequisite gate passes. This ordering
+grants no installer or publication authority.
 Regression: a ready static payload coexists with current unaccepted text versions;
 recover valid archived reviews and finish the actual remaining editorial work
 before proposing a game launch.

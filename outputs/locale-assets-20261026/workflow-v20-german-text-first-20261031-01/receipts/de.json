@@ -1,0 +1,87 @@
+{
+  "kind": "owner-stopped-efficiency-restart",
+  "previousStatusSha256": "b2dcca63d4fb86132ec03c8dcb56f36823a1c9a7c2d57bbaa5b5f0b786bb6a04",
+  "previousClaimSha256": "39e69b88eafc77c0be5a6a6c864387033181869e03ba575f3729a8339f524334",
+  "acceptedResult": false,
+  "stoppedPhasePins": {
+    "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0129-work/task.json": "df67dd1c79d59b698fc4d07ec67e59c96b980611ea924aa276608bcd135ad63e",
+    "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0129-work/runtime-verification.json": "8284d8c19c4e83af28d496a5dae83c41f86ab92c5b97634f77b79bfe65dbc624",
+    "localization/completion/german-text-first-20261031-01/stop-receipt.json": "8dee0f444a8f05cfcd72ed93b2f75dad99d86516543dd876b6c634dde80c0935"
+  },
+  "currentInputPins": {
+    "localization/de-assets/completion/text-first-20261031-01/text-frontier.json": "65d3449ca312fe6495f6b55e4403ffe18c190657efdcab6a77fa5879f2fcff49",
+    "localization/de-assets/dialogue.de.jsonl": "b7a7988cc0df9b51c68c13e0e52bf21e4bf1654d1ad2b3c6edd7ab6c63b6d877",
+    "localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+    "localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+    "localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+    "localization/completion/progress-policy.json": "a3ae953e1c2228421a221aea854f868f39ac06fddac19b9fc31df5988932a113",
+    "localization/PROCESS.md": "f5739271a85d0cc895a85c4cdf6aecf0ffeefa1063c64c71cb9050513b14a2ea",
+    "localization/de-assets/completion/glossary-resume-20261031-01/glossary.en.json": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41",
+    "localization/de-assets/completion/glossary-resume-20261031-01/glossary.de.json": "befcac9712fa687bdbd3b75875b01227ac72432d932190b962c94672c2407435",
+    "localization/de-assets/completion/game-tests-20261031-01/parent-visual-findings-20261031-01.json": "2dfb77090c395aa245896a39cf8f0188335a48d5b8f37c0c6d72a1e3ec99551b",
+    "localization/completion/german-text-first-20261031-01/stop-receipt.json": "8dee0f444a8f05cfcd72ed93b2f75dad99d86516543dd876b6c634dde80c0935"
+  },
+  "validatedNextTask": {
+    "kind": "work",
+    "taskClass": "linguistic-work",
+    "workCategory": "locale-content",
+    "executionStage": "translate-edit",
+    "title": "Finish outstanding German translation and editing before final game tests",
+    "brief": "localization/de-assets/completion/text-first-20261031-01/brief.md",
+    "briefSha256": "c3cc23c6674be1bbeca77d9b64cbd2c1dc4caf73e155776bc9becba15ac51b41",
+    "entryPins": [
+      {
+        "path": "localization/de-assets/completion/text-first-20261031-01/text-frontier.json",
+        "sha256": "65d3449ca312fe6495f6b55e4403ffe18c190657efdcab6a77fa5879f2fcff49"
+      },
+      {
+        "path": "localization/de-assets/dialogue.de.jsonl",
+        "sha256": "b7a7988cc0df9b51c68c13e0e52bf21e4bf1654d1ad2b3c6edd7ab6c63b6d877"
+      },
+      {
+        "path": "localization/source/dialogue-candidates.jsonl",
+        "sha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f"
+      },
+      {
+        "path": "localization/source/dialogue-manifest.json",
+        "sha256": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de"
+      },
+      {
+        "path": "localization/completion/process-spec.json",
+        "sha256": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747"
+      },
+      {
+        "path": "localization/completion/progress-policy.json",
+        "sha256": "a3ae953e1c2228421a221aea854f868f39ac06fddac19b9fc31df5988932a113"
+      },
+      {
+        "path": "localization/PROCESS.md",
+        "sha256": "f5739271a85d0cc895a85c4cdf6aecf0ffeefa1063c64c71cb9050513b14a2ea"
+      },
+      {
+        "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.en.json",
+        "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+      },
+      {
+        "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.de.json",
+        "sha256": "befcac9712fa687bdbd3b75875b01227ac72432d932190b962c94672c2407435"
+      },
+      {
+        "path": "localization/de-assets/completion/game-tests-20261031-01/parent-visual-findings-20261031-01.json",
+        "sha256": "2dfb77090c395aa245896a39cf8f0188335a48d5b8f37c0c6d72a1e3ec99551b"
+      },
+      {
+        "path": "localization/completion/german-text-first-20261031-01/stop-receipt.json",
+        "sha256": "8dee0f444a8f05cfcd72ed93b2f75dad99d86516543dd876b6c634dde80c0935"
+      }
+    ]
+  },
+  "terminalUsage": {
+    "input_tokens": 11436939,
+    "cached_input_tokens": 11223936,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 41229,
+    "reasoning_output_tokens": 13874,
+    "total_tokens": 11478168
+  }
+}

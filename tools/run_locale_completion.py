@@ -222,6 +222,8 @@ def validate_result(root,job,phase,task,result,seen):
             raise ValueError('Real authored/reviewed/resolved/built units required; plans and counters are not progress')
         if not fresh-seen:raise ValueError('No new substantive evidence; do not loop unchanged')
         next_task=result['nextTask']
+        if task.get('executionStage'):
+            next_task.setdefault('executionStage',task['executionStage'])
         if context_debt:next_task['contextCarryover']=list(context_debt.values())
         else:next_task.pop('contextCarryover',None)
         if next_task.get('kind') not in KINDS or not next_task.get('title'):raise ValueError('Concrete next task required')
@@ -264,7 +266,7 @@ def validate_result(root,job,phase,task,result,seen):
 def process_identity(pid,phase=None,expected=None):
     def field(name):
         result=subprocess.run(['ps','-p',str(pid),'-o',name+'='],capture_output=True,text=True)
-        return result.stdout.strip() if result.returncode==0 else None
+        return (result.stdout.strip() or None) if result.returncode==0 else None
     if (field('stat') or '').startswith('Z'):return None
     command=field('command')
     if command is None:return None
@@ -596,6 +598,12 @@ def run_lane(directory,plan,job):
                 path=Path(name) if Path(name).is_absolute() else local(root,name)
                 if sha(path)!=digest:raise ValueError('Immutable source/glossary/contract changed: '+name)
             task=priority_task(root,plan,job,state,task)
+            why=dispatch_policy.runtime_reason(root,job,task)
+            if why:
+                dispatch_policy.defer_locale_owned(root,directory,job,state,task,why)
+                state['status']='held-text-prerequisites'
+                save(status,state)
+                return state
             if plan.get('localeOwned') and task.get('kind')=='technical':
                 raise ValueError('Permanent technical stream retired; select locale work/review')
             if plan.get('localeOwned'):

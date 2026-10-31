@@ -19,6 +19,11 @@ def put(path,value):
 
 
 class CompletionTests(unittest.TestCase):
+    def test_exited_process_with_empty_ps_output_is_not_a_reused_identity(self):
+        rows=[subprocess.CompletedProcess([],0,stdout='S\n'),subprocess.CompletedProcess([],0,stdout='')]
+        with patch.object(c.subprocess,'run',side_effect=rows):
+            self.assertIsNone(c.process_identity(123,expected=dict(start='old',command='old')))
+
     def fixture(self,root):
         phase=root/'job/phase';phase.mkdir(parents=True)
         job=dict(locale='de',directory='job',writePrefixes=['job','localization/de-assets'],requiredDeliverables=['family'],immutablePins={})

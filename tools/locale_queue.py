@@ -326,12 +326,18 @@ def prepare(root, locale, output):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command',choices=['update','check','status','prepare','progress'])
+    parser.add_argument('command',choices=['update','check','status','prepare','progress','text-gate'])
     parser.add_argument('--locale');parser.add_argument('--output',type=Path)
     parser.add_argument('--reconcile',action='store_true',help='Archive superseded queue/pointers before publishing reconciled inputs')
     parser.add_argument('--json',action='store_true',help='Print machine-readable progress')
     args=parser.parse_args()
-    if args.command=='progress':
+    if args.command=='text-gate':
+        if not args.locale:parser.error('text-gate requires --locale')
+        from locale_dispatch_policy import text_gate
+        result=text_gate(ROOT,args.locale)
+        print(json.dumps(result,ensure_ascii=False,indent=2))
+        if not result['passed']:raise SystemExit(2)
+    elif args.command=='progress':
         from locale_progress import report, table, snapshot
         data=report(ROOT,args.locale)
         if not args.locale:

@@ -55,6 +55,18 @@ class DispatchPolicyTests(unittest.TestCase):
         task=self.packet([dict(id='resource-binding:one')]);(self.root/'packet.jsonl').write_text('changed')
         with self.assertRaisesRegex(ValueError,'packet changed'):dispatch.locale_owned_reason(self.root,task)
 
+    def test_runtime_requires_current_complete_text_and_review(self):
+        report=dict(revision='fixture',locales=[dict(locale='de',
+            gates={'translate-edit':'passed','editorial':'passed','resources':'passed','package':'passed'},
+            families=[dict(id='wording',expected=2,resolved=2,reviewResolved=2)])])
+        self.assertTrue(dispatch.text_gate(self.root,'de',report)['passed'])
+        report['locales'][0]['families'][0]['reviewResolved']=1
+        self.assertEqual(dispatch.text_gate(self.root,'de',report)['missing'],['text-family:wording'])
+        report['locales'][0]['families'][0]['reviewResolved']=2
+        report['locales'][0]['gates']['editorial']='not-accepted'
+        self.assertEqual(dispatch.text_gate(self.root,'de',report)['missing'],['editorial'])
+        with self.assertRaisesRegex(ValueError,'one exact locale'):dispatch.text_gate(self.root,'ja',report)
+
     def test_gate_publishes_one_routing_record_and_submits_no_model(self):
         phase=self.root/'language/0001-work';phase.mkdir(parents=True)
         result=phase/'result.json';result.write_text(json.dumps(dict(outcome='continue')))
@@ -88,11 +100,15 @@ class DispatchPolicyTests(unittest.TestCase):
     def test_locale_owned_supervisor_cannot_bypass_guard_or_create_technical_inbox(self):
         self.supervisor_deferral(True)
 
-    def supervisor_deferral(self,locale_owned):
+    def test_runtime_is_held_before_model_creation_with_other_guards_satisfied(self):
+        self.supervisor_deferral(True,runtime=True)
+
+    def supervisor_deferral(self,locale_owned,runtime=False):
         lane=self.root/'language';phase=lane/'0001-work';phase.mkdir(parents=True)
         brief=phase/'next.md';brief.write_text('Prepare existing resource bindings without new wording.')
         task=dict(kind='work',title='Resource binding transport',brief=str(brief.relative_to(self.root)),briefSha256=sha(brief))
         if locale_owned:task['taskClass']='manifest-publication'
+        if runtime:task.update(taskClass='locale-integration',executionStage='runtime')
         artifact=phase/'data.json';artifact.write_text('{}')
         result=dict(outcome='continue',summary='Completed exact data transport.',progress=dict(kind='resource-build',unitIds=['one']),
             evidence=[dict(path=str(artifact.relative_to(self.root)),sha256=sha(artifact))],nextTask=task)
@@ -108,9 +124,20 @@ class DispatchPolicyTests(unittest.TestCase):
         observer=self.root/'observer';observer.mkdir();inbox=self.root/'inbox';inbox.mkdir()
         plan=dict(root=str(self.root),technicalInbox=str(inbox),enforceLinguisticOwnership=True,executionPins={})
         if locale_owned:plan['localeOwned']=True
-        with patch.object(runner.subprocess,'Popen') as model:
-            final=runner.run_lane(observer,plan,job);model.assert_not_called()
-        self.assertEqual(final['status'],'held-dispatch-policy')
+        if runtime:
+            plan['textFirst']=False  # A plan flag cannot bypass the shared ordering.
+            cli=self.root/'tools/locale_queue.py';cli.parent.mkdir(exist_ok=True)
+            cli.write_text('import json\nprint(json.dumps('+repr(dict(locales=[dict(locale='es',
+                gates={'translate-edit':'passed','editorial':'not-accepted','resources':'passed','package':'passed'},
+                families=[dict(id='text',expected=1,resolved=1,reviewResolved=1)])]))+'))\n')
+        with patch.object(runner.subprocess,'Popen',wraps=runner.subprocess.Popen) as model:
+            final=runner.run_lane(observer,plan,job)
+            if runtime:
+                self.assertEqual(model.call_count,1)
+                self.assertIn('progress',model.call_args.args[0])
+            else:model.assert_not_called()
+        self.assertEqual(final['status'],'held-text-prerequisites' if runtime else 'held-dispatch-policy')
+        if runtime:self.assertIn('editorial',final['reason'])
         self.assertEqual(len(final['phases']),1)
         self.assertFalse((lane/'0002-work').exists())
         self.assertEqual(len(list(inbox.glob('*.json'))),0 if locale_owned else 1)

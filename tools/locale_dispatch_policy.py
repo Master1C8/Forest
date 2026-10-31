@@ -1,8 +1,44 @@
 """Enforce linguistic/engineering ownership before a paid request is created."""
 import json
 from pathlib import Path
+import subprocess
+import sys
 
 from locale_queue import local, read, sha
+
+
+def text_gate(root, locale, report=None):
+    """Read current version-bound acceptance; never infer it from a saved build."""
+    if report is None:
+        result = subprocess.run([sys.executable, '-B', str(root/'tools/locale_queue.py'),
+                                 'progress', '--locale', locale, '--json'],
+                                cwd=root, capture_output=True, text=True, check=True)
+        report = json.loads(result.stdout)
+    rows = [r for r in report['locales'] if r.get('locale') == locale]
+    if len(rows) != 1:
+        raise ValueError('Runtime text gate requires one exact locale')
+    row = rows[0]
+    missing = [stage for stage in ['translate-edit', 'editorial', 'resources', 'package']
+               if row.get('gates', {}).get(stage) != 'passed']
+    families = row.get('families', [])
+    if not families:
+        missing.append('complete-text-inventory')
+    for family in families:
+        count = family.get('expected')
+        if (count is None or family.get('resolved') != count
+                or family.get('reviewResolved') != count):
+            missing.append('text-family:' + family['id'])
+    return dict(locale=locale, passed=not missing, missing=missing,
+                policyRevision=report.get('revision'), sourceScopeSha256=report.get('sourceScopeSha256'),
+                wordingVersions=[dict(id=f['id'], sha256=f.get('wordingVersionSha256')) for f in families],
+                meaning='Current full translation/editing, independent editorial, final resources and package acceptance before game execution; not runtime acceptance.')
+
+
+def runtime_reason(root, job, task):
+    if task.get('executionStage') not in {'runtime', 'screenshot-upload', 'screenshot-review'}:
+        return None
+    gate = text_gate(root, job['locale'])
+    return None if gate['passed'] else 'Finish current translation and editorial acceptance before runtime: ' + ', '.join(gate['missing'])
 
 
 def locale_owned_reason(root, task):

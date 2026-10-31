@@ -1,0 +1,21 @@
+{
+  "kind": "owner-stopped-request",
+  "at": "2026-10-31T10:31:19.131939+00:00",
+  "authorization": {
+    "path": "localization/completion/german-text-first-20261031-01/order-change-authorization.json",
+    "sha256": "8d23d205c1c7db7e4ff84cf0788ab248e39478ddd82307b83dd96552f3f1211f"
+  },
+  "phase": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0129-work",
+  "threadId": "01a1916d-a68f-7a52-a6fe-a1ba830b349c",
+  "taskSha256": "df67dd1c79d59b698fc4d07ec67e59c96b980611ea924aa276608bcd135ad63e",
+  "runtimeSha256": "8284d8c19c4e83af28d496a5dae83c41f86ab92c5b97634f77b79bfe65dbc624",
+  "processesAbsent": true,
+  "nativeGameAbsent": true,
+  "nativeCleanup": {
+    "path": "localization/de-assets/completion/game-tests-20261031-01/runtime-21/cleanup.json",
+    "sha256": "29157927a9a6bd02f6e127d396b2a792f1498237ec1a4c207ca4efddef173edf"
+  },
+  "completedSemanticCoverageAdded": 0,
+  "originalDraftsAndInputsPreserved": true,
+  "interruptionAccounting": "First preflight found a newly launched owned game and interrupted nothing. Observer/model were then paused, the owning native runner completed restoration, and the model/host and observer were closed. Empty ps output after process exit required reconciliation; no prior request was replayed."
+}
