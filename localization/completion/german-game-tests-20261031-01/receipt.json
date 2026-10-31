@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-31T08:11:27.782148+00:00",
+  "status": "game-test-task-running",
+  "run": "outputs/locale-assets-20261026/workflow-v19-german-game-tests-20261031-01",
+  "observerPid": 81764,
+  "phase": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0122-work",
+  "workerPid": 81775,
+  "workerThreadId": "01a19102-8ea1-7d00-a9b2-c2c67bdd7f9c",
+  "actualRuntime": {
+    "session": {
+      "id": "01a19102-8ea1-7d00-a9b2-c2c67bdd7f9c",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "runtimeVerification": {
+    "path": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0122-work/runtime-verification.json",
+    "sha256": "ac3449a698455f179d7fd46ca98fd531eb08090d8c415b1e2d000e3d7ef3f627"
+  },
+  "automaticContinuation": true,
+  "otherFiveLaneStateAndClaimsUnchanged": true,
+  "ownerGameAndSavesInScope": false,
+  "actualGameLaunch": "Not claimed by this task-start receipt; requires the native runner launch/startup/process evidence.",
+  "nativeAcceptance": "not-yet-established",
+  "coordinatorAuthoredGermanWording": false,
+  "coordinatorUsage": {
+    "baseline": {
+      "input_tokens": 115184538,
+      "cached_input_tokens": 114122240,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 533648,
+      "reasoning_output_tokens": 301538,
+      "total_tokens": 115718186
+    },
+    "cutoff": {
+      "input_tokens": 115611676,
+      "cached_input_tokens": 114544384,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 538119,
+      "reasoning_output_tokens": 302659,
+      "total_tokens": 116149795
+    },
+    "measuredDelta": {
+      "input_tokens": 427138,
+      "cached_input_tokens": 422144,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4471,
+      "reasoning_output_tokens": 1121,
+      "total_tokens": 431609
+    },
+    "attribution": "Game-test assignment preparation, dispatch and readiness verification. Earlier skill reading and native-path inventory are outside this measured delta.",
+    "unmeasuredTail": "This receipt, commit verification and reporting."
+  },
+  "workerUsage": {
+    "status": "Running; complete measured usage and outcome pending."
+  }
+}

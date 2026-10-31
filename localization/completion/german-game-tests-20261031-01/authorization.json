@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "direct-owner-repair-and-resume",
+  "recordedAt": "2026-10-31T08:10:25.380426+00:00",
+  "ownerStatement": "запускай игровые тесты",
+  "acceptedProposal": "Test the German build in a separate disposable game copy, preserve the installed game and owner saves; handle necessary fixes and affected rechecks autonomously.",
+  "locales": [
+    "de"
+  ],
+  "baselineAcceptance": {
+    "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+    "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+  },
+  "coordinatorModel": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "provider": "openai"
+  },
+  "newlyAuthorized": [
+    "Actual German game/native/GUI testing on a separate isolated test copy",
+    "Task-owned disposable QA settings/save fixtures",
+    "Native evidence capture and necessary local repairs/rechecks"
+  ],
+  "excluded": [
+    "Owner installed game/saves modification",
+    "Installer execution or real installation",
+    "Publication/deployment/server lifecycle",
+    "Other locales or a technical stream"
+  ]
+}
