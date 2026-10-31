@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-31T09:40:06.592165+00:00",
+  "scope": "Native04/05/06 full prepared-frame review; originals unchanged; coordinator text-only",
+  "totalFrames": 18,
+  "passed": 8,
+  "failed": 5,
+  "needsReview": 5,
+  "findings": [
+    {
+      "captureSet": "native04",
+      "order": 1,
+      "preparedFilename": "de535e60499312f6c312cb0d14e92534d368b98f0570a12f8ec387fc41e26112.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Main menu and footer: Beenden, Steuerung, Fehler melden, TFoL.info",
+          "observed": "None of these four expected labels is visible anywhere in the frame; only Spielen, Galerie and Optionen appear as menu actions.",
+          "expected": "The settled original main menu displays all expected complete labels, including Beenden, Steuerung, Fehler melden and TFoL.info.",
+          "nextAction": "Check menu animation/visibility state and candidate bindings, then recapture the settled menu with all expected labels visible."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/review.json",
+        "sha256": "65a6d42df3b9e0b1061b1a674689c48266a73bcff6b87d15b8303078a35c8261"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/queue.previews/source-bindings.json",
+        "sha256": "0238a3384c6c9d714aa4ed8ab51b38d36a5b443aa0c828d3e2e0169f3cdcee88"
+      }
+    },
+    {
+      "captureSet": "native04",
+      "order": 2,
+      "preparedFilename": "2318874bd5edf7d3d7b6953cfaf35316fe4142dc01ff875e641baec69bd8a87e.webp",
+      "checks": {
+        "layout": "failed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Scaling row, approximately x590–755, y542–570",
+          "observed": "The end of “Skalierung:” crowds into the displayed “1x” value; the colon and adjacent glyph boundaries cannot be resolved confidently.",
+          "expected": "The complete “Skalierung:” label and scale value remain distinctly readable with clear separation.",
+          "nextAction": "Inspect a source-bound crop of this row, correct the label/value spacing, and recapture the settings frame for review."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/review.json",
+        "sha256": "65a6d42df3b9e0b1061b1a674689c48266a73bcff6b87d15b8303078a35c8261"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/queue.previews/source-bindings.json",
+        "sha256": "0238a3384c6c9d714aa4ed8ab51b38d36a5b443aa0c828d3e2e0169f3cdcee88"
+      }
+    },
+    {
+      "captureSet": "native04",
+      "order": 8,
+      "preparedFilename": "1db7a92f52adc521587a1424f59409e6461968df035459951c653cc70201c547.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Top-center inventory heading, approximately x=558–732, y=125–161",
+          "observed": "The heading reads “Inventory” in English. The supplied context does not specifically establish whether this heading is intentionally preserved artwork or an untranslated label.",
+          "expected": "German UI wording or explicit source-specific evidence authorizing the preserved English heading.",
+          "nextAction": "Verify the heading’s source and preservation requirement. If unintended, localize it and review a new capture; otherwise document its exact exemption."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/review.json",
+        "sha256": "65a6d42df3b9e0b1061b1a674689c48266a73bcff6b87d15b8303078a35c8261"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/queue.previews/source-bindings.json",
+        "sha256": "0238a3384c6c9d714aa4ed8ab51b38d36a5b443aa0c828d3e2e0169f3cdcee88"
+      }
+    },
+    {
+      "captureSet": "native04",
+      "order": 9,
+      "preparedFilename": "76bff0c37ca18806e13359ff76eb11d2f5234018bb09c5e2af0d1baa6f823853.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Top-center inventory header, approximately x560–730, y126–160",
+          "observed": "The header reads “INVENTORY” in English. The packet does not specifically establish this label as an accepted protected source literal.",
+          "expected": "German UI wording or explicit evidence that this exact English header is intentionally retained.",
+          "nextAction": "Provide the header’s source/artwork binding and acceptance evidence; retain needs-review until resolved."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/review.json",
+        "sha256": "65a6d42df3b9e0b1061b1a674689c48266a73bcff6b87d15b8303078a35c8261"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/queue.previews/source-bindings.json",
+        "sha256": "0238a3384c6c9d714aa4ed8ab51b38d36a5b443aa0c828d3e2e0169f3cdcee88"
+      }
+    },
+    {
+      "captureSet": "native04",
+      "order": 10,
+      "preparedFilename": "8f27658501e41de3ae495d07b30372668ed2fbc3b61da6760b9f33547fe91dd4.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Top-center inventory header, approximately x560–730, y125–160",
+          "observed": "The header reads “INVENTORY” in English. The supplied context does not explicitly establish this particular label as an intentionally preserved source literal or artwork.",
+          "expected": "German UI wording or explicit evidence that this header is intentionally preserved.",
+          "nextAction": "Verify the header’s source/artwork binding and preservation decision; if localization is required, correct it and review a new capture."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/review.json",
+        "sha256": "65a6d42df3b9e0b1061b1a674689c48266a73bcff6b87d15b8303078a35c8261"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native04/queue.previews/source-bindings.json",
+        "sha256": "0238a3384c6c9d714aa4ed8ab51b38d36a5b443aa0c828d3e2e0169f3cdcee88"
+      }
+    },
+    {
+      "captureSet": "native05",
+      "order": 1,
+      "preparedFilename": "ce2f5cb4345a512bdba8438d54ed3faa067af294c28f6740f986d0ebfefdac90.webp",
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Left panel status headings: “Active” and “Completed”",
+          "observed": "Both status headings remain in English.",
+          "expected": "German status-heading artwork; these source sprites are explicitly pending localization.",
+          "nextAction": "Localize the two image roles, verify the packaged bindings and review a new capture."
+        },
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Upper-left quest entry, approximately x=291–448, y=228–303",
+          "observed": "“Erinnerungsstücke” breaks across lines as “Erinnerungs” / “stücke” without a hyphen.",
+          "expected": "Keep the compound intact or use a valid German hyphenated line break.",
+          "nextAction": "Correct wrapping for the quest label and review the resulting capture."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native05/review.json",
+        "sha256": "5d98916849ec049b7d3d52ab3e30f84ac579a576f89a3efaa27ae8f1b912c7c1"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native05/queue.previews/source-bindings.json",
+        "sha256": "675486b02c462e9a183c9b51bbdf80303e261e35ee4154a755c9532ced10272d"
+      }
+    },
+    {
+      "captureSet": "native05",
+      "order": 2,
+      "preparedFilename": "3b270a46236e3b3c6136c73fdc3c440b5d5edd552c56d994bc08c073099b734e.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Left quest pane: Active heading, approximately (308,188)–(437,223); Completed heading, approximately (287,472)–(458,511).",
+          "observed": "Both status headings remain in English: “Active” and “Completed”.",
+          "expected": "German status-heading artwork; these source-language sprites are explicitly pending and have no approved exception.",
+          "nextAction": "Localize the two status-heading image roles, verify their packaged bindings, and review a fresh capture of the affected quest pane."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native05/review.json",
+        "sha256": "5d98916849ec049b7d3d52ab3e30f84ac579a576f89a3efaa27ae8f1b912c7c1"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native05/queue.previews/source-bindings.json",
+        "sha256": "675486b02c462e9a183c9b51bbdf80303e261e35ee4154a755c9532ced10272d"
+      }
+    },
+    {
+      "captureSet": "native05",
+      "order": 3,
+      "preparedFilename": "69a68f9acb1583e514cb53822b2fe8d9e405c5fe2bddfc1ff120d466eb3ca5b6.webp",
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Left panel: “Active” and “Completed” headings",
+          "observed": "Both status headings remain in English within the German interface.",
+          "expected": "German status-heading artwork; these source sprites are explicitly pending localization.",
+          "nextAction": "Localize the two image roles and review a newly captured bound frame."
+        },
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Upper-left quest entry, approximately x292–446, y228–304",
+          "observed": "“Melodys Erinnerungsstücke” wraps as “Melodys / Erinnerungs / stücke”, splitting the compound without a hyphen.",
+          "expected": "Keep the compound intact or use a valid German hyphenated line break.",
+          "nextAction": "Correct this entry’s wrapping through layout or German hyphenation, then review the replacement frame."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native05/review.json",
+        "sha256": "5d98916849ec049b7d3d52ab3e30f84ac579a576f89a3efaa27ae8f1b912c7c1"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native05/queue.previews/source-bindings.json",
+        "sha256": "675486b02c462e9a183c9b51bbdf80303e261e35ee4154a755c9532ced10272d"
+      }
+    },
+    {
+      "captureSet": "native06",
+      "order": 1,
+      "preparedFilename": "b54e052507f940ed4bc22d4d5cc636a4c971ab12b0c2f2e6bc951d9620494368.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Speaker nameplate, approximately x=563–735, y=373–422",
+          "observed": "The nameplate displays “???”. Provided context identifies Scarlett but does not establish whether this hidden-name label is intentional at this point.",
+          "expected": "Source-bound confirmation of the intended displayed speaker name for this dialogue state.",
+          "nextAction": "Verify the pinned source/name-discovery binding for entry205. Retain needs-review until “???” is confirmed intentional or corrected and recaptured."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native06/review.json",
+        "sha256": "95d32a21602f6a32da37eb6832610557c74b7f17ec7fd0a1df7fd12cf357173b"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native06/queue.previews/source-bindings.json",
+        "sha256": "0a5fa98f4981def2d72bea18e1c9e86268936f980af71e6c93edefe1940dc002"
+      }
+    },
+    {
+      "captureSet": "native06",
+      "order": 2,
+      "preparedFilename": "0ccb4e74ebc24682e4e00f5c77a30dd4e7662069293dca792a74325bbddc069d.webp",
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      },
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Speaker nameplate, approximately x=562–739, y=373–425",
+          "observed": "The nameplate displays “???”. The supplied context identifies Scarlett but does not establish whether her name should remain concealed here.",
+          "expected": "Source-bound confirmation of the intended speaker label for conversation145/entry207.",
+          "nextAction": "Verify the original entry207 speaker-name visibility state and admitted German binding; retain needs-review until “???” is confirmed intentional or corrected."
+        }
+      ],
+      "ledger": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native06/review.json",
+        "sha256": "95d32a21602f6a32da37eb6832610557c74b7f17ec7fd0a1df7fd12cf357173b"
+      },
+      "sourceBindings": {
+        "path": "localization/visual-qa/de-runtime-20261031-01/native06/queue.previews/source-bindings.json",
+        "sha256": "0a5fa98f4981def2d72bea18e1c9e86268936f980af71e6c93edefe1940dc002"
+      }
+    }
+  ],
+  "repairFamilies": [
+    "Verify source-scene visibility versus main-menu expected-label list",
+    "Resolve settings scaling-row label/value crowding using a source-bound crop",
+    "Bind/localize or explicitly justify original Inventory heading artwork",
+    "Resolve Active/Completed source-heading artwork",
+    "Preserve valid German compound wrapping in quest list",
+    "Pin intentional hidden speaker name/reveal timing at conversation145 entries205/207; do not replace ??? just because actor is known"
+  ],
+  "disposition": "Consolidate fixes and bounded context repairs; preserve every original finding. No automatic acceptance or unchanged model retry.",
+  "usage": [
+    {
+      "queue": "native04",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "completedPackets": 11,
+      "requests": [
+        {
+          "attempt": "attempt-0002",
+          "sessionId": "01a19138-5e83-7952-b445-7d764a35c480"
+        },
+        {
+          "attempt": "attempt-0003",
+          "sessionId": "01a19139-13ab-76d2-a34f-5c3bce868659"
+        },
+        {
+          "attempt": "attempt-0004",
+          "sessionId": "01a19139-9109-7ff0-9b84-63c68886b597"
+        },
+        {
+          "attempt": "attempt-0005",
+          "sessionId": "01a19139-e5bd-7c43-aaef-a1c72cb128dc"
+        },
+        {
+          "attempt": "attempt-0006",
+          "sessionId": "01a1913a-2710-7c62-a80c-ed6d8aacea06"
+        },
+        {
+          "attempt": "attempt-0007",
+          "sessionId": "01a1913a-74de-7002-84c4-8f21f768540b"
+        },
+        {
+          "attempt": "attempt-0008",
+          "sessionId": "01a1913a-beb9-7940-b988-680a2fee69d9"
+        },
+        {
+          "attempt": "attempt-0009",
+          "sessionId": "01a1913b-3cdd-7ff2-b59e-17ba6a971941"
+        },
+        {
+          "attempt": "attempt-0010",
+          "sessionId": "01a1913b-98af-7a20-8c24-b13e4225e60e"
+        },
+        {
+          "attempt": "attempt-0011",
+          "sessionId": "01a1913b-fe5e-7602-852a-ec12545d223f"
+        },
+        {
+          "attempt": "attempt-0012",
+          "sessionId": "01a1913c-56cd-78c3-bd8f-e81cdf443875"
+        }
+      ],
+      "measuredSubtotal": {
+        "input_tokens": 445227,
+        "cached_input_tokens": 205184,
+        "output_tokens": 6520,
+        "total_tokens": 451747
+      },
+      "unknownTelemetry": [],
+      "excludes": "native04 attempt-0001 was already reported"
+    },
+    {
+      "queue": "native05",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "completedPackets": 4,
+      "requests": [
+        {
+          "attempt": "attempt-0001",
+          "sessionId": "01a1913c-afbe-7582-9e7f-a43ae6337949"
+        },
+        {
+          "attempt": "attempt-0002",
+          "sessionId": "01a1913d-32ed-7fd2-bdee-39759ab19d87"
+        },
+        {
+          "attempt": "attempt-0003",
+          "sessionId": "01a1913d-941c-7683-aa88-f35ea451d8c4"
+        },
+        {
+          "attempt": "attempt-0004",
+          "sessionId": "01a1913e-6d14-7881-8b17-ceb5342e4bf7"
+        }
+      ],
+      "measuredSubtotal": {
+        "input_tokens": 144115,
+        "cached_input_tokens": 68992,
+        "output_tokens": 3578,
+        "total_tokens": 147693
+      },
+      "unknownTelemetry": [],
+      "excludes": null
+    },
+    {
+      "queue": "native06",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "completedPackets": 2,
+      "requests": [
+        {
+          "attempt": "attempt-0001",
+          "sessionId": "01a1913e-dc7a-7811-965b-2e50fefe4016"
+        },
+        {
+          "attempt": "attempt-0002",
+          "sessionId": "01a1913f-569a-7fc0-9ac7-83f393214b45"
+        }
+      ],
+      "measuredSubtotal": {
+        "input_tokens": 71832,
+        "cached_input_tokens": 34432,
+        "output_tokens": 1421,
+        "total_tokens": 73253
+      },
+      "unknownTelemetry": [],
+      "excludes": null
+    }
+  ]
+}
