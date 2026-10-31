@@ -598,6 +598,12 @@ def run_lane(directory,plan,job):
             task=priority_task(root,plan,job,state,task)
             if plan.get('localeOwned') and task.get('kind')=='technical':
                 raise ValueError('Permanent technical stream retired; select locale work/review')
+            if plan.get('localeOwned'):
+                why=dispatch_policy.locale_owned_reason(root,task)
+                if why:
+                    dispatch_policy.defer_locale_owned(root,directory,job,state,task,why)
+                    save(status,state)
+                    return state
             if plan.get('enforceLinguisticOwnership') and not plan.get('localeOwned') and not verified_dependency_task:
                 why=dispatch_policy.reason(root,job,task)
                 if why:

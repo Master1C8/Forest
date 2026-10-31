@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-31T06:33:21.132325+00:00",
+  "locale": "de",
+  "status": "dispatch-mechanism-repaired-current-source-blocker-preserved",
+  "cause": "Locale-owned queues bypassed the existing ownership guard. A separately spawned resource-review phase checked deterministic transport of one already accepted wording version; the final trace could not resolve the original source ambiguity.",
+  "change": "Guard locale-owned dispatch before phase creation/Popen. Separate resource review requires an actual named semantic/consumer/code/font-role question and pinned inputs. Defer metadata-only work inside its own locale without a technical inbox.",
+  "realRegression": {
+    "0116-review": "admitted: actual independent semantic review",
+    "0118-review": "rejected: no new resource judgment; exact accepted value/readback only"
+  },
+  "tests": {
+    "dispatch": 9,
+    "completion": 19,
+    "repair": 19,
+    "scope": "Transport, dispatch, ownership and fresh-request boundaries; Popen mocked in synthetic supervisor tests. Real saved 0116/0118 task classification checked without any model call. No semantic/native acceptance inferred."
+  },
+  "currentPercent": 68.74,
+  "newRunStarted": false,
+  "existingFrozenRunsUnchanged": true,
+  "remaining": "Five unchanged exact source/context holds plus unmet family/final native/release gates. Do not replay an unchanged blocker.",
+  "workers": [
+    {
+      "phase": "0117-work",
+      "threadId": "01a19091-2da9-7002-b171-69fd4c472f8c",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "continue",
+      "usage": {
+        "input_tokens": 5425637,
+        "cached_input_tokens": 5271808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 26505,
+        "reasoning_output_tokens": 6010,
+        "total_tokens": 5452142
+      }
+    },
+    {
+      "phase": "0118-review",
+      "threadId": "01a19098-c249-76f1-bd31-ee03ab84aade",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "continue",
+      "usage": {
+        "input_tokens": 2750270,
+        "cached_input_tokens": 2618240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12953,
+        "reasoning_output_tokens": 3067,
+        "total_tokens": 2763223
+      }
+    },
+    {
+      "phase": "0119-work",
+      "threadId": "01a1909d-6e89-7ed0-8f07-8405741506ae",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "outcome": "blocked",
+      "usage": {
+        "input_tokens": 3601837,
+        "cached_input_tokens": 3429248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 18141,
+        "reasoning_output_tokens": 2608,
+        "total_tokens": 3619978
+      }
+    }
+  ],
+  "coordinator": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "usageSincePreviousReportedCutoff": {
+      "input_tokens": 2123941,
+      "cached_input_tokens": 2100864,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 10340,
+      "reasoning_output_tokens": 4585,
+      "total_tokens": 2134281
+    },
+    "attribution": "Mixed: task monitoring/orchestration and implementation of the shared dispatch repair. Initial resume diagnosis predates the orchestration baseline. Earlier reported coordinator usage is excluded from this delta.",
+    "unmeasuredTail": "This report write, canonical commit verification and final user-facing report."
+  },
+  "tokensAreNotCosts": true
+}

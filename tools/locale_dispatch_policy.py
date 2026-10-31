@@ -5,6 +5,60 @@ from pathlib import Path
 from locale_queue import local, read, sha
 
 
+def locale_owned_reason(root, task):
+    """Keep deterministic transport inside its substantive locale assignment.
+
+    Independent semantic/code/consumer review remains required when applicable;
+    separate resource review must name its new judgment and pin the inputs.
+    """
+    if task.get('taskClass') in {'metadata-only', 'receipt-reconciliation',
+            'resource-binding-only', 'manifest-publication', 'acknowledgement'}:
+        return 'Run deterministic transport/checks in the owning substantive assignment; no separate model phase.'
+    resource_review = task.get('taskClass') == 'independent-resource-review'
+    if task.get('kind') == 'review':
+        packet = local(root, task['reviewPacket'])
+        if sha(packet) != task['reviewPacketSha256']:
+            raise ValueError('Dispatch review packet changed')
+        rows = [json.loads(line) for line in packet.read_text().splitlines() if line.strip()]
+        resource_review |= any(
+            r.get('reviewKind') in {'new-data-binding-only', 'technical-review', 'resource-binding', 'resource-contract'}
+            or str(r.get('id', '')).startswith(('resource-binding:', 'technical:'))
+            for r in rows)
+    if not resource_review:
+        return None
+    judgment = task.get('newJudgment') or {}
+    if (judgment.get('boundary') not in {'semantics', 'consumer', 'code', 'font-role'}
+            or not isinstance(judgment.get('predicate'), str) or not judgment['predicate'].strip()
+            or not judgment.get('inputs')):
+        return ('Separate resource model review requires a concrete new semantic, consumer, code or font-role '
+                'judgment with pinned inputs. Exact copying/readback of accepted wording uses deterministic checks.')
+    for pin in judgment['inputs']:
+        if sha(local(root, pin['path'])) != pin['sha256']:
+            raise ValueError('New resource judgment input changed')
+    return None
+
+
+def defer_locale_owned(root, directory, job, state, task, why):
+    """Preserve an unsubmitted task locally; never route to a retired stream."""
+    folder = directory/'dispatch-holds'/job['locale']/task['briefSha256']
+    folder.mkdir(parents=True, exist_ok=True)
+    value = dict(schemaVersion=1, locale=job['locale'], predicate=why,
+                 pendingTask=task, newModelRequestCreated=False,
+                 nextAction='Bundle deterministic work into the substantive owning assignment. '
+                 'For a genuinely new independent judgment, bind its exact boundary, predicate and inputs. '
+                 'Do not create a technical stream, waive review or resubmit unchanged work.')
+    path = folder/'request.json'
+    if path.exists():
+        if read(path) != value:
+            raise ValueError('Immutable locale dispatch hold differs')
+    else:
+        with path.open('x') as stream:
+            json.dump(value, stream, ensure_ascii=False, indent=2); stream.write('\n')
+    state.update(status='held-dispatch-policy', reason=why, pendingTask=task,
+                 dispatchHold=dict(path=str(path.relative_to(root)), sha256=sha(path)))
+    return state
+
+
 def reason(root, job, task):
     if job['locale'] == 'technical':
         return None

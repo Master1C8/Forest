@@ -37,6 +37,24 @@ class DispatchPolicyTests(unittest.TestCase):
         task=self.packet([dict(id='one')]);(self.root/'packet.jsonl').write_text('changed')
         with self.assertRaisesRegex(ValueError,'packet changed'):dispatch.reason(self.root,dict(locale='es'),task)
 
+    def test_locale_owned_transport_needs_no_extra_model_but_real_review_remains(self):
+        task=self.packet([dict(id='resource-binding:quest',reviewKind='resource-binding')])
+        task['taskClass']='independent-resource-review'
+        self.assertIn('concrete new',dispatch.locale_owned_reason(self.root,task))
+        task['newJudgment']=dict(boundary='consumer',predicate='Check changed fragment order in the actual consumer.',
+            inputs=[dict(path='packet.jsonl',sha256=sha(self.root/'packet.jsonl'))])
+        self.assertIsNone(dispatch.locale_owned_reason(self.root,task))
+        task['newJudgment']['inputs'][0]['sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'judgment input changed'):
+            dispatch.locale_owned_reason(self.root,task)
+
+    def test_locale_owned_semantic_and_repair_tasks_remain_admitted(self):
+        self.assertIsNone(dispatch.locale_owned_reason(self.root,self.packet([dict(id='ds:1:2:Dialogue Text',source='Original',target='Translation')])))
+        self.assertIsNone(dispatch.locale_owned_reason(self.root,dict(kind='work',taskClass='locale-integration')))
+        self.assertIn('no separate model',dispatch.locale_owned_reason(self.root,dict(kind='work',taskClass='manifest-publication')))
+        task=self.packet([dict(id='resource-binding:one')]);(self.root/'packet.jsonl').write_text('changed')
+        with self.assertRaisesRegex(ValueError,'packet changed'):dispatch.locale_owned_reason(self.root,task)
+
     def test_gate_publishes_one_routing_record_and_submits_no_model(self):
         phase=self.root/'language/0001-work';phase.mkdir(parents=True)
         result=phase/'result.json';result.write_text(json.dumps(dict(outcome='continue')))
@@ -65,9 +83,16 @@ class DispatchPolicyTests(unittest.TestCase):
         self.assertEqual(state['pendingTask'],task)
 
     def test_real_supervisor_defers_before_creating_the_next_model_phase(self):
+        self.supervisor_deferral(False)
+
+    def test_locale_owned_supervisor_cannot_bypass_guard_or_create_technical_inbox(self):
+        self.supervisor_deferral(True)
+
+    def supervisor_deferral(self,locale_owned):
         lane=self.root/'language';phase=lane/'0001-work';phase.mkdir(parents=True)
         brief=phase/'next.md';brief.write_text('Prepare existing resource bindings without new wording.')
         task=dict(kind='work',title='Resource binding transport',brief=str(brief.relative_to(self.root)),briefSha256=sha(brief))
+        if locale_owned:task['taskClass']='manifest-publication'
         artifact=phase/'data.json';artifact.write_text('{}')
         result=dict(outcome='continue',summary='Completed exact data transport.',progress=dict(kind='resource-build',unitIds=['one']),
             evidence=[dict(path=str(artifact.relative_to(self.root)),sha256=sha(artifact))],nextTask=task)
@@ -82,12 +107,17 @@ class DispatchPolicyTests(unittest.TestCase):
         job=dict(locale='es',directory='language',writePrefixes=['language'],immutablePins={},requiredDeliverables=[],resumeReceipt='recovery.json',resumeReceiptSha256=sha(receipt))
         observer=self.root/'observer';observer.mkdir();inbox=self.root/'inbox';inbox.mkdir()
         plan=dict(root=str(self.root),technicalInbox=str(inbox),enforceLinguisticOwnership=True,executionPins={})
+        if locale_owned:plan['localeOwned']=True
         with patch.object(runner.subprocess,'Popen') as model:
             final=runner.run_lane(observer,plan,job);model.assert_not_called()
         self.assertEqual(final['status'],'held-dispatch-policy')
         self.assertEqual(len(final['phases']),1)
         self.assertFalse((lane/'0002-work').exists())
-        self.assertEqual(len(list(inbox.glob('*.json'))),1)
+        self.assertEqual(len(list(inbox.glob('*.json'))),0 if locale_owned else 1)
+        if locale_owned:
+            hold=list((observer/'dispatch-holds').rglob('request.json'))
+            self.assertEqual(len(hold),1)
+            self.assertFalse(json.loads(hold[0].read_text())['newModelRequestCreated'])
 
 
 if __name__=='__main__':unittest.main()

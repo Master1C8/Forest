@@ -213,6 +213,17 @@ outcomes, capacity errors and interrupted observers require reconciliation by jo
 thread/process identity and immutable inputs; no automatic duplicate/retry loop.
 An unchanged blocker is a stop condition, not another framework-tracing task.
 
+Keep deterministic application, readback, packaging and receipt publication in
+the substantive owning assignment. They are not separate model-review phases.
+The locale-owned dispatch guard runs before phase creation and model submission.
+A separate resource reviewer must name a new semantic, consumer, code or font-role
+judgment and pin its exact inputs in `newJudgment`; copying already reviewed wording
+and checking exact bytes alone does not qualify. A deferred task stays in its own
+lane, without an inbox or technical worker. This does not waive actual independent
+semantic/code review or native gates. Regression: one reviewed Finley quest sentence
+is applied and fully read back in the same substantive batch; an additional model
+request solely to affirm that identical saved value is rejected before submission.
+
 Locale jobs apply the common accepted-Russian procedures directly, with their
 own reviewed wording and explicit locale parameters. There is no permanent
 technical stream, technical inbox wait or separate receipt-consumption model
