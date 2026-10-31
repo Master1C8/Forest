@@ -141,6 +141,25 @@ def nonlinguistic(row):
         or row.get('reviewKind') in ('new-data-binding-only','technical-review','resource-binding','resource-contract'))
 
 
+def reviewed_disposition(row, packet_row):
+    """Classify an explicit primary judgment; held/context receipts are not passes."""
+    key=version(row)
+    if (row.get('reviewed') is not True or row.get('notLinguisticCoverage') is not True
+            or row.get('targetEdited') is not False
+            or row.get('verdict') not in ('context-only-preserve','technical-preservation')
+            or key is None or key != version(packet_row)):
+        return None
+    if (key and key[1]==key[2] and row.get('sourceDisposition') in
+            ('preserved-detached-source','preserve-as-baseline','accepted-baseline-preservation')):
+        return 'preserved'
+    roles={'accepted-special-case-disposition':'special-case-disposition',
+           'accepted-stored-only-preparation':'stored-only-preparation'}
+    role=roles.get(row.get('sourceDisposition'))
+    if role and packet_row.get('coverageRole')==role:
+        return 'disposition'
+    return None
+
+
 def declared_refs(value):
     """Only explicit hash bindings inside a document; no directory searches."""
     if isinstance(value, dict):
@@ -276,7 +295,7 @@ def known_wording(row, locale):
 
 def collect_locale(ev, policy, locale, families, preservation=None):
     current, decisions = {}, {}
-    preserved={};resource_refs={};preservation=preservation or {};stage_claims=[]
+    preserved={};dispositions={};resource_refs={};preservation=preservation or {};stage_claims=[]
     source = {r['id']: r for r in ev.row_list('localization/source/dialogue-candidates.jsonl')}
     dialogue = ev.row_list(f'localization/{locale}-assets/dialogue.{locale}.jsonl')
     dialogue_versions={r['id']:version(r) for r in dialogue}
@@ -329,15 +348,17 @@ def collect_locale(ev, policy, locale, families, preservation=None):
             judgments=(ev.row_list(review_name,refs[review_name])
                 if phase['kind']=='review' and review_name in refs else [])
             nonlinguistic_ids={r['id'] for r in judgments if nonlinguistic(r)}
-            primary, assigned, packet = {}, {}, task.get('reviewPacket')
+            primary, assigned, assigned_rows, packet = {}, {}, {}, task.get('reviewPacket')
             if packet and task.get('reviewPacketSha256'):
                 for row in ev.row_list(packet, task['reviewPacketSha256']):
                     key=version(row)
-                    if key:assigned[row['id']]=key
+                    if key:
+                        assigned[row['id']]=key;assigned_rows[row['id']]=row
                     if known_wording(row, locale) and row['id'] not in nonlinguistic_ids:
                         primary[row['id']] = version(row)
             # Completed author phases publish exact primary IDs and pinned wording files.
             progress = result.get('progress') or {}
+            declared_units=set(progress.get('unitIds',[]))
             next_task = result.get('nextTask') or {}
             authored = set(progress.get('unitIds', [])) if progress.get('kind') == 'authored' else set()
             proposed = next_task.get('reviewPacket')
@@ -346,6 +367,10 @@ def collect_locale(ev, policy, locale, families, preservation=None):
                 expected = next_task.get('reviewPacketSha256') or refs.get(proposed_name)
                 if expected:
                     for row in ev.row_list(proposed, expected):
+                        if row.get('id') in declared_units:
+                            key=version(row)
+                            if preserved.get(row['id'])!=key:preserved.pop(row['id'],None)
+                            if dispositions.get(row['id'])!=key:dispositions.pop(row['id'],None)
                         if known_wording(row, locale) and (not authored or row['id'] in authored):
                             primary[row['id']] = version(row)
             if authored and not primary:
@@ -369,18 +394,22 @@ def collect_locale(ev, policy, locale, families, preservation=None):
                 if id_ not in source:
                     current[id_] = key
                     if preserved.get(id_)!=key:preserved.pop(id_,None)
+                    if dispositions.get(id_)!=key:dispositions.pop(id_,None)
             if phase['kind'] == 'review' and review_name in refs:
                 for row in judgments:
                     key = version(row)
-                    if (key and assigned.get(row['id'])==key and key[1]==key[2]
-                            and (row['id'] not in source or dialogue_versions[row['id']]==key)
-                            and row.get('reviewed') is True and row.get('notLinguisticCoverage') is True
-                            and row.get('targetEdited') is False
-                            and row.get('verdict') in ('context-only-preserve','technical-preservation')
-                            and row.get('sourceDisposition') in ('preserved-detached-source','preserve-as-baseline','accepted-baseline-preservation')):
+                    disposition=reviewed_disposition(row,assigned_rows[row['id']]) if row['id'] in assigned_rows else None
+                    if (disposition and (row['id'] not in source or
+                            disposition=='preserved' and dialogue_versions[row['id']]==key)):
                         # An affirmative primary disposition is resolved work,
                         # not a translated/reviewed phrase or a context extra.
-                        preserved[row['id']]=key;current.pop(row['id'],None)
+                        ledger=preserved if disposition=='preserved' else dispositions
+                        other=dispositions if disposition=='preserved' else preserved
+                        other.pop(row['id'],None)
+                        ledger[row['id']]=key;current.pop(row['id'],None)
+                    if (key and assigned.get(row['id'])==key and row.get('reviewed') is True
+                            and row.get('verdict') in ('finding','needs-repair','source-defect','held-source','needs-context','needs-review')):
+                        preserved.pop(row['id'],None);dispositions.pop(row['id'],None)
                     if key and not nonlinguistic(row) and (primary.get(row['id']) == key or assigned.get(row['id']) == key):
                         decisions[key] = linguistic_pass(row)
                         if not decisions[key] and preserved.get(row['id'])==key:
@@ -397,11 +426,14 @@ def collect_locale(ev, policy, locale, families, preservation=None):
         drafted = {id_ for id_ in ids if id_ in current}
         reviewed = {id_ for id_ in drafted if decisions.get(current[id_]) is True}
         retained=set(preserved)&ids
+        accepted_dispositions=set(dispositions)&ids
+        resolved=drafted|retained|accepted_dispositions
+        review_resolved=reviewed|retained|accepted_dispositions
         rows.append(dict(id=family['id'], expected=len(ids), drafted=len(drafted), reviewed=len(reviewed),
-                         preserved=len(retained),resolved=len(drafted|retained),reviewResolved=len(reviewed|retained),
-                         resolvedPercent=round(100*len(drafted|retained)/len(ids),2),
-                         reviewResolvedPercent=round(100*len(reviewed|retained)/len(ids),2),
-                         wordingVersionSha256=hashed(json.dumps(sorted([current[id_] for id_ in drafted]+[preserved[id_] for id_ in retained])).encode()),
+                         preserved=len(retained),dispositionAccepted=len(accepted_dispositions),resolved=len(resolved),reviewResolved=len(review_resolved),
+                         resolvedPercent=round(100*len(resolved)/len(ids),2),
+                         reviewResolvedPercent=round(100*len(review_resolved)/len(ids),2),
+                         wordingVersionSha256=hashed(json.dumps(sorted([current[id_] for id_ in drafted]+[preserved[id_] for id_ in retained]+[dispositions[id_] for id_ in accepted_dispositions])).encode()),
                          status='measured', draftPercent=round(100 * len(drafted) / len(ids), 2),
                          reviewPercent=round(100 * len(reviewed) / len(ids), 2)))
     last = lane.get('phases', [{}])[-1]
@@ -429,6 +461,7 @@ def collect_locale(ev, policy, locale, families, preservation=None):
                 lastActivityAt=lane.get('phases', [{}])[-1].get('startedAt'),
                 blocker=blocker, families=rows,
                 _acceptedVersions={**{id_:key for id_,key in current.items() if decisions.get(key) is True},**preserved},
+                _resolvedVersions={**{id_:key for id_,key in current.items() if decisions.get(key) is True},**preserved,**dispositions},
                 _resourceRefs=resource_refs,_familyIds=families,_stageClaims=stage_claims)
 
 
@@ -539,6 +572,7 @@ def report(root=ROOT, locale=None):
         if code not in LOCALES:
             raise ValueError(f'Unsupported progress locale: {code}')
         row = collect_locale(ev, policy, code, families,preservation)
+        row.pop('_resolvedVersions',None)
         saved=resources(ev,policy,row) if owner else False
         if not owner:
             for key in ('_acceptedVersions','_resourceRefs','_familyIds'):row.pop(key,None)

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-authorized-local-completion",
+  "textFirst": true,
+  "resumes": {
+    "de": {
+      "authorization": {
+        "path": "localization/completion/german-text-closure-20261031-01/authorization.json",
+        "sha256": "377006162b81902080ed7b8e0ad8f9d750cf0a1a466dee93bedd94285b58543c"
+      },
+      "baselineAcceptance": {
+        "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+        "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+      },
+      "scope": {
+        "path": "localization/completion/german-text-closure-20261031-01/scope.json",
+        "sha256": "580d31cdd06a9f91f1ce62f760c2bf0a826af42612ce5fba2e971251c3bcab66"
+      },
+      "task": {
+        "kind": "review",
+        "taskClass": "independent-linguistic-review",
+        "workCategory": "locale-content",
+        "executionStage": "editorial",
+        "title": "Close the exact 265 German text dispositions and genuine wording gaps",
+        "brief": "localization/de-assets/completion/text-closure-20261031-01/brief.md",
+        "briefSha256": "8bd90622036a12097c38da6a190ed8b11547e858c67ae68318ffc9b4a4f2363f",
+        "reviewPacket": "localization/de-assets/completion/text-closure-20261031-01/review-packet.jsonl",
+        "reviewPacketSha256": "5725c9655e8d18f845795880ddb780ff30aa3c5bc97ff78c915bf25d01e383ac",
+        "contextPackets": [
+          "localization/de-assets/completion/text-closure-20261031-01/context.jsonl"
+        ],
+        "entryPins": [
+          {
+            "path": "localization/de-assets/completion/text-closure-20261031-01/selection.json",
+            "sha256": "e53474d1f284af8b2433708592e9c25d38e9cff56349945cd8d2ac4db88ee1a2"
+          },
+          {
+            "path": "localization/de-assets/completion/text-closure-20261031-01/review-packet.jsonl",
+            "sha256": "5725c9655e8d18f845795880ddb780ff30aa3c5bc97ff78c915bf25d01e383ac"
+          },
+          {
+            "path": "localization/de-assets/completion/text-closure-20261031-01/context.jsonl",
+            "sha256": "75c89e0050d6038cf2e77de02e65d14112bcff76cf21476cbdbca9c57746f9ff"
+          },
+          {
+            "path": "tools/locale_progress.py",
+            "sha256": "876864705d26c445266bda927ca0e2234cda1292e2d95fd0555e12adc4242885"
+          },
+          {
+            "path": "localization/completion/PROGRESS.md",
+            "sha256": "14a0d4c962cb75133056cf3ec7f8a045ebb1b220aa278152fb85657b59aa7342"
+          },
+          {
+            "path": "localization/PROCESS.md",
+            "sha256": "d660b17c2349aae0dfeafbb4323ffffa3138622c6b70c4f5ddd354a6205d961e"
+          },
+          {
+            "path": "localization/completion/progress-policy.json",
+            "sha256": "a3ae953e1c2228421a221aea854f868f39ac06fddac19b9fc31df5988932a113"
+          },
+          {
+            "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.en.json",
+            "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+          },
+          {
+            "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.de.json",
+            "sha256": "befcac9712fa687bdbd3b75875b01227ac72432d932190b962c94672c2407435"
+          }
+        ]
+      }
+    }
+  },
+  "contract": "CURRENT OWNER REPAIR AND RESTART: independently close the exact265 residual German text IDs under the accepted Russian source/display/preservation policy, repair only genuine remaining wording and review its exact delta, then final resources/package and final game tests. Preserve all old judgments/holds; do not automatically promote technical receipts. No repeated whole audit, receipt-only model phase, technical stream, additional locale, Astra, inherited history, nested agents, game/GUI in text stages, protected-source/glossary revision, installer/publication/deployment or server lifecycle action. The common current dispatch/accounting mechanisms supersede contradictory old next-task instructions. Parent alone owns Git.",
+  "receipt": "localization/completion/german-text-closure-20261031-01/receipt.json"
+}

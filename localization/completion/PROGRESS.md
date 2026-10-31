@@ -43,7 +43,10 @@ reduced. Haiku wording counts nine fragments; its27 outcomes remain separate.
 ## Wording and preservation
 
 `drafted` and `reviewed` remain linguistic counts. `preserved` is separate.
-`resolved = drafted + preserved`; `reviewResolved = reviewed + preserved`.
+`dispositionAccepted` separately counts independently accepted nonlexical case
+decisions or stored-only preparation. `resolved` is the union of drafted,
+preserved and accepted dispositions; `reviewResolved` uses reviewed instead of
+drafted. These sets are not added twice when a family has overlapping roles.
 Only these explicit disposition-aware numerators contribute wording-work points.
 A preserved original is never reported as a translated phrase or semantic pass.
 
@@ -56,6 +59,19 @@ reviewed:true, notLinguisticCoverage:true, targetEdited:false, exact equal sourc
 target hashes and an explicit preserved-detached-source, preserve-as-baseline or
 accepted-baseline-preservation disposition. Context extras and unread rows do not
 qualify. Later changed versions invalidate the old disposition.
+
+Nonlexical acceptance requires an assigned primary packet with coverageRole
+special-case-disposition or stored-only-preparation, plus an exact-version,
+reviewed:true, notLinguisticCoverage:true, targetEdited:false independent
+technical-preservation/context-only-preserve judgment. Its explicit
+sourceDisposition must be accepted-special-case-disposition or
+accepted-stored-only-preparation, matching the packet role. These decisions do
+not become translated phrases or resource-bound wording. Old technical verdicts,
+held-source, absent disposition fields and context extras receive no automatic
+promotion. A new concrete judgment is required where old evidence did not
+answer the current acceptance predicate. Regression: an accepted case plan can
+resolve its case family while adding zero linguistic/native/resource coverage;
+the same row with held-source or a stale target resolves nothing.
 
 Actual pass/clean wording receipts must match current source/target hashes.
 Follow the explicitly pinned owning editorial manifest even when its filename is

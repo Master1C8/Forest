@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 from locale_progress import (Evidence, accepted_stages, calculate_score, collect_locale, hashed,
-                             linguistic_pass, proof_refs, retained_reviews, snapshot, version, report)
+                             linguistic_pass, proof_refs, retained_reviews, reviewed_disposition, snapshot, version, report)
 from locale_progress_evidence import resources
 
 
@@ -64,6 +64,61 @@ class ProgressTests(unittest.TestCase):
                       dict(coverageRole='context-only'), dict(reviewRole='held-source')]:
             self.assertFalse(linguistic_pass(dict(verdict='pass', **extra)))
         self.assertFalse(linguistic_pass(dict(verdict='technical-preservation')))
+
+    def test_explicit_nonlexical_dispositions_need_primary_role_and_matching_version(self):
+        packet=dict(id='case',source='Original case',target='Bounded disposition',coverageRole='special-case-disposition')
+        row=dict(id='case',sourceSha256=version(packet)[1],targetSha256=version(packet)[2],
+                 verdict='technical-preservation',reviewed=True,notLinguisticCoverage=True,
+                 targetEdited=False,sourceDisposition='accepted-special-case-disposition')
+        self.assertEqual(reviewed_disposition(row,packet),'disposition')
+        self.assertFalse(linguistic_pass(row))
+        for delta in [dict(reviewed=False),dict(targetEdited=True),dict(verdict='held-source'),
+                      dict(sourceDisposition=None),dict(targetSha256=hashed(b'old version'))]:
+            self.assertIsNone(reviewed_disposition(dict(row,**delta),packet))
+        self.assertIsNone(reviewed_disposition(row,dict(packet,coverageRole='context')))
+        self.assertIsNone(reviewed_disposition(dict(row,sourceSha256=None,targetSha256=None),
+            dict(id='case',coverageRole='special-case-disposition')))
+        self.assertEqual(reviewed_disposition(dict(row,sourceDisposition='accepted-stored-only-preparation'),
+            dict(packet,coverageRole='stored-only-preparation')),'disposition')
+
+    def test_collector_resolves_dispositions_without_adding_wording_or_resource_credit(self):
+        self.test_real_collector_deduplicates_receipts_and_invalidates_changed_target()
+        base='outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0002-review'
+        wording=dict(id='case',source='Original case',target='Bounded disposition',
+                     coverageRole='special-case-disposition',notLinguisticCoverage=True)
+        packet,digest=self.write(base+'/packet.jsonl',wording)
+        self.write(base+'/task.json',dict(task=dict(kind='review',reviewPacket=str(packet),reviewPacketSha256=digest)))
+        status=self.root/'outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/status.json'
+        state=json.loads(status.read_text());phase=dict(number=2,kind='review',phase=str(packet.parent));state['phases'].append(phase)
+        row=dict(id='case',sourceSha256=version(wording)[1],targetSha256=version(wording)[2],
+                 verdict='technical-preservation',reviewed=True,notLinguisticCoverage=True,
+                 targetEdited=False,sourceDisposition='accepted-special-case-disposition')
+        for delta,count in [({},1),(dict(verdict='held-source'),0),(dict(reviewed=False),0),
+                            (dict(sourceDisposition=None),0)]:
+            reviews,digest=self.write(base+'/reviews.jsonl',dict(row,**delta))
+            result,result_sha=self.write(base+'/result.json',dict(outcome='blocked',reviews=str(reviews),evidence=[dict(path=str(reviews),sha256=digest)]))
+            phase['resultSha256']=result_sha;status.write_text(json.dumps(state))
+            measured=collect_locale(Evidence(self.root),dict(families=[dict(id='cases')]),'ja',dict(cases={'case'}))
+            family=measured['families'][0]
+            self.assertEqual((family['resolved'],family['reviewResolved'],family['dispositionAccepted']),(count,count,count))
+            self.assertEqual((family['drafted'],family['reviewed'],family['preserved']),(0,0,0))
+            self.assertNotIn('case',measured['_acceptedVersions'])
+            self.assertEqual('case' in measured['_resolvedVersions'],bool(count))
+        # New authored nonlexical versions invalidate old independent decisions
+        # before their next reviewer runs, without claiming new wording credit.
+        reviews,digest=self.write(base+'/reviews.jsonl',row)
+        result,result_sha=self.write(base+'/result.json',dict(outcome='blocked',reviews=str(reviews),evidence=[dict(path=str(reviews),sha256=digest)]))
+        phase['resultSha256']=result_sha
+        following=base.replace('0002-review','0003-work')
+        proposed,proposed_sha=self.write(following+'/packet.jsonl',dict(wording,target='Changed disposition'))
+        self.write(following+'/task.json',dict(task=dict(kind='work')))
+        result,result_sha=self.write(following+'/result.json',dict(outcome='continue',
+            progress=dict(kind='source-decisions',unitIds=['case']),
+            nextTask=dict(kind='review',reviewPacket=str(proposed),reviewPacketSha256=proposed_sha)))
+        state['phases'].append(dict(number=3,kind='work',phase=str(result.parent),resultSha256=result_sha))
+        status.write_text(json.dumps(state))
+        measured=collect_locale(Evidence(self.root),dict(families=[dict(id='cases')]),'ja',dict(cases={'case'}))
+        self.assertEqual(measured['families'][0]['dispositionAccepted'],0)
 
     def test_relative_manifest_proof_is_verified_at_owning_directory(self):
         _, sha = self.write('receipts/reviews.json', {'rows': []})
