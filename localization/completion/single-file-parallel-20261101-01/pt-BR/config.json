@@ -1,0 +1,88 @@
+{
+  "locale": "pt-BR",
+  "language": "Portuguese (Brazil)",
+  "culture": "pt-BR",
+  "cultureAuthority": "Explicit configuration for this new single-file task; target native runtime remains unverified",
+  "languageFile": "localization/languages/pt-BR.json",
+  "framework": "forest045-shared-v2",
+  "glossary": {
+    "path": "localization/completion/single-file-parallel-20261101-01/pt-BR/glossary.json",
+    "bytes": 26251,
+    "sha256": "6b1dc33180aa2df09b831bdeeeb1a240f9708f89c4259bf5c243d92ed315bc6c"
+  },
+  "sourceGlossary": {
+    "path": "localization/completion/single-file-parallel-20261101-01/shared/glossary-en.json",
+    "bytes": 34181,
+    "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+  },
+  "sources": {
+    "dialogue": {
+      "path": "localization/pt-BR-assets/dialogue.pt-BR.jsonl",
+      "bytes": 13198552,
+      "sha256": "e3263fe11962723e9c93d4d6426a452f6e9fac0214b3c6217d8feacd66c90ac3"
+    },
+    "compositionPlan": {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical/composition-six-delivery/inputs/pt-BR/plan.json",
+      "bytes": 14894361,
+      "sha256": "a1d4d986880054b5b6ff1111bb248cb8d22b1edbc8206c06ec04301174507ee2"
+    },
+    "managedOriginalRequest": {
+      "path": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/0095-technical/managed-final-pt-BR/request.json",
+      "bytes": 170778,
+      "sha256": "72b55677b023b9c0f7519198d53f688e17e1cb9a1a279277f76b61f0abc8d582"
+    },
+    "managedWording": {
+      "path": "localization/completion/single-file-parallel-20261101-01/pt-BR/managed-wording.jsonl",
+      "bytes": 149686,
+      "sha256": "86da9cbddb81f3149470df93602fbb17d6e6acd7279274b9894064bf09147ac7"
+    },
+    "savedWorkIndex": {
+      "path": "localization/completion/single-file-parallel-20261101-01/pt-BR/saved-work-index.json",
+      "bytes": 38491,
+      "sha256": "a3594d8d55e5e0e0c67945e0bc50150b75f03183a8c1f6ec75f180dc5b7c4724"
+    },
+    "savedResourceProfile": {
+      "path": "localization/resource-profiles/composed.pt-BR.json",
+      "bytes": 2270,
+      "sha256": "63825700f9fd7924e1177b90db3622c004de43a701f0ddef14b85aec0961e577"
+    },
+    "oldLaneDirectory": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030",
+    "sourcePreservation": {
+      "path": "localization/completion/single-file-parallel-20261101-01/shared/source-preservation.json",
+      "bytes": 178393,
+      "sha256": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66"
+    },
+    "actorRoster": {
+      "path": "localization/completion/single-file-parallel-20261101-01/shared/actor-roster.json",
+      "bytes": 4302,
+      "sha256": "278cd93f75fa251a038b7328c721b3c32abf2cf8ad149f7bb60bcb0df18af277"
+    },
+    "galleryContext": {
+      "path": "localization/source/gallery-chapter-display-20261028/admission-v1/consumer-context.jsonl",
+      "bytes": 432928,
+      "sha256": "20b6477d4e50dc826c9a56b027433c7a8eba2bc2755654f0b155d1e1d1df4f76"
+    }
+  },
+  "sourceGameVersion": "0.45",
+  "ownership": {
+    "writable": [
+      "localization/languages/pt-BR.json",
+      "localization/language-imports/pt-BR-20261101",
+      "localization/editorial-delivery/pt-BR-single-file-20261101-01",
+      "outputs/single-file-parallel-20261101-01/pt-BR/author-01"
+    ],
+    "buildOutputs": "dist/Forest-pt-BR-<language-hash> and locale-prefixed temporary compiler directories only",
+    "sharedCompiler": "Already built, pinned and read-only; locale temp directories are unique",
+    "forbidden": [
+      "Git/index/branches",
+      "README.md",
+      "CHECKPOINT.json",
+      "other locales",
+      "old queues/drafts",
+      "source/framework/shared helpers",
+      "SiteForMods writes",
+      "game/GUI/screenshot/installer/publication/deployment/server"
+    ]
+  },
+  "independentReview": "Required for new authored changes; prepare exact immutable handoff without launching a nested model or calling self-review independent"
+}

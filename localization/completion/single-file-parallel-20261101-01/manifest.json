@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "run": "single-file-parallel-20261101-01",
+  "objective": "Three parallel single-file locale completion tasks, preserving old stopped queues",
+  "authority": "теперь сделай 3 параллельных задачи для 3-х следующих языков",
+  "canonicalCheckout": "/Users/antonkrutov/Desktop/Forest",
+  "baseCommit": "68dce18e0863ac943cd797b0d36df9e06d2b6fda",
+  "maxConcurrentModelProcesses": 3,
+  "lanes": [
+    {
+      "locale": "es-419",
+      "language": "Spanish (Latin America)",
+      "culture": "es-419",
+      "phase": "outputs/single-file-parallel-20261101-01/es-419/author-01",
+      "assignment": "localization/completion/single-file-parallel-20261101-01/es-419/assignment.json"
+    },
+    {
+      "locale": "pt-BR",
+      "language": "Portuguese (Brazil)",
+      "culture": "pt-BR",
+      "phase": "outputs/single-file-parallel-20261101-01/pt-BR/author-01",
+      "assignment": "localization/completion/single-file-parallel-20261101-01/pt-BR/assignment.json"
+    },
+    {
+      "locale": "zh",
+      "language": "Chinese (Simplified)",
+      "culture": "zh-CN",
+      "phase": "outputs/single-file-parallel-20261101-01/zh/author-01",
+      "assignment": "localization/completion/single-file-parallel-20261101-01/zh/assignment.json"
+    }
+  ],
+  "status": "running",
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "inheritedHistory": false
+  },
+  "coordinator": {
+    "threadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usageBaseline": {
+      "input_tokens": 114379042,
+      "cached_input_tokens": 113406848,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 486783,
+      "reasoning_output_tokens": 302297,
+      "total_tokens": 114865825
+    },
+    "usageScope": "Mixed preparation/orchestration; unavailable counters remain unknown",
+    "baselineScope": "Captured after preparation, before dispatch; prior preparation and final reporting tail are unmeasured"
+  },
+  "constraints": "No nested models, Git by workers, game/GUI/installers/publication/deployment/server lifecycle. No old queue resumes. Parent owns integration and fresh independent-review handoffs.",
+  "at": "2026-10-31T19:06:52.608241+00:00",
+  "launchReceipt": "launch-receipt.json",
+  "liveStatus": "outputs/single-file-parallel-20261101-01/status.json"
+}
