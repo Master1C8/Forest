@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+project_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec "$project_dir/.venv-assets314/bin/python" -B "$project_dir/tools/forest_localize.py" "$@"

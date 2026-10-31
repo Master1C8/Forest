@@ -25,3 +25,12 @@ tools/probe/obj/
 outputs/
 localization/previews/*/game/
 localization/previews/*/noop-*
+
+# Reconstructible shared localization resources; tracked manifests pin all bytes.
+localization/framework/*/base/
+localization/framework/*/references/
+localization/framework/*/migration-work/
+tools/forest_localization/**/bin/
+tools/forest_localization/**/obj/
+dist/Forest-Universal-*/
+dist/Forest-*-????????????/

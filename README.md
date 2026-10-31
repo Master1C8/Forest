@@ -1,3 +1,12 @@
+# Single-file localization builds
+
+Use `./forest-localize build localization/languages/<locale>.json` for new Forest
+resource builds. One shared accepted-Russian framework applies the language file;
+no locale model job or per-language builder is required. See [LOCALIZATION.md](LOCALIZATION.md).
+Current Russian terminology and saved German wording are migrated to this format.
+Static build verification is separate from editorial and final game acceptance.
+Existing locale workers remain owner-stopped.
+
 # Russian manual-test handoff, October29
 
 The owner requested completion of the last increment and personal game testing.

@@ -149,3 +149,27 @@ Regression: a locale has reviewed wording and saved static resource bytes but
 its old result waits for a technical inbox receipt. Materialize/check those exact
 bytes through tools/locale_build.py and continue that locale directly. No seventh
 model stream, receipt-only model phase or missing editorial/native pass is created.
+
+## Single-file localization compiler
+
+For new Forest resource builds, use `./forest-localize build <language.json>`
+and `LOCALIZATION.md`. `localization/framework/forest045-shared` owns the
+accepted Russian mechanisms, immutable resource snapshots and exact selectors;
+`localization/languages/<locale>.json` owns target wording and optional registered
+font/layout values. Add locale data, not a new builder, technical job or model
+phase. The compiler performs deterministic controls, resource readback and
+publication directly. Unknown targets stay null and block compilation; shared
+haiku display/evaluation pairs remain coupled. An alphabet-specific authoring
+heuristic must not become a shared structural guard.
+
+Historical builders, queued jobs, frozen launchers, receipts and accepted Russian
+artifacts remain preserved. This new route does not resume owner-stopped workers
+or grant native/game, installer, publication or deployment authority. Compile
+success is separate from exact version-matching editorial and target runtime
+acceptance. Repair a concrete shared compiler defect once; do not send every
+locale through another source/framework audit or bookkeeping loop.
+
+Regression: a complete German language JSON compiles through the same resource
+engine as Russian, without a Cyrillic requirement or per-language script. Removing
+an inline command still rejects. A missing actor caption is filled from its exact
+existing authored source/target record, never silently from the Russian baseline.

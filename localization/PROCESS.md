@@ -1,5 +1,23 @@
 # Forest localization process, revision 2
 
+## Current deterministic resource entry point
+
+New language resource builds use `./forest-localize build
+localization/languages/<locale>.json`, described in `../LOCALIZATION.md`.
+The one-time accepted-Russian migration supplies the shared resource/managed
+mechanisms, complete dual-dialogue selectors, native/BG mappings and registered
+font/layout inputs. Ordinary compilation consumes the single language file and
+the shared framework; it does not consult a locale queue, historic phase or
+technical inbox. Existing `locale_build.py`/resource profiles and frozen jobs
+remain preserved compatibility and reconstruction inputs.
+
+Finish target wording and editorial work, build the exact file, then perform
+applicable authorized final runtime/visual checks. Compilation and source/target
+record migration add no semantic or runtime acceptance. Missing/ambiguous targets
+block the build. The common guard checks controls, separators, numeric bindings
+and haiku identities independently of alphabet. New locale data must not create
+another builder or receipt-only model phase. Owner-stopped queues stay stopped.
+
 Russian development supplies verified mechanisms and regression examples. Russian
 wording, font coverage, layout sizes, screenshots and acceptance are locale-specific
 evidence. The owner has confirmed that the Russian localization is complete and
