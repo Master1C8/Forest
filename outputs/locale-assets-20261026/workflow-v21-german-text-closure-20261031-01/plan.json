@@ -1,0 +1,642 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "model": {
+    "name": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "inheritedHistory": false
+  },
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "cliSha256": "a04752e4d46a4d89e53e6f61c59c5349a638c8ce172ffbf391fd482b4d902a4e",
+  "jobs": [
+    {
+      "locale": "zh",
+      "directory": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030",
+      "writePrefixes": [
+        "localization/zh-assets",
+        "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030"
+      ],
+      "immutablePins": {
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+        "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+        "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+        "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+        "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/zh.json": "5b23fd1f59ac13395b3a84e57139243fc8835b1097bed631fd6121cf0cbc14d5",
+        "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/zh/workflow-v2/reconcile-saved-evidence/result.json": "bda1138943baeea51b7a84bbc544b7af11d48c156c918b4b8e7a87d53a9779c0"
+      },
+      "requiredDeliverables": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "firstTask": {
+        "kind": "work",
+        "title": "Complete zh outstanding review/repairs and admitted localization work",
+        "brief": "outputs/locale-assets-20261026/zh/workflow-v3-completion-20261030/first.md",
+        "briefSha256": "dba416e9ddd0f48e5c35d85da12d70598610f2389a33bc6253f6f6a85adf3bc8"
+      },
+      "resumeReceipt": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/receipts/zh.json",
+      "resumeReceiptSha256": "a21f05bd4e6984abfa4ea8dfa0b1c94f497a19285408bae5ac257e002a8205b0",
+      "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/zh",
+      "ownerResume": {
+        "authorization": {
+          "path": "localization/completion/locale-owned-process-20261030-01/authorization.json",
+          "sha256": "838cc480e3c91dbe99633c0c87eecc23d746089a015ae09138bfb42d046fb977"
+        },
+        "baselineAcceptance": {
+          "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+          "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+        },
+        "scope": {
+          "path": "localization/completion/locale-owned-process-20261030-01/assignments/zh/scope.json",
+          "sha256": "21798aa8cd0370376def510df62018f8e7bdd55df0ab69176d294d4f61f254c0"
+        },
+        "task": {
+          "kind": "work",
+          "taskClass": "locale-integration",
+          "title": "Complete zh actual locale integration directly from saved resources",
+          "brief": "localization/completion/locale-owned-process-20261030-01/assignments/zh/brief.md",
+          "briefSha256": "08289a6db524b6b7f9b91fd49d6d4ff8363c9acc4af09b708065e62f52ccf1eb"
+        }
+      }
+    },
+    {
+      "locale": "es",
+      "directory": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030",
+      "writePrefixes": [
+        "localization/es-assets",
+        "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030"
+      ],
+      "immutablePins": {
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+        "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+        "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+        "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+        "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/es.json": "d6875d757ce39d0b35a5c3ee77b1d6987ed3dd49e8a4a84acca53eb2548fb767",
+        "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/es/workflow-v2/reconcile-saved-evidence/result.json": "aa9904548d165b3ddd158294f2c4ee202d1b8c87fb6e2166910b92d5685d0160"
+      },
+      "requiredDeliverables": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "firstTask": {
+        "kind": "work",
+        "title": "Complete es outstanding review/repairs and admitted localization work",
+        "brief": "outputs/locale-assets-20261026/es/workflow-v3-completion-20261030/first.md",
+        "briefSha256": "d5d94ebd007e790739fe4e71faba8e54f102bf46a8002df725e12beebb12c310"
+      },
+      "resumeReceipt": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/receipts/es.json",
+      "resumeReceiptSha256": "9ced32cae26e10bddb09ac8b0043277908fe096f14469c84b90b1a7e28c30842",
+      "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/es",
+      "ownerResume": {
+        "authorization": {
+          "path": "localization/completion/locale-owned-process-20261030-01/authorization.json",
+          "sha256": "838cc480e3c91dbe99633c0c87eecc23d746089a015ae09138bfb42d046fb977"
+        },
+        "baselineAcceptance": {
+          "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+          "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+        },
+        "scope": {
+          "path": "localization/completion/locale-owned-process-20261030-01/assignments/es/scope.json",
+          "sha256": "ddb33f679901505ec85eedbc063d7b9176974957d3b85b26cc6596a7e29b3514"
+        },
+        "task": {
+          "kind": "work",
+          "taskClass": "locale-integration",
+          "title": "Complete es actual locale integration directly from saved resources",
+          "brief": "localization/completion/locale-owned-process-20261030-01/assignments/es/brief.md",
+          "briefSha256": "609c07999b017ccaab9124b64b65e6c401f0da14ec6f7b894ab6e32d29c8fa1d"
+        }
+      }
+    },
+    {
+      "locale": "es-419",
+      "directory": "outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030",
+      "writePrefixes": [
+        "localization/es-419-assets",
+        "outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030"
+      ],
+      "immutablePins": {
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+        "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+        "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+        "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+        "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/es-419.json": "52a71d9d5c4e00ccc9f27fb471811136e6d886b0cf7438b176ec1e38748220bc",
+        "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/es-419/workflow-v2/reconcile-saved-evidence/result.json": "bacb5d3cbd293eea10e83dd995d1da54d257071ddd555c010885080635237d64"
+      },
+      "requiredDeliverables": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "firstTask": {
+        "kind": "work",
+        "title": "Complete es-419 outstanding review/repairs and admitted localization work",
+        "brief": "outputs/locale-assets-20261026/es-419/workflow-v3-completion-20261030/first.md",
+        "briefSha256": "688a303166707466d634f31a22f1227c7c76badd099ab31c6009d5047d5305be"
+      },
+      "resumeReceipt": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/receipts/es-419.json",
+      "resumeReceiptSha256": "c255040ed5644eae3a965583fda0d2237e668f0cf6125e58b88004c3fefbf0f4",
+      "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/es-419"
+    },
+    {
+      "locale": "pt-BR",
+      "directory": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030",
+      "writePrefixes": [
+        "localization/pt-BR-assets",
+        "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030"
+      ],
+      "immutablePins": {
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+        "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+        "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+        "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+        "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/pt-BR.json": "4949d13ba97566c4c8c1ece323c20fdd3fe9ddca49408c5187b9f0715bd62af4",
+        "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/pt-BR/workflow-v2/reconcile-saved-evidence/result.json": "2fe51d2156cf51614db2d7bd0ffa9963bd3de7edaf50128e81445694734a2ce8"
+      },
+      "requiredDeliverables": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "firstTask": {
+        "kind": "work",
+        "title": "Complete pt-BR outstanding review/repairs and admitted localization work",
+        "brief": "outputs/locale-assets-20261026/pt-BR/workflow-v3-completion-20261030/first.md",
+        "briefSha256": "a82885a0431a3ed1a00818d34b6ad0f3d18108de012d28e73b4df5a15b3396c0"
+      },
+      "resumeReceipt": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/receipts/pt-BR.json",
+      "resumeReceiptSha256": "a572b77063f7595d9f87bef6d9945410c62208491c803444fdee218f437f6bd1",
+      "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/pt-BR",
+      "ownerResume": {
+        "authorization": {
+          "path": "localization/completion/locale-owned-process-20261030-01/authorization.json",
+          "sha256": "838cc480e3c91dbe99633c0c87eecc23d746089a015ae09138bfb42d046fb977"
+        },
+        "baselineAcceptance": {
+          "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+          "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+        },
+        "scope": {
+          "path": "localization/completion/locale-owned-process-20261030-01/assignments/pt-BR/scope.json",
+          "sha256": "4654d6097045f0554686f8d7f989ff290174122dffbf272e452fa6209d934e4a"
+        },
+        "task": {
+          "kind": "work",
+          "taskClass": "locale-integration",
+          "title": "Complete pt-BR actual locale integration directly from saved resources",
+          "brief": "localization/completion/locale-owned-process-20261030-01/assignments/pt-BR/brief.md",
+          "briefSha256": "ceba59daf2ea5f59ed745ea5885e0baf7fc47331383c0f3efd423228be73cea2"
+        }
+      }
+    },
+    {
+      "locale": "ja",
+      "directory": "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030",
+      "writePrefixes": [
+        "localization/ja-assets",
+        "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030"
+      ],
+      "immutablePins": {
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+        "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+        "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+        "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+        "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/ja.json": "67c6e3245eb170a04929bfe6733b00f96d00eeaab31365d255a6c65decee8c2e",
+        "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/ja/workflow-v2/reconcile-saved-evidence/result.json": "ea342eecb9564ee19e8dc547e6e7f298c1aa8f7e82cfa722c64bea85a9720a6f"
+      },
+      "requiredDeliverables": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "firstTask": {
+        "kind": "review",
+        "title": "Complete ja outstanding review/repairs and admitted localization work",
+        "brief": "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/first.md",
+        "reviewPacket": "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/first-review.jsonl",
+        "reviewPacketSha256": "c13bda47cb80de4439f153c737445704211f604f6a157763f9aa65f550417aaa",
+        "briefSha256": "62facced58e26c3aaa24c262d6c2413383578e2892f2cd1fb9f4cd6dda335804"
+      },
+      "resumeReceipt": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/receipts/ja.json",
+      "resumeReceiptSha256": "ba8a5f5e1942797840e5fc2e759656abf66f9a5d7302e2624fe99ad7e22a0960",
+      "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/ja",
+      "ownerResume": {
+        "authorization": {
+          "path": "localization/completion/locale-owned-process-20261030-01/authorization.json",
+          "sha256": "838cc480e3c91dbe99633c0c87eecc23d746089a015ae09138bfb42d046fb977"
+        },
+        "baselineAcceptance": {
+          "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+          "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+        },
+        "scope": {
+          "path": "localization/completion/locale-owned-process-20261030-01/assignments/ja/scope.json",
+          "sha256": "691f86047b3e7cda8d1655d482da9cae3e9c218c9c9be2c3ec8387c3be1107cf"
+        },
+        "task": {
+          "kind": "work",
+          "taskClass": "locale-integration",
+          "title": "Complete ja actual locale integration directly from saved resources",
+          "brief": "localization/completion/locale-owned-process-20261030-01/assignments/ja/brief.md",
+          "briefSha256": "5c64588acad3451f21e84b8ccfd6d190e089f7ce6873cd481424d204e86c80db"
+        }
+      }
+    },
+    {
+      "locale": "de",
+      "directory": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030",
+      "writePrefixes": [
+        "localization/de-assets",
+        "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030",
+        "tools/locale_completion/baseline_completion_v1",
+        "tools/test_baseline_completion.py",
+        "dist/Forest-German-Candidate-20261031-01",
+        "dist/Forest-German-Candidate-20261031-01.zip",
+        "localization/probes/de-20261031-runtime-01",
+        "localization/visual-qa/de-runtime-20261031-01",
+        "tools/probe/locale_runtime_v1"
+      ],
+      "immutablePins": {
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+        "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+        "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+        "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+        "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+        "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6",
+        "/Users/antonkrutov/Desktop/Forest/localization/glossary/de.json": "8cdc2773ee99674f6cacb4f3ea4b66050a74482eab295a76e9baaf90461c6d51",
+        "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/de/workflow-v2/reconcile-saved-evidence/result.json": "6cf8229a89e1f7848b69e044ae761c047cea4fe9d73ec8d3c540145299e7de17"
+      },
+      "requiredDeliverables": [
+        "dialogue",
+        "ui935",
+        "inventory52",
+        "inventory-glitch",
+        "chapter-gallery134",
+        "remaining51",
+        "bio113",
+        "input72",
+        "counter90",
+        "console62",
+        "pause576",
+        "ornamental569",
+        "narrative150",
+        "haiku27",
+        "special-cases23",
+        "tutorial-notifications66",
+        "repair-adventures24-20261029",
+        "repair-bell-notifications72-20261029",
+        "repair-completion12-20261029",
+        "repair-dam-minigame30-20261029",
+        "repair-dates-titleflow-20261029",
+        "repair-journal-age-20261029",
+        "repair-journal-compact-20261029",
+        "repair-lantern30-20261029",
+        "repair-quest-notifications-20261029",
+        "repair-scene-unlocked114-20261029",
+        "repair-speaker-display24-20261029",
+        "repair-storm-greetings24-20261029"
+      ],
+      "firstTask": {
+        "kind": "work",
+        "title": "Complete de outstanding review/repairs and admitted localization work",
+        "brief": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/first.md",
+        "briefSha256": "85610889cd3fe4136130168552a09a1649fef131589511ddf16da52893ff06fd"
+      },
+      "resumeReceipt": "outputs/locale-assets-20261026/workflow-v21-german-text-closure-20261031-01/receipts/de.json",
+      "resumeReceiptSha256": "cb81813edab0f8755d248d8b6af1948b4ccc89ef75d8f868df3ae200e4e65a95",
+      "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/de",
+      "ownerResume": {
+        "authorization": {
+          "path": "localization/completion/german-text-closure-20261031-01/authorization.json",
+          "sha256": "377006162b81902080ed7b8e0ad8f9d750cf0a1a466dee93bedd94285b58543c"
+        },
+        "baselineAcceptance": {
+          "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+          "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+        },
+        "scope": {
+          "path": "localization/completion/german-text-closure-20261031-01/scope.json",
+          "sha256": "580d31cdd06a9f91f1ce62f760c2bf0a826af42612ce5fba2e971251c3bcab66"
+        },
+        "task": {
+          "kind": "review",
+          "taskClass": "independent-linguistic-review",
+          "workCategory": "locale-content",
+          "executionStage": "editorial",
+          "title": "Close the exact 265 German text dispositions and genuine wording gaps",
+          "brief": "localization/de-assets/completion/text-closure-20261031-01/brief.md",
+          "briefSha256": "8bd90622036a12097c38da6a190ed8b11547e858c67ae68318ffc9b4a4f2363f",
+          "reviewPacket": "localization/de-assets/completion/text-closure-20261031-01/review-packet.jsonl",
+          "reviewPacketSha256": "5725c9655e8d18f845795880ddb780ff30aa3c5bc97ff78c915bf25d01e383ac",
+          "contextPackets": [
+            "localization/de-assets/completion/text-closure-20261031-01/context.jsonl"
+          ],
+          "entryPins": [
+            {
+              "path": "localization/de-assets/completion/text-closure-20261031-01/selection.json",
+              "sha256": "e53474d1f284af8b2433708592e9c25d38e9cff56349945cd8d2ac4db88ee1a2"
+            },
+            {
+              "path": "localization/de-assets/completion/text-closure-20261031-01/review-packet.jsonl",
+              "sha256": "5725c9655e8d18f845795880ddb780ff30aa3c5bc97ff78c915bf25d01e383ac"
+            },
+            {
+              "path": "localization/de-assets/completion/text-closure-20261031-01/context.jsonl",
+              "sha256": "75c89e0050d6038cf2e77de02e65d14112bcff76cf21476cbdbca9c57746f9ff"
+            },
+            {
+              "path": "tools/locale_progress.py",
+              "sha256": "876864705d26c445266bda927ca0e2234cda1292e2d95fd0555e12adc4242885"
+            },
+            {
+              "path": "localization/completion/PROGRESS.md",
+              "sha256": "14a0d4c962cb75133056cf3ec7f8a045ebb1b220aa278152fb85657b59aa7342"
+            },
+            {
+              "path": "localization/PROCESS.md",
+              "sha256": "d660b17c2349aae0dfeafbb4323ffffa3138622c6b70c4f5ddd354a6205d961e"
+            },
+            {
+              "path": "localization/completion/progress-policy.json",
+              "sha256": "a3ae953e1c2228421a221aea854f868f39ac06fddac19b9fc31df5988932a113"
+            },
+            {
+              "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.en.json",
+              "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+            },
+            {
+              "path": "localization/de-assets/completion/glossary-resume-20261031-01/glossary.de.json",
+              "sha256": "befcac9712fa687bdbd3b75875b01227ac72432d932190b962c94672c2407435"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "authorization": "Direct owner request: repair shared German font support and resume only German",
+  "previousReconciliation": "outputs/locale-assets-20261026/workflow-v2-launch-20261029-01",
+  "executionPins": {
+    "execution/locale_efficiency.py": "4628489f6996a16d3e84a50334691061fba7e033252a7841e299c0779a474cef",
+    "execution/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "execution/locale_review_work.py": "9d4a52056afd5c24aa2b0d987a5913c4c8592c191031bc94f0c02773358e722f",
+    "execution/locale_queue.py": "16cd7741cf9acf94bb534cffe5c58978e423697d6f7e27494fbd95262999822a",
+    "execution/run_locale_completion.py": "f5c2af052183bcf04224ec3a00ddccbed4b1600c75a7bc4cd934ad9badb63fea",
+    "execution/locale_dependency_wake.py": "fa7573c2bcec02cc41727adcabe5b068026ce4e768702ad03e366ea70c36215e",
+    "execution/cli_runtime_identity.py": "f75cf5c9198cdaf7c5b92afa68bfe42a26fe3f114db03a48aaaf01e30326b14a",
+    "execution/locale_dispatch_policy.py": "e6ef97fbe9f83c03d05b9523e4790e9f3191ff8ece8eb05ba6d4a08ee8aa0672",
+    "CONTRACT.md": "d8b1291c176886c40100ce8ad2b7d413328e9d8b02b6ef167bf0092a420149c8",
+    "../../../localization/completion/locale-owned-process-20261030-01/retirement.json": "b2a694f79c289245f640a3ead86c1f684d1716255e411b121251adfbcc4766c8",
+    "../../../localization/completion/locale-owned-process-20261030-01/authorization.json": "838cc480e3c91dbe99633c0c87eecc23d746089a015ae09138bfb42d046fb977",
+    "../../../localization/completion/russian-owner-baseline-20261030-01/acceptance.json": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/zh/scope.json": "21798aa8cd0370376def510df62018f8e7bdd55df0ab69176d294d4f61f254c0",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/zh/brief.md": "08289a6db524b6b7f9b91fd49d6d4ff8363c9acc4af09b708065e62f52ccf1eb",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/es/scope.json": "ddb33f679901505ec85eedbc063d7b9176974957d3b85b26cc6596a7e29b3514",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/es/brief.md": "609c07999b017ccaab9124b64b65e6c401f0da14ec6f7b894ab6e32d29c8fa1d",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/pt-BR/scope.json": "4654d6097045f0554686f8d7f989ff290174122dffbf272e452fa6209d934e4a",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/pt-BR/brief.md": "ceba59daf2ea5f59ed745ea5885e0baf7fc47331383c0f3efd423228be73cea2",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/ja/scope.json": "691f86047b3e7cda8d1655d482da9cae3e9c218c9c9be2c3ec8387c3be1107cf",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/ja/brief.md": "5c64588acad3451f21e84b8ccfd6d190e089f7ce6873cd481424d204e86c80db",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/de/scope.json": "8a0fa71d71ebac89e060d54ca86e1205b789b840eb2cb1663a6923512868be36",
+    "../../../localization/completion/locale-owned-process-20261030-01/assignments/de/brief.md": "c372be3d1732d57e3dcdc15d8c04d581d5ea7511ec7d2c8103d4bdae6bd8c290",
+    "../../../localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+    "../../../localization/completion/locale-owned-process-20261030-01/config.json": "bdde1ebeee3318bf61c8e26a7ba427f728af1dd0637ba343da6ef60636bbc141",
+    "../../../localization/completion/resume-german-20261031-01/authorization.json": "8bd215f1c4a883a2d87bacf459a85272a65f5ed170c74c5320f569282562bca4",
+    "../../../localization/completion/resume-german-20261031-01/restart-receipt.json": "cf311e158c66d25fcad3bc6e2901ee09100285404b89fd72c4e89cbb2e31dad0",
+    "../../../localization/completion/resume-german-20261031-01/brief.md": "749206f467082469e470e52fb6fe54dbedc8553f3bfb603d7521fa9ec7da7f11",
+    "../../../localization/completion/german-font-repair-20261031-01/authorization.json": "4fa61ea8d2496f7e21eba6f9d9f9f1198eb97859535556814efcef164e516875",
+    "../../../localization/completion/german-font-repair-20261031-01/scope.json": "1d3b4436ed108fe943dca5b51652d17a89e3bc09bc2b0bca8e6c3fe72bbba2c1",
+    "../../../localization/completion/german-font-repair-20261031-01/restart-receipt.json": "7c456e8a5931746ec9ed0f80a81b0ba3f465b2d9e37f879edcf3fec929fb37d2",
+    "../../../localization/de-assets/completion/font-resource-20261031-01/brief.md": "54361eabcc7b497dcfdbb92837d8aaf458c843db0bddd1961a7797b71bb834d4",
+    "../../../localization/de-assets/completion/font-resource-20261031-01/review-packet.jsonl": "a9445069ad0702917caaec8f18dbe01ce59075e387190955227207fc02d236a0",
+    "../../../localization/resource-profiles/fonts.de.json": "b1637c2e83d77b8567e53b46a8b560335c55a15e299a3f5ba10a9f9f078e9f0c",
+    "../../../localization/completion/autonomous-local-completion-20261031-01/config.json": "493acf578a42444612ccd4fbf822dacbde50eb73f2cf978478bd002c70f1afda",
+    "../../../localization/completion/autonomous-local-completion-20261031-01/authorization.json": "627ea71ed6297a86d3d63440d5054a7e9d86ae213e6d1fada369f1f9c9415ea8",
+    "../../../localization/completion/autonomous-local-completion-20261031-01/scope.json": "35af88572372b8216ea2ec0b47a0abcc94e37ad43cd94c141457830f54b05d84",
+    "../../../localization/de-assets/completion/autonomous-local-20261031-01/brief.md": "2a9cd36275e1b294db84b0166179059026d11f652e9d35f5c11c55048a0a09fe",
+    "../../../localization/completion/pre-native-editorial-20261031-01/config.json": "91c21a23bf11ba454f4e95c6ed4b5c23276505c4686dbd4d591679cdfe8b13ff",
+    "../../../localization/completion/pre-native-editorial-20261031-01/authorization.json": "d0b38e938b18a0e9992381fd4fca1143465e8a00daf2440a0dda5fa9673ca450",
+    "../../../localization/completion/pre-native-editorial-20261031-01/scope.json": "cf3389e5d76def39d11b61c2948119be87345c640ace23511374c806925aacb7",
+    "../../../localization/de-assets/completion/pre-native-editorial-20261031-01/brief.md": "c9b9263c6d68cc590803e96f0ea28b5d6cc704dfc0c1fdbb2d4c7ba5282d3787",
+    "../../../localization/completion/resume-german-glossary-20261031-01/config.json": "85e773b6e39382e00af91e9bbe22f9a6454bb8fb72a983051baaaf309b6bd6a6",
+    "../../../localization/completion/resume-german-glossary-20261031-01/authorization.json": "e880ded65fd0a2f6366e434d49baf7d6d2779744a1cab42cdcced3bee0e6c3bc",
+    "../../../localization/completion/resume-german-glossary-20261031-01/scope.json": "325a45bf5c96f8eb5dd87cd5443f032612b9b2c4eb7350ce7b5dd41ca7c49f1d",
+    "../../../localization/de-assets/completion/glossary-resume-20261031-01/brief.md": "767470e26bcfc532a9b0b001bc441b19c398524ad12ee5472783ec1e9018ba7a",
+    "../../../localization/completion/resume-german-editorial-decisions-20261031-01/config.json": "4c30d8551544a6f64482f7a9e97b579743b3b10ee8627cfd89f4eccb3bdce3c9",
+    "../../../localization/completion/resume-german-editorial-decisions-20261031-01/authorization.json": "76c41373c3073ebfc995700ddfe67cdedb8f2fbdac962731b639bbc7f6223486",
+    "../../../localization/completion/resume-german-editorial-decisions-20261031-01/scope.json": "ae15f54fe2dafad94d34550c466d9ecaf53777609ae7db5e9ce4ae473e0051f8",
+    "../../../localization/de-assets/completion/editorial-decisions-20261031-01/brief.md": "5c645730230845316f4883ab298b4c4206dfc0dd99b1c1c1128a15dd8d570b4a",
+    "../../../localization/completion/german-game-tests-20261031-01/config.json": "5fefcf8ab551ad03dd5f2cdb78524a0c2a2bdb2387f6ecaa241c931d2e2330af",
+    "../../../localization/completion/german-game-tests-20261031-01/authorization.json": "2d4a41c6ff797e185069d3216debba3baffe5d6b958d1bec171ce1c100e79341",
+    "../../../localization/completion/german-game-tests-20261031-01/scope.json": "a8865df5177686ebbe4d1dfdc0597767dce150a44fe162605fc6029447532a33",
+    "../../../localization/de-assets/completion/game-tests-20261031-01/brief.md": "6a7072bb5a20eb2b68342eda8842cdef7a779be43da81f4beb4fa15e7ceae913",
+    "../../../localization/completion/german-text-first-20261031-01/config.json": "242634c9b44bec46ce6551cbe2e84e9bc5acbce9525963a16b72f9fdece8f718",
+    "../../../localization/completion/german-text-first-20261031-01/authorization.json": "0f520861516fd535ccad5cd1303e2893e1b77f3cda6555e526dcc87e86f1ce4c",
+    "../../../localization/completion/german-text-first-20261031-01/scope.json": "1ca7ae44a0352d5a15cc2ccd6a2f12da6a54d240c5df56c32ab8363d749cc1a7",
+    "../../../localization/de-assets/completion/text-first-20261031-01/brief.md": "c3cc23c6674be1bbeca77d9b64cbd2c1dc4caf73e155776bc9becba15ac51b41",
+    "../../../localization/completion/german-text-closure-20261031-01/config.json": "2f724d9739bd2a06f36f0dec838b4cb92b0132d91b63be3498e95fc0f52629a9",
+    "../../../localization/completion/german-text-closure-20261031-01/authorization.json": "377006162b81902080ed7b8e0ad8f9d750cf0a1a466dee93bedd94285b58543c",
+    "../../../localization/completion/german-text-closure-20261031-01/scope.json": "580d31cdd06a9f91f1ce62f760c2bf0a826af42612ce5fba2e971251c3bcab66",
+    "../../../localization/de-assets/completion/text-closure-20261031-01/brief.md": "8bd90622036a12097c38da6a190ed8b11547e858c67ae68318ffc9b4a4f2363f"
+  },
+  "recoveredFrom": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v20-german-text-first-20261031-01",
+  "restartedFrom": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v3-handoff-20261030-01",
+  "efficiencyPolicy": true,
+  "efficiencyHelper": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v21-german-text-closure-20261031-01/execution/locale_efficiency.py",
+  "technicalInbox": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v5-focused-20261030-02/technical-inbox",
+  "repairAuthorization": "Owner explicitly instructed stopped queues repaired and run; existing runtime/publication/server restrictions remain",
+  "continuationReceipt": "localization/completion/german-text-closure-20261031-01/receipt.json",
+  "enforceLinguisticOwnership": false,
+  "dispatchDirectory": "/Users/antonkrutov/Desktop/Forest/outputs/locale-assets-20261026/workflow-v10-cost-20261030-02/dispatch-holds",
+  "retiredJobs": [
+    {
+      "job": {
+        "locale": "technical",
+        "directory": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical",
+        "writePrefixes": [
+          "tools/locale_completion",
+          "localization/source/locale-completion-20261030",
+          "README.md",
+          "CHECKPOINT.json",
+          "localization/fonts/locale-completion-20261030",
+          "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical"
+        ],
+        "immutablePins": {
+          "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-candidates.jsonl": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+          "/Users/antonkrutov/Desktop/Forest/localization/source/dialogue-manifest.json": "d13a5e540bb407e052101025a1a5d7f71e57d1be56eceeb1e08d99e25f29c1de",
+          "/Users/antonkrutov/Desktop/Forest/localization/glossary/en.json": "b99ff663f69ca19307691cee8f49b8d33d33f8130a6b51695fceff9449c3b5ab",
+          "/Users/antonkrutov/Desktop/Forest/localization/completion/process-spec.json": "87253d90b2ef53f9e37ad6d23510650e6fd5ae0527ae49ac7df3820b93420ea3",
+          "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+          "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48",
+          "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6"
+        },
+        "requiredDeliverables": [
+          "portable-inventory52",
+          "finite-source-admission",
+          "six-locale-font-resource-contract"
+        ],
+        "firstTask": {
+          "kind": "technical",
+          "title": "Build portable inventory52 and finish finite shared source/font contracts",
+          "brief": "outputs/locale-assets-20261026/workflow-v3-completion-20261030-01/technical/first.md",
+          "briefSha256": "14fdfee6c2bc14cb66322a45da68b8540ddd1ea42577ef26e06b653b9f3917fc"
+        },
+        "resumeReceipt": "outputs/locale-assets-20261026/workflow-v12-locale-owned-20261030-01/receipts/technical.json",
+        "resumeReceiptSha256": "69af011a0a00550d9d6cb5fa6499f684f41533c9264b977799b90f20bea67241",
+        "restartInputDirectory": "outputs/locale-assets-20261026/workflow-v4-efficiency-20261030-01/assignments/technical"
+      },
+      "retirement": {
+        "path": "localization/completion/locale-owned-process-20261030-01/retirement.json",
+        "sha256": "b2a694f79c289245f640a3ead86c1f684d1716255e411b121251adfbcc4766c8"
+      }
+    }
+  ],
+  "localeOwned": true,
+  "executionLocales": [
+    "de"
+  ],
+  "textFirst": true
+}

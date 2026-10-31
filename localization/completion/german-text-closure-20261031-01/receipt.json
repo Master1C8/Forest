@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-31T12:33:25.368833+00:00",
+  "status": "german-text-closure-running",
+  "run": "outputs/locale-assets-20261026/workflow-v21-german-text-closure-20261031-01",
+  "phase": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0136-review",
+  "workerPid": 68861,
+  "threadId": "01a191f1-f71f-79a3-8f6e-1c05b7b370ea",
+  "actualRuntime": {
+    "session": {
+      "id": "01a191f1-f71f-79a3-8f6e-1c05b7b370ea",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "coordinatorModel": "gpt-6.1-sol",
+  "coordinatorReasoning": "high",
+  "task": {
+    "stage": "editorial",
+    "primaryIds": 265,
+    "meaning": "Residual text/disposition acceptance, not265 untranslated phrases."
+  },
+  "correction": "Explicit independently judged nonlexical dispositions resolve their own text work with zero linguistic/native/resource wording credit. No historical held/source/technical verdict was automatically promoted.",
+  "tests": {
+    "progress": 26,
+    "dispatch": 13,
+    "completion": 20,
+    "repair": 20,
+    "actualGermanBeforeLaunch": {
+      "percent": 68.74,
+      "warnings": 0,
+      "historicalDispositionsAutoPromoted": false
+    },
+    "modelRequestsInTests": false,
+    "limitations": "Synthetic judgments/processes verify accounting and dispatch boundaries, not semantic or native correctness."
+  },
+  "preservation": {
+    "otherFiveLanesUnchanged": true,
+    "originalGameAndSavesUsed": false,
+    "executionPinsVerified": 61,
+    "rootProgressMechanism": "Version-bound in current task entryPins; keep these root helpers unchanged while this run may read them. Not a copied frozen execution module.",
+    "technicalStreamCreated": false,
+    "runtimeDeferredUntilFullTextAndEditorial": true
+  },
+  "coordinatorUsage": {
+    "sincePreviousReportedCutoff": {
+      "input_tokens": 3432513,
+      "cached_input_tokens": 3361536,
+      "output_tokens": 25486,
+      "reasoning_output_tokens": 10582,
+      "total_tokens": 3457999
+    },
+    "afterDispatchBaseline": {
+      "input_tokens": 1431211,
+      "cached_input_tokens": 1423232,
+      "output_tokens": 10925,
+      "reasoning_output_tokens": 3784,
+      "total_tokens": 1442136
+    },
+    "attribution": "Mixed implementation/preparation/testing and orchestration. Post-baseline is a subset; do not add twice. Exact orchestration-only attribution unavailable.",
+    "unmeasuredTail": "Receipt write, final canonical commit verification and final report."
+  },
+  "workerUsage": {
+    "status": "running",
+    "measuredAtCutoff": {
+      "input_tokens": 693271,
+      "cached_input_tokens": 607360,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2908,
+      "reasoning_output_tokens": 440,
+      "total_tokens": 696179
+    },
+    "finalUsageAvailable": false
+  },
+  "verificationNote": "An initial receipt verifier incorrectly expected execution/locale_progress.py. This file was never part of the frozen module set. The verifier was corrected to check the actual configured root entry pin; no job, launch, frozen files or inputs were changed or retried."
+}
