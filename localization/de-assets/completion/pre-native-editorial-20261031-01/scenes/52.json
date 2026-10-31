@@ -1,0 +1,251 @@
+{
+  "id": 52,
+  "fields": [
+    [
+      "Title",
+      "vslice/squirrelGreetingQuest/introduction2 Copy"
+    ],
+    [
+      "Pictures",
+      "[]"
+    ],
+    [
+      "Actor",
+      "1"
+    ],
+    [
+      "Conversant",
+      "11"
+    ]
+  ],
+  "entries": [
+    {
+      "id": 0,
+      "fields": [
+        [
+          "Title",
+          "START"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "1"
+        ],
+        [
+          "Conversant",
+          "11"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ]
+      ],
+      "conversationID": 52,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 95,
+      "fields": [
+        [
+          "Title",
+          "IDLE"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "11"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ]
+      ],
+      "conversationID": 52,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 52,
+          "originDialogueID": 95,
+          "destinationConversationID": 52,
+          "destinationDialogueID": 129,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 127,
+      "fields": [
+        [
+          "Title",
+          "PRIMARY"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "11"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ]
+      ],
+      "conversationID": 52,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 52,
+          "originDialogueID": 127,
+          "destinationConversationID": 52,
+          "destinationDialogueID": 128,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 128,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "11"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=1]placeholder"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "TfolUniqueDataKeySuffix",
+          "p1"
+        ]
+      ],
+      "conversationID": 52,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 129,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "11"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=1]placeholder"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "TfolUniqueDataKeySuffix",
+          "i1"
+        ]
+      ],
+      "conversationID": 52,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    }
+  ]
+}

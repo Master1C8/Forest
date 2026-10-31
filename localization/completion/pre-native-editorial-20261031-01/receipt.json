@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "status": "verified-running",
+  "run": "outputs/locale-assets-20261026/workflow-v16-pre-native-editorial-20261031-01",
+  "phase": 105,
+  "workerPid": 17834,
+  "observerPid": 17821,
+  "threadId": "01a18ff7-be2e-71b2-b4d6-5ceebe982df2",
+  "actualRuntime": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "inheritedHistory": null
+  },
+  "runtimeVerification": {
+    "path": "outputs/locale-assets-20261026/de/workflow-v3-completion-20261030/0105-review/runtime-verification.json",
+    "sha256": "617cd3938475e3a228c2cf6d68aca7192f8a3f8e093ccc09986739c05b0ae3f7"
+  },
+  "onlyExecutionLocales": [
+    "de"
+  ],
+  "otherLaneStatusAndClaimsUnchanged": true,
+  "gameTestingAuthorized": false,
+  "frontier": 446,
+  "firstAssignedPrimary": 91,
+  "tests": {
+    "progress": 24,
+    "sourceContext": 3
+  },
+  "parentOrchestrationTokens": {
+    "status": "unknown-mixed",
+    "reason": "No isolated preparation/dispatch baseline; coordinator work also includes implementation and evidence diagnosis. No estimate from text length."
+  }
+}

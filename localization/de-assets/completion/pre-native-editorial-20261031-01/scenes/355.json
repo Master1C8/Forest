@@ -1,0 +1,968 @@
+{
+  "id": 355,
+  "fields": [
+    [
+      "Title",
+      "idles/act2/scarlett"
+    ],
+    [
+      "Pictures",
+      "[]"
+    ],
+    [
+      "Actor",
+      "1"
+    ],
+    [
+      "Conversant",
+      "2"
+    ],
+    [
+      "TfolConversationType",
+      "final_idle"
+    ],
+    [
+      "TfolUniqueDataKeySuffix",
+      "idles_act2_scarlett"
+    ]
+  ],
+  "entries": [
+    {
+      "id": 0,
+      "fields": [
+        [
+          "Title",
+          "START"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "1"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 19,
+      "fields": [
+        [
+          "Title",
+          "IDLE"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 19,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 575,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 20,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "***IDLE 1***"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 20,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 21,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 21,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "Scarlett:"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 21,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 22,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 22,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=7]Hey Rascal!"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 22,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 23,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 23,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=2]Never a dull moment here, eh?"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 23,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 25,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 24,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "Peter:"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 24,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 25,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 25,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "16"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=2]Though I feel like it was a bit more dull before…"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 25,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 27,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 26,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "Scarlett:"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 26,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 27,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 27,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=2]I’m just glad those runes stopped glowing!"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 28,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "***IDLE 2***"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 28,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 29,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 29,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "Peter:"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 29,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 30,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 30,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "16"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=6]How are you enjoying your stay?"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 30,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 31,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 31,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "1"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Dialogue Text",
+          "It’s been great!"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 31,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 33,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 32,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "Scarlett:"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 32,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 33,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 33,
+      "fields": [
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "1"
+        ],
+        [
+          "Dialogue Text",
+          "[pic=2]That’s great to hear! Let us know if you need anything dear~!"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 574,
+      "fields": [
+        [
+          "Title",
+          "PORTRAITSALIGNR(bunny)"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 574,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 575,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 575,
+      "fields": [
+        [
+          "Title",
+          "PASSTHRU"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ],
+        [
+          "TfolUniqueDataKeySuffix",
+          "i1"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 575,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 22,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 577,
+      "fields": [
+        [
+          "Title",
+          "PORTRAITSALIGNR(bunny)"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 577,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 578,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    },
+    {
+      "id": 578,
+      "fields": [
+        [
+          "Title",
+          "PASSTHRU"
+        ],
+        [
+          "Pictures",
+          "[]"
+        ],
+        [
+          "Actor",
+          "2"
+        ],
+        [
+          "Conversant",
+          "2"
+        ],
+        [
+          "Audio Files",
+          "[]"
+        ],
+        [
+          "Sequence",
+          "None()"
+        ],
+        [
+          "TfolUniqueDataKeySuffix",
+          "i2"
+        ]
+      ],
+      "conversationID": 355,
+      "isRoot": 0,
+      "isGroup": 0,
+      "outgoingLinks": [
+        {
+          "originConversationID": 355,
+          "originDialogueID": 578,
+          "destinationConversationID": 355,
+          "destinationDialogueID": 30,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "conditionsString": "",
+      "userScript": "",
+      "onExecute": {
+        "m_PersistentCalls": {
+          "m_Calls": []
+        }
+      },
+      "falseConditionAction": "Block",
+      "conditionPriority": 2
+    }
+  ]
+}

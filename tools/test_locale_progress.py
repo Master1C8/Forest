@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 from locale_progress import (Evidence, accepted_stages, calculate_score, collect_locale, hashed,
-                             linguistic_pass, proof_refs, snapshot, version, report)
+                             linguistic_pass, proof_refs, retained_reviews, snapshot, version, report)
 from locale_progress_evidence import resources
 
 
@@ -70,6 +70,51 @@ class ProgressTests(unittest.TestCase):
         _, manifest_sha = self.write('receipts/manifest.json', {'evidence': {'path': 'reviews.json', 'sha256': sha}})
         refs = proof_refs(Evidence(self.root), {'path': 'receipts/manifest.json', 'sha256': manifest_sha})
         self.assertEqual(refs['receipts/reviews.json'], sha)
+
+    def editorial_handoff(self):
+        dependencies = {}
+        for field, path in [('sourceGlossarySha256', 'localization/glossary/en.json'),
+                            ('localeGlossarySha256', 'localization/glossary/ja.json'),
+                            ('sourceSha256', 'localization/source/dialogue-candidates.jsonl')]:
+            _, dependencies[field] = self.write(path, {'fixture': field})
+        review, digest = self.write('localization/editorial-delivery/ja-cycle-02/peer/reviews.jsonl',
+            dict(id='one', sourceSha256=hashed(b'English'), targetSha256=hashed(b'A'),
+                 verdict='pass', rationale='Synthetic judgment tests transport only'))
+        manifest, manifest_sha = self.write('localization/editorial-delivery/ja-current.json',
+            dict(locale='ja', **dependencies, currentCorpus={'sha256': hashed(b'old whole corpus')},
+                 evidence={str(review.relative_to(self.root)): {'sha256': digest}}))
+        baseline, _ = self.write('outputs/locale-assets-20261026/ja/workflow-v2/reconcile-saved-evidence/result.json',
+            dict(editorialApplicability={'owningManifest': str(manifest.relative_to(self.root))},
+                 artifacts=[dict(path=str(manifest.relative_to(self.root)), sha256=manifest_sha)]))
+        return baseline, manifest, review
+
+    def test_named_editorial_handoff_recovers_exact_pinned_reviews(self):
+        _, _, review = self.editorial_handoff()
+        rows = list(retained_reviews(Evidence(self.root), 'ja'))
+        self.assertEqual([r['id'] for r in rows], ['one'])
+        self.assertEqual(version(rows[0]), ('one', hashed(b'English'), hashed(b'A')))
+        review.write_text('{}')
+        evidence = Evidence(self.root)
+        self.assertEqual(list(retained_reviews(evidence, 'ja')), [])
+        self.assertTrue(any('Stale evidence' in error for error in evidence.errors))
+
+    def test_named_editorial_handoff_rejects_unpinned_or_foreign_manifest(self):
+        baseline, manifest, _ = self.editorial_handoff()
+        value = json.loads(baseline.read_text()); value['artifacts'] = []
+        baseline.write_text(json.dumps(value))
+        with self.assertRaisesRegex(ValueError, 'Unpinned owning editorial manifest'):
+            list(retained_reviews(Evidence(self.root), 'ja'))
+        data = json.loads(manifest.read_text()); data['locale'] = 'de'; manifest.write_text(json.dumps(data))
+        value['artifacts'] = [dict(path=str(manifest.relative_to(self.root)), sha256=hashed(manifest.read_bytes()))]
+        baseline.write_text(json.dumps(value))
+        with self.assertRaisesRegex(ValueError, 'Foreign owning editorial manifest'):
+            list(retained_reviews(Evidence(self.root), 'ja'))
+
+    def test_named_editorial_handoff_rejects_changed_glossary(self):
+        self.editorial_handoff()
+        (self.root / 'localization/glossary/ja.json').write_text('{"changed":true}')
+        with self.assertRaisesRegex(ValueError, 'Stale evidence'):
+            list(retained_reviews(Evidence(self.root), 'ja'))
 
     def test_scope_cannot_escape_project(self):
         with self.assertRaisesRegex(ValueError, 'Outside project evidence'):

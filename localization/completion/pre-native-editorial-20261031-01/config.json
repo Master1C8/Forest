@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "kind": "owner-authorized-local-completion",
+  "resumes": {
+    "de": {
+      "authorization": {
+        "path": "localization/completion/pre-native-editorial-20261031-01/authorization.json",
+        "sha256": "d0b38e938b18a0e9992381fd4fca1143465e8a00daf2440a0dda5fa9673ca450"
+      },
+      "baselineAcceptance": {
+        "path": "localization/completion/russian-owner-baseline-20261030-01/acceptance.json",
+        "sha256": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a"
+      },
+      "scope": {
+        "path": "localization/completion/pre-native-editorial-20261031-01/scope.json",
+        "sha256": "cf3389e5d76def39d11b61c2948119be87345c640ace23511374c806925aacb7"
+      },
+      "task": {
+        "kind": "review",
+        "taskClass": "semantic-review",
+        "workCategory": "locale-content",
+        "title": "Review current German dialogue versions before final game testing",
+        "brief": "localization/de-assets/completion/pre-native-editorial-20261031-01/brief.md",
+        "briefSha256": "c9b9263c6d68cc590803e96f0ea28b5d6cc704dfc0c1fdbb2d4c7ba5282d3787",
+        "reviewPacket": "localization/de-assets/completion/pre-native-editorial-20261031-01/batch-01/review-packet.jsonl",
+        "reviewPacketSha256": "13ca8c6bc26d2cece5e81f29a13fd659ba631a9f58da0adaf5206b10f3082b32",
+        "contextPackets": [
+          "localization/de-assets/completion/pre-native-editorial-20261031-01/batch-01/source-context.jsonl",
+          "localization/de-assets/completion/pre-native-editorial-20261031-01/batch-01/prior-judgments.jsonl"
+        ],
+        "entryPins": [
+          {
+            "path": "localization/de-assets/completion/pre-native-editorial-20261031-01/batch-01/review-packet.jsonl",
+            "sha256": "13ca8c6bc26d2cece5e81f29a13fd659ba631a9f58da0adaf5206b10f3082b32"
+          },
+          {
+            "path": "localization/de-assets/completion/pre-native-editorial-20261031-01/batch-01/source-context.jsonl",
+            "sha256": "06a54fbbea438518714eb2841b1e744bbbd5c2160b529f8ff760f1b3768fb504"
+          },
+          {
+            "path": "localization/de-assets/completion/pre-native-editorial-20261031-01/batch-01/prior-judgments.jsonl",
+            "sha256": "bdfcbfca2cc1f6d0f33a2b074981d97fb3834855bf2d425ca8236698b296123a"
+          },
+          {
+            "path": "localization/de-assets/completion/pre-native-editorial-20261031-01/manifest.json",
+            "sha256": "196fec3564b30a8c2db8d0658ccd2226dda04d373d4fca4a509c448b90f80a32"
+          }
+        ],
+        "editorialFrontierManifest": "localization/de-assets/completion/pre-native-editorial-20261031-01/manifest.json"
+      }
+    }
+  },
+  "contract": "Game testing is the final verification stage. The owner has clarified ordering, not authorized game tests. German only continues its exact current editorial frontier, consolidated repairs, fresh independent deltas, glossary applicability and actual final resource/package prerequisites. Recover pinned archived reviews before assigning semantic work. The old broad exhausted-static/native-handoff statement is superseded by these concrete current gaps; its valid payload checks and frozen evidence remain intact. All existing source/native/installer/publication restrictions and parent-only Git ownership remain. No technical stream or nested models.",
+  "receipt": "localization/completion/pre-native-editorial-20261031-01/receipt.json"
+}

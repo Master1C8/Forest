@@ -58,6 +58,11 @@ accepted-baseline-preservation disposition. Context extras and unread rows do no
 qualify. Later changed versions invalidate the old disposition.
 
 Actual pass/clean wording receipts must match current source/target hashes.
+Follow the explicitly pinned owning editorial manifest even when its filename is
+`de-current.json` or another locale's equivalent rather than `manifest.json`.
+Verify its locale, source and glossary dependencies before consuming its hashed
+per-ID reviews. An old whole-corpus target hash does not invalidate an unchanged
+per-ID version; changed target versions and later real findings still reject it.
 Completed producer outcomes include continue, blocked and static-complete.
 Technical/context judgments never add linguistic coverage or erase an unchanged
 linguistic pass; genuine wording findings still invalidate it. Absolute and

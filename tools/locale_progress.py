@@ -189,6 +189,25 @@ def proof_refs(ev, value, max_depth=2):
 def retained_reviews(ev, locale):
     baseline = ev.json(f'outputs/locale-assets-20261026/{locale}/workflow-v2/reconcile-saved-evidence/result.json')
     refs = proof_refs(ev, baseline, max_depth=3)
+    # The owning editorial file is commonly named de-current.json (etc.), so
+    # generic filename-based manifest traversal does not open it. Follow this
+    # explicit, hash-bound handoff rather than silently dropping its reviews.
+    owning = baseline.get('editorialApplicability', {}).get('owningManifest')
+    if owning:
+        name = str(ev.path(owning).relative_to(ev.root))
+        if name not in refs:
+            raise ValueError(f'Unpinned owning editorial manifest: {owning}')
+        manifest = ev.json(name, refs[name])
+        if manifest.get('locale') != locale:
+            raise ValueError(f'Foreign owning editorial manifest: {owning}')
+        for field, path in [('sourceGlossarySha256', 'localization/glossary/en.json'),
+                            ('localeGlossarySha256', f'localization/glossary/{locale}.json'),
+                            ('sourceSha256', 'localization/source/dialogue-candidates.jsonl')]:
+            expected = manifest.get(field)
+            if not re.fullmatch(r'[0-9a-f]{64}', str(expected or '')):
+                raise ValueError(f'Missing editorial dependency binding: {field}')
+            ev.read(path, expected)
+        refs.update(proof_refs(ev, manifest, max_depth=3))
     for name, expected in refs.items():
         if not name.endswith('.jsonl') or not re.search(r'(review|judgment)', Path(name).name):
             continue

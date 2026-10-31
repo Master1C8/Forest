@@ -52,6 +52,19 @@ remains explicit; reconcile it before another update or worker submission.
 
 ## Finite task selection
 
+Game testing is the final verification stage. Complete all independent authorized
+non-game prerequisites first: current wording/editorial decisions and corrections,
+glossary applicability, fonts, resource composition and permitted package checks.
+Bind the actual candidate to the final text versions after any late edit. A saved
+candidate or a native-not-run flag does not prove these prerequisites complete.
+Reconcile missing evidence through its pinned owning editorial manifest before
+assigning another semantic review; calculation recovery is not new translation.
+Only then present the exact remaining game test and obtain its applicable owner
+instruction. This ordering grants no game, GUI, installer or publication authority.
+Regression: a ready static payload coexists with current unaccepted text versions;
+recover valid archived reviews and finish the actual remaining editorial work
+before proposing a game launch.
+
 First reconcile each existing locale's real corpus, custom adapter, glossary,
 editorial manifests and unresolved groups. Do not restart its completed draft.
 Every next assignment names one finite artifact, source selectors, dependencies,
