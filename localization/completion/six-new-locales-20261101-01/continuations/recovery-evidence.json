@@ -1,0 +1,166 @@
+{
+  "atUTC": "2026-11-01T07:02:52.130633+00:00",
+  "oldSupervisor": {
+    "pid": 77573,
+    "startedAtUTC": "2026-11-01T06:55:54.936856+00:00",
+    "executionSha256": "969d65efa61f34172d96ea819f8c109eb470256e8b067fe93872cf0024b8f2b5"
+  },
+  "oldFailure": "AssertionError('Unknown resumed model; preserve child, no retry')",
+  "currentSupervisor": {
+    "pid": 78068,
+    "startedAtUTC": "2026-11-01T07:00:37.552827+00:00",
+    "executionSha256": "c9e1090d007f4831ff5a2af2df32cc67274af68ad9e68f133cdffac0e183d1f0",
+    "adoptedPreviousObserver": {
+      "pid": 77573,
+      "startedAtUTC": "2026-11-01T06:55:54.936856+00:00",
+      "executionSha256": "969d65efa61f34172d96ea819f8c109eb470256e8b067fe93872cf0024b8f2b5"
+    }
+  },
+  "queueReconciliation": {
+    "path": "localization/completion/six-new-locales-20261101-01/continuations/reconciled-queued-submissions.json",
+    "sha256": "fce60000a4298ff503c0a2d7a72634f6a093e7016282ac17ca1ee0f3533ebb88"
+  },
+  "threadLifecycle": [
+    {
+      "locale": "ko",
+      "threadId": "01a195bf-103b-7481-a7ef-93de694045e4",
+      "recentLifecycle": [
+        {
+          "timestamp": "2026-11-01T06:14:51.005Z",
+          "event": "task_started",
+          "turnId": "01a195bf-16fe-7e63-8567-4a6e0d4d7f17"
+        }
+      ]
+    },
+    {
+      "locale": "fr",
+      "threadId": "01a195bf-2b52-7ba2-847d-99f6c03b4dd4",
+      "recentLifecycle": [
+        {
+          "timestamp": "2026-11-01T06:14:57.634Z",
+          "event": "task_started",
+          "turnId": "01a195bf-30b2-7830-b9e2-b066ba98683e"
+        },
+        {
+          "timestamp": "2026-11-01T06:48:31.862Z",
+          "event": "task_complete",
+          "turnId": "01a195bf-30b2-7830-b9e2-b066ba98683e"
+        },
+        {
+          "timestamp": "2026-11-01T06:48:31.871Z",
+          "event": "task_started",
+          "turnId": "01a195dd-ed78-7390-9021-ceaaedc5486f"
+        },
+        {
+          "timestamp": "2026-11-01T06:48:31.909Z",
+          "event": "turn_aborted",
+          "turnId": "01a195dd-ed78-7390-9021-ceaaedc5486f"
+        },
+        {
+          "timestamp": "2026-11-01T06:55:57.658Z",
+          "event": "task_started",
+          "turnId": "01a195e4-ba62-77c1-a952-a1fec971dcbb"
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "threadId": "01a195bf-3dfa-7de0-a71c-94e3f75deb03",
+      "recentLifecycle": [
+        {
+          "timestamp": "2026-11-01T06:15:02.114Z",
+          "event": "task_started",
+          "turnId": "01a195bf-424f-7693-a631-e9bcef67a308"
+        },
+        {
+          "timestamp": "2026-11-01T06:53:29.462Z",
+          "event": "task_complete",
+          "turnId": "01a195bf-424f-7693-a631-e9bcef67a308"
+        },
+        {
+          "timestamp": "2026-11-01T06:56:02.112Z",
+          "event": "task_started",
+          "turnId": "01a195e4-cc1d-76c2-af29-1b3c7fb969b9"
+        }
+      ]
+    },
+    {
+      "locale": "pl",
+      "threadId": "01a195bf-5373-7872-be28-6ff9d79d3d87",
+      "recentLifecycle": [
+        {
+          "timestamp": "2026-11-01T06:15:07.881Z",
+          "event": "task_started",
+          "turnId": "01a195bf-57aa-7cf2-a710-5c0287b7d704"
+        },
+        {
+          "timestamp": "2026-11-01T06:44:41.753Z",
+          "event": "task_complete",
+          "turnId": "01a195bf-57aa-7cf2-a710-5c0287b7d704"
+        },
+        {
+          "timestamp": "2026-11-01T06:44:41.760Z",
+          "event": "task_started",
+          "turnId": "01a195da-6a9a-70b2-8c8d-9fd305df83ff"
+        },
+        {
+          "timestamp": "2026-11-01T06:44:41.782Z",
+          "event": "turn_aborted",
+          "turnId": "01a195da-6a9a-70b2-8c8d-9fd305df83ff"
+        },
+        {
+          "timestamp": "2026-11-01T06:56:06.904Z",
+          "event": "task_started",
+          "turnId": "01a195e4-debd-7c13-9138-0c2138fd3d17"
+        }
+      ]
+    },
+    {
+      "locale": "zh-TW",
+      "threadId": "01a195bf-67fd-7741-97a7-3216c3f8127a",
+      "recentLifecycle": [
+        {
+          "timestamp": "2026-11-01T06:15:13.149Z",
+          "event": "task_started",
+          "turnId": "01a195bf-6cfa-7eb1-a4f6-a47bd3703dba"
+        }
+      ]
+    },
+    {
+      "locale": "it",
+      "threadId": "01a195bf-7ce7-7fb0-a062-4cebbd62ddab",
+      "recentLifecycle": [
+        {
+          "timestamp": "2026-11-01T06:15:18.331Z",
+          "event": "task_started",
+          "turnId": "01a195bf-7fd8-76a0-9fbd-c575acf4099c"
+        },
+        {
+          "timestamp": "2026-11-01T06:37:21.191Z",
+          "event": "task_complete",
+          "turnId": "01a195bf-7fd8-76a0-9fbd-c575acf4099c"
+        },
+        {
+          "timestamp": "2026-11-01T06:37:21.209Z",
+          "event": "task_started",
+          "turnId": "01a195d3-b1ab-7013-a4e9-9725ede0aee4"
+        },
+        {
+          "timestamp": "2026-11-01T06:37:21.258Z",
+          "event": "turn_aborted",
+          "turnId": "01a195d3-b1ab-7013-a4e9-9725ede0aee4"
+        },
+        {
+          "timestamp": "2026-11-01T07:00:39.733Z",
+          "event": "task_started",
+          "turnId": "01a195e9-0851-7c01-87ae-ba6af91ea610"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "positiveNegativeControls": 10,
+    "modelRequests": 0
+  },
+  "scope": "Same six worker identities; observer loss did not stop active workers or authorize replacements. Initial queued follow-ups consumed at shutdown were aborted; source/framework and old draft bytes remain preserved."
+}

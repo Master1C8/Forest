@@ -1,0 +1,176 @@
+{
+  "cutoffAtUTC": "2026-11-01T07:02:52.130633+00:00",
+  "completedInitialPhases": [
+    {
+      "locale": "fr",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T06:48:43.759982+00:00",
+      "usage": {
+        "input_tokens": 15771959,
+        "cached_input_tokens": 15511936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 80802,
+        "reasoning_output_tokens": 37836,
+        "total_tokens": 15852761
+      },
+      "resultStatus": "incomplete",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "tr",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T06:53:35.742520+00:00",
+      "usage": {
+        "input_tokens": 13519058,
+        "cached_input_tokens": 13294464,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 88899,
+        "reasoning_output_tokens": 50192,
+        "total_tokens": 13607957
+      },
+      "resultStatus": "blocked",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "pl",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T06:44:55.603558+00:00",
+      "usage": {
+        "input_tokens": 16668072,
+        "cached_input_tokens": 16365568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 68629,
+        "reasoning_output_tokens": 30857,
+        "total_tokens": 16736701
+      },
+      "resultStatus": "incomplete",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "it",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T06:37:32.557229+00:00",
+      "usage": {
+        "input_tokens": 9785088,
+        "cached_input_tokens": 9577344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 51318,
+        "reasoning_output_tokens": 24481,
+        "total_tokens": 9836406
+      },
+      "resultStatus": "incomplete",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    }
+  ],
+  "perThreadCumulativeSnapshots": [
+    {
+      "locale": "ko",
+      "threadId": "01a195bf-103b-7481-a7ef-93de694045e4",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "usage": {
+        "input_tokens": 15316534,
+        "cached_input_tokens": 14932224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 95722,
+        "reasoning_output_tokens": 56615,
+        "total_tokens": 15412256
+      },
+      "state": "running-cumulative-snapshot; not a final total"
+    },
+    {
+      "locale": "fr",
+      "threadId": "01a195bf-2b52-7ba2-847d-99f6c03b4dd4",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "usage": {
+        "input_tokens": 19611877,
+        "cached_input_tokens": 19340032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 92837,
+        "reasoning_output_tokens": 43629,
+        "total_tokens": 19704714
+      },
+      "state": "running-cumulative-snapshot; not a final total"
+    },
+    {
+      "locale": "tr",
+      "threadId": "01a195bf-3dfa-7de0-a71c-94e3f75deb03",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "usage": {
+        "input_tokens": 16155759,
+        "cached_input_tokens": 15899648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 105679,
+        "reasoning_output_tokens": 55890,
+        "total_tokens": 16261438
+      },
+      "state": "running-cumulative-snapshot; not a final total"
+    },
+    {
+      "locale": "pl",
+      "threadId": "01a195bf-5373-7872-be28-6ff9d79d3d87",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "usage": {
+        "input_tokens": 17875905,
+        "cached_input_tokens": 17486336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 73782,
+        "reasoning_output_tokens": 31484,
+        "total_tokens": 17949687
+      },
+      "state": "running-cumulative-snapshot; not a final total"
+    },
+    {
+      "locale": "zh-TW",
+      "threadId": "01a195bf-67fd-7741-97a7-3216c3f8127a",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "usage": {
+        "input_tokens": 29036945,
+        "cached_input_tokens": 28697344,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 101701,
+        "reasoning_output_tokens": 51856,
+        "total_tokens": 29138646
+      },
+      "state": "running-cumulative-snapshot; not a final total"
+    },
+    {
+      "locale": "it",
+      "threadId": "01a195bf-7ce7-7fb0-a062-4cebbd62ddab",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "usage": {
+        "input_tokens": 10834402,
+        "cached_input_tokens": 10520576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 52877,
+        "reasoning_output_tokens": 24997,
+        "total_tokens": 10887279
+      },
+      "state": "running-cumulative-snapshot; not a final total"
+    }
+  ],
+  "coordinator": {
+    "usage": {
+      "input_tokens": 21376463,
+      "cached_input_tokens": 21249792,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 83066,
+      "reasoning_output_tokens": 42592,
+      "total_tokens": 21459529
+    },
+    "scope": "Partial shared mixed orchestration, direct poetry decisions, diagnosis and continuation implementation for these six locales; no invented per-worker split",
+    "unmeasured": "Initial prerequisite work before baseline, final integration/reporting tail, aborted-request/platform overhead unknown"
+  },
+  "accounting": "One cumulative snapshot per thread includes its initial and continued requests exactly once. Do not add completed initial phases to the snapshots. Future phase receipts use nonoverlapping cumulative deltas. Cache is an input subset; reasoning an output subset. Running snapshots are not final or money."
+}
