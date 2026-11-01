@@ -1,0 +1,79 @@
+{
+  "outcome": "continue",
+  "summary": "Complete independent Chinese bell correction delta; see exact findings and retained gates",
+  "reviews": "outputs/single-file-editorial-acceptance-20261101-01/zh/independent-02/review-output/reviews.jsonl",
+  "progress": {
+    "kind": "reviewed",
+    "unitIds": [
+      "sharedassets2.assets:13926/m_text",
+      "sharedassets2.assets:14014/m_text",
+      "sharedassets2.assets:14016/m_text",
+      "sharedassets2.assets:14017/m_text",
+      "sharedassets2.assets:14020/m_text",
+      "sharedassets2.assets:14529/m_text",
+      "sharedassets2.assets:14795/m_text",
+      "sharedassets2.assets:14971/m_text",
+      "sharedassets2.assets:14973/m_text",
+      "sharedassets2.assets:14974/m_text",
+      "sharedassets2.assets:14977/m_text",
+      "sharedassets2.assets:15117/m_text",
+      "sharedassets2.assets:15268/m_text",
+      "sharedassets2.assets:15344/m_text",
+      "sharedassets2.assets:16394/m_text",
+      "sharedassets2.assets:16396/m_text",
+      "sharedassets2.assets:16397/m_text",
+      "sharedassets2.assets:16400/m_text",
+      "sharedassets2.assets:16446/m_text",
+      "sharedassets2.assets:16448/m_text",
+      "sharedassets2.assets:16449/m_text",
+      "sharedassets2.assets:16452/m_text",
+      "sharedassets2.assets:16623/m_text",
+      "sharedassets2.assets:16789/m_text",
+      "sharedassets2.assets:16982/m_text",
+      "sharedassets2.assets:17182/m_text",
+      "sharedassets2.assets:17205/m_text",
+      "sharedassets2.assets:17207/m_text",
+      "sharedassets2.assets:17208/m_text",
+      "sharedassets2.assets:17211/m_text",
+      "sharedassets2.assets:17408/m_text",
+      "sharedassets2.assets:17809/m_text",
+      "sharedassets2.assets:17811/m_text",
+      "sharedassets2.assets:17812/m_text",
+      "sharedassets2.assets:17815/m_text",
+      "sharedassets2.assets:18235/m_text"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "outputs/single-file-editorial-acceptance-20261101-01/zh/independent-02/review-output/reviews.jsonl",
+      "sha256": "7c2a6ea0d9d91c20df5425c26e3075dd6ad5ed9f7ad1b2af4c21d2202958a937"
+    },
+    {
+      "path": "outputs/single-file-editorial-acceptance-20261101-01/zh/independent-02/review-output/pending.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/single-file-editorial-acceptance-20261101-01/zh/independent-02/review-output/pending-ledger.json",
+      "sha256": "f6255e3f72642ae34bee0fb6d2cf8fac2935899b6bfd6ec63fab8631aa7f4e4c"
+    }
+  ],
+  "nextTask": {
+    "kind": "work",
+    "taskClass": "locale-content",
+    "executionStage": "editorial",
+    "title": "Reconcile clean current three-locale editorial evidence",
+    "brief": "outputs/single-file-editorial-acceptance-20261101-01/zh/independent-02/coordinator-next.md",
+    "briefSha256": "7dd3e82dcedbaa5ea4c90d5e064ee2ea6aaad44fedb29b7a27db3357e49c774f"
+  },
+  "verifiedReviewCoverage": {
+    "assigned": 36,
+    "judged": 36,
+    "unreadIds": [],
+    "pendingIds": [],
+    "missingReviewIds": [],
+    "declaredContextJudgments": 0,
+    "contextOnlyPreservations": 0,
+    "nonPassRows": 0,
+    "acceptance": "Coverage classification only; original non-pass verdicts are retained, never promoted"
+  }
+}

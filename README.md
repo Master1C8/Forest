@@ -1,13 +1,15 @@
-# Current single-file editorial work
+# Current single-file editorial acceptance
 
-Latin American Spanish, Brazilian Portuguese and Simplified Chinese now have
-complete 14,606-entry files for the common v2 compiler. Portuguese primary
-proofreading is complete with five repairs and a verified 16-resource build.
-Its independent CLI review is running. The independent es-419 closure has no
-target findings; zh has 18 unresolved cloned bell-heading findings. See the
-[current review run](localization/completion/single-file-review-20261101-01/README.md).
-These are static/editorial results; native game/font/layout and release gates
-remain separate. Historical stopped queues and owner-installed saves are preserved.
+Latin American Spanish, Brazilian Portuguese and Simplified Chinese have complete
+14,606-entry files for the common v2 compiler. Each has 12,825 current linguistic
+primary units, 1,781 exact preserved source states, zero unread IDs or unresolved
+editorial findings, a clean independent correction closure and 16 verified resources.
+The 18 Chinese colored-bell headings are repaired; the exact 36-ID independent
+delta and all 96 bell context rows pass. See the
+[three-locale acceptance](localization/completion/single-file-editorial-acceptance-20261101-01/README.md).
+This accepts current pinned-glossary game text and static resources. Native
+fonts/layout/gameplay, deferred human glossary review and release remain separate.
+Historical stopped queues, installed games and owner saves are preserved.
 
 # Single-file localization builds
 

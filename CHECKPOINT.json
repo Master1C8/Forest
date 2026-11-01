@@ -1,98 +1,94 @@
 {
   "parallelSingleFileEditorialReview": {
-    "run": "single-file-review-20261101-01",
-    "updatedAtUTC": "2026-11-01T03:38:06.451014+00:00",
-    "status": "Portuguese-primary-complete;all-three-independent-reviews-dispatched",
+    "run": "single-file-editorial-acceptance-20261101-01",
+    "status": "game-text-editorial-and-static-accepted-under-pinned-glossary",
+    "updatedAtUTC": "2026-11-01T04:15:40.629125+00:00",
+    "acceptance": {
+      "path": "localization/completion/single-file-editorial-acceptance-20261101-01/acceptance.json",
+      "sha256": "cf9d0f2881fa194145d46c4a84bbf40f640c48449273ae9e3c1afdc710617e3a"
+    },
     "locales": {
       "es-419": {
         "language": {
           "path": "localization/languages/es-419.json",
-          "sha256": "0e39c375aae50b714164cc05f7e962f7e6e2f8d24813140353806b335cfca26e"
+          "sha256": "0e39c375aae50b714164cc05f7e962f7e6e2f8d24813140353806b335cfca26e",
+          "bytes": 2663532
         },
         "primaryLinguisticUnits": 12825,
         "sourcePreservedUnits": 1781,
-        "primaryUnread": 0,
-        "independent": {
-          "phase": "outputs/single-file-review-20261101-01/es-419/independent-01",
-          "threadId": "01a1951b-e91e-7a31-81fd-54a5c9d4d0c6",
-          "model": "gpt-6.1-sol",
-          "reasoning": "high",
-          "provider": "openai",
-          "inheritedHistory": false,
-          "status": "clean-assigned-closure",
-          "assigned": 1247,
-          "findings": 0,
-          "unread": 0,
-          "scope": "Exact assigned closure; no fabricated whole-game/native/release acceptance",
-          "usage": {
-            "input_tokens": 8756820,
-            "cached_input_tokens": 8468608,
-            "cache_write_input_tokens": 0,
-            "output_tokens": 37176,
-            "reasoning_output_tokens": 6036,
-            "total_tokens": 8793996
-          }
-        }
+        "totalUnits": 14606,
+        "independentCurrentClosureUnits": 1247,
+        "unreadPrimary": 0,
+        "unreadIndependent": 0,
+        "unreadRequiredContext": 0,
+        "unresolvedObjectiveFindings": 0,
+        "artifact": {
+          "path": "dist/Forest-es-419-0e39c375aae5/manifest.json",
+          "sha256": "59c30d9f1f66a1180ee24fcb60818f4573367ac77578da6bf1312de8b23ab320",
+          "bytes": 112007
+        },
+        "verifiedResourceCount": 16
       },
       "pt-BR": {
         "language": {
           "path": "localization/languages/pt-BR.json",
-          "sha256": "996baeefc8a24ef496599ab173cac41cd5b26ea869ad1f01d545a60356500606"
+          "sha256": "996baeefc8a24ef496599ab173cac41cd5b26ea869ad1f01d545a60356500606",
+          "bytes": 2591334
         },
         "primaryLinguisticUnits": 12825,
         "sourcePreservedUnits": 1781,
-        "primaryUnread": 0,
-        "independent": {
-          "phase": "outputs/single-file-review-20261101-01/pt-BR/independent-01",
-          "threadId": "01a1952e-67fa-7e63-8c31-74ddcd27e097",
-          "model": "gpt-6.1-sol",
-          "reasoning": "high",
-          "provider": "openai",
-          "inheritedHistory": false,
-          "status": "running",
-          "requiredJudgments": 140,
-          "requiredContextUnits": 1056,
-          "pid": 2969
-        }
+        "totalUnits": 14606,
+        "independentCurrentClosureUnits": 140,
+        "unreadPrimary": 0,
+        "unreadIndependent": 0,
+        "unreadRequiredContext": 0,
+        "unresolvedObjectiveFindings": 0,
+        "artifact": {
+          "path": "dist/Forest-pt-BR-996baeefc8a2/manifest.json",
+          "sha256": "d20db2e2f8f445a3087c73a756991242bad3078aea01c939d10da8e83abd8e40",
+          "bytes": 112005
+        },
+        "verifiedResourceCount": 16
       },
       "zh": {
         "language": {
           "path": "localization/languages/zh.json",
-          "sha256": "c68dee191f1556f65ea9cb614fd87487e4a6911f01c77116ce4d24db5ee5cc34"
+          "sha256": "ec9f055c7d079e7335293781fda9d5fe597c564073cec21bda82601c9fe7f90c",
+          "bytes": 24937307
         },
         "primaryLinguisticUnits": 12825,
         "sourcePreservedUnits": 1781,
-        "primaryUnread": 0,
-        "independent": {
-          "phase": "outputs/single-file-review-20261101-01/zh/independent-01",
-          "threadId": "01a1951b-f5a8-7112-ba02-eaf978a690ce",
-          "model": "gpt-6.1-sol",
-          "reasoning": "high",
-          "provider": "openai",
-          "inheritedHistory": false,
-          "status": "findings-open",
-          "assigned": 1712,
-          "findings": 18,
-          "unread": 0,
-          "scope": "Exact assigned closure; no fabricated whole-game/native/release acceptance",
-          "usage": {
-            "input_tokens": 16146330,
-            "cached_input_tokens": 15805184,
-            "cache_write_input_tokens": 0,
-            "output_tokens": 33425,
-            "reasoning_output_tokens": 6272,
-            "total_tokens": 16179755
-          }
-        }
+        "totalUnits": 14606,
+        "independentCurrentClosureUnits": 1730,
+        "unreadPrimary": 0,
+        "unreadIndependent": 0,
+        "unreadRequiredContext": 0,
+        "unresolvedObjectiveFindings": 0,
+        "artifact": {
+          "path": "dist/Forest-zh-ec9f055c7d07/manifest.json",
+          "sha256": "bee2f74fb657bab5f04d32c8fbb0fc658039855dae573eb5229ceecbc199fc49",
+          "bytes": 112138
+        },
+        "verifiedResourceCount": 16
       }
     },
-    "plan": "localization/completion/single-file-review-20261101-01/README.md",
-    "preservedQueues": "All historical owner-stopped queues/drafts remain unchanged",
-    "nativeGameRuntime": "not-run",
-    "installerPublicationDeployment": "not-run",
-    "releaseAccepted": false,
-    "glossaryHumanNSFW": "owner-deferred;unchanged",
-    "usage": "localization/completion/single-file-review-20261101-01/usage-report.json"
+    "zhCorrectionDelta": {
+      "corrected": 18,
+      "addedBlueControls": 18,
+      "independentDelta": 36,
+      "requiredContext": 96,
+      "findings": 0
+    },
+    "separateUnacceptedGates": {
+      "humanNSFWGlossary": "owner-deferred",
+      "fontsNativeLayout": "not-accepted",
+      "gameRuntime": "not-run",
+      "installerRelease": "not-accepted",
+      "publicationDeployment": "not-run"
+    },
+    "historicalQueues": "preserved; not resumed",
+    "report": "localization/completion/single-file-editorial-acceptance-20261101-01/README.md",
+    "usage": "localization/completion/single-file-editorial-acceptance-20261101-01/usage-report.json"
   },
   "spanishSingleFileLocalization": {
     "status": "editorial-complete;static-build-verified;native-not-run",

@@ -1,0 +1,65 @@
+{
+  "goalScope": "Current three-locale editorial/static acceptance",
+  "newGoalReviewer": {
+    "category": "New goal: exact Chinese correction delta",
+    "threadId": "01a19548-7946-7640-95cb-a430292bb9a4",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usage": {
+      "input_tokens": 2584974,
+      "cached_input_tokens": 2445056,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 15318,
+      "reasoning_output_tokens": 3126,
+      "total_tokens": 2600292
+    },
+    "measurement": "Actual terminal fresh-session cumulative counters including its failed attempts/report tail; no inherited counters",
+    "scope": "This CLI session only; no nested model reported or authorized; platform overhead unavailable"
+  },
+  "priorTaskReviewer": {
+    "category": "Prior task: Portuguese independent review completed before this goal; reported separately, excluded from current goal subtotal",
+    "threadId": "01a1952e-67fa-7e63-8c31-74ddcd27e097",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usage": {
+      "input_tokens": 10585379,
+      "cached_input_tokens": 10302464,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 29740,
+      "reasoning_output_tokens": 7026,
+      "total_tokens": 10615119
+    },
+    "measurement": "Actual terminal fresh-session cumulative counters including its failed attempts/report tail; no inherited counters",
+    "scope": "This CLI session only; no nested model reported or authorized; platform overhead unavailable"
+  },
+  "coordinator": {
+    "threadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usage": {
+      "input_tokens": 8559536,
+      "cached_input_tokens": 8518784,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 47140,
+      "reasoning_output_tokens": 26632,
+      "total_tokens": 8606676
+    },
+    "scope": "Measured mixed current-goal coordination, direct authoring, validation and integration after baseline; pure orchestration cannot be separated",
+    "measurementCutoffUTC": "2026-11-01T04:16:45.823379+00:00",
+    "unmeasured": "Initial goal/prerequisite preparation before baseline; subsequent stage/commit/verification, goal closure and final reporting after cutoff; platform overhead unavailable"
+  },
+  "subsets": "Cached input is a subset of input; reasoning output is a subset of output. Total=input+output; no subset is added twice.",
+  "money": "Not requested; no monetary charge inferred",
+  "currentGoalMeasuredSubtotal": {
+    "input_tokens": 11144510,
+    "cached_input_tokens": 10963840,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 62458,
+    "reasoning_output_tokens": 29758,
+    "total_tokens": 11206968
+  },
+  "currentGoalMeasuredSubtotalScope": "Partial mixed coordinator measurement plus one fresh terminal reviewer, each counted once; excludes prior-task workers and unknown/unmeasured tails"
+}
