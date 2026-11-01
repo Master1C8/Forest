@@ -1,0 +1,135 @@
+{
+  "outcome": "continue",
+  "finiteAssignmentComplete": true,
+  "summary": "Clean exact Thai independent repair delta:8 actual passes,118 context-only rows read,0 findings/unread;12817 matching prior passes retained. Static independent primary coverage12825/12825; native/release not accepted.",
+  "reviews": "outputs/five-new-locales-20261101-01/th/independent-delta-01/review-output/reviews.jsonl",
+  "progress": {
+    "kind": "reviewed",
+    "unitIds": [
+      "ds:169:194:Dialogue Text",
+      "ds:169:195:Dialogue Text",
+      "ds:297:139:Dialogue Text",
+      "ds:439:836:Dialogue Text",
+      "ds:451:771:Dialogue Text",
+      "ds:457:843:Dialogue Text",
+      "ds:457:845:Dialogue Text",
+      "ds:463:736:Dialogue Text"
+    ]
+  },
+  "language": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/language-after.json",
+    "sha256": "09f2a6449076534201d4f66a3e8e1881f8fbaaaf24c0d2c79fe986d615fafc07"
+  },
+  "independentReviewCoverage": {
+    "primaryJudged": 8,
+    "primaryPass": 8,
+    "pendingPrimary": 0,
+    "pendingRequiredContext": 0,
+    "contextOnlyRead": 118,
+    "retainedExactPass": 12817,
+    "combinedExactPass": 12825,
+    "findings": 0,
+    "acceptance": "clean-exact-version-independent-delta",
+    "nativeAndReleaseAcceptance": false
+  },
+  "evidence": [
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/model-judgments.json",
+      "sha256": "2c28e64b2138b64081ea3ca02df4a02994b7c29af630b39b7a8c97001e8e1ded"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/entry-pin-verification.json",
+      "sha256": "b1b3f0925008dec5fb150966b42ea897e32ae14db9b23319b447c32bc2fdd4b8"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/runtime-and-pins-verified.json",
+      "sha256": "cb4ba70fc271af16cc295598784cf2b39598ee5622fae8105c7a3c7c6ef1dd03"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/final-validation.json",
+      "sha256": "d6b8e6bb71e4dcd3dc41cd1c0b1786bb17cd7869102652e2d817366e13fd284b"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/version-validation.json",
+      "sha256": "cd57ab332623b3d18bcafc6d49e3ff67ef44542499daa9d745fcc5e6a591b97b"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/context-coverage.json",
+      "sha256": "2e98abafafaf2c91d3bfe6a02e630172d7bf35f3ccc4a34805ca3a6a353b98dc"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/context-read-bindings.jsonl",
+      "sha256": "08c1c608ee2b31fd9617fd867543895275240a3f7a430cf6b3d5de1bbb9a5e0f"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/haiku-assessment.json",
+      "sha256": "34299a9fb6be966b83e4974275beeb32193054e2a72da9eec8764abc8cd28edb"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/checkpoint.json",
+      "sha256": "b7c66a35ef666804cab666855a126941429c31a8e24bab027dff6b6b3c33d7c5"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/consolidated-findings.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/usage-at-handoff.json",
+      "sha256": "78b8b52968a9fbdc76e78d4210779082a47f2a352f466a5a8a8026a9b2970cb3"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/next-task.json",
+      "sha256": "5fe6fb20aa2d9ac4a3dd2cfb61d2225abec261664217e0ad5b7cf17ef41e7c58"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/next-parent-handoff.md",
+      "sha256": "62894d7078f7d38d5963abdc752d58c9eb73318387b25d5c76ed70209e5f1f7a"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/verify_and_publish.py",
+      "sha256": "bc136bc7b32d93ee3cae828aba0f6449d9088b013bb68a66a4f163584d200623"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/review-output/reviews.jsonl",
+      "sha256": "a10510c0c4c60cfd83f129bb4b060595faea765fad4d3ef29f25389dbaf4e419"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/review-output/pending.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/review-output/pending-ledger.json",
+      "sha256": "b173626f85fcb225b010c71ba8933da87e02577cdc8bb0a4666432b6837f4722"
+    }
+  ],
+  "nextTask": {
+    "kind": "work",
+    "taskClass": "parent-consolidation",
+    "executionStage": "parent-consolidation",
+    "title": "Bind the clean Thai independent delta and reconcile canonical editorial evidence",
+    "brief": "outputs/five-new-locales-20261101-01/th/independent-delta-01/next-parent-handoff.md",
+    "briefSha256": "62894d7078f7d38d5963abdc752d58c9eb73318387b25d5c76ed70209e5f1f7a",
+    "parentOnly": true,
+    "requiresParentScheduling": true,
+    "automaticWorkerLaunchAuthorized": false,
+    "entryPins": [
+      {
+        "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/review-output/reviews.jsonl",
+        "sha256": "a10510c0c4c60cfd83f129bb4b060595faea765fad4d3ef29f25389dbaf4e419"
+      },
+      {
+        "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/version-validation.json",
+        "sha256": "cd57ab332623b3d18bcafc6d49e3ff67ef44542499daa9d745fcc5e6a591b97b"
+      },
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/language-after.json",
+        "sha256": "09f2a6449076534201d4f66a3e8e1881f8fbaaaf24c0d2c79fe986d615fafc07"
+      }
+    ]
+  },
+  "usageEvidence": {
+    "path": "outputs/five-new-locales-20261101-01/th/independent-delta-01/usage-at-handoff.json",
+    "sha256": "78b8b52968a9fbdc76e78d4210779082a47f2a352f466a5a8a8026a9b2970cb3"
+  },
+  "writesRestrictedTo": "outputs/five-new-locales-20261101-01/th/independent-delta-01"
+}

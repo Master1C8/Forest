@@ -1,0 +1,102 @@
+{
+  "status": "complete-clean-independent-delta",
+  "locale": "ar",
+  "executionStage": "editorial",
+  "language": {
+    "path": "localization/languages/ar.json",
+    "sha256": "480bffbd96075c4fc8e551b8e76d7ec1bc1b6d1ad773d168b98d7c5f319cc128"
+  },
+  "reviewer": {
+    "threadId": "01a19906-7d21-73d3-a528-35322dee2f90",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "parentThreadId": null,
+    "inheritedHistory": false,
+    "independentOfAuthor": true
+  },
+  "primaryRead": 30,
+  "primaryUnread": 0,
+  "requiredContextRead": 232,
+  "requiredContextUnread": 0,
+  "glossaryRead": 171,
+  "haikuPairsRead": 9,
+  "compositionsRead": 27,
+  "namedOutcomes": 3,
+  "mixedOutcomes": 24,
+  "correctedPlayerPoem": "passed-5-7-5-and-meaning",
+  "objectiveFindings": 0,
+  "cleanExactVersionIndependentAcceptance": true,
+  "retainedMatchingIndependentPasses": 12795,
+  "combinedExactVersionMatchingSemanticCoverage": 12825,
+  "acceptanceScope": "Finite30-primary editorial delta plus specified literary regressions;12795 prior independent passes retained by verified fingerprints. No native, full-release or runtime acceptance.",
+  "artifacts": {
+    "judgments-final.jsonl": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/judgments-final.jsonl",
+      "sha256": "f3ac6e5b846cb577f5439fd527e6be20908689d386af09e6e46ee58faa7d6bb0"
+    },
+    "context-reading-final.jsonl": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/context-reading-final.jsonl",
+      "sha256": "89cf8942bb3adbb10687afa138408c388b1768043216898fd8b0e8b3107fb237"
+    },
+    "findings-final.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/findings-final.json",
+      "sha256": "5ce820a03a1590b421d801d215810a13288b760950af07516d89116edac76a17"
+    },
+    "adjudication-reassessment.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/adjudication-reassessment.json",
+      "sha256": "d377e391d7e9cfdb21bc503d14dd2de99921ad3db7ad7c2d0391b58c7ad6a4dd"
+    },
+    "case-judgments-final.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/case-judgments-final.json",
+      "sha256": "9059c637ace8e109c153f784fd7b336dbecc3b7abfa7e70c0a3ca2913d4cd7a4"
+    },
+    "haiku-independent-judgments.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/haiku-independent-judgments.json",
+      "sha256": "d8efdfbd969d1cacfedab0d05db76e5c2b5320ef6974280b239be864af2044f4"
+    },
+    "literary-assessment-final.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/literary-assessment-final.json",
+      "sha256": "ad1ed8f42c96e24c5a3e23061065258cd627197babc6f59bc510c9c3696bce1e"
+    },
+    "retention-verification.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/retention-verification.json",
+      "sha256": "d3bc8fa9b29f877410f3ca1d552784c10c77161944cd9fb0593f08e7808dcc53"
+    },
+    "validation-final.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/validation-final.json",
+      "sha256": "100e6e8c0570403b302dd04d0ac580ef1d9ea827fa9c7b99033124814acb7a87"
+    },
+    "reading-evidence-manifest.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/reading-evidence-manifest.json",
+      "sha256": "e9a29388dd0cb4b98bd846c08a374446eb0056c6c11b7e6aa6b9835f37ec959c"
+    },
+    "unread-ids.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/unread-ids.json",
+      "sha256": "ca0f3d29abaae4183e0daec44d9f820d2e8a7f4687e0547ea5c9c1676aba7849"
+    },
+    "repair-handoff-final.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/repair-handoff-final.json",
+      "sha256": "9ee22d2498a67974d210126e9b2811414a6c966265f8241bc10a7a209780e376"
+    },
+    "usage-final.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/usage-final.json",
+      "sha256": "2d96cb177a9011456bf80a0fbd2dff2c3fe78a911f4cb3e743141d564feaa5dc"
+    },
+    "checkpoint.json": {
+      "path": "outputs/five-new-locales-20261101-01/ar/independent-delta-01/checkpoint.json",
+      "sha256": "8cb2089efa7ae7eb9729d41077731237b6b85458f3e3ed39fb039568228d9584"
+    }
+  },
+  "notRun": [
+    "game",
+    "GUI",
+    "screenshot",
+    "resource-build",
+    "installer",
+    "publication",
+    "deployment",
+    "server action"
+  ],
+  "nextAction": "Parent consumes exact static editorial evidence and selects the next permitted stage. No nested model, old queue or Git action performed."
+}
