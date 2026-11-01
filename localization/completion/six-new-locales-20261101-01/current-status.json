@@ -1,6 +1,6 @@
 {
-  "status": "two-author-streams-and-four-independent-reviews",
-  "checkedAtUTC": "2026-11-01T10:28:21.204433+00:00",
+  "status": "six-independent-reviews",
+  "checkedAtUTC": "2026-11-01T10:51:59.769961+00:00",
   "lanes": [
     {
       "locale": "ko",
@@ -11,9 +11,10 @@
       "phase": "outputs/six-new-locales-20261101-01/ko/independent-01",
       "pid": 90554,
       "live": true,
-      "independentReviewed": 3198,
-      "independentPercent": 24.94,
-      "independentFindings": 3
+      "independentReviewed": 5513,
+      "independentPercent": 42.99,
+      "independentFindings": 5,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
     },
     {
       "locale": "fr",
@@ -24,9 +25,10 @@
       "phase": "outputs/six-new-locales-20261101-01/fr/independent-01",
       "pid": 49565,
       "live": true,
-      "independentReviewed": 7650,
-      "independentPercent": 59.65,
-      "independentFindings": 10
+      "independentReviewed": 11123,
+      "independentPercent": 86.73,
+      "independentFindings": 11,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
     },
     {
       "locale": "tr",
@@ -37,29 +39,38 @@
       "phase": "outputs/six-new-locales-20261101-01/tr/independent-01",
       "pid": 46647,
       "live": true,
-      "independentReviewed": 9117,
-      "independentPercent": 71.09,
-      "independentFindings": 11
+      "independentReviewed": 11744,
+      "independentPercent": 91.57,
+      "independentFindings": 14,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
     },
     {
       "locale": "pl",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "author-primary-editing",
-      "phase": "outputs/six-new-locales-20261101-01/pl/author-02",
-      "pid": 77795,
-      "live": true
+      "kind": "independent-review",
+      "phase": "outputs/six-new-locales-20261101-01/pl/independent-01",
+      "pid": 24926,
+      "live": true,
+      "independentReviewed": 0,
+      "independentPercent": 0.0,
+      "independentFindings": 0,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
     },
     {
       "locale": "zh-TW",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "author-primary-editing",
-      "phase": "outputs/six-new-locales-20261101-01/zh-TW/author-01",
-      "pid": 73912,
-      "live": true
+      "kind": "independent-review",
+      "phase": "outputs/six-new-locales-20261101-01/zh-TW/independent-01",
+      "pid": 24927,
+      "live": true,
+      "independentReviewed": 0,
+      "independentPercent": 0.0,
+      "independentFindings": 0,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
     },
     {
       "locale": "it",
@@ -70,9 +81,10 @@
       "phase": "outputs/six-new-locales-20261101-01/it/independent-01",
       "pid": 5756,
       "live": true,
-      "independentReviewed": 0,
-      "independentPercent": 0.0,
-      "independentFindings": 0
+      "independentReviewed": 3948,
+      "independentPercent": 30.78,
+      "independentFindings": 1,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
     }
   ],
   "model": "gpt-6.1-sol",
@@ -140,6 +152,34 @@
       "statusPath": "outputs/six-new-locales-20261101-01/it-independent-01/status.json",
       "threadId": "01a196a7-080a-7ca3-b9fe-41549793eda4",
       "pid": 5756,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "assigned": 12825,
+      "protectedContext": 1781,
+      "status": "running"
+    },
+    {
+      "locale": "pl",
+      "phase": "outputs/six-new-locales-20261101-01/pl/independent-01",
+      "statusPath": "outputs/six-new-locales-20261101-01/pl-independent-01/status.json",
+      "threadId": "01a196bc-6a54-7dc2-b578-729889a220c9",
+      "pid": 24926,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "assigned": 12825,
+      "protectedContext": 1781,
+      "status": "running"
+    },
+    {
+      "locale": "zh-TW",
+      "phase": "outputs/six-new-locales-20261101-01/zh-TW/independent-01",
+      "statusPath": "outputs/six-new-locales-20261101-01/zh-TW-independent-01/status.json",
+      "threadId": "01a196bc-6aac-7250-a598-33ac82be8536",
+      "pid": 24927,
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
