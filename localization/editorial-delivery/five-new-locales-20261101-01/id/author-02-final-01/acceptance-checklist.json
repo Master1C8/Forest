@@ -1,0 +1,104 @@
+[
+  {
+    "artifact": "language.json and complete packet",
+    "predicate": "14606 exact source IDs,12825 ordinary targets,1781 preserved source values; no nulls",
+    "evidence": [
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/language.json",
+        "sha256": "b808ab0f1ef5000336d9b370edacc1ffa0e4be5690aa496f009760af8642e477"
+      },
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/source-preservation-comparisons.jsonl",
+        "sha256": "d11f045e7683861957f4e548ea17535bb81baf4b9f574dc210d5ac3ae3bf8219"
+      },
+      {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/final-full-preflight.json",
+        "sha256": "da9417a0a552cb1d78c9ee44e8b8229f67223c2e4f2fee64d2f2bc9e2eb437e5"
+      }
+    ],
+    "current": "passed-deterministic",
+    "uncertainty": "Deterministic coverage does not establish meaning or runtime.",
+    "nextPermittedAction": "Use exact independent-review packet."
+  },
+  {
+    "artifact": "complete author primary audit and delta",
+    "predicate": "12825 actually read;113 findings resolved in one132-unit batch and exact self-reading",
+    "evidence": [
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/primary-audit-evidence.json",
+        "sha256": "730f2edb5c78d1eae3f4da5b31cb0e766d509463f0cf4f11a506d253c5ee2fab"
+      },
+      {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/self-reading-closure.json",
+        "sha256": "8019620126e3209d08093fa725d0488e16f1937e73106e5a8f9bf4c9da737f01"
+      }
+    ],
+    "current": "author-complete",
+    "uncertainty": "Independent semantic judgment pending for all12825.",
+    "nextPermittedAction": "Parent schedules the next-task.json independent assignment."
+  },
+  {
+    "artifact": "23 cases and27 haiku combinations",
+    "predicate": "Source branches/identities and group effects retained;9 pairs byte-equal",
+    "evidence": [
+      {
+        "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02-final-01/manifest.json",
+        "sha256": "0c81811b9b2266dc9603827dbbc4ebdd71b3238eab6ddd50f8d3fcea590ac50d"
+      },
+      {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/haiku27-final-author-reading.json",
+        "sha256": "dfd74a6b7146beb04bd41c538ead410e799ee1def9e35bd24db9a84edb5be7eb"
+      }
+    ],
+    "current": "author-complete-independent-pending",
+    "uncertainty": "Declared7-7-5 insect exception and literary choices need independent judgment; callbacks unrun.",
+    "nextPermittedAction": "Include complete cases and all27 poems in independent review."
+  },
+  {
+    "artifact": "corpus-bound registered faces",
+    "predicate": "91 ordinary raw/NFC/NFD characters; actual registered face/metrics/space/outlines",
+    "evidence": [
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/font-layout-decision.json",
+        "sha256": "74224ec74657fc14a38fa2a8db2e0483e9bb3c44ad2ee2a5e4a41c1aff795407"
+      }
+    ],
+    "current": "static-evidence-complete",
+    "uncertainty": "Moire lacks7 punctuation codepoints under whole-corpus allocation; actual target role/fallback/native appearance unresolved.",
+    "nextPermittedAction": "Retain current shared fonts; bind actual Moire target consumers before proposing any necessary registered-face change. Native checks need applicable owner authorization."
+  },
+  {
+    "artifact": "resource package",
+    "predicate": "Build exact independently closed language, read back font/wording/control/texture preservation",
+    "evidence": [
+      {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/final-validate.json",
+        "sha256": "abe81eeca1dd45006dd7ac4ea306b683d990a3febdbb20212e1ed25106632ef7"
+      }
+    ],
+    "current": "not-run",
+    "uncertainty": "Schema readyToCompile is not a compiled resource or playable output.",
+    "nextPermittedAction": "Parent completes independent editorial closure before the existing compiler route."
+  },
+  {
+    "artifact": "native/game/layout/input and retained artwork",
+    "predicate": "Actual version-matching target rendering, loaded roles/fallbacks, callbacks, full text/unchanged-art dependencies",
+    "evidence": [],
+    "current": "not-authorized-not-run",
+    "uncertainty": "No target native, screenshot, installed game or visual acceptance. Unchanged artwork was not translated or visually reviewed.",
+    "nextPermittedAction": "Await applicable direct owner instruction for the native workflow; preserve installed game/saves."
+  },
+  {
+    "artifact": "human glossary and release",
+    "predicate": "Separate owner-deferred NSFW human review, package rights/notices and release acceptance",
+    "evidence": [
+      {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/glossary-receipt-verification.json",
+        "sha256": "fe25583775f587908f906e23b0009a9879cb77d86d3fb94b0751bf40de91b611"
+      }
+    ],
+    "current": "separate-pending-gates",
+    "uncertainty": "Existing684 layer/dimension receipts are verified; no new human or release acceptance.",
+    "nextPermittedAction": "Parent retains the distinct gates; no publication, installer, deployment or server action from this author task."
+  }
+]

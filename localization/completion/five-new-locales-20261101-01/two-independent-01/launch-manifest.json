@@ -1,0 +1,23 @@
+{
+  "run": "five-new-locales-20261101-01",
+  "stage": "two-independent-01",
+  "authority": "Normal Thai/Indonesian independent-review continuation within the five previously owner-authorized locale CLI assignments; three other jobs active. No sixth stream or nested model.",
+  "lanes": [
+    {
+      "locale": "th",
+      "phase": "outputs/five-new-locales-20261101-01/th/independent-01",
+      "control": "localization/completion/five-new-locales-20261101-01/two-independent-01/th"
+    },
+    {
+      "locale": "id",
+      "phase": "outputs/five-new-locales-20261101-01/id/independent-01",
+      "control": "localization/completion/five-new-locales-20261101-01/two-independent-01/id"
+    }
+  ],
+  "maxConcurrentModelProcesses": 2,
+  "totalLocaleStreamCap": 5,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

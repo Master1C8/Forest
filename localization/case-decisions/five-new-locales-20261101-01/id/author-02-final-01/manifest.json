@@ -1,0 +1,53 @@
+{
+  "locale": "id",
+  "culture": "id",
+  "kind": "final-author-case-version-reconciliation",
+  "caseCount": 23,
+  "ids": 961,
+  "ordinary": 892,
+  "protected": 69,
+  "languageSha256": "b808ab0f1ef5000336d9b370edacc1ffa0e4be5690aa496f009760af8642e477",
+  "priorManifest": {
+    "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02/manifest.json",
+    "sha256": "4f2dc8c2851f19df3031fea229a711552fb1008f6dfb5f35c2ed8f1ccc310fab"
+  },
+  "sourceRegistry": {
+    "path": "localization/completion/five-new-locales-20261101-01/special-source-cases.json",
+    "sha256": "52c25d0c3bf1b2e9d7b44d41d55ca616d2599f7ac6044e9d8d20a106d11ac748"
+  },
+  "packet": {
+    "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02-final-01/current-case-source-target-context.jsonl",
+    "sha256": "65877772d22936f7c0e779a78ba57f4fdd70c8750405893fea6908ca86f6cc73"
+  },
+  "decisions": {
+    "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02-final-01/decisions.json",
+    "sha256": "16653ba21aa47f8451d031902d2a32bfe426334753c9b1bc99b9b67bcac0b73f"
+  },
+  "changedSinceCaseGate": [
+    {
+      "id": "ds:303:412:Dialogue Text",
+      "beforeSha256": "304593fc5beb0312bdc4d4a471d23d5e55a3026a04316b38f0b0672c7cc6ccca",
+      "afterSha256": "b28d6de81c2a4f275aa547db5df34011a9e61f30d5dfba928b03d05c4d46c64f",
+      "exactPrimaryCorrection": {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/exact-delta-02.jsonl",
+        "sha256": "39acb52c114c0bd3212ec11638d0e145efad6e2dc721a47ed7e890d1ce2ffd4d"
+      },
+      "poetrySelfRead": {
+        "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/haiku27-final-author-reading.json",
+        "sha256": "dfd74a6b7146beb04bd41c538ead410e799ee1def9e35bd24db9a84edb5be7eb"
+      }
+    }
+  ],
+  "unchangedCaseTargets": 960,
+  "retainedOriginalEvidence": "All original case artifacts and full source bindings remain immutable at the prior manifest paths. Complete source/target/context primary audit now covers every ordinary current case version; protected comparisons cover all69 case source values.",
+  "managedPairSupplement": {
+    "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/haiku27-final-author-reading.json",
+    "sha256": "dfd74a6b7146beb04bd41c538ead410e799ee1def9e35bd24db9a84edb5be7eb"
+  },
+  "authorPrimaryAudit": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/primary-audit-evidence.json",
+    "sha256": "730f2edb5c78d1eae3f4da5b31cb0e766d509463f0cf4f11a506d253c5ee2fab"
+  },
+  "independentReview": "pending-parent",
+  "native": "not-authorized-not-run"
+}

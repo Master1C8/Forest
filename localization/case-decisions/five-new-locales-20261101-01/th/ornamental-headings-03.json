@@ -1,0 +1,33 @@
+{
+  "locale":"th",
+  "caseId":"markup-and-ornamental-initials",
+  "status":"authored-static-group-independent-and-native-review-pending",
+  "sourcePacketSha256":"19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+  "glossarySha256":"5977e035ddbaa7fc7522fba918444c4c31dbae292dd6629cd7779d8d0e4eeb96",
+  "sourceIndex":"outputs/five-new-locales-20261101-01/th/author-03/ui-wording-index.json",
+  "bellTitleIndex":"outputs/five-new-locales-20261101-01/th/author-03/bell-title24-index.json",
+  "wording":"localization/languages/th.json",
+  "decisions":[
+    {
+      "scope":"U209 exact54 standalone<size=22>T</size> fields",
+      "target":"",
+      "reason":"These are ornamental English article initials in the original split THE notebook/bell groups. Apply the accepted common complete-heading mechanism to these same selectors: the paired suffix fields carry the complete Thai title. Thai supplies no separate English article initial. Explicit empty targets remove only that separated initial; they are neither unread nor independent translated phrases.",
+      "companions":"U184 carries สมุดบันทึก for all30 notebook suffix layers; U176/U177/U178/U179 carry the complete correct-color bell title for all24 bell suffix layers.",
+      "positive":"Each split group assembles exactly one full Thai title, without a leading T or doubled first character.",
+      "negative":"Translating the isolated T as ที or duplicating the first Thai character would corrupt every assembled title. Leaving the prefix null would block completion."
+    },
+    {
+      "scope":"U174 exact24 Title(2) fields under four color consumers",
+      "reason":"The Purple, Red and Green cloned source fields say BLUE. The actual source consumer, item identity and matching body define their color. Six layers per consumer receive the corresponding Thai color. Blue's six fields remain a matching positive control.",
+      "wordingByConsumer":{"PurpleBellItemNotification":"ระฆังสีม่วง","RedBellItemNotification":"ระฆังสีแดง","GreenBellItemNotification":"ระฆังสีเขียว","BlueBellItemNotification":"ระฆังสีน้ำเงิน"},
+      "positive":"All96 four-color fields agree with their exact color consumer, including both full-title and split-title alternatives and bodies.",
+      "negative":"A source-text-only BLUE replacement must not make all four consumers blue."
+    },
+    {
+      "scope":"Full native and managed ornamental titles",
+      "reason":"Use complete approved Thai titles and keep each rich-text tag's type, case and size. Whole Thai word spans replace the Latin ornamental initials so that combining marks remain with their bases. This is authored text data through the existing compiler, with no new renderer or adapter. Empty HE/source-article fragments become whole target titles explicitly; the original source fields remain immutable.",
+      "layout":"Whole-word size spans can change visual balance and width. Exact font loading, Thai mark placement, title fitting and alternative-layer visibility remain native needs-review; no visual acceptance is inferred."
+    }
+  ],
+  "heldGates":["Independent semantic review","Complete full12825-unit primary audit","Thai native size/mark/wrapping review","Resource build after editorial closure"]
+}

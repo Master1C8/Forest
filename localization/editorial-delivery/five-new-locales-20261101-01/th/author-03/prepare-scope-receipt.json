@@ -1,0 +1,23 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "tools/locale_review_work.py",
+    "prepare-scope",
+    "--packet",
+    "localization/editorial-delivery/five-new-locales-20261101-01/th/author-03/complete-source-target-context.jsonl",
+    "--authored",
+    "localization/editorial-delivery/five-new-locales-20261101-01/th/author-03/primary-packet.jsonl",
+    "--output",
+    "localization/editorial-delivery/five-new-locales-20261101-01/th/author-03/independent-review"
+  ],
+  "exitCode": 0,
+  "result": {
+    "primary": 12825,
+    "dependencies": 0,
+    "sourceContext": 1781,
+    "scope": "localization/editorial-delivery/five-new-locales-20261101-01/th/author-03/independent-review/scope.json"
+  },
+  "newModelRequests": 0,
+  "meaning": "Packet preparation only; independent judgments do not exist yet."
+}

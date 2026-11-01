@@ -1,0 +1,213 @@
+{
+  "locale": "th",
+  "culture": "th",
+  "kind": "author-static-pretranslation-decisions",
+  "sourcePacketSha256": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+  "sourceCasesSha256": "52c25d0c3bf1b2e9d7b44d41d55ca616d2599f7ac6044e9d8d20a106d11ac748",
+  "glossarySha256": "5977e035ddbaa7fc7522fba918444c4c31dbae292dd6629cd7779d8d0e4eeb96",
+  "targetSnapshot": "outputs/five-new-locales-20261101-01/th/author-03/special-cases-wording-snapshot.json",
+  "boundary": "Author decisions on the selected inventory and accepted common source/control behavior. Preserved historical source-held selectors stay inventoried and unchanged, with their original uncertainty. This is not an independent semantic pass, source-role reclassification, resource build, native renderer acceptance or permission to edit protected sources.",
+  "cases": [
+    {
+      "id": "narration-and-speaker-context",
+      "decision": "Use the complete seven selected pages across all42 fields, with the source paragraph and LF structure intact. The two departing participants remain plural and unnamed; the two coyotes remain plural. The25-page source-only projection also retains the13 Mouse and five Penny pages as unchanged baseline-held inputs, without inventing display absence or moving their admission.",
+      "wording": "outputs/five-new-locales-20261101-01/th/author-03/narrative-authored42.jsonl",
+      "context": "localization/completion/five-new-locales-20261101-01/source-safety-01/narrative150-source-only.jsonl"
+    },
+    {
+      "id": "runtime-template-versus-producer",
+      "decision": "Author the actual607 BG values,118 managed labels and1635 native fields in the common inventory. Match producer and stored-copy wording by meaning and identity, rather than treating a stored sample as producer coverage. The mutable inputs remain caption/display fields only; masks and dynamic values retain common behavior. Final producer refresh and actual selected live components remain runtime checks.",
+      "wording": "All2360 nondialogue units in the bound snapshot; bg607-wording-index.json and ui-wording-index.json in the phase identify the actual authored groups."
+    },
+    {
+      "id": "input-labels-and-emitted-values",
+      "decision": "ยืนยัน, ชิฟต์ and เสร็จ are caption-only OSK labels. Physical input tokens remain [Shift], [X], [Escape], [B], [Spacebar], [A], [M] and [Select] exactly. The task changes no OSK emitted symbol, keyboard layout grammar, callback or specialKeys value. Native caption refresh and physical input behavior are unrun.",
+      "wordingKeys": [
+        "U001",
+        "U002",
+        "U003",
+        "U046",
+        "U162",
+        "U195",
+        "U232",
+        "U241",
+        "U242"
+      ]
+    },
+    {
+      "id": "hidden-identity-and-unlock-masks",
+      "decision": "Unknown inventory output retains all six question marks and its LF. Generic Mouse, Wolf, Fish and unnamed species captions do not acquire a revealed character name. Gender-neutral source identities use neutral Thai wording. No Bio trigger, source hide mask, unlock flag or original anonymous identity is rewritten.",
+      "wordingKeys": [
+        "U083",
+        "U084",
+        "U089",
+        "U096",
+        "U098",
+        "U099",
+        "U101",
+        "U105",
+        "U160",
+        "B128",
+        "B133",
+        "B421"
+      ]
+    },
+    {
+      "id": "numeric-format-and-counter-producers",
+      "decision": "Keep all {0}/{1} placeholders, fraction order, ASCII numeric literals and source separators. Translate the Hits caption and visible counter wrappers, retaining the actual runtime values and original invariant decimal parsing. The quest-region list keeps the literal comma-space cleanup and final full stop; the empty-list/all-regions-done source anomaly is not replaced by an invented completion message.",
+      "wordingKeys": [
+        "U039",
+        "U042",
+        "U107",
+        "U108",
+        "U123",
+        "U124",
+        "U143",
+        "U144",
+        "U145",
+        "U146",
+        "U147",
+        "U148",
+        "U155",
+        "U156"
+      ],
+      "reusedOwnDecision": "localization/source/quest-family-ui-20261028/special-decisions/th.json; wording and source/current-glossary applicability read, no historical review acceptance copied."
+    },
+    {
+      "id": "markup-and-ornamental-initials",
+      "decision": "Use the explicit complete-heading decisions in ornamental-headings-03.json, including54 empty article initials and24 color-consumer-selected Title(2) fields. Thai whole-word size spans retain bases with their combining marks. Preserve all source tags, colors, sizes and emphasis meanings on whole display groups; the source's unmatched loading close tag remains an original anomaly.",
+      "evidence": "localization/case-decisions/five-new-locales-20261101-01/th/ornamental-headings-03.json"
+    },
+    {
+      "id": "haiku-group",
+      "decision": "Retain all194 source dialogue occurrences and the full259-node original302/303 context, including disconnected annotations, TRRIGGER spellings, delays, Bio controls, arc keys and source actor assignments. The125 ordinary dialogue targets and nine managed label pairs carry actual Thai wording with explicit syllable readings. All27 compositions retain the three named/24 mixed outcomes through the existing shared identity resolver; actual game callbacks remain unrun.",
+      "evidence": "localization/case-decisions/five-new-locales-20261101-01/th/haiku-03/decision.json",
+      "compositions": "localization/case-decisions/five-new-locales-20261101-01/th/haiku-03/compositions27.jsonl",
+      "fullContext": "outputs/five-new-locales-20261101-01/th/author-03/haiku259-exact-context.jsonl"
+    },
+    {
+      "id": "greeting-storage-escapes-and-voice",
+      "decision": "The current BG greeting wordings keep actual LF counts, conversational register and elongated names. The repeated consonants in the flirty greeting convey the intentional drawn-out source, without stacking repeated Thai vowel marks. Dormant literal backslash-n columns and original actor/cycle identities remain unchanged under the accepted baseline. Generic saved Hey Rascal samples receive the same greeting wording as their producer where selected.",
+      "wordingKeys": "B506 through B522, plus U117; actual LF versus literal-backslash-n counts were checked before application."
+    },
+    {
+      "id": "chapter-titles-and-gallery-hints",
+      "decision": "Use the approved Thai quest title wordplay, retain Red as แดง and Ollie as ออลลี, and keep the actual title/hint/fallback identities. Gallery comma lists remain comma lists; explicit source conjunctions remain explicit and. Reconciliation titles describe friendship/settling the past, not a renewed romantic relationship. Actual135:346 explicitly denies getting back together and is translated accordingly.",
+      "wording": "BG chapter/gallery/quest groups and complete callback conversations135/423/428 in the snapshot."
+    },
+    {
+      "id": "inventory-sugar-euphemism",
+      "decision": "Keep สารหล่อลื่นหนึ่งขวด as the item title while the description calls its contents น้ำตาล. Translate the complete128/129 callback: Maverick incorrectly assumes the euphemism; Scarlett really needed cooking sugar, will speak to him herself and can still use the extra lubricant. The later sugar/spice/equipment code explanation remains complete. No item enum or save identity changes.",
+      "wordingKeys": [
+        "B035",
+        "B036",
+        "B037",
+        "B196",
+        "B230",
+        "B494",
+        "B495"
+      ],
+      "dialogue": "Complete ordinary source/target groups128 and129 in callback-apply-001."
+    },
+    {
+      "id": "inventory-rosetta-glyph-reference",
+      "decision": "The item says it might help decipher forest glyphs, without promising a new automatic decoding effect. Keep the source fictional-language rows and Font3324/material3/atlas245 mapping exact. Translate the ordinary explanatory description only; do not invent glyph meanings, disclose a hidden referent, transliterate the fictional language or change its clues/solution identities.",
+      "wordingKeys": [
+        "B096",
+        "B097",
+        "B098"
+      ],
+      "preservation": "All1781 protected source states remain exact; fictional resources are outside the mutable font registration."
+    },
+    {
+      "id": "inventory-apology-cookie-icing",
+      "decision": "Retain the actual English icing quotation in the description and423:741, with its Thai meaning พวกเราขอโทษ. This describes the same retained artwork rather than claiming it displays Thai icing. Keep the former-roommate facts and complete423/428 reconciliation, including Finley's choice to live alone and the dinner invitation. No texture or protected glossary biography changes.",
+      "wordingKeys": [
+        "B104",
+        "B105",
+        "B234",
+        "B285",
+        "B286",
+        "B297",
+        "B298",
+        "B499"
+      ],
+      "dialogue": "Complete423/428 groups in callback-apply-003."
+    },
+    {
+      "id": "inventory-glitch-fictional-trace",
+      "decision": "The original644-character faux NullReferenceException/Graph/MonoMethod trace remains a fictional technical-looking payload, unchanged rather than reclassified as a real crash log. Keep its CR/LF, code identifiers and common random-window behavior. Author the four empty-cell responses, inventory placeholder explanation and purple ใช้ฉันสิ action suffix as distinct display values. Reuse the accepted CR/action-line adapter; its actual611 starts and final Thai layout remain separate resource/native checks.",
+      "source": "localization/source/shared-source-completion-20261028/admission-v1/compiled-wording-source.jsonl, exact RandomizeGlitchItemInfoTickerText literals",
+      "wordingKeys": [
+        "B010",
+        "B011",
+        "B072",
+        "B073",
+        "B074",
+        "U118",
+        "U119",
+        "U120",
+        "U121",
+        "U122",
+        "U232"
+      ]
+    },
+    {
+      "id": "notify-only-artwork",
+      "decision": "Keep all textures unchanged. Translate actual native Notes/Kinks, Active/Completed and inventory/Quest/Critter heading text regardless of a legacy Sprite reference. All12 v2 inventory-heading source IDs have Thai targets. The retained TALK/GOSSIP image labels are quoted accurately in instructions, with a Thai explanation where needed; image bytes and their unreviewed target visual status remain explicit rather than treated as a passed localization.",
+      "evidence": "localization/framework/native-inventory-headings-20261031.jsonl matched against all12 current targets; no pixel/screenshot review or texture operation."
+    },
+    {
+      "id": "fast-travel-selection-identity",
+      "decision": "Author all nine system58 display units, expanding the seven registered wordings to the two additional branch-conditioned greeting siblings. The five destination captions use approved place names and the cancel/chat option remains distinct. Preserve branch_condition values0/1/2, Title lookup identities and destination links; the managed custom greeting equals719. Retain DeepWoods without inventing an exclusion.",
+      "wording": "outputs/five-new-locales-20261101-01/th/author-03/fast-travel9-apply/authored.jsonl",
+      "managedGreeting": "U113"
+    },
+    {
+      "id": "compiled-adventure-title-body-status",
+      "decision": "The six complete Adventure title/body/notification groups use their own managed inputs, not just BG quest captions. Retain the sixth body's LF, the numbered sequel2 and all notification/abandoned/completed prefix joins. Whole titles share the approved glossary pun, including ดันเจียนแอนด์จูซ. Preserve AdventureType, gateway, spawn, save and completion identities; unchanged source-held selectors retain the accepted baseline behavior.",
+      "wordingKeys": "U064 through U081; U115/U116/U125/U126/U127 and native matching whole headings."
+    },
+    {
+      "id": "compiled-command-input-suggestion-identities",
+      "decision": "Keep all103 namespace/Command.name operands exact, including when the original suggestion UI renders and inserts them. No Thai command alias, parser rewrite or new projection is introduced. Existing source-held help/description operands remain inventoried under the accepted baseline rather than acquiring a false linguistic pass or a claim of invisibility."
+    },
+    {
+      "id": "compiled-simulation-scene-label-identities",
+      "decision": "Keep all17 actual scene-state labels and currentSimScene/lastSimScene keys exact. Their use as both displayed labels and state values is retained, with no target replacement of executable scene identity. The task introduces no caption alias; actual source reachability/presentation uncertainty remains as recorded."
+    },
+    {
+      "id": "compiled-console-wording-and-filter-identities",
+      "decision": "Retain the110-source group and its62 wording/48 protected partition under the accepted selection behavior. Displayed typeName filter keys, search normalization, dynamic original names, format slots and numeric/state operands stay exact. No blanket developer-string exclusion or new role adjudication is made; unselected/source-held wording remains explicitly preserved, without semantic acceptance."
+    },
+    {
+      "id": "compiled-playback-graph-and-conditional-diagnostics",
+      "decision": "Preserve original conversation/node/template, Lua, pluginDbName, numeric actor and history/report identities. Conditional error templates and their {0}/{1} slots keep the accepted baseline selection; no newly localized key or invented always-visible/always-hidden diagnostic behavior. Their potential presentation remains inventoried and native/log-mask checks are not run."
+    },
+    {
+      "id": "compiled-arc-keys-and-exception-assembly",
+      "decision": "Preserve root/player/field keys, regex prefix semantics, suffix/save construction, exception separators and dynamic arguments. Keep the complete33-source assembly context and prior precise diagnostic roles under the accepted baseline. No catch/native-presentation inference or new source-role rewrite is introduced by Thai authoring."
+    },
+    {
+      "id": "compiled-loader-state-keys-and-exception-assembly",
+      "decision": "Preserve all64 producer identities, parser/watch/actor/arc/BIO/font/state controls and exception assembly boundaries. The fictional mapping remains outside ordinary Thai font replacement. Keep prior potential-wording and native/catch uncertainty intact; this task neither translates state keys nor claims a newly accepted diagnostic path."
+    },
+    {
+      "id": "compiled-remaining1251-typed-roles-and-unread-assemblies",
+      "decision": "Retain all1251 original selectors and their existing typed/control/source-held partitions under the accepted Russian selection/preservation policy. Author the selected editable Thai OSK/notification/nameplate displays through the common catalog only. Do not silently admit569 historical unproved assemblies, rewrite protected data or reopen the unchanged global framework audit. Any concrete later Thai consumer difference requires its own named repair and evidence."
+    }
+  ],
+  "additionalSourceBoundRegressions": [
+    "Conversations536/942 retain promised first use for Penny/Mabel, not priority in being invited.",
+    "Conversation139 preserves the actual source business-name rhyme with quoted original English brand spellings and Thai pronunciation/meaning glosses. Transport Zoom, sexual COOM, cuddling Spoon and genital Poon remain distinct. The ordinary character name remains เพนนี ขนนก; quoted source brand names are not a glossary rename. Full source/target group, reactions, bad-name complaint and name alternatives are retained for independent review.",
+    "Conversation135 explicitly preserves no renewed romance;423/428 retain the actual former-roommate source facts without importing a new Finley biography.",
+    "All four96-field bell consumer groups use their actual color, including the24 cloned BLUE Title(2) source fields."
+  ],
+  "heldGates": [
+    "The remaining10121 ordinary targets and one full final source/target/context primary audit",
+    "Independent parent-owned exact-version review",
+    "Final full-corpus glyph/role binding",
+    "Actual Thai mark shaping and dictionary/grapheme line boundaries",
+    "Resource build, game/GUI, screenshots, installer and release/publication"
+  ]
+}
