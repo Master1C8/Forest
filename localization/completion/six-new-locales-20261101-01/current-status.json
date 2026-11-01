@@ -1,62 +1,78 @@
 {
-  "status": "six-independent-reviews",
-  "checkedAtUTC": "2026-11-01T10:51:59.769961+00:00",
+  "status": "four-consolidated-corrections-and-two-independent-reviews",
+  "checkedAtUTC": "2026-11-01T12:07:54.130333+00:00",
   "lanes": [
     {
       "locale": "ko",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "independent-review",
-      "phase": "outputs/six-new-locales-20261101-01/ko/independent-01",
-      "pid": 90554,
+      "kind": "correction",
+      "phase": "outputs/six-new-locales-20261101-01/ko/correction-01",
+      "pid": 5148,
       "live": true,
-      "independentReviewed": 5513,
-      "independentPercent": 42.99,
-      "independentFindings": 5,
-      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
+      "independentReviewed": 12825,
+      "independentPercent": 100.0,
+      "independentFindings": 14,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once.",
+      "independentCoverageVersion": "Reviewed pre-correction snapshot; changed targets require exact final-delta independent review.",
+      "statusPath": "outputs/six-new-locales-20261101-01/ko-correction-01/status.json",
+      "threadId": "01a196ff-9bd2-7ff1-b3d2-98aab8d7ba26",
+      "assignedCurrentPhase": 14
     },
     {
       "locale": "fr",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "independent-review",
-      "phase": "outputs/six-new-locales-20261101-01/fr/independent-01",
-      "pid": 49565,
+      "kind": "correction",
+      "phase": "outputs/six-new-locales-20261101-01/fr/correction-01",
+      "pid": 1130,
       "live": true,
-      "independentReviewed": 11123,
-      "independentPercent": 86.73,
+      "independentReviewed": 12825,
+      "independentPercent": 100.0,
       "independentFindings": 11,
-      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once.",
+      "statusPath": "outputs/six-new-locales-20261101-01/fr-correction-01/status.json",
+      "threadId": "01a196fd-2eff-7cd2-9bed-bf814da78f66",
+      "assignedCurrentPhase": 11,
+      "independentCoverageVersion": "Reviewed pre-correction snapshot; changed targets require exact final-delta independent review."
     },
     {
       "locale": "tr",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "independent-review",
-      "phase": "outputs/six-new-locales-20261101-01/tr/independent-01",
-      "pid": 46647,
+      "kind": "correction",
+      "phase": "outputs/six-new-locales-20261101-01/tr/correction-01",
+      "pid": 1128,
       "live": true,
-      "independentReviewed": 11744,
-      "independentPercent": 91.57,
+      "independentReviewed": 12825,
+      "independentPercent": 100.0,
       "independentFindings": 14,
-      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once.",
+      "statusPath": "outputs/six-new-locales-20261101-01/tr-correction-01/status.json",
+      "threadId": "01a196fd-329b-7c93-9787-994398b49ff6",
+      "assignedCurrentPhase": 14,
+      "independentCoverageVersion": "Reviewed pre-correction snapshot; changed targets require exact final-delta independent review."
     },
     {
       "locale": "pl",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "independent-review",
-      "phase": "outputs/six-new-locales-20261101-01/pl/independent-01",
-      "pid": 24926,
+      "kind": "correction",
+      "phase": "outputs/six-new-locales-20261101-01/pl/correction-01",
+      "pid": 1132,
       "live": true,
-      "independentReviewed": 0,
-      "independentPercent": 0.0,
-      "independentFindings": 0,
-      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
+      "independentReviewed": 12825,
+      "independentPercent": 100.0,
+      "independentFindings": 5,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once.",
+      "statusPath": "outputs/six-new-locales-20261101-01/pl-correction-01/status.json",
+      "threadId": "01a196fd-302d-71f0-86b5-7948fdda2040",
+      "assignedCurrentPhase": 5,
+      "independentCoverageVersion": "Reviewed pre-correction snapshot; changed targets require exact final-delta independent review."
     },
     {
       "locale": "zh-TW",
@@ -67,24 +83,29 @@
       "phase": "outputs/six-new-locales-20261101-01/zh-TW/independent-01",
       "pid": 24927,
       "live": true,
-      "independentReviewed": 0,
-      "independentPercent": 0.0,
-      "independentFindings": 0,
-      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
+      "independentReviewed": 7856,
+      "independentPercent": 61.26,
+      "independentFindings": 47,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once.",
+      "independentCoverageVersion": "Exact matching original language snapshot; Italian is disjoint retained4459 plus fresh8366 scope."
     },
     {
       "locale": "it",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "independent-review",
-      "phase": "outputs/six-new-locales-20261101-01/it/independent-01",
-      "pid": 5756,
+      "kind": "independent-unread-review",
+      "phase": "outputs/six-new-locales-20261101-01/it/independent-03",
+      "pid": 9780,
       "live": true,
-      "independentReviewed": 3948,
-      "independentPercent": 30.78,
-      "independentFindings": 1,
-      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once."
+      "independentReviewed": 4459,
+      "independentPercent": 34.77,
+      "independentFindings": 2,
+      "coverageMethod": "Unique version-matching explicit IDs across own *judgments.jsonl; duplicate IDs counted once.",
+      "statusPath": "outputs/six-new-locales-20261101-01/it-independent-03/status.json",
+      "threadId": "01a19701-d09c-7351-8ffb-902553603498",
+      "assignedCurrentPhase": 8366,
+      "independentCoverageVersion": "Exact matching original language snapshot; Italian is disjoint retained4459 plus fresh8366 scope."
     }
   ],
   "model": "gpt-6.1-sol",
@@ -116,7 +137,10 @@
       "freshExecNoParentHistory": true,
       "assigned": 12825,
       "protectedContext": 1781,
-      "status": "running"
+      "status": "finished",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/tr/independent-01/process-exit.json",
+      "reviewOutcome": "complete-review-with-open-findings",
+      "nextPhase": "outputs/six-new-locales-20261101-01/tr/correction-01"
     },
     {
       "locale": "fr",
@@ -130,7 +154,10 @@
       "freshExecNoParentHistory": true,
       "assigned": 12825,
       "protectedContext": 1781,
-      "status": "running"
+      "status": "finished",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/fr/independent-01/process-exit.json",
+      "reviewOutcome": "complete-review-with-open-findings",
+      "nextPhase": "outputs/six-new-locales-20261101-01/fr/correction-01"
     },
     {
       "locale": "ko",
@@ -144,7 +171,10 @@
       "freshExecNoParentHistory": true,
       "assigned": 12825,
       "protectedContext": 1781,
-      "status": "running"
+      "status": "finished",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/ko/independent-01/process-exit.json",
+      "reviewOutcome": "complete-review-with-open-findings",
+      "nextPhase": "outputs/six-new-locales-20261101-01/ko/correction-01"
     },
     {
       "locale": "it",
@@ -158,7 +188,10 @@
       "freshExecNoParentHistory": true,
       "assigned": 12825,
       "protectedContext": 1781,
-      "status": "running"
+      "status": "finished",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/it/independent-01/process-exit.json",
+      "reviewOutcome": "partial-input-boundary-stop",
+      "nextPhase": "outputs/six-new-locales-20261101-01/it/independent-02"
     },
     {
       "locale": "pl",
@@ -172,7 +205,10 @@
       "freshExecNoParentHistory": true,
       "assigned": 12825,
       "protectedContext": 1781,
-      "status": "running"
+      "status": "finished",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/pl/independent-01/process-exit.json",
+      "reviewOutcome": "complete-review-with-open-findings",
+      "nextPhase": "outputs/six-new-locales-20261101-01/pl/correction-01"
     },
     {
       "locale": "zh-TW",
@@ -190,5 +226,16 @@
     }
   ],
   "independentStatusIndex": "localization/completion/six-new-locales-20261101-01/independent/status-index.json",
-  "snapshotMeaning": "100 percent means drafted target coverage only; editorial, build and runtime acceptance remain separate."
+  "snapshotMeaning": "Drafting is complete. Independent percentages cover exact original target versions; corrections remain pending exact independent final-delta review, build and native acceptance.",
+  "activeStatusIndex": "localization/completion/six-new-locales-20261101-01/followups/status-index.json",
+  "italianRecovery": {
+    "priorPhase": "outputs/six-new-locales-20261101-01/it/independent-01",
+    "retainedExactJudgments": 4459,
+    "freshRemainingScope": 8366,
+    "activePhase": "outputs/six-new-locales-20261101-01/it/independent-03",
+    "reason": "Preserved4459 pre-exposure judgments. First fresh recovery stopped before any new judgments on other-locale examples in shared authority; new fresh recovery uses a complete verified policy projection without those examples.",
+    "additionalStoppedPhase": "outputs/six-new-locales-20261101-01/it/independent-02",
+    "additionalStoppedPhaseJudgments": 0,
+    "poetryAuthorityProjection": "localization/completion/six-new-locales-20261101-01/followups/it-independent-03/poetry-authority-it.json"
+  }
 }
