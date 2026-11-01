@@ -6639,5 +6639,24 @@
       "doNotResetOrOverwrite": true,
       "wholeGameReleaseAccepted": false
     }
+  },
+  "fiveNewLocaleCliTasks20261101": {
+    "run": "five-new-locales-20261101-01",
+    "executionLocales": [
+      "th",
+      "vi",
+      "id",
+      "uk",
+      "ar"
+    ],
+    "statusReference": "localization/completion/five-new-locales-20261101-01/current-status.json",
+    "actualLiveStatus": "outputs/five-new-locales-20261101-01/author/status.json",
+    "launchManifest": "localization/completion/five-new-locales-20261101-01/launch-manifest.json",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "inheritedHistory": false,
+    "concurrentLocaleLimit": 5,
+    "scope": "Static whole-locale author translation and primary editing; independent review/native acceptance separate."
   }
 }

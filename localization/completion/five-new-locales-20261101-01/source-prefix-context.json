@@ -1,0 +1,23 @@
+{
+  "source": {
+    "path": "localization/ru-assets/source-dispositions.json",
+    "sha256": "b2663e2596e1bba89323f29682170b61a7d39b73811adf8574adedc815f9e173"
+  },
+  "records": [
+    {
+      "id": "ds:228:161:Dialogue Text",
+      "sourceSha256": "8bca5fff8da363b10c5f48b84938e1330af8aba9fca59561fedb583a19714775",
+      "disposition": "translatable-display-with-preserved-prefix",
+      "preservePrefix": "ADVICE ",
+      "reason": "Player question linked from PRIMARY to Scarlett response. Nonempty Dialogue Text supplies both subtitle and response text if entered. Preserve the exact ADVICE service-looking prefix conservatively under the owner prefix rule; no claim that FormattedText removes it. Translate the question only. These legacy advice conversations lack arc suffixes; actual manifest use remains unverified."
+    },
+    {
+      "id": "ds:227:180:Dialogue Text",
+      "sourceSha256": "a606eb24d1af679007bc56a887b5da12dac1f08d4fcde5613680a4507ca3e9cf",
+      "disposition": "translatable-display-with-preserved-prefix",
+      "preservePrefix": "ADVICE ",
+      "reason": "Player question linked from PRIMARY to Scarlett response. Nonempty Dialogue Text supplies both subtitle and response text if entered. Preserve the exact ADVICE service-looking prefix conservatively under the owner prefix rule; no claim that FormattedText removes it. Translate the question only. These legacy advice conversations lack arc suffixes; actual manifest use remains unverified."
+    }
+  ],
+  "boundary": "Preserve exact service prefixes; no claim of stripping or display absence. Source identities are not target-language prose."
+}
