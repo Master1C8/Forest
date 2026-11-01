@@ -1,0 +1,68 @@
+{
+  "stage": "editorial/independent-findings-repair",
+  "status": "reading-and-adjudication",
+  "runtime": {
+    "session": {
+      "id": "01a198e8-45dc-77d3-8af0-a9dd9d3dd2e2",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "runtimeVerifiedAgainstSessionAndLiveArgv": true,
+  "inputPinsVerified": 60,
+  "baseLanguageSha256": "e49097a062874e6ea4413951e2ae92dca0ab4bae51edc37a9502a9dacdc8f322",
+  "processReferences": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "db3336cda33b586550d433c54b6b04b711a3e2f93449a988547e5e56686d83a2"
+    },
+    {
+      "path": "LOCALIZATION.md",
+      "sha256": "eaf003fe749be2c020216c8545bae86c9cea5dbbe01bf295e84072cd3490a430"
+    },
+    {
+      "path": "localization/PROCESS.md",
+      "sha256": "e9b48376525978067f84e8efe442b035440497c7fd1bb17fb02de9eae9f896c1"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/instructions/sitefor-mods.md",
+      "sha256": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md",
+      "sha256": "ff9d350389685ea11ee91f404c014c702c0d46fbb2fa4ac0f5a6b3652c66dd48"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md",
+      "sha256": "d48c07764d092293837d679bf9ccdba082c5d7b665b7db43d0e23e080e3af4b6"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/skills/vn-game-localize/references/COMMON.md",
+      "sha256": "0a3395e91ea72d756816a352a536d93fee48f94e1231904d5c7b2e6bc05dc541"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/skills/vn-game-localize/references/WORKFLOW.md",
+      "sha256": "2aac4ad0036750ac212187982dad7b860957b87b2696390deb8fc5917a651200"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/skills/vn-game-localize/references/CHECKPOINT.md",
+      "sha256": "de6fcd0119aceda9edeed0850eaa659b10aaf8e7cfc7e7c22ce7c627c9849b25"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/skills/vn-game-localize/references/CHARACTERS.md",
+      "sha256": "140cbbb3d598f8255e1442a8b13bfd24f6f0253934a68c486fe2b9821ac27de1"
+    },
+    {
+      "path": "/Users/antonkrutov/.codex/skills/vn-game-localize/references/SPECIAL-SCENES.md",
+      "sha256": "905db2df1eaf945ec3a7c45e45c2478e2496bd98618464f5d9bcb0495861cc60"
+    }
+  ],
+  "nextAction": "Read all22 findings and bounded actual scene/dependency context; author one consolidated repair batch.",
+  "independentRepairedVersionAcceptance": "pending-parent-owned-delta",
+  "native": "not-authorized-not-run"
+}
