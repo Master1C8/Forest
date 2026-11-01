@@ -1,3 +1,18 @@
+# Current outcome
+
+Portuguese primary proofreading is complete: all 12,825 linguistic units and
+1,781 exact preserved source states are accounted for, zero unread. Five objective
+repairs were applied; the final 16-resource build/check and saved hashes pass.
+The final language hash starts `996baeefc8a2`.
+
+All three fresh independent CLI assignments have been dispatched. es-419 finished
+its 1,247-ID closure with no target finding (1,043 passes and 204 protected technical
+judgments). zh finished 1,712 judgments with 18 unresolved cloned bell-title findings;
+its targets remain unchanged. Portuguese independently reviews 140 selected versions
+plus 1,056 required context units after its primary prerequisite. See
+[current status](current-status.json), [usage](usage-report.json) and [evidence](evidence/).
+No independent/native/release acceptance is invented for pending gates.
+
 # Parallel independent review and Portuguese primary completion
 
 The owner requested finishing the Brazilian Portuguese primary semantic pass
@@ -5,14 +20,14 @@ and starting independent review of es-419, pt-BR and zh through parallel CLI job
 The canonical checkout is Forest; all actual sessions use fresh
 **OpenAI / gpt-6.1-sol / high**, null parent, no inherited history or nested model.
 
-The finite Portuguese author continuation starts from exactly12,311 uncovered
+The finite Portuguese author continuation starts from exactly 12,311 uncovered
 non-preserved IDs in the saved primary handoff. It preserves the prior scoped
-judgments and original1,781 source-only states. Build success does not replace
+judgments and original 1,781 source-only states. Build success does not replace
 reading. Its immutable final-v2 handoff is the prerequisite for a fresh independent
 Portuguese reviewer; the author cannot accept its own edits independently.
 
-The independent es-419 reviewer owns1,247 required source/target judgments;
-the independent zh reviewer owns1,712. Both also read the mandatory source,
+The independent es-419 reviewer owns 1,247 required source/target judgments;
+the independent zh reviewer owns 1,712. Both also read the mandatory source,
 glossary, dialogue and actual consumer context. Original packets and lossless
 reading views remain immutable. Missing IDs/context stay unread, never pass.
 All findings are collected before a consolidated repair and exact delta.

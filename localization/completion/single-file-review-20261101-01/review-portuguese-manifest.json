@@ -1,0 +1,17 @@
+{
+  "run": "single-file-review-20261101-01",
+  "stage": "independent-portuguese",
+  "authority": "доделай португальскую вычитку и запусти независимую проверку всех трёх языков через cli параллельно",
+  "lanes": [
+    {
+      "locale": "pt-BR",
+      "phase": "outputs/single-file-review-20261101-01/pt-BR/independent-01"
+    }
+  ],
+  "prerequisite": {
+    "authorPhase": "outputs/single-file-review-20261101-01/pt-BR/author-02",
+    "status": "review-ready",
+    "unreadPrimary": 0,
+    "resources": 16
+  }
+}

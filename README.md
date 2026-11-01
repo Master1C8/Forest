@@ -1,3 +1,14 @@
+# Current single-file editorial work
+
+Latin American Spanish, Brazilian Portuguese and Simplified Chinese now have
+complete 14,606-entry files for the common v2 compiler. Portuguese primary
+proofreading is complete with five repairs and a verified 16-resource build.
+Its independent CLI review is running. The independent es-419 closure has no
+target findings; zh has 18 unresolved cloned bell-heading findings. See the
+[current review run](localization/completion/single-file-review-20261101-01/README.md).
+These are static/editorial results; native game/font/layout and release gates
+remain separate. Historical stopped queues and owner-installed saves are preserved.
+
 # Single-file localization builds
 
 Use `./forest-localize build localization/languages/<locale>.json` for new Forest
@@ -12,7 +23,7 @@ has 12,825 exact semantic passes, 1,781 preserved source entries and a clean
 and the preserved [conversion evidence](localization/language-imports/es-20261031/README.md).
 Spanish native/game/font/layout acceptance remains separate and untested.
 Static build verification is separate from editorial and final game acceptance.
-Existing locale workers remain owner-stopped.
+Historical locale queues remain owner-stopped; separately authorized fresh CLI work is recorded in the current review run above.
 
 # Russian manual-test handoff, October29
 

@@ -1,0 +1,114 @@
+{
+  "run": "single-file-review-20261101-01",
+  "workers": [
+    {
+      "locale": "pt-BR",
+      "role": "author-02",
+      "threadId": "01a1951a-351d-7ac0-bb33-58ff438091de",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "phase": "outputs/single-file-review-20261101-01/pt-BR/author-02",
+      "descendantModels": 0,
+      "status": "finished",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T03:36:13.016591+00:00",
+      "usage": {
+        "input_tokens": 28298499,
+        "cached_input_tokens": 27461760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45959,
+        "reasoning_output_tokens": 10973,
+        "total_tokens": 28344458
+      },
+      "resultStatus": "review-ready",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "es-419",
+      "role": "independent-01",
+      "threadId": "01a1951b-e91e-7a31-81fd-54a5c9d4d0c6",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "phase": "outputs/single-file-review-20261101-01/es-419/independent-01",
+      "descendantModels": 0,
+      "status": "finished",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T03:29:26.081975+00:00",
+      "usage": {
+        "input_tokens": 8756820,
+        "cached_input_tokens": 8468608,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37176,
+        "reasoning_output_tokens": 6036,
+        "total_tokens": 8793996
+      },
+      "resultStatus": "continue",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "zh",
+      "role": "independent-01",
+      "threadId": "01a1951b-f5a8-7112-ba02-eaf978a690ce",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "phase": "outputs/single-file-review-20261101-01/zh/independent-01",
+      "descendantModels": 0,
+      "status": "finished",
+      "exitCode": 0,
+      "finishedAt": "2026-11-01T03:28:49.939524+00:00",
+      "usage": {
+        "input_tokens": 16146330,
+        "cached_input_tokens": 15805184,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33425,
+        "reasoning_output_tokens": 6272,
+        "total_tokens": 16179755
+      },
+      "resultStatus": "continue",
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "pt-BR",
+      "role": "independent-01",
+      "threadId": "01a1952e-67fa-7e63-8c31-74ddcd27e097",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "phase": "outputs/single-file-review-20261101-01/pt-BR/independent-01",
+      "descendantModels": 0,
+      "status": "running",
+      "terminalUsage": null,
+      "telemetry": "Terminal usage unknown until completion; excluded from completed subtotal"
+    }
+  ],
+  "completedWorkerSubtotal": {
+    "input_tokens": 53201649,
+    "cached_input_tokens": 51735552,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 116560,
+    "reasoning_output_tokens": 23281,
+    "total_tokens": 53318209
+  },
+  "coordinator": {
+    "threadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usage": {
+      "input_tokens": 10990982,
+      "cached_input_tokens": 10916992,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 51172,
+      "reasoning_output_tokens": 23441,
+      "total_tokens": 11042154
+    },
+    "scope": "Shared group orchestration mixed with validation/integration after baseline; earlier prerequisite preparation unavailable",
+    "measurementCutoffUTC": "2026-11-01T03:38:56.470579+00:00",
+    "unmeasuredTail": "Subsequent stage/commit/verification and final reporting are not included; current report cannot measure itself"
+  },
+  "fullRunTotal": "Incomplete while pt-BR independent review runs; no inherited/earlier-author totals or cost estimates",
+  "subsets": "Cached input is included in input; reasoning is included in output. Each completed fresh session counted once; no nested models."
+}
