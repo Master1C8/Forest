@@ -1,0 +1,53 @@
+{
+  "job": {
+    "locale": "it",
+    "culture": "it-IT",
+    "writePrefixes": [
+      "localization/languages/it.json",
+      "localization/editorial-delivery/six-new-locales-20261101-01/it",
+      "outputs/six-new-locales-20261101-01/it/author-01",
+      "localization/case-decisions/six-new-locales-20261101-01/it"
+    ],
+    "immutablePins": {
+      "localization/completion/six-new-locales-20261101-01/locale-eligibility.json": "1a282ab826fd659948d65c3e10fc5ccb2a6086fa121f19dc55dd0d498784fd64",
+      "localization/completion/six-new-locales-20261101-01/source-context.jsonl": "70c73ba298139137f43a57f4e4480c6edd7b79f86261d3a145794fc718333c3c",
+      "localization/completion/six-new-locales-20261101-01/source-preservation.json": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66",
+      "localization/completion/six-new-locales-20261101-01/special-source-cases.json": "52c25d0c3bf1b2e9d7b44d41d55ca616d2599f7ac6044e9d8d20a106d11ac748",
+      "localization/completion/six-new-locales-20261101-01/glossary-en.json": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41",
+      "localization/completion/six-new-locales-20261101-01/actor-roster.json": "278cd93f75fa251a038b7328c721b3c32abf2cf8ad149f7bb60bcb0df18af277",
+      "localization/framework/forest045-shared-v2/framework.json": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f",
+      "localization/framework/forest045-shared-v2/catalog.json": "23cbd5206b97f2f4dff14c9e5772f831a003c316839964dba17421721e073a64",
+      "tools/forest_localization/core.py": "3c22471845f8b2b2c45e86b63e5d24893b8babbe66c5a7e514aa283cfad32f51",
+      "tools/forest_localization/font_metrics.py": "63b3d9c434f4de4c0cd1f602c4a92e0ea7f03a3ea53c80fbf4e1b97ff1f3fdf0",
+      "tools/locale_review_work.py": "9d4a52056afd5c24aa2b0d987a5913c4c8592c191031bc94f0c02773358e722f",
+      "tools/locale_efficiency.py": "4628489f6996a16d3e84a50334691061fba7e033252a7841e299c0779a474cef",
+      "tools/cli_runtime_identity.py": "f75cf5c9198cdaf7c5b92afa68bfe42a26fe3f114db03a48aaaf01e30326b14a",
+      "LOCALIZATION.md": "eaf003fe749be2c020216c8545bae86c9cea5dbbe01bf295e84072cd3490a430",
+      "localization/PROCESS.md": "e9b48376525978067f84e8efe442b035440497c7fd1bb17fb02de9eae9f896c1",
+      "localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+      "localization/completion/six-new-locales-20261101-01/it/glossary-coverage.json": "f8f4acccb4fac47eafc2c5bfaecaf39b89747f06e5576cd3e6b8c3d0b6dd6bdf",
+      "localization/completion/six-new-locales-20261101-01/it/glossary.json": "b8a3da920b7a00d643aeff9cb67bc6b6bb93135bdcb42605f43169a07605c6e5",
+      "localization/completion/six-new-locales-20261101-01/it/seed.json": "4755091147d75c7213677cacf8dac29fc549381fa3f1a23b197179a7599cda36",
+      "localization/completion/six-new-locales-20261101-01/it/name-decisions.json": "471604d6544c771e9d7a1c723b7d9da4e68e3f3289912e150ce920ad5997f4d9",
+      "localization/completion/six-new-locales-20261101-01/it/brief.md": "0141f399b5742ee1b829784ffc9fdeb2216f65340f9ae0bab4518de0b66a8422",
+      "localization/completion/six-new-locales-20261101-01/inputs.json": "351cc8bf30c3d01d88057caaa8de76984870c8cda0ae5176c8d9a081cac80ebf",
+      "localization/completion/six-new-locales-20261101-01/eligibility-audit.json": "c572cf10a679466a78c3710af1a1a106dc0ee8aa829d387228261d2fb850f931"
+    },
+    "initialLanguageSha256": "4755091147d75c7213677cacf8dac29fc549381fa3f1a23b197179a7599cda36"
+  },
+  "task": {
+    "kind": "work",
+    "taskClass": "translation-edit",
+    "executionStage": "translate-edit",
+    "title": "Author and fully edit the complete Italian single-file localization",
+    "sourcePacket": "localization/completion/six-new-locales-20261101-01/source-context.jsonl",
+    "sourcePacketSha256": "70c73ba298139137f43a57f4e4480c6edd7b79f86261d3a145794fc718333c3c",
+    "scope": {
+      "catalog": 14606,
+      "ordinary": 12825,
+      "preserved": 1781
+    },
+    "independentReview": "Required parent-owned next phase; author may not self-certify it",
+    "native": "not-authorized-not-run"
+  }
+}

@@ -1,4 +1,27 @@
 {
+  "sixNewLocaleCliTasks20261101": {
+    "run": "six-new-locales-20261101-01",
+    "locales": [
+      "ko",
+      "fr",
+      "tr",
+      "pl",
+      "zh-TW",
+      "it"
+    ],
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "maxParallel": 6,
+    "statusPath": "localization/completion/six-new-locales-20261101-01/current-status.json",
+    "liveStatus": "outputs/six-new-locales-20261101-01/author/status.json",
+    "manifest": "localization/completion/six-new-locales-20261101-01/launch-manifest.json",
+    "catalogUnits": 14606,
+    "ordinaryUnits": 12825,
+    "sourcePreserved": 1781,
+    "independentReview": "required subsequent parent-owned phase",
+    "nativeGamePublication": "not-authorized"
+  },
   "japaneseSingleFileLocalization": {
     "status": "game-text-editorial-and-static-serialized-resources-accepted-under-pinned-glossary-and-owner-poetic-decision",
     "locale": "ja",

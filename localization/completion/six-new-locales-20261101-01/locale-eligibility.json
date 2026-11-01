@@ -1,0 +1,27 @@
+{
+  "catalog": {
+    "path": "/Users/antonkrutov/Desktop/SiteForMods/lib/language-data/site-locales.ts",
+    "sha256": "7394141eacabf515a99e0fbf7788ed613a7c3ae26ef81ad859104fe0bf315463",
+    "bytes": 2390
+  },
+  "productionAudit": {
+    "path": "outputs/six-locales-content-audit-20261101.json",
+    "sha256": "4df9152cfbd626d2e0751fb302a482bfab7d054fe64c93505387fb8b5d6c31b6",
+    "exitCode": 1,
+    "meaning": "Successful content read with missing screenshot/social findings, not transport failure"
+  },
+  "logic": {
+    "path": "/Users/antonkrutov/Desktop/SiteForMods/features/content-audit/domain/content-audit.ts",
+    "sha256": "0264e77c0fd90a2ed6aa882fdc6cd06252cebf267a20275f09165d3ca8e47139",
+    "bytes": 11184
+  },
+  "selected": [
+    "ko",
+    "fr",
+    "tr",
+    "pl",
+    "zh-TW",
+    "it"
+  ],
+  "inference": "Each selected locale appears in the live target-only missing-screenshot findings; this path excludes source, official and disabled locales. No production write. Steam page returned login and adds no language evidence."
+}

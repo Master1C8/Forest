@@ -1,3 +1,14 @@
+# Six new locale tasks
+
+Six new locale-owned CLI tasks are configured for Korean, French, Turkish,
+Polish, Traditional Chinese and Italian. Each uses the complete common v2 source,
+its own pinned glossary and a fresh Sol/high/OpenAI process. Their current
+[dispatch status](localization/completion/six-new-locales-20261101-01/current-status.json)
+and [run instructions](localization/completion/six-new-locales-20261101-01/README.md)
+separate preparation, actual running processes, primary editing and independent
+acceptance. New language seeds retain12,825 null targets until authored; they are
+not completed translations. Existing accepted locales and stopped queues remain.
+
 # Japanese single-file localization
 
 Japanese now has a complete 14,606-entry file for the shared v2 compiler, with

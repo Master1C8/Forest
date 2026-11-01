@@ -1,0 +1,60 @@
+{
+  "run": "six-new-locales-20261101-01",
+  "stage": "author",
+  "authority": "поставь 6 параллельных cli задач для новых языков; six new locale-owned CLI author tasks; no nested models/technical stream/runtime/publication",
+  "lanes": [
+    {
+      "locale": "ko",
+      "culture": "ko-KR",
+      "label": "Korean",
+      "phase": "outputs/six-new-locales-20261101-01/ko/author-01",
+      "language": "localization/languages/ko.json",
+      "initialSha256": "331e16704d0b0f461a80fc8c35247c67f7bb3157fc4d8d016431d1f84e456b9d"
+    },
+    {
+      "locale": "fr",
+      "culture": "fr-FR",
+      "label": "French",
+      "phase": "outputs/six-new-locales-20261101-01/fr/author-01",
+      "language": "localization/languages/fr.json",
+      "initialSha256": "a50dbb64ec06da449c6a6f2e945a05763af4bdbfcf533643f8d366af958a8692"
+    },
+    {
+      "locale": "tr",
+      "culture": "tr-TR",
+      "label": "Turkish",
+      "phase": "outputs/six-new-locales-20261101-01/tr/author-01",
+      "language": "localization/languages/tr.json",
+      "initialSha256": "a774c9463ddeded881c9da673b58778ff79fb3ecc9035012dae238595da6f221"
+    },
+    {
+      "locale": "pl",
+      "culture": "pl-PL",
+      "label": "Polish",
+      "phase": "outputs/six-new-locales-20261101-01/pl/author-01",
+      "language": "localization/languages/pl.json",
+      "initialSha256": "a20dcb5343649a352fafdd5e1a256755134d0f4a1285e4c8ec039568c005cf48"
+    },
+    {
+      "locale": "zh-TW",
+      "culture": "zh-TW",
+      "label": "Chinese (Traditional, Taiwan)",
+      "phase": "outputs/six-new-locales-20261101-01/zh-TW/author-01",
+      "language": "localization/languages/zh-TW.json",
+      "initialSha256": "c0805f8429a383d3d7f9cd41662bafbac264133071e257b760dc9165c47b3be8"
+    },
+    {
+      "locale": "it",
+      "culture": "it-IT",
+      "label": "Italian",
+      "phase": "outputs/six-new-locales-20261101-01/it/author-01",
+      "language": "localization/languages/it.json",
+      "initialSha256": "4755091147d75c7213677cacf8dac29fc549381fa3f1a23b197179a7599cda36"
+    }
+  ],
+  "maxConcurrentModelProcesses": 6,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}
