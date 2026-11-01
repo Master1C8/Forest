@@ -1,0 +1,42 @@
+{
+  "predicate": "Preserve exact ADVICE space prefix and independently review only translated question wording; do not claim prefix is hidden or stripped.",
+  "authority": "Existing exact accepted source dispositions and shared compiler guard; target is not authorized to remove or translate the protected source prefix.",
+  "records": [
+    {
+      "id": "ds:228:161:Dialogue Text",
+      "sourceSha256": "8bca5fff8da363b10c5f48b84938e1330af8aba9fca59561fedb583a19714775",
+      "disposition": "translatable-display-with-preserved-prefix",
+      "preservePrefix": "ADVICE ",
+      "reason": "Player question linked from PRIMARY to Scarlett response. Nonempty Dialogue Text supplies both subtitle and response text if entered. Preserve the exact ADVICE service-looking prefix conservatively under the owner prefix rule; no claim that FormattedText removes it. Translate the question only. These legacy advice conversations lack arc suffixes; actual manifest use remains unverified."
+    },
+    {
+      "id": "ds:227:180:Dialogue Text",
+      "sourceSha256": "a606eb24d1af679007bc56a887b5da12dac1f08d4fcde5613680a4507ca3e9cf",
+      "disposition": "translatable-display-with-preserved-prefix",
+      "preservePrefix": "ADVICE ",
+      "reason": "Player question linked from PRIMARY to Scarlett response. Nonempty Dialogue Text supplies both subtitle and response text if entered. Preserve the exact ADVICE service-looking prefix conservatively under the owner prefix rule; no claim that FormattedText removes it. Translate the question only. These legacy advice conversations lack arc suffixes; actual manifest use remains unverified."
+    }
+  ],
+  "regressions": [
+    {
+      "id": "ds:228:161:Dialogue Text",
+      "positiveExactCurrentItalianTarget": true,
+      "negativeRemovedPrefixRejected": true,
+      "expectedRejection": "dialogue-protected-prefix:ds:228:161:Dialogue Text"
+    },
+    {
+      "id": "ds:227:180:Dialogue Text",
+      "positiveExactCurrentItalianTarget": true,
+      "negativeRemovedPrefixRejected": true,
+      "expectedRejection": "dialogue-protected-prefix:ds:227:180:Dialogue Text"
+    }
+  ],
+  "pins": {
+    "localization/ru-assets/source-dispositions.json": "b2663e2596e1bba89323f29682170b61a7d39b73811adf8574adedc815f9e173",
+    "localization/completion/russian-owner-baseline-20261030-01/acceptance.json": "f959bfa2c2d45a34b199d8ba6b68cb78d62ca2d55762b31135a5bcef9161212a",
+    "tools/forest_localization/core.py": "3c22471845f8b2b2c45e86b63e5d24893b8babbe66c5a7e514aa283cfad32f51",
+    "localization/ru-assets/inline_guard.py": "de0f118efefd807f081c23d2812c6c1ecae24be7bdc65ece5f1a2f431fe52d21"
+  },
+  "runtimeDisplayBoundary": "Actual use/display/stripping remains unverified and is not required to preserve this accepted source identity. No runtime or native acceptance added.",
+  "sourceSelectorRepair": "Attach exact non-default source dispositions to the review context; plain source/target rows alone had omitted this existing requirement."
+}
