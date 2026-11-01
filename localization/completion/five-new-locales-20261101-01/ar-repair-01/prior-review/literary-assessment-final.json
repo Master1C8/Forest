@@ -1,0 +1,146 @@
+{
+  "language": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/language-final-v1.json",
+    "sha256": "e49097a062874e6ea4413951e2ae92dca0ab4bae51edc37a9502a9dacdc8f322"
+  },
+  "all27ActualCompositionJudgments": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/haiku-independent-judgments.json",
+    "sha256": "0da1a40c401fa29124f56b5f2dcba247a7aae0f1ed1c5f07aac39a7195b9b5da"
+  },
+  "complete302and303Read": true,
+  "pairedLabelsRead": 9,
+  "compositionsRead": 27,
+  "identityCheck": {
+    "named": 3,
+    "mixed": 24,
+    "actualGameCallbacks": false
+  },
+  "selectableLineReadings": [
+    {
+      "id": "ds:303:325:Dialogue Text",
+      "target": "صُغْنَا هَذِي الأَرْضْ",
+      "reading": "sugh.naa.haa.dhil.ard",
+      "syllables": 5,
+      "targetSha256": "0a04156bf34f9f71b262946c40a20e91aa999a3022be517bf72e77893998fb7c"
+    },
+    {
+      "id": "ds:303:326:Dialogue Text",
+      "target": "فَوْقَ مِيَاهٍ هَاجَتْ",
+      "reading": "faw.qa.mi.yaa.hin.haa.jat",
+      "syllables": 7,
+      "targetSha256": "16a8f94ef79e03181220c73eed91a1ffaaf4eeae4fe1295105cd004215ddcea7"
+    },
+    {
+      "id": "ds:303:327:Dialogue Text",
+      "target": "لِنَجْمَعَ الصَّحْبْ",
+      "reading": "li.naj.ma.as.sahb",
+      "syllables": 5,
+      "targetSha256": "6f6b1677428d15159e42a9699b4ad7322f049a7751b502543cc3dda9085dfb92"
+    },
+    {
+      "id": "ds:303:406:Dialogue Text",
+      "target": "يَا صَقْرَةَ الحُسْنْ",
+      "reading": "yaa.saq.ra.tal.husn",
+      "syllables": 5,
+      "targetSha256": "344315be2b0ed76d53b7830012bece6c0c8beffa4905d531e689288cf6ec7504"
+    },
+    {
+      "id": "ds:303:407:Dialogue Text",
+      "target": "خُذِينِي فَوْقَ السُّحُبْ",
+      "reading": "khu.dhii.nii.faw.qas.su.hub",
+      "syllables": 7,
+      "targetSha256": "1c84e4902a02db30903baeaf866a8672f5f8dbd5012a50e0940600293142d7c2"
+    },
+    {
+      "id": "ds:303:408:Dialogue Text",
+      "target": "لَمْ يَبْلُغْهُ حَيّْ",
+      "reading": "lam.yab.lugh.hu.hayy",
+      "syllables": 5,
+      "targetSha256": "167e1f2595edc4403c7bd24ce410cb60bff7a6c8cc792b7adf2da8ec53608d79"
+    },
+    {
+      "id": "ds:303:410:Dialogue Text",
+      "target": "كَدْحُ حُشَيْرَةْ",
+      "reading": "kad.hu.hu.shay.rah",
+      "syllables": 5,
+      "targetSha256": "11f3db7f9bb92cae9bc2232d580e4b723c5f15afdf19bd44bc34dc2aa5c9de1d"
+    },
+    {
+      "id": "ds:303:411:Dialogue Text",
+      "target": "مَا الَّذِي يُهِمُّكِ؟",
+      "reading": "maal.la.dhii.yu.him.mu.ki",
+      "syllables": 7,
+      "targetSha256": "e85b161cf7e011443f38515547f55112a27514b35d23f90e9e7fe75374179bbf"
+    },
+    {
+      "id": "ds:303:412:Dialogue Text",
+      "target": "لِمَ الكَدْحُ الآنْ؟",
+      "reading": "li.mal.kad.hul.aan",
+      "syllables": 5,
+      "targetSha256": "7fa8354e7b1b7bd0ba7db944db2d91137fa81cddaafdb77f6ff7769a39135c13"
+    }
+  ],
+  "readingConvention": "Syllabic connected MSA; line-final pause; not quantitative arud. Final clusters counted within one syllable. Written vowels and ordinary connected forms remain required.",
+  "playerPoemFinding": {
+    "id": "ds:302:504:Dialogue Text",
+    "current": "hul.wa.taa.ni.hu.naa",
+    "syllables": 6,
+    "proposed": "hu.naa.hul.wa.taan",
+    "proposedSyllables": 5,
+    "reason": "Medial pausal nun is inconsistent with the declared connected reading; moving here to the start permits legitimate final pause."
+  },
+  "suppliedCompensations": [
+    {
+      "ids": [
+        "ds:139:182:Dialogue Text"
+      ],
+      "verdict": "linked-finding",
+      "rationale": "أحضان/فروج نسوان preserves cuddle/sex alternatives and target -an rhyme; dependent180 still names ريشة, which does not rhyme. Repair the whole target slogan chain."
+    },
+    {
+      "ids": [
+        "ds:169:195:Dialogue Text"
+      ],
+      "verdict": "pass",
+      "rationale": "Source beaver/vagina pun remains explicitly explained as a borrowed double meaning without changing character species."
+    },
+    {
+      "ids": [
+        "ds:408:19:Dialogue Text",
+        "ds:593:658:Dialogue Text"
+      ],
+      "verdict": "pass",
+      "rationale": "قاتلة / قاتلة في الفراش retains prowess and sexual role in both full story contexts; no killing event invented."
+    },
+    {
+      "ids": [
+        "ds:136:199:Dialogue Text"
+      ],
+      "verdict": "pass",
+      "rationale": "Business and sexual knot resolution remain coupled with rope/body context; no new participant or sexual act invented."
+    },
+    {
+      "ids": [
+        "ds:492:848:Dialogue Text"
+      ],
+      "verdict": "pass",
+      "rationale": "تخرج / تخرج ما لديها uses vocalized contrast and sexual context to retain come/go double sense, without changing firefly collection action."
+    },
+    {
+      "ids": [
+        "ds:331:657:Dialogue Text"
+      ],
+      "verdict": "pass",
+      "rationale": "Feast versus between-thighs interpretation retains eat-out sexual direction toward Mabel and the joke response."
+    },
+    {
+      "ids": [
+        "ds:524:871:Dialogue Text",
+        "ds:524:872:Dialogue Text"
+      ],
+      "verdict": "pass",
+      "rationale": "رجولة / عصارة رجولتي retains courage/semen joke in the fully read Fen scene, with actual masculine identity and response intact."
+    }
+  ],
+  "boundary": "Literary policy allows implicit rhetorical/evaluative compensation, not factual loss, invented identities, promoted mixed outcomes or a meter waiver. Native rendering/evaluation untested."
+}

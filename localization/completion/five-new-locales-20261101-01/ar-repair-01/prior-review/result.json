@@ -1,0 +1,79 @@
+{
+  "status": "complete-review-with-findings",
+  "taskClass": "independent-semantic-review",
+  "locale": "ar",
+  "reviewerThreadId": "01a198b6-2d9c-7b23-979b-53a3b440d23b",
+  "runtime": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/runtime-verification.json",
+    "sha256": "b61be0b91bb2d492d94da43e1b9b8e0974422fa513ade61db3c12398ce08c718"
+  },
+  "language": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/language-final-v1.json",
+    "sha256": "e49097a062874e6ea4413951e2ae92dca0ab4bae51edc37a9502a9dacdc8f322"
+  },
+  "reviewPacket": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/independent-review-v1/review-packet.jsonl",
+    "sha256": "1a36dac513c5d09b7c5552a486f7c985f27e1b2a2a227194203bea029c0c334d"
+  },
+  "context": [
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/source-target-context-final-v1.jsonl",
+      "sha256": "898ee6cab39547bf9049716c5ab2ffb8bc79c67937f0e41a0f0d2bfc30e07f97"
+    }
+  ],
+  "glossary": {
+    "path": "localization/completion/five-new-locales-20261101-01/ar/glossary.json",
+    "sha256": "0d5e125b272afe6864202ef26f9380bfe7f6ffa892245f09b5e880394a65fd3e"
+  },
+  "sourceGlossary": {
+    "path": "localization/completion/five-new-locales-20261101-01/glossary-en.json",
+    "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+  },
+  "primaryTotal": 12825,
+  "primaryRead": 12825,
+  "primaryUnread": 0,
+  "coverageComplete": true,
+  "fullContextComplete": true,
+  "controlContextTotal": 1781,
+  "controlContextLinguisticAcceptance": false,
+  "verdictCounts": {
+    "pass": 12803,
+    "needs-review": 22
+  },
+  "findingCount": 22,
+  "casesAssessed": 23,
+  "glossaryEntriesRead": 171,
+  "haikuPairsAssessed": 9,
+  "haikuCompositionsAssessed": 27,
+  "cleanEditorialAcceptance": false,
+  "repairsApplied": false,
+  "exactRepairedDeltaAcceptance": "pending-parent-adjudication-and-repair",
+  "artifacts": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/artifact-manifest.json",
+    "sha256": "3d2e7f05bda7deb3e674e2a21aabb651995e83a121c99ef3c739e1a0465ce080"
+  },
+  "judgments": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/judgments-final.jsonl",
+    "sha256": "0379ef95732d3751672b950215f224c88a82c09e9bb8c449fd692142335b6aec"
+  },
+  "findings": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/findings-final.json",
+    "sha256": "3143b052dc29710ce9aae4d3af00b7b7170f28501e6333ce1ee89625304e5c6c"
+  },
+  "repairHandoff": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/repair-handoff-final.json",
+    "sha256": "bfee4849cc90c2696d70925147a2509a940efc701f8fb478a983a0033ca6303c"
+  },
+  "usage": {
+    "path": "outputs/five-new-locales-20261101-01/ar/independent-01/usage-final.json",
+    "sha256": "a37df1dd8cc2b8586e9d24d39485c5935413a964170d368c0bdef4605a6f34d9"
+  },
+  "preservedBoundaries": "Only this output directory written. No nested model/agent, inherited history, Git, old queue, shared target writes, game/GUI/screenshot/build/installer/publication/deployment/server action.",
+  "notAccepted": [
+    "human glossary approval",
+    "font/shaping/Bidi or native layout",
+    "actual game evaluation/runtime",
+    "installer/release"
+  ],
+  "nextAction": "Parent adjudicates the consolidated22-row handoff, applies accepted fixes and obtains exact version-matching independent delta review. Unchanged reviewed rows remain reusable by fingerprint."
+}
