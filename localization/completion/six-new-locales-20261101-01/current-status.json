@@ -1,6 +1,6 @@
 {
-  "status": "all-six-independent-editorial-closed-local-builds-running",
-  "checkedAtUTC": "2026-11-01T13:37:03.091518+00:00",
+  "status": "all-six-wording-and-local-resource-builds-complete",
+  "checkedAtUTC": "2026-11-01T14:09:57.419026+00:00",
   "lanes": [
     {
       "locale": "ko",
@@ -24,7 +24,11 @@
       "finalDeltaReviewed": 0,
       "openModelFindings": 0,
       "editorialClosure": "localization/completion/six-new-locales-20261101-01/editorial-closure/ko.json",
-      "finalLanguageSha256": "a2d004b678708cdfa10812ab8494fb5d440a4acb15a3971d6e75b9592c17055e"
+      "finalLanguageSha256": "a2d004b678708cdfa10812ab8494fb5d440a4acb15a3971d6e75b9592c17055e",
+      "compiledArtifact": "dist/Forest-ko-single-file-final-20261101-01",
+      "compileAndReadback": "passed",
+      "installed": false,
+      "nativeAcceptance": false
     },
     {
       "locale": "fr",
@@ -48,7 +52,11 @@
       "finalDeltaReviewed": 0,
       "openModelFindings": 0,
       "editorialClosure": "localization/completion/six-new-locales-20261101-01/editorial-closure/fr.json",
-      "finalLanguageSha256": "b266862ad63c6fb753c0eaa861826ae20c75386b2648f2d85e6cc8b4b5023a62"
+      "finalLanguageSha256": "b266862ad63c6fb753c0eaa861826ae20c75386b2648f2d85e6cc8b4b5023a62",
+      "compiledArtifact": "dist/Forest-fr-single-file-final-20261101-01",
+      "compileAndReadback": "passed",
+      "installed": false,
+      "nativeAcceptance": false
     },
     {
       "locale": "tr",
@@ -72,7 +80,11 @@
       "finalDeltaReviewed": 0,
       "openModelFindings": 0,
       "editorialClosure": "localization/completion/six-new-locales-20261101-01/editorial-closure/tr.json",
-      "finalLanguageSha256": "0189623c3ae76c08137ad64c02440522d1df9cf4c877c6ddcacd51ec7b9bbbad"
+      "finalLanguageSha256": "0189623c3ae76c08137ad64c02440522d1df9cf4c877c6ddcacd51ec7b9bbbad",
+      "compiledArtifact": "dist/Forest-tr-single-file-final-20261101-01",
+      "compileAndReadback": "passed",
+      "installed": false,
+      "nativeAcceptance": false
     },
     {
       "locale": "pl",
@@ -96,7 +108,11 @@
       "finalDeltaReviewed": 0,
       "openModelFindings": 0,
       "editorialClosure": "localization/completion/six-new-locales-20261101-01/editorial-closure/pl.json",
-      "finalLanguageSha256": "0f7164457ed7136125c8f3e710e5eebc7ff470cbaf685b29d0e3a6f4e554761a"
+      "finalLanguageSha256": "0f7164457ed7136125c8f3e710e5eebc7ff470cbaf685b29d0e3a6f4e554761a",
+      "compiledArtifact": "dist/Forest-pl-single-file-final-20261101-01",
+      "compileAndReadback": "passed",
+      "installed": false,
+      "nativeAcceptance": false
     },
     {
       "locale": "zh-TW",
@@ -119,7 +135,11 @@
       "openModelFindings": 0,
       "finalIndependentPending": 0,
       "editorialClosure": "localization/completion/six-new-locales-20261101-01/editorial-closure/zh-TW.json",
-      "finalLanguageSha256": "9821c9b8565fc17962d5b7c11750e3dd63409161597029fae5af18d564f796b3"
+      "finalLanguageSha256": "9821c9b8565fc17962d5b7c11750e3dd63409161597029fae5af18d564f796b3",
+      "compiledArtifact": "dist/Forest-zh-TW-single-file-final-20261101-01",
+      "compileAndReadback": "passed",
+      "installed": false,
+      "nativeAcceptance": false
     },
     {
       "locale": "it",
@@ -143,7 +163,11 @@
       "openModelFindings": 0,
       "finalIndependentPending": 0,
       "editorialClosure": "localization/completion/six-new-locales-20261101-01/editorial-closure/it.json",
-      "finalLanguageSha256": "1bb3e4b4e401f25cd680bb55977476754f649b4a565211aef5823cf806936cf9"
+      "finalLanguageSha256": "1bb3e4b4e401f25cd680bb55977476754f649b4a565211aef5823cf806936cf9",
+      "compiledArtifact": "dist/Forest-it-single-file-final-20261101-01",
+      "compileAndReadback": "passed",
+      "installed": false,
+      "nativeAcceptance": false
     }
   ],
   "model": "gpt-6.1-sol",
@@ -264,7 +288,7 @@
     }
   ],
   "independentStatusIndex": "localization/completion/six-new-locales-20261101-01/independent/status-index.json",
-  "snapshotMeaning": "All six model-independent wording passes complete. Human NSFW remains owner-deferred; local deterministic builds are progressing and no game/native/release acceptance is claimed.",
+  "snapshotMeaning": "Completed independent model wording review and deterministic local compiler/readback only. Native game/font/layout testing and installation/release/publication are not performed. Human NSFW glossary remains owner-deferred.",
   "activeStatusIndex": "localization/completion/six-new-locales-20261101-01/final-delta/status-index.json",
   "italianRecovery": {
     "priorPhase": "outputs/six-new-locales-20261101-01/it/independent-01",
@@ -283,5 +307,7 @@
     ]
   },
   "modelWorkersRunning": 0,
-  "compilerStatus": "outputs/six-new-locales-20261101-01/compiled-final/status.json"
+  "compilerStatus": "outputs/six-new-locales-20261101-01/compiled-final/status.json",
+  "buildProcessesRunning": 0,
+  "compiledDeliveryReceipt": "localization/completion/six-new-locales-20261101-01/editorial-closure/compiled-delivery.json"
 }
