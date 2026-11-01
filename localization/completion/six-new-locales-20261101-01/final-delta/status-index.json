@@ -9,13 +9,14 @@
       "assigned": 14,
       "pid": 59917,
       "threadId": "01a1972c-029e-7130-8c8b-ccc3eecc3ed0",
-      "status": "running",
+      "status": "finished",
       "runtimeVerified": true,
       "statusPath": "outputs/six-new-locales-20261101-01/tr-delta-review-01/status.json",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
-      "freshExecNoParentHistory": true
+      "freshExecNoParentHistory": true,
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/tr/delta-review-01/process-exit.json"
     },
     {
       "locale": "fr",
@@ -26,13 +27,14 @@
       "assigned": 11,
       "pid": 59918,
       "threadId": "01a1972c-0325-7fe2-9964-5b256d411d26",
-      "status": "running",
+      "status": "finished",
       "runtimeVerified": true,
       "statusPath": "outputs/six-new-locales-20261101-01/fr-delta-review-01/status.json",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
-      "freshExecNoParentHistory": true
+      "freshExecNoParentHistory": true,
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/fr/delta-review-01/process-exit.json"
     },
     {
       "locale": "pl",
@@ -43,13 +45,14 @@
       "assigned": 5,
       "pid": 59919,
       "threadId": "01a1972c-0326-7302-813f-37579d842d89",
-      "status": "running",
+      "status": "finished",
       "runtimeVerified": true,
       "statusPath": "outputs/six-new-locales-20261101-01/pl-delta-review-01/status.json",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
-      "freshExecNoParentHistory": true
+      "freshExecNoParentHistory": true,
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/pl/delta-review-01/process-exit.json"
     },
     {
       "locale": "ko",
@@ -60,13 +63,14 @@
       "assigned": 14,
       "pid": 59960,
       "threadId": "01a1972c-042d-7180-9a6e-04dd365d63bc",
-      "status": "running",
+      "status": "finished",
       "runtimeVerified": true,
       "statusPath": "outputs/six-new-locales-20261101-01/ko-delta-review-01/status.json",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
-      "freshExecNoParentHistory": true
+      "freshExecNoParentHistory": true,
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/ko/delta-review-01/process-exit.json"
     },
     {
       "locale": "zh-TW",
@@ -77,13 +81,15 @@
       "assigned": 35,
       "pid": 62824,
       "threadId": "01a1972d-b540-71d2-ba4b-d96d8da67a37",
-      "status": "running",
+      "status": "finished",
       "runtimeVerified": true,
       "statusPath": "outputs/six-new-locales-20261101-01/zh-TW-correction-01/status.json",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
-      "freshExecNoParentHistory": true
+      "freshExecNoParentHistory": true,
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/zh-TW/correction-01/process-exit.json",
+      "nextPhase": "outputs/six-new-locales-20261101-01/zh-TW/delta-review-01"
     },
     {
       "locale": "it",
@@ -94,16 +100,57 @@
       "assigned": 5,
       "pid": 62971,
       "threadId": "01a1972d-bae4-7ab1-a704-b309adc612b4",
-      "status": "running",
+      "status": "finished",
       "runtimeVerified": true,
       "statusPath": "outputs/six-new-locales-20261101-01/it-correction-01/status.json",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
-      "freshExecNoParentHistory": true
+      "freshExecNoParentHistory": true,
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/it/correction-01/process-exit.json",
+      "nextPhase": "outputs/six-new-locales-20261101-01/it/delta-review-01"
     }
   ],
   "streamCap": 6,
-  "atUTC": "2026-11-01T12:56:30.810515+00:00",
-  "priorRegistry": "localization/completion/six-new-locales-20261101-01/followups/status-index.json"
+  "atUTC": "2026-11-01T13:37:03.091518+00:00",
+  "priorRegistry": "localization/completion/six-new-locales-20261101-01/followups/status-index.json",
+  "completedFinalDeltas": [
+    {
+      "locale": "zh-TW",
+      "phase": "outputs/six-new-locales-20261101-01/zh-TW/delta-review-01",
+      "control": "localization/completion/six-new-locales-20261101-01/final-delta/zh-TW",
+      "stage": "zh-TW-delta-review-01",
+      "kind": "independent-final-delta",
+      "assigned": 39,
+      "pid": 84833,
+      "threadId": "01a19746-6881-78e3-a523-59c0b36d761b",
+      "status": "finished",
+      "runtimeVerified": true,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "statusPath": "outputs/six-new-locales-20261101-01/zh-TW-delta-review-01/status.json",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/zh-TW/delta-review-01/process-exit.json"
+    },
+    {
+      "locale": "it",
+      "phase": "outputs/six-new-locales-20261101-01/it/delta-review-01",
+      "control": "localization/completion/six-new-locales-20261101-01/final-delta/it",
+      "stage": "it-delta-review-01",
+      "kind": "independent-final-delta",
+      "assigned": 7,
+      "pid": 84828,
+      "threadId": "01a19746-67ef-7312-a8c5-6f4ded368e6b",
+      "status": "finished",
+      "runtimeVerified": true,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "statusPath": "outputs/six-new-locales-20261101-01/it-delta-review-01/status.json",
+      "terminalReceipt": "outputs/six-new-locales-20261101-01/it/delta-review-01/process-exit.json"
+    }
+  ],
+  "status": "all-model-editorial-work-complete"
 }
