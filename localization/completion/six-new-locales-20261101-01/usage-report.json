@@ -1,0 +1,124 @@
+{
+  "cutoffAtUTC": "2026-11-01T06:15:57.098602+00:00",
+  "workers": [
+    {
+      "locale": "ko",
+      "threadId": "01a195bf-103b-7481-a7ef-93de694045e4",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "status": "running-not-final",
+      "usage": {
+        "input_tokens": 671325,
+        "cached_input_tokens": 595200,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2072,
+        "reasoning_output_tokens": 170,
+        "total_tokens": 673397
+      },
+      "scope": "Fresh-thread cumulative snapshot; terminal usage replaces this snapshot, never add both"
+    },
+    {
+      "locale": "fr",
+      "threadId": "01a195bf-2b52-7ba2-847d-99f6c03b4dd4",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "status": "running-not-final",
+      "usage": {
+        "input_tokens": 418691,
+        "cached_input_tokens": 366080,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1495,
+        "reasoning_output_tokens": 35,
+        "total_tokens": 420186
+      },
+      "scope": "Fresh-thread cumulative snapshot; terminal usage replaces this snapshot, never add both"
+    },
+    {
+      "locale": "tr",
+      "threadId": "01a195bf-3dfa-7de0-a71c-94e3f75deb03",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "status": "running-not-final",
+      "usage": {
+        "input_tokens": 492020,
+        "cached_input_tokens": 430464,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1883,
+        "reasoning_output_tokens": 128,
+        "total_tokens": 493903
+      },
+      "scope": "Fresh-thread cumulative snapshot; terminal usage replaces this snapshot, never add both"
+    },
+    {
+      "locale": "pl",
+      "threadId": "01a195bf-5373-7872-be28-6ff9d79d3d87",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "status": "running-not-final",
+      "usage": {
+        "input_tokens": 271545,
+        "cached_input_tokens": 226304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1689,
+        "reasoning_output_tokens": 158,
+        "total_tokens": 273234
+      },
+      "scope": "Fresh-thread cumulative snapshot; terminal usage replaces this snapshot, never add both"
+    },
+    {
+      "locale": "zh-TW",
+      "threadId": "01a195bf-67fd-7741-97a7-3216c3f8127a",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "status": "running-not-final",
+      "usage": {
+        "input_tokens": 148599,
+        "cached_input_tokens": 119552,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1084,
+        "reasoning_output_tokens": 15,
+        "total_tokens": 149683
+      },
+      "scope": "Fresh-thread cumulative snapshot; terminal usage replaces this snapshot, never add both"
+    },
+    {
+      "locale": "it",
+      "threadId": "01a195bf-7ce7-7fb0-a062-4cebbd62ddab",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "status": "running-not-final",
+      "usage": {
+        "input_tokens": 320866,
+        "cached_input_tokens": 273280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1386,
+        "reasoning_output_tokens": 84,
+        "total_tokens": 322252
+      },
+      "scope": "Fresh-thread cumulative snapshot; terminal usage replaces this snapshot, never add both"
+    }
+  ],
+  "coordinator": {
+    "threadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usage": {
+      "input_tokens": 6589954,
+      "cached_input_tokens": 6518144,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 24833,
+      "reasoning_output_tokens": 11049,
+      "total_tokens": 6614787
+    },
+    "scope": "Partial shared orchestration for all six tasks: preparation, input checks, dispatch, initial monitoring and accounting; no fabricated per-locale split",
+    "unmeasured": "Initial prerequisite work before baseline, final Git/verification/reporting tail and platform overhead unknown"
+  },
+  "subsets": "Cached input is part of input, reasoning output part of output. Running snapshots are not final or charges. Unknown telemetry is not zero; descendants prohibited."
+}
