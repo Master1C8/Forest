@@ -1,6 +1,6 @@
 {
-  "status": "five-owner-resumed-cli-authors-running",
-  "atUTC": "2026-11-01T16:37:44.338480+00:00",
+  "status": "four-authors-and-one-independent-review-running",
+  "atUTC": "2026-11-01T20:04:43.129582+00:00",
   "lanes": [
     {
       "locale": "th",
@@ -76,21 +76,27 @@
     },
     {
       "locale": "ar",
-      "phase": "outputs/five-new-locales-20261101-01/ar/author-03",
-      "pid": 48051,
-      "threadId": "01a197f7-e4a1-78c1-8602-a63719494589",
+      "phase": "outputs/five-new-locales-20261101-01/ar/independent-01",
+      "pid": 98190,
+      "threadId": "01a198b6-2d9c-7b23-979b-53a3b440d23b",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
       "inheritedHistory": false,
       "runtimeVerified": true,
-      "status": "running",
+      "status": "independent-review-running",
       "startedAt": "2026-11-01T16:36:10.460506+00:00",
       "culture": "ar",
       "language": "localization/languages/ar.json",
-      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/ar",
+      "control": "localization/completion/five-new-locales-20261101-01/ar-independent-01",
       "live": true,
-      "initialLanguageSha256": "3502266dc135cecde713f71d578c3577259534ae9168977bb8b96b27ac4180e9"
+      "initialLanguageSha256": "3502266dc135cecde713f71d578c3577259534ae9168977bb8b96b27ac4180e9",
+      "taskClass": "independent-semantic-review",
+      "statusPath": "outputs/five-new-locales-20261101-01/ar-independent-01/status.json",
+      "authorStatus": "review-ready",
+      "authorPhase": "outputs/five-new-locales-20261101-01/ar/author-03",
+      "draftPercent": 100.0,
+      "primaryAuthorRead": 12825
     }
   ],
   "streamCap": 5,
@@ -277,10 +283,30 @@
       "ownerStoppedAtUTC": "2026-11-01T15:17:25.465381+00:00",
       "terminalReceipt": "outputs/five-new-locales-20261101-01/ar/author-02/process-exit.json",
       "savedLanguageSha256": "3502266dc135cecde713f71d578c3577259534ae9168977bb8b96b27ac4180e9"
+    },
+    {
+      "locale": "ar",
+      "phase": "outputs/five-new-locales-20261101-01/ar/author-03",
+      "pid": 48051,
+      "threadId": "01a197f7-e4a1-78c1-8602-a63719494589",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "inheritedHistory": false,
+      "runtimeVerified": true,
+      "status": "author-review-ready",
+      "startedAt": "2026-11-01T16:36:10.460506+00:00",
+      "culture": "ar",
+      "language": "localization/languages/ar.json",
+      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/ar",
+      "live": false,
+      "initialLanguageSha256": "3502266dc135cecde713f71d578c3577259534ae9168977bb8b96b27ac4180e9",
+      "terminalReceipt": "outputs/five-new-locales-20261101-01/ar/author-03/process-exit.json"
     }
   ],
   "ownerStopReceipt": "outputs/five-new-locales-20261101-01/owner-stop-20261101/stop-receipt.json",
   "resumeRequiresOwnerInstruction": false,
   "currentManifest": "localization/completion/five-new-locales-20261101-01/owner-resume-01/launch-manifest.json",
-  "cleanupReceipt": "outputs/five-new-locales-20261101-01/cleanup-20261101/receipt.json"
+  "cleanupReceipt": "outputs/five-new-locales-20261101-01/cleanup-20261101/receipt.json",
+  "statusResolution": "Use lane.statusPath when present; otherwise liveStatus. Historical author status is not current review activity."
 }
