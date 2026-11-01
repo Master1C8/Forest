@@ -1,0 +1,63 @@
+{
+  "cutoffAtUTC": "2026-11-01T09:16:07.964518+00:00",
+  "completedAuthorPhase": {
+    "exitCode": null,
+    "finishedAt": "2026-11-01T08:59:51.801236+00:00",
+    "modelTurnStatus": "completed",
+    "resultPresent": true,
+    "processAbsent": true,
+    "usage": {
+      "input_tokens": 68795590,
+      "cached_input_tokens": 66953600,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 332141,
+      "reasoning_output_tokens": 47278,
+      "total_tokens": 69127731
+    },
+    "baselineUsage": {
+      "input_tokens": 13519058,
+      "cached_input_tokens": 13294464,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 88899,
+      "reasoning_output_tokens": 50192,
+      "total_tokens": 13607957
+    },
+    "finalCumulativeUsage": {
+      "input_tokens": 82314648,
+      "cached_input_tokens": 80248064,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 421040,
+      "reasoning_output_tokens": 97470,
+      "total_tokens": 82735688
+    },
+    "telemetry": "Recovered nonoverlapping delta; OS exit code unavailable after observer loss"
+  },
+  "reviewer": {
+    "threadId": "01a19662-ffc7-71e0-9c82-9dcde9b0e61e",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "state": "running-not-final",
+    "usage": {
+      "input_tokens": 982646,
+      "cached_input_tokens": 867456,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4625,
+      "reasoning_output_tokens": 1011,
+      "total_tokens": 987271
+    }
+  },
+  "coordinator": {
+    "usage": {
+      "input_tokens": 28451360,
+      "cached_input_tokens": 28301952,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 105434,
+      "reasoning_output_tokens": 54364,
+      "total_tokens": 28556794
+    },
+    "scope": "Partial shared mixed coordination/poetry/continuation/review preparation across all six locale tasks; no duplicated per-locale allocation",
+    "unmeasured": "Initial work before baseline, final integration/reporting tail, unknown platform or aborted-request overhead"
+  },
+  "accounting": "Author02 usage is a nonoverlapping delta after author01, not another cumulative session total. The reviewer is a new independent session. Cache is an input subset; reasoning an output subset. Running counters are snapshots, not final or monetary charges."
+}

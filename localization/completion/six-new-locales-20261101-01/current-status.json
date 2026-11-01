@@ -1,90 +1,66 @@
 {
-  "status": "six-active-original-or-directly-resumed",
-  "checkedAtUTC": "2026-11-01T07:02:52.130633+00:00",
+  "status": "four-author-streams-and-two-independent-reviews",
+  "checkedAtUTC": "2026-11-01T09:20:42.417176+00:00",
   "lanes": [
     {
       "locale": "ko",
-      "filled": 1102,
+      "filled": 12825,
       "total": 12825,
-      "percent": 8.59,
-      "pid": 73308,
-      "phase": "outputs/six-new-locales-20261101-01/ko/author-01",
-      "status": "observing-original",
-      "runtime": {
-        "path": "localization/completion/six-new-locales-20261101-01/continuations/runtime/ko.json",
-        "sha256": "2f53d30072f053aca27b5fb67ae337112c2a8f40648b88059aa8316d0d8cce3d"
-      },
-      "poetryDecisionDelivered": false
+      "percent": 100.0,
+      "kind": "author-primary-editing",
+      "phase": "outputs/six-new-locales-20261101-01/ko/author-02",
+      "pid": 79946,
+      "live": true
     },
     {
       "locale": "fr",
-      "filled": 1259,
+      "filled": 12825,
       "total": 12825,
-      "percent": 9.82,
-      "pid": 77576,
-      "phase": "outputs/six-new-locales-20261101-01/fr/author-02",
-      "status": "running",
-      "runtime": {
-        "path": "localization/completion/six-new-locales-20261101-01/continuations/runtime/fr.json",
-        "sha256": "e1e4878bb7e9801c0eed42ac6bee936406dbf7f43b7674a733b35a9cb0c00615"
-      },
-      "poetryDecisionDelivered": true
+      "percent": 100.0,
+      "kind": "independent-review",
+      "phase": "outputs/six-new-locales-20261101-01/fr/independent-01",
+      "pid": 49565,
+      "live": true
     },
     {
       "locale": "tr",
-      "filled": 1314,
+      "filled": 12825,
       "total": 12825,
-      "percent": 10.25,
-      "pid": 77686,
-      "phase": "outputs/six-new-locales-20261101-01/tr/author-02",
-      "status": "running",
-      "runtime": {
-        "path": "localization/completion/six-new-locales-20261101-01/continuations/runtime/tr.json",
-        "sha256": "2c93136eef56a64e832c6e03d1d4e5668511c1741f2feebf39f6140ec31eaa59"
-      },
-      "poetryDecisionDelivered": true
+      "percent": 100.0,
+      "kind": "independent-review",
+      "phase": "outputs/six-new-locales-20261101-01/tr/independent-01",
+      "pid": 46647,
+      "live": true
     },
     {
       "locale": "pl",
-      "filled": 351,
+      "filled": 10036,
       "total": 12825,
-      "percent": 2.74,
-      "pid": 77795,
+      "percent": 78.25,
+      "kind": "author-primary-editing",
       "phase": "outputs/six-new-locales-20261101-01/pl/author-02",
-      "status": "running",
-      "runtime": {
-        "path": "localization/completion/six-new-locales-20261101-01/continuations/runtime/pl.json",
-        "sha256": "c59d3f4afca572f058e59b99a24b7b52443f53b159e6fd953ff8fe7389ce6f82"
-      },
-      "poetryDecisionDelivered": true
+      "pid": 77795,
+      "live": true
     },
     {
       "locale": "zh-TW",
-      "filled": 629,
+      "filled": 11112,
       "total": 12825,
-      "percent": 4.9,
-      "pid": 73912,
+      "percent": 86.64,
+      "kind": "author-primary-editing",
       "phase": "outputs/six-new-locales-20261101-01/zh-TW/author-01",
-      "status": "observing-original",
-      "runtime": {
-        "path": "localization/completion/six-new-locales-20261101-01/continuations/runtime/zh-TW.json",
-        "sha256": "c915d2dce3e7669188e819c99f8bac918f6fa184ea1a22ba1beab8f227666096"
-      },
-      "poetryDecisionDelivered": false
+      "pid": 73912,
+      "live": true
     },
     {
       "locale": "it",
-      "filled": 321,
+      "filled": 12825,
       "total": 12825,
-      "percent": 2.5,
-      "pid": 78079,
+      "percent": 100.0,
+      "kind": "author-primary-editing",
       "phase": "outputs/six-new-locales-20261101-01/it/author-02",
-      "status": "running",
-      "runtime": {
-        "path": "localization/completion/six-new-locales-20261101-01/continuations/runtime/it.json",
-        "sha256": "3e4d82fc94239d4e832f2248a1d27f57ce9ee07fd15189ea872305c9b097a115"
-      },
-      "poetryDecisionDelivered": true
+      "pid": 78079,
+      "live": true
     }
   ],
   "model": "gpt-6.1-sol",
@@ -102,5 +78,36 @@
     "path": "localization/completion/six-new-locales-20261101-01/continuations/manifest.json",
     "sha256": "6e1fd1fb3031d0fa0a41f78fb8755136fb492a0b2409c36ccf92ed03988226bf"
   },
-  "nativeGamePublication": "not-run-not-authorized"
+  "nativeGamePublication": "not-run-not-authorized",
+  "independentReviews": [
+    {
+      "locale": "tr",
+      "phase": "outputs/six-new-locales-20261101-01/tr/independent-01",
+      "statusPath": "outputs/six-new-locales-20261101-01/tr-independent-01/status.json",
+      "threadId": "01a19662-ffc7-71e0-9c82-9dcde9b0e61e",
+      "pid": 46647,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "assigned": 12825,
+      "protectedContext": 1781,
+      "status": "running"
+    },
+    {
+      "locale": "fr",
+      "phase": "outputs/six-new-locales-20261101-01/fr/independent-01",
+      "statusPath": "outputs/six-new-locales-20261101-01/fr-independent-01/status.json",
+      "threadId": "01a19668-1b00-7740-ba8a-1f62a5c171f3",
+      "pid": 49565,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "assigned": 12825,
+      "protectedContext": 1781,
+      "status": "running"
+    }
+  ],
+  "independentStatusIndex": "localization/completion/six-new-locales-20261101-01/independent/status-index.json"
 }

@@ -1,0 +1,63 @@
+{
+  "cutoffAtUTC": "2026-11-01T09:20:42.417176+00:00",
+  "completedAuthorPhase": {
+    "exitCode": null,
+    "finishedAt": "2026-11-01T09:15:32.809823+00:00",
+    "modelTurnStatus": "completed",
+    "resultPresent": true,
+    "processAbsent": true,
+    "usage": {
+      "input_tokens": 95422946,
+      "cached_input_tokens": 93398400,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 361089,
+      "reasoning_output_tokens": 63303,
+      "total_tokens": 95784035
+    },
+    "baselineUsage": {
+      "input_tokens": 15771959,
+      "cached_input_tokens": 15511936,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 80802,
+      "reasoning_output_tokens": 37836,
+      "total_tokens": 15852761
+    },
+    "finalCumulativeUsage": {
+      "input_tokens": 111194905,
+      "cached_input_tokens": 108910336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 441891,
+      "reasoning_output_tokens": 101139,
+      "total_tokens": 111636796
+    },
+    "telemetry": "Recovered nonoverlapping delta; OS exit code unavailable after observer loss"
+  },
+  "reviewer": {
+    "threadId": "01a19668-1b00-7740-ba8a-1f62a5c171f3",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "state": "running-not-final",
+    "usage": {
+      "input_tokens": 454118,
+      "cached_input_tokens": 382720,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2982,
+      "reasoning_output_tokens": 411,
+      "total_tokens": 457100
+    }
+  },
+  "coordinator": {
+    "usage": {
+      "input_tokens": 30552486,
+      "cached_input_tokens": 30396928,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 114610,
+      "reasoning_output_tokens": 60078,
+      "total_tokens": 30667096
+    },
+    "scope": "Partial shared mixed coordination, direct poetry/continuation work and independent dispatch across all six locales; no duplicated per-locale allocation",
+    "unmeasured": "Initial work before baseline and final integration/reporting tail; unknown aborted-request/platform overhead"
+  },
+  "accounting": "Completed author02 is a nonoverlapping delta, not another cumulative total. Reviewer is a new session. Cache/reasoning are subsets; running counters are not final or money."
+}
