@@ -1,16 +1,19 @@
 {
-  "status": "four-author-streams-and-two-independent-reviews",
-  "checkedAtUTC": "2026-11-01T09:20:42.417176+00:00",
+  "status": "three-author-streams-and-three-independent-reviews",
+  "checkedAtUTC": "2026-11-01T09:59:28.856806+00:00",
   "lanes": [
     {
       "locale": "ko",
       "filled": 12825,
       "total": 12825,
       "percent": 100.0,
-      "kind": "author-primary-editing",
-      "phase": "outputs/six-new-locales-20261101-01/ko/author-02",
-      "pid": 79946,
-      "live": true
+      "kind": "independent-review",
+      "phase": "outputs/six-new-locales-20261101-01/ko/independent-01",
+      "pid": 90554,
+      "live": true,
+      "independentReviewed": 0,
+      "independentPercent": 0.0,
+      "independentFindings": 0
     },
     {
       "locale": "fr",
@@ -20,7 +23,10 @@
       "kind": "independent-review",
       "phase": "outputs/six-new-locales-20261101-01/fr/independent-01",
       "pid": 49565,
-      "live": true
+      "live": true,
+      "independentReviewed": 3700,
+      "independentPercent": 28.85,
+      "independentFindings": 6
     },
     {
       "locale": "tr",
@@ -30,13 +36,16 @@
       "kind": "independent-review",
       "phase": "outputs/six-new-locales-20261101-01/tr/independent-01",
       "pid": 46647,
-      "live": true
+      "live": true,
+      "independentReviewed": 5696,
+      "independentPercent": 44.41,
+      "independentFindings": 5
     },
     {
       "locale": "pl",
-      "filled": 10036,
+      "filled": 12825,
       "total": 12825,
-      "percent": 78.25,
+      "percent": 100.0,
       "kind": "author-primary-editing",
       "phase": "outputs/six-new-locales-20261101-01/pl/author-02",
       "pid": 77795,
@@ -44,9 +53,9 @@
     },
     {
       "locale": "zh-TW",
-      "filled": 11112,
+      "filled": 12825,
       "total": 12825,
-      "percent": 86.64,
+      "percent": 100.0,
       "kind": "author-primary-editing",
       "phase": "outputs/six-new-locales-20261101-01/zh-TW/author-01",
       "pid": 73912,
@@ -67,7 +76,7 @@
   "reasoning": "high",
   "provider": "openai",
   "maxParallel": 6,
-  "sameOriginalThreadIdentities": true,
+  "sameOriginalThreadIdentities": false,
   "liveStatus": "outputs/six-new-locales-20261101-01/continuations/status.json",
   "historicalInitialStatus": "outputs/six-new-locales-20261101-01/author/status.json",
   "poetryDecision": {
@@ -107,7 +116,22 @@
       "assigned": 12825,
       "protectedContext": 1781,
       "status": "running"
+    },
+    {
+      "locale": "ko",
+      "phase": "outputs/six-new-locales-20261101-01/ko/independent-01",
+      "statusPath": "outputs/six-new-locales-20261101-01/ko-independent-01/status.json",
+      "threadId": "01a1968c-6568-73a2-8ee4-377794abfc55",
+      "pid": 90554,
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "freshExecNoParentHistory": true,
+      "assigned": 12825,
+      "protectedContext": 1781,
+      "status": "running"
     }
   ],
-  "independentStatusIndex": "localization/completion/six-new-locales-20261101-01/independent/status-index.json"
+  "independentStatusIndex": "localization/completion/six-new-locales-20261101-01/independent/status-index.json",
+  "snapshotMeaning": "100 percent means drafted target coverage only; editorial, build and runtime acceptance remain separate."
 }
