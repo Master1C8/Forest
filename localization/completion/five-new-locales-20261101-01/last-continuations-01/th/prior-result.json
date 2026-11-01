@@ -1,0 +1,136 @@
+{
+  "outcome": "continue",
+  "summary": "Completed all six authoritative Thai independent findings: accepted and applied six corrections in one preflighted batch; exact final self-reading and deterministic checks passed. Retained12817 version-matching independent passes; eight exact versions await parent-scheduled independent delta. No independent-clean, native, resource or release acceptance.",
+  "progress": {
+    "kind": "edited",
+    "unitIds": [
+      "ds:169:195:Dialogue Text",
+      "ds:297:139:Dialogue Text",
+      "ds:439:836:Dialogue Text",
+      "ds:451:771:Dialogue Text",
+      "ds:457:843:Dialogue Text",
+      "ds:463:736:Dialogue Text"
+    ]
+  },
+  "locale": "th",
+  "language": {
+    "path": "localization/languages/th.json",
+    "sha256": "09f2a6449076534201d4f66a3e8e1881f8fbaaaf24c0d2c79fe986d615fafc07"
+  },
+  "adjudication": {
+    "total": 6,
+    "accepted": 6,
+    "dismissed": 0,
+    "needsDecision": 0
+  },
+  "editorial": {
+    "selfRead": "complete-final-version",
+    "independentRetainedPass": 12817,
+    "independentPendingIds": [
+      "ds:169:194:Dialogue Text",
+      "ds:169:195:Dialogue Text",
+      "ds:297:139:Dialogue Text",
+      "ds:439:836:Dialogue Text",
+      "ds:451:771:Dialogue Text",
+      "ds:457:843:Dialogue Text",
+      "ds:457:845:Dialogue Text",
+      "ds:463:736:Dialogue Text"
+    ],
+    "independentAcceptance": false
+  },
+  "deterministic": {
+    "languageSha256": "09f2a6449076534201d4f66a3e8e1881f8fbaaaf24c0d2c79fe986d615fafc07",
+    "units": 14606,
+    "missing": 0,
+    "sourceEquality": 14606,
+    "preservedExact": 1781,
+    "dialogueControlsChecked": 12246,
+    "pairedHaikuIdentity": "passed-by-shared-load_language",
+    "frameworkFilesVerified": 172,
+    "resourceBuild": false,
+    "native": "not-authorized-not-run"
+  },
+  "evidence": [
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/manifest.json",
+      "sha256": "7ef85d94161cc57921349ca6ba5a5063fd5488e9da13ba397d0ecf6f8eb42209"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/repair-01/final-integrity.json",
+      "sha256": "7e131af9e2f16c2088e6ba3cb6ca377bdb119a10bc25dc3b2252b14750e6d132"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/repair-01/usage-at-handoff.json",
+      "sha256": "c94abe98c0ee941605775204adfd61e801affbb706028a6073dc385fce96a269"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/th/repair-01/repair-addendum.json",
+      "sha256": "43022bad65474f2f4bb8191f5f1fbdbed7aec183d45cd17262cfdfb14f492aef"
+    }
+  ],
+  "nextTask": {
+    "kind": "review",
+    "taskClass": "semantic-review",
+    "executionStage": "independent-repair-delta",
+    "title": "Independently review eight exact Thai repair versions with required bounded context",
+    "brief": "outputs/five-new-locales-20261101-01/th/repair-01/next-independent-delta.md",
+    "briefSha256": "1087fb898c0fa3f9607b50516d29bfdb36e567c88c5f9df11943bfa6bcef4563",
+    "reviewPacket": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/independent-delta/review-packet.jsonl",
+    "reviewPacketSha256": "f84bbcb12e50b7b5c2d770f6d1ae1d8a54678624c3ff33c07c905b3fc9776f9f",
+    "contextPackets": [
+      "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/complete-delta-context.jsonl"
+    ],
+    "scope": {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/independent-delta/scope.json",
+      "sha256": "34dd9a6d0dddeb588710b0a2d50fe6a18114c8b9df4909d72c46a855bb171c66"
+    },
+    "unitIds": [
+      "ds:169:194:Dialogue Text",
+      "ds:169:195:Dialogue Text",
+      "ds:297:139:Dialogue Text",
+      "ds:439:836:Dialogue Text",
+      "ds:451:771:Dialogue Text",
+      "ds:457:843:Dialogue Text",
+      "ds:457:845:Dialogue Text",
+      "ds:463:736:Dialogue Text"
+    ],
+    "requiresParentScheduling": true,
+    "automaticWorkerLaunchAuthorized": false,
+    "freshRuntimeRequired": {
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "provider": "openai",
+      "parentThreadId": null
+    },
+    "entryPins": [
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/language-after.json",
+        "sha256": "09f2a6449076534201d4f66a3e8e1881f8fbaaaf24c0d2c79fe986d615fafc07"
+      },
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/independent-delta/review-packet.jsonl",
+        "sha256": "f84bbcb12e50b7b5c2d770f6d1ae1d8a54678624c3ff33c07c905b3fc9776f9f"
+      },
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/complete-delta-context.jsonl",
+        "sha256": "caae8e7c53a327de9d018c606480e70de06bc1ca562625c88e820f2a96424b67"
+      },
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/independent-delta/scope.json",
+        "sha256": "34dd9a6d0dddeb588710b0a2d50fe6a18114c8b9df4909d72c46a855bb171c66"
+      },
+      {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/repair-01/manifest.json",
+        "sha256": "7ef85d94161cc57921349ca6ba5a5063fd5488e9da13ba397d0ecf6f8eb42209"
+      }
+    ]
+  },
+  "usageEvidence": {
+    "path": "outputs/five-new-locales-20261101-01/th/repair-01/usage-at-handoff.json",
+    "sha256": "c94abe98c0ee941605775204adfd61e801affbb706028a6073dc385fce96a269"
+  },
+  "canonicalGitIntegration": "parent-owned; not performed under explicit no-Git restriction",
+  "native": "not-authorized-not-run",
+  "resourceBuild": "not-authorized-not-run",
+  "releaseAcceptance": false
+}

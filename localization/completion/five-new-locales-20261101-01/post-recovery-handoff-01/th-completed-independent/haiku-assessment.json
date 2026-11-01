@@ -1,0 +1,46 @@
+{
+  "kind": "independent-haiku-literary-context-assessment",
+  "languageSha256": "eac13b70d21180e35a3b102edf775e0f81065764d1ac23edfa2fcaf2c1c6234c",
+  "actuallyRead": {
+    "ordinaryDialogue": 125,
+    "managedPairs": 9,
+    "protectedAnnotations": 69,
+    "fullSourceNodes": 259,
+    "completeCompositions": 27,
+    "namedOutcomes": 3,
+    "mixedOutcomes": 24
+  },
+  "verdict": "pass-static-editorial",
+  "rationale": "Independently read every exact source/target/context in these complete scenes and all9 managed evaluation labels.299 friendship remains reconciliation rather than resumed romance.300 exact quotations match302.301 establishes quiet group time before poetry.302 retains two women, Oliver the equine, breeding season, rear/legs/earth metaphor and Violet gentle lapping that re-arouses the speaker.303 keeps singular I versus plural we in the friends poem, river/time explanation, each droplet and speculative water return, all choice/feedback lines and bad mixed outcomes. Syllable readings were independently checked:9 choices remain5/7/5 per slot; each complete fixed poem remains5-7-5. Present necessity in412 remains explicit while now is naturally implicit under the pinned limited literary policy. Plural earth-molding, raging water, shared friends, unnamed falcon, being carried above clouds and nobody previously going there remain. All27 complete compositions were read, including3 coherent and24 intentionally mixed; no accidental target coherence changes original branch identity.259 source nodes,69 original annotations and exact source-only controls were read separately, retaining TRRIGGER spellings, delays, arc/Bio keys and disconnected nodes. Native rendering/callback behavior remains not-run.",
+  "inputs": [
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/author-03/haiku259-exact-context.jsonl",
+      "sha256": "2f60806594e887d2bc603a033df705df63465ca36c4d09e086c1f0afca4f7a78"
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-safety-01/haiku-source-controls.json",
+      "sha256": "8264246c16b77b7221bb4884da84953cb4441199235320ccea97af39cf380934"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/th/haiku-03/decision.json",
+      "sha256": "cfbd77d038b6476cb8a5120877237b387595deef15a4c0f3699450397ec10355"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/th/haiku-03/compositions27.jsonl",
+      "sha256": "7ec190ae7bc39473fd88e53d9a179ee7d8dc0b3ac8cf753bf187e31814fd0638"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/th/author-03/haiku-final-binding.json",
+      "sha256": "9a786dc66ffcf519eee424a6a0bf58b261d96a41d4c90457ee1d8784991b913f"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/author-03/haiku-quoted-callback-029.json",
+      "sha256": "5c246df19f66d4d081ecb314665f0600a488eca287b725a79f943623d0ac22e8"
+    }
+  ],
+  "limits": [
+    "No native/game callback or renderer test",
+    "All other primary and case context remain pending"
+  ],
+  "reviewerThreadId": "01a198ce-4fff-7550-b400-305326591709"
+}

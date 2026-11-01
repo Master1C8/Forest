@@ -1,0 +1,23 @@
+{
+  "run": "five-new-locales-20261101-01",
+  "stage": "final-review-wave-01",
+  "authority": "Parent-scheduled normal Ukrainian full independent review and Arabic exact repaired-version independent delta within existing five locale assignments; completed Indonesian job adds no model stream.",
+  "lanes": [
+    {
+      "locale": "uk",
+      "phase": "outputs/five-new-locales-20261101-01/uk/independent-01",
+      "control": "localization/completion/five-new-locales-20261101-01/final-review-wave-01/uk"
+    },
+    {
+      "locale": "ar",
+      "phase": "outputs/five-new-locales-20261101-01/ar/independent-delta-01",
+      "control": "localization/completion/five-new-locales-20261101-01/final-review-wave-01/ar"
+    }
+  ],
+  "maxConcurrentModelProcesses": 2,
+  "totalLocaleStreamCap": 5,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

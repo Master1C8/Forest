@@ -1,0 +1,45 @@
+{
+  "kind": "work",
+  "taskClass": "parent-consolidation",
+  "executionStage": "parent-consolidation",
+  "title": "Consolidate six exact Thai findings and prepare the changed-version independent delta",
+  "brief": "outputs/five-new-locales-20261101-01/th/independent-02/next-parent-repair.md",
+  "parentOnly": true,
+  "requiresParentScheduling": true,
+  "automaticWorkerLaunchAuthorized": false,
+  "findingIds": [
+    "ds:169:195:Dialogue Text",
+    "ds:297:139:Dialogue Text",
+    "ds:439:836:Dialogue Text",
+    "ds:451:771:Dialogue Text",
+    "ds:457:843:Dialogue Text",
+    "ds:463:736:Dialogue Text"
+  ],
+  "entryPins": [
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-02/consolidated-findings.jsonl",
+      "sha256": "0f0c709802520161d1885e871c3a6f5d0eb0d912152fcdc600743e3220676ea0"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-02/context-coverage.json",
+      "sha256": "07bb2d7ae1b29428dc70e25604c6923b42270568c5f47203c2efd2a212a6076b"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-02/case-assessment.json",
+      "sha256": "eb49fb6f1db41462a335178d0fffe64318ba1631779ad45b2fb4d03dce051512"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-02/haiku-assessment.json",
+      "sha256": "3312056aef3f369bc0f059d94b5bab839024ec1ac8012081856a99794994f863"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-02/version-validation.json",
+      "sha256": "47bc409817328f5aa267ab119b16a7d86531db065a772ddb2235c0079ed41ed0"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/th/independent-02/recovery-reconciliation.json",
+      "sha256": "a5d806ac1c298ca740ebe308d90f0bad495602d534d0a478ab8aa1a839b15d4f"
+    }
+  ],
+  "briefSha256": "f80dbb650f8dd93eb0ac9b27f58f47469afd6a1710f993b5bdb320239f1a5153"
+}

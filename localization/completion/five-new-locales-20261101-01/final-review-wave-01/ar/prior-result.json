@@ -1,0 +1,61 @@
+{
+  "status": "complete-repair-awaiting-independent-delta",
+  "outcome": "continue",
+  "locale": "ar",
+  "summary": "All22 independent findings adjudicated and repaired, plus one exact related grammar occurrence.23 target units applied once and self-read;30-unit independent delta with232 context-only units ready for parent scheduling.",
+  "language": {
+    "path": "localization/languages/ar.json",
+    "sha256": "480bffbd96075c4fc8e551b8e76d7ec1bc1b6d1ad773d168b98d7c5f319cc128"
+  },
+  "scope": {
+    "findings": 22,
+    "accepted": 22,
+    "dismissed": 0,
+    "needsDecision": 0,
+    "additionalRelatedCorrections": 1,
+    "changed": 23,
+    "ownSelfRead": 23,
+    "ownUnread": 0,
+    "independentDelta": 30,
+    "independentDeltaUnread": 30,
+    "contextOnly": 232,
+    "retainedMatchingIndependentPasses": 12795
+  },
+  "validation": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/validation-final.json",
+    "sha256": "2c968858fec5c894035dc9ae7d5027581e4c66fb8df902307b3edad36cb3f35d"
+  },
+  "adjudications": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/adjudications-final.json",
+    "sha256": "2029ede40e4944cdffe33598eb1717c7b3dff56d7d08a571667d3df385d8d6ad"
+  },
+  "delta": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/applied-delta-final.json",
+    "sha256": "ce85ec1905b0b9af3afab1d12784fcbbc3e4a78795d3c436ebe264e9a9090029"
+  },
+  "selfRead": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/full-delta-self-read.json",
+    "sha256": "5ce8059641e557f80bbadc102b915afce227cdd46fa0d9feedd8e5ce38c9b4a6"
+  },
+  "retention": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/retention-accounting.json",
+    "sha256": "0b8b392a7923ee26c52ed8b7ff65df07f707934f568b13ab59eb52cd701e302b"
+  },
+  "artifacts": {
+    "path": "outputs/five-new-locales-20261101-01/ar/repair-02/artifact-manifest.json",
+    "sha256": "3f5d5ee5d2700b365f4ff3da2e8606733577e677d0f082d5fc99819552156702"
+  },
+  "usage": {
+    "path": "outputs/five-new-locales-20261101-01/ar/repair-02/usage-final.json",
+    "sha256": "211171ab553610d833661401bd3633e579fdc910da2ede435ef95fc2034b554b"
+  },
+  "nextTask": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/parent-independent-delta-handoff.json",
+    "sha256": "872bae3da90e7e227895ca521cca4b95b1c29f8d8af2087c854f6fa44d7ae383"
+  },
+  "independentAcceptance": false,
+  "native": "not-authorized-not-run",
+  "resourceBuild": "not-authorized-not-run",
+  "git": "parent-owned-not-run",
+  "preservedBoundaries": "No nested model/agent, inherited parent/fork history, old queue, game/GUI/screenshot/build/installer/publication/deployment/server action. Same own-thread resume was explicitly owner authorized. Old phase and unrelated data preserved."
+}

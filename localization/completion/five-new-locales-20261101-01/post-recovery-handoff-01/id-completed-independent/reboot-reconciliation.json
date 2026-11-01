@@ -1,0 +1,730 @@
+{
+  "checkedAt": "2026-11-01T21:16:53.704998+00:00",
+  "runtime": {
+    "path": "outputs/five-new-locales-20261101-01/id/independent-02/input-runtime-verification.json",
+    "sha256": "a6552c0235b370ee8c7affc782819de8064ba489e5fdfbc3272301a9e8f1517c"
+  },
+  "previousPhase": "outputs/five-new-locales-20261101-01/id/independent-01",
+  "previousWriterOutcome": "Completed: all expected finalizer artifacts exist and their exact contents/bindings validate. Original tool returned exit 0; no result or review-output existed.",
+  "processBoundary": "Owner confirmed host reboot destroyed former process tree; no old writer is rerun.",
+  "previousUnpublishedJudgmentsAcceptedAsIs": false,
+  "continuedExecutionVerified": true,
+  "revalidation": "All 12,825 literal source/target hashes, original-row hashes, 95 authored scope notes, protected/context/case/dependency/narrative bindings verified before resumed reaffirmation.",
+  "sourceSnapshot": [
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/finalize_evidence.py",
+      "sha256": "a70d3ebad91a1d36dfd23797bb048dae16c2b7b328ae2d11c4c484c2a01cd4ae"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/final-verification.json",
+      "sha256": "c7f1c58e3567b9a98479af3e512bdd1986001781fd34070761c38fd6f6b7df19"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/model-judgments.jsonl",
+      "sha256": "e5068526b9976060db4eef38a16090377a5f4310f5103e90dc65d8740a930650"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/read-bindings.jsonl",
+      "sha256": "66fdfa55b458510b1adbd8d153ceba1d61ea8beb92684eab0ad8d5e223230db9"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/protected-context-read-bindings.jsonl",
+      "sha256": "7f32052c213bd5bd961d4274a2a20cc59b1e609a45220b5f1c4e6242f862efa2"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/case-read-bindings.jsonl",
+      "sha256": "f94ea4148445f7ffb7fd9a241211cdae5b519c2e550a64e83020834cd5c0fe0b"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/narrative-context-read-bindings.jsonl",
+      "sha256": "1b7c44352c1ee400e18a81aa9b73245500cd0e32e451a1a626ac74950ebe6099"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/consolidated-findings.json",
+      "sha256": "dd7f6b77118dae0bcbeabad59d0945bc3f57b127a1b80bcc0168d8673c17ba89"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/context-case-assessment.json",
+      "sha256": "78aab202a9a4f85057dec93153626a390a708648b85e98217a5a977b4f539101"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgment-errata.json",
+      "sha256": "efcc7c79950b23849b3cd831d6e8c1c2de9588e44cb1dd1f8b48f61001f84ae1"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/supplementary-context-assessment.json",
+      "sha256": "d03828eb5263b608446dc099d699b3d4f65a853f1add37e152eaed3b8de977eb"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/checkpoint.json",
+      "sha256": "57a10cefb02c9434c541f0b74384c53c22cd62149d99620d468a5ca32bb2414a"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/unread-ids.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0001-inventory-and-narrative.json",
+      "sha256": "f0ba3f1076122e220fd445bf93f889fc091869a8a81ae26ef6b3609c1b4c0b68"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0002-inventory-quests-chapters.json",
+      "sha256": "7c4f0404024b193700f8206881761b586235cbd4026b57f8a8ec056159f0beb8"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0003-bio-quests-greetings.json",
+      "sha256": "9ee1e98a6f603d3aa1d4822c3aa40fbb94037bc724327094778f5dca25695657"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0004-haiku-complete.json",
+      "sha256": "5ecc3d3ebec0c9336f0806cbea3b867383f1c7e59f8c4069a77ee9ce8d6ef738"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0005-conversations001-058.json",
+      "sha256": "6a803722db6bb8ee8c1d201ace5fea84c4f90abd99e81818e224a3df8466c69e"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0006-conversations059-062.json",
+      "sha256": "f13ed7a8660d85e5db9557431a8b548cf1987dbd994f64223c9fdbc81d841f7e"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0007-conversations063-079.json",
+      "sha256": "a49026f0eb3f622164b48c42b734ead0b985e6963e7da0eb5df947b8d00b93d9"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0008-conversations080-114.json",
+      "sha256": "53c43ef64588338b215f40077f86fd8cdb01d6571c139420b96a5af9c2c050a1"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0009-conversations115-121.json",
+      "sha256": "af7d360a397147335110890aa381c10f64f3c48c7c8af4f08d91a4ea01be0507"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0010-conversations122-129.json",
+      "sha256": "2e8a5569946e7320bea19159a37b60b8749a0fc52121387eb251b4a795358149"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0011-conversations130-137.json",
+      "sha256": "67dd2b841fe532d5e4d230950ebd721311df268105bafe36b1a2905df5e6fb8b"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0012-conversations138-144.json",
+      "sha256": "f39fefeda3a519c0c327b29507b0429391b7e5b2810b676824dd4956d1ae33a2"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0013-conversations145-153.json",
+      "sha256": "e3cebe0e5d370cf0762b0e2a397f5009a55efb5f053e607b106eb7ae7f900924"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0014-conversations154-170.json",
+      "sha256": "d7dda76dc162fa075e5535541a4334466842dfa1e1b1f6d90ed23a1d7a735d13"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0015-conversations171-181.json",
+      "sha256": "885c0ff83ae3f8d632c48d713e7ec082703fd515d140eb39e41e001602269fe0"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0016-conversations182-190.json",
+      "sha256": "42401d1e3aaddfe80d3ebce00ef02417af62486bd692c236358a3d631fe02bff"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0017-conversations191-206.json",
+      "sha256": "5c00782e5d3f4e3472f6adaf43fb22cec108e10cfbed01dcb4e4ce1909830bb0"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0018-conversations207-225.json",
+      "sha256": "80cee90643a92d30f63f839d822b0c04a0611e01bb62961f11110510cea6f814"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0019-conversations226-243.json",
+      "sha256": "51b0e74f19982c669ac125ec177c014bd2f0d6087f599ac355dafb9d2976ecb1"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0020-conversations244-259.json",
+      "sha256": "4cf7df9244a9a8a09eb9be44473b0fbc57c1e025e96ae3ef29e98729c0d3a9fb"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0021-conversations260-266.json",
+      "sha256": "acd7a06d2e920f1f2e14b2434dbf0084e6fae5c5040791c506a3f9bbd17c6a4d"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0022-conversations267-278.json",
+      "sha256": "e86da74cffeb4653df98b36b9a34c4ff2ce61ab03535b583248ccb657db7c4d0"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0023-conversations279-291.json",
+      "sha256": "3556d109e001783b19daf65dd211dbc1a039e53cd0281705c12c964b8a3cef75"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0024-conversations292-297.json",
+      "sha256": "a994a7a5eb37434e796b3d1269b95d317d12b5417c0e9e300f3d75bc7ec565af"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0025-conversations298-301.json",
+      "sha256": "f7f0972c041c2ca1d5885eb873e07327c191eed424d2c504de93e50cfc4aa608"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0026-conversations304-307.json",
+      "sha256": "240469e051e4c1410f88e61150929bd0c6190267bfadb14250715235909d1c2b"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0027-conversations308-320.json",
+      "sha256": "f130184169eef271c5c833b1fd9703e0e964c55f7bba52ddc643eb7d6612c4b1"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0028-conversations321-339.json",
+      "sha256": "543fc7c0ea7b98502f3e1182d671820036496fc3e421e91c0aae475fd300ce22"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0029-conversations340-346.json",
+      "sha256": "fcaeb607c59cdb2947fec70db9e85092efad0deea57e5c018aff75dfd200de47"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0030-conversations347-351.json",
+      "sha256": "11cd319c3165861f8864e27385aa3df2d93289ec1b75b28fbf4cf5bc1f3ebc75"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0031-conversations352-358.json",
+      "sha256": "a2e7c37091446562e6c8706b439ee1ea8160934d4e779b1c645c506faac206d5"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0032-conversations359-360.json",
+      "sha256": "8a39294c84437a2639ed870e2d3cb88844e1df80832ae6a3846c898d90ae071c"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0033-conversations361-370.json",
+      "sha256": "097d96f03e0735e915629b804aa5c4ef720ae2651ec763580a166d5498f0e86e"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0034-conversations371-374.json",
+      "sha256": "ec9f1cbfad3fb90fe29655605766fbcb76788feb860b35f12d718c34aab919ef"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0035-conversations375-377.json",
+      "sha256": "a13a81afe8d40f59e3d501dd41d974545bd3330655f2df029149bc5277ff5594"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0036-conversations378-381.json",
+      "sha256": "5ea98e8b103782d4f96786417d9065379ed01d282c5b864455a69cb3c9c46527"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0037-conversations382-383.json",
+      "sha256": "aeafdafda9034e38a3d99b23227c1e79a91045baf55b2a8f508e2d0c091606ed"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0038-conversation384.json",
+      "sha256": "9eaf266fba45845f14c09d8e8a38bf3a28fae62648211edcea1adb6f2e8c1a0c"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0039-conversations385-389.json",
+      "sha256": "ced7ff168595450ec6e86c8d59ba617f8d64e01b1db35ea34df8956086fffeac"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0040-conversations390-391.json",
+      "sha256": "789f34febcd910f48fdece222a8997da7cd74ab42a41b4cef2857e7b9bdb5bd3"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0041-conversations392-399.json",
+      "sha256": "c716efee38f86ca29fc1c4d64e7797b4aed1e03b22e16d2c2c66ded2b91ee30a"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0042-conversations400-407.json",
+      "sha256": "82190ae7463bf0ff18f9c9495c044f93570f0b82b5139bcc764d62f2cb452cd0"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0043-conversation408.json",
+      "sha256": "fd007d5a5f052d27bcf0fdd9c9a50a47f0d55faa35ff50b7773744eb7375dbf4"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0044-conversations409-414.json",
+      "sha256": "fe4905b676d25513c4559090dc375c594d2ab715993793465edb504b6f7c8cb9"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0045-conversations415-422.json",
+      "sha256": "2090a105b2fdda6a17075a15c7f0bb6dd774c62ea81a472be3aa4ae1dd4a50a3"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0046-conversations423-429.json",
+      "sha256": "761172c1dd8ffbd88671ebb6670dcac32bc54d68eee4033d165bd9e535d4908d"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0047-conversations430-434.json",
+      "sha256": "1d6b990f641c1f6a68b6a5a7f262f91f8dd9f84992bf6ada4718260bc29d83af"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0048-conversations435-440.json",
+      "sha256": "621a334b08ad3d712ef98500b6ac9138f552636b61af92597e8db2761cfaab9c"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0049-conversations441-449.json",
+      "sha256": "2ccec21cea4711d1661b7c249097861fefa1dc3c9a232942eda5a34a15f521a8"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0050-conversations450-452.json",
+      "sha256": "bc7ba989ff626e053e7cdf736a4f0498d845f9282f2e83b477c07fd5b2e9ef7c"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0051-conversation453.json",
+      "sha256": "47a7b01027752f6a7daa608566deb827d0d1f6f757c6bb6a31b0fc1dca4d1b15"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0052-conversations454-457.json",
+      "sha256": "e544acb0c442f23bff70f9defa6bc49b23c2c0fd911028ae057b939c22c05daa"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0053-conversation458.json",
+      "sha256": "955186f261c59e2c0e461027751492de7cf484bfbf38c876815ede1921c306cf"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0054-conversations459-465.json",
+      "sha256": "bc53a77a6f5dd675cd21e46e2a5160a6dc53c2c2aa4ac5f6c3040bc0451d7973"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0055-conversations466-470.json",
+      "sha256": "dd1e93f4090a70d07af917794296cf9778ae0847950f56639aa40700ccc6cbf5"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0056-conversations471-480.json",
+      "sha256": "19f8eba81148777903a6e2904dc2ad44c9cc84e1b516cb2eca54b0702af10acc"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0057-conversations481-486.json",
+      "sha256": "5f40a0c3aafb684671e47257bef814c638e13c4a285906df497da167e56df2d6"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0058-conversations487-491.json",
+      "sha256": "153361aeb8d50dd48feee394f2412ea7577bb1b53055819eda9cf89f7b73669e"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0059-conversations492-493.json",
+      "sha256": "c00ed5e932312e38051831607e20641dc5fa34d710b6a9684e5e6415be8560bd"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0060-conversations494-495.json",
+      "sha256": "037b35c1db36944583de8de4a3718df327e87914126ad2122eea13fec7817247"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0061-conversations496-513.json",
+      "sha256": "9ad0c3e2794873d5d5eb56595a1119635842a6b989dcd31f23a81ba19d884c24"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0062-conversations514-517.json",
+      "sha256": "917b5435b743f8d5e31d20ae442de1197f7acd24a16b5c58d483afe2ecab9ec2"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0063-conversations518-522.json",
+      "sha256": "3381fbdb942c8821b3bcc1c0ab7859901405421876b8dc604364319db7620e36"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0064-conversations523-524.json",
+      "sha256": "d92cafca4e1e8430631f9a6550f29b26521c05848e08ab62eb0cf8b03a3b39ab"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0065-conversations525-530.json",
+      "sha256": "82bec6e185387bf7a46c996f3aa2e0dc3a586b7f5c2c3d126dad3c5efaeb7c95"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0066-conversations531-538",
+      "sha256": "5bf4f2abcc8d81a622c7de023a65425075c91b940d7f1390bfa86576484fde59"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0067-conversations539-547",
+      "sha256": "9b3eb7e60964ae7955d4db1cddc19102126078e3b68ac838290030b6895e8842"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0068-conversations548-565",
+      "sha256": "ca694fb9de39e2e08f24eee28768dcd02b16a6b86a3b35dcf399f046cb6827c3"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0069-conversations566-578",
+      "sha256": "4d024aa4a5b63378208aeef738e521ccf7cd397821e0d9a924537215bcc7211d"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0070-conversations579-591",
+      "sha256": "aeac2134a7e28c9a4a14b33dfffaebd89d2b6021f724921a26be8e2f85cbc6ad"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0071-conversation592",
+      "sha256": "6d68d533fc028412c13da7feb96339eef79a7ad173f047d1ec364d8c623a5e24"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0072-conversation593",
+      "sha256": "f417efcd67893359948dc2fab4a09fef371ac261412f250f1085024d79f7f44e"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0073-conversations594-597",
+      "sha256": "45d42981062e0527b4cc468b7a34ed343eefd6e90eb96a7d08027e4cb3e4e4eb"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0074-conversation930",
+      "sha256": "a7a338ffcf8cb45e4ac90a5767f2435a553400525d2113d91c3567ec4946c24f"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0075-conversations931-934",
+      "sha256": "7e16d0786b9a6c95ea4f370a7c2d22f6600ae8943f23f7f0c5e09b595d025b5d"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0076-conversation935",
+      "sha256": "b83797792f4ce665154cd2cec0384d557ce693c566ba008b24236a69d3a3f6ce"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0077-conversations936-940",
+      "sha256": "d4d4978583cce04ff5a41111125a63e13a2d5eb98b94fa2a965f7dcf1bcdbf10"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0078-conversations941-944",
+      "sha256": "604594ae3e8595c6def66a1daa94083b421c79d4a2ad34b7f88facc44fc13ded"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0079-conversation945",
+      "sha256": "2e0ef2a86ae22a4af477a3317997d5511f1d06d9d2789db5a22faab583655040"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0080-conversations946-950",
+      "sha256": "e213d21e5b484fc1343c149704c11d1a1cf4e8f5f6992f2552d2b0df00071c2a"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0081-conversations951-953",
+      "sha256": "0099f373bb693ad720ed5c500398f6711438a59162e516656f5e384b800360b7"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0082-conversations954-955",
+      "sha256": "18c43cf5ce6d31bbb813d5a0dff8448b4ba54ac53456d1e4ea0842f93e154208"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0083-conversations956-957",
+      "sha256": "7f8c961c8306bc273f13cd7a9af480163e833f42b4b05b682a59e24dcdfc3cc3"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0084-conversations1443-1444",
+      "sha256": "0565a6308fb6f693e01d6a13caba10e96973800d5438dbf8ad3cc6c76b9e52aa"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0085-native11114-11413",
+      "sha256": "c1fcc97bf4a49371e489c5115257969f6c69a513ede680bc81e0d25c7a05eca5"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0086-native11414-11563",
+      "sha256": "25f8b174d2a15117ec82251da5c28d67d7f2f456dc2888163d1fd4c90471ecd3"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0087-native11564-11723",
+      "sha256": "da95edd51a8a8af8a318a3976155ff7c6f54628a0988c9891721f4a2d4cf151d"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0088-native11724-11823",
+      "sha256": "79d7dc17f719f959092663cb98527b9aec77c635c14f438e992dee576c436161"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0089-native11824-11973",
+      "sha256": "213fb8cab086fca2c8b16e16e1a8f798664a8e322e61bb740b1581253c3da4fb"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0090-native11974-12123",
+      "sha256": "ed4918eb945922e0a3c35f00096bdb93cdc51981573072e51fbf609f3f41c904"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0091-native12124-12273",
+      "sha256": "d1ba2437cfae6e51b1ab96fbfecdf61f42e1a4c0076960746e77c9e3907b4726"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0092-native12274-12423",
+      "sha256": "73a3dac112a96a2c2061f6c5bade7abefb1ce1af4f6e12917ca54fd91f339284"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0093-native12424-12573",
+      "sha256": "c38839d876d593ab475185941357719403d148274f40c2bcdee46f4f53c34bb2"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0094-native12574-12723",
+      "sha256": "f3de040aca3a93ff61feff6c3394144e8783d5e2abafedaff5610e0b49222746"
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/independent-01/judgments/0095-native12724-12824",
+      "sha256": "f65f18ebcf49658b6ab3ab88acfecd9ee783e717484b949588d6c8d006053b3e"
+    }
+  ],
+  "immutablePins": [
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+      "sha256": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/glossary-en.json",
+      "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+      "sha256": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-prefix-context.json",
+      "sha256": "efffd5a54defd19f432e0b296812c9d3f47cefde730d08f808659b773626dce3",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/special-source-cases.json",
+      "sha256": "52c25d0c3bf1b2e9d7b44d41d55ca616d2599f7ac6044e9d8d20a106d11ac748",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/actor-roster.json",
+      "sha256": "278cd93f75fa251a038b7328c721b3c32abf2cf8ad149f7bb60bcb0df18af277",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/poetry-authority.json",
+      "sha256": "61eaa9a19f7c7d64fb6a3e2a3350a7108524471bcf33f67c48120ccdeca0fdf8",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/id/glossary.json",
+      "sha256": "27bfdfcf56b1991ae1f4136c8f8899d87e71a0540c30f761b25f00aacc535012",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/id/glossary-coverage.json",
+      "sha256": "636a4d889bf9cb91fcc03ee9099dc5ede0bd7002e419d5d20a295a88cf06f26f",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/id/name-decisions.json",
+      "sha256": "686d8af908cf218b3adc159af2b193525158ccd3a59afff869aefde8e786aa32",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/locale-eligibility.json",
+      "sha256": "f6e61543bd2c570407ac9551e4960620a50835296a1b2333a681bcac2e56f90d",
+      "matches": true
+    },
+    {
+      "path": "localization/framework/forest045-shared-v2/framework.json",
+      "sha256": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f",
+      "matches": true
+    },
+    {
+      "path": "tools/locale_efficiency.py",
+      "sha256": "4628489f6996a16d3e84a50334691061fba7e033252a7841e299c0779a474cef",
+      "matches": true
+    },
+    {
+      "path": "tools/locale_review_work.py",
+      "sha256": "9d4a52056afd5c24aa2b0d987a5913c4c8592c191031bc94f0c02773358e722f",
+      "matches": true
+    },
+    {
+      "path": "tools/cli_runtime_identity.py",
+      "sha256": "f75cf5c9198cdaf7c5b92afa68bfe42a26fe3f114db03a48aaaf01e30326b14a",
+      "matches": true
+    },
+    {
+      "path": "tools/forest_localization/core.py",
+      "sha256": "3c22471845f8b2b2c45e86b63e5d24893b8babbe66c5a7e514aa283cfad32f51",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/id/locale-config.json",
+      "sha256": "f2ae6c20d20406a9031a9c97692e5c58021738d49984a2029d31822686ad8f89",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-safety-01/index.json",
+      "sha256": "0d63f05f45c3aea3dc232e3c400d3528d9460408e0e1b12dee0c66e122564deb",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-safety-01/haiku-source-controls.json",
+      "sha256": "8264246c16b77b7221bb4884da84953cb4441199235320ccea97af39cf380934",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/source-safety-01/narrative150-source-only.jsonl",
+      "sha256": "090f04faa618f5af47789c99b95eece82ffddc02ea8a87a3e56371baa28b9bca",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/owner-resume-01/id/language-at-resume.json",
+      "sha256": "613970e4762aceb4566ab28f47d861663eb8bc1811d29bd3a825a3c251c46776",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/language.json",
+      "sha256": "b808ab0f1ef5000336d9b370edacc1ffa0e4be5690aa496f009760af8642e477",
+      "matches": true
+    },
+    {
+      "path": "localization/languages/id.json",
+      "sha256": "b808ab0f1ef5000336d9b370edacc1ffa0e4be5690aa496f009760af8642e477",
+      "matches": true
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02-final-01/manifest.json",
+      "sha256": "0c81811b9b2266dc9603827dbbc4ebdd71b3238eab6ddd50f8d3fcea590ac50d",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/next-task.json",
+      "sha256": "fc2f32612f1aa8cd27ee63bee1e241e4a4c51db440078690f4dc0a8c1d878fd3",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/acceptance-checklist.json",
+      "sha256": "249e08d8d8a043e6e613bd5201e07877a61b76622e4753b08f47b768fe21304c",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/all-ordinary-authored.jsonl",
+      "sha256": "cd32d4941e3536c43089a67cd05ae77d19b88d8ba36d19ec6410cb970e821a5f",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/complete-source-target-context.jsonl",
+      "sha256": "9a2bd70645f6ba0ae7465e7fe2b78271304a6fbb860cb01c93d0993d6101ec02",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/font-layout-decision.json",
+      "sha256": "74224ec74657fc14a38fa2a8db2e0483e9bb3c44ad2ee2a5e4a41c1aff795407",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/independent-review/review-packet.jsonl",
+      "sha256": "a39f8298109edc74407d77e1f71af84cf1c3482215ef80236f4d426d679d33c2",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/independent-review/scope.json",
+      "sha256": "1ecff3ede7ef547dbc61c2a7c24ba464dc528a7c294ae72cebf92e6f839d2deb",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/independent-review/source-context.jsonl",
+      "sha256": "fec1b05400f4c6db82271615c4cd64ac4b7390de8166eece3e44479676a45d85",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/independent-review-brief.md",
+      "sha256": "eadf45defe90ef057dee02ea0b12a8d38e5e81dfcf330a9fe5ba18e79bbf27f8",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/primary-audit-evidence.json",
+      "sha256": "730f2edb5c78d1eae3f4da5b31cb0e766d509463f0cf4f11a506d253c5ee2fab",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/primary-read-version-bindings.jsonl",
+      "sha256": "e791d69f9cf1f21850198d846b1209bf25be3e9fcea1b1d0fa03a51b95d272a6",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/source-preservation-comparisons.jsonl",
+      "sha256": "d11f045e7683861957f4e548ea17535bb81baf4b9f574dc210d5ac3ae3bf8219",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/final-full-preflight.json",
+      "sha256": "da9417a0a552cb1d78c9ee44e8b8229f67223c2e4f2fee64d2f2bc9e2eb437e5",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/final-validate.json",
+      "sha256": "abe81eeca1dd45006dd7ac4ea306b683d990a3febdbb20212e1ed25106632ef7",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/runtime-verification.json",
+      "sha256": "b6701e48dc6067b022775391cac5faa6fd3430fc2e897206056ef68171c273b3",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/input-verification.json",
+      "sha256": "ad1fa81fd6727d6acc523758c3395806fe7370b51f0f55fbddb4ae7e16c1187f",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/glossary-receipt-verification.json",
+      "sha256": "fe25583775f587908f906e23b0009a9879cb77d86d3fb94b0751bf40de91b611",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/self-reading-closure.json",
+      "sha256": "8019620126e3209d08093fa725d0488e16f1937e73106e5a8f9bf4c9da737f01",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/final-font-static-01/corpus-requirements.json",
+      "sha256": "debae397b8fa8d0a2ef7d71f023fa6e45af31727697f2cd21100d20d4d3475d5",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/final-font-static-01/font-face-role-check.json",
+      "sha256": "7aba8be55613b5f58e60b5d2e6959c85ab845de8907891facc94bf6cfea681f6",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/prepare_final_handoff-executed-01.py",
+      "sha256": "24ed796fe74f6cfa63c078506af179dfedd0586246d182dc019485b55892e844",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/prepare_final_handoff.py",
+      "sha256": "fdccdfef9db7b006bdf7a95385ab05b5bc2184e958ae402c381483df9e39ceaa",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/finish_primary_evidence.py",
+      "sha256": "47ffadab5e6bfaa9bb4939d84c8ee95e584fc899de9438703c812b83c77b58ae",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/font_static_evidence.py",
+      "sha256": "a0bdcd4722dcfc7a4056124f14f7ecea0a7a07a95938d80f137af59cb9a04404",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/publish_author_handoff.py",
+      "sha256": "64b864849df206123c5b1c60e5fa1c001ee215649477e21b36a1685583a37a5a",
+      "matches": true
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02-final-01/current-case-source-target-context.jsonl",
+      "sha256": "65877772d22936f7c0e779a78ba57f4fdd70c8750405893fea6908ca86f6cc73",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/self-dependencies.jsonl",
+      "sha256": "cbc8d0147909cbc009db70607a2bbec05e3c0d8d0bcd9b69c4b262796031ed36",
+      "matches": true
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/id/author-02-final-01/decisions.json",
+      "sha256": "16653ba21aa47f8451d031902d2a32bfe426334753c9b1bc99b9b67bcac0b73f",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/haiku27-final-compositions.json",
+      "sha256": "eb4c05b1d165b903c383b3e73db7eee87d42abaccfbd5065567474100c2ffbc8",
+      "matches": true
+    },
+    {
+      "path": "outputs/five-new-locales-20261101-01/id/author-02/primary-audit-01/consolidated-corrections-01/haiku27-final-author-reading.json",
+      "sha256": "dfd74a6b7146beb04bd41c538ead410e799ee1def9e35bd24db9a84edb5be7eb",
+      "matches": true
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/id/author-02-final-01/manifest.json",
+      "sha256": "ab7c9c174fe2e11f6f50e171e3f5ea8e93239a5e769aba0f7110d7b7d1f7ebb9",
+      "matches": true
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/reboot-recovery-01/id/language-at-recovery.json",
+      "sha256": "b808ab0f1ef5000336d9b370edacc1ffa0e4be5690aa496f009760af8642e477",
+      "matches": true
+    }
+  ],
+  "allMatch": true
+}

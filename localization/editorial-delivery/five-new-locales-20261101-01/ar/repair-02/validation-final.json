@@ -1,0 +1,35 @@
+{
+  "status": "passed-static",
+  "language": {
+    "path": "localization/languages/ar.json",
+    "sha256": "480bffbd96075c4fc8e551b8e76d7ec1bc1b6d1ad773d168b98d7c5f319cc128"
+  },
+  "schemaCommand": "./forest-localize validate localization/languages/ar.json --details",
+  "schemaCommandResult": {
+    "locale": "ar",
+    "units": 14606,
+    "providedTargets": 14606,
+    "missing": 0,
+    "unresolvedSourceUnits": 0,
+    "readyToCompile": true,
+    "newModelRequests": 0,
+    "missingIds": []
+  },
+  "sourceEquality": 14606,
+  "protectedExact": 1781,
+  "dialogueControls": 12246,
+  "changedIds": 23,
+  "retainedUntouchedTranslations": 14583,
+  "originalImmutablePinsVerified": 61,
+  "oldPhaseArtifactHashesPreserved": true,
+  "independentReviewPacketRows": 30,
+  "requiredContextOnlyRows": 232,
+  "independentRetainedPasses": 12795,
+  "ninePairsAnd27Products": "checked-exact-unchanged-bindings-and-read-as-regression-context",
+  "fonts": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/glyph-delta.json",
+    "sha256": "8020c1b0167c1ece77e161861ce36b712a3b0fd7c1d6f176620f202269b24910"
+  },
+  "newCorpusCodepoints": [],
+  "boundary": "Final exact source/target hashes matched the completed preflight/control receipts; no resource build or native/renderer substitution. Native, game callbacks and release remain not-authorized-not-run."
+}

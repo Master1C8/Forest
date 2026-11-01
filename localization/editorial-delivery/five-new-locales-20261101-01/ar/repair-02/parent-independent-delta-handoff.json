@@ -1,0 +1,140 @@
+{
+  "taskClass": "independent-semantic-delta-review",
+  "executionStage": "editorial",
+  "locale": "ar",
+  "title": "Independently review the exact23 Arabic corrections and seven literary dependencies",
+  "parentSchedulesOnly": true,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "parentThreadId": null,
+  "inheritedHistory": false,
+  "primaryCount": 30,
+  "contextOnlyCount": 232,
+  "primaryIds": [
+    "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/6YPEquHUH06W6ZWIY%2BPAZg/field/QtfPU7c06U6IYvVCzuqTMg",
+    "ds:135:369:Dialogue Text",
+    "ds:139:156:Dialogue Text",
+    "ds:139:157:Dialogue Text",
+    "ds:139:159:Dialogue Text",
+    "ds:139:180:Dialogue Text",
+    "ds:139:182:Dialogue Text",
+    "ds:139:183:Dialogue Text",
+    "ds:170:211:Dialogue Text",
+    "ds:190:131:Dialogue Text",
+    "ds:197:155:Dialogue Text",
+    "ds:256:218:Dialogue Text",
+    "ds:258:256:Dialogue Text",
+    "ds:264:201:Dialogue Text",
+    "ds:282:140:Dialogue Text",
+    "ds:302:504:Dialogue Text",
+    "ds:302:580:Dialogue Text",
+    "ds:302:581:Dialogue Text",
+    "ds:305:331:Dialogue Text",
+    "ds:370:644:Dialogue Text",
+    "ds:391:295:Dialogue Text",
+    "ds:415:717:Dialogue Text",
+    "ds:447:735:Dialogue Text",
+    "ds:477:824:Dialogue Text",
+    "ds:492:773:Dialogue Text",
+    "ds:492:775:Dialogue Text",
+    "ds:510:940:Dialogue Text",
+    "ds:57:2:Dialogue Text",
+    "ds:938:704:Dialogue Text",
+    "ds:955:890:Dialogue Text"
+  ],
+  "inputs": [
+    {
+      "path": "localization/languages/ar.json",
+      "sha256": "480bffbd96075c4fc8e551b8e76d7ec1bc1b6d1ad773d168b98d7c5f319cc128"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/independent-delta/review-packet.jsonl",
+      "sha256": "1d56ca6da8e2a1a6274051b180d32bc351cdc48bdc2d42264fb0c7cf37c7d4c6"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/required-target-context-v2.jsonl",
+      "sha256": "faa1e5efffc4e370d7f7613792fef32eb52ad2dbc58547bf321811e7b8d7e368"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/closure-components-v2.json",
+      "sha256": "6b915ccf5775bb6741cf5a649c62eed42b01091c21fc11fa5732b8a9bd043b06"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/applied-delta-final.json",
+      "sha256": "ce85ec1905b0b9af3afab1d12784fcbbc3e4a78795d3c436ebe264e9a9090029"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/adjudications-final.json",
+      "sha256": "2029ede40e4944cdffe33598eb1717c7b3dff56d7d08a571667d3df385d8d6ad"
+    },
+    {
+      "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/retention-accounting.json",
+      "sha256": "0b8b392a7923ee26c52ed8b7ff65df07f707934f568b13ab59eb52cd701e302b"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/ar/repair-02/changed-player-poem.json",
+      "sha256": "1a5989d8cd1efc3952ef3b9e767f869d8c428b23b4912ea223171cf3ab1142c6"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/ar/repair-02/haiku-scansion.json",
+      "sha256": "7692415e817bd1d9a67e1aebe56e659edca9141d4e3fdd67beaee27934a65d7e"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/ar/repair-02/haiku-nine-and27-recheck.json",
+      "sha256": "bc148ef2a0e93c55fdad4767a1789a6661ae0b49120a59ff50721d58f8c12daf"
+    },
+    {
+      "path": "localization/case-decisions/five-new-locales-20261101-01/ar/repair-02/case-applicability.json",
+      "sha256": "07f68a53f8b1ae1683c2a820d81fd43d5b628b55b272eb24daf489a1bf37e8a0"
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/glossary-en.json",
+      "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/ar/glossary.json",
+      "sha256": "0d5e125b272afe6864202ef26f9380bfe7f6ffa892245f09b5e880394a65fd3e"
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/actor-roster.json",
+      "sha256": "278cd93f75fa251a038b7328c721b3c32abf2cf8ad149f7bb60bcb0df18af277"
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/ar/name-decisions.json",
+      "sha256": "660766dccaf6b8e008a9cff3211f60e871e4f3be222ba124bf08e6155e712950"
+    },
+    {
+      "path": "localization/completion/five-new-locales-20261101-01/poetry-authority.json",
+      "sha256": "61eaa9a19f7c7d64fb6a3e2a3350a7108524471bcf33f67c48120ccdeca0fdf8"
+    }
+  ],
+  "primaryPacket": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/independent-delta/review-packet.jsonl",
+    "sha256": "1d56ca6da8e2a1a6274051b180d32bc351cdc48bdc2d42264fb0c7cf37c7d4c6"
+  },
+  "requiredContext": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/ar/repair-02/required-target-context-v2.jsonl",
+    "sha256": "faa1e5efffc4e370d7f7613792fef32eb52ad2dbc58547bf321811e7b8d7e368"
+  },
+  "regressions": {
+    "haikuDisplayEvaluationPairs": 9,
+    "compositions": 27,
+    "namedOutcomes": 3,
+    "mixedOutcomes": 24,
+    "correctedPlayerPoem": "two lovely females / handsome equine stud / breeding season, connected MSA with final pause",
+    "controls": "Exact parser/source evidence; no linguistic credit from hashes"
+  },
+  "acceptancePredicate": "Read and explicitly judge every30 primary source/target/context units, all required232 context units, and required nine/27 literary regressions. Resolve every accepted/dismissed adjudication against original English and approved Arabic glossary. Zero unread/default-pass rows; clean exact-version independent delta before any downstream acceptance.",
+  "retainedMatchingIndependentPasses": 12795,
+  "notAuthorized": [
+    "nested model/agent",
+    "Git/index/branch/worktree",
+    "old queue",
+    "game/GUI/screenshot",
+    "resource-build/installer",
+    "publication/deployment",
+    "server action"
+  ],
+  "scopeReason": "Finite repaired-version acceptance; no full12825 reread for unrelated style. Author self-read and deterministic checks are not independent acceptance."
+}
