@@ -1,0 +1,25 @@
+{
+  "run": "five-new-locales-20261101-01",
+  "stage": "source-recovery-01",
+  "authority": "Existing five owner-authorized locale assignments. UK ended and AR was interrupted for confirmed input isolation repair; retain drafts and use fresh pinned contexts plus exact source-only projections. Three other own jobs remain active; total cap five.",
+  "lanes": [
+    {
+      "locale": "uk",
+      "phase": "outputs/five-new-locales-20261101-01/uk/author-02",
+      "control": "localization/completion/five-new-locales-20261101-01/source-safety-01/uk-author-02",
+      "initialLanguageSha256": "0c944e28001054d9db5fe59f4127f7ca40ed3a6ecc35d4b319e508940ce66a9a"
+    },
+    {
+      "locale": "ar",
+      "phase": "outputs/five-new-locales-20261101-01/ar/author-02",
+      "control": "localization/completion/five-new-locales-20261101-01/source-safety-01/ar-author-02",
+      "initialLanguageSha256": "3502266dc135cecde713f71d578c3577259534ae9168977bb8b96b27ac4180e9"
+    }
+  ],
+  "maxConcurrentModelProcesses": 2,
+  "totalLocaleStreamCap": 5,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

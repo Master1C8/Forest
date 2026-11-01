@@ -1,0 +1,45 @@
+{
+  "atUTC": "2026-11-01T16:35:39.306242+00:00",
+  "status": "passed",
+  "coordinatorModel": "gpt-6.1-sol",
+  "provider": "openai",
+  "oldProcessesAbsent": true,
+  "lanes": [
+    {
+      "locale": "th",
+      "phase": "outputs/five-new-locales-20261101-01/th/author-03",
+      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/th",
+      "initialLanguageSha256": "b93f20fdbca1e2738a23d097cc01177f66047a845f21689d47af113c07f0e5c7",
+      "previousPhase": "outputs/five-new-locales-20261101-01/th/author-02"
+    },
+    {
+      "locale": "vi",
+      "phase": "outputs/five-new-locales-20261101-01/vi/author-02",
+      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/vi",
+      "initialLanguageSha256": "80b3506c3b425c0002c1ec6adf56d8c676425ef700eaa26b9b01e5e859d79e00",
+      "previousPhase": "outputs/five-new-locales-20261101-01/vi/author-01"
+    },
+    {
+      "locale": "id",
+      "phase": "outputs/five-new-locales-20261101-01/id/author-02",
+      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/id",
+      "initialLanguageSha256": "613970e4762aceb4566ab28f47d861663eb8bc1811d29bd3a825a3c251c46776",
+      "previousPhase": "outputs/five-new-locales-20261101-01/id/author-01"
+    },
+    {
+      "locale": "uk",
+      "phase": "outputs/five-new-locales-20261101-01/uk/author-03",
+      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/uk",
+      "initialLanguageSha256": "642cf88b70818208a61dd6496738d701bae318e7fb31063de50c6b93a26a6600",
+      "previousPhase": "outputs/five-new-locales-20261101-01/uk/author-02"
+    },
+    {
+      "locale": "ar",
+      "phase": "outputs/five-new-locales-20261101-01/ar/author-03",
+      "control": "localization/completion/five-new-locales-20261101-01/owner-resume-01/ar",
+      "initialLanguageSha256": "3502266dc135cecde713f71d578c3577259534ae9168977bb8b96b27ac4180e9",
+      "previousPhase": "outputs/five-new-locales-20261101-01/ar/author-02"
+    }
+  ],
+  "sourceSafetyRecipe": "Enumerate exact paths before content search; no cross-locale character-corpus reads."
+}

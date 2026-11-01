@@ -1,0 +1,116 @@
+{
+  "atUTC": "2026-11-01T15:17:25.465381+00:00",
+  "workers": [
+    {
+      "locale": "th",
+      "phase": "author-02",
+      "threadId": "01a19785-a3c5-7a71-ad47-2c270a04c28f",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcomeBeforeOrAtStop": "missing-result",
+      "usage": {
+        "input_tokens": 1488673,
+        "cached_input_tokens": 1472256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4764,
+        "reasoning_output_tokens": 1751,
+        "total_tokens": 1493437
+      },
+      "telemetry": "Nonoverlapping same-own-session delta; cache/reasoning are subsets."
+    },
+    {
+      "locale": "vi",
+      "phase": "author-01",
+      "threadId": "01a19785-bb2b-77c3-9c44-7775ed118a7e",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcomeBeforeOrAtStop": "missing-result",
+      "usage": {
+        "input_tokens": 16956189,
+        "cached_input_tokens": 16707456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 80975,
+        "reasoning_output_tokens": 38674,
+        "total_tokens": 17037164
+      },
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "id",
+      "phase": "author-01",
+      "threadId": "01a19785-ccac-7bc2-9573-6d983838668e",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcomeBeforeOrAtStop": "incomplete",
+      "usage": {
+        "input_tokens": 11171561,
+        "cached_input_tokens": 10948864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 63696,
+        "reasoning_output_tokens": 33868,
+        "total_tokens": 11235257
+      },
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "uk",
+      "phase": "author-02",
+      "threadId": "01a197a3-545e-76a3-a80b-782e870d098b",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcomeBeforeOrAtStop": "missing-result",
+      "usage": {
+        "input_tokens": 5914280,
+        "cached_input_tokens": 5683328,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19705,
+        "reasoning_output_tokens": 10413,
+        "total_tokens": 5933985
+      },
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "locale": "ar",
+      "phase": "author-02",
+      "threadId": "01a197a3-718e-7f62-a4ce-8b9eba4c77b3",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "outcomeBeforeOrAtStop": "blocked",
+      "usage": {
+        "input_tokens": 2321308,
+        "cached_input_tokens": 2180736,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11661,
+        "reasoning_output_tokens": 1950,
+        "total_tokens": 2332969
+      },
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    }
+  ],
+  "coordinator": {
+    "classification": "Mixed shared orchestration: preparation, dispatch, monitoring, input repair and stop; excludes pre-baseline work and reporting tail.",
+    "baselinePath": "localization/completion/five-new-locales-20261101-01/orchestration-baseline.json",
+    "sessionId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "latestUsage": {
+      "input_tokens": 244504116,
+      "cached_input_tokens": 242446976,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1068275,
+      "reasoning_output_tokens": 612845,
+      "total_tokens": 245572391
+    },
+    "measuredDelta": {
+      "input_tokens": 22921374,
+      "cached_input_tokens": 22756096,
+      "output_tokens": 72319,
+      "reasoning_output_tokens": 42776,
+      "total_tokens": 22993693
+    }
+  },
+  "caveat": "Cached input is a subset of input; reasoning is a subset of output. Interrupted requests may have an unreported tail. No monetary estimate."
+}

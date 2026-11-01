@@ -1,0 +1,41 @@
+{
+  "overrides": [
+    {
+      "original": "localization/source/haiku-identity-adapter-20261029/mapping.json",
+      "originalSha256": "58cba42e3fe2c682ac6da28d7ddb476b313e20ff2810e47de8e8b26890a23f74",
+      "sourceOnly": "localization/completion/five-new-locales-20261101-01/source-safety-01/haiku-source-controls.json",
+      "sourceOnlySha256": "8264246c16b77b7221bb4884da84953cb4441199235320ccea97af39cf380934",
+      "sourceChoices": 9,
+      "sourceProducts": 27
+    },
+    {
+      "original": "localization/source/narrative150-resource-contract-20261029/selectors150.jsonl",
+      "originalSha256": "cab7e8d7118f561d9619408897d136fdfbcd52120ba2d0cecb6cfc0558d76f20",
+      "sourceOnly": "localization/completion/five-new-locales-20261101-01/source-safety-01/narrative150-source-only.jsonl",
+      "sourceOnlySha256": "090f04faa618f5af47789c99b95eece82ffddc02ea8a87a3e56371baa28b9bca",
+      "rows": 150,
+      "retainedSourceFields": [
+        "id",
+        "pageId",
+        "family",
+        "hierarchy",
+        "pageNumber",
+        "role",
+        "sourceValue",
+        "sourceSpan",
+        "sourceRawSha256",
+        "sourceNontext",
+        "rects",
+        "activeAncestry",
+        "controller",
+        "memberBinding",
+        "selectionState",
+        "noDialogueState",
+        "fontRole",
+        "sourceAdmission"
+      ]
+    }
+  ],
+  "verification": "Explicit source/control allowlists copied exactly; no translated candidate fields, Russian prose or target-derived semantic/meter verdicts. False/zero/null and all retained source values preserve types.",
+  "rule": "Never emit a whole unknown sample record. Inspect keys/types first; use source-only fields before model input. Shared original/target artifacts are immutable technical inputs and never semantic sources."
+}
