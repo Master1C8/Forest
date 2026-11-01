@@ -1,0 +1,85 @@
+{
+  "workers": [
+    {
+      "task": "author-01",
+      "threadId": "01a19560-6e07-7240-989e-681717974b72",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "parentThreadId": null,
+      "usage": {
+        "input_tokens": 39632000,
+        "cached_input_tokens": 38609536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 79543,
+        "reasoning_output_tokens": 26870,
+        "total_tokens": 39711543
+      },
+      "finishedAt": "2026-11-01T05:08:03.002466+00:00",
+      "boundary": "Fresh-session cumulative terminal counters; no inherited tokens or descendants"
+    },
+    {
+      "task": "independent-01",
+      "threadId": "01a19586-685c-7191-952e-cb1acbb13595",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "parentThreadId": null,
+      "usage": {
+        "input_tokens": 7676504,
+        "cached_input_tokens": 7422720,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31878,
+        "reasoning_output_tokens": 9245,
+        "total_tokens": 7708382
+      },
+      "finishedAt": "2026-11-01T05:24:17.411401+00:00",
+      "boundary": "Fresh-session cumulative terminal counters; no inherited tokens or descendants"
+    },
+    {
+      "task": "independent-delta-01",
+      "threadId": "01a19593-e6ef-7e32-b040-2253be2875bb",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "parentThreadId": null,
+      "usage": {
+        "input_tokens": 3037896,
+        "cached_input_tokens": 2900224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16922,
+        "reasoning_output_tokens": 3018,
+        "total_tokens": 3054818
+      },
+      "finishedAt": "2026-11-01T05:34:32.947188+00:00",
+      "boundary": "Fresh-session cumulative terminal counters; no inherited tokens or descendants"
+    }
+  ],
+  "workerSubtotal": {
+    "input_tokens": 50346400,
+    "cached_input_tokens": 48932480,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 128343,
+    "reasoning_output_tokens": 39133,
+    "total_tokens": 50474743
+  },
+  "coordinator": {
+    "threadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "usage": {
+      "input_tokens": 17056015,
+      "cached_input_tokens": 16923008,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 117672,
+      "reasoning_output_tokens": 76856,
+      "total_tokens": 17173687
+    },
+    "scope": "Partial mixed coordination, direct editing, implementation, validation and integration; exact pure orchestration attribution unavailable",
+    "baselineAtUTC": "2026-11-01T04:28:21.547522+00:00",
+    "cutoffAtUTC": "2026-11-01T05:38:08.019967+00:00",
+    "unmeasured": "Preparation before baseline, final Git commit/verification and reporting tail, platform overhead unknown"
+  },
+  "accounting": "Cached input is an input subset; reasoning output is an output subset. No duplicate summation, descendants, estimated counts or monetary charges. Shared coordinator subtotal is not allocated to individual workers."
+}

@@ -1,0 +1,79 @@
+{
+  "id": "ja-tmp1017-selected-face-metrics",
+  "status": "needs-parent-shared-compiler-repair-before-font-acceptance",
+  "languageSha256": "18f05606bffeae76e622164b52901bb468ba6bd99d29bf76036b36a7eb7f4bf2",
+  "input": {
+    "path": "localization/languages/ja.json",
+    "sha256": "18f05606bffeae76e622164b52901bb468ba6bd99d29bf76036b36a7eb7f4bf2",
+    "configuredRole": "resources.assets:439",
+    "selectedFace": "68a3fc98800b2a27b371f2fb79991daf3633bd89309d4ffaa6946fd587f375b5",
+    "family": "Noto Sans CJK JP"
+  },
+  "savedResource": {
+    "path": "dist/Forest-ja-single-file-20261101-01/The Forest of Love_Data/resources.assets",
+    "sha256": "ceb9bdc4703e65e8c434f6bf73e914ce185953d0991992d91a5d2a08db0668f1",
+    "tmpPathId": 1017,
+    "sourceFont": {
+      "m_FileID": 0,
+      "m_PathID": 439
+    },
+    "actualFaceInfo": {
+      "m_FaceIndex": 0,
+      "m_FamilyName": "Liberation Sans",
+      "m_StyleName": "Regular",
+      "m_PointSize": 86,
+      "m_Scale": 0.6377118825912476,
+      "m_LineHeight": 98.8916015625,
+      "m_AscentLine": 77.853515625,
+      "m_CapLine": 59.0,
+      "m_MeanLine": 45.0,
+      "m_Baseline": 0.0,
+      "m_DescentLine": -18.224609375,
+      "m_SuperscriptOffset": 77.853515625,
+      "m_SuperscriptSize": 0.5,
+      "m_SubscriptOffset": -18.224609375,
+      "m_SubscriptSize": 0.5,
+      "m_UnderlineOffset": -12.26171875,
+      "m_UnderlineThickness": 6.298828125,
+      "m_StrikethroughOffset": 18.0,
+      "m_StrikethroughThickness": 6.298828125,
+      "m_TabWidth": 24.0
+    }
+  },
+  "expectedJapaneseFaceInfo": {
+    "m_AscentLine": 99.76000213623047,
+    "m_Baseline": 0.0,
+    "m_CapLine": 63.03799819946289,
+    "m_DescentLine": -24.76799964904785,
+    "m_FaceIndex": 0,
+    "m_FamilyName": "Noto Sans CJK JP",
+    "m_LineHeight": 124.52799987792969,
+    "m_MeanLine": 46.698001861572266,
+    "m_PointSize": 86,
+    "m_Scale": 1.0,
+    "m_StrikethroughOffset": 27.950000762939453,
+    "m_StrikethroughThickness": 4.300000190734863,
+    "m_StyleName": "Regular",
+    "m_SubscriptOffset": -24.76799964904785,
+    "m_SubscriptSize": 0.5,
+    "m_SuperscriptOffset": 99.76000213623047,
+    "m_SuperscriptSize": 0.5,
+    "m_TabWidth": 19.263999938964844,
+    "m_UnderlineOffset": -10.75,
+    "m_UnderlineThickness": 4.300000190734863
+  },
+  "expectedEvidence": {
+    "path": "outputs/locale-assets-20261026/ja/workflow-v3-completion-20261030/0127-work/saved-font-resources.json",
+    "sha256": "37ea4466cf4512bd686ec93a56a9127c7da9faa06bb9b52e2194afd078dd7c3f"
+  },
+  "failingPredicate": "Selected Font439 is exact Noto Sans CJK JP but dependent dynamic TMP1017 retains Liberation Sans family/metrics. Raw payload/cmap success does not establish coherent TMP metrics.",
+  "firstDivergence": {
+    "path": "tools/forest_localization/core.py",
+    "sha256": "64606f66012aac2d5b29ee851353b29a24ee412a256df17893cd843527459603",
+    "mechanism": "compile_language font edits replace only m_FontData and m_FontNames; no matching TMP1017 face metadata update is selected. Its original data is preserved by whole-resource readback."
+  },
+  "authority": "Author may edit registered locale face data only; shared compiler/framework helpers are parent-owned. No allowed language fonts/layout field can select TMP1017 FaceInfo.",
+  "nextPermittedAction": "Parent resolves this named shared font-import difference once, using the existing pinned JP metrics/import evidence and preserving all texture/static/fictional mappings. Rebuild/check after actual engine/config change. Independent wording review may proceed now.",
+  "regression": "Selecting pinned JP face through resources.assets:439 must produce coherent dependent TMP1017 face family/metrics with positive space advance, retain1020->1017 fallback and original atlas74/static tables; changing one face must not alter fictional3324/material3/atlas245 or1385textures. Native CFF/shaping/layout remain separate.",
+  "nativeClaim": "No native failure has been observed or claimed; native execution is unauthorized and unrun."
+}

@@ -72,10 +72,23 @@ from 8 to 128. Optional `fonts` entries select embedded faces from `fontAssets`:
 
 Only roles registered by `framework.json` are writable. Names, resource pointers,
 materials, texture objects/streams and the fictional-language mapping are retained.
+For a changed static TTF/OTF face, the compiler derives native ascent, descent and
+line spacing from the actual font tables and removes stale kerning. The registered
+dynamic TMP1017 consumer of Font439 receives matching face/legacy metrics. Its
+source/fallback pointers and empty atlas caches are preserved; static or populated
+caches reject a face replacement. The face must have a matching family, explicit
+cap/x heights and a positive space advance. Unchanged baseline faces retain their
+accepted metrics. These are table-scaled serialized inputs, not a Unity font import.
 Existing shared runtime adapters supply the accepted Russian layout behavior.
 Additional scripts such as CJK/RTL can require appropriate face data and actual
 target rendering/behavior validation. A successful compile alone does not prove
 font coverage, shaping, layout, visual parity or gameplay correctness.
+
+Font regression: replacing Font439 with the pinned Japanese CFF face must also
+replace TMP1017's Liberation Sans face metadata, preserve TMP1020's fallback and
+all atlas/fictional resources, and round-trip the saved object trees. The same
+mechanism handles the Chinese face without a locale branch; locales that select
+no replacement face keep their resource behavior.
 
 ## Continue and verify
 

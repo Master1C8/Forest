@@ -1,4 +1,59 @@
 {
+  "japaneseSingleFileLocalization": {
+    "status": "game-text-editorial-and-static-serialized-resources-accepted-under-pinned-glossary-and-owner-poetic-decision",
+    "locale": "ja",
+    "culture": "ja-JP",
+    "language": {
+      "path": "localization/languages/ja.json",
+      "sha256": "620074a235020a9ec793af0dd36510f789f94c72303f8a978cf71d7e1926a36a",
+      "bytes": 25961767
+    },
+    "framework": {
+      "path": "localization/framework/forest045-shared-v2/framework.json",
+      "sha256": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f",
+      "bytes": 322015
+    },
+    "artifact": "dist/Forest-ja-single-file-final-20261101-01",
+    "manifest": {
+      "path": "dist/Forest-ja-single-file-final-20261101-01/manifest.json",
+      "sha256": "6d4d2de35825f08b19f6c4a692c290e94fb56c386c21937cf46b0924c4b552ba",
+      "bytes": 118364
+    },
+    "compilerSha256": "c176d59530a79e80b33309de5294137e9ae6ebe98293d9c988112492191e2e55",
+    "counts": {
+      "total": 14606,
+      "ordinaryPrimary": 12825,
+      "exactPreserved": 1781,
+      "initialNullResolved": 211,
+      "primaryAuthoredDelta": 456,
+      "finalCorrectionVersions": 7,
+      "currentIndependentClosure": 610,
+      "independentFinalDelta": 21,
+      "finalContextRows": 207,
+      "haikuChoices": 9,
+      "haikuCompositions": 27,
+      "missingTargets": 0,
+      "unreadPrimary": 0,
+      "unreadIndependent": 0,
+      "unresolvedObjectiveFindings": 0
+    },
+    "fontRoles": 8,
+    "fontMetricCoherence": "static serialized input verified; native not-run",
+    "report": "localization/completion/ja-single-file-20261101-01/README.md",
+    "acceptance": {
+      "path": "localization/completion/ja-single-file-20261101-01/acceptance.json",
+      "sha256": "8017cd7ad4b414b5aa404a81ff43afea22fcd9110a146881e3ce6725cd34f716",
+      "bytes": 8906
+    },
+    "usage": "localization/completion/ja-single-file-20261101-01/usage-report.json",
+    "separateGates": {
+      "humanNSFWGlossary": "owner-deferred",
+      "nativeFontAndLayout": "not-run",
+      "gameRuntime": "not-run",
+      "installerRelease": "not-accepted",
+      "publicationDeployment": "not-run"
+    }
+  },
   "parallelSingleFileEditorialReview": {
     "run": "single-file-editorial-acceptance-20261101-01",
     "status": "game-text-editorial-and-static-accepted-under-pinned-glossary",

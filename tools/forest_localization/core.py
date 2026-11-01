@@ -20,6 +20,8 @@ import subprocess
 import sys
 import tempfile
 
+from forest_localization import font_metrics
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA_NAME = 'The Forest of Love_Data'
 FORMAT = 'forest-language-v1'
@@ -642,6 +644,7 @@ def merge_wording(language, wording, output):
 
 def engine_fingerprint():
     paths = ['tools/forest_localization/core.py', 'tools/forest_localization/Managed.cs',
+             'tools/forest_localization/font_metrics.py',
              'tools/forest_localization/Managed.csproj', 'tools/extract_assets.py', 'tools/addressables_catalog.py',
              'tools/locale_completion/resource_composition_v1/compose.py',
              'tools/locale_completion/inventory52/inventory52.py', 'tools/locale_completion/inventory52/bg_codec.py',
@@ -656,6 +659,7 @@ def engine_fingerprint():
     import importlib.metadata
     pins['python'] = sys.version
     pins['UnityPy'] = importlib.metadata.version('UnityPy')
+    pins['fontTools'] = importlib.metadata.version('fonttools')
     return pins, digest(encode(pins))
 
 
@@ -753,7 +757,29 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
             original, env = U.load(str(path)), U.load(str(path))
             original.path = env.path = str(directory/'base')
             obs = comp.objects(env); expected = {}
-            for pid in sorted({r['pathId'] for r in edits}):
+            font_targets = {}
+            for font in [r for r in edits if r['kind'] == 'font']:
+                pid = font['pathId']
+                need(pid not in font_targets, 'one-face-per-font-role')
+                current = tree(obs[pid], gen)
+                need(digest(bytes(current['m_FontData'])) == font['faceSha256'], 'exact-baseline-font')
+                face = base64.b64decode(doc['fontAssets'][font['spec']['asset']], validate=True)
+                if face == bytes(current['m_FontData']):
+                    need(font['spec']['family'] in current['m_FontNames'], 'unchanged-face-family')
+                    font_targets[pid] = current
+                    continue
+                metrics = font_metrics.face_metrics(face, font['spec']['family'])
+                font_targets[pid] = font_metrics.native_font(current, face, metrics)
+                dependencies = font_metrics.TMP_DEPENDENCIES.get((name, pid), ())
+                for dependent in dependencies:
+                    need(dependent in obs and dependent not in font_targets
+                         and not any(r['pathId'] == dependent for r in edits), 'registered-font-dependency-conflict')
+                    font_targets[dependent] = font_metrics.tmp_font(tree(obs[dependent], gen), metrics, pid,
+                        font['spec']['asset'] + metrics['extension'])
+                proofs.append(dict(asset=name, fontPathId=pid, faceSha256=digest(face),
+                    dependentTmpPathIds=list(dependencies), faceMetrics=metrics,
+                    boundary='Table-scaled serialized font inputs; no Unity import/native rendering acceptance'))
+            for pid in sorted({r['pathId'] for r in edits} | set(font_targets)):
                 current = tree(obs[pid], gen)
                 direct = [r for r in edits if r['pathId'] == pid and r['kind'] == 'field']
                 result = comp.merged_edits(current, direct)
@@ -762,13 +788,9 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
                     raw, proof = comp.bg_project(result['m_Script'].encode('utf-8', errors='surrogateescape'), bg, inv)
                     result['m_Script'] = raw.decode('utf-8', errors='surrogateescape')
                     proofs.append(dict(asset=name, **proof))
-                fonts = [r for r in edits if r['pathId'] == pid and r['kind'] == 'font']
-                need(len(fonts) <= 1, 'one-face-per-font-role')
-                for font in fonts:
-                    need(digest(bytes(result['m_FontData'])) == font['faceSha256'], 'exact-baseline-font')
-                    face = base64.b64decode(doc['fontAssets'][font['spec']['asset']], validate=True)
-                    result['m_FontData'] = list(face)
-                    result['m_FontNames'] = [font['spec']['family']]
+                if pid in font_targets:
+                    need(not direct and not bg, 'font-field-overlap')
+                    result = font_targets[pid]
                 writer(obs[pid], result, gen); expected[pid] = result
             data = env.file.save(packer='original') if name.endswith('.bundle') else env.file.save()
             saved = U.load(data); saved.path = str(directory/'base')
@@ -800,7 +822,7 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
         baselineUnits=len(catalog), changedUnits=len(changed), readbacks=proofs,
         configuredFontRoles=len(doc.get('fonts', {})), configuredLayoutRoles=len(doc.get('layout', {})),
         preservedBaselineResources=[n for n in files if n not in by_asset],
-        acceptance=dict(editorial='not-established-by-compiler', fonts='static-face-data-only;target-coverage-allocation-shaping-and-layout-not-accepted',
+        acceptance=dict(editorial='not-established-by-compiler', fonts='static-face-data-and-table-scaled-metrics;target-coverage-allocation-shaping-and-layout-not-accepted',
                         native='not-run', runtime='not-run', release='not-accepted'),
         installed=False, newModelRequests=0,
         publicationBoundary='Exclusive resumable writes, input marker first, completion manifest last. No installation or multi-file transaction.')

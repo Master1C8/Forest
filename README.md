@@ -1,3 +1,15 @@
+# Japanese single-file localization
+
+Japanese now has a complete 14,606-entry file for the shared v2 compiler, with
+12,825 primary-read ordinary units and 1,781 exact preserved source states.
+The independently checked final correction family closes all reported findings;
+the owner-selected poetic adaptations retain 5–7–5 across all 27 haiku combinations.
+Eight pinned JP font roles now use coherent table-scaled native/TMP metrics through
+the common compiler. The final 16-resource overlay passes saved-byte, source247,
+texture1385, font/pointer and 18 regression checks. See the
+[Japanese acceptance](localization/completion/ja-single-file-20261101-01/README.md).
+Actual native font loading, layout, gameplay and release remain untested.
+
 # Current single-file editorial acceptance
 
 Latin American Spanish, Brazilian Portuguese and Simplified Chinese have complete
