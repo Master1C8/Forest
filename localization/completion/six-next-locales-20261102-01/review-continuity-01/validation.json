@@ -1,0 +1,12 @@
+{
+  "command": "python3 -B -m unittest discover -s tools -p 'test_locale_*lifecycle.py' -q",
+  "passedUniqueTests": 24,
+  "sourceHashes": {
+    "tools/locale_cli_lifecycle.py": "797715cb01a5eeebc3857219b53f6a1bc4b3faeddff02cabfa567099c76674f6",
+    "tools/locale_review_lifecycle.py": "985a0dbe1b2028756db3d42fffbe937c4dfbe2db1668848cc7e2a59a174d035f",
+    "tools/test_locale_cli_lifecycle.py": "6e1dc611617c3b194d7d1cb4c785fada2bb02a1e2bac99d26b9ac1ea7bded18a",
+    "tools/test_locale_review_lifecycle.py": "b142391fce096599a4d218ccf40b7d1b2a738ade645ac2d2568dd98157fa9275"
+  },
+  "boundary": "Deterministic alias/classification/version/subset/identity/process/submission/usage logic, model requests replaced by fixtures. Actual automatic continuations and selected models separately verified in activation-verification.json.",
+  "repeatedDiscoveryAccounting": "Earlier discovery included an imported test class twice; fixed the import,24 unique tests passed. No model request used for tests."
+}

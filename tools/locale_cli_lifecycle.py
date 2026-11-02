@@ -166,8 +166,12 @@ def classify(receipt, result, usage, errors, language):
     next_task = result.get('nextTask') or {}
     ready = status in ('review-ready', 'ready-for-independent-review') or next_task.get('taskClass') == 'semantic-review'
     if ready:
-        binding = result.get('language') or {}
-        if language['remaining'] or binding.get('sha256') != language['sha256']:
+        # Existing author contracts use both exact names. Do not silently prefer
+        # one if a report supplies contradictory bindings.
+        bindings = [result[key] for key in ('language', 'canonicalLanguage')
+                    if isinstance(result.get(key), dict)]
+        if (language['remaining'] or not bindings or
+                any(binding.get('sha256') != language['sha256'] for binding in bindings)):
             return 'needs-attention-invalid-ready-claim'
         return 'needs-parent-independent-review-verification'
     if status in ('incomplete', 'in-progress', 'incomplete-authoring'):
@@ -278,6 +282,9 @@ class Supervisor:
         self.preserved = read(self.root / cfg['preservation'])['baselinePreserved']
         self.children = {}
 
+    def prepare_phase(self, lane, previous, language):
+        return prepare_next(self.root, self.cfg, lane, previous, language)
+
     def launch(self, lane, previous, language):
         runtime = read(self.root / previous['phase'] / 'runtime-verification.json')
         validate_identity(runtime)
@@ -289,7 +296,7 @@ class Supervisor:
         for row in subprocess.check_output(['ps', '-axo', 'command='], text=True).splitlines():
             if row.startswith(self.cfg['cli'] + ' exec') and runtime['threadId'] in row:
                 raise ValueError('Same-thread CLI already exists; preserve and reconcile')
-        phase, number = prepare_next(self.root, self.cfg, lane, previous, language)
+        phase, number = self.prepare_phase(lane, previous, language)
         session = Path(runtime['sessionMetadataPath'])
         baseline, offset = latest_usage(session), session.stat().st_size
         args = [self.cfg['cli'], 'exec', 'resume', '--ignore-user-config', '--model', 'gpt-6.1-sol',

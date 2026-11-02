@@ -1,0 +1,4447 @@
+{
+  "source": "localization/source/shared-source-completion-20261028/admission-v1/phase134/haiku-source-context.json",
+  "sourceSha256": "46c153c0455bc1933b1713bdbcfe25d66f9b91c1c98b2e1edf0efdd81299435a",
+  "sourceNodes": 259,
+  "defaults": {
+    "conversationId": 303,
+    "conditionsString": "",
+    "userScript": "",
+    "onExecute": {
+      "m_PersistentCalls": {
+        "m_Calls": []
+      }
+    },
+    "isRoot": 0,
+    "isGroup": 0,
+    "falseConditionAction": "Block",
+    "conditionPriority": 2
+  },
+  "fieldDefaults": {
+    "Title": "",
+    "Pictures": "[]",
+    "Description": "",
+    "Actor": "15",
+    "Conversant": "1",
+    "Menu Text": "",
+    "Dialogue Text": "",
+    "Parenthetical": "",
+    "Audio Files": "[]",
+    "Video File": "",
+    "Sequence": "",
+    "TfolUniqueDataKeySuffix": "",
+    "Response Menu Sequence": ""
+  },
+  "nodes": [
+    {
+      "entryId": 0,
+      "outgoingLinks": [],
+      "fields": {
+        "Title": "START",
+        "Actor": "1",
+        "Conversant": "15",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 129,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 129,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 315,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "NAMED",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 314,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 314,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 319,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PRIMARY",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 315,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 315,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 320,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "post_story_convo",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 319,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 319,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 498,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "p1"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 320,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 320,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 562,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "n1"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 321,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 321,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 536,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(show_oliver_coyotes_date3_story)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 496,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 496,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 553,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(show_oliver_coyotes_date3_story_unlock)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 497,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 497,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 498,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 498,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 498,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 499,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=7]There he is! The rising poet!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 499,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 499,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 501,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]Give us a verse! Drop some lines!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 500,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 500,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 501,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 501,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 501,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 502,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Hehe, yeah, I’m pretty curious to hear what you came up with!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 502,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 502,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 503,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=3]But uh, no pressure, of course!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 503,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 503,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 591,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Ok get ready!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 504,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 504,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 590,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Two lovely ladies"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 507,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 507,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 508,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 508,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 508,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 510,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]PFFT! Wow ok! I had a feeling it would be something like that!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 509,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 509,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 510,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 510,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 510,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 512,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Yet it works pretty well! Certainly invokes some vivid imagery!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 511,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 511,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 512,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 512,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 512,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 513,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Heh, it actually reminds me of a poem I wrote… It has similar themes…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 513,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 513,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 515,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Let’s hear it!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 514,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 514,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 515,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 515,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 515,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 516,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Ok, here goes… Ahem…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 516,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 516,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 520,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Gushing from your rear\nFluids running down your legs\nWatering the Earth"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 519,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 519,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 520,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 520,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 520,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 521,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]WATERING THE EARTH, DAMN!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 521,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 521,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 523,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]Ok, something tells me I know exactly what inspired this one!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 522,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 522,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 523,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 523,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 523,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 524,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Heh… we should probably fill you in Rascal."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 524,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 524,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 526,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "I’m all ears!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 525,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 525,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 526,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 526,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 526,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 527,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Heh, ok."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 527,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 527,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 528,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Well it was one of our earlier interactions together."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 528,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 528,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 529,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]By this time, we were already pretty friendly, and fooling around here and there."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 529,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 529,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 531,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=5]Claire reaaallly wanted to try to get my tip in…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 530,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 530,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 531,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 531,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 531,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 532,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=5]Oh god, that took forever!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 532,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 532,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 534,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]I was wiggling around in all kinds of positions. Violet was coaxing and massaging me the whole time!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 533,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 533,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 534,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 534,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 534,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 536,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]But she got it in! It was quite impressive, really."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 535,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 535,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 536,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 536,
+      "outgoingLinks": [],
+      "fields": {
+        "Dialogue Text": "[pic=4]Heh, after all that teasing… I was really on edge!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 537,
+      "outgoingLinks": [],
+      "fields": {
+        "Dialogue Text": "*Fade to illustration*"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 539,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 539,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 540,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 540,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 540,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 542,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]Whew! This is some spicy haiku!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 541,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 541,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 542,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 542,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 542,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 544,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Right? We got a real silver tongue here."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 543,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 543,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 544,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 544,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 544,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 546,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=7]Oh, I’m sure you’re really thinking about his tongue right now!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 545,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 545,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 546,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 546,
+      "outgoingLinks": [],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Heh… Seems that tongue can do many great things…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 547,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 547,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 548,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 548,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 548,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 549,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Anyways, that was a good poem Oliver."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 549,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 549,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 551,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Who knew Haiku could be sexy!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 550,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 550,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 551,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 551,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 551,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 553,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=7]Yeah I think we need to focus on more sexy haiku."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 552,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 552,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 553,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 553,
+      "outgoingLinks": [],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Sounds good to me!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 554,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 554,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 556,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Yeah, since the first one was more about Claire, I wanted one for Violet too.."
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 555,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 555,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 556,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 556,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 556,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 558,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]I’m honored, do tell!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 557,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 557,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 558,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 558,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 558,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 559,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Ok, here goes…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 559,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 559,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 540,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Her tender lapping\nCleaning up the mess I made\nI’m hard once again"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 561,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 561,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 562,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 562,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 562,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 564,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]Of course, I can just about hilt Olly these days!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 563,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 563,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 564,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 564,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 564,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 566,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=6]I wouldn’t say that…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 565,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 565,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 566,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 566,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 566,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 548,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Hehe, maybe in a couple months…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 567,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 567,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 568,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "## EXTRA DIALOGUE"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 568,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 568,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 569,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 569,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 569,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 571,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Um heh… I actually had a sequel to that last haiku…"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 570,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 570,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 571,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 571,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 571,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 554,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=7]Yeah? Let’s hear it!"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 572,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 572,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 554,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 573,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 573,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 576,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "SECONDARY",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 576,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 576,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 569,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "s1"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 577,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 577,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 319,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 578,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 578,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 320,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 579,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 579,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 576,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 580,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 580,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 588,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "It’s breeding season"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 581,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 581,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 589,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "With a handsome equine stud"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 582,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 582,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 591,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date2_haiku_start)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 583,
+      "outgoingLinks": [],
+      "fields": {
+        "Title": "TRRIGGER(oliver_coyotes_date2_haiku_line1)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 584,
+      "outgoingLinks": [],
+      "fields": {
+        "Title": "TRRIGGER(oliver_coyotes_date2_haiku_line2)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 585,
+      "outgoingLinks": [],
+      "fields": {
+        "Title": "TRRIGGER(oliver_coyotes_date2_haiku_line3)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 586,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 586,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 587,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date3_haiku_finish)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 587,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 587,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 508,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 588,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 588,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 596,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 589,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 589,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 595,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 590,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 590,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 597,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 591,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 591,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 504,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 594,
+      "outgoingLinks": [],
+      "fields": {
+        "Sequence": "required Delay(2);Continue()@2;"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 595,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 595,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 580,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(1);Continue()@1;"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 596,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 596,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 587,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(1);Continue()@1;"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 597,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 597,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 581,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(1);Continue()@1;"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 598,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 598,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 529,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "BIO(coyote_claire,kink_anal)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 599,
+      "outgoingLinks": [
+        {
+          "originConversationID": 302,
+          "originDialogueID": 599,
+          "destinationConversationID": 302,
+          "destinationDialogueID": 534,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "BIO(coyote_claire,kink_stretching)",
+        "Sequence": "None()"
+      },
+      "conversationId": 302
+    },
+    {
+      "entryId": 0,
+      "outgoingLinks": [],
+      "fields": {
+        "Title": "START",
+        "Actor": "1",
+        "Conversant": "15",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 129,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 129,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 320,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 129,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 466,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 129,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 467,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 129,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 468,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "NAMED",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 314,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 314,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 319,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PRIMARY",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 319,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 319,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 402,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "p1"
+      }
+    },
+    {
+      "entryId": 320,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 320,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 473,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "bridge_ending",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 321,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 321,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 322,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire:"
+      }
+    },
+    {
+      "entryId": 322,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 322,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 414,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]OK Rascal, you’re up! What do you got for us?"
+      }
+    },
+    {
+      "entryId": 323,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 323,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 419,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Ok! Here goes!"
+      }
+    },
+    {
+      "entryId": 325,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 325,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 404,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "We molded the Earth"
+      }
+    },
+    {
+      "entryId": 326,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 326,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 413,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Across the raging waters"
+      }
+    },
+    {
+      "entryId": 327,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 327,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 416,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "To unite our friends"
+      }
+    },
+    {
+      "entryId": 330,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 330,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 332,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]I would change it to. \"How lucky are we\""
+      }
+    },
+    {
+      "entryId": 331,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 331,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 332,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver:"
+      }
+    },
+    {
+      "entryId": 332,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 332,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 334,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Oh! Heh, aww!"
+      }
+    },
+    {
+      "entryId": 333,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 333,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 334,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 334,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 334,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 322,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]It’s very good Oliver, the feeling is quite mutual!"
+      }
+    },
+    {
+      "entryId": 335,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 335,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 336,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]Aww I love that!"
+      }
+    },
+    {
+      "entryId": 336,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 336,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 338,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Yeah man that’s great!"
+      }
+    },
+    {
+      "entryId": 337,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 337,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 338,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 338,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 338,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 340,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]I do have one note, however."
+      }
+    },
+    {
+      "entryId": 339,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 339,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 340,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver:"
+      }
+    },
+    {
+      "entryId": 340,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 340,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 342,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=3]O-oh?"
+      }
+    },
+    {
+      "entryId": 341,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 341,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 342,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 342,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 342,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 343,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]Yeah it’s that last line."
+      }
+    },
+    {
+      "entryId": 343,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 343,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 330,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]Good Drink and Good Friends\nOn a lazy afternoon\nHow lucky am I"
+      }
+    },
+    {
+      "entryId": 344,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 344,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 345,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 345,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 345,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 346,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]Heh, thanks guys."
+      }
+    },
+    {
+      "entryId": 346,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 346,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 348,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Oliver, would you like to go next? I can tell you came up with something."
+      }
+    },
+    {
+      "entryId": 347,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 347,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 348,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver:"
+      }
+    },
+    {
+      "entryId": 348,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 348,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 349,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=3]Oh gosh… Ok… Yeah."
+      }
+    },
+    {
+      "entryId": 349,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 349,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 350,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]*Ahem* Here goes!"
+      }
+    },
+    {
+      "entryId": 350,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 350,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 335,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=2]Good Drink and Good Friends\nOn a lazy afternoon\nHow lucky am I"
+      }
+    },
+    {
+      "entryId": 353,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 353,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 335,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire:"
+      }
+    },
+    {
+      "entryId": 354,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 354,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 355,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=5]… Damn, Vi."
+      }
+    },
+    {
+      "entryId": 355,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 355,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 357,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=7]I’m not gonna lie - that haiku was a lot lamer until you explained it."
+      }
+    },
+    {
+      "entryId": 356,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 356,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 357,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 357,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 357,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 358,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Yeah, it may be a bit of a stretch, but that’s what I was thinking when writing."
+      }
+    },
+    {
+      "entryId": 358,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 358,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 360,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Damn, that was pretty deep!"
+      }
+    },
+    {
+      "entryId": 359,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 359,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 360,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver:"
+      }
+    },
+    {
+      "entryId": 360,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 360,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 345,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]We’re learning from the best after all!"
+      }
+    },
+    {
+      "entryId": 361,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 361,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 362,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 362,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 362,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 363,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Right? This idea really echos with the idea of time as a whole."
+      }
+    },
+    {
+      "entryId": 363,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 363,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 364,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=1]Though we see time as a day to day thing, thousands of years ago, or thousands of years from now - so many things change, yet so much remains the same."
+      }
+    },
+    {
+      "entryId": 364,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 364,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 365,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]A journey without an end - yet time marches on, and flows like a river."
+      }
+    },
+    {
+      "entryId": 365,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 365,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 366,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=5]It’s interesting to consider though, if \"time\" is the \"river,\" then we are the \"water.\""
+      }
+    },
+    {
+      "entryId": 366,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 366,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 354,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]And does the \"water\" come back in the form of \"rain\" and \"snow\"?"
+      }
+    },
+    {
+      "entryId": 367,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 367,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 354,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire:"
+      }
+    },
+    {
+      "entryId": 368,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 368,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 369,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 369,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 369,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 370,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]It’s not my greatest one. But I’ve captured a few concepts in this."
+      }
+    },
+    {
+      "entryId": 370,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 370,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 371,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=1]See Rascal, a difficult part of traditional haiku is the split of two ideas."
+      }
+    },
+    {
+      "entryId": 371,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 371,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 372,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=1]Two ideas that contrast each other, they vibrate against each other and change the context of each other."
+      }
+    },
+    {
+      "entryId": 372,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 372,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 373,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]The poem is meant to capture both, the phenomena of an instant of observing water, yet the realization that every droplet of water is new."
+      }
+    },
+    {
+      "entryId": 373,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 373,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 375,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]Each droplet that passes this place came from a glacier up above, and who knows, maybe it has made its way back here before."
+      }
+    },
+    {
+      "entryId": 374,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 374,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 375,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire:"
+      }
+    },
+    {
+      "entryId": 375,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 375,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 362,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=1]Oh damn, that’s crazy. I’ve never considered the water flowing down this river is unique…"
+      }
+    },
+    {
+      "entryId": 376,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 376,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 380,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]Marching Forever\nA journey without an end\nThe flowing River"
+      }
+    },
+    {
+      "entryId": 379,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 379,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 380,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      }
+    },
+    {
+      "entryId": 380,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 380,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 382,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=2]Bravo!"
+      }
+    },
+    {
+      "entryId": 381,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 381,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 382,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 382,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 382,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 369,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]Eh!"
+      }
+    },
+    {
+      "entryId": 383,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 383,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 385,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]Most haiku reflect nature, a season, and one of the senses."
+      }
+    },
+    {
+      "entryId": 384,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 384,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 385,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 385,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 385,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 386,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]I’ll go first."
+      }
+    },
+    {
+      "entryId": 386,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 386,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 387,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=1]But before I start. Rascal, do you remember last time when we were chilling?"
+      }
+    },
+    {
+      "entryId": 387,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 387,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 389,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Of course."
+      }
+    },
+    {
+      "entryId": 388,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 388,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 389,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 389,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 389,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 390,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]This was composed during that chill session. You’ll see what I mean."
+      }
+    },
+    {
+      "entryId": 390,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 390,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 376,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=5]Ahem!"
+      }
+    },
+    {
+      "entryId": 391,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 391,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 392,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=1]Haiku are a type of poem."
+      }
+    },
+    {
+      "entryId": 392,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 392,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 393,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]They’re most recognized by their 5-7-5 syllable structure."
+      }
+    },
+    {
+      "entryId": 393,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 393,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 394,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=1]But structure is only one piece of the puzzle."
+      }
+    },
+    {
+      "entryId": 394,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 394,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 383,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]A Haiku is a moment, an experience, if you will."
+      }
+    },
+    {
+      "entryId": 395,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 395,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 396,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 396,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 396,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 397,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]Today’s chill will also involve some creativity."
+      }
+    },
+    {
+      "entryId": 397,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 397,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 398,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 397,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 400,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]We’ll be diving into Haiku."
+      }
+    },
+    {
+      "entryId": 398,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 398,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 391,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Remind me what that is, exactly?"
+      }
+    },
+    {
+      "entryId": 399,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 399,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 391,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet:"
+      }
+    },
+    {
+      "entryId": 400,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 400,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 385,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Who’s going first?"
+      }
+    },
+    {
+      "entryId": 401,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 401,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 396,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "That’s right! I’m here to chill."
+      }
+    },
+    {
+      "entryId": 402,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 402,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 401,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=1]Hey! Looks like you’ve made it to another chill session!"
+      }
+    },
+    {
+      "entryId": 403,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 403,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 402,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 404,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 404,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 599,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 406,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 406,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 404,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Oh lovely Falcon"
+      }
+    },
+    {
+      "entryId": 407,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 407,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 413,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Take me high above the clouds"
+      }
+    },
+    {
+      "entryId": 408,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 408,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 416,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Where no one has gone"
+      }
+    },
+    {
+      "entryId": 410,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 410,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 404,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Busy little bug"
+      }
+    },
+    {
+      "entryId": 411,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 411,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 413,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "What is important to you?"
+      }
+    },
+    {
+      "entryId": 412,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 412,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 416,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Why must you work now?"
+      }
+    },
+    {
+      "entryId": 413,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 413,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 600,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 414,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 414,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 415,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 415,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 415,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 323,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 416,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 416,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 597,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 417,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 417,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 598,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Keep it!"
+      }
+    },
+    {
+      "entryId": 418,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 418,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 420,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Change it."
+      }
+    },
+    {
+      "entryId": 419,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 419,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 325,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 419,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 410,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 419,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 406,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 420,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 420,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 421,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 421,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 421,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 419,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 422,
+      "outgoingLinks": [],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 423,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 423,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 422,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date2_haiku_finish)",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 424,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 424,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 419,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date2_haiku_start)",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 425,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 425,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 404,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date2_haiku_line1)",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 426,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 426,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 413,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date2_haiku_line2)",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 427,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 427,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 416,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "TRIGGER(oliver_coyotes_date2_haiku_line3)",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 428,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 428,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 429,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "## **PENNY HAIKU ENDING**"
+      }
+    },
+    {
+      "entryId": 429,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 429,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 430,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 430,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 430,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 431,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]That was… actually pretty good. I’m impressed!"
+      }
+    },
+    {
+      "entryId": 431,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 431,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 433,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]I see you were inspired by Penny, she’d be happy to hear this!"
+      }
+    },
+    {
+      "entryId": 432,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 432,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 433,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 433,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 433,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 435,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]Absolutely, she’s a sap for this poetry stuff!"
+      }
+    },
+    {
+      "entryId": 434,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 434,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 435,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      }
+    },
+    {
+      "entryId": 435,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 435,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 469,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=2]I’m sure she’d love it!"
+      }
+    },
+    {
+      "entryId": 436,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 436,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 437,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "## **BUG HAIKU ENDING**"
+      }
+    },
+    {
+      "entryId": 437,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 437,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 438,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 438,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 438,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 439,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]That was… actually pretty good. I’m impressed!"
+      }
+    },
+    {
+      "entryId": 439,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 439,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 441,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]I dig the commentary! And good to see you’re an advocate of the chill life!"
+      }
+    },
+    {
+      "entryId": 440,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 440,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 441,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 441,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 441,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 443,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=2]Yo, wait, are WE the bugs?? Damn."
+      }
+    },
+    {
+      "entryId": 442,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 442,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 443,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      }
+    },
+    {
+      "entryId": 443,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 443,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 469,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=3]Really makes ya think!"
+      }
+    },
+    {
+      "entryId": 444,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 444,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 445,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "## **MIXED HAIKU ENDING**"
+      }
+    },
+    {
+      "entryId": 445,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 445,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 446,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 446,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 446,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 447,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=5]Ooh… umm. Hm!"
+      }
+    },
+    {
+      "entryId": 447,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 447,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 449,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=4]Quite… Avante garde! Yes!"
+      }
+    },
+    {
+      "entryId": 448,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 448,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 449,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 449,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 449,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 450,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=3]Heh, that’s what she says to most of mine…"
+      }
+    },
+    {
+      "entryId": 450,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 450,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 451,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]It’s a good start Rascal!"
+      }
+    },
+    {
+      "entryId": 451,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 451,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 453,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=1]We can work shop it later!"
+      }
+    },
+    {
+      "entryId": 452,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 452,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 453,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      }
+    },
+    {
+      "entryId": 453,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 453,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 469,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=4]Not bad for a first try!"
+      }
+    },
+    {
+      "entryId": 454,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 454,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 455,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "*This dialogue plays at the end of each ending.*"
+      }
+    },
+    {
+      "entryId": 455,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 455,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 457,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "1",
+        "Conversant": "15",
+        "Dialogue Text": "Thanks guys!\nNext chill session, I’ll have something better!"
+      }
+    },
+    {
+      "entryId": 456,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 456,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 457,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 457,
+      "outgoingLinks": [],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]Hell yeah, Blow our socks off!"
+      }
+    },
+    {
+      "entryId": 458,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 458,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 459,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "##  **BRIDGE HAIKU ENDING**"
+      }
+    },
+    {
+      "entryId": 459,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 459,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 460,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Violet"
+      }
+    },
+    {
+      "entryId": 460,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 460,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 461,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=2]That was… actually pretty good. I’m impressed!"
+      }
+    },
+    {
+      "entryId": 461,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 461,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 463,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "14",
+        "Dialogue Text": "[pic=3]I see you were inspired by the bridge and your experiences in the forest. Very nice!"
+      }
+    },
+    {
+      "entryId": 462,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 462,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 463,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Claire"
+      }
+    },
+    {
+      "entryId": 463,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 463,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 465,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Actor": "13",
+        "Dialogue Text": "[pic=4]Man, this guy’s a natural!"
+      }
+    },
+    {
+      "entryId": 464,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 464,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 465,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "Oliver"
+      }
+    },
+    {
+      "entryId": 465,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 465,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 469,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Dialogue Text": "[pic=2]Yes wondorful job!"
+      }
+    },
+    {
+      "entryId": 466,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 466,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 474,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "penny_ending",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 467,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 467,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 475,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "bug_ending",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 468,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 468,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 476,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "mixed_ending",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 469,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 469,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 455,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()"
+      }
+    },
+    {
+      "entryId": 473,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 473,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 460,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "n1"
+      }
+    },
+    {
+      "entryId": 474,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 474,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 430,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "n2"
+      }
+    },
+    {
+      "entryId": 475,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 475,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 438,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "n3"
+      }
+    },
+    {
+      "entryId": 476,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 476,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 446,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PASSTHRU",
+        "Sequence": "None()",
+        "TfolUniqueDataKeySuffix": "n4"
+      }
+    },
+    {
+      "entryId": 477,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 477,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 473,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      }
+    },
+    {
+      "entryId": 478,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 478,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 474,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      }
+    },
+    {
+      "entryId": 479,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 479,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 475,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      }
+    },
+    {
+      "entryId": 480,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 480,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 476,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      }
+    },
+    {
+      "entryId": 481,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 481,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 319,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Title": "PORTRAITSALIGNR(coyote_violet)"
+      }
+    },
+    {
+      "entryId": 597,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 597,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 417,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 597,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 418,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(1);Continue()@1;"
+      }
+    },
+    {
+      "entryId": 598,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 598,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 422,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(2);Continue()@2;"
+      }
+    },
+    {
+      "entryId": 599,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 599,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 411,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 599,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 407,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 599,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 326,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(1);Continue()@1;"
+      }
+    },
+    {
+      "entryId": 600,
+      "outgoingLinks": [
+        {
+          "originConversationID": 303,
+          "originDialogueID": 600,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 408,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 600,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 327,
+          "isConnector": 0,
+          "priority": 2
+        },
+        {
+          "originConversationID": 303,
+          "originDialogueID": 600,
+          "destinationConversationID": 303,
+          "destinationDialogueID": 412,
+          "isConnector": 0,
+          "priority": 2
+        }
+      ],
+      "fields": {
+        "Sequence": "required Delay(1);Continue()@1;"
+      }
+    }
+  ],
+  "roundtrip": true
+}

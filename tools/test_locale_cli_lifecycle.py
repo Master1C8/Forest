@@ -61,6 +61,17 @@ class LifecycleTests(unittest.TestCase):
         result['language']['sha256'] = 'stale'
         self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
 
+    def test_existing_canonical_language_alias_requires_exact_unambiguous_binding(self):
+        full = dict(self.summary, remaining=0)
+        result = {'status': 'review-ready', 'canonicalLanguage': {'path': 'language.json', 'sha256': full['sha256']}}
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-parent-independent-review-verification')
+        result['language'] = {'sha256': 'contradictory'}
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
+        result['language']['sha256'] = full['sha256']
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-parent-independent-review-verification')
+        result['canonicalLanguage']['sha256'] = 'stale-alias'
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
+
     def test_real_blocker_and_unknown_result_do_not_continue(self):
         self.assertEqual(life.classify({'exitCode': 0}, {'status': 'incomplete', 'blocker': 'protected source decision'}, USAGE, [], self.summary), 'held-real-blocker')
         self.assertEqual(life.classify({'exitCode': 0}, None, USAGE, [], self.summary), 'needs-attention-missing-result')
