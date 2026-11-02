@@ -1,5 +1,21 @@
 # Six remaining Forest localization CLI assignments
 
+## Hindi static authoring now owner-authorized
+
+The owner explicitly accepted the unresolved display risk and selected starting
+static Hindi translation. `hi-authoring-01/owner-risk-acceptance.json` records that
+decision. A new fresh Sol/high/OpenAI/null-parent author is running in hi/author-01;
+its isolated one-locale lifecycle adopts that exact PID with zero new requests.
+The original five-author controller and all old probe artifacts are unchanged.
+The six current locale authors share the same source/glossary/case/editorial
+requirements. The Hindi task now proceeds to case adaptation, full wording and
+primary editing; the completed probe's historical missing-owner-decision blocker
+is superseded only by this actual owner choice. Native shaping/loading/reordering/
+layout/readability and every other acceptance gate remain unverified/separate.
+No game, GUI, installer, publication, deployment or cleanup was authorized.
+Earlier descriptions of the initial Hindi prerequisite remain historical.
+
+
 Owner request: CLI jobs for all remaining languages. The current read-only production
 content audit confirms hu/nl/ro/hi/sr/sw are eligible, and exact current local language
 files exclude every previously prepared locale. There is no competing checkout,

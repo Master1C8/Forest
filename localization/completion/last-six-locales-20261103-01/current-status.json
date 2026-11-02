@@ -1,7 +1,7 @@
 {
   "run": "last-six-locales-20261103-01",
-  "atUTC": "2026-11-02T20:33:48.039526+00:00",
-  "status": "six-cli-running-five-authors-and-hindi-feasibility",
+  "atUTC": "2026-11-02T21:42:01.204154+00:00",
+  "status": "six-locale-authors-running-hindi-owner-risk-accepted",
   "model": "gpt-6.1-sol",
   "reasoning": "high",
   "provider": "openai",
@@ -17,7 +17,7 @@
         "sr",
         "sw"
       ],
-      "authority": "Owns Hindi finite prerequisite and original terminal receipts; five-author continuation pointer supersedes its later old phase snapshots."
+      "authority": "Historical initial six-task launch and finite Hindi prerequisite receipts. Current Hindi author and five-author continuation pointers supersede old phase snapshots."
     },
     "authorContinuation": {
       "manifest": "localization/completion/last-six-locales-20261103-01/lifecycle/manifest.json",
@@ -30,6 +30,21 @@
         "sw"
       ],
       "state": "active-five-original-pids-adopted"
+    },
+    "hindiAuthorFresh": {
+      "manifest": "localization/completion/last-six-locales-20261103-01/hi-authoring-01/launch-manifest.json",
+      "statusPath": "outputs/last-six-locales-20261103-01/hi-authoring-01/status.json",
+      "locales": [
+        "hi"
+      ]
+    },
+    "hindiAuthorContinuation": {
+      "manifest": "localization/completion/last-six-locales-20261103-01/hi-authoring-01/lifecycle/manifest.json",
+      "statusPath": "outputs/last-six-locales-20261103-01/hi-author-lifecycle-01/status.json",
+      "locales": [
+        "hi"
+      ],
+      "state": "active-original-new-hindi-author-pid-adopted"
     }
   },
   "lanes": [
@@ -111,10 +126,10 @@
     {
       "locale": "hi",
       "label": "Hindi",
-      "phase": "outputs/last-six-locales-20261103-01/hi/probe-01",
-      "control": "localization/completion/last-six-locales-20261103-01/hi",
-      "taskClass": "locale-feasibility",
-      "status": "finite-hindi-feasibility-running",
+      "phase": "outputs/last-six-locales-20261103-01/hi/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/hi-authoring-01",
+      "taskClass": "translation-primary-editing",
+      "status": "translation-and-primary-editing-running",
       "live": true,
       "language": "localization/languages/hi.json",
       "ordinaryTotal": 12825,
@@ -124,14 +139,18 @@
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
       "native": "not-authorized-not-run",
-      "pid": 36063,
-      "threadId": "01a19df5-af23-76a1-9ea1-0716757b2dcb",
+      "pid": 56454,
+      "threadId": "01a19e34-449f-7f91-be34-8e60d5b6b1a8",
       "runtimeVerified": true,
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
       "inheritedHistory": false,
-      "freshExec": true
+      "freshExec": true,
+      "startedAt": "2026-11-02T21:39:50.765226+00:00",
+      "previousPhase": "outputs/last-six-locales-20261103-01/hi/probe-01",
+      "ownerRenderingRiskAcceptance": "localization/completion/last-six-locales-20261103-01/hi-authoring-01/owner-risk-acceptance.json",
+      "technicalProbe": "Complete static prerequisite preserved; owner risk decision supplied. Native feasibility remains unverified."
     },
     {
       "locale": "sr",
