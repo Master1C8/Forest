@@ -1,0 +1,141 @@
+{
+  "run": "last-six-locales-20261103-01",
+  "atUTC": "2026-11-02T20:28:50.232019+00:00",
+  "status": "prepared-not-yet-dispatched",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "phaseLifecycles": {
+    "freshFinite": {
+      "manifest": "localization/completion/last-six-locales-20261103-01/launch-manifest.json",
+      "statusPath": "outputs/last-six-locales-20261103-01/authoring-01/status.json",
+      "locales": [
+        "hu",
+        "nl",
+        "ro",
+        "hi",
+        "sr",
+        "sw"
+      ]
+    },
+    "authorContinuation": {
+      "manifest": "localization/completion/last-six-locales-20261103-01/lifecycle/manifest.json",
+      "statusPath": "outputs/last-six-locales-20261103-01/author-lifecycle-01/status.json",
+      "locales": [
+        "hu",
+        "nl",
+        "ro",
+        "sr",
+        "sw"
+      ],
+      "state": "prepared-not-adopted"
+    }
+  },
+  "lanes": [
+    {
+      "locale": "hu",
+      "label": "Hungarian",
+      "phase": "outputs/last-six-locales-20261103-01/hu/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/hu",
+      "taskClass": "translation-primary-editing",
+      "status": "prepared-not-running",
+      "live": false,
+      "language": "localization/languages/hu.json",
+      "ordinaryTotal": 12825,
+      "filledOrdinary": 0,
+      "translationPercent": 0,
+      "protectedExact": 1781,
+      "glossaryEntries": 171,
+      "glossaryVersionMatchingCells": 684,
+      "native": "not-authorized-not-run"
+    },
+    {
+      "locale": "nl",
+      "label": "Dutch",
+      "phase": "outputs/last-six-locales-20261103-01/nl/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/nl",
+      "taskClass": "translation-primary-editing",
+      "status": "prepared-not-running",
+      "live": false,
+      "language": "localization/languages/nl.json",
+      "ordinaryTotal": 12825,
+      "filledOrdinary": 0,
+      "translationPercent": 0,
+      "protectedExact": 1781,
+      "glossaryEntries": 171,
+      "glossaryVersionMatchingCells": 684,
+      "native": "not-authorized-not-run"
+    },
+    {
+      "locale": "ro",
+      "label": "Romanian",
+      "phase": "outputs/last-six-locales-20261103-01/ro/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/ro",
+      "taskClass": "translation-primary-editing",
+      "status": "prepared-not-running",
+      "live": false,
+      "language": "localization/languages/ro.json",
+      "ordinaryTotal": 12825,
+      "filledOrdinary": 0,
+      "translationPercent": 0,
+      "protectedExact": 1781,
+      "glossaryEntries": 171,
+      "glossaryVersionMatchingCells": 684,
+      "native": "not-authorized-not-run"
+    },
+    {
+      "locale": "hi",
+      "label": "Hindi",
+      "phase": "outputs/last-six-locales-20261103-01/hi/probe-01",
+      "control": "localization/completion/last-six-locales-20261103-01/hi",
+      "taskClass": "locale-feasibility",
+      "status": "prepared-not-running",
+      "live": false,
+      "language": "localization/languages/hi.json",
+      "ordinaryTotal": 12825,
+      "filledOrdinary": 0,
+      "translationPercent": 0,
+      "protectedExact": 1781,
+      "glossaryEntries": 171,
+      "glossaryVersionMatchingCells": 684,
+      "native": "not-authorized-not-run"
+    },
+    {
+      "locale": "sr",
+      "label": "Serbian",
+      "phase": "outputs/last-six-locales-20261103-01/sr/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/sr",
+      "taskClass": "translation-primary-editing",
+      "status": "prepared-not-running",
+      "live": false,
+      "language": "localization/languages/sr.json",
+      "ordinaryTotal": 12825,
+      "filledOrdinary": 0,
+      "translationPercent": 0,
+      "protectedExact": 1781,
+      "glossaryEntries": 171,
+      "glossaryVersionMatchingCells": 684,
+      "native": "not-authorized-not-run"
+    },
+    {
+      "locale": "sw",
+      "label": "Swahili",
+      "phase": "outputs/last-six-locales-20261103-01/sw/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/sw",
+      "taskClass": "translation-primary-editing",
+      "status": "prepared-not-running",
+      "live": false,
+      "language": "localization/languages/sw.json",
+      "ordinaryTotal": 12825,
+      "filledOrdinary": 0,
+      "translationPercent": 0,
+      "protectedExact": 1781,
+      "glossaryEntries": 171,
+      "glossaryVersionMatchingCells": 684,
+      "native": "not-authorized-not-run"
+    }
+  ],
+  "native": "not-authorized-not-run",
+  "release": "not-accepted",
+  "archival": "pending-unfinished-project"
+}

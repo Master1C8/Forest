@@ -1,0 +1,57 @@
+{
+  "run": "last-six-locales-20261103-01",
+  "stage": "authoring-01",
+  "lanes": [
+    {
+      "locale": "hu",
+      "label": "Hungarian",
+      "phase": "outputs/last-six-locales-20261103-01/hu/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/hu",
+      "taskClass": "translation-primary-editing"
+    },
+    {
+      "locale": "nl",
+      "label": "Dutch",
+      "phase": "outputs/last-six-locales-20261103-01/nl/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/nl",
+      "taskClass": "translation-primary-editing"
+    },
+    {
+      "locale": "ro",
+      "label": "Romanian",
+      "phase": "outputs/last-six-locales-20261103-01/ro/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/ro",
+      "taskClass": "translation-primary-editing"
+    },
+    {
+      "locale": "hi",
+      "label": "Hindi",
+      "phase": "outputs/last-six-locales-20261103-01/hi/probe-01",
+      "control": "localization/completion/last-six-locales-20261103-01/hi",
+      "taskClass": "locale-feasibility"
+    },
+    {
+      "locale": "sr",
+      "label": "Serbian",
+      "phase": "outputs/last-six-locales-20261103-01/sr/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/sr",
+      "taskClass": "translation-primary-editing"
+    },
+    {
+      "locale": "sw",
+      "label": "Swahili",
+      "phase": "outputs/last-six-locales-20261103-01/sw/author-01",
+      "control": "localization/completion/last-six-locales-20261103-01/sw",
+      "taskClass": "translation-primary-editing"
+    }
+  ],
+  "authority": "Owner requested CLI tasks for all remaining hu,nl,ro,hi,sr,sw. Five locale authors and one locale-owned Hindi early-feasibility prerequisite; no seventh technical stream, old job resume or native/publication authority.",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "maxConcurrentModelProcesses": 6,
+  "totalLocaleStreamCap": 6,
+  "automaticRetry": false,
+  "automaticFollowup": false
+}

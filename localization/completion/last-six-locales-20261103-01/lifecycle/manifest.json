@@ -1,0 +1,97 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/last-six-locales-20261103-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "streamCap": 5,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/last-six-locales-20261103-01/author-lifecycle-01",
+  "phasePrefix": "author-auto",
+  "editorialRoot": "localization/editorial-delivery/last-six-locales-20261103-01",
+  "caseRoot": "localization/case-decisions/last-six-locales-20261103-01",
+  "lanes": [
+    {
+      "locale": "hu",
+      "phase": "outputs/last-six-locales-20261103-01/hu/author-01",
+      "language": "localization/languages/hu.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/hu/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/hu/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/hu",
+        "localization/case-decisions/last-six-locales-20261103-01/hu"
+      ]
+    },
+    {
+      "locale": "nl",
+      "phase": "outputs/last-six-locales-20261103-01/nl/author-01",
+      "language": "localization/languages/nl.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/nl/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/nl/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/nl",
+        "localization/case-decisions/last-six-locales-20261103-01/nl"
+      ]
+    },
+    {
+      "locale": "ro",
+      "phase": "outputs/last-six-locales-20261103-01/ro/author-01",
+      "language": "localization/languages/ro.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/ro/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/ro/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/ro",
+        "localization/case-decisions/last-six-locales-20261103-01/ro"
+      ]
+    },
+    {
+      "locale": "sr",
+      "phase": "outputs/last-six-locales-20261103-01/sr/author-01",
+      "language": "localization/languages/sr.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/sr/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/sr/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/sr",
+        "localization/case-decisions/last-six-locales-20261103-01/sr"
+      ]
+    },
+    {
+      "locale": "sw",
+      "phase": "outputs/last-six-locales-20261103-01/sw/author-01",
+      "language": "localization/languages/sw.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/sw/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/sw/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/sw",
+        "localization/case-decisions/last-six-locales-20261103-01/sw"
+      ]
+    }
+  ],
+  "immutablePins": {
+    "localization/completion/last-six-locales-20261103-01/lifecycle/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/last-six-locales-20261103-01/lifecycle/runtime/locale_cli_lifecycle.py": "ab3396d96cc285a0ec3dc9de92f5cf3e1b26d49ed716987f2d25db3c54a2a9eb",
+    "localization/completion/last-six-locales-20261103-01/hu/task.json": "a9656a0fceac3ed117892929bdc8339c08572e85899787afedeb16049748de55",
+    "localization/completion/last-six-locales-20261103-01/nl/task.json": "2b2f040bfe11f2572df0734c7542c22e3404b68e5ada919f05cc36b41f012bdd",
+    "localization/completion/last-six-locales-20261103-01/ro/task.json": "bbc25b46f10dcbb913d292cfe27b1c65e06540959058972795331f8842402988",
+    "localization/completion/last-six-locales-20261103-01/sr/task.json": "d7b1dbc251451eae906b7e6315a4913751c9052fffed7d006764d818267c26c1",
+    "localization/completion/last-six-locales-20261103-01/sw/task.json": "ab536b8e2f5cd5bf2855e0736d1246bfa2493eb0a4433c23841097d9d3acdb04"
+  },
+  "authority": "Continue only these five original own locale-author assignments after verified terminal receipts and new-turn model verification; no new locale/technical stream, no inherited parent/fork, no native/publication/server action. Hindi feasibility is finite and excluded from automatic author continuation."
+}
