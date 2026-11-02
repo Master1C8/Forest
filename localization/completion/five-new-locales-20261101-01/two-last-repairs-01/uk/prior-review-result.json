@@ -1,0 +1,104 @@
+{
+  "status": "complete-with-findings",
+  "taskTitle": "Independently review all12825 final Ukrainian ordinary units",
+  "locale": "uk",
+  "reviewer": "01a19906-69db-7be2-8154-4c6149941e8b",
+  "runtime": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "parentThreadId": null,
+    "freshIndependent": true,
+    "verifiedBeforeLocalizedInput": true,
+    "distinctFromAuthor": true
+  },
+  "languageSnapshot": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/author-04/language-final.json",
+    "sha256": "0e712c06b5f8447e003585422d55cce84dea58409a0351261f9b1edd330740e2"
+  },
+  "reviewPacketSha256": "78d75336f01e85624b9a776d441da7d7854edcf7c6e764521f522a98899053c9",
+  "sourcePacketSha256": "428f3765d68e22b8c38ad335354d8ccf98dbd46adae82afc546a49ecf41e3cd3",
+  "coverage": {
+    "primaryRead": 12825,
+    "primaryUnread": 0,
+    "acceptedStaticEditorialIds": 12820,
+    "findingIds": 5,
+    "dialoguePrimary": 10465,
+    "nonDialoguePrimary": 2360,
+    "protectedContextRead": 1781,
+    "glossaryTermsAndMeaningsRead": 171,
+    "sourceOnlyNarrativeRowsRead": 150,
+    "originalHaikuSourceNodesRead": 259,
+    "specialCasesAssessed": 23,
+    "haikuPairsAssessed": 9,
+    "haikuCompositionsAssessed": 27
+  },
+  "findings": [
+    {
+      "findingId": "UK-I001",
+      "id": "ds:67:97:Dialogue Text",
+      "reason": "The source quantifies distinct big critters (a few partners); the target instead quantifies occasions (кілька разів). Preserve participant number rather than replacing it with session frequency."
+    },
+    {
+      "findingId": "UK-I002",
+      "id": "ds:127:299:Dialogue Text",
+      "reason": "The source predicts more critters visiting each other; the target predicts repeated sightings (ще не раз), dropping the increase in participating critters. Preserve the quantified referent."
+    },
+    {
+      "findingId": "UK-I003",
+      "id": "ds:256:201:Dialogue Text",
+      "reason": "The source introduces a couple of residents across the clearing, concretely the two coyotes in the following destination scene259. Кілька leaves their number unspecified rather than retaining the pair."
+    },
+    {
+      "findingId": "UK-I004",
+      "id": "ds:331:578:Dialogue Text",
+      "reason": "The little friend is the plant, explicitly identified at331:575-576 and confirmed in579. звірятком changes that referent into an animal; the source uses friend without that animal classification."
+    },
+    {
+      "findingId": "UK-I005",
+      "id": "ds:1444:1010:Dialogue Text",
+      "reason": "The connected1008–1011 exchange addresses Whiskers. The approved English glossary tfol-031 explicitly leaves Whiskers gender unestablished and requires neutral wording. кінчив adds masculine personal agreement. The colloquial source address Dude does not override that explicit character contract; preserve the approximate five-to-six orgasm count without gendering the participant. The approved Віскерс/Віскерсе name decision is retained separately."
+    }
+  ],
+  "cleanExactVersionAcceptance": false,
+  "nativeRuntimeReleaseAcceptance": false,
+  "repairsApplied": false,
+  "primaryJudgments": "outputs/five-new-locales-20261101-01/uk/independent-01/primary-judgments.jsonl",
+  "parentRepairHandoff": "outputs/five-new-locales-20261101-01/uk/independent-01/parent-repair-handoff.json",
+  "evidenceIndex": {
+    "path": "outputs/five-new-locales-20261101-01/uk/independent-01/evidence-index.json",
+    "sha256": "73552a3239088258499cbe5607ad69b0507154334590dcb70a2bd728a9d88e0d"
+  },
+  "usage": {
+    "sessionId": "01a19906-69db-7be2-8154-4c6149941e8b",
+    "sessionPath": "/Users/antonkrutov/.codex/sessions/2026/11/02/rollout-2026-11-02T04-31-36-01a19906-69db-7be2-8154-4c6149941e8b.jsonl",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "scope": "Whole fresh independent review session, including preparation, reading, deterministic tooling, failed attempts, compactions and reporting up to the measured cutoff. No inherited pre-assignment session counters.",
+    "measurement": "Latest nonoverlapping cumulative total_token_usage; request records are not added again.",
+    "cutoff": "2026-11-01T21:58:24.468Z",
+    "input_tokens": 36397013,
+    "cached_input_tokens": 35226112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 56221,
+    "reasoning_output_tokens": 15909,
+    "total_tokens": 36453234,
+    "subsets": "cached_input_tokens is a subset of input_tokens; reasoning_output_tokens is a subset of output_tokens; neither is added again.",
+    "unmeasuredTail": "Requests after the cutoff, including this artifact/report, and platform overhead are unknown.",
+    "nestedAgentsOrModelsUsed": false,
+    "parentCoordinatorOrchestrationTokens": "unknown; parent session not read",
+    "cost": "not requested; token counts are not charges"
+  },
+  "prohibitedActionsPerformed": [],
+  "heldGates": [
+    "clean exact-version whole-corpus acceptance pending five findings",
+    "parent adjudication and repair application",
+    "later exact independent repair delta",
+    "native game/font/layout/renderer checks not authorized or run",
+    "retained artwork/image language dependencies",
+    "human glossary review owner-deferred",
+    "installer/release/publication/deployment outside task"
+  ],
+  "next": "Parent adjudicates and applies the consolidated repair batch, followed by the exact independent delta; no game/runtime or publication action is authorized."
+}

@@ -1,0 +1,1342 @@
+{
+  "status": "complete-consolidated-findings",
+  "complete": true,
+  "languageSha256": "d0d7bc26da48bc727509639781f8d12d5a27d934e3264bcbeb8eeb91241a80e5",
+  "reviewPacketSha256": "e9e3decddf905fa5eef164ef7e959fab62b90080cfce653fddf36ad84e0496f2",
+  "findingCount": 5,
+  "affectedTargetCount": 7,
+  "findings": [
+    {
+      "id": "VI-IND-001",
+      "category": "approved-name-contradiction",
+      "severity": "major-editorial",
+      "glossary": {
+        "path": "localization/completion/five-new-locales-20261101-01/vi/glossary.json",
+        "sha256": "1cc38b5809210b0e683144e8cdea5b9ad1ec3f19f3822f1bfc16c0fc78e1aae0",
+        "id": "tfol-031",
+        "term": "Râu Mép"
+      },
+      "reason": "The approved own nickname exists. Author primary adjudication claiming it does not exist is factually contradicted by this pinned glossary, so the change from Râu Mép to Whiskers cannot justify divergence. Both current visible forms must follow approved authority without changing hidden masks, control identities or gender.",
+      "priorDecision": {
+        "path": "outputs/five-new-locales-20261101-01/vi/author-02/handoff-01/finding-closure-bindings.json",
+        "record": "primary-adjudications-01.json",
+        "findingIndex": 1,
+        "newEvidence": "Complete pinned tfol-031 term read directly."
+      },
+      "affected": [
+        {
+          "index": 1303,
+          "id": "ds:1444:1008:Dialogue Text",
+          "source": "Whiskers! Wrap it up!",
+          "target": "Whiskers! Kết thúc thôi nào!",
+          "sourceSha256": "eae1bd2a9d703037373904d3348e89ce9eaa28776c207cd47cc8423ff24a31ff",
+          "targetSha256": "4daaac38851f89de156d14f1b3f1db2749248abccfca68b34edce3e26c2befd7",
+          "proposedTarget": "Râu Mép! Kết thúc thôi nào!",
+          "context": {
+            "actorId": "5",
+            "conditions": "",
+            "conversantId": "1",
+            "conversation": "movies/oliverCumSpaStory/dialogue",
+            "conversationId": 1444,
+            "entryId": 1008,
+            "field": "Dialogue Text",
+            "next": [
+              [
+                1444,
+                1009
+              ]
+            ],
+            "script": ""
+          }
+        },
+        {
+          "index": 11615,
+          "id": "managed:Managed/Assembly-CSharp.dll:System.String TheForestOfLove.CustomPortraitsUi::VNRevivalRussianSpeakerDisplay(System.String)@116",
+          "source": "Mouse (Whiskers)",
+          "target": "Chuột (Whiskers)",
+          "sourceSha256": "f32f26f05b43f9baada27c216753bb497e4a14b38c9f7c2c5f09abb6de1c96bf",
+          "targetSha256": "3433c3e87ce30d714b4730a37914d38c32e88699d564d83495b4a826ddd49412",
+          "proposedTarget": "Chuột (Râu Mép)",
+          "context": {
+            "selectors": [
+              {
+                "asset": "Managed/Assembly-CSharp.dll",
+                "index": 116,
+                "kind": "managed",
+                "method": "System.String TheForestOfLove.CustomPortraitsUi::VNRevivalRussianSpeakerDisplay(System.String)"
+              }
+            ]
+          }
+        }
+      ],
+      "closure": "Exact source/target name search within pinned own review packet found these two occurrences. Preserve surrounding spa exchange and managed reveal mapping; parent to adjudicate then pin exact correction delta.",
+      "status": "proposed-parent-adjudication",
+      "exhaustiveCorpusFindings": true
+    },
+    {
+      "id": "VI-IND-002",
+      "category": "polysemy-in-quest-objective",
+      "severity": "major-editorial",
+      "reason": "Charlotte promised to stand guard for the bunny and cannot leave her post. Scarlett is asked how long that guard duty should continue. The objective's watch is not a clock; đồng hồ gives the player the wrong task meaning.",
+      "affected": [
+        {
+          "index": 246,
+          "id": "bgdb:resources.assets:320/sheet/9yCd%2Fl1J50q4ulgVkTG%2BqQ/row/3wtK4KL3G0eoMqxSyu1O1Q/field/9bk2imQPcUGONvg3gpNiWw",
+          "source": "Ask Scarlett about Charlotte's watch.",
+          "target": "Hỏi Scarlett về đồng hồ của Charlotte.",
+          "sourceSha256": "e57af32af1982018da1c8f8259c651c7a03b8c714fc9d1b669ccde63e885940b",
+          "targetSha256": "d4ebfe09ca02107297fe926e11e55ce986582ad09fe3f9eaeb8fe55fb61c4430",
+          "proposedTarget": "Hỏi Scarlett về việc canh gác của Charlotte.",
+          "context": {
+            "selectors": [
+              {
+                "asset": "resources.assets",
+                "fieldId": "9bk2imQPcUGONvg3gpNiWw",
+                "kind": "bg",
+                "pathId": 320,
+                "rowId": "3wtK4KL3G0eoMqxSyu1O1Q",
+                "sheetId": "9yCd/l1J50q4ulgVkTG+qQ"
+              }
+            ]
+          },
+          "rowSha256": "8209de66f3d2e2ae67dde839d83f2d6ef167c99ed36cc090edba33c7be3869e8"
+        }
+      ],
+      "contextBindings": [
+        {
+          "id": "ds:68:100:Dialogue Text",
+          "sourceSha256": "f2bc9eeb787d5c30ec409f32272325d20737118bb451d11191106e1545c3f8f0",
+          "targetSha256": "191adf52350104e25c07d1243b097205f69aa135e61b7d2b40007d30ad1c5de1",
+          "fullCatalogRowSha256": "069bb7ad4eb3bb780298ea001b19f36f528986a4a8fcc1296deae6efd242ed0e",
+          "judgmentRowSha256": "eeaf3cd32892a27520d4dbdcc0efddd2b405913d8d7d9bc9ef6174f3a4880385",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:101:Menu Text",
+          "sourceSha256": "d6e40c71c99c8aa4e78c98539f6c21ba4cf6f374ec1b9b24551a706cf3a037a2",
+          "targetSha256": "18f36facaa751bf2731612dc1cda97b42830a1d55a5abe30bd86f21044753118",
+          "fullCatalogRowSha256": "b81a3f083b67a8aa9676bb16e3b536690cc79a2a0b5225e1f8f776520311e761",
+          "judgmentRowSha256": "ad159f8f8a0161e54cfccc00b71a1410f4b7f63d251a0a9c19a4b85e618a0002",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:102:Dialogue Text",
+          "sourceSha256": "c2839b5de0478ddd038e0ca915b2c31849817fae2f596e567b463d109bb22c87",
+          "targetSha256": "d6ee91c830b6c965760ac8886e4abeab5e0b028598f26a2c5083f687d97a5913",
+          "fullCatalogRowSha256": "53b09e74cee1a48d1cdcc0c41300bbbc4b3b50ded7160946a5010f433274c173",
+          "judgmentRowSha256": "f8fc0992a973b77e4fe10f42b1a9e8dfa464ba2bebe7e6b3f255634cbe07e32b",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:103:Dialogue Text",
+          "sourceSha256": "69158c6da71bddc3a99b0db90e64ddcec16c06ce8a1da304fe4b46db50dc8c31",
+          "targetSha256": "9b4e54243d6d70092afa8c0e634f169f8445b38f302140a6a5cf1afcae9848e4",
+          "fullCatalogRowSha256": "b2a877b60d816de7166c397f36f41fbaefd3ecb6fd9956a59fb9e3d5593e7383",
+          "judgmentRowSha256": "d12282b78388e4137fe90225fd56793a4ed03051eca54262ecebdb62b07de683",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:104:Dialogue Text",
+          "sourceSha256": "39ddc297040e282726942b3378526d491cfa59b3b41cbcf8247cd274a258feef",
+          "targetSha256": "5788a108e531aa96518de1791406e0695a0bd7fb7e3d893a5a7fa89007f119df",
+          "fullCatalogRowSha256": "84c3be638b84cc3cd2922fb36f41e0863c12754a3ff444d4df0f5ba7e81b2bd8",
+          "judgmentRowSha256": "81649e5bf917e2f9473cd5ad1fe9110c1b9c91ac36d90326a5af45276eec0009",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:105:Dialogue Text",
+          "sourceSha256": "21c528dc6d585b0805cd32931be43e5f1f5883140f59399907bc8c636201df05",
+          "targetSha256": "3516875f54b7a1c661f529da3822b232094bf4770195924124318fa74bf75e5f",
+          "fullCatalogRowSha256": "5a820852dc7c7136b68f72f1dc68abf94586a3f1317c897f5722764134cfad34",
+          "judgmentRowSha256": "be1be7093ed7798dbd155efac6049c0568a6a6571610536585a34d021c0b35f7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:106:Dialogue Text",
+          "sourceSha256": "8c12a60031216772ee7a0fcaf471e424f18b1b1cafe975009247c5d2735774ce",
+          "targetSha256": "abb695ed5ee758f0fec7a14418910c8fa87b70aebb671086974b67df370735ce",
+          "fullCatalogRowSha256": "c10446adafacad5afbda1f5c540f6d4eee90663c715b601bed2a104b80472951",
+          "judgmentRowSha256": "33bbf711877773bade60e3f2ec3d9704f581cdacc0ad35ee830570ca3419f7bf",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:107:Dialogue Text",
+          "sourceSha256": "53925ff12eb7df02bdd0ac4f11437faa5a6be777e048dc300266b491c8a370f3",
+          "targetSha256": "1456e5e18915cc1bdd8d57943d6e2fdc34390a35bbcdaec3af9d6edcf68f4ea2",
+          "fullCatalogRowSha256": "81ca5a29977f954e6d4f7a60b7bd0fe33b58e50e297a740899ec7a18515b7583",
+          "judgmentRowSha256": "89f01437e104758781140939cc1d28cfaf866c40723dda1fb09e4bc6a3138ea8",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:108:Dialogue Text",
+          "sourceSha256": "a9de6fa520596149c3868441866a8214e0afcf1eaefee1c99ea1fb02c9998ac4",
+          "targetSha256": "1ccdbf70d653bbcd0697ecfc88a9e5c988216866a1a5d2ff5f3c465bd13b0571",
+          "fullCatalogRowSha256": "84cd04a6966b99a6805b290ba0d73bfa1f256f94e2ee47a446e521f8824a9b3f",
+          "judgmentRowSha256": "8108da8ab289d902ac820c7375cb4d43803f6fb01c1e7e9490533e85afcab6cb",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:109:Dialogue Text",
+          "sourceSha256": "779d60b027405693e0584984e244a9c720a7c2ea27d3cd63da37747381c3f199",
+          "targetSha256": "bcc10e2b1e6db3b1823156d06ae3b5e8f5b6e43188b5607637ef49757046a345",
+          "fullCatalogRowSha256": "55cff0b95059814ae12a61cf25c3946db59e218ea6a28780575add42f33bc732",
+          "judgmentRowSha256": "5fa3084821ab58287e04c10e9dc13b28e8ac1ef560ce469e784cc41e2285236a",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:110:Dialogue Text",
+          "sourceSha256": "075ea6bcc8b7a979ab85aec4e1f9c6625ee0fe735b569fca15d79709906ab5d2",
+          "targetSha256": "6615bba0fea0372ee31416521156b2b41bb79e84efbea04a0112504c94c966b7",
+          "fullCatalogRowSha256": "9b3889e3fef7a4a7e077d05b60261ef8be36abd9bdafba533c9de96efc949144",
+          "judgmentRowSha256": "aece91f7e4bcc843141ebaee94e097091699d0e187f69624f95c31540b3aeb3a",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:111:Dialogue Text",
+          "sourceSha256": "1bf328273bd00659677e497b5084341ceaf71ce1c7a8420540b03c78b79552ba",
+          "targetSha256": "59d71264916636118d4944a7b9eb2bfade9d93fd196ac2aa5c0066bc47d90b63",
+          "fullCatalogRowSha256": "f2debfd74ed674a04c66cae97a9fc687b899615014255d77eab04c6b318d9930",
+          "judgmentRowSha256": "e86c6ffb16a2b215e31ab20f434cc2ba461addd14bd5b7a1d44534565b6492f2",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:96:Dialogue Text",
+          "sourceSha256": "2d485e09c67ed7df37edab1b1a344243f51745bc52a15c3f67f19fedf5c8229c",
+          "targetSha256": "b2d27bc9bcf021e5b95b60ccf504fe1d6a5ec2cb1f1c1490ff653e0e7115a49a",
+          "fullCatalogRowSha256": "12019ff43396e0191f5c294438e2ce67001a232e07ad1cd73a395578a0e6a12e",
+          "judgmentRowSha256": "d26128f13d6ff559d526be56c6d2cef264304e5a897e32098a1096ae492cc1fa",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:97:Dialogue Text",
+          "sourceSha256": "63834bf4e6660dd16f9626558498a2e12df00866e834064471250313e38d6d5d",
+          "targetSha256": "729ff2c574c7f055869a6ed96fad0c48d098ce094a9a915e39c6063868500255",
+          "fullCatalogRowSha256": "844b6134df9f35a7f5f7a8de234f92fead12517c40ee1ab0c9e2f1e00dc76377",
+          "judgmentRowSha256": "9689800372fdb8680cdff1df1617cf2cca873595b9823afe84401dce5aed376c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:98:Dialogue Text",
+          "sourceSha256": "cfe671eea3c9f075b1814edc84200e307844583868124adb3595fced76f58d0f",
+          "targetSha256": "977f1e7edd553c57d298024521fba255c2899f359f0092629c5cdaa9171929cf",
+          "fullCatalogRowSha256": "e82a8c4efb029c7a5e43717adbbcef2b41a7519ecbf5eeac61615f463cb03c3f",
+          "judgmentRowSha256": "9bfc4d1bd8d581ce8ffb531af34429316614a45e08e7f95da08b073a8f7c2095",
+          "role": "primary"
+        },
+        {
+          "id": "ds:68:99:Dialogue Text",
+          "sourceSha256": "bd519dd7a07a7e94f1caaf6c4972eeda80543569a731a5f2007804531c0d15d5",
+          "targetSha256": "3cbb0480ff520c32fd5e5d32dd9af3a04b5863060c3754df30066fc62dcfd5f8",
+          "fullCatalogRowSha256": "4e279f1d84a9bc5b560af432afc154a8347f546224b098c5534e8977e6334527",
+          "judgmentRowSha256": "b70ea227ec866ec1cce71d1b8578a916c448209db251b016a92de0bc4927a3e2",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:100:Dialogue Text",
+          "sourceSha256": "d93d5728f1d3d96285f82e704ddebf322ee1eecf33f8f676d025a484e587512e",
+          "targetSha256": "3dd4a7f941f5c96d6417ec9aa41da2fe108c48ce9bb7031062b7262d73ff507f",
+          "fullCatalogRowSha256": "5b2b0c85becdd62cf233acfd2818e83cb3c76c1cd788950fcb1719208bcf7bff",
+          "judgmentRowSha256": "b562077ebf4b43a40034112a0691ae91890b4fe21978d69338e238a903375401",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:101:Dialogue Text",
+          "sourceSha256": "8c4ef0eb0309112c45c4358ac79d84e5bd6c168b6252a3c27fd39bbc581485ec",
+          "targetSha256": "e4421a73e1ff78c4aed573281a0be14d8e321b60b90c2135af1f1681fef4d316",
+          "fullCatalogRowSha256": "6b1cc234695d4dd054a78d18368e7c8ead7a3b7e44528e83986859cc9cea55a8",
+          "judgmentRowSha256": "4af6315edf07f29a9d5d94c06d70808fa230ca3e7f624b76c50bfcb4864ba01c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:102:Dialogue Text",
+          "sourceSha256": "f4b841c86a0e5575fe46d85fefb6fa5b4a33f39a01c52e6e76aba7c272031ee9",
+          "targetSha256": "a3b30fad84b415f0a58dae845b4c706362a57368010d4f881d85b4b0e0a33dcc",
+          "fullCatalogRowSha256": "d9358ce1febd51144d1edff931812bab0ddac80e771c19219882129d5f7f5cd3",
+          "judgmentRowSha256": "a036a6cf69eec2edf8a0df16fac558b3c22587981f8bc67c1bcbcb65e8adab70",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:96:Dialogue Text",
+          "sourceSha256": "8624203faebda5eba20e3cd3333b09e7307f556d4c462d96877413018c2cf13a",
+          "targetSha256": "cc3eac8ee38d5e019b49afaadc93f0d6ed4589c3d89f034c3cc43125849feb3e",
+          "fullCatalogRowSha256": "52026a62f7e4078d9e0bab2e63860fcca95b18b292f620bfee5c15f52ed13f6c",
+          "judgmentRowSha256": "28a4ee60d0933b2665beef5b12243e0cec9d656d6bb6326e0ff5b031afb246bf",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:97:Dialogue Text",
+          "sourceSha256": "dbccec6cde9200ec71100dd8b860871afdbdae019ef820c8202cd26b249e440e",
+          "targetSha256": "8fa041cf3b4e3722b0d93a52b8ca75f6f1f44225e22325511f46600430a8c3c8",
+          "fullCatalogRowSha256": "5948fd235f44fc01e5ce848492bb312b5bf9d62379263399c200fe04ec05df8e",
+          "judgmentRowSha256": "76c21b7630c1e28ffe00eaeb8b62c21d21bf050cdf9fba7d43733978d56f65e5",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:98:Menu Text",
+          "sourceSha256": "8d6e15fd4736df8647e468ac61ce41b3f7c557176fe6e2a2cae40f907d2c5438",
+          "targetSha256": "3cf7e93549dbec7d0fd730c7b3241cb143d7b97a3d43cef2faf4f17fd1317ff4",
+          "fullCatalogRowSha256": "fd38b01a41ab19bedd8e8e7f8a33f33923c44633accdbc92ad725bc1e37b4e6b",
+          "judgmentRowSha256": "a6cc43345503b2f68835356f685dcfc7f618383c5644618c97ac7423753d2214",
+          "role": "primary"
+        },
+        {
+          "id": "ds:93:99:Dialogue Text",
+          "sourceSha256": "553b1968b2d7407812c939f10683935da5feebf0f3b63b2be2d5c4807b8e8b5f",
+          "targetSha256": "bd8a0cb3cbfcf3232c8e8db764b054d43cc732351d1ae4454ca0901871cfeb1a",
+          "fullCatalogRowSha256": "66eb2dbafdd99a6fb5a69c899663e7d1ca8aa3ae548c2c355454243e05c65e0f",
+          "judgmentRowSha256": "d97bb67e0c2f4def115f7fc238861c98fa01a9453a130fd5b1afa773fa9ceb0d",
+          "role": "primary"
+        }
+      ],
+      "status": "proposed-parent-adjudication",
+      "targetEdited": false,
+      "closure": "Parent owns one consolidated repair batch and a later exact changed-version independent delta. Existing judgments are bound to the current bytes only."
+    },
+    {
+      "id": "VI-IND-003",
+      "category": "species-terminology-consistency",
+      "severity": "minor-editorial",
+      "reason": "Approved tfol-006 describes Augustus as cá sấu mõm ngắn, matching the Alligator critter tag. The anatomy question alone uses cá sấu Mỹ. Use the existing approved species term consistently without adding an American-species inference. This is a terminology consistency finding, not a claim that the American species is impossible.",
+      "affected": [
+        {
+          "index": 3250,
+          "id": "ds:299:441:Dialogue Text",
+          "source": "[pic=6]Rascal, have you ever seen alligator bits?",
+          "target": "[pic=6]Quậy, cậu từng thấy bộ phận sinh dục của cá sấu Mỹ chưa?",
+          "sourceSha256": "e5380e4d9b7cb802bc1b421e601a155869b604f3a3b4dfc4bcf01c6e367360ea",
+          "targetSha256": "cd8faddc28f40e4acf54f2d0bf41d3a6bd45a12dc751c662e336eaf6779db4dd",
+          "proposedTarget": "[pic=6]Quậy, cậu từng thấy bộ phận sinh dục của cá sấu mõm ngắn chưa?",
+          "context": {
+            "actorId": "9",
+            "conditions": "",
+            "conversantId": "1",
+            "conversation": "dates/buckyAugustus2/dialogue",
+            "conversationId": 299,
+            "entryId": 441,
+            "field": "Dialogue Text",
+            "next": [
+              [
+                299,
+                442
+              ]
+            ],
+            "script": ""
+          },
+          "rowSha256": "7fdde2e3b26b56bed0531272cfd91471c79a8f2bf081bf8d4fac7b768714b6d5"
+        }
+      ],
+      "contextBindings": [
+        {
+          "id": "ds:299:374:Dialogue Text",
+          "sourceSha256": "960d0706dc3939ded97752c43bd7e753520310099c1ce3a87f45e08fcc938e27",
+          "targetSha256": "69d3ccd3801ab5df058632c7a78f56970cca3cc63f28e93e89c5d091a03354d0",
+          "fullCatalogRowSha256": "f4bbb580e45db3a72039ec1a45242d14924127dc42512b5ef238640b020ac480",
+          "judgmentRowSha256": "8bde2db2b05fdff600ad365d13ab3dfb7d6239e77bf0b8650c99f2a13e9562c7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:376:Dialogue Text",
+          "sourceSha256": "657c302f48790be49e7a078e862731035d5681f7f4b97016ee0d75a896229917",
+          "targetSha256": "2bf2619cd1b3f851c7cbcdb3ba1303e9f371d907e1963b50a86c12d0797badfd",
+          "fullCatalogRowSha256": "8e512e50cf6a5993cc7842cf0a87997df89ddcdf4bf54f53431e97109135cf52",
+          "judgmentRowSha256": "37b1a0aaa9546d75916c5aa9941fc9edbc3a7da3bd15ae04babd9eb79fdeb2d6",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:377:Dialogue Text",
+          "sourceSha256": "3d1bbefd4f1733acfb55bf2348289bdabb8db3c077a90482f1912480fbe1c00e",
+          "targetSha256": "1c3183cbbb2d1ef3d527f05833273545345e93eef3a9c1258d7fe0f9b9d76b73",
+          "fullCatalogRowSha256": "bc29dee5546ab792ad7d9f612b452ecacf1d40f3ff669827d300db6449bb3c6c",
+          "judgmentRowSha256": "065fb5f19dd4c6eb6c0d664bc11165ff83aa86fabdf79081d688460d95801979",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:379:Dialogue Text",
+          "sourceSha256": "530bc53e57d5294c4bff026ccc17557ae7aa0b75cf73daf048ebaca389657f13",
+          "targetSha256": "e48cc8d3293b4ba1c001507df58bec6d634b4929970aeec6007c0a685d9e691e",
+          "fullCatalogRowSha256": "f1e7db965263a0a826916d59e1a2bc980f199c5573a0e244c2af5f1955142bf5",
+          "judgmentRowSha256": "e17e4a92356853653c415b122845e986d215a97f8748b4746ee55c8ee010cc55",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:380:Dialogue Text",
+          "sourceSha256": "4b40ad9b13b4a2ab1686586437c842ad9282a6b0245ae744a2dc2011195745ea",
+          "targetSha256": "fdd113425dfd1a34af567e0d9f071155e829f2c7f3bb697ae1d9562a628fce5e",
+          "fullCatalogRowSha256": "16af02fadec0074d6c31618cae8bcd74c73601749ef866a7639b0e7cd304d3c3",
+          "judgmentRowSha256": "cde6bc48c439a7e1a340c564ef80a62249b584fa4cb9a4dc9987ee211c245ee1",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:381:Dialogue Text",
+          "sourceSha256": "14edf44c41f0f0c33ba07d4743c94a93e229210fc05350465532e0ec301189a1",
+          "targetSha256": "59d9a959b7452da17993233cd7e30a0287719d3ee2965b3fb530604050cf0da2",
+          "fullCatalogRowSha256": "72a7698e78b8ff42cf621bc10c815d2d4179ac05373588db5e47ed96fb0e4f62",
+          "judgmentRowSha256": "0b9b8eb443eccb79f80b5dda44353c657c7934d3e2bcc49b9b957f3f93591a49",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:392:Dialogue Text",
+          "sourceSha256": "8cc7dd846f20be7c8725e2fc4d8489c17c48feff8009cadde86157113fac85ac",
+          "targetSha256": "244826ae63c643ef0c01281f3cf43e6554855f128c5e630b63453501eecd16e0",
+          "fullCatalogRowSha256": "8725aaddb5f966e5e279b6a52b5e0f6b14cb30dc4712de94b705a098079722f1",
+          "judgmentRowSha256": "b48ada9ed089b171b4c20609c0de9836856f8ff9c2b6cedc2ad7e812b500c57c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:394:Dialogue Text",
+          "sourceSha256": "18cb5e736cd760ca3651129c3e947802dd35d9afdeeb1e4bd3dfcad0d49d1679",
+          "targetSha256": "e734edd9c85ce90207722fe82e08975713b9cd38abdfa4ae28b5fd7fc741387b",
+          "fullCatalogRowSha256": "36351fc7d5611d37262bd410378b2560fbb390875f597eccc1f1a7cd64eaf9a9",
+          "judgmentRowSha256": "9c13c22260f57904c0dff5094a526fea839a7811e56b4e9113727adf3310c7b6",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:396:Dialogue Text",
+          "sourceSha256": "aea71f355a41b7f10e5e8ac14eac7ffc01271a578d0e2aaf6931766ee4461aae",
+          "targetSha256": "3b46612b62db9c38eb22c480207dd16df7f576a2a1cddc0e7806d5c472cf83a9",
+          "fullCatalogRowSha256": "61f1c5c3407139ae7dce06c27d0e47e3ab6cffc2ea8f696eeba5157d099f0bb3",
+          "judgmentRowSha256": "d2b88292e40f7d16d32cbdc9f94e1d14d8bfd0c36a8a5bce29d6ea72f74db7d0",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:397:Dialogue Text",
+          "sourceSha256": "31300bca281a9bf68b9365a93875589dc19a198f8cef18bbc43ed652ce0323a1",
+          "targetSha256": "76062295113a5b57ef2ecc7510ead4fb3c23d1da32d7b9873447a1de94edea90",
+          "fullCatalogRowSha256": "0ef764cb5f219ae02361a9a3d32081eee585752cfa4e32a8046a32f7d2d1e244",
+          "judgmentRowSha256": "1fc67d2046c84c452299cb87a8325994ce19a233c926b07d1017f56484ac79a7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:398:Dialogue Text",
+          "sourceSha256": "0c125d6f7e86ae15ac44cfd00026ff8751ef83efd2cbf4296734f095730409d8",
+          "targetSha256": "adfa1ddf4ef0d849691630fedae6db6110328c9e409f4651302ec1ecbf2c611b",
+          "fullCatalogRowSha256": "a4e414cd1c2a7947fbb672e5f0661ebfd372f9c4d8e1390787dae3176b07aada",
+          "judgmentRowSha256": "4d48fe4b28f0727c5bd71e72a4c8f74773bba16910b2f4d09bfb887f7618221d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:399:Dialogue Text",
+          "sourceSha256": "2a85abcae498953d172b60077399322da9745e4882093346ba27c7bd2beea14e",
+          "targetSha256": "b73ce9551586265bd0c4bde970ff7dd3d4a78daa8e9cc9a60c7b99b38deaf486",
+          "fullCatalogRowSha256": "7928b1915a90133b633bd10ca5a053e2ed6b468c127c14a7c1ce776d9c79b4b8",
+          "judgmentRowSha256": "540e7cd23d94dd5d488abbbff5596ce1b0b5a866eaeb3b34f02747ae34ff3ef5",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:402:Dialogue Text",
+          "sourceSha256": "0a4a7dfb6587284b3b88389e6783fd561a1b6fa6dd284d4e8f7d1d425464fad6",
+          "targetSha256": "867533633bc500bddc97afb0d616b96b0a169c00fdd94fdc40d8470186bc6cfa",
+          "fullCatalogRowSha256": "acb2a8c380702fbe28682f1b827ce94395690a3da2bd6099e057c10f31f109dd",
+          "judgmentRowSha256": "67b6bd23838128f3de3ae648abad88bd7da38d59912121f56c13017d80b26c54",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:404:Dialogue Text",
+          "sourceSha256": "ee074e41476ab7d705a8d900481bf1d7dee6df080f932910aad7906aec6488ef",
+          "targetSha256": "4fd8816102ef1fd3fe2c06fffbebfab3a76c288ce97da7b84c3c3a7049844891",
+          "fullCatalogRowSha256": "584d7fd6acbd64384489cd100c4efaaca8bef946659061ef771f50e361c9ad71",
+          "judgmentRowSha256": "ab9d89585ca2432cf9010675d5cfe8ee64f461f31fa3992e277b000b02d3b202",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:405:Dialogue Text",
+          "sourceSha256": "49c3d0a3bf4fb712bff6c14fa6c35c34af105a04b5cc5a6fb19030e0fbf50b01",
+          "targetSha256": "943184b739436bfebfc8d644e223e6733f58e64113d65c74fc6f8ff47294aec2",
+          "fullCatalogRowSha256": "1bf1205451053c105f458f69990b26c9732c1483e5838db135c7cb892802930a",
+          "judgmentRowSha256": "f6f5ab614e311f7cf462fe8200880faabf3e4d1739b829f9e15a0d323ee7bf60",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:406:Dialogue Text",
+          "sourceSha256": "f90000ef7e70a1fb9626d899d60a5d56c9bc6b22cbc2e233e4d4752379facd7f",
+          "targetSha256": "e25143266c2728c960406fdb26ec6822992c94fcdb58f5525dc6eb6b9bbe1e3b",
+          "fullCatalogRowSha256": "21ef4ebfc770c05104cc429a99eaf9988ea0de53cdbc0e2e9e99bdf25710954a",
+          "judgmentRowSha256": "2413eb5574a03798ad0527e5898769fba2878d8f52d6cea17b2ff87fd3d7a6bd",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:408:Dialogue Text",
+          "sourceSha256": "8fde46124c30d079f9165abd1ae0f459281cd18fddf9e5cff38c81ddcb810321",
+          "targetSha256": "4428e3744d162e8da58cc032716cc961b83310249624d6ed9ba8f2967093c905",
+          "fullCatalogRowSha256": "1550781194c4b895a5e3455dff22cf6b254af0fee6a723fa3b40e9265564ab63",
+          "judgmentRowSha256": "aa166aaa8d0e60bd1073c92e30d5d77746746767671f66535054a3da1d646bd2",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:409:Dialogue Text",
+          "sourceSha256": "ab06bf43d1823630ed89b9bfb36132a106a322f4b94b6ff370f124d8e7aa1e11",
+          "targetSha256": "284da8b5a98927cbc67ff5c737bc32c65b5174ffc368603ca5b2acb1a1e276a6",
+          "fullCatalogRowSha256": "280daad0513867bcacedf840d23bfcee4916ce24f88f31069127ffad71ec203b",
+          "judgmentRowSha256": "2639504947f191f647509ae2772f35866c08ed1813b52086ed17e56ca1979cd8",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:410:Dialogue Text",
+          "sourceSha256": "e6a5b26bdcae1fc92d26790239686b569a0f2b3fb79a6a50852df855b2a3122a",
+          "targetSha256": "a01f62de6682a59de9b2eca47d58f3d6755d664e94d647d13f1a32aed81abce5",
+          "fullCatalogRowSha256": "f480fd1910084a81f883294a6aa2a4917bcac20515cb92d7a06702db94687c26",
+          "judgmentRowSha256": "d167c4d5e09236a1927e786a3e0b6c981ced8da87057ba24cdab1facdacb8c9d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:418:Dialogue Text",
+          "sourceSha256": "8476743519054a59f68ee7cf40a1fdb86bea5d5761adfde561d3a7b44293b2ed",
+          "targetSha256": "64d5fd17904ea7ccd70209d6dbf092259130c3d689e8f193fc4ad778dd05e330",
+          "fullCatalogRowSha256": "e909168f932f893f9f7fc7495802aa8d09ecd9579343c637ecce035cca4e8886",
+          "judgmentRowSha256": "0af14d6ca6f83d39eaf29497d3e996abf91c5c71ea1bad6f5944af70b37c5eeb",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:419:Dialogue Text",
+          "sourceSha256": "0f8460840c1aa6fbf477c7ead80002d1fa47affa3b22163d364357698d54fd2c",
+          "targetSha256": "3910b964d77ab6cea95a4201d9b07631e628144f5ddfbaf8421c8a2d00bae4e1",
+          "fullCatalogRowSha256": "2b2ea69e085e4f00524c51f67771cfb4e5054a9f8d1f6c86ce376b66ab59ec04",
+          "judgmentRowSha256": "339e6d3d00ebf333478d2e40c27267c145388d7a69ab558426b16592d8c1062c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:421:Dialogue Text",
+          "sourceSha256": "2ceb8646f6fd9e3d2fd485462ea49d0e2fc5d412b6823a7f1392be775d95828d",
+          "targetSha256": "ec6cf8df4a0ddefaedc0975aeaa01c25ceeee3bbe14a6491d76bb5ae34d9584c",
+          "fullCatalogRowSha256": "e43ed4463d3af183c035c71e9c76ae268f6f12f41e76e06ea19e2b30eb7a31e2",
+          "judgmentRowSha256": "1ac2f7c5e9395c715ca40b91f6e9ab62ac5b637dbfba5e08d37de1f7d2ef7249",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:422:Dialogue Text",
+          "sourceSha256": "86b4064f80054a4e37eb32e76ce2063816c19817913dde9ee614e074029ef2a0",
+          "targetSha256": "ef21be00aadcca7e22cedcbb29722f26620398f1afc1b85b5d757e57a81a5e32",
+          "fullCatalogRowSha256": "17ad72808af7926f3cc9225a174a3ba89f622846833f52678c7a995ff526613c",
+          "judgmentRowSha256": "8af65bdf8d927c169554911bd4df5e52b6829870a509e2c5e00003f21da051b1",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:423:Dialogue Text",
+          "sourceSha256": "71687f5cfe39e989ced18d1091e94c5c7350f2c5bc84be89c728d62ea336a594",
+          "targetSha256": "efaae4ebc419e4b5fc5839b2a6093cd620d2bac61c956c7200ae2f95f653ecba",
+          "fullCatalogRowSha256": "ba0e813e5077fc7ba718644a1418d485315c49d789bfacfb028aa7e8488fbc93",
+          "judgmentRowSha256": "ba37e740ef4c4b581011a3fe4977faa7e3d3956f74f8d6b38b66970336c0e5ca",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:424:Dialogue Text",
+          "sourceSha256": "74e4f555c7a90853baaa4954af258c62e19b33825fe2be3eac660c5f371b651c",
+          "targetSha256": "908a75d076c40c16d537abdaa4389308387877bc85c9224aa30670946a19292e",
+          "fullCatalogRowSha256": "1e53f3cb053e064c159657a87e7ca6f10496c455072fb2e106dd09e4b17c5ce0",
+          "judgmentRowSha256": "51536f83239769fd34893d42fa89fb50bdb920da634dd14292ed3e5ac33bfb7a",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:425:Dialogue Text",
+          "sourceSha256": "97a64874c35f0e4fe51fe1c9ebb2125b566250ec0e9e3d026f5db3a79923a418",
+          "targetSha256": "afbfbcb82c78882f1f534733db59f05880eeb27c2662070a32e53040a4a54c2d",
+          "fullCatalogRowSha256": "b4db56989f519e2b8b6ea6390ba0584790e5c06afc862328e4811e40d68a99b6",
+          "judgmentRowSha256": "161eae365a8c8a772c9d1eaa4ed85eb0146336a82767df2389a4c5896d6534bf",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:427:Dialogue Text",
+          "sourceSha256": "1bfb598f8ce2dfa27f46bf5c92bd310eb0ee6c55cf3d7c630c4cc3a683c6de8d",
+          "targetSha256": "399b534516d487aa8ce53221fd62e6bdbd1bbcce8af207f227eb263e68b31a5f",
+          "fullCatalogRowSha256": "37875a9e67dfdd7927e0241d5faf79d36abc1b73c655b24039bb9214439955b2",
+          "judgmentRowSha256": "09b2d3dbf86f26bba72086c244ec53e72e9a76d1314aea50031a0618ce60dccc",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:434:Dialogue Text",
+          "sourceSha256": "0400fd09ef205a8b900b6874e483da0acbf7e1ebb8644aa8c47e0c05f1e4f8fa",
+          "targetSha256": "7ad579eb4f03f1b8f0257f2927c42d5ccef5cb10566824ace056e1dcfb8deaf5",
+          "fullCatalogRowSha256": "dbf22ebdece5c0dbc4510c0ed1204564205a105f14452c8318951c40185d0714",
+          "judgmentRowSha256": "e8dfaa21add8b2ab8fb0a7391391d68ba80df0cb1dec94a26fd57ae7cab72e3a",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:436:Dialogue Text",
+          "sourceSha256": "c24e4255790f05a4598411c5db93e109f60297ccd7904b31f05130fd764a5756",
+          "targetSha256": "f0034f993199e86339c629b3df2afd471629cab4dcd334c554fa01ee8003618c",
+          "fullCatalogRowSha256": "b9eded82fc05df41f27a3e739b1bb945eaba308c8d802243d36d67d7ab1a3957",
+          "judgmentRowSha256": "a2f947af4ce415521a9cf14bdb7c6d41a26c0399db5fb972e517898655d6b853",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:437:Dialogue Text",
+          "sourceSha256": "125086ee5a12270c25444e699848e1dad113619be55574f0789df864efa2c93b",
+          "targetSha256": "9f8aa813d89694783e59fe08c68f7b9f37df8cb3eb37abb4a64291d3ebf635ca",
+          "fullCatalogRowSha256": "18efffcfba178bded2b2a73a4118b587da2b5d97f6e7d009753fa2aa363f4c04",
+          "judgmentRowSha256": "cf9287f220535fd9c7d08422aec714f424392e5d827e6595d0418dc985adf1d7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:438:Dialogue Text",
+          "sourceSha256": "21ce35e4d682c9e11b6738c9caed582fb1b5e4f00e2453fafcf3d0aa66128349",
+          "targetSha256": "927ccea352701a784d7c97dceec4d50695607a8e9880fef9879088f1c039ca54",
+          "fullCatalogRowSha256": "86130306ec4c4e7b41a7a78b18f3f6a19e932e58572b3624b26f01754864ee56",
+          "judgmentRowSha256": "5b7eefe94d1416d75880b12eb8423858135a988aca25d4f5b02e09ebefc41a02",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:440:Dialogue Text",
+          "sourceSha256": "4f605f0c7937355c1e4124ba8a64ad82b67658066f1d99be7508e624835c5554",
+          "targetSha256": "8526cd51d0e348e9808728574e5b1a21a64cf960fa7aae19cf6eaba0c34383d9",
+          "fullCatalogRowSha256": "4f7b6a734a93b6aeceff2f6cdf46be2e4be3e44ae0afe535ae97fb84716aa1c9",
+          "judgmentRowSha256": "11d9f9a33d84e3fb661c272f7916623cb1d14781533e5d6dcc3b50a290517474",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:441:Dialogue Text",
+          "sourceSha256": "e5380e4d9b7cb802bc1b421e601a155869b604f3a3b4dfc4bcf01c6e367360ea",
+          "targetSha256": "cd8faddc28f40e4acf54f2d0bf41d3a6bd45a12dc751c662e336eaf6779db4dd",
+          "fullCatalogRowSha256": "7fdde2e3b26b56bed0531272cfd91471c79a8f2bf081bf8d4fac7b768714b6d5",
+          "judgmentRowSha256": "991e3cfc191017f9eaaf0dbac99c703322e988ad5b14bec688bdf0c9a3566c08",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:442:Dialogue Text",
+          "sourceSha256": "d78b587f27865ecb865537c45b3aeb7d471e0db7ebd60c5dc5cb3664fe86db52",
+          "targetSha256": "aed0c1eaa66f6dd7f1bba50ea05275ce9317de1b98c1916a07d4226964a1cde6",
+          "fullCatalogRowSha256": "6e1c4d2e366a0a2019dd1751cd4ea76eff594544904795a7006e3c8ae22ed2df",
+          "judgmentRowSha256": "34705e53b2451e0142f37cb7f4d5b0ce434017d2113f3f501865a3eadfb00fd2",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:444:Dialogue Text",
+          "sourceSha256": "38b452cae9f71de0226eff40446d747e373592af6cb4f7f332c0d81e3231e4f4",
+          "targetSha256": "e31d2920759d18ef4976b0457c7cfa0c0c37dd2cda4681b2cf7ca72e723f5bdd",
+          "fullCatalogRowSha256": "ca509b3013df4c582bd4aff4e39e1b5bf7712f38475a49f73a6c5510712e1374",
+          "judgmentRowSha256": "765d6e6a5ec0bddc3c6d84c3ac1f818942f8b751df23c2a512aa665b3dbab440",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:445:Dialogue Text",
+          "sourceSha256": "8aa711f6ebb358ecf7714bdd483a689c63038550ce85be5eb3fd8625ae16d867",
+          "targetSha256": "b33bd488fe97ab711a35e6d408421af224daf47def79ade0227e6f4c80189f9b",
+          "fullCatalogRowSha256": "8bfc819b163e830d7e4110c997368265781561b2cf3e7a0c58c38f85951f6349",
+          "judgmentRowSha256": "e1aff5be00cd00ec19acbf741b5f09e175234de7bcd41633c9491e1a91f86199",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:452:Dialogue Text",
+          "sourceSha256": "e4c19e87727ad53f9f5a0bcfa73f36d6ea7811729bc9538f469711a9e090a655",
+          "targetSha256": "ed529d8e8e300560dc0e727985e8085d2989207b5cfc24d036fd46b95d94b13e",
+          "fullCatalogRowSha256": "04846040ccb3eb3cc10d483d6fd96b962abedffea1e0d4832cc18e8f76816706",
+          "judgmentRowSha256": "fe8a2efaa8240438e39c8ea0f2d8a01fcacc58d5d3f7669a58e87ec277e9ffbd",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:453:Dialogue Text",
+          "sourceSha256": "de358c03c1db57c366cae855c54ac7c428dcd439aa4ffe09c4fe465f07f80c5a",
+          "targetSha256": "a73e32588ef6d512ca139623c190391c9851190ddaae251b5cdcc43423b7c353",
+          "fullCatalogRowSha256": "5d035c177b581575e0ecf16fac6d732a5ef6e5739fcec8e49edc1f880c57d3a7",
+          "judgmentRowSha256": "a61551706ab404e2f75b712be24e8a0b6f24d58dd7f3118370120c3ab924678d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:454:Dialogue Text",
+          "sourceSha256": "0b58cf61a058f392cf461c61632ca9c9d0dab75a1d483cb22109d2b6cc2e7b4d",
+          "targetSha256": "a4947f24219b88c4a09b6e7b717368ea0764295bad12b3990878c3d205383b02",
+          "fullCatalogRowSha256": "60bbb196075039b5f71807079497a9ffff8426f246f1db6b4bba35fa9a02d0d0",
+          "judgmentRowSha256": "b331536aa483d2d156a64e1f2a7568bd93f90e986b915727e08758275f212511",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:455:Dialogue Text",
+          "sourceSha256": "953c397b2f58503fef05a9dfc6dbf229fa0fb93c6eb94b69a21796e9d0f31cf6",
+          "targetSha256": "15072c76c87dcc186734dbc55dd41e3c927f288bc9117dc4e2f1a85fb0c32253",
+          "fullCatalogRowSha256": "7c882bdabbd5a491600973d532430f2768567709bdcf6a4def8779dc025f92cd",
+          "judgmentRowSha256": "6a189538350c3a73457cfb686e2622f6dc3c5033e8cecfb6ea1f84a190546116",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:457:Dialogue Text",
+          "sourceSha256": "7a993071c6d5c368715be207109132bdc37c6c3ebd64e4ef2545627b1d406209",
+          "targetSha256": "1828f772fbe0a78ad0713fb10d730e997719f1af28ebfe79b2d921d84e7ba3c0",
+          "fullCatalogRowSha256": "084fd842e7bf7f4625fea3d1fe3af13239d4f85a6322ed241d3de0cd580ce276",
+          "judgmentRowSha256": "a73b79f477e9f1275864982305325823e7bed3850a050640faa757b428f2bade",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:458:Dialogue Text",
+          "sourceSha256": "9274a7c1a244fcf53ad7d75494bd09912ce7d916b2d65b988a63b38c1a82304d",
+          "targetSha256": "6b56d87c80a76223b590584ba88a633683393a2071088cd404c692f4cc14a1ff",
+          "fullCatalogRowSha256": "df722531741bdcf4f14267a114c85008dab37d7b6500e7e560577b7db06e013b",
+          "judgmentRowSha256": "b83adea58c0fc2b17b2cec59116d5fd6992913c0f25a74fff54bc47d7a7023df",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:461:Dialogue Text",
+          "sourceSha256": "ddd638d9a5757715620c180c3c493415fbc290858d380ac5933d4678a1fdc8d4",
+          "targetSha256": "69ae6d9cf69b23faf7d54a276e82a2bd717995f52f8d137d9c45b437713d5d61",
+          "fullCatalogRowSha256": "7f8abca74416a0735797e66e45013f4eaefff166151091991824106306246b26",
+          "judgmentRowSha256": "c76c999ab1fd3e4d4500f009ea92405db1b025468abfb85f89b89cda1678b8ac",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:463:Dialogue Text",
+          "sourceSha256": "6a91940b454108a607c0fad207876ae389fdfc3c8661df7cc868a8aa702db386",
+          "targetSha256": "546641c5b3036780445a25ebfefd99bf9ce1c1a7bb4b3f27442dc41c5eed5165",
+          "fullCatalogRowSha256": "ab468e2262b2bf8cc359bc2c1f122351452569faf618a6251a26a33c96a59da0",
+          "judgmentRowSha256": "430ec307e4e4bc10accded0fca4628b25825e3efdad30bff398cfe04e5cb8006",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:465:Dialogue Text",
+          "sourceSha256": "f242f963e8541de4e08816c31f73ca99948933088b3d0763472eb163e3b3b775",
+          "targetSha256": "f1a04788d71204f5d07806ed6e5a10901e6dd7974d4543ddabe3cba10f2e94f2",
+          "fullCatalogRowSha256": "380d968aa50eac6b236228995de076035d48e5e9ed9a8140483f8c38e2d67401",
+          "judgmentRowSha256": "cbf69305c33f1d3ddcaf260575036f23286c44915b623f2e87435be7a1a4d18b",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:474:Dialogue Text",
+          "sourceSha256": "0c7f411e5978e15234da4b2b1f384dee6ddb57067601257c3e08aefb1dfe30f5",
+          "targetSha256": "5c88018a35233b4f541f9863db8ef69863cd4dddbbbb7a79fcee03489c8f7360",
+          "fullCatalogRowSha256": "d3bed3118380167cdadcd236a333acba449c3edcc079e49d19b8284b6d6bf24e",
+          "judgmentRowSha256": "e977d3aa7f68a1fab886c38aafac67f3c86beeffdab3c2d28d56c3d115ccbef1",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:476:Dialogue Text",
+          "sourceSha256": "09acd133fb5b011e7edaaad5389c2bf8603787b0ed2a2da62aed502809945626",
+          "targetSha256": "615471f5bb7f764b9b89d6a4e692fb3a01f90d5ba6577f41f566bcaae6cfa8c9",
+          "fullCatalogRowSha256": "21541da867330681537a244d04e822faceaa54efe96262bd334a3cf4641f9c6e",
+          "judgmentRowSha256": "ac82b55b598abe9b093323eafdc732b857aa005051e3123bc576291994aeeb22",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:477:Dialogue Text",
+          "sourceSha256": "b26cf426408366aba69d4483ccbf01b82351c62239daf34edc89a1b169052fd5",
+          "targetSha256": "ff125f6415762bd849ec09ee0302b539c4f951271dc55d96e2efa7d087b6bfca",
+          "fullCatalogRowSha256": "7d798fc68d3808f0013ee2e0359475c1b28a100e6cf223f0e57bb08641ca8414",
+          "judgmentRowSha256": "9a26afe2c7fa0fe8c3e03e27902b06bd4af98b505fb84143f3ee99d043377ffe",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:479:Dialogue Text",
+          "sourceSha256": "518a9207b9e1cc063edbac4c40f50fdfee4dd3a8753c2fbb02449b356da036e5",
+          "targetSha256": "d47c3d35e0b9e6e3912b0b061c761d595962e20e548ce4ef00793f1a6ab21056",
+          "fullCatalogRowSha256": "dc3960b5cf8cd3c7791a9198c959cd550b524d528742100ec1f017d61905152f",
+          "judgmentRowSha256": "7da7d8ba3a886d7f0ade69634502f6c842f89702621ba77dde6a20e49e785d0c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:481:Dialogue Text",
+          "sourceSha256": "be2784066375879d10206cdd25e8d0a82d0502fbdfe3f319feb3f6765b3ea2e5",
+          "targetSha256": "aadb3a2633fd0992c01dba5c53cd31b97cc74f1be1e5d2348bfc4749e189f5e1",
+          "fullCatalogRowSha256": "73256dbcb0d4537bf2d81873e11e05ba6774f34cefb872a382f628f3ee2b1ad5",
+          "judgmentRowSha256": "728cda65312d3bb2007a568d6b4c57730e4de38ec91e10c6c1c1250d59312b8e",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:483:Dialogue Text",
+          "sourceSha256": "125dc02d3dc37b6435b39dc98b59a47ac18135ba4b3078727df24a9a859d1948",
+          "targetSha256": "03c08937160d041ef26bd8bec3c28b116968f6cf66f643213e684ad7bfa5e618",
+          "fullCatalogRowSha256": "58317626170dc0918b38d40d091007a4ccd91709cfc0456bfda6cdb5f81c5c9c",
+          "judgmentRowSha256": "c3552e286e157b6ca55bfe6b1d7cb23bbbc0a698cc9cf8539935127f1d0012db",
+          "role": "primary"
+        },
+        {
+          "id": "ds:299:484:Dialogue Text",
+          "sourceSha256": "3b9c0fb6505131ffbcde065ab499b6a5392d5682f42c4bbdc99b17e64cb2b94f",
+          "targetSha256": "4bf70424e7c6a5cf151be61bbb0ca598fd1b53dc94357b0cc96a3aa892d88f41",
+          "fullCatalogRowSha256": "bdb7f4dfe83c29baf553def151f63fd788b85ceeb609054b651bd1649c80a194",
+          "judgmentRowSha256": "26546b9e0601145b3942c00adff997fa71f807852723acc39076dfea189daa26",
+          "role": "primary"
+        },
+        {
+          "id": "bgdb:resources.assets:320/sheet/l7q0WkqA70qZcKsOchc8NQ/row/Smvu%2F8k0LEqWf7Xt6Y1iwA/field/QtfPU7c06U6IYvVCzuqTMg",
+          "sourceSha256": "89878b2f65573bbb63151a35add4ab9354210c0f52683bb875b96ce4059257ce",
+          "targetSha256": "7c346753c8945c6879314b8febf58651389588d21c16cb1aae992717a0522843",
+          "fullCatalogRowSha256": "74752b74a7ad4ad4f6cf888246c1cd1dedecddfd40dc3ab04cbd0eea49cddc2d",
+          "judgmentRowSha256": "b6022b42cedc1b04b51d71312ed0d1a5b8a331c4a387d0acc4826eff1311fab4",
+          "role": "primary"
+        }
+      ],
+      "status": "proposed-parent-adjudication",
+      "targetEdited": false,
+      "closure": "Parent owns one consolidated repair batch and a later exact changed-version independent delta. Existing judgments are bound to the current bytes only.",
+      "glossary": {
+        "path": "localization/completion/five-new-locales-20261101-01/vi/glossary.json",
+        "sha256": "1cc38b5809210b0e683144e8cdea5b9ad1ec3f19f3822f1bfc16c0fc78e1aae0",
+        "id": "tfol-006"
+      }
+    },
+    {
+      "id": "VI-IND-004",
+      "category": "quoted-poem-callback",
+      "severity": "minor-editorial",
+      "reason": "The two English quoted lines are the first two lines of Oliver's ds:302:516 poem, followed by a fond recollection. The callback should reproduce those exact Vietnamese lines; its current alternative phrasing and address obscure the quotation. Keep the approved poem and only align the two callback fields.",
+      "affected": [
+        {
+          "index": 3279,
+          "id": "ds:300:483:Dialogue Text",
+          "source": "\"Gushing from your rear",
+          "target": "“Dịch tuôn từ cửa hậu",
+          "sourceSha256": "ae42f109a55b690cabbb95876d67605085bccf39947553e571c134a8a0207af2",
+          "targetSha256": "e51cabd6fd2e50347fcd75a272de78017cf9b5e480b67bca6ecca9cf03eebf4e",
+          "proposedTarget": "“Phun trào từ mông em",
+          "context": {
+            "actorId": "14",
+            "conditions": "",
+            "conversantId": "1",
+            "conversation": "movies/oliverCoyotesStory/dialogue",
+            "conversationId": 300,
+            "entryId": 483,
+            "field": "Dialogue Text",
+            "next": [
+              [
+                300,
+                484
+              ]
+            ],
+            "script": ""
+          },
+          "rowSha256": "365ec0941388fde835220133a4089c05ce9af2bd32cc374839aa18281257b734"
+        },
+        {
+          "index": 3280,
+          "id": "ds:300:484:Dialogue Text",
+          "source": "Fluids running down your legs\"",
+          "target": "Dịch chảy dọc xuống đôi chân cậu”",
+          "sourceSha256": "6487a3a77968432cdf3055d71ad35d7e727085c1a67a5bb3d582f4c7bfc04475",
+          "targetSha256": "bfb9121180ff4df48d5e743eee33509d2d538bab1b83809b5018de272ded6531",
+          "proposedTarget": "Dòng dịch chảy dọc theo đôi chân”",
+          "context": {
+            "actorId": "14",
+            "conditions": "",
+            "conversantId": "1",
+            "conversation": "movies/oliverCoyotesStory/dialogue",
+            "conversationId": 300,
+            "entryId": 484,
+            "field": "Dialogue Text",
+            "next": [
+              [
+                300,
+                485
+              ]
+            ],
+            "script": ""
+          },
+          "rowSha256": "54378291e76b84d880faf59eee578c38eb8b49472a0d5566e272e54ee04b25df"
+        }
+      ],
+      "contextBindings": [
+        {
+          "id": "ds:300:480:Dialogue Text",
+          "sourceSha256": "406fa6edbeb615ac814163d8ccfa06835449af12112b3dc0cc429e923ec35d80",
+          "targetSha256": "80b11b6207382bec3f92db3a16be388f398829fcee140bcb32b629971a387a12",
+          "fullCatalogRowSha256": "743cd8a36d78d1655f3a89f404b3c7a20281d5ddfd787ccf26d774756c181577",
+          "judgmentRowSha256": "ff5e6919e315df3d35cdcdf9a974b16f940c84ab87b42b6c0f649da8fa5a148a",
+          "role": "primary"
+        },
+        {
+          "id": "ds:300:481:Dialogue Text",
+          "sourceSha256": "d1dc3dda2992d62658eb849fb706be74c2595caef0238c99909afcceb69b6eb9",
+          "targetSha256": "aff9f2b40c10326d214dc242b60b36080aaf30be2e244fca14ffa2ab0ec74f1d",
+          "fullCatalogRowSha256": "6efc4141216854326375e31921a6ed964280318fd1157b1f31fef01c733529ed",
+          "judgmentRowSha256": "62f7854b7234f28a154bf6dc37169c4887844827b8496df9690ec9627d82de06",
+          "role": "primary"
+        },
+        {
+          "id": "ds:300:483:Dialogue Text",
+          "sourceSha256": "ae42f109a55b690cabbb95876d67605085bccf39947553e571c134a8a0207af2",
+          "targetSha256": "e51cabd6fd2e50347fcd75a272de78017cf9b5e480b67bca6ecca9cf03eebf4e",
+          "fullCatalogRowSha256": "365ec0941388fde835220133a4089c05ce9af2bd32cc374839aa18281257b734",
+          "judgmentRowSha256": "82b5ac144f172b28f10aee298c58262894121bd46f900077540988afc536a1cf",
+          "role": "primary"
+        },
+        {
+          "id": "ds:300:484:Dialogue Text",
+          "sourceSha256": "6487a3a77968432cdf3055d71ad35d7e727085c1a67a5bb3d582f4c7bfc04475",
+          "targetSha256": "bfb9121180ff4df48d5e743eee33509d2d538bab1b83809b5018de272ded6531",
+          "fullCatalogRowSha256": "54378291e76b84d880faf59eee578c38eb8b49472a0d5566e272e54ee04b25df",
+          "judgmentRowSha256": "b7a3fbe93d1f0c79526590e5834a2ae8858c5895f91625780f40818ae5ab8429",
+          "role": "primary"
+        },
+        {
+          "id": "ds:300:485:Dialogue Text",
+          "sourceSha256": "837cd68e40bc51407213472369cfa0e0a0effcd2db5259cb175761a04f28cfc6",
+          "targetSha256": "35b664da34b3915b77909c86625ffdb5636c89b56c9485c73b6382887304aeec",
+          "fullCatalogRowSha256": "8a95e5e3c48e3a084c82994f06dc324000bdc5a9128e71243ca3543a86286131",
+          "judgmentRowSha256": "8982675932758bef56337a863314a5320a161c6290c81e1bacd0de53095adbf7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:498:Dialogue Text",
+          "sourceSha256": "d6c9f1370ff619ecf31cd5e04e87a3c9882afe652f4499901a4ef19951afe66c",
+          "targetSha256": "18022342d474190840039c6bd77b9e20a98c9af625eec5e2e4eca09c6f1d17c5",
+          "fullCatalogRowSha256": "fc0e8d6caab14c086fb332e9600a0b9ea03edfaa64ee36f1680c723d9aef1714",
+          "judgmentRowSha256": "6167d4b3cdbb7233c115828c661a8364b0ea9a279625f39bb864b87e21259965",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:499:Dialogue Text",
+          "sourceSha256": "aca08a1f677f74c6e5cb40461fcced6dd2071dd0610d2713f731a56f6c1f26f6",
+          "targetSha256": "d3d53dc2107fce2e4e5f005df9bfbbaaed9313981315a4f0606b35e7d519d747",
+          "fullCatalogRowSha256": "87769cdd8cb8dc91ff2b89abc61224c61d793eff675b0e4c90aacf747111a90b",
+          "judgmentRowSha256": "c38cc0ebeaa4750c5d059b0f5f0ef5ecaba18bb68fe817237c3d3774d71b424f",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:501:Dialogue Text",
+          "sourceSha256": "86a649989ecfb23468ac0cae2f15382f08195e05a593c34a327470c01f094e1c",
+          "targetSha256": "6ad19c363cee2c1f221d78539c4d57fb32639305b41c27f6b552bc6b0781d65f",
+          "fullCatalogRowSha256": "76e7247661fcd2586663f1e550cb648c7cde2304b382971ed329e64a9ae66463",
+          "judgmentRowSha256": "4a78121893ff99ac490ed7810c5a16e94a1f82be571e61e811c80ca685d39b37",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:502:Dialogue Text",
+          "sourceSha256": "9a0b0488ea87dcb2db6323c62c51e2dbf29a76346b7feec785fb247ce6a0339e",
+          "targetSha256": "764b9af5318f01b42258bff7d788d75ff4f83727fcca6d025e045722798bcad7",
+          "fullCatalogRowSha256": "53a6b37647f150913189751885410c601f60340dcd1e1dc1394fdf2e0974f92a",
+          "judgmentRowSha256": "db4ab9f1e4ccb8a7fb676f2f72a182b87d96837628cee007ed450cd88579bdf9",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:503:Dialogue Text",
+          "sourceSha256": "2fa599a19bed62707c2c116cd7746c35b7074aedd1756bf3dbcc6eddbdaa3795",
+          "targetSha256": "79ec978d65e159f2dfc58db4d7500ce13afcc1b77aeb08cfae210d46c1b214d4",
+          "fullCatalogRowSha256": "61560d619c8378d2a96860cf85220730f2d700973323d6c54e237998d8facf65",
+          "judgmentRowSha256": "57ee0393b361f8b38c1db55d92bee5dd8f936f8a11754dbd7c6fb3b9affc583c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:504:Dialogue Text",
+          "sourceSha256": "07433f13ff376447d9e7ec017599efc6ebd72d01e760d443039a28c0c7599b4d",
+          "targetSha256": "868f7dcfb299c790f2a5eea42b6e702820c3c3e387dbef9a1714b77767189c35",
+          "fullCatalogRowSha256": "c46af2f07a17bbf2be25d2da2423cd3090ad96742a9f474c76b348d2e1643e6a",
+          "judgmentRowSha256": "879b538023f2b89328d70f0ac5e18112b180d42a1d3aeaf78c59e4553d06bd25",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:508:Dialogue Text",
+          "sourceSha256": "4ee72277861facf0c68bfc344ee16012e2522f96c1cf6fa1e8b04a08ed8bf37e",
+          "targetSha256": "e355a169ba082d1c5031ae003d4d5d6510b4fa552806693a29bfa3f42b4de0e4",
+          "fullCatalogRowSha256": "59b1ed57c7e68fd40f281aa1e60579ef673b43e166980a0393d846bf46295612",
+          "judgmentRowSha256": "5449255a2ab175bd87f5e142fdf8ebf9441322d45fc66e70ae0f7d43c1a13b2d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:510:Dialogue Text",
+          "sourceSha256": "4f747b3611a4cf6877a1761373990016e9c1adee2e140b0216311f39e4c56429",
+          "targetSha256": "57022fdeb7a38c93897f4184d68cae6c66b5dd7821bb2ef88b46219f07cda07d",
+          "fullCatalogRowSha256": "4bc2e37ee9aecc653c4f28aee18231fe383556eba6bd3f048726dac33dc1bccb",
+          "judgmentRowSha256": "243a70b81a1203e406560ec679faee208b77a7cc769b0171bda792c0b57c4512",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:512:Dialogue Text",
+          "sourceSha256": "0f79315aadcc22dbf0275ae48afcbed7a6704e2a55c2e5f517e41aada8dc9302",
+          "targetSha256": "eaf5fbbb289c9b0d5e51873df78667792bec12d2fce6313ba3e760e92fa526b3",
+          "fullCatalogRowSha256": "f5e14baa27597ff7adbaea2ed22d0244a0cd9e0cfb2a676eb53767ed8acb0c6a",
+          "judgmentRowSha256": "8d065c9ffd727d6cfdb562ed2f2b3aede2047052e2fad04c6dfb74ace04dfa49",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:513:Dialogue Text",
+          "sourceSha256": "b2c99b697515d5123bdad5e3e762bf63365ef5d92deb5bd4b6cb573e58682e9a",
+          "targetSha256": "1f2a2eaa52fe148c7082430e59b8247ef50be211307653f9d1ca0a35e432ab56",
+          "fullCatalogRowSha256": "b0f6672024d8c08c9bcf447f95fe131ab70b0dd592e881f655f8e71416def393",
+          "judgmentRowSha256": "2dba0d4222d5e01850b493bb74e75690091c7fc958240d02433b97a279c4f22e",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:515:Dialogue Text",
+          "sourceSha256": "e91c0fcb6f2ad1841052494e5546ce761e25ec3ff677aea4e2272cf44013f170",
+          "targetSha256": "32832cab852d98383aeb57114d26ef9eba51d95a7b164bf969647ffb196d57b5",
+          "fullCatalogRowSha256": "5853795fb296cdb9956980ef5b4c67e316ee029ead8c7b6844b79cf8558a4eba",
+          "judgmentRowSha256": "3ddb8f3bd0c7f951734a42eb8d8e29bf184f7cac10d077de1738406b8333886e",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:516:Dialogue Text",
+          "sourceSha256": "c8929b47fbf84b8ac5e393cf58ad14e397ee08d566ad6ff9c2f4359fa6a5d644",
+          "targetSha256": "72509ff289db20572816e9b277efc09447dd2f5ee389a42ceaea771c940b8eff",
+          "fullCatalogRowSha256": "4b508e3cd828471f3171f73ce2fe0a429c0de1d8a694e430f70e7e4f0763662f",
+          "judgmentRowSha256": "a91b93832442bd77f5455475c94828436f0f113c6f940df7f1c060a18e6adaca",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:520:Dialogue Text",
+          "sourceSha256": "c4b20539ea4390a1d86e62114fee73193cb8d24791efc35d1f0976b63ce47456",
+          "targetSha256": "f888d29818cfc1cc5a1c9c5e60378d11a2a327281d18827506d99fb08377c250",
+          "fullCatalogRowSha256": "01bce76c4bb8f74d5b3da76cbdd0c0e09ba9442f0135d5fd5425f8245c564083",
+          "judgmentRowSha256": "e0a80fc1a6e7de478290ec7c6dc6a89712a2a93d0b6e87bb86808316e3415a14",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:521:Dialogue Text",
+          "sourceSha256": "82579fff5d1cccc2d33b0c0319bb2a178ea66e3b47d5419b5b956ab86f3d249b",
+          "targetSha256": "9a8c0db74dd59ed1719d818714334e9c25dedfa4c8cc57d1b6db30321750bf74",
+          "fullCatalogRowSha256": "bd6df23ca173346614624c8581194e09bfca4bc5ebf2e7e8c8386dc5d516bac9",
+          "judgmentRowSha256": "03c7f00c2d85e398c3c204d55bb0412880c2dca1fe3b7813304b959d2167af6d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:523:Dialogue Text",
+          "sourceSha256": "5261880000d26db5dfb4fd2db62561d1e019d92c1599eb15b521ecbe86499a3a",
+          "targetSha256": "5bee426b4c8316638c9f8c41f0637caf24236a0cec8d2963df4b5d59bfb7b22d",
+          "fullCatalogRowSha256": "4aebec99f085f135e47b515ed979b49f056c73ab6323d621179bebd5dae4dc16",
+          "judgmentRowSha256": "ebdbb2e12ced514cbbbf3d80f25da83fdd08340f6bc2363d1aa60a795a4a5ff5",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:524:Dialogue Text",
+          "sourceSha256": "581ca9733dd2cb8f801a16203d2fd92089243fedf48de0d92a5b2bb161085ba3",
+          "targetSha256": "3ae1326c43d77521de746080b35871b4c1333b898c7bdb83a881b770d878ec38",
+          "fullCatalogRowSha256": "2ec20f94378eaea157e384d5475bfaefa31a27727cde51bb9eeb31ec8ff271e2",
+          "judgmentRowSha256": "29356dad4291516b8dc8b8f1577c0281a43aedde36dc202307d056655134ee61",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:526:Dialogue Text",
+          "sourceSha256": "a34cb80db3bbe01674f548099a95bce9ad9f25b6caaaa2ffbcd9160abbcb3a6b",
+          "targetSha256": "a257cbd46f0de663fa4cd744a7e61fd0340db6116d2bf8e9b6ae9b1473bca272",
+          "fullCatalogRowSha256": "500c85e575380395569d70a2c5d26b7661e8009bae2ddd62ae4504ad69e14885",
+          "judgmentRowSha256": "4100ed8ea10aa1489e3fb23b582471429b161301bb50b785555c670eadca45bb",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:527:Dialogue Text",
+          "sourceSha256": "6794629228e6fc633c76d935ccbc6d95c252a0a10d5cd1971e9d4633a28c1346",
+          "targetSha256": "6e7ba1016d7186f68e1a42a3927d7f1e4f7bc0b520ef11a6cdfc3237050a2bfa",
+          "fullCatalogRowSha256": "a5a429717b7ed3a23544ed810a741a14631fdcfc4b1f759f51742fa9c8ba796f",
+          "judgmentRowSha256": "0910a1cef3b8fa7ae58a736b09b52a9aacfe629bea527fec10b0aae4848447a0",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:528:Dialogue Text",
+          "sourceSha256": "c7aad2f09fae185b0de67d60e83909303320bb2189965ca54cd4b8baaa17dd0e",
+          "targetSha256": "9ea15313fe76222d4c7530ac0fdb90fb299796f3b091bb5f3dc0b41d8fe20700",
+          "fullCatalogRowSha256": "81d5cd2b030d71431b57af8f424e55ac5cc8caa491fb78072f4b33b1e2fea9a7",
+          "judgmentRowSha256": "180eefad4fbd5ec27952887df429fa3d6d1568d44f1ccdb9dd64c4e15057f701",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:529:Dialogue Text",
+          "sourceSha256": "6e0507a4488144d04c247205e325923c6621ea1f75cef94d9a724ef025cadb13",
+          "targetSha256": "486d9acc48b63a960ee008b800b50838207c17fdd2fdddf0bf2a100a71f0a6a9",
+          "fullCatalogRowSha256": "9110cfe1a63ed4a3fe1af0652e439ea1b13b6de34e47df3bb18d2c9e45248e16",
+          "judgmentRowSha256": "17c15dfe27a2ab1cb093c4fc16382094c19c167be3d95a312b29f4e1b34554fc",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:531:Dialogue Text",
+          "sourceSha256": "9a2d0a5b03f4a3b81f7e52a9f42751f0202102c58f21c3b5275c9b47364ab350",
+          "targetSha256": "a7859ca46b9a3338f414ae93044528b0763645228f0e753a91c101fe22e22bb0",
+          "fullCatalogRowSha256": "152b157932e71bf6b8da53778f0d4ecea03266e383242ada59e58fc5b4a9642a",
+          "judgmentRowSha256": "ff36b598feb95b3462095f8e06a48b209da80e17c3e43418be4e32b48ca95123",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:532:Dialogue Text",
+          "sourceSha256": "8efc904df1c9c476856d949d149c75cf13c712bc7af7a08ec1a16f95c062b986",
+          "targetSha256": "0fcc03d365ca01c82963826461693911ef5dc37540bc28aca67a7fd799b9e3a2",
+          "fullCatalogRowSha256": "34f0839f122a88e6442fc1ff6fc2a3581c809496ce11f276096cbbb2c1bb4bc6",
+          "judgmentRowSha256": "c267f424964bd6aef5a98dfb919b343ec6fd7bcb70f8a7049437b7a7f62438e9",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:534:Dialogue Text",
+          "sourceSha256": "c866bf97887b09eeb73bd7590315c9e690c0f9c4e6b2b7c76494105d127cc04a",
+          "targetSha256": "b04ff24bf3d86d074a366994ad039483f476708aebba8ffbddd416fdd5a84b42",
+          "fullCatalogRowSha256": "48002027a995d9d93fb5dff1260d1d2de29f11c668b0edb714fcda806af488ad",
+          "judgmentRowSha256": "d24c2e017343eba5a1e7ca2b6a36fc373bcb914977b801dcbfd5e885315e885b",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:536:Dialogue Text",
+          "sourceSha256": "9d130c81f8b72718a2b52fa6b304046804a362a2705f476179d3ba307052691a",
+          "targetSha256": "5970110bc1bce58304d8405670d8f4bef71300a0a2d9fd41934f144140cc6c97",
+          "fullCatalogRowSha256": "2d72440d9dd5cd32fb6d871a840011084997000c75aa2685d1e11d4d7edd302f",
+          "judgmentRowSha256": "437afc56f42bf67e705cba25b3035ce9230fd1f33a234ecad245e0768f467ce6",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:540:Dialogue Text",
+          "sourceSha256": "ddea0a5bf0b5b5fe8aa86bade4d1ad0ffc77496ea0a5fd43bcda661de66563b9",
+          "targetSha256": "2845c645849763339b89a2e82038756a2f1a3f9732ae93ba9cbf83fcbed17f82",
+          "fullCatalogRowSha256": "73c0593450ad60aa9461925e07d9d49c0a0d0a1f4600208c2040aadcb0a93a09",
+          "judgmentRowSha256": "6d7346b05596a8315a5a8e43ba23ee5e1ae58a845016101e3ad34e1557926aa6",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:542:Dialogue Text",
+          "sourceSha256": "d8e45fba72fe2221cbfcd3e5ef20fbd196edfc6c9780997c82e3e822da12cf8d",
+          "targetSha256": "30dc56bef24c88042c313aadcc8ecc171e530c8433f9806dbc79e0ff81cb539f",
+          "fullCatalogRowSha256": "84b02a47cb0c6d39e2994217c556113de1babe2d26d3a8786bf5bc41d5d6c8ad",
+          "judgmentRowSha256": "145855061276e8b8de184f611b2f4bd1de2335c600e857ee9954aa74ef1c5a82",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:544:Dialogue Text",
+          "sourceSha256": "9c28d55b2dd7723787b31367fef2788d31cf4bfb88ffef91416eb4113e5b783f",
+          "targetSha256": "e6f82388c9d06885abc26eae5157897061ad1a55234af206217a1fa9f51c7e2e",
+          "fullCatalogRowSha256": "a2737e713b8a014d7b478fe90d1daab290d5aba6c426ab42d010ba176ff7cb37",
+          "judgmentRowSha256": "29ca1641ad4fa88977673da104618e09832c060aa05a2c29044a3e6b7d717088",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:546:Dialogue Text",
+          "sourceSha256": "6b6412eaae07a55adb984a4cf16195eb5ea770ea9c31be25e57bacc360e2f00a",
+          "targetSha256": "05c64dc58695901acfe87798d622336614fbbe969ac23bf5486434da04483f3f",
+          "fullCatalogRowSha256": "7221b8f2066969b3b09834eac5492da2763567899925157de19d8a8b4ba7d5d5",
+          "judgmentRowSha256": "ecd21b329ed0284154bf148579e693c92197e1ced2d3050e628b5821cc3fa62d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:548:Dialogue Text",
+          "sourceSha256": "3bd071daf4b66c47008db89d414121661b3955602d394c2ac3cce066006c0fe3",
+          "targetSha256": "6d449da0056ac616f1a470322c71c7272c6de4a240f5b5595683e795124c3da2",
+          "fullCatalogRowSha256": "c1460a8b3b351ff8f887eb069fc5aad6b4a00392fb04886b38e7e7672ab712c3",
+          "judgmentRowSha256": "742e93e4074756de3f166bcebc86d279559673c9ccf1b34deeadf109361cc41b",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:549:Dialogue Text",
+          "sourceSha256": "1009fc5b7091e0116c41463d7375761e5fa119d4d73e1903c1c38a9850e9b64a",
+          "targetSha256": "5e7b8b7407a10ff90be277ff334771e640cd2abb29b2a4741f1f4f7e9382c793",
+          "fullCatalogRowSha256": "8785eadf758b046f706f3427d3f520860653f837de4d17e72db25fc279ffbd06",
+          "judgmentRowSha256": "ce9bd4cfe1aaea84a301c25c33f544b870cbc0eb4b0f5cb4d25d1cd47eaeff1e",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:551:Dialogue Text",
+          "sourceSha256": "78e24d2abc0c5fd6233dbee4b52635b5ca48633ef1213d2eb13163114452ab97",
+          "targetSha256": "1da45b905ea351239f57fc886d378cbeee0ae5c1c5732f4668b8dcc5eb17fe27",
+          "fullCatalogRowSha256": "4431a394994442de7935a67b64b891a3b446ea153a08d9609daa58a836ca46bc",
+          "judgmentRowSha256": "1a1e6e6a785293d114b4165c81def6c7e35f3bf94326fcb66578452f3272a163",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:553:Dialogue Text",
+          "sourceSha256": "c028858ae99982e8f9dfb3bbb47c9a9bc7ee872f6927510fdef65bb2e6c47425",
+          "targetSha256": "c79676337f6a5945fe7377cd1cf121f43137d29c861af869de109c906fe91a57",
+          "fullCatalogRowSha256": "94690fb7c5483ad4d9176a2bd9fb734acee137823e140f5d8bf0a9e59b1b2bd1",
+          "judgmentRowSha256": "19e1e1f3862db14b55a6c6e0104a28019d818831ac55aa52f38080b3fd7fb02c",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:554:Dialogue Text",
+          "sourceSha256": "77cdd5f53fa67dce32fa962210a0d6d628e982eb66893d198ee630bd386cecb5",
+          "targetSha256": "5f8e2b977912d93ab1758c6706778729fe21f571a1bad27cc26c2096a224c2cf",
+          "fullCatalogRowSha256": "f8485192d70ad2b6dfb84c7975dc62630b9330529c257aedba07d65b7386344b",
+          "judgmentRowSha256": "766a61878b9d250bd319bde5ee94252547c0674145ee65300dbe2f1dfa94725d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:556:Dialogue Text",
+          "sourceSha256": "0d35d20a92f0c316853c92a4f6201e84683582bba525e30a4645193b3a60e046",
+          "targetSha256": "bd8f3db6e4be512a27a62791c6f413ac17922135ec81e64f1e2091e6b70f2ecf",
+          "fullCatalogRowSha256": "1cdda3e2794082cb0051138093a8277c8085e85f43cb6e80aa691683fa2599d7",
+          "judgmentRowSha256": "b8e8e41074bb3e90ac5fc8adfa18b4a3cf6b2d384b0e296f38d1d0ae1327478f",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:558:Dialogue Text",
+          "sourceSha256": "cbc78b05ae3182cc2404a3533a7a5c110abbfe5b0b633a1c1881aed5fe8d0740",
+          "targetSha256": "0d3d7b3b5fe14ba943f2e3c496af07615ab17ce567e8e9c579035f9af0ee1ce7",
+          "fullCatalogRowSha256": "e0be484e3eaa4a66c1ee0a6baab7bba4e1b4c09d13bb1049547b091c7ae8af2e",
+          "judgmentRowSha256": "8eb96c364e128ea82c2518269f6c4636d8ecb1dd8c4bf3a56481cd8177425277",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:559:Dialogue Text",
+          "sourceSha256": "1e4e8284b90d83eb58b4a4e7a30dd6c65afb01ab5a48460f6c5542e9792a3444",
+          "targetSha256": "d00dacbbdc800819da40dd51b5ff34cb29868ef8278f1a16af854f2b65ba1042",
+          "fullCatalogRowSha256": "d14e1d39b58ce2d7c5974258b566a73c5d79a8853fb1fb418434ed2be6b0996b",
+          "judgmentRowSha256": "f4537103181b899ec87b932d9bacd7dbba9fd094df841ddcbaf4711ca406f0fa",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:562:Dialogue Text",
+          "sourceSha256": "ce5cb3228ee0cff70e48d1868990bbb5217fb5140e5b63ef4a9875191d1d1e22",
+          "targetSha256": "984d21e861d0ff571dc2b663248a8b55bcd83f6b4e9fbb36ce438a458989d0be",
+          "fullCatalogRowSha256": "451e5e650086bf64c157300e346cf2d0d63d43412a74bbddab91c4b958d4899a",
+          "judgmentRowSha256": "a3f263efc0fb7003d3dc47504c9e61bb536f2140e5ef960f4d4a89eb91da94e7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:564:Dialogue Text",
+          "sourceSha256": "c650678e12e9620634bde7ad959112fe2af1624a0eed73b77da06e361e1d770f",
+          "targetSha256": "4c4ef38efcf1f4280a4ce8256da02bfe0473c4eab14c1fbcda238235ad05ce76",
+          "fullCatalogRowSha256": "886f18aba89ecfd66d76019fa8aad35a41f9a2cf0727e7073f87153d72af2552",
+          "judgmentRowSha256": "afbf3b611828bb203c59416a47a053c0f322602a9700d572b9234b5e91d03da7",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:566:Dialogue Text",
+          "sourceSha256": "d71e06b957309859a3a050b175eac35bbb488761ef6c9bea285836c887505942",
+          "targetSha256": "9bf4961ee51b955f28a91991d02131685dbf9a41c6d15e50925c15839166003f",
+          "fullCatalogRowSha256": "58679e0064848cc00f6d838aa79617345807a96e60c047f6fec6da36bc74ec93",
+          "judgmentRowSha256": "3f461a7a7d0bc001c991200cae0fee24940fba50b7c34df7fc3cfe0a8c565969",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:569:Dialogue Text",
+          "sourceSha256": "51b7325ee857716a65a73b10f0f58dfc9df1f5731f2eb215975a6a76eac71365",
+          "targetSha256": "bc6223965aeed4c50f090c369d4146c5c2cdc44ad8d6cb375c270bd4829596e9",
+          "fullCatalogRowSha256": "74b75391a38791a316d2bf264e2097036280d6af2722a7c68bf5c1530d03564e",
+          "judgmentRowSha256": "0bf0d84418adfa868b279e794fc466ca9b312e430f342c2720c14711432cb305",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:571:Dialogue Text",
+          "sourceSha256": "f96824ba6a49da5028108ae27dd939f47c883c757fe42007d6751d444c3ebb3b",
+          "targetSha256": "5480650ea942f21c4a826bbb6427de35ae22b423581160c298290bef1a72a15b",
+          "fullCatalogRowSha256": "ddc9d63a814ae9ce2743f2cb55d6da6c44e1a047fcf0d2f0b9cceac91d666b27",
+          "judgmentRowSha256": "e09b921ab484bd2d48375fe6ae7c9737fe07cb9cd6f4f8a5a181d61fbfa95d9d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:580:Dialogue Text",
+          "sourceSha256": "566aa15d3d991c751cc5aef7a0f35468b3e920d240d2cae112dfe5328db25552",
+          "targetSha256": "bf29d19b85f55a2171ea96501940fe0f30954ded045a24e6a0bdcb7ac980d2a9",
+          "fullCatalogRowSha256": "e6f20be3f9b95b16423fb5f0ff8766d7556fa5d04fc5ffd4adc7d9fc28652faf",
+          "judgmentRowSha256": "fa01c184e67d605f4b6fdca43e09ff484a4355396eaa1ac61c17105cdbe924b0",
+          "role": "primary"
+        },
+        {
+          "id": "ds:302:581:Dialogue Text",
+          "sourceSha256": "d4adee533848a4eb6764fe7703be526ddd6aeb1cfbfaa5c05b249217b4031a84",
+          "targetSha256": "db53e0a6e0aa7ceeb46f3ab99431ec0ec8a1649fa55484f062fee8ebc201d19b",
+          "fullCatalogRowSha256": "470b007d8f9738177a33514a4a3f424b3685e2bf6a68c639020f855c84f787ac",
+          "judgmentRowSha256": "564f1e05e4fad252e48496cfbf9948dfbd72771cdfb8c4c3f29c7b71a47c9e67",
+          "role": "primary"
+        }
+      ],
+      "status": "proposed-parent-adjudication",
+      "targetEdited": false,
+      "closure": "Parent owns one consolidated repair batch and a later exact changed-version independent delta. Existing judgments are bound to the current bytes only."
+    },
+    {
+      "id": "VI-IND-005",
+      "category": "unintended-family-history-implication",
+      "severity": "minor-editorial",
+      "reason": "The complete crib/children exchange concerns having children at all. Con riêng conventionally suggests a child from a separate relationship; that relationship distinction is absent from the source and reply. Remove riêng to avoid an unintended family-history implication. Minor contextual ambiguity finding, not a request to rewrite the surrounding voice.",
+      "affected": [
+        {
+          "index": 1590,
+          "id": "ds:165:148:Dialogue Text",
+          "source": "[pic=3]I wouldn’t imagine you’ve had critters of your own?",
+          "target": "[pic=3]Tôi đoán cậu chưa có con riêng nhỉ?",
+          "sourceSha256": "3e82388ec4a4b2def8bfd7f50e7fde0ea56e5e627a303f82ea85bddf9445bbb9",
+          "targetSha256": "add475814cdb26216c9d028b3ef4935352977d271fdaae042e26c0ef499513f5",
+          "proposedTarget": "[pic=3]Tôi đoán cậu chưa có con nhỉ?",
+          "context": {
+            "actorId": "2",
+            "conditions": "",
+            "conversantId": "1",
+            "conversation": "gossip/bunny/crib",
+            "conversationId": 165,
+            "entryId": 148,
+            "field": "Dialogue Text",
+            "next": [
+              [
+                165,
+                149
+              ]
+            ],
+            "script": ""
+          },
+          "rowSha256": "07f7c27865b33e521958851af7af53bd9ccc074be4f3a3e5d446256d14aeba6f"
+        }
+      ],
+      "contextBindings": [
+        {
+          "id": "ds:165:145:Dialogue Text",
+          "sourceSha256": "fd58e1dd82a48902cb83d694e92fa2ff6edc404d3b122215fe9446e4374a4dcc",
+          "targetSha256": "fcdbecc66611c32d75366ac47afa81c0cf45ca5938085a3044a16ddcf7091f40",
+          "fullCatalogRowSha256": "ddd9aec962041a4257568d467c72de8beb38df94c31dd3933a0665920ddf034d",
+          "judgmentRowSha256": "5adc524836398165593f1f74b113d93cd90be6a0c6eb4c4f83bcc2db7359a2d3",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:146:Dialogue Text",
+          "sourceSha256": "1db47ac18405d1c42ca5f17ddb38115d30a5db4d667244cc8df0a8a7fee8c8d1",
+          "targetSha256": "0b37f2e26b458b7cefc53c73ef61d18cf4676954bac4818b1050a794e8969c94",
+          "fullCatalogRowSha256": "5596737e34fd5a88d9a5621c7d2d1086cc135303249634e0535c9987d2a1429a",
+          "judgmentRowSha256": "ef23c83a124c55c5721a86a32b67f028d9401fb9c296eafe1c89ffbab90c0c0e",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:147:Dialogue Text",
+          "sourceSha256": "54618a7b1ac0a87331c91331d11241c83a7087360090ae43a1a50003de42b2e2",
+          "targetSha256": "2fec7ab6b8ad93d4f3304b4bbda8bb5dac5cb5c1b28aea3ae4a778dedf5bfe87",
+          "fullCatalogRowSha256": "6581121ea63df1298b1879dc1235be8f15845d7850b2aed53f8a33cf9341a22e",
+          "judgmentRowSha256": "adaebdc938ff6ae581595719432b3e3d57af1b1cb62a8479a168de04118a9811",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:148:Dialogue Text",
+          "sourceSha256": "3e82388ec4a4b2def8bfd7f50e7fde0ea56e5e627a303f82ea85bddf9445bbb9",
+          "targetSha256": "add475814cdb26216c9d028b3ef4935352977d271fdaae042e26c0ef499513f5",
+          "fullCatalogRowSha256": "07f7c27865b33e521958851af7af53bd9ccc074be4f3a3e5d446256d14aeba6f",
+          "judgmentRowSha256": "bf8bf1eeb9621cdf1413e8af355eba110e715e1bc5d995d7f5239172fa7ed621",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:149:Dialogue Text",
+          "sourceSha256": "860f34766cb5685f7711a32ac8f8177e958c232afdc5bb86f0f54b3289a6f7b6",
+          "targetSha256": "89eeb118af8f4a9c208c30c352a12184dd5aed759f247fafb52e50e458e2c1a7",
+          "fullCatalogRowSha256": "4ae612bcb5f7267947cf7fc31ec23a00faaec6a2d1bf5b58259566d4a3a4c8ea",
+          "judgmentRowSha256": "c74058bb19234c3149a66605ebbfc057e81c0604d90fd64825140ba35ccd2dcb",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:150:Dialogue Text",
+          "sourceSha256": "07022d522a46277cb4dfae04cb6ce3e9afe86bd5638ada284789a036b1cefea6",
+          "targetSha256": "cd067a7ae2d0af06a7da2bccabbaf107a140bb8a24b965939d206e2711ff8051",
+          "fullCatalogRowSha256": "7ec5fcc13d560ef84c0d854622106d67647f649de1529b99b6c9c00446ea53d7",
+          "judgmentRowSha256": "022b1aa12afe3abf9f35964cb647503b88863d6cfab9da4983d5b73f0881e690",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:151:Dialogue Text",
+          "sourceSha256": "e560ffda27de423862b0a4344da67bf49f68f6a60f4e593fe16c96a0d31f8d9d",
+          "targetSha256": "934b5e84ad366c132d8750db5411ebce37bfaffe3fd8fe43ff694cc5e9e4bb9a",
+          "fullCatalogRowSha256": "bb3822af4ae0e1a7bb112911aa4f20c6e9f5819189441b3c852b34420f7ec7c2",
+          "judgmentRowSha256": "ad46cf621d22e8908fdd325d426b8b4fc4549920cb52055a045040f33bb83779",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:152:Dialogue Text",
+          "sourceSha256": "e203933fe53f24f74c50aafaa4a23909d9645d8b508036537b98447485221317",
+          "targetSha256": "994e9193a72d9ebd3ecd13951f38a8959e9b0682300c73e93b805ddcda095fa0",
+          "fullCatalogRowSha256": "4b72927e9a2198e6709b1c8b1ff2d41dd40cafce1e3a1b0f1a3f48dee8ea3a89",
+          "judgmentRowSha256": "e5743ea3180867e834d75fadeb853edae8b73a9545ce4db72391f2b66a9d452f",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:153:Dialogue Text",
+          "sourceSha256": "2924fbc302b3e6c1d732d1713a3fbda13d47a7f594080cf7ff292834a0a6ccc1",
+          "targetSha256": "f67052a283ce4ef7d9e11437e1138af8402a2a197c789d5be37c2e9be48d10f4",
+          "fullCatalogRowSha256": "8146ad36e128c902e89b73ee1446e18430eeaaca2414f1319a291d5ced43ad29",
+          "judgmentRowSha256": "abcec511f9d6768e8242cb71554eb59cc070787f95e4aadea65b799fe7e4b5e6",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:154:Dialogue Text",
+          "sourceSha256": "484f21763a833b83a7c4e2e3eb6ed521028665846a9245a419bc3030972a3e51",
+          "targetSha256": "d231e14029a562ef263653918543fdf0c5e45d9545b5f2b2bf359e8d5408bf1a",
+          "fullCatalogRowSha256": "125f799f5457469f4d57f7a4e445631ab5e3d15131807bf65d92bad091795b06",
+          "judgmentRowSha256": "d114908b1eb545c3b230a9c335c4a85875da7b8490e0df02fdff050f0f64ed4d",
+          "role": "primary"
+        },
+        {
+          "id": "ds:165:155:Dialogue Text",
+          "sourceSha256": "2c73b36756042bc9ac09b3208ec5efcf43418dcefdc0f82f9602ce1d6abcbe6e",
+          "targetSha256": "53273882f36e436c73a8a43497d15e49a93a9815b261da7eef54cac6e7bd05e6",
+          "fullCatalogRowSha256": "fd18ad6bd0504f4c01b3261d72b26e4fbbd3212603dd7e127262bf8e8117e508",
+          "judgmentRowSha256": "8dc393dc3adc1e7f3908da16715ccbce77c456fc64cb0516e41c6e0da50a4bc6",
+          "role": "primary"
+        }
+      ],
+      "status": "proposed-parent-adjudication",
+      "targetEdited": false,
+      "closure": "Parent owns one consolidated repair batch and a later exact changed-version independent delta. Existing judgments are bound to the current bytes only."
+    }
+  ],
+  "parentRepairPending": true,
+  "boundary": "All12825 assigned current versions read. Proposed corrections are review output only; no target/source/glossary edit or clean acceptance."
+}

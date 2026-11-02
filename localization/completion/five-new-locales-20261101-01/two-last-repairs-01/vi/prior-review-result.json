@@ -1,0 +1,140 @@
+{
+  "status": "complete-review-with-findings",
+  "complete": true,
+  "locale": "vi",
+  "stage": "independent-semantic-review",
+  "reviewer": "01a198f8-41f9-7483-9dda-71418086882c",
+  "phase": "independent-02",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "parentThreadId": null,
+  "resumedSameOwnAssignment": true,
+  "inheritedParentOrAuthorHistory": false,
+  "nestedModelOrAgent": false,
+  "languageSnapshot": {
+    "path": "outputs/five-new-locales-20261101-01/vi/author-02/handoff-01/language.json",
+    "sha256": "d0d7bc26da48bc727509639781f8d12d5a27d934e3264bcbeb8eeb91241a80e5"
+  },
+  "reviewPacket": "localization/editorial-delivery/five-new-locales-20261101-01/vi/independent-review-01/review-packet.jsonl",
+  "reviewPacketSha256": "e9e3decddf905fa5eef164ef7e959fab62b90080cfce653fddf36ad84e0496f2",
+  "fullCatalogSha256": "fcc45e1517139385a497cf73b545a7d690eba1b03ccb50fe5daed398c6d12e79",
+  "primaryRead": 12825,
+  "primaryUnread": 0,
+  "versionBoundJudgments": 12825,
+  "staticPassTargets": 12818,
+  "findingTargets": 7,
+  "confirmedReviewFindings": 5,
+  "protectedReferencesRead": 1781,
+  "protectedSemanticAcceptance": false,
+  "glossaryTermsAndMeaningsRead": 171,
+  "glossaryHumanAcceptance": "owner-deferred",
+  "casesAssessed": 23,
+  "sourceOnlyNarrativeMembersRead": 150,
+  "haikuCompositionsRead": 27,
+  "coupledHaikuPairsRead": 9,
+  "findings": [
+    {
+      "id": "VI-IND-001",
+      "severity": "major-editorial",
+      "category": "approved-name-contradiction",
+      "affectedIds": [
+        "ds:1444:1008:Dialogue Text",
+        "managed:Managed/Assembly-CSharp.dll:System.String TheForestOfLove.CustomPortraitsUi::VNRevivalRussianSpeakerDisplay(System.String)@116"
+      ]
+    },
+    {
+      "id": "VI-IND-002",
+      "severity": "major-editorial",
+      "category": "polysemy-in-quest-objective",
+      "affectedIds": [
+        "bgdb:resources.assets:320/sheet/9yCd%2Fl1J50q4ulgVkTG%2BqQ/row/3wtK4KL3G0eoMqxSyu1O1Q/field/9bk2imQPcUGONvg3gpNiWw"
+      ]
+    },
+    {
+      "id": "VI-IND-003",
+      "severity": "minor-editorial",
+      "category": "species-terminology-consistency",
+      "affectedIds": [
+        "ds:299:441:Dialogue Text"
+      ]
+    },
+    {
+      "id": "VI-IND-004",
+      "severity": "minor-editorial",
+      "category": "quoted-poem-callback",
+      "affectedIds": [
+        "ds:300:483:Dialogue Text",
+        "ds:300:484:Dialogue Text"
+      ]
+    },
+    {
+      "id": "VI-IND-005",
+      "severity": "minor-editorial",
+      "category": "unintended-family-history-implication",
+      "affectedIds": [
+        "ds:165:148:Dialogue Text"
+      ]
+    }
+  ],
+  "semanticQuestionsUnadjudicated": 0,
+  "crossSceneContextHolds": 0,
+  "previousPhaseImmutable": true,
+  "all40ImmutablePinsMatch": true,
+  "sourceOrPermissionBlocker": null,
+  "editorialAcceptance": "withheld-pending-parent-adjudication-repair-and-exact-independent-delta",
+  "nextPermittedAction": "Parent collects this consolidated finding set, adjudicates and repairs once within its own authority, then pins the exact changed target/context versions for required independent delta review. This worker changed no targets.",
+  "retainedGates": [
+    "Target font import/fallback/atlas and stacked-mark rendering",
+    "Actual native layout, clipping and wrapping",
+    "Runtime source/control/display behavior and target artifact application",
+    "Retained-art dependencies and human glossary acceptance",
+    "Installer/release/publication/deployment acceptance"
+  ],
+  "forbiddenActionsPerformed": false,
+  "native": "not-authorized-not-run",
+  "git": "not-run",
+  "queue": "not-run",
+  "build": "not-run",
+  "publication": "not-run",
+  "server": "no-action",
+  "evidence": {
+    "runtime-verification.json": "runtime-verification.json",
+    "continuation-reconciliation.json": "continuation-reconciliation.json",
+    "checkpoint.json": "checkpoint.json",
+    "judgments.jsonl": "judgments.jsonl",
+    "judgment-revisions.jsonl": "judgment-revisions.jsonl",
+    "unread-ids.json": "unread-ids.json",
+    "findings.json": "findings.json",
+    "needs-review.json": "needs-review.json",
+    "context-holds.json": "context-holds.json",
+    "reference-read.jsonl": "reference-read.jsonl",
+    "case-assessment.jsonl": "case-assessment.jsonl",
+    "case-context-bindings.jsonl": "case-context-bindings.jsonl",
+    "required-context-assessment.json": "required-context-assessment.json",
+    "narrative150-reference-read.jsonl": "narrative150-reference-read.jsonl",
+    "haiku-assessment.json": "haiku-assessment.json",
+    "haiku-composition-judgments.jsonl": "haiku-composition-judgments.jsonl",
+    "deterministic-preflight.json": "deterministic-preflight.json",
+    "final-verification.json": "final-verification.json",
+    "usage-checkpoint.json": "usage-checkpoint.json"
+  },
+  "evidenceManifest": {
+    "path": "evidence-manifest.json",
+    "sha256": "ba87ed3f0aa3b9b43728c746d73dc73c96d24baff8e45d7e20c84cf4be92c08e"
+  },
+  "usage": {
+    "measuredPhaseDelta": {
+      "input_tokens": 22496224,
+      "cached_input_tokens": 21744512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 39190,
+      "reasoning_output_tokens": 8760,
+      "total_tokens": 22535414
+    },
+    "cutoff": "2026-11-01T21:59:00.621Z",
+    "evidence": "usage-checkpoint.json",
+    "tail": "Requests after this token_count event, final report and platform overhead are outside the measured subtotal. This report cannot measure its own tail."
+  },
+  "boundary": "Complete finite static independent linguistic review of the pinned assignment. A review completed with findings is not clean acceptance or proof of any unrun native/runtime gate."
+}
