@@ -1,0 +1,42 @@
+{
+  "atUTC": "2026-11-02T18:45:44.422972+00:00",
+  "coordinatorSessionId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+  "coordinatorModel": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "additionalMixedCoordinatorDeltaSinceCompletionWaveAdoption": {
+    "input_tokens": 5222710,
+    "cached_input_tokens": 5102720,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 35573,
+    "reasoning_output_tokens": 14946,
+    "total_tokens": 5258283
+  },
+  "withinSavedDeltaWaveBaseline": {
+    "input_tokens": 3505210,
+    "cached_input_tokens": 3395456,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 26247,
+    "reasoning_output_tokens": 9535,
+    "total_tokens": 3531457
+  },
+  "measurement": "Nonoverlapping actual cumulative deltas from exact root session. Mixed status/inspection, shared compiler repair, preparation, dispatch, monitoring, evidence review and accounting cannot be split exactly by worker. Shared group counted once. No cache/reasoning double count.",
+  "exclusions": "Subsequent reporting/Git tail, platform overhead and pre-original-baseline work are unmeasured. Current report cannot measure itself.",
+  "completedCzechContinuation": {
+    "task": "cs/review-auto-0001",
+    "threadId": "01a19d43-381b-7621-be28-5afcab102a5e",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "outcome": "12825 total primary judgments, 35 findings, no unread; consolidated repair required",
+    "usage": {
+      "input_tokens": 25603639,
+      "cached_input_tokens": 24760320,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 44463,
+      "reasoning_output_tokens": 14277,
+      "total_tokens": 25648102
+    }
+  },
+  "currentWave": "Six fresh live independent-delta/editorial-repair processes; ongoing usage not final and not counted here."
+}

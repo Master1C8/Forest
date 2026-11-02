@@ -1,0 +1,49 @@
+{
+  "run": "six-next-locales-20261102-01",
+  "stage": "delta-wave-01",
+  "authority": "Continue the original six owner-authorized locale CLI assignments: four exact independent repair deltas and two consolidated finding repairs. Fresh Sol/high/OpenAI/null-parent. No new technical stream, nested model, game/native/publication action.",
+  "lanes": [
+    {
+      "locale": "bg",
+      "phase": "outputs/six-next-locales-20261102-01/bg/independent-delta-01",
+      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/bg-delta-review",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "el",
+      "phase": "outputs/six-next-locales-20261102-01/el/independent-delta-01",
+      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/el-delta-review",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "fa",
+      "phase": "outputs/six-next-locales-20261102-01/fa/independent-delta-01",
+      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/fa-delta-review",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "he",
+      "phase": "outputs/six-next-locales-20261102-01/he/independent-delta-01",
+      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/he-delta-review",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "cs",
+      "phase": "outputs/six-next-locales-20261102-01/cs/repair-01",
+      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/cs-repair",
+      "taskClass": "editorial-repair"
+    },
+    {
+      "locale": "fil",
+      "phase": "outputs/six-next-locales-20261102-01/fil/repair-01",
+      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/fil-repair",
+      "taskClass": "editorial-repair"
+    }
+  ],
+  "maxConcurrentModelProcesses": 6,
+  "overallModelProcessCap": 6,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

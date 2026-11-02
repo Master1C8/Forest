@@ -1,0 +1,46 @@
+{
+  "inputs": [
+    {
+      "path": "tools/forest_localization/core.py",
+      "sha256": "3c22471845f8b2b2c45e86b63e5d24893b8babbe66c5a7e514aa283cfad32f51",
+      "bytes": 54282
+    },
+    {
+      "path": "localization/ru-assets/inline_guard.py",
+      "sha256": "de0f118efefd807f081c23d2812c6c1ecae24be7bdc65ece5f1a2f431fe52d21",
+      "bytes": 11108
+    },
+    {
+      "path": "localization/ru-assets/source-dispositions.json",
+      "sha256": "b2663e2596e1bba89323f29682170b61a7d39b73811adf8574adedc815f9e173",
+      "bytes": 4220428
+    },
+    {
+      "path": "localization/source/dialogue-candidates.jsonl",
+      "sha256": "adc49d6bc544d6322d68d671d4dc3306a7e66995b90e94c7ed34d6a863a3696f",
+      "bytes": 8438235
+    },
+    {
+      "path": "tools/locale_review_work.py",
+      "sha256": "9d4a52056afd5c24aa2b0d987a5913c4c8592c191031bc94f0c02773358e722f",
+      "bytes": 10550
+    },
+    {
+      "path": "tools/locale_efficiency.py",
+      "sha256": "4628489f6996a16d3e84a50334691061fba7e033252a7841e299c0779a474cef",
+      "bytes": 15687
+    }
+  ],
+  "command": ".venv-assets314/bin/python -B outputs/six-next-locales-20261102-01/bg/repair-01/repair.py check",
+  "exitCode": 0,
+  "output": {
+    "languageSha256": "702f7ac069ee4de9d6202fbf8201b20120fd9fc243f3f87b05ad0c7f91611ef8",
+    "changed": 11,
+    "sourceValues": 14606,
+    "protected": 1781,
+    "dialogueControls": 10465,
+    "outcome": "structurally-safe"
+  },
+  "stderr": "",
+  "boundary": "Full final deterministic check; exact guard/disposition/source/helper pins unchanged across execution. No semantic or runtime acceptance."
+}

@@ -1,0 +1,38 @@
+{
+  "recipe": {
+    "path": "outputs/six-next-locales-20261102-01/fa/repair-01/closure_recipe.py",
+    "sha256": "55b481ffc86ea1bccf991fd07b690eb0f71fc346a87e7dc301cf0e06022e2aae"
+  },
+  "source": {
+    "path": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+    "sha256": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803"
+  },
+  "language": {
+    "path": "localization/languages/fa.json",
+    "sha256": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03"
+  },
+  "canonicalOrdering": "Original14606 source packet order; UTF-8 JSONL with one LF after each row.",
+  "primaryRule": "36 genuinely new target versions +3 evidence-backed invalidated judgments +1 unchanged rejected-finding adjudication requiring independent confirmation. Unchanged context is not new primary coverage.",
+  "graphRule": "Exactly two incoming/outgoing logical steps from the complete primary seed set, frozen frontier at each step, plus full176/258/303/492 wording. Full original303 graph is separately pinned; control-only nodes are never fabricated as translation IDs.",
+  "searchPatterns": [
+    "\\bfolks?\\b",
+    "\\bthan\\s+usual\\b",
+    "\\bgoing\\s+down\\s+on\\s+me\\b",
+    "\\bpegging\\s+me\\b",
+    "\\bspunk\\b",
+    "\\bsqueak\\w*\\b",
+    "\\bbusy\\s+little\\s+bug\\b",
+    "\\bcouple\\s+(?:of\\s+)?critters\\b",
+    "\\bmatriarch\\w*\\b"
+  ],
+  "searchRule": "Full shared source corpus; normalize case, apostrophes and hyphen variants solely for selection. Include all candidates as context; broad folk/spunk matches do not impose a semantic pass or invalidate unrelated literal/community/semen uses.",
+  "repetitionRule": "All exact source duplicates of every changed unit, including managed/display labels. No missed unchanged duplicate of a changed source was found.",
+  "topology": "Native/BG exact selectors remain in rows; dialogue rows retain both physical copies, actor/addressee/conditions/script/next; original source graph/control contracts retain the assembler/triggers. Individual choices are not consecutive dialogue lines.",
+  "components": {
+    "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/closure-components.json",
+    "sha256": "ca6ee3001780b19bcc75c55c47f0d3840de5340148ea799ceac28eb92ea4e16b"
+  },
+  "ordinaryContextNotPrimary": true,
+  "unchangedRegressions": "Reuse original full review/image/special/source preservation evidence only with exact current versions; supplied context includes source positive controls61:200 and chapter Mabel-community hint plus unchanged literal uses. Full1781 controls checked anew; image pixels/native remain held.",
+  "selectionRegression": "The graph expansion uses frozen old=set(frontier) per step. A previous exploratory248-row mutating selection is preserved in context-other-before.jsonl but is not the final closure, not all read, and grants no acceptance. --check must reproduce every component and packet exactly."
+}

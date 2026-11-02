@@ -1,5 +1,31 @@
 # Six next Forest localizations
 
+## Latest editorial delta wave
+
+`delta-wave-01/manifest.json` and `outputs/six-next-locales-20261102-01/delta-wave-01/status.json`
+own the six current phases; all earlier sections labelled current below are historical.
+Full independent reading is complete for all six 12,825-entry ordinary corpora.
+Bulgarian/Greek/Persian/Hebrew consolidated repairs are frozen and verified against
+all 14,606 sources, 1,781 protected states, exact unchanged original judgments and
+the current final language snapshots. Fresh independent reviews cover only their
+11/68/40/62 changed or explicitly invalidated units, with all required context.
+Czech and Filipino consolidated editors adjudicate all 35 and 9 findings respectively.
+Six fresh actual Sol/high/OpenAI/null-parent CLI sessions are verified in
+`delta-wave-01/runtime-verification.json`. The finite supervisor writes exit/usage
+receipts; it does not generate acceptance or automatic followups.
+
+The shared compiler no longer requires identical numeral spelling in visible prose.
+Six existing Czech word-form quantities exposed that authoring heuristic; command
+operands, placeholders, source identities and protected values remain exact. Fourteen
+input/publication/control regressions pass. This changes no source, glossary, selectors
+or semantic judgment. Old compiler fingerprints and frozen launch files stay unchanged.
+Current universal instruction archival additions were fully read and reconciled separately;
+all required noninstruction input changes are explicitly accounted for. Whole-project
+archival is pending because this multilingual project is unfinished. Resource/native/
+font/artwork/human-glossary/release acceptance remains separate; no game or publication
+was started.
+
+
 Owner requested six parallel CLI jobs: Bulgarian bg, Czech cs, Greek el, Persian fa, Filipino fil and Hebrew he. Each fresh Sol/high/OpenAI process starts without inherited history and owns one explicit locale file plus its phase/editorial/case outputs. The coordinator owns Git/shared code. The existing parameterized finite launcher is frozen here; its exact helpers/source are pinned and must not be edited while live.
 
 Use current-status.json and the linked live supervisor status, then actual phase checkpoint/result and process identity. A prepared dispatch is not a running worker. Exactly12825 ordinary targets and1781 source-preserved states use the existing shared14606-entry inventory and compiler. The canonical source and all six171-entry target glossaries were checked against684 exact current two-layer/dimension receipt cells per locale. The one current production read-only CLI audit returned a valid33-issue report with exit1; saved output was reconciled without resubmission. No production content changed.

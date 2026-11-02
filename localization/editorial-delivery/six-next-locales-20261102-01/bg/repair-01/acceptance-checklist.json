@@ -1,0 +1,88 @@
+[
+  {
+    "id": "consolidated-editorial-repair",
+    "artifact": "finding-dispositions.jsonl / exact-delta.jsonl",
+    "predicate": "All11 findings across8 groups adjudicated; one supported batch; all saved replacements self-read",
+    "status": "passed-editor-stage",
+    "evidence": [
+      "finding-dispositions.jsonl",
+      "saved-version-self-read.jsonl"
+    ],
+    "nextAction": "Independent exact-version delta"
+  },
+  {
+    "id": "source-and-controls",
+    "artifact": "final.language.json",
+    "predicate": "14606 immutable sources/IDs and1781 protected values;10465 ordinary dialogue guards; placeholders and haiku identity",
+    "status": "passed-static",
+    "evidence": [
+      "final-safety.json",
+      "compiler-final-validation.json"
+    ],
+    "nextAction": "Retain hashes until any input changes"
+  },
+  {
+    "id": "independent-editorial-closure",
+    "artifact": "independent-review/review-packet.jsonl",
+    "predicate": "Actual clean independent read of all11 changed versions with complete consumer/glossary/literary context",
+    "status": "needs-review",
+    "evidence": [
+      "final-version-accounting.json",
+      "consumer-selector.json"
+    ],
+    "nextAction": "The single nextTask; no nested reviewer launch by this editor"
+  },
+  {
+    "id": "glyph-and-roles",
+    "artifact": "glyph-role-delta.json",
+    "predicate": "Identical raw/NFC/NFD sets; unchanged pinned font faces and inputs",
+    "status": "passed-static-reuse-with-existing-role-holds",
+    "evidence": [
+      "glyph-role-delta.json"
+    ],
+    "uncertainty": "Existing Moire436/438 coverage/consumer applicability and actual fallback/shaping/layout remain unaccepted",
+    "nextAction": "Preserve existing role holds; target native evidence requires its applicable owner instruction"
+  },
+  {
+    "id": "resource-compiler",
+    "artifact": "final.language.json",
+    "predicate": "Compile independently accepted text through common compiler and verify actual resources",
+    "status": "not-authorized-not-run",
+    "evidence": [
+      "compiler-final-validation.json"
+    ],
+    "nextAction": "Parent workflow only after independent closure; this repair grants no build action"
+  },
+  {
+    "id": "native-rendering-and-gameplay",
+    "artifact": "final.language.json",
+    "predicate": "Actual target rendering, layout, ordinary progression and callbacks",
+    "status": "not-authorized-not-run",
+    "evidence": [],
+    "nextAction": "Applicable owner instruction and prior text/resource gates"
+  },
+  {
+    "id": "artwork-pixels",
+    "artifact": "unchanged original textures",
+    "predicate": "Actual delivered localized artwork and pixel review",
+    "status": "not-run-held",
+    "evidence": [],
+    "nextAction": "Separate applicable texture/visual authority and prerequisites"
+  },
+  {
+    "id": "human-glossary",
+    "artifact": "localization/completion/six-next-locales-20261102-01/bg/glossary.json",
+    "predicate": "Separate human NSFW glossary review",
+    "status": "owner-deferred",
+    "evidence": [],
+    "nextAction": "Owner-controlled human gate"
+  },
+  {
+    "id": "release",
+    "artifact": "no release produced",
+    "predicate": "Final package, installation/publication/release acceptance",
+    "status": "not-authorized-not-run",
+    "evidence": [],
+    "nextAction": "Separate authorized delivery workflow"
+  }
+]

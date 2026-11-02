@@ -1,0 +1,318 @@
+{
+  "job": {
+    "locale": "fa",
+    "culture": "fa",
+    "writePrefixes": [
+      "outputs/six-next-locales-20261102-01/fa/independent-delta-01"
+    ],
+    "immutablePins": {
+      "localization/completion/five-new-locales-20261101-01/source-context.jsonl": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+      "localization/completion/five-new-locales-20261101-01/glossary-en.json": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41",
+      "localization/completion/five-new-locales-20261101-01/source-preservation.json": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66",
+      "localization/completion/five-new-locales-20261101-01/source-prefix-context.json": "efffd5a54defd19f432e0b296812c9d3f47cefde730d08f808659b773626dce3",
+      "localization/completion/five-new-locales-20261101-01/special-source-cases.json": "52c25d0c3bf1b2e9d7b44d41d55ca616d2599f7ac6044e9d8d20a106d11ac748",
+      "localization/completion/five-new-locales-20261101-01/actor-roster.json": "278cd93f75fa251a038b7328c721b3c32abf2cf8ad149f7bb60bcb0df18af277",
+      "localization/completion/five-new-locales-20261101-01/poetry-authority.json": "61eaa9a19f7c7d64fb6a3e2a3350a7108524471bcf33f67c48120ccdeca0fdf8",
+      "localization/completion/five-new-locales-20261101-01/source-safety-01/index.json": "0d63f05f45c3aea3dc232e3c400d3528d9460408e0e1b12dee0c66e122564deb",
+      "localization/completion/five-new-locales-20261101-01/source-safety-01/haiku-source-controls.json": "8264246c16b77b7221bb4884da84953cb4441199235320ccea97af39cf380934",
+      "localization/completion/five-new-locales-20261101-01/source-safety-01/narrative150-source-only.jsonl": "090f04faa618f5af47789c99b95eece82ffddc02ea8a87a3e56371baa28b9bca",
+      "AGENTS.md": "db3336cda33b586550d433c54b6b04b711a3e2f93449a988547e5e56686d83a2",
+      "LOCALIZATION.md": "09d706dffe65265d7e0fa9e127061f93bac9f6b7000d8959a20790d41ccad46f",
+      "localization/PROCESS.md": "e9b48376525978067f84e8efe442b035440497c7fd1bb17fb02de9eae9f896c1",
+      "localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+      "localization/framework/forest045-shared-v2/framework.json": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f",
+      "tools/forest_localization/core.py": "83b92c03fa98eecf71dee57cfdff499d50b75ac31fa31e488f5c30a4f5f1c1dd",
+      "tools/locale_efficiency.py": "4628489f6996a16d3e84a50334691061fba7e033252a7841e299c0779a474cef",
+      "tools/locale_review_work.py": "9d4a52056afd5c24aa2b0d987a5913c4c8592c191031bc94f0c02773358e722f",
+      "tools/cli_runtime_identity.py": "f75cf5c9198cdaf7c5b92afa68bfe42a26fe3f114db03a48aaaf01e30326b14a",
+      "tools/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+      "localization/fonts/README.md": "e3107d191d8ff016fad99b22e52bb7fba90332b3fb64a79172a09e5888a8fef5",
+      "localization/completion/six-next-locales-20261102-01/inputs.json": "d460b6558175b55e298fe21f608bc6fed9945cef2a2ecf179896dc369e17e415",
+      "localization/completion/six-next-locales-20261102-01/locale-eligibility.json": "2c97c063c40b0baf68e1f45a42f1ee4e28a23dcc4909faab996f78472bed8972",
+      "localization/completion/six-next-locales-20261102-01/authoring-contract.md": "8a2c9d38e23b7142c5816dad361c03f187fd8e5638bbdb9e6ca4ee43aeeca379",
+      "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+      "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "68acfd48b4408a53af62bc0b021f355f25d089d784d417fe24f30fba3be935dd",
+      "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "37ff4269163b17cab4030c2d1c78651f7a79b9c8be3d569a2b9ea7f17748a5dc",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/SKILL.md": "709a5830d98842a0636e799230b68219057b36d0fd0d1dce0b78e7c5f32e2c12",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/COMMON.md": "0a3395e91ea72d756816a352a536d93fee48f94e1231904d5c7b2e6bc05dc541",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/WORKFLOW.md": "2aac4ad0036750ac212187982dad7b860957b87b2696390deb8fc5917a651200",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/CHECKPOINT.md": "de6fcd0119aceda9edeed0850eaa659b10aaf8e7cfc7e7c22ce7c627c9849b25",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/SPECIAL-SCENES.md": "905db2df1eaf945ec3a7c45e45c2478e2496bd98618464f5d9bcb0495861cc60",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/CHARACTERS.md": "140cbbb3d598f8255e1442a8b13bfd24f6f0253934a68c486fe2b9821ac27de1",
+      "localization/completion/six-next-locales-20261102-01/fa/glossary.json": "a396b02775fedfd3e2e809d6f9875d5009dcb09977eae95f5aadb560fe373308",
+      "localization/completion/six-next-locales-20261102-01/fa/glossary-coverage.json": "0210cbaac00896b234d3946f1f93023126245ba7ab19bb2769f931dfda76148a",
+      "localization/completion/six-next-locales-20261102-01/fa/name-decisions.json": "c74fdb8261c0bc1f18a52f69aa7b853d82a96d3c89ac1957980c0d575a295764",
+      "localization/completion/six-next-locales-20261102-01/fa/locale-config.json": "28197827a82ee556d1d6ef0df1a8d9984376c31103265b4578e7f98682336a53",
+      "localization/completion/six-next-locales-20261102-01/fa/language-at-launch.json": "65d5a7c8fb696211ee18eaaecf1cb3e0be8a8dbfc87eccf0922174ccc58f4fef",
+      "localization/completion/six-next-locales-20261102-01/fa/preflight.json": "381c7fb4c71f1be5750c7440e8a73569bd5978ed70fccc780b9b31863d804a07",
+      "localization/source/quest-family-ui-20261028/special-decisions/fa.json": "d2ba0d7915fffff0c10f248e09ccda06858b149a8f9eeffc845a68fb43360a47",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/review-output/reviews.jsonl": "ab29041c9d01756a3ec7432948ef8c01c14c39f1d24a6a876efb57d4c41e268f",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/review-output/pending.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/review-output/pending-ledger.json": "b0933ce1a78bc2c20ad84146b8b3527255e4845e19595f4385fde9266561ed7f",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/findings-consolidated.jsonl": "86f558883fc2f499b6bd44f72fdccef3f6ab12c1390c977007a154e74314a596",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/context-ledger.json": "e080d6b145601f6daa84c4d0dae6dfc368eb25d0c2a05697ac279a12a8ec4af4",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/haiku-dependent-judgments.jsonl": "ca5d4f5fb560abf22ae6eecd59343fb37d0ec95e50bb389c9bd06a3b0abb1e1b",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/author-01/independent-review/entry-versions.jsonl": "bab2d93f81f1b72aafd43b25a8e2128feeafdba6a0eea6cd97275eaa97a59c9e",
+      "localization/completion/six-next-locales-20261102-01/independent-review-02/fa/task.json": "ec85767a1de43fad8c6de4707540e4892739bd6219f5e22b26cf4ce2f2e7877c",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/author-01/independent-review/review-packet.jsonl": "1a045835b4b4ca94f4c5947bf360e81e859d869fb02be34e14703ca69e630eff",
+      "outputs/six-next-locales-20261102-01/review-lifecycle-01/complete/fa.jsonl": "5c2107ffe0221f3fb0cd1d5b164b7a4fb0a0d64b92da16dc6404e7eae8a43e3a",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/result.json": "7231f4f1b359ba2831c97accee18b1a7f9c32b0195e59da34f83af63054fe23e",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/process-exit.json": "9a3a43b164bfea01a029bf158cee3c28672f0500d9896bafd830c69faf821e6f",
+      "outputs/six-next-locales-20261102-01/fa/review-auto-0002/next.md": "2b7c63f9f62ccbee9d42fdbfb9d0b90d3e83ccd89c6e4c188368a751daeca330",
+      "localization/completion/six-next-locales-20261102-01/completion-wave-01/fa-repair/review-findings.jsonl": "d3cda6aa6eefedad7e92d209049c003d5ac73fccc49dc136f2535efb6aa15ce5",
+      "localization/completion/six-next-locales-20261102-01/completion-wave-01/fa-repair/finding-ids.json": "009a7e82f5487399d9e1f05291f94abfa49e9393d5970bdc5037e5e80e820169",
+      "localization/completion/six-next-locales-20261102-01/completion-wave-01/fa-repair/language-before.json": "a7615c4dba09930a091b72a3df59b2f8204273178b7a19b3d1ce547ed633634d",
+      "localization/completion/six-next-locales-20261102-01/completion-wave-01/repair-contract.md": "537987813353f57dc8f27cbfa70858913cfaad469d1659bd595a2a02d86e2778",
+      "localization/completion/six-next-locales-20261102-01/delta-wave-01/compiler-prose-numbers.json": "16efbdf7792f40c5950def2541d5c19160e1766d906509a483a02b0ee05d2c97",
+      "localization/completion/six-next-locales-20261102-01/delta-wave-01/prepare.py": "500a55b17ac63da8a461174da61e5e7c43a221de848c35a4ebeee1cc199ffcdc",
+      "localization/languages/fa.json": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/language-final.json": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-packet.jsonl": "050686047bf8fc1177089d3f0cd3a302f7ab075c3e0f9d75b55eb1635ce286f2",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/entry-versions.jsonl": "5ef54c4b4bf00521ee49deb13f6e7520baee26f84e20df19a376aabac30d077f",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/primary-ids.json": "edeb77684755bab0a0d9f5920cb09326af39cf67d387a496016840fd94d0781b",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/closure-components.json": "ca6ee3001780b19bcc75c55c47f0d3840de5340148ea799ceac28eb92ea4e16b",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/dependency-recipe.json": "b0e6972351ba47e86605ca004a6add9557d377688ce5f7a776b47f86f71abcb9",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/closure_recipe.py": "55b481ffc86ea1bccf991fd07b690eb0f71fc346a87e7dc301cf0e06022e2aae",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/next.md": "151c6c5639d4b1cd41f593f1aaf899a4bfbcce31dda9fda2d61327f69fe23bef",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/finding-dispositions.jsonl": "b0706789146646f5adc104bfb821de70e5707c775e0d16c747d2c20e1453391c",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/retained-original-judgments.jsonl": "caeb41583b2c8f97b82ef6a7fe0a5f289da705008382df5276fa66d205b945a6",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/pending-independent.jsonl": "302953bcce13c435e973f63a0d57db70d80cc486607afae1884b6050dce18055",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/final-validation.json": "39b47b6aabbaf55acbf3bf898df08a5c8a3cffc93896fb0be62623648477fe1c",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/final-glyph-roles.json": "8c16eb860fb0fe801e124bd553d4b2787044771d6c845cad6bfb1792eeceb674",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-context.jsonl": "21bd7bbcd111be998f703b3baee011dd644e6cf897fdc6b72a28e0be8922eb25",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/case-context.jsonl": "08c1ce02f31a690c2a3f000d1443a14deacb29221bd8a1a5d108b515472f94fa",
+      "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/affected9-self-read.jsonl": "e969da558e762cfc2e5ca2ddd53a3cab2ef0a05524156fbb7fce76f5315a3dc4",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-scope.json": "3efa9b033e119e1a75f8c2b43cad2369e6471d8815a18d6a764e10c5227496cb",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/version-accounting.json": "ba03ebf36d1d1cc84af5f6dd10b00f2044b69664ad0ff02722fea62030af087f",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/regression-applicability.json": "09098e414f42a4408312355a651005709fdf7e8a2dfcc4505d88e6dfb573597f",
+      "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/paired-lines-and-scansion.json": "ec6c84d1cffb7d6366c533be51d93215c08a58135da60a72abf97d3115e946fd",
+      "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/literary-repair-binding.json": "cb4bee51bada32c0f0076f9a5223352f07076df0106242e883c15261cdd8e207",
+      "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/retained18-original-judgments.jsonl": "2aab441f1bd4ee39508aafcc27f6d0722a59eae51181ad1328b005c0c65b5a7d",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/result.json": "6c48d86096c47bbda9832ad5a306e652b2c51309c0748ebbf3a4136f88430a67",
+      "outputs/six-next-locales-20261102-01/fa/repair-01/process-exit.json": "1e7543aba09d85a20e2894a007a65a56b2dc417d4d2900fc3a00953cc0d24ff5",
+      "localization/completion/six-next-locales-20261102-01/delta-wave-01/fa-delta-review/preflight.json": "1af04262d3e6b8a69b681230de10ea324909964096f626df98554354e7f22f09",
+      "localization/completion/six-next-locales-20261102-01/delta-wave-01/fa-delta-review/brief.md": "cf191d55754a700d072ed4f55452d67c9d6d8d82263fe2cb7f44ff976e10b2b9"
+    },
+    "initialLanguageSha256": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03"
+  },
+  "task": {
+    "kind": "work",
+    "taskClass": "semantic-review",
+    "executionStage": "editorial",
+    "workCategory": "locale-content",
+    "title": "Independently review40 exact Persian repair/adjudication versions and9 affected haiku products",
+    "locale": "fa",
+    "brief": "outputs/six-next-locales-20261102-01/fa/repair-01/next.md",
+    "briefSha256": "151c6c5639d4b1cd41f593f1aaf899a4bfbcce31dda9fda2d61327f69fe23bef",
+    "reviewPacket": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-packet.jsonl",
+    "reviewPacketSha256": "050686047bf8fc1177089d3f0cd3a302f7ab075c3e0f9d75b55eb1635ce286f2",
+    "entryVersions": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/entry-versions.jsonl",
+    "entryVersionsSha256": "5ef54c4b4bf00521ee49deb13f6e7520baee26f84e20df19a376aabac30d077f",
+    "requiredPrimary": 40,
+    "primaryIdsFile": "localization/completion/six-next-locales-20261102-01/delta-wave-01/fa-delta-review/primary-ids.json",
+    "language": {
+      "path": "localization/languages/fa.json",
+      "sha256": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03"
+    },
+    "contextPackets": [
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-context.jsonl",
+      "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/case-context.jsonl",
+      "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/affected9-self-read.jsonl"
+    ],
+    "contextDocuments": [
+      {
+        "path": "localization/completion/five-new-locales-20261101-01/glossary-en.json",
+        "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+      },
+      {
+        "path": "localization/completion/six-next-locales-20261102-01/fa/glossary.json",
+        "sha256": "a396b02775fedfd3e2e809d6f9875d5009dcb09977eae95f5aadb560fe373308"
+      },
+      {
+        "path": "localization/completion/six-next-locales-20261102-01/fa/name-decisions.json",
+        "sha256": "c74fdb8261c0bc1f18a52f69aa7b853d82a96d3c89ac1957980c0d575a295764"
+      },
+      {
+        "path": "localization/completion/six-next-locales-20261102-01/fa/glossary-coverage.json",
+        "sha256": "0210cbaac00896b234d3946f1f93023126245ba7ab19bb2769f931dfda76148a"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-scope.json",
+        "sha256": "3efa9b033e119e1a75f8c2b43cad2369e6471d8815a18d6a764e10c5227496cb"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/version-accounting.json",
+        "sha256": "ba03ebf36d1d1cc84af5f6dd10b00f2044b69664ad0ff02722fea62030af087f"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/regression-applicability.json",
+        "sha256": "09098e414f42a4408312355a651005709fdf7e8a2dfcc4505d88e6dfb573597f"
+      },
+      {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/paired-lines-and-scansion.json",
+        "sha256": "ec6c84d1cffb7d6366c533be51d93215c08a58135da60a72abf97d3115e946fd"
+      },
+      {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/literary-repair-binding.json",
+        "sha256": "cb4bee51bada32c0f0076f9a5223352f07076df0106242e883c15261cdd8e207"
+      }
+    ],
+    "entryPins": [
+      {
+        "path": "localization/languages/fa.json",
+        "sha256": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/language-final.json",
+        "sha256": "0ea840408dd4c388dc22c3c36a257fd10bbf9df101838cff87778afbf99c6d03"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-packet.jsonl",
+        "sha256": "050686047bf8fc1177089d3f0cd3a302f7ab075c3e0f9d75b55eb1635ce286f2"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/entry-versions.jsonl",
+        "sha256": "5ef54c4b4bf00521ee49deb13f6e7520baee26f84e20df19a376aabac30d077f"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/primary-ids.json",
+        "sha256": "edeb77684755bab0a0d9f5920cb09326af39cf67d387a496016840fd94d0781b"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/closure-components.json",
+        "sha256": "ca6ee3001780b19bcc75c55c47f0d3840de5340148ea799ceac28eb92ea4e16b"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/dependency-recipe.json",
+        "sha256": "b0e6972351ba47e86605ca004a6add9557d377688ce5f7a776b47f86f71abcb9"
+      },
+      {
+        "path": "outputs/six-next-locales-20261102-01/fa/repair-01/closure_recipe.py",
+        "sha256": "55b481ffc86ea1bccf991fd07b690eb0f71fc346a87e7dc301cf0e06022e2aae"
+      },
+      {
+        "path": "outputs/six-next-locales-20261102-01/fa/repair-01/next.md",
+        "sha256": "151c6c5639d4b1cd41f593f1aaf899a4bfbcce31dda9fda2d61327f69fe23bef"
+      },
+      {
+        "path": "outputs/six-next-locales-20261102-01/fa/repair-01/finding-dispositions.jsonl",
+        "sha256": "b0706789146646f5adc104bfb821de70e5707c775e0d16c747d2c20e1453391c"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/retained-original-judgments.jsonl",
+        "sha256": "caeb41583b2c8f97b82ef6a7fe0a5f289da705008382df5276fa66d205b945a6"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/pending-independent.jsonl",
+        "sha256": "302953bcce13c435e973f63a0d57db70d80cc486607afae1884b6050dce18055"
+      },
+      {
+        "path": "outputs/six-next-locales-20261102-01/fa/repair-01/final-validation.json",
+        "sha256": "39b47b6aabbaf55acbf3bf898df08a5c8a3cffc93896fb0be62623648477fe1c"
+      },
+      {
+        "path": "outputs/six-next-locales-20261102-01/fa/repair-01/final-glyph-roles.json",
+        "sha256": "8c16eb860fb0fe801e124bd553d4b2787044771d6c845cad6bfb1792eeceb674"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-context.jsonl",
+        "sha256": "21bd7bbcd111be998f703b3baee011dd644e6cf897fdc6b72a28e0be8922eb25"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/case-context.jsonl",
+        "sha256": "08c1ce02f31a690c2a3f000d1443a14deacb29221bd8a1a5d108b515472f94fa"
+      },
+      {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/affected9-self-read.jsonl",
+        "sha256": "e969da558e762cfc2e5ca2ddd53a3cab2ef0a05524156fbb7fce76f5315a3dc4"
+      },
+      {
+        "path": "localization/completion/five-new-locales-20261101-01/glossary-en.json",
+        "sha256": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41"
+      },
+      {
+        "path": "localization/completion/six-next-locales-20261102-01/fa/glossary.json",
+        "sha256": "a396b02775fedfd3e2e809d6f9875d5009dcb09977eae95f5aadb560fe373308"
+      },
+      {
+        "path": "localization/completion/six-next-locales-20261102-01/fa/name-decisions.json",
+        "sha256": "c74fdb8261c0bc1f18a52f69aa7b853d82a96d3c89ac1957980c0d575a295764"
+      },
+      {
+        "path": "localization/completion/six-next-locales-20261102-01/fa/glossary-coverage.json",
+        "sha256": "0210cbaac00896b234d3946f1f93023126245ba7ab19bb2769f931dfda76148a"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/review-scope.json",
+        "sha256": "3efa9b033e119e1a75f8c2b43cad2369e6471d8815a18d6a764e10c5227496cb"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/version-accounting.json",
+        "sha256": "ba03ebf36d1d1cc84af5f6dd10b00f2044b69664ad0ff02722fea62030af087f"
+      },
+      {
+        "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/regression-applicability.json",
+        "sha256": "09098e414f42a4408312355a651005709fdf7e8a2dfcc4505d88e6dfb573597f"
+      },
+      {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/paired-lines-and-scansion.json",
+        "sha256": "ec6c84d1cffb7d6366c533be51d93215c08a58135da60a72abf97d3115e946fd"
+      },
+      {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/literary-repair-binding.json",
+        "sha256": "cb4bee51bada32c0f0076f9a5223352f07076df0106242e883c15261cdd8e207"
+      },
+      {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/retained18-original-judgments.jsonl",
+        "sha256": "2aab441f1bd4ee39508aafcc27f6d0722a59eae51181ad1328b005c0c65b5a7d"
+      }
+    ],
+    "expectedRuntime": {
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "parentThreadId": null,
+      "freshExec": true,
+      "inheritedHistory": false
+    },
+    "independentFromThread": "01a19d46-044a-72f1-9caf-074f15b953b1",
+    "requiresOwningParent": true,
+    "retainedIndependent": {
+      "path": "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01/retained-original-judgments.jsonl",
+      "sha256": "caeb41583b2c8f97b82ef6a7fe0a5f289da705008382df5276fa66d205b945a6",
+      "count": 12785
+    },
+    "fullIndependentRequired": 12825,
+    "requiredContextJudgments": {
+      "haikuProducts": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "count": 9,
+      "packet": {
+        "path": "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01/affected9-self-read.jsonl",
+        "sha256": "e969da558e762cfc2e5ca2ddd53a3cab2ef0a05524156fbb7fce76f5315a3dc4"
+      },
+      "authorJudgmentsAreNotIndependent": true
+    },
+    "expectedPostcondition": "Every40 exact primary ID and all9 affected products explicitly judged with full required context; unchanged12785 receipts retained; zero silent unread or default passes. Complete findings collected before any repair.",
+    "authorization": "Prepared finite next assignment only; requires parent dispatch into a new fresh verified process. No model request is made by this handoff.",
+    "prohibitedActions": [
+      "nested model/agent",
+      "Astra/fallback/unverified runtime",
+      "Git",
+      "old queue",
+      "language/source/glossary edits",
+      "game/GUI/build/screenshot/installer/publication/deployment/server"
+    ],
+    "assignedPrimary": 40,
+    "primaryPolicy": "Only the exact changed/invalidated assignment; retained rows are not new judgments."
+  }
+}
