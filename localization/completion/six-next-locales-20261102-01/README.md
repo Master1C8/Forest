@@ -1,5 +1,20 @@
 # Six next Forest localizations
 
+## Six clean text corpora
+
+`closing-wave-01/final-state.json` and `final-persian-integration.json` close the
+last independent Persian delta: both labels and all nine affected compositions
+pass with complete context. All six current 12,825-unit text corpora now have
+clean actual independent evidence, zero open findings and zero unread primary
+IDs. Every locale preserves all 1,781 protected source states. All model-backed
+editorial CLI phases ended; resource builds/checks continue through the four
+finite deterministic manifests. Greek's full 16-resource package is verified.
+The other current build states are linked from current-status.json. Earlier
+sections retain historical states. Target native/visual, font loading/shaping/
+bidi/readability, artwork, owner-deferred human glossary and release acceptance
+remain separate; this is not whole-project completion or archival acceptance.
+
+
 ## Latest clean-text integration and resource builds
 
 `closing-wave-01/integration.json` and `second-integration.json` bind five clean

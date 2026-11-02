@@ -1,7 +1,7 @@
 {
   "run": "six-next-locales-20261102-01",
-  "atUTC": "2026-11-02T19:26:21.751426+00:00",
-  "status": "five-clean-text-resource-builds-and-final-persian-haiku-review",
+  "atUTC": "2026-11-02T19:33:06.990473+00:00",
+  "status": "six-clean-text-corpora-resource-builds-and-checks",
   "lanes": [
     {
       "locale": "bg",
@@ -11,7 +11,7 @@
       "language": "localization/languages/bg.json",
       "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/bg-delta-review",
       "initialLanguageSha256": "a3228c7955e2e17c2d01eff8ffe938d5062703902e9c83f7fbcff440ef5328f5",
-      "status": "resource-build-or-check-running",
+      "status": "resource-check-running",
       "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
@@ -20,7 +20,7 @@
       "glossaryVersionMatchingCells": 684,
       "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "in-progress",
+      "resourceBuild": "checking",
       "native": "not-authorized-not-run",
       "release": "not-run",
       "pid": 86439,
@@ -174,16 +174,16 @@
       "language": "localization/languages/fa.json",
       "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fa-final-review",
       "initialLanguageSha256": "65d5a7c8fb696211ee18eaaecf1cb3e0be8a8dbfc87eccf0922174ccc58f4fef",
-      "status": "final-two-label-nine-product-independent-review-running",
-      "live": true,
+      "status": "resource-build-running",
+      "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "12823-passes-two-repaired-labels-pending-independent",
+      "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "not-run",
+      "resourceBuild": "in-progress",
       "native": "not-authorized-not-run",
       "release": "not-run",
       "pid": 12030,
@@ -209,11 +209,14 @@
       "freshExec": true,
       "previousPhase": "outputs/six-next-locales-20261102-01/fa/independent-delta-01",
       "currentDelta": {
-        "primaryRequired": 2,
-        "requiredCompositions": 9,
-        "retainedUnchangedVerified": 12823
+        "unreadPrimary": 0,
+        "findings": 0,
+        "independentExactPasses": 12825,
+        "haikuProducts": 27
       },
-      "currentLanguageSha256": "045c349e39a5eb7a17f39941acbece640c4ad09dd4bc771b95e6cccf40a64593"
+      "currentLanguageSha256": "045c349e39a5eb7a17f39941acbece640c4ad09dd4bc771b95e6cccf40a64593",
+      "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/final-persian-integration.json",
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-04/status.json"
     },
     {
       "locale": "fil",
@@ -357,18 +360,21 @@
       "locales": [
         "fa"
       ],
-      "automaticFollowup": false
+      "automaticFollowup": false,
+      "status": "closed-clean"
     },
     "resourceBuilds": {
       "statusPaths": [
         "outputs/six-next-locales-20261102-01/resource-builds-01/status.json",
         "outputs/six-next-locales-20261102-01/resource-builds-02/status.json",
-        "outputs/six-next-locales-20261102-01/resource-builds-03/status.json"
+        "outputs/six-next-locales-20261102-01/resource-builds-03/status.json",
+        "outputs/six-next-locales-20261102-01/resource-builds-04/status.json"
       ],
       "locales": [
         "bg",
         "cs",
         "el",
+        "fa",
         "fil",
         "he"
       ],
@@ -452,6 +458,7 @@
     "predicate": "Natural visible numeral spelling accepted; command operands and placeholders remain exact."
   },
   "archival": "Multilingual project unfinished; archival pending, no cleanup or GitHub writes.",
-  "cleanIndependentTextLocales": 5,
-  "fontRoleAllocation": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/allocation.json"
+  "cleanIndependentTextLocales": 6,
+  "fontRoleAllocation": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/allocation.json",
+  "modelCliTasks": "All current six-locale model phases ended; no automatic model followup."
 }

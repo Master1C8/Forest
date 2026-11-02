@@ -170,7 +170,26 @@
         "total_tokens": 5844510
       },
       "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
+    },
+    {
+      "task": "fa/independent-delta-02",
+      "threadId": "01a19db9-952e-72d0-a584-f64329ab271f",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "terminalReceipt": "outputs/six-next-locales-20261102-01/fa/independent-delta-02/process-exit.json",
+      "exitCode": 0,
+      "finishedAt": "2026-11-02T19:30:30.309294+00:00",
+      "usage": {
+        "input_tokens": 2440526,
+        "cached_input_tokens": 2300672,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12012,
+        "reasoning_output_tokens": 1624,
+        "total_tokens": 2452538
+      },
+      "telemetry": "Fresh-session cumulative counters; cache/reasoning are subsets"
     }
   ],
-  "accounting": "Actual complete fresh-session cumulative counters per unique session; cached input/reasoning are subsets, not extra tokens. Final current Persian reviewer is still active and excluded."
+  "accounting": "Ten closed actual fresh CLI sessions, each counted once. Cached input and reasoning are subsets. All current model editorial phases ended; no new model followup."
 }
