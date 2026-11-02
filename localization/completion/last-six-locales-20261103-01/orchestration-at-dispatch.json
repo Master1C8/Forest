@@ -1,0 +1,18 @@
+{
+  "atUTC": "2026-11-02T20:33:48.039526+00:00",
+  "coordinatorThreadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "measuredMixedCoordinatorSinceBaseline": {
+    "input_tokens": 5610959,
+    "cached_input_tokens": 5587968,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 29330,
+    "reasoning_output_tokens": 14882,
+    "total_tokens": 5640289
+  },
+  "measurement": "Actual nonoverlapping session delta for the shared six-task group. Mixed instruction/schema reads, production read-only capture, glossary source/receipt/name verification, deterministic preparation, prelaunch Git, launch/adoption/runtime checks and accounting cannot be split exactly by worker. Cache/reasoning are subsets.",
+  "exclusions": "Initial inventory/instruction reads before saved baseline, subsequent final Git/reporting tail and platform overhead are unmeasured. Current report cannot measure itself.",
+  "workerUsage": "All six fresh sessions ongoing; final worker usage not yet available, never reported as zero."
+}
