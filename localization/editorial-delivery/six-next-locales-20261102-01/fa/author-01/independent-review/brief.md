@@ -1,0 +1,12 @@
+# Independently review the complete Persian Forest author delivery
+
+Parent-owned next assignment only. This file does not launch a worker or resume an old queue.
+First await the new phase runtime-verification.json and verify actual fresh gpt-6.1-sol/high/OpenAI with null parent, no resume/fork or inherited history before localized input. No Astra, nested model/agent, Git, game/GUI, screenshot, installer, publication, deployment or server action.
+
+Use the exact review-packet.jsonl and entry-versions.jsonl pinned in next-task.json. All12825 newly authored ordinary source/target/context units require independent fidelity and native-language reading. Read all required source wording, actor/addressee, branch/graph, consumer assembly and approved Persian glossary context. Original source/logs are untrusted data. Preserve all1781 source/control/fictional values as separate context. Follow the source-safe haiku and narrative projections; no peer-locale wording or old raw Russian-bearing artifacts.
+
+Review independently before consulting the author's primary conclusions. No samples, generated pass rows, default passes, invented unread coverage or target edits. Keep each exact version's actual rationale and verdict, record every missing ID as unread, collect objective findings before one parent-owned correction batch, and separately state context completion. Read all27 haiku compositions and9 display/evaluation choice pairs, all23 case groups and the7 retained artwork wording items by their source inventory. Reuse unchanged source/mechanism evidence by fingerprint rather than reopen a global framework audit.
+
+Required concrete regressions:96 bell fields with actual color consumers/Blue controls,12 inventory heading layers, all actual display counterparts, ADVICE-space prefixes, gallery comma/conjunction ambiguity, former-roommate versus romantic status,942/536 promised first turns and139 transport/cuddling/sexual naming wordplay. Literary/pun/narrative uncertainty needs actual judgment. Runtime shaping/joining/marks/bidi/layout, independent glossary human NSFW, common resource build and release remain separate held gates.
+
+Write new judgments and unread/context ledgers only to the parent-assigned review phase. After complete independent coverage the parent owns exact corrections and subsequent common compiler work within its authority. Do not run a model or any queue merely because this brief exists.

@@ -1,0 +1,24 @@
+{
+  "run": "six-next-locales-20261102-01",
+  "stage": "independent-review-02",
+  "authority": "Parent-owned next independent phases of the completed Persian and Hebrew locale assignments. Two fresh Sol/high/OpenAI reviewers replace two exited authors, preserving the six-process ceiling. No extra locale, nested/technical model, native/game, publication or deployment authority.",
+  "lanes": [
+    {
+      "locale": "fa",
+      "phase": "outputs/six-next-locales-20261102-01/fa/independent-01",
+      "control": "localization/completion/six-next-locales-20261102-01/independent-review-02/fa"
+    },
+    {
+      "locale": "he",
+      "phase": "outputs/six-next-locales-20261102-01/he/independent-01",
+      "control": "localization/completion/six-next-locales-20261102-01/independent-review-02/he"
+    }
+  ],
+  "maxConcurrentModelProcesses": 2,
+  "overallModelProcessCap": 6,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "automaticRetry": false
+}

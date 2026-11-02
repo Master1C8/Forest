@@ -1,0 +1,31 @@
+{
+  "findings": [
+    {
+      "ids": [
+        "ds:303:343:Dialogue Text",
+        "ds:303:350:Dialogue Text"
+      ],
+      "reason": "The draft nominal نوش خوب is unnatural Persian for a drink; cup/company metonymy preserves the friendly plural scene without inventing wine.",
+      "old": "نوشِ خوب، یاران",
+      "new": "جام و جمعِ خوب"
+    },
+    {
+      "ids": [
+        "ds:302:566:Dialogue Text"
+      ],
+      "reason": "The draft چند ماه loses the couple-month quantity. Preserve an approximate two months.",
+      "old": "[pic=4]هه‌هه، شاید چند ماه دیگه…",
+      "new": "[pic=4]هه‌هه، شاید یه دو ماه دیگه…"
+    }
+  ],
+  "boundary": "Case preparation self-read only; not the full-corpus primary audit.",
+  "exactFinalDeltaRead": [
+    "ds:303:343:Dialogue Text",
+    "ds:303:350:Dialogue Text",
+    "ds:302:566:Dialogue Text"
+  ],
+  "finalVersion": {
+    "path": "localization/case-decisions/six-next-locales-20261102-01/fa/author-01/haiku-authored-03.jsonl",
+    "sha256": "2b99809d07898187735ea82569041e3b5350cc037542ac792c6167f7ac278324"
+  }
+}
