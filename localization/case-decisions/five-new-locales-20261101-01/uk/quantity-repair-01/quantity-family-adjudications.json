@@ -1,0 +1,253 @@
+{
+  "identity": {
+    "runtime": {
+      "path": "outputs/five-new-locales-20261101-01/uk/quantity-repair-01/runtime-verification.json",
+      "sha256": "31dc2e1394a320e93301f892aa679001cd5bfbb2ebf035a80d55975b529d7746"
+    },
+    "sessionId": "01a19aa7-25f9-7242-923c-5c85fe52e860",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "parentThreadId": null,
+    "forkedFromId": null,
+    "freshExec": true,
+    "liveArgvVerified": true,
+    "verifiedBeforeLocalizedInput": true
+  },
+  "plan": {
+    "path": "outputs/five-new-locales-20261101-01/uk/quantity-repair-01/authored-plan.json",
+    "sha256": "ea75a7eb85eb311cbeb25258677f573a35d360bb013083a500ed9c719c44de6b"
+  },
+  "source": {
+    "path": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+    "sha256": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803"
+  },
+  "family": {
+    "path": "localization/completion/five-new-locales-20261101-01/last-stage-closeout-01/uk/quantity-family-source-target.jsonl",
+    "sha256": "a96a19f94934989b99d85d3045b7e395f027f4e653e58dfe8c6dffae1af1ccf3"
+  },
+  "before": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/quantity-repair-01/language-before.json",
+    "sha256": "10a6e9990bd52585c4f762e0bc5908c158f1c25a851b939cd3799337d0f7e1e2"
+  },
+  "context": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/quantity-repair-01/context-before.jsonl",
+    "sha256": "63813d720c989ec4df7bebf3f40f5d75f9f8c5eb363761972bae383b2bec366d"
+  },
+  "decisions": [
+    {
+      "id": "bgdb:resources.assets:320/sheet/t0mvbnMW90imSoe6SezMKA/row/XYi6qn2sRE2eay06g986AQ/field/gt2E0tKZz0yCT5P2xrS3sA",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Several individuals Scarlett wants Rascal to meet.",
+      "rationale": "Кількох звірят quantifies the animal residents being sought, and the relative clause preserves Scarlett's recommendation and Rascal as the person meeting them. It says neither repeated searching nor a stronger greeting. The BG quest description agrees with the separate four-person greeting instructions; a few need not be replaced by an exact numeral here.",
+      "sourceSha256": "24739448e7e9daf805f5f51d2818e78f2c2a76d74883db01cadb252c504dfa59",
+      "targetSha256": "f4ee28fbeba9b15398c489dea79c48a9d6d41c8131c567b8b6355f5f4af41372",
+      "contextSha256": "a043d6c57e66c15fe69d49c9e5994a63b307883ac0b4b6a3a059df55aaa50238",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "05065952238e469cca21234345a6c8db1e35ae3585db7ec61dc36b038e04eb1e"
+    },
+    {
+      "id": "ds:127:275:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "An indefinite small subset of critters already hooking up.",
+      "rationale": "Дехто зі звірят identifies some members of the resident group, not how often they hook up. Scarlett's following branches ask who and whether she and Bucky are involved; they confirm an indefinite participant subset without an exact head count. Дехто is an acceptable indefinite-person collective here; changing it solely to prefer кілька is unsupported taste churn.",
+      "sourceSha256": "3bfb856e937cfbbc52c276dfe234804517d24f4c2ce85fe0cb6a50b887d950c0",
+      "targetSha256": "146a33af204ed46491ee8520945ed2bb74bd4e49e1e0c3752f9d2837d43892cd",
+      "contextSha256": "9f2a5ee21c7f65bc75b6c21e1e11324a91dfb96e92f47a6fa9a433b8d2166b1a",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "46dbc03af771312882e0644184db5e66bcf2706cc95091391c247e40fac2f316"
+    },
+    {
+      "id": "ds:127:299:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "A larger set of visiting critters.",
+      "rationale": "The verified correction більше звірят, що навідуються одне до одного attaches the comparative to participants. Bucky's keep-your-eyes-peeled lead-in298 and Scarlett's account of new pairings275/279/286 support additional visitors, not more frequent visits by an unchanged group. Retain this independently passed correction exactly.",
+      "sourceSha256": "e44203807bebf5b3080239be9a627622c7799ddaddcf8720a820742699a25c80",
+      "targetSha256": "6f05746b610f1a99fca352bb3380f5cf49361b186cabd2f7b1e152111fa39452",
+      "contextSha256": "ea6b854a7855c253e8dac03f9760b05101ba73490241002a6f5ffb9b52705ecd",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "9a6ea37c607eb19159ec40c418362e771f29e7b1fe641326175ba5cc52516bce"
+    },
+    {
+      "id": "ds:1444:963:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Several members of the gathered critter crowd hop onto Oliver's head.",
+      "rationale": "Декілька elliptically resumes звірята from the first sentence and counts the ones hopping, while по черзі separately describes turn-taking. Lines957-968 establish Oliver as the large visitor and hundreds of small critters as the crowd. No number becomes hop frequency or intensity, and the ellipsis does not erase the participant subset.",
+      "sourceSha256": "593926368756f2c5760b23810bc646eb7996d120df41f8015555de51d339557c",
+      "targetSha256": "17cbfe331de43aaccac3c5292b9b265f2c027894b2c4ad17a3794d83b5b5778e",
+      "contextSha256": "5991a238506e71c88272d347528ebcafe6277ff5d28d5d5ac001f91f2a3cb401",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "221e73a7552915e45f45a8a54b0a8bb8e32b9d959547e71d7fd00dc72e7a6c81"
+    },
+    {
+      "id": "ds:256:201:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "The two residents beyond the clearing, Claire and Violet, still unnamed here.",
+      "rationale": "Двоє звірят preserves the contextual pair. Oliver's199-205 sequence locates them and offers transport; the two separate tailor speakers13/14 in259 confirm that referent without authorizing an early name reveal in201. Couple is contextual rather than a universal exact-two rule. Retain the verified two-resident correction and its anonymity.",
+      "sourceSha256": "983305031ac896c47448bc04711ed3066e284e86426954ecdf4bae9b0c90e60a",
+      "targetSha256": "6171af4b5b7a909e11d027a0b0ce7a70c1413823ac2b30072fd71be3dd6b4cfd",
+      "contextSha256": "d9648544fd00f7bdd5139299befb169978cce7b585d0fac05c780c31fe228741",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "ec16ed5d1ce08fce8dd1b639cc2dda179ce7d9d44ae2044c0b3019c64a9590ef"
+    },
+    {
+      "id": "ds:290:200:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Several critters requiring the shovel.",
+      "rationale": "Кільком звірятам is a dative plural recipient group, and вона refers back to лопата in199. The immediate question asks who the shovel was for, and201-204 acknowledges the delivery mix-up. The quantity is attached to those needing the object, not to repeated need or degree of need.",
+      "sourceSha256": "5f382a8efceab62644ba7df6776f5c1854df806f117a0a2c2ae5c83fb5ce3e12",
+      "targetSha256": "ed03ed5ef3e2b4af2f1e48803ab8c96d2ffe1e7579d47f67055613ebd9afc2f3",
+      "contextSha256": "acd61e312bb4ed9e80b617dfc27b90f6f6d2e11df325512c33debe3fdf4f509f",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "33088937cbdd5acadcdca84193359259dbdf676befaffdd81fafd91208c0866a"
+    },
+    {
+      "id": "ds:517:987:Dialogue Text",
+      "verdict": "finding-accepted-for-repair",
+      "quantityReferent": "A larger recipient set for Fen's openness.",
+      "rationale": "The old comparative precedes відкриватися and іншим supplies otherness rather than a larger number. The47-row exchange, especially980-989, identifies new potential partners and Scarlett's opportunity to introduce them. Explicitly invalidate the old semantic acceptance despite unchanged fingerprints. Use the authored full replacement in corrections; actual final self-reading remains separate from independent acceptance.",
+      "sourceSha256": "b0b00b27b13870929beda82f6e193f75a39d45c0c6fe91718bee5429b4ed3760",
+      "targetSha256": "17ad5bba43b0f11e76b035bc1399d9061be939b7c12d9eddad267184fe954bdf",
+      "contextSha256": "724625bc273040148ed956217ef90fa51b88d5989340ef9553b65f70098c4d73",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "1de42cdac24a4c7b99785959a91fb654a718ae5f6cc76e431dfca9c609579c0d"
+    },
+    {
+      "id": "ds:67:97:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Several large partners in Mabel's previous experience.",
+      "rationale": "З кількома великими звірятами explicitly counts partners and preserves the size contrast with Mabel as a small woman. Sounding96/99 and those boys98 resolve that way as the activity, not the quantified referent. Уже and the past verb preserve previous experience. Retain the independently verified correction; do not replace partner number with repeated encounters.",
+      "sourceSha256": "6640f828049da2ee8b6c091f7f0e21e6ee9d1450051e3b2b3e9e06f5ed655bd8",
+      "targetSha256": "6f9fcb79609778777907fb9c42a90aa1b89b71da459de1c68a81837e8c54cc12",
+      "contextSha256": "990c1e2745460d0a35dfca9e5dc66c91f62d617a3b7fb3835e8a7829900a4591",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "88fcda08fdfb729868981517c7a0c2ba6e223eadaa6205ca584432a20f2f4819"
+    },
+    {
+      "id": "ds:934:812:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "A substantially larger future group the dungeon can accommodate.",
+      "rationale": "Для значно більшої кількості звірят states increased participant capacity, not increased readiness. Scarlett's future one-of-these-days and the ETA question813 with unknown answer814 preserve a future plan. The downstairs group803 and managed sequel description support the group-capacity referent.",
+      "sourceSha256": "2c26427744a79795856f08fb8e92f65748901d01356501693248aac7aa8919db",
+      "targetSha256": "9d7b959941700ec90e3b4cf656c6037d5261df37189e8b9b6e85a45843da1893",
+      "contextSha256": "d679cceb680bbda18babbb623ab15ac941d3fbe9378e0b653fbe97d9d0c6bbc9",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "9ca6a3e2da4b93009ed9186daa6753179b9d47b13c247fa0bebd4beb77fb0aaf"
+    },
+    {
+      "id": "ds:957:493:Dialogue Text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "More distinct critters met by the small spa residents.",
+      "rationale": "Що більше звірят вони зустрінуть, то легше їм буде retains the correlative increase in individuals met and the resulting ease. The small residents' fear of large visitors488-492, existing familiarity with Maverick492, and Rascal volunteering as the next visitor493 establish the subject and object. This is not how often the same visitor returns; the two line breaks are unchanged.",
+      "sourceSha256": "fb440f42a1a04ed774b351881c5ec680a021a9f55382c83d7be32fd23f34866e",
+      "targetSha256": "81250e6237ac7f3d0bfb3636a1070e8975691dc8f0d3137cbd94816ccfc5a0bc",
+      "contextSha256": "196e5c6dad6a3be5ed94b070248c52d8c81bdfcc464fb777449c0cbda908ede2",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "65fa6d8374d7c5e32e3a31c03bdc9cfa670bbc7ac74b144e8995dbe77d77b4a2"
+    },
+    {
+      "id": "managed:Managed/Assembly-CSharp.dll:System.Collections.Generic.Dictionary`2<TheForestOfLove.Narrative.AdventureType,TheForestOfLove.Narrative.Adventure> TheForestOfLove.Narrative.Adventure::RegenerateAdventuresPleaseMoveThisDataToDbSoItsNotStaticBruh()@80",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Additional guests for the rabbits' upgraded dungeon, with female recruits in this sequel.",
+      "rationale": "Прийняти більше звірят quantifies guests, not how often the rabbits host. The complete second sentence explicitly retains звірят жіночої статі and the request to recruit them. The dictionary method/index80 is the exact managed display occurrence; its group expansion agrees with934:812. No argument or selection identity changes.",
+      "sourceSha256": "4b91c25c884690d608e748c125df9c1448d02d2be6d3f630bcb92397defccdf7",
+      "targetSha256": "0af63f1d7a34563ebf7dcb3b4956403a0add9264fc14a0b6aed65a44b8023596",
+      "contextSha256": "760ecacefd7db5202b19b9aefbf1bb763f496f03fc54788c203fab2732d1a48b",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "b15d06b47fe998f9a705b47c1d22eaceb4cb218feb6dd08c738611c8fbf54abc"
+    },
+    {
+      "id": "managed:Managed/Assembly-CSharp.dll:System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct1::ExecuteTrigger(System.String)@522",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Four additional critters to greet.",
+      "rationale": "Ще з чотирма звірятами preserves both addition and the exact four-person count. The separate QuestLogDetailsPane instruction510 says all four and the BG quest description says several residents; this trigger literal does not mean greeting the same resident four more times. Preserve the exact method/index binding.",
+      "sourceSha256": "74ace83bbdde8a8427ef15a480f9742f04c42bdf4ecd5dfa7b91f24b645474ff",
+      "targetSha256": "5eebb6c20fc9d0f71a6a7305855df1e4ff87428d48cfa4b819b8b991c8cf30f3",
+      "contextSha256": "cda0302a1c0275abbe1034dd2cfc587f0a796d966f95fe9fe1ee1471a249d381",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "cfe86acf3c5c728cc9eaafda9f7be103ea2f305bed2797eef3db814c28417dad"
+    },
+    {
+      "id": "managed:Managed/Assembly-CSharp.dll:System.Void TheForestOfLove.QuestLogDetailsPane::UpdateSelectedQuest(TheForestOfLove.Narrative.Quest)@168",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Further critters identified through the existing five formatting slots.",
+      "rationale": "Ще звірята keeps further individuals as the heading for the assembled detail. The five exact placeholders {0}{1}{2}{3}{4} and final period remain in order; the colon is a Ukrainian display separator and does not change count. The quantity meaning comes from the head noun and ще, not from interpreting the slot count as five participants. Existing selection and formatting behavior is retained; no new game execution is claimed.",
+      "sourceSha256": "5f99d09af73aa4fea4a5ad24854a721678e8ad082573ae06c9e2c349787dc69f",
+      "targetSha256": "66039e61cf58aa920bb2e72c8cc8b0a08e4b4a138ead9c066a0d07a582cd7325",
+      "contextSha256": "2c51b7e6150809644edac82dc237229fb399e0f0f77d00d88888c3e0c41c0218",
+      "consumerContextSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "selectorsSha256": "2b59d8dea0ff8b99f19098ac7a1c78694d625e147779f6df34b02b6ee4a45c3b"
+    },
+    {
+      "id": "sharedassets2.assets:14489/m_text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "An accumulating set of newly met residents recorded in the Critter Log.",
+      "rationale": "Знайомлячись із новими звірятами expresses meeting additional individuals, while поповнюватимеш conveys the continuing accumulation. This bottom glow at GossipTutorialRedux/Page5/NameContainer/NameGlowLeft/NameGlowBottom matches its title family. Both paragraphs retain log information, hidden details and discovery instructions; новими is not an intensity adverb. Preserve both CRLF paragraph breaks.",
+      "sourceSha256": "b884416f79ad4402ea93445a7dbaba0c4010f9aa12835f18ea624216e1dfabd8",
+      "targetSha256": "37b133377bcfa60d79a339abadb536b7bcb03e68a3832446601ff58fa8a918ba",
+      "contextSha256": "259b2fe2043928c502da56a6536e8e18925b3f8130487972b1c94fedb2de0f89",
+      "consumerContextSha256": "5b21a2fcab923100688c425ce9a9bdd2e886023f545ecbf59bb55408c3ca6f82",
+      "selectorsSha256": "d2b909e6e87b37ee724b6dbaf40dc591de1a8b9ca2588b4e550530e9e86ba71d"
+    },
+    {
+      "id": "sharedassets2.assets:15735/m_text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Newly encountered critters whose individual details enter the log.",
+      "rationale": "The main Name text under NameGlowLeft uses новими звірятами for additional individuals and поповнюватимеш for accumulating records. The complete second paragraph still asks for conversation and exploration to reveal hidden details. The wording does not imply more meetings with an unchanged group and is equal to all six actual native family fields.",
+      "sourceSha256": "b884416f79ad4402ea93445a7dbaba0c4010f9aa12835f18ea624216e1dfabd8",
+      "targetSha256": "37b133377bcfa60d79a339abadb536b7bcb03e68a3832446601ff58fa8a918ba",
+      "contextSha256": "ce09a15e35378a398ab28d0903098b2079a549064c7240c091837e04e2e30382",
+      "consumerContextSha256": "8788a96a4e2f9e5d59b9d41f82fb99671a7585957e7ba44a60b2635f73d6ab14",
+      "selectorsSha256": "c41f77afe04d793a05312fbe3162075bde5c438c5fba908fb0587f18a9b582c2"
+    },
+    {
+      "id": "sharedassets2.assets:16481/m_text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Successive additional residents entered in the Critter Log.",
+      "rationale": "This NameGlowTop occurrence retains the cumulative introduction sense through новими and поповнюватимеш, not degree or frequency. The Critter Log term matches the approved glossary, the hidden-information instruction survives, and the exact two-paragraph CRLF structure and native field identity are retained. Its independent judgment must not be omitted merely because the words duplicate another layer.",
+      "sourceSha256": "b884416f79ad4402ea93445a7dbaba0c4010f9aa12835f18ea624216e1dfabd8",
+      "targetSha256": "37b133377bcfa60d79a339abadb536b7bcb03e68a3832446601ff58fa8a918ba",
+      "contextSha256": "d33c757395ea60a6568c709e1b8c5350ceb1e0a6e97872d1ddbd2ffae1c88500",
+      "consumerContextSha256": "a3d846e3a8e702d965c52a94267087bda0f9626fa1a65fbffa7a4b3f565f7899",
+      "selectorsSha256": "c50853468f23655e62c67698e3f4d6aee74f5a589e32888c0dc0644eda2105d1"
+    },
+    {
+      "id": "sharedassets2.assets:16985/m_text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "Additional distinct critters supplying more log entries.",
+      "rationale": "The right glow of NameGlowLeft repeats a valid cumulative wording: new critters are the objects of introduction and their information expands the log. It neither increases the intensity of talking nor makes the same meetings recur more often. Both complete paragraphs and CRLF breaks match the main and other glow layers.",
+      "sourceSha256": "b884416f79ad4402ea93445a7dbaba0c4010f9aa12835f18ea624216e1dfabd8",
+      "targetSha256": "37b133377bcfa60d79a339abadb536b7bcb03e68a3832446601ff58fa8a918ba",
+      "contextSha256": "eb14e24ed8340f21721b2e01ca6485ac333addf6e1d53331375eda9a05f8beeb",
+      "consumerContextSha256": "6b373738b6ae8d6118d1f7318ff0a8003cf4311f2cf353354e6ed58c77c0ff7f",
+      "selectorsSha256": "b43ff06475db7ecc3b9179c901462f87691980be628fb23377544f79289ea688"
+    },
+    {
+      "id": "sharedassets2.assets:17930/m_text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "The growing roster of residents encountered by the player.",
+      "rationale": "The parent NameContainer text says new critters and continuing log expansion. That preserves the progressive more-and-more participant set naturally without mechanically repeating більше. The approved Записи про звірят title and full conversation/exploration instruction remain; no target change or new runtime acceptance is warranted.",
+      "sourceSha256": "b884416f79ad4402ea93445a7dbaba0c4010f9aa12835f18ea624216e1dfabd8",
+      "targetSha256": "37b133377bcfa60d79a339abadb536b7bcb03e68a3832446601ff58fa8a918ba",
+      "contextSha256": "5020f5dc6663f77f9025ab1c32e097732d13a9c98e1da1a00754805e018a510b",
+      "consumerContextSha256": "d1ac030d392dca23530603e3ed2b3784c8debccaad5e5e4036eb65ec44208498",
+      "selectorsSha256": "e73ba0041fff52f9d63bce55868e7c6fe795a4e84591d097596d3f6c7de3dcb5"
+    },
+    {
+      "id": "sharedassets2.assets:18796/m_text",
+      "verdict": "pass-unchanged",
+      "quantityReferent": "More distinct residents as the player continues introductions.",
+      "rationale": "This NameGlowLeft field has the same complete two-paragraph target as the parent, main and four directional layers. Новими звірятами is a participant phrase and поповнюватимеш preserves accumulation in the log. Equal bytes are recorded for synchronization, while this actual semantic read supports retention independently of byte equality.",
+      "sourceSha256": "b884416f79ad4402ea93445a7dbaba0c4010f9aa12835f18ea624216e1dfabd8",
+      "targetSha256": "37b133377bcfa60d79a339abadb536b7bcb03e68a3832446601ff58fa8a918ba",
+      "contextSha256": "27c923e172fc56be0d4352090a9d51e9e9b4c7aae3b48c6d2f96f110a3005dc9",
+      "consumerContextSha256": "1c1d85fc5b339eb6cc2a4d984ce8ed386e5fe04ab7c2f6dfaf4ff642db9b4872",
+      "selectorsSha256": "57f96ee415b6fbeffaee9a863717d73efba34c675cd1f4ed22cc0a8808e3a885"
+    }
+  ],
+  "read": 19,
+  "unchanged": 18,
+  "acceptedFindings": 1,
+  "unreadIds": [],
+  "independentAcceptance": false
+}

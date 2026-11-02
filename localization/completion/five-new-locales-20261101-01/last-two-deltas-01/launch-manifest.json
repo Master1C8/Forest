@@ -1,0 +1,23 @@
+{
+  "run": "five-new-locales-20261101-01",
+  "stage": "last-two-deltas-01",
+  "authority": "Parent-scheduled exact final Vietnamese/Ukrainian independent correction deltas within existing five locale assignments; other three compiled packages untouched. No extra language/technical stream or nested model.",
+  "lanes": [
+    {
+      "locale": "vi",
+      "phase": "outputs/five-new-locales-20261101-01/vi/independent-delta-01",
+      "control": "localization/completion/five-new-locales-20261101-01/last-two-deltas-01/vi"
+    },
+    {
+      "locale": "uk",
+      "phase": "outputs/five-new-locales-20261101-01/uk/independent-delta-01",
+      "control": "localization/completion/five-new-locales-20261101-01/last-two-deltas-01/uk"
+    }
+  ],
+  "maxConcurrentModelProcesses": 2,
+  "totalLocaleStreamCap": 5,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

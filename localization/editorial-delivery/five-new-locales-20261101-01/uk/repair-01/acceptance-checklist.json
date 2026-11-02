@@ -1,0 +1,97 @@
+{
+  "locale": "uk",
+  "language": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/language-final.json",
+    "sha256": "10a6e9990bd52585c4f762e0bc5908c158f1c25a851b939cd3799337d0f7e1e2"
+  },
+  "rows": [
+    {
+      "artifact": {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/language-final.json",
+        "sha256": "10a6e9990bd52585c4f762e0bc5908c158f1c25a851b939cd3799337d0f7e1e2"
+      },
+      "predicate": "All five findings adjudicated together, corrected from English/approved own glossary, applied in one batch and actually self-read",
+      "status": "passed",
+      "evidence": [
+        {
+          "path": "localization/case-decisions/five-new-locales-20261101-01/uk/repair-01/five-finding-adjudications.json",
+          "sha256": "a3b8521b0b34a08fbb1d41f16766db78686e11e117f419c7bdb79ddd8d68d17f"
+        },
+        {
+          "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/self-read-five-corrections.jsonl",
+          "sha256": "8558fe4caf13cf848379ec8eae801e80cc1e17b1185c1b085c7d9376a843f7af"
+        },
+        {
+          "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/application.json",
+          "sha256": "309a4ec59b6bd43e49aee6342ed6bb90e079b059be19f16b4b12ccbde14abc63"
+        }
+      ],
+      "remainingUncertainty": "Self-reading is not independent acceptance",
+      "nextPermittedAction": "Parent schedules the exact five-row independent delta"
+    },
+    {
+      "artifact": {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/final-static-validation.json",
+        "sha256": "858ef4e1034192f5cdcb81d9296517523b113032fb5b40718e4888e2b29d308e"
+      },
+      "predicate": "14606 exact IDs/sources;1781 protected UTF-8 values exact;12246 dialogue controls; two ADVICE-space prefixes; all unrelated targets/font/layout/source/control identities preserved",
+      "status": "passed",
+      "remainingUncertainty": "No derived resource or real runtime validation",
+      "nextPermittedAction": "Reuse these exact pinned results unless an affected input changes"
+    },
+    {
+      "artifact": {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/version-accounting.json",
+        "sha256": "9bde388cf398c97e1e8eaabd0ba83de61370ede89eb24b334712c4622a5b14b1"
+      },
+      "predicate": "12820 unchanged independent judgments retained and five changed versions independently accepted",
+      "status": "needs-review",
+      "evidence": [
+        {
+          "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/retained-independent-version-bindings.jsonl",
+          "sha256": "ab73750c30aeee898d9ab76d89623d1b265a7aa4f09b099c1cfee91ceb61036f"
+        },
+        {
+          "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/independent-delta/next-task.json",
+          "sha256": "9e9f58e64d10a31932c0f432bab55f2a07cebb1fcde134b7b9422f3129e27f62"
+        }
+      ],
+      "remainingUncertainty": "Five new independent judgments remain unread; none default-passed",
+      "nextPermittedAction": "Fresh parent-owned Sol/high/OpenAI/null-parent five-row review with97 required context rows"
+    },
+    {
+      "artifact": {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/font-requirement-subset-verification.json",
+        "sha256": "da5bbc4c38a3a71607ddb6c31da2831cf24309688a47db64ee56fb4abfd42103"
+      },
+      "predicate": "No new raw/NFC/NFD glyph or registered font/layout requirement",
+      "status": "passed",
+      "remainingUncertainty": "Existing native loading, fallback, mark placement and fit gates remain unverified",
+      "nextPermittedAction": "Retain static face receipts; native checks require applicable owner authority"
+    },
+    {
+      "artifact": {
+        "path": "localization/case-decisions/five-new-locales-20261101-01/uk/repair-01/special-case-retention.json",
+        "sha256": "b82296d2045845cdd1354055925b270b2c113c20919ca82edffe86a701c399fa"
+      },
+      "predicate": "23 case-member sets and nine haiku pairs/27 products unchanged",
+      "status": "passed",
+      "remainingUncertainty": "Version retention only; original native/artwork/human-review holds persist",
+      "nextPermittedAction": "Preserve original decisions/receipts and held gates"
+    },
+    {
+      "artifact": {
+        "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/repair-01/language-final.json",
+        "sha256": "10a6e9990bd52585c4f762e0bc5908c158f1c25a851b939cd3799337d0f7e1e2"
+      },
+      "predicate": "Resource build and target-native/runtime/release acceptance",
+      "status": "not-run",
+      "remainingUncertainty": "Compilation deferred until clean independent delta; no game, GUI, screenshots, installer or release action authorized here",
+      "nextPermittedAction": "Parent completes independent delta before compilation; later actions retain separate authorization"
+    }
+  ],
+  "wholeLocaleEditorialAcceptance": false,
+  "nativeRuntimeReleaseAcceptance": false,
+  "humanGlossaryReview": "owner-deferred; unchanged",
+  "retainedArtworkDependencies": "unchanged; not accepted by this repair"
+}

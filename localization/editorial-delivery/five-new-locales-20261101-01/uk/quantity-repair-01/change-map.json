@@ -1,0 +1,40 @@
+{
+  "before": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/quantity-repair-01/language-before.json",
+    "sha256": "10a6e9990bd52585c4f762e0bc5908c158f1c25a851b939cd3799337d0f7e1e2"
+  },
+  "candidate": {
+    "path": "localization/editorial-delivery/five-new-locales-20261101-01/uk/quantity-repair-01/language-candidate.json",
+    "sha256": "4e931c945564f66d1e28297f65b6d52903e8837931a9b61424e1bcd939f8eed1"
+  },
+  "changes": [
+    {
+      "findingId": "UK-D001",
+      "id": "ds:517:987:Dialogue Text",
+      "decision": "accepted",
+      "target": "[pic=2]Знаю, останнім часом він хотів відкритися більшій кількості звірят. <pause>Це може бути гарна нагода!",
+      "rationale": "More scopes over the recipients, critters. Scarlett says Fen has recently wanted to widen the set of critters he opens up to; Peter describes his reserve toward new critters at981, and Scarlett offers to help Rascal and Mabel at986-989. The old більше відкриватися іншим звірятам instead allows greater disclosure to the same recipients. The complete replacement puts the comparative inside the dative recipient noun phrase, retains Fen as agent, recent desire, Scarlett's tentative opportunity, and both exact controls. The independent proposal is supported by this source and exchange, so it is accepted without stylistic expansion.",
+      "source": "[pic=2]I know he’s been wanting to open up to more critters recently. <pause>This could be a good opportunity!",
+      "beforeTarget": "[pic=2]Знаю, останнім часом він хотів більше відкриватися іншим звірятам. <pause>Це може бути гарна нагода!",
+      "sourceSha256": "b0b00b27b13870929beda82f6e193f75a39d45c0c6fe91718bee5429b4ed3760",
+      "beforeTargetSha256": "17ad5bba43b0f11e76b035bc1399d9061be939b7c12d9eddad267184fe954bdf",
+      "targetSha256": "ec47f08b0ae3ab12a14846c48ef5530eb9d3b5ad6125357c8294221d9378e781",
+      "selectors": [
+        {
+          "asset": "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle",
+          "kind": "field",
+          "pathId": -9011735310751668748,
+          "pointer": "/conversations/546/dialogueEntries/44/fields/6/value"
+        },
+        {
+          "asset": "sharedassets0.assets",
+          "kind": "field",
+          "pathId": 3336,
+          "pointer": "/conversations/546/dialogueEntries/44/fields/6/value"
+        }
+      ]
+    }
+  ],
+  "unrelatedTargetsUnchanged": 14605,
+  "atomicity": "One complete-language os.replace; evidence publication is sequential, manifest/result last."
+}
