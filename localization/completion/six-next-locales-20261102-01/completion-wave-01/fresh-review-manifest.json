@@ -1,0 +1,23 @@
+{
+  "run": "six-next-locales-20261102-01",
+  "stage": "completion-wave-reviews-01",
+  "authority": "Parent-owned complete Czech/Filipino independent reviews of verified final author versions; same six-locale scope, fresh Sol/high/OpenAI/null-parent, no nested model or game/native/build/publication action.",
+  "lanes": [
+    {
+      "locale": "cs",
+      "phase": "outputs/six-next-locales-20261102-01/cs/independent-01",
+      "control": "localization/completion/six-next-locales-20261102-01/completion-wave-01/cs-review"
+    },
+    {
+      "locale": "fil",
+      "phase": "outputs/six-next-locales-20261102-01/fil/independent-01",
+      "control": "localization/completion/six-next-locales-20261102-01/completion-wave-01/fil-review"
+    }
+  ],
+  "maxConcurrentModelProcesses": 2,
+  "overallModelProcessCap": 6,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

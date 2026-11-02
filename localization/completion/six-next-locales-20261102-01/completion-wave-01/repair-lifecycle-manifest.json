@@ -1,0 +1,94 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/six-next-locales-20261102-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/six-next-locales-20261102-01/completion-repair-lifecycle-01",
+  "lanes": [
+    {
+      "locale": "bg",
+      "phase": "outputs/six-next-locales-20261102-01/bg/repair-01",
+      "language": "localization/languages/bg.json",
+      "assignmentTask": "localization/completion/six-next-locales-20261102-01/completion-wave-01/bg-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/six-next-locales-20261102-01/bg/repair-01",
+        "localization/editorial-delivery/six-next-locales-20261102-01/bg/repair-01",
+        "localization/case-decisions/six-next-locales-20261102-01/bg/repair-01"
+      ]
+    },
+    {
+      "locale": "el",
+      "phase": "outputs/six-next-locales-20261102-01/el/repair-01",
+      "language": "localization/languages/el.json",
+      "assignmentTask": "localization/completion/six-next-locales-20261102-01/completion-wave-01/el-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/six-next-locales-20261102-01/el/repair-01",
+        "localization/editorial-delivery/six-next-locales-20261102-01/el/repair-01",
+        "localization/case-decisions/six-next-locales-20261102-01/el/repair-01"
+      ]
+    },
+    {
+      "locale": "fa",
+      "phase": "outputs/six-next-locales-20261102-01/fa/repair-01",
+      "language": "localization/languages/fa.json",
+      "assignmentTask": "localization/completion/six-next-locales-20261102-01/completion-wave-01/fa-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/six-next-locales-20261102-01/fa/repair-01",
+        "localization/editorial-delivery/six-next-locales-20261102-01/fa/repair-01",
+        "localization/case-decisions/six-next-locales-20261102-01/fa/repair-01"
+      ]
+    },
+    {
+      "locale": "he",
+      "phase": "outputs/six-next-locales-20261102-01/he/repair-01",
+      "language": "localization/languages/he.json",
+      "assignmentTask": "localization/completion/six-next-locales-20261102-01/completion-wave-01/he-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/six-next-locales-20261102-01/he/repair-01",
+        "localization/editorial-delivery/six-next-locales-20261102-01/he/repair-01",
+        "localization/case-decisions/six-next-locales-20261102-01/he/repair-01"
+      ]
+    }
+  ],
+  "streamCap": 4,
+  "immutablePins": {
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/runtime/locale_cli_lifecycle.py": "ab3396d96cc285a0ec3dc9de92f5cf3e1b26d49ed716987f2d25db3c54a2a9eb",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/runtime/locale_review_lifecycle.py": "eadfe6ae1565d9d649674294043eb607efaedbf9c8d8a45c8464f9f10b8771a5",
+    "localization/completion/five-new-locales-20261101-01/source-context.jsonl": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+    "localization/completion/five-new-locales-20261101-01/source-preservation.json": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/bg-repair/task.json": "d77bb99e9e3847bfd1682b5f2de6543ff276571813210b74ebd52cd00789c189",
+    "outputs/six-next-locales-20261102-01/bg/repair-01/task.json": "d77bb99e9e3847bfd1682b5f2de6543ff276571813210b74ebd52cd00789c189",
+    "outputs/six-next-locales-20261102-01/bg/repair-01/runtime-verification.json": "26c5371ac098921853ab7cc4b9b3bce25f447f85630b4987642e1c48a10d5cff",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/el-repair/task.json": "6b51d05094fa6f1c5477cad9c401e48b1c86a9a4a9af8084e46e408ba1a993a2",
+    "outputs/six-next-locales-20261102-01/el/repair-01/task.json": "6b51d05094fa6f1c5477cad9c401e48b1c86a9a4a9af8084e46e408ba1a993a2",
+    "outputs/six-next-locales-20261102-01/el/repair-01/runtime-verification.json": "98c988839d793270956eb7f56a7633ada5f4d588ec1e22e1e5b8a6220dfc6873",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/fa-repair/task.json": "6db6343e73d6b4cf2ed1e3ddb257e8b4dc5ac992ec5ae84ac9a4001ef5b74283",
+    "outputs/six-next-locales-20261102-01/fa/repair-01/task.json": "6db6343e73d6b4cf2ed1e3ddb257e8b4dc5ac992ec5ae84ac9a4001ef5b74283",
+    "outputs/six-next-locales-20261102-01/fa/repair-01/runtime-verification.json": "e51663add0e8aad353778266305ec8ee6530b7f1322e4119e625187cc22eefd9",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/he-repair/task.json": "5540a9c6b79592745f626a910fcdfb7f7f519254c944f2aacdf988e3bc324ab3",
+    "outputs/six-next-locales-20261102-01/he/repair-01/task.json": "5540a9c6b79592745f626a910fcdfb7f7f519254c944f2aacdf988e3bc324ab3",
+    "outputs/six-next-locales-20261102-01/he/repair-01/runtime-verification.json": "cdb79cef8e31b975bada9a64a8a75599c5c896c3ae25f8a44f28a1bbc8a9dcb1"
+  },
+  "authority": "Continue only these existing repair jobs inside original six locales. Explicit pinned model and same-own-task followups; no new locale/technical stream, nested model, game/native/build/publication/server action.",
+  "phasePrefix": "repair-auto",
+  "editorialRoot": "localization/editorial-delivery/six-next-locales-20261102-01",
+  "caseRoot": "localization/case-decisions/six-next-locales-20261102-01"
+}

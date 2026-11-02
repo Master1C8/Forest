@@ -36,13 +36,47 @@ def checked_rows(path, packet, thread):
                     raise ValueError('Foreign reviewer model metadata')
             if row.get('reviewed') is False or row.get('verdict') not in ('pass', 'finding'):
                 continue  # Including needs-context; not a pass, not retained as complete.
-            rationale = row.get('rationale') or row.get('reason')
+            rationale = row.get('rationale') or row.get('fidelityRationale') or row.get('reason')
             if not isinstance(rationale, str) or not rationale.strip():
                 raise ValueError('No actual reviewer rationale: ' + ident)
             if ident in rows and rows[ident] != row:
                 raise ValueError('Conflicting duplicate review ID')
             rows[ident] = row
     return rows
+
+
+def merge_review_result(root, phase, packet, thread, retained, new_rows, result):
+    """Accept only explicit current-version reviewer supersession, never silent loss."""
+    combined = dict(retained)
+    combined.update(new_rows)
+    effective = result.get('effectiveFullReviews')
+    supersession = result.get('retainedPassSupersession')
+    if not effective and not supersession:
+        return combined
+    if not effective or not supersession:
+        raise ValueError('Effective review needs explicit retained supersession evidence')
+
+    def owned_path(value):
+        name = value.get('path') if isinstance(value, dict) else value
+        path = (Path(root) / name).resolve()
+        if not path.is_relative_to(Path(phase).resolve()):
+            raise ValueError('Supersession must be authored in the closed own review phase')
+        if isinstance(value, dict) and value.get('sha256') != digest(path):
+            raise ValueError('Supersession evidence hash changed')
+        return path
+
+    revised = checked_rows(owned_path(supersession), packet, thread)
+    if not revised or any(ident not in retained or ident in new_rows for ident in revised):
+        raise ValueError('Supersession does not name exact retained versions')
+    combined.update(revised)
+    final = checked_rows(owned_path(effective), packet, thread)
+    if set(final) != set(combined):
+        raise ValueError('Effective review invents or drops primary judgments')
+    fields = ('sourceSha256', 'targetSha256', 'verdict', 'rationale', 'fidelityRationale')
+    for ident in final:
+        if any(final[ident].get(key) != combined[ident].get(key) for key in fields):
+            raise ValueError('Unexplained effective review change: ' + ident)
+    return final
 
 
 class ReviewSupervisor(Supervisor):
@@ -177,7 +211,8 @@ class ReviewSupervisor(Supervisor):
                     raise ValueError('Reviewer rows must belong to its own closed phase')
                 rows = checked_rows(path, self.packets[lane['locale']], runtime['threadId'])
                 previous = len(self.known[lane['locale']])
-                self.known[lane['locale']].update(rows)
+                self.known[lane['locale']] = merge_review_result(self.root, phase,
+                    self.packets[lane['locale']], runtime['threadId'], self.known[lane['locale']], rows, result)
                 lane['noProgressTurns'] = 0 if len(self.known[lane['locale']]) > previous else lane.get('noProgressTurns', 0) + 1
             elif not known_capacity_failure(errors):
                 lane['status'] = 'needs-attention-unknown-review-failure'

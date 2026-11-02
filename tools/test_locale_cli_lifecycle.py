@@ -72,6 +72,26 @@ class LifecycleTests(unittest.TestCase):
         result['canonicalLanguage']['sha256'] = 'stale-alias'
         self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
 
+    def test_ready_handoff_ignores_obsolete_malformed_scratch_but_validates_final_source(self):
+        for ident in ['a', 'b']:
+            self.language['translations'][ident]['target'] = 'Authored ' + ident
+        life.save(self.root / 'language.json', self.language)
+        summary = life.inspect_language(self.root, self.lane, self.source, self.preserved)
+        life.save(self.phase / 'result.json', {'status': 'review-ready', 'language': {'sha256': summary['sha256']}})
+        (self.phase / 'obsolete-draft.json').write_text('{ incomplete scratch')
+        with patch.object(life, 'process_identity', return_value=None), patch.object(life, 'wording_versions', side_effect=AssertionError('Must not parse obsolete drafts')):
+            self.supervisor.tick(self.lane)
+        self.assertEqual(self.lane['status'], 'needs-parent-independent-review-verification')
+
+    def test_repair_continuation_keeps_bounded_scope_instead_of_full_author_audit(self):
+        owner = life.read(self.root / 'owner-task.json')
+        owner['task']['taskClass'] = 'editorial-repair'
+        life.save(self.root / 'owner-task.json', owner)
+        cfg = dict(self.cfg, phasePrefix='repair-auto')
+        phase, _ = life.prepare_next(self.root, cfg, self.lane, {'phase': self.lane['phase'], 'threadId': 'own-thread'}, self.summary)
+        self.assertEqual(phase.name, 'repair-auto-0001')
+        self.assertIn('unchanged exact independent judgments', (phase / 'brief.md').read_text())
+
     def test_real_blocker_and_unknown_result_do_not_continue(self):
         self.assertEqual(life.classify({'exitCode': 0}, {'status': 'incomplete', 'blocker': 'protected source decision'}, USAGE, [], self.summary), 'held-real-blocker')
         self.assertEqual(life.classify({'exitCode': 0}, None, USAGE, [], self.summary), 'needs-attention-missing-result')

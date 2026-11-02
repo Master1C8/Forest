@@ -227,7 +227,10 @@ def prepare_next(root, cfg, lane, previous, language):
         if digest(root / name) != expected:
             raise ValueError('Pinned prerequisite changed: ' + name)
     number = lane.get('sequence', 0) + 1
-    phase = root / cfg['phaseRoot'] / lane['locale'] / ('author-auto-%04d' % number)
+    prefix = cfg.get('phasePrefix', 'author-auto')
+    if prefix not in ('author-auto', 'repair-auto'):
+        raise ValueError('Unknown explicit continuation phase prefix')
+    phase = root / cfg['phaseRoot'] / lane['locale'] / (prefix + '-%04d' % number)
     phase.mkdir(parents=True, exist_ok=False)
     save(phase / 'language-before.json', read(root / lane['language']))
     pins = dict(task['job']['immutablePins'])
@@ -264,6 +267,23 @@ def prepare_next(root, cfg, lane, previous, language):
         'A review-ready handoff needs exact final language/packet/evidence hashes; native and release remain '
         'unrun. Use explicit result.status incomplete, in-progress, or review-ready. Record actual '
         'current-attempt usage excluding the saved cumulative baseline.\n')
+    if task['task'].get('taskClass') in ('editorial-repair', 'editorial-consolidated-repair'):
+        (phase / 'brief.md').write_text(
+            '# Continue the same bounded consolidated repair\n\n'
+            'FIRST await the NEW actual Sol/high/OpenAI runtime proof after its metadata offset. '
+            'Use only your same own repair history, no inherited coordinator/reviewer history or fork. '
+            'No Astra/fallback, nested model, Git, game/GUI/build/screenshot, installer/publication/server action. '
+            'New task.json writePrefixes supersede earlier destinations; all prior phases remain immutable.\n\n'
+            'Continue the original complete finding set and exact saved candidates/dispositions. Read every '
+            'remaining finding against its full source/target/context before one consolidated correction. '
+            'Preserve1781 originals, approved glossary, source IDs, controls and unaffected reviewed versions. '
+            'Do not restart translation or a full12825 primary audit: unchanged exact independent judgments '
+            'remain evidence unless a concrete dependency invalidates them. Collect every disposition, '
+            'apply the warranted complete batch safely, self-read the exact saved delta, enumerate actual '
+            'invalidations reproducibly and prepare one exact independent delta packet. No default passes '
+            'or incidental glossary/source edits. Native/font/layout/human/release gates remain separate. '
+            'Reuse unchanged instructions/glossary; do not stop at a routine batch or usage counter. '
+            'Return review-ready only with the whole finite repair handoff, or name an actual blocker.\n')
     return phase, number
 
 
@@ -297,6 +317,9 @@ class Supervisor:
             if row.startswith(self.cfg['cli'] + ' exec') and runtime['threadId'] in row:
                 raise ValueError('Same-thread CLI already exists; preserve and reconcile')
         phase, number = self.prepare_phase(lane, previous, language)
+        roots = lane.get('progressRoots', [])
+        if not any(phase.is_relative_to(self.root / name) for name in roots):
+            lane['progressRoots'] = roots + [str(phase.relative_to(self.root))]
         session = Path(runtime['sessionMetadataPath'])
         baseline, offset = latest_usage(session), session.stat().st_size
         args = [self.cfg['cli'], 'exec', 'resume', '--ignore-user-config', '--model', 'gpt-6.1-sol',
@@ -371,6 +394,15 @@ class Supervisor:
         _, usage, errors = cli_events(phase / 'events.jsonl')
         language = inspect_language(self.root, lane, self.source, self.preserved)
         action = classify(receipt, result, usage, errors, language)
+        if action not in ('continue-own-authoring', 'capacity-backoff'):
+            # A ready/held result is judged on its current final inputs. Old scratch
+            # drafts are provenance, not an additional completion prerequisite.
+            save(self.output / 'outcomes' / (lane['locale'] + '-' + phase.name + '.json'),
+                 {'locale': lane['locale'], 'phase': lane['phase'], 'action': action, 'terminalReceipt': receipt,
+                  'model': 'gpt-6.1-sol', 'reasoning': 'high', 'provider': 'openai', 'atUTC': now()})
+            lane.update(status=action, accountedPhase=lane['phase'], lastAction=action,
+                        lastAttemptUsage=receipt.get('usage'), atUTC=now())
+            return
         if lane.get('accountedPhase') != lane['phase']:
             save(self.output / 'outcomes' / (lane['locale'] + '-' + phase.name + '.json'),
                  {'locale': lane['locale'], 'phase': lane['phase'], 'action': action, 'terminalReceipt': receipt,

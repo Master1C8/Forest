@@ -1,0 +1,57 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/six-next-locales-20261102-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/six-next-locales-20261102-01/completion-review-lifecycle-01",
+  "lanes": [
+    {
+      "locale": "cs",
+      "phase": "outputs/six-next-locales-20261102-01/cs/independent-01",
+      "language": "localization/languages/cs.json",
+      "assignmentTask": "localization/completion/six-next-locales-20261102-01/completion-wave-01/cs-review/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "fullReviewPacket": "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-02/independent-review/review-packet.jsonl",
+      "fullReviewPacketSha256": "a50646539971fd864111dcad54e715a369de0333890a27f5a108172426e90e82",
+      "progressRoots": []
+    },
+    {
+      "locale": "fil",
+      "phase": "outputs/six-next-locales-20261102-01/fil/independent-01",
+      "language": "localization/languages/fil.json",
+      "assignmentTask": "localization/completion/six-next-locales-20261102-01/completion-wave-01/fil-review/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "fullReviewPacket": "localization/editorial-delivery/six-next-locales-20261102-01/fil/author-02/independent-scope/review-packet.jsonl",
+      "fullReviewPacketSha256": "06840495e217b0937797b8d64a3e752d822074ca9fcfa74e08adb8a7cf1be00e",
+      "progressRoots": []
+    }
+  ],
+  "streamCap": 2,
+  "immutablePins": {
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/runtime/locale_cli_lifecycle.py": "ab3396d96cc285a0ec3dc9de92f5cf3e1b26d49ed716987f2d25db3c54a2a9eb",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/runtime/locale_review_lifecycle.py": "eadfe6ae1565d9d649674294043eb607efaedbf9c8d8a45c8464f9f10b8771a5",
+    "localization/completion/five-new-locales-20261101-01/source-context.jsonl": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+    "localization/completion/five-new-locales-20261101-01/source-preservation.json": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66",
+    "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-02/independent-review/review-packet.jsonl": "a50646539971fd864111dcad54e715a369de0333890a27f5a108172426e90e82",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/cs-review/task.json": "a3b47f247342dce3cf1bea09058a5b09bb91095c1d7d2168c4fd3f63b2bde8db",
+    "outputs/six-next-locales-20261102-01/cs/independent-01/task.json": "a3b47f247342dce3cf1bea09058a5b09bb91095c1d7d2168c4fd3f63b2bde8db",
+    "outputs/six-next-locales-20261102-01/cs/independent-01/runtime-verification.json": "8152fba125df1ba862e635b07a268f4a93b6db370c1aea1a1b5022d8e6b4b70d",
+    "localization/editorial-delivery/six-next-locales-20261102-01/fil/author-02/independent-scope/review-packet.jsonl": "06840495e217b0937797b8d64a3e752d822074ca9fcfa74e08adb8a7cf1be00e",
+    "localization/completion/six-next-locales-20261102-01/completion-wave-01/fil-review/task.json": "ff3f389c14424ab1c7e9e1d292f941da3710b87a9a2e173b2b26f950e9317c9d",
+    "outputs/six-next-locales-20261102-01/fil/independent-01/task.json": "ff3f389c14424ab1c7e9e1d292f941da3710b87a9a2e173b2b26f950e9317c9d",
+    "outputs/six-next-locales-20261102-01/fil/independent-01/runtime-verification.json": "9805bfa65da75658ce6a23b288605a57bd93c83ae5f57a97ed889cde45f01f0c"
+  },
+  "authority": "Continue only these existing review jobs inside original six locales. Explicit pinned model and same-own-task followups; no new locale/technical stream, nested model, game/native/build/publication/server action."
+}

@@ -1,0 +1,33 @@
+{
+  "run": "six-next-locales-20261102-01",
+  "stage": "completion-wave-repairs-01",
+  "authority": "Parent-owned four consolidated repair tasks for complete Bulgarian/Greek/Persian/Hebrew independent findings within original six locales. Four fresh pinned Sol/high/OpenAI/no-history editors plus two other locale reviewers; no extra technical stream, nested models, game/native/build/publication action.",
+  "lanes": [
+    {
+      "locale": "bg",
+      "phase": "outputs/six-next-locales-20261102-01/bg/repair-01",
+      "control": "localization/completion/six-next-locales-20261102-01/completion-wave-01/bg-repair"
+    },
+    {
+      "locale": "el",
+      "phase": "outputs/six-next-locales-20261102-01/el/repair-01",
+      "control": "localization/completion/six-next-locales-20261102-01/completion-wave-01/el-repair"
+    },
+    {
+      "locale": "fa",
+      "phase": "outputs/six-next-locales-20261102-01/fa/repair-01",
+      "control": "localization/completion/six-next-locales-20261102-01/completion-wave-01/fa-repair"
+    },
+    {
+      "locale": "he",
+      "phase": "outputs/six-next-locales-20261102-01/he/repair-01",
+      "control": "localization/completion/six-next-locales-20261102-01/completion-wave-01/he-repair"
+    }
+  ],
+  "maxConcurrentModelProcesses": 4,
+  "overallModelProcessCap": 6,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false
+}

@@ -1,0 +1,81 @@
+{
+  "atUTC": "2026-11-02T17:25:18.124524+00:00",
+  "groups": {
+    "review": {
+      "controller": {
+        "pid": 30282,
+        "atUTC": "2026-11-02T17:23:00.352660+00:00",
+        "selectedOwnReviewers": 2,
+        "liveAtAdoption": 2,
+        "modelRequestsAtAdoption": 0,
+        "inheritance": "Only same own independent reviewer histories"
+      },
+      "statusPath": "outputs/six-next-locales-20261102-01/completion-review-lifecycle-01/status.json",
+      "lanes": [
+        {
+          "locale": "cs",
+          "phase": "outputs/six-next-locales-20261102-01/cs/independent-01",
+          "pid": 23948,
+          "samePidAsFreshLaunch": true,
+          "live": true,
+          "status": "running"
+        },
+        {
+          "locale": "fil",
+          "phase": "outputs/six-next-locales-20261102-01/fil/independent-01",
+          "pid": 24114,
+          "samePidAsFreshLaunch": true,
+          "live": true,
+          "status": "running"
+        }
+      ]
+    },
+    "repair": {
+      "controller": {
+        "pid": 30287,
+        "manifest": "/Users/antonkrutov/Desktop/Forest/localization/completion/six-next-locales-20261102-01/completion-wave-01/repair-lifecycle-manifest.json",
+        "adoptedAtUTC": "2026-11-02T17:23:00.235023+00:00",
+        "modelRequestsAtAdoption": 0,
+        "liveWorkersAtAdoption": 4,
+        "selectedOwnAssignments": 4
+      },
+      "statusPath": "outputs/six-next-locales-20261102-01/completion-repair-lifecycle-01/status.json",
+      "lanes": [
+        {
+          "locale": "bg",
+          "phase": "outputs/six-next-locales-20261102-01/bg/repair-01",
+          "pid": 26839,
+          "samePidAsFreshLaunch": true,
+          "live": true,
+          "status": "running"
+        },
+        {
+          "locale": "el",
+          "phase": "outputs/six-next-locales-20261102-01/el/repair-01",
+          "pid": 26988,
+          "samePidAsFreshLaunch": true,
+          "live": true,
+          "status": "running"
+        },
+        {
+          "locale": "fa",
+          "phase": "outputs/six-next-locales-20261102-01/fa/repair-01",
+          "pid": 27181,
+          "samePidAsFreshLaunch": true,
+          "live": true,
+          "status": "running"
+        },
+        {
+          "locale": "he",
+          "phase": "outputs/six-next-locales-20261102-01/he/repair-01",
+          "pid": 27334,
+          "samePidAsFreshLaunch": true,
+          "live": true,
+          "status": "running"
+        }
+      ]
+    }
+  },
+  "overallModelProcessCap": 6,
+  "newModelRequestsDuringAdoption": 0
+}

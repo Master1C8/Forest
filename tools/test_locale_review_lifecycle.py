@@ -41,6 +41,10 @@ class ReviewLifecycleTests(unittest.TestCase):
         self.assertEqual(set(review.checked_rows(path, self.packet, 'own-thread')), {'a'})
         self.result_rows([self.row('a', 'finding'), self.row('b') | {'reviewed': False}])
         self.assertEqual(review.checked_rows(path, self.packet, 'own-thread')['a']['verdict'], 'finding')
+        alternate = self.row('a')
+        alternate['fidelityRationale'] = alternate.pop('rationale')
+        self.result_rows([alternate])
+        self.assertEqual(set(review.checked_rows(path, self.packet, 'own-thread')), {'a'})
 
     def test_stale_or_foreign_reviews_reject_instead_of_default_pass(self):
         path = self.result_rows([self.row('a') | {'targetSha256': 'stale'}])
@@ -95,6 +99,22 @@ class ReviewLifecycleTests(unittest.TestCase):
             self.supervisor.tick(self.lane)
             launch.assert_not_called()
         self.assertEqual(self.lane['status'], 'running')
+
+    def test_explicit_retained_pass_supersession_is_not_silently_lost(self):
+        retained = {'a': self.row('a')}
+        new = {'b': self.row('b')}
+        revised = self.row('a', 'finding') | {'rationale': 'Newly read concrete dependent context'}
+        supersession = self.phase / 'supersession.jsonl'
+        supersession.write_text(json.dumps(revised) + '\n')
+        effective = self.phase / 'effective.jsonl'
+        effective.write_text(json.dumps(revised) + '\n' + json.dumps(new['b']) + '\n')
+        result = {'effectiveFullReviews': str(effective), 'retainedPassSupersession': str(supersession)}
+        merged = review.merge_review_result(self.root, self.phase, self.packet, 'own-thread', retained, new, result)
+        self.assertEqual(merged['a']['verdict'], 'finding')
+        self.assertEqual(retained['a']['verdict'], 'pass')
+        effective.write_text(json.dumps(revised) + '\n' + json.dumps(new['b'] | {'verdict': 'finding'}) + '\n')
+        with self.assertRaisesRegex(ValueError, 'Unexplained effective review change'):
+            review.merge_review_result(self.root, self.phase, self.packet, 'own-thread', retained, new, result)
 
 
 if __name__ == '__main__':
