@@ -1,0 +1,15 @@
+{
+  "atUTC": "2026-11-02T10:51:19.363745+00:00",
+  "scope": "One shared coordinator group: current eligibility read/reconciliation, six glossary receipt/pin/source/control checks, templates, bounded briefs, canonical preparation commit, six CLI dispatch/runtime monitoring and review. No invented per-worker split.",
+  "baseline": "localization/completion/six-next-locales-20261102-01/orchestration-baseline.json",
+  "measuredDelta": {
+    "input_tokens": 2973569,
+    "cached_input_tokens": 2919936,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 19356,
+    "reasoning_output_tokens": 5306,
+    "total_tokens": 2992925
+  },
+  "excluded": "Initial required-reference read requests before captured baseline, subsequent status commit/reporting tail and unavailable platform overhead. Those are unknown rather than zero. Worker requests are not included. Cache/reasoning are subsets.",
+  "workers": "Six active fresh sessions; final worker telemetry will be reported on terminal outcomes, not invented as zero now."
+}
