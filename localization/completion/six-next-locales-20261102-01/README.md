@@ -1,5 +1,18 @@
 # Six next Forest localizations
 
+## All six resource overlays verified
+
+`resource-delivery-20261103-01/index.json` is the final local resource index for
+bg/cs/el/fa/fil/he. All six normal compiler builds and checks passed, and all96
+delivered resource files were separately byte-hashed against their manifests.
+Every locale retains12825 clean exact independent wording judgments and1781
+protected source states. All model and finite build/check phases have ended.
+Earlier sections retain their historical states; current-status.json links the
+actual completed receipts. Target native/visual/font/artwork/human-glossary and
+release acceptance remain separate. No whole-project finalization, archival,
+cleanup, installation, publication or deployment is implied.
+
+
 ## Six clean text corpora
 
 `closing-wave-01/final-state.json` and `final-persian-integration.json` close the

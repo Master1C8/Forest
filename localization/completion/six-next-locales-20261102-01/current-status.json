@@ -1,7 +1,7 @@
 {
   "run": "six-next-locales-20261102-01",
-  "atUTC": "2026-11-02T19:33:06.990473+00:00",
-  "status": "six-clean-text-corpora-resource-builds-and-checks",
+  "atUTC": "2026-11-02T19:52:52.815074+00:00",
+  "status": "six-local-resource-overlays-built-and-verified-native-pending",
   "lanes": [
     {
       "locale": "bg",
@@ -11,7 +11,7 @@
       "language": "localization/languages/bg.json",
       "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/bg-delta-review",
       "initialLanguageSha256": "a3228c7955e2e17c2d01eff8ffe938d5062703902e9c83f7fbcff440ef5328f5",
-      "status": "resource-check-running",
+      "status": "resource-overlay-verified-native-pending",
       "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
@@ -20,9 +20,9 @@
       "glossaryVersionMatchingCells": 684,
       "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "checking",
+      "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
-      "release": "not-run",
+      "release": "not-accepted",
       "pid": 86439,
       "threadId": "01a19d92-88c4-7903-ab0b-1ed358f8871f",
       "model": "gpt-6.1-sol",
@@ -58,7 +58,10 @@
       },
       "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/integration.json",
       "currentLanguageSha256": "702f7ac069ee4de9d6202fbf8201b20120fd9fc243f3f87b05ad0c7f91611ef8",
-      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-02/status.json"
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-02/status.json",
+      "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-02/bg-receipt.json",
+      "artifact": "dist/Forest-bg-single-file-final-20261103-01",
+      "resourceManifestSha256": "34b53f187a610790c193b9d6aec891b2326a72eae7b4def05554fd22f458e078"
     },
     {
       "locale": "cs",
@@ -68,7 +71,7 @@
       "language": "localization/languages/cs.json",
       "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/cs-review",
       "initialLanguageSha256": "456fb44d0dde4418a253ca3a2980a36434e0fca9adf3f1ccf4631e8a9cb7727b",
-      "status": "resource-build-or-check-running",
+      "status": "resource-overlay-verified-native-pending",
       "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
@@ -77,9 +80,9 @@
       "glossaryVersionMatchingCells": 684,
       "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "in-progress",
+      "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
-      "release": "not-run",
+      "release": "not-accepted",
       "pid": 704,
       "threadId": "01a19dad-57c3-7973-8bc3-f15ab7fd4021",
       "model": "gpt-6.1-sol",
@@ -110,7 +113,10 @@
         "unreadPrimary": 0,
         "findings": 0,
         "independentExactPasses": 12825
-      }
+      },
+      "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-03/cs-receipt.json",
+      "artifact": "dist/Forest-cs-single-file-final-20261103-01",
+      "resourceManifestSha256": "649fe76c714face065ed37b9047b9e3668220f111eca4584cd87276d84ab3aaf"
     },
     {
       "locale": "el",
@@ -131,7 +137,7 @@
       "fonts": "pending-target-acceptance",
       "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
-      "release": "not-run",
+      "release": "not-accepted",
       "pid": 86664,
       "threadId": "01a19d92-9a26-7ca2-a7e2-5eb8ad7e0f66",
       "model": "gpt-6.1-sol",
@@ -164,7 +170,8 @@
       "currentLanguageSha256": "6da280d0cfa5ced0ba4b03d60d886653d95a4f077c19f666cd74eaf4f61fdcb4",
       "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-01/status.json",
       "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-01/el-receipt.json",
-      "artifact": "dist/Forest-el-single-file-final-20261103-01"
+      "artifact": "dist/Forest-el-single-file-final-20261103-01",
+      "resourceManifestSha256": "4fb55744971688532c9c3e9a6b629d970038f9d62180e77118b024b6dd3f5ccf"
     },
     {
       "locale": "fa",
@@ -174,7 +181,7 @@
       "language": "localization/languages/fa.json",
       "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fa-final-review",
       "initialLanguageSha256": "65d5a7c8fb696211ee18eaaecf1cb3e0be8a8dbfc87eccf0922174ccc58f4fef",
-      "status": "resource-build-running",
+      "status": "resource-overlay-verified-native-pending",
       "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
@@ -183,9 +190,9 @@
       "glossaryVersionMatchingCells": 684,
       "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "in-progress",
+      "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
-      "release": "not-run",
+      "release": "not-accepted",
       "pid": 12030,
       "threadId": "01a19db9-952e-72d0-a584-f64329ab271f",
       "model": "gpt-6.1-sol",
@@ -216,7 +223,10 @@
       },
       "currentLanguageSha256": "045c349e39a5eb7a17f39941acbece640c4ad09dd4bc771b95e6cccf40a64593",
       "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/final-persian-integration.json",
-      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-04/status.json"
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-04/status.json",
+      "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-04/fa-receipt.json",
+      "artifact": "dist/Forest-fa-single-file-final-20261103-01",
+      "resourceManifestSha256": "fe701f912753c98edecd832712c7559e9928983378e85894a98e091b9ff24642"
     },
     {
       "locale": "fil",
@@ -226,7 +236,7 @@
       "language": "localization/languages/fil.json",
       "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fil-review",
       "initialLanguageSha256": "26fac140f5b109f3a95026136a3cdff8cbeb5a1609c4e163e820fbe8f83fc14c",
-      "status": "resource-build-or-check-running",
+      "status": "resource-overlay-verified-native-pending",
       "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
@@ -235,9 +245,9 @@
       "glossaryVersionMatchingCells": 684,
       "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "in-progress",
+      "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
-      "release": "not-run",
+      "release": "not-accepted",
       "pid": 1176,
       "threadId": "01a19dad-762c-7752-a21c-cf41dde02199",
       "model": "gpt-6.1-sol",
@@ -268,7 +278,10 @@
         "unreadPrimary": 0,
         "findings": 0,
         "independentExactPasses": 12825
-      }
+      },
+      "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-03/fil-receipt.json",
+      "artifact": "dist/Forest-fil-single-file-final-20261103-01",
+      "resourceManifestSha256": "0dc8c28c612b4cc9bfdbdf8a79032d295887cb3418b532e68d5a4250aa799f7b"
     },
     {
       "locale": "he",
@@ -278,7 +291,7 @@
       "language": "localization/languages/he.json",
       "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/he-delta-review",
       "initialLanguageSha256": "5c881943a8570cadff10982518ce821f51fde21850ac638f80f3d11c65b36d53",
-      "status": "resource-build-or-check-running",
+      "status": "resource-overlay-verified-native-pending",
       "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
@@ -287,9 +300,9 @@
       "glossaryVersionMatchingCells": 684,
       "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "in-progress",
+      "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
-      "release": "not-run",
+      "release": "not-accepted",
       "pid": 87091,
       "threadId": "01a19d92-cc7d-7910-ab01-2858130532c5",
       "model": "gpt-6.1-sol",
@@ -321,7 +334,10 @@
       "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/integration.json",
       "currentLanguageSha256": "3ea777fa91ced3eea1867ada0ca778445d863fe2ef1b69acc3d3e00c158381c8",
       "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-02/status.json",
-      "fontOnlyRebinding": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/he-console-registration.json"
+      "fontOnlyRebinding": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/he-console-registration.json",
+      "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-02/he-receipt.json",
+      "artifact": "dist/Forest-he-single-file-final-20261103-01",
+      "resourceManifestSha256": "55bfa4f0ff0bb6cc437b1586addd8efbc02ec988ccaec83ddde32a6bc17532e1"
     }
   ],
   "streamCap": 6,
@@ -378,7 +394,9 @@
         "fil",
         "he"
       ],
-      "modelRequests": 0
+      "modelRequests": 0,
+      "status": "all-six-compiled-and-verified",
+      "deliveryIndex": "localization/completion/six-next-locales-20261102-01/resource-delivery-20261103-01/index.json"
     }
   },
   "historicalPhaseLifecycleWaves": [
@@ -457,8 +475,11 @@
     "testsPassed": 14,
     "predicate": "Natural visible numeral spelling accepted; command operands and placeholders remain exact."
   },
-  "archival": "Multilingual project unfinished; archival pending, no cleanup or GitHub writes.",
+  "archival": "Pending: whole multilingual project still has native/visual/release gates. No cleanup or GitHub writes.",
   "cleanIndependentTextLocales": 6,
   "fontRoleAllocation": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/allocation.json",
-  "modelCliTasks": "All current six-locale model phases ended; no automatic model followup."
+  "modelCliTasks": "All current six-locale model phases ended; finite build/check observers completed.",
+  "resourceDeliveryIndex": "localization/completion/six-next-locales-20261102-01/resource-delivery-20261103-01/index.json",
+  "verifiedResourceOverlays": 6,
+  "verifiedResourceFiles": 96
 }
