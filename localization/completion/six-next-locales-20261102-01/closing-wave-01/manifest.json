@@ -1,0 +1,31 @@
+{
+  "run": "six-next-locales-20261102-01",
+  "stage": "closing-wave-01",
+  "lanes": [
+    {
+      "locale": "cs",
+      "phase": "outputs/six-next-locales-20261102-01/cs/independent-delta-01",
+      "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/cs-review",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "fil",
+      "phase": "outputs/six-next-locales-20261102-01/fil/independent-delta-01",
+      "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fil-review",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "fa",
+      "phase": "outputs/six-next-locales-20261102-01/fa/repair-02",
+      "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fa-repair",
+      "taskClass": "editorial-repair"
+    }
+  ],
+  "authority": "Continue only three existing owner-authorized locale assignments: exact Czech/Filipino independent repair deltas and consolidated Persian haiku repair. No additional technical/model stream or native/publication action.",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "maxConcurrentModelProcesses": 3,
+  "overallModelProcessCap": 6
+}

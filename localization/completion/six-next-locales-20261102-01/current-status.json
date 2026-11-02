@@ -1,7 +1,7 @@
 {
   "run": "six-next-locales-20261102-01",
-  "atUTC": "2026-11-02T18:44:45.793120+00:00",
-  "status": "four-independent-deltas-and-two-consolidated-repairs-running",
+  "atUTC": "2026-11-02T19:26:21.751426+00:00",
+  "status": "five-clean-text-resource-builds-and-final-persian-haiku-review",
   "lanes": [
     {
       "locale": "bg",
@@ -11,16 +11,16 @@
       "language": "localization/languages/bg.json",
       "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/bg-delta-review",
       "initialLanguageSha256": "a3228c7955e2e17c2d01eff8ffe938d5062703902e9c83f7fbcff440ef5328f5",
-      "status": "independent-exact-delta-running",
-      "live": true,
+      "status": "resource-build-or-check-running",
+      "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "full-reading-complete-findings-open",
+      "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "not-run",
+      "resourceBuild": "in-progress",
       "native": "not-authorized-not-run",
       "release": "not-run",
       "pid": 86439,
@@ -34,7 +34,7 @@
       "taskClass": "semantic-review",
       "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
       "atUTC": "2026-11-02T11:35:48.163785+00:00",
-      "previousPhase": "outputs/six-next-locales-20261102-01/bg/repair-01",
+      "previousPhase": "outputs/six-next-locales-20261102-01/bg/independent-delta-01",
       "primaryAuthorRead": 12825,
       "authorPhase": "outputs/six-next-locales-20261102-01/bg/author-02",
       "authorStatus": "primary-editing-complete-parent-version-checked",
@@ -52,43 +52,46 @@
       },
       "freshExec": true,
       "currentDelta": {
-        "primaryRequired": 11,
-        "retainedUnchangedVerified": 12814,
-        "newJudgments": "pending"
-      }
+        "unreadPrimary": 0,
+        "findings": 0,
+        "independentExactPasses": 12825
+      },
+      "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/integration.json",
+      "currentLanguageSha256": "702f7ac069ee4de9d6202fbf8201b20120fd9fc243f3f87b05ad0c7f91611ef8",
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-02/status.json"
     },
     {
       "locale": "cs",
       "culture": "cs",
       "label": "Czech",
-      "phase": "outputs/six-next-locales-20261102-01/cs/repair-01",
+      "phase": "outputs/six-next-locales-20261102-01/cs/independent-delta-01",
       "language": "localization/languages/cs.json",
-      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/cs-repair",
+      "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/cs-review",
       "initialLanguageSha256": "456fb44d0dde4418a253ca3a2980a36434e0fca9adf3f1ccf4631e8a9cb7727b",
-      "status": "consolidated-editorial-repair-running",
-      "live": true,
+      "status": "resource-build-or-check-running",
+      "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "full-reading-complete-findings-open",
+      "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "not-run",
+      "resourceBuild": "in-progress",
       "native": "not-authorized-not-run",
       "release": "not-run",
-      "pid": 87254,
-      "threadId": "01a19d92-f00d-7013-be5a-1814a73c50c3",
+      "pid": 704,
+      "threadId": "01a19dad-57c3-7973-8bc3-f15ab7fd4021",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
       "inheritedHistory": false,
       "runtimeVerified": true,
-      "startedAt": "2026-11-02T10:50:19.498560+00:00",
+      "startedAt": "2026-11-02T19:12:30.532655+00:00",
       "taskClass": "editorial-repair",
-      "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
+      "statusPath": "outputs/six-next-locales-20261102-01/closing-wave-01/status.json",
       "atUTC": "2026-11-02T11:34:00.131903+00:00",
-      "previousPhase": "outputs/six-next-locales-20261102-01/cs/review-auto-0001",
+      "previousPhase": "outputs/six-next-locales-20261102-01/cs/repair-01",
       "primaryAuthorRead": 12825,
       "authorPhase": "outputs/six-next-locales-20261102-01/cs/author-02",
       "authorStatus": "primary-editing-complete-independent-review-running",
@@ -99,7 +102,15 @@
         "remainingPrimary": 0,
         "acceptance": "Complete independent reading with findings; no clean final acceptance"
       },
-      "repairFindings": 35
+      "repairFindings": 35,
+      "currentLanguageSha256": "c208cb2351f0c6b6725c1c52aa42486e53d0b7ee1b05e85a4720ddad8365339b",
+      "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/second-integration.json",
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-03/status.json",
+      "currentDelta": {
+        "unreadPrimary": 0,
+        "findings": 0,
+        "independentExactPasses": 12825
+      }
     },
     {
       "locale": "el",
@@ -109,16 +120,16 @@
       "language": "localization/languages/el.json",
       "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/el-delta-review",
       "initialLanguageSha256": "83c3e2791b51a446ce43b84cdb4f87a66bcd5118929cf4c62b36cfccb8a367a6",
-      "status": "independent-exact-delta-running",
-      "live": true,
+      "status": "resource-overlay-verified-native-pending",
+      "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "full-reading-complete-findings-open",
+      "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "not-run",
+      "resourceBuild": "compiled-and-verified",
       "native": "not-authorized-not-run",
       "release": "not-run",
       "pid": 86664,
@@ -132,7 +143,7 @@
       "taskClass": "semantic-review",
       "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
       "atUTC": "2026-11-02T11:34:01.156674+00:00",
-      "previousPhase": "outputs/six-next-locales-20261102-01/el/repair-01",
+      "previousPhase": "outputs/six-next-locales-20261102-01/el/independent-delta-01",
       "authorPhase": "outputs/six-next-locales-20261102-01/el/author-02",
       "authorStatus": "primary-editing-complete-independent-review-running",
       "primaryAuthorRead": 12825,
@@ -145,41 +156,46 @@
       },
       "freshExec": true,
       "currentDelta": {
-        "primaryRequired": 68,
-        "retainedUnchangedVerified": 12757,
-        "newJudgments": "pending"
-      }
+        "unreadPrimary": 0,
+        "findings": 0,
+        "independentExactPasses": 12825
+      },
+      "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/integration.json",
+      "currentLanguageSha256": "6da280d0cfa5ced0ba4b03d60d886653d95a4f077c19f666cd74eaf4f61fdcb4",
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-01/status.json",
+      "resourceReceipt": "outputs/six-next-locales-20261102-01/resource-builds-01/el-receipt.json",
+      "artifact": "dist/Forest-el-single-file-final-20261103-01"
     },
     {
       "locale": "fa",
       "culture": "fa",
       "label": "Persian",
-      "phase": "outputs/six-next-locales-20261102-01/fa/independent-delta-01",
+      "phase": "outputs/six-next-locales-20261102-01/fa/independent-delta-02",
       "language": "localization/languages/fa.json",
-      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/fa-delta-review",
+      "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fa-final-review",
       "initialLanguageSha256": "65d5a7c8fb696211ee18eaaecf1cb3e0be8a8dbfc87eccf0922174ccc58f4fef",
-      "status": "independent-exact-delta-running",
+      "status": "final-two-label-nine-product-independent-review-running",
       "live": true,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "full-reading-complete-findings-open",
+      "editorial": "12823-passes-two-repaired-labels-pending-independent",
       "fonts": "pending-target-acceptance",
       "resourceBuild": "not-run",
       "native": "not-authorized-not-run",
       "release": "not-run",
-      "pid": 86855,
-      "threadId": "01a19d92-aa34-7b82-897b-9321ff4321c2",
+      "pid": 12030,
+      "threadId": "01a19db9-952e-72d0-a584-f64329ab271f",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
       "inheritedHistory": false,
       "runtimeVerified": true,
-      "startedAt": "2026-11-02T14:58:55.767684+00:00",
+      "startedAt": "2026-11-02T19:25:52.875990+00:00",
       "taskClass": "semantic-review",
-      "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
+      "statusPath": "outputs/six-next-locales-20261102-01/final-persian-review-01/status.json",
       "authorPhase": "outputs/six-next-locales-20261102-01/fa/author-01",
       "authorStatus": "primary-editing-complete-independent-review-running",
       "primaryAuthorRead": 12825,
@@ -191,45 +207,46 @@
         "acceptance": "Complete independent reading with findings; no clean final acceptance"
       },
       "freshExec": true,
-      "previousPhase": "outputs/six-next-locales-20261102-01/fa/repair-01",
+      "previousPhase": "outputs/six-next-locales-20261102-01/fa/independent-delta-01",
       "currentDelta": {
-        "primaryRequired": 40,
-        "retainedUnchangedVerified": 12785,
-        "newJudgments": "pending"
-      }
+        "primaryRequired": 2,
+        "requiredCompositions": 9,
+        "retainedUnchangedVerified": 12823
+      },
+      "currentLanguageSha256": "045c349e39a5eb7a17f39941acbece640c4ad09dd4bc771b95e6cccf40a64593"
     },
     {
       "locale": "fil",
       "culture": "fil",
       "label": "Filipino",
-      "phase": "outputs/six-next-locales-20261102-01/fil/repair-01",
+      "phase": "outputs/six-next-locales-20261102-01/fil/independent-delta-01",
       "language": "localization/languages/fil.json",
-      "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/fil-repair",
+      "control": "localization/completion/six-next-locales-20261102-01/closing-wave-01/fil-review",
       "initialLanguageSha256": "26fac140f5b109f3a95026136a3cdff8cbeb5a1609c4e163e820fbe8f83fc14c",
-      "status": "consolidated-editorial-repair-running",
-      "live": true,
+      "status": "resource-build-or-check-running",
+      "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "full-reading-complete-findings-open",
+      "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "not-run",
+      "resourceBuild": "in-progress",
       "native": "not-authorized-not-run",
       "release": "not-run",
-      "pid": 87523,
-      "threadId": "01a19d93-1d0d-7500-8272-bc191bc80bc5",
+      "pid": 1176,
+      "threadId": "01a19dad-762c-7752-a21c-cf41dde02199",
       "model": "gpt-6.1-sol",
       "reasoning": "high",
       "provider": "openai",
       "inheritedHistory": false,
       "runtimeVerified": true,
-      "startedAt": "2026-11-02T10:50:30.443398+00:00",
+      "startedAt": "2026-11-02T19:12:39.933882+00:00",
       "taskClass": "editorial-repair",
-      "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
+      "statusPath": "outputs/six-next-locales-20261102-01/closing-wave-01/status.json",
       "atUTC": "2026-11-02T11:34:01.980622+00:00",
-      "previousPhase": "outputs/six-next-locales-20261102-01/fil/review-auto-0001",
+      "previousPhase": "outputs/six-next-locales-20261102-01/fil/repair-01",
       "primaryAuthorRead": 12825,
       "authorPhase": "outputs/six-next-locales-20261102-01/fil/author-02",
       "authorStatus": "primary-editing-complete-independent-review-running",
@@ -240,7 +257,15 @@
         "remainingPrimary": 0,
         "acceptance": "Complete independent reading with findings; no clean final acceptance"
       },
-      "repairFindings": 9
+      "repairFindings": 9,
+      "currentLanguageSha256": "c6dae1447d0e8a41e0383f342bad3686fc36692711d6e9af0ee8eb11fcde0c89",
+      "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/second-integration.json",
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-03/status.json",
+      "currentDelta": {
+        "unreadPrimary": 0,
+        "findings": 0,
+        "independentExactPasses": 12825
+      }
     },
     {
       "locale": "he",
@@ -250,16 +275,16 @@
       "language": "localization/languages/he.json",
       "control": "localization/completion/six-next-locales-20261102-01/delta-wave-01/he-delta-review",
       "initialLanguageSha256": "5c881943a8570cadff10982518ce821f51fde21850ac638f80f3d11c65b36d53",
-      "status": "independent-exact-delta-running",
-      "live": true,
+      "status": "resource-build-or-check-running",
+      "live": false,
       "filledOrdinary": 12825,
       "ordinaryTotal": 12825,
       "translationPercent": 100,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "editorial": "full-reading-complete-findings-open",
+      "editorial": "independent-clean-current-12825",
       "fonts": "pending-target-acceptance",
-      "resourceBuild": "not-run",
+      "resourceBuild": "in-progress",
       "native": "not-authorized-not-run",
       "release": "not-run",
       "pid": 87091,
@@ -273,7 +298,7 @@
       "taskClass": "semantic-review",
       "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
       "atUTC": "2026-11-02T11:34:03.214474+00:00",
-      "previousPhase": "outputs/six-next-locales-20261102-01/he/repair-01",
+      "previousPhase": "outputs/six-next-locales-20261102-01/he/independent-delta-01",
       "authorPhase": "outputs/six-next-locales-20261102-01/he/author-02",
       "authorStatus": "primary-editing-complete-independent-review-running",
       "primaryAuthorRead": 12825,
@@ -286,10 +311,14 @@
       },
       "freshExec": true,
       "currentDelta": {
-        "primaryRequired": 62,
-        "retainedUnchangedVerified": 12763,
-        "newJudgments": "pending"
-      }
+        "unreadPrimary": 0,
+        "findings": 0,
+        "independentExactPasses": 12825
+      },
+      "cleanEditorialIntegration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/integration.json",
+      "currentLanguageSha256": "3ea777fa91ced3eea1867ada0ca778445d863fe2ef1b69acc3d3e00c158381c8",
+      "resourceBuildStatusPath": "outputs/six-next-locales-20261102-01/resource-builds-02/status.json",
+      "fontOnlyRebinding": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/he-console-registration.json"
     }
   ],
   "streamCap": 6,
@@ -322,18 +351,28 @@
     "historicalForCurrentRun": true
   },
   "phaseLifecycles": {
-    "editorialDeltaAndRepair": {
-      "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
-      "manifest": "localization/completion/six-next-locales-20261102-01/delta-wave-01/manifest.json",
+    "finalPersianReview": {
+      "manifest": "localization/completion/six-next-locales-20261102-01/closing-wave-01/final-review-manifest.json",
+      "statusPath": "outputs/six-next-locales-20261102-01/final-persian-review-01/status.json",
+      "locales": [
+        "fa"
+      ],
+      "automaticFollowup": false
+    },
+    "resourceBuilds": {
+      "statusPaths": [
+        "outputs/six-next-locales-20261102-01/resource-builds-01/status.json",
+        "outputs/six-next-locales-20261102-01/resource-builds-02/status.json",
+        "outputs/six-next-locales-20261102-01/resource-builds-03/status.json"
+      ],
       "locales": [
         "bg",
         "cs",
         "el",
-        "fa",
         "fil",
         "he"
       ],
-      "automaticFollowup": false
+      "modelRequests": 0
     }
   },
   "historicalPhaseLifecycleWaves": [
@@ -360,6 +399,48 @@
         }
       },
       "reason": "All six prior phases ended with version-bound results; next finite owner-authorized assignments dispatched."
+    },
+    {
+      "supersededAtUTC": "2026-11-02T19:13:41.550374+00:00",
+      "phaseLifecycles": {
+        "editorialDeltaAndRepair": {
+          "statusPath": "outputs/six-next-locales-20261102-01/delta-wave-01/status.json",
+          "manifest": "localization/completion/six-next-locales-20261102-01/delta-wave-01/manifest.json",
+          "locales": [
+            "bg",
+            "cs",
+            "el",
+            "fa",
+            "fil",
+            "he"
+          ],
+          "automaticFollowup": false
+        }
+      }
+    },
+    {
+      "supersededAtUTC": "2026-11-02T19:26:21.751426+00:00",
+      "phaseLifecycles": {
+        "editorial": {
+          "statusPath": "outputs/six-next-locales-20261102-01/closing-wave-01/status.json",
+          "manifest": "localization/completion/six-next-locales-20261102-01/closing-wave-01/manifest.json",
+          "locales": [
+            "cs",
+            "fil",
+            "fa"
+          ],
+          "automaticFollowup": false
+        },
+        "resourceIntegration": {
+          "integration": "localization/completion/six-next-locales-20261102-01/closing-wave-01/integration.json",
+          "locales": [
+            "bg",
+            "el",
+            "he"
+          ],
+          "owner": "coordinator; deterministic work, no additional model stream"
+        }
+      }
     }
   ],
   "runtimeVerification": "localization/completion/six-next-locales-20261102-01/delta-wave-01/runtime-verification.json",
@@ -370,5 +451,7 @@
     "testsPassed": 14,
     "predicate": "Natural visible numeral spelling accepted; command operands and placeholders remain exact."
   },
-  "archival": "Whole multilingual project unfinished; no archival/cleanup performed."
+  "archival": "Multilingual project unfinished; archival pending, no cleanup or GitHub writes.",
+  "cleanIndependentTextLocales": 5,
+  "fontRoleAllocation": "localization/completion/six-next-locales-20261102-01/closing-wave-01/font-roles/allocation.json"
 }

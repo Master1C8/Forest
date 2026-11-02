@@ -1,0 +1,43 @@
+{
+  "authored": {
+    "path": "outputs/six-next-locales-20261102-01/fil/repair-01/authored-decisions.json",
+    "sha256": "92997bf86911345475e3fe5b4c46aea513cab8fd6b9758f79c9830d5b4ec7f04"
+  },
+  "invalidatedPreviouslyPassingChangedIds": [
+    "ds:408:103:Dialogue Text"
+  ],
+  "invalidatedUnchangedIds": [],
+  "languageBefore": {
+    "path": "localization/completion/six-next-locales-20261102-01/delta-wave-01/fil-repair/language-before.json",
+    "sha256": "7501897944ec62c1f0fc92cdc43a9a4b7d8ca857b2a67524456467c620ddc583"
+  },
+  "normalization": "NFKC + casefold + curly apostrophe and Unicode hyphen variants",
+  "oldPhrases": [
+    "kahong nasa aparador",
+    "nakawala ng gunting",
+    "may katagpo siyang",
+    "mahigpit na kinukuyom ang mga daliri",
+    "strap-on na kalahati",
+    "kapag nagsimula na tayo",
+    "sa pagitan ng mga hita ko"
+  ],
+  "recipe": {
+    "path": "outputs/six-next-locales-20261102-01/fil/repair-01/repair.py",
+    "sha256": "930de843de3aee8e1ab7b69cbcce668811bbe3b3ae973c0b442809610910fad6"
+  },
+  "regression": "A duplicate in importerTMP0 is selected by the normal exact-source repetition rule even though it was absent from the nine-finding packet.",
+  "rules": {
+    "body-region": "hot.?dogg?",
+    "fingers": "squeez\\w*.{0,40}fingers|fingers.{0,40}squeez\\w*",
+    "founders": "guinea.?pig|kink.finders|get.the.ball.rolling",
+    "furniture": "drawers?|cabinets?",
+    "grizzly-romance": "grizzl\\w*",
+    "shears-loss": "she[ae]rs",
+    "toy-size": "(?:toy|strap.?on|pegg).*(?:half|size)|half.*(?:toy|size of her)"
+  },
+  "scope": "Uncapped complete 14606 inventory scan, exact source repetitions, named concept/spelling/old-wording matches, complete eight conversations and 408 entries90-129. All three finger-squeezing occurrences must enter the repair. Candidate matches are context, not automatic invalidation or acceptance.",
+  "source": {
+    "path": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+    "sha256": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803"
+  }
+}

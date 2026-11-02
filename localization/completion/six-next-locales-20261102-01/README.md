@@ -1,5 +1,39 @@
 # Six next Forest localizations
 
+## Latest clean-text integration and resource builds
+
+`closing-wave-01/integration.json` and `second-integration.json` bind five clean
+12,825-unit independent text corpora. The two corrected Persian labels and nine
+affected haiku compositions are assigned to the fresh independent reviewer in
+`final-review-manifest.json`; all 12,823 other exact pass rows remain retained.
+Earlier sections labelled current/latest describe preserved historical waves.
+The authoritative grouped pointers remain in `current-status.json`.
+
+Three finite deterministic observers in `resource-builds-01`, `resource-builds-02`
+and `resource-builds-03` build/check Greek, Bulgarian/Hebrew and Czech/Filipino
+respectively through the same common compiler. The Greek 16-resource overlay is
+built, checked and independently byte-hashed; its receipt is in the first output
+folder. Other build states must be read from their current status files. No model
+is used for resource construction, and no game, installation or publication runs.
+
+The finite registered-font reference check resolved 123 candidate trees without
+unresolved candidate PPtrs. Moire436/438 link TOCK skin styles and one another's
+fallbacks, rather than direct selected ordinary native/TMP components in those
+references. This does not prove absence of dynamic/TOCK runtime use. Consola437
+is selected by saved DevConsoleSettings1006; the exact identified assembly body
+loads Settings.font into GUIStyle.font. Hebrew now supplies the existing embedded
+Liberation Sans for this registered console role. Zero source/target wording or
+layout values changed; all 12,825 semantic judgments rebind exactly. Static cmap
+and metrics pass; console proportional alignment, native loading, bidi/marks,
+fallback/TOCK demand, wrapping and readability remain explicit target-runtime gates.
+The fictional font/material/atlas mapping and all texture inputs remain unchanged.
+
+No whole-project completion or archival acceptance is claimed. Native/visual,
+artwork, owner-deferred human glossary, gameplay and release gates stay separate.
+The source-only archival protocol applies when the multilingual project is actually
+finished; no cleanup or GitHub write was performed.
+
+
 ## Latest editorial delta wave
 
 `delta-wave-01/manifest.json` and `outputs/six-next-locales-20261102-01/delta-wave-01/status.json`
