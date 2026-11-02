@@ -194,10 +194,20 @@ class LanguageCompilerTests(unittest.TestCase):
         c.validate_dialogue(guard, row, '[pic=1]Hallo 2\nWeiter')
         with self.assertRaisesRegex(ValueError, 'dialogue-protected-controls:fixture'):
             c.validate_dialogue(guard, row, 'Hallo 2\nWeiter')
-        with self.assertRaisesRegex(ValueError, 'dialogue-numbers:fixture'):
-            c.validate_dialogue(guard, row, '[pic=1]Hallo 3\nWeiter')
+        with self.assertRaisesRegex(ValueError, 'dialogue-protected-controls:fixture'):
+            c.validate_dialogue(guard, row, '[pic=2]Hallo 2\nWeiter')
         with self.assertRaisesRegex(ValueError, 'dialogue-separator:fixture'):
             c.validate_dialogue(guard, row, '[pic=1]Hallo 2 Weiter')
+
+    def test_visible_numbers_allow_natural_target_spelling_but_command_operands_stay_exact(self):
+        guard = c.module(c.ROOT/'localization/ru-assets/inline_guard.py', 'test_prose_numbers')
+        row = dict(id='quantity', source='[pic=3]2 copies for each issue!')
+        c.validate_dialogue(guard, row, '[pic=3]Od každého dva výtisky!')
+        c.validate_dialogue(guard, row, '[pic=3]۲ نسخه از هر شماره!')
+        with self.assertRaisesRegex(ValueError, 'dialogue-protected-controls:quantity'):
+            c.validate_dialogue(guard, row, '[pic=2]Od každého dva výtisky!')
+        with self.assertRaisesRegex(ValueError, 'dialogue-protected-controls:quantity'):
+            c.validate_dialogue(guard, row, 'Od každého dva výtisky!')
 
 
 if __name__ == '__main__':

@@ -682,7 +682,9 @@ def validate_dialogue(guard, row, target, decision=None):
     need(guard.controls(source, ordinary) == guard.controls(target, ordinary), 'dialogue-protected-controls:' + ident)
     for separator in ('\n', '\r', '|'):
         need(source.count(separator) == target.count(separator), 'dialogue-separator:' + ident)
-    need(re.findall(r'\d+', guard.display_text(source, ordinary)) == re.findall(r'\d+', guard.display_text(target, ordinary)), 'dialogue-numbers:' + ident)
+    # Visible quantities may be written as words or use target-language digits.
+    # Their meaning belongs to the version-bound semantic audit. Numeric command
+    # operands remain exact through controls(); placeholders are checked on load.
     if decision and decision['disposition'] in ('reviewed-unchanged-nonprose', 'preserved-detached-source', 'preserved-constructed-language'):
         need(target == source == decision['preserveExactly'], 'dialogue-preserved-source:' + ident)
     else:

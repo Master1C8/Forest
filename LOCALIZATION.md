@@ -57,6 +57,13 @@ complete saved semantic tree and restoration of the original tree. The nine
 haiku display/evaluation pairs must agree. Source/control keys stay in the
 framework, outside the editable target mapping.
 
+Visible quantities may use natural target-language words or digits. The compiler
+does not equate numeral spelling with semantic fidelity: the source-to-target
+audit must preserve the actual amount, order and context. Command operands,
+placeholders and protected source values still retain their exact identities.
+Regression: `2 copies` may become Czech `dva výtisky`, while changing or removing
+the accompanying `[pic=3]` command still rejects before resource generation.
+
 Optional `layout` entries map registered native component IDs to point sizes
 from 8 to 128. Optional `fonts` entries select embedded faces from `fontAssets`:
 

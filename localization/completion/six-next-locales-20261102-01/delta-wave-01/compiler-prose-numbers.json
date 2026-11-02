@@ -1,0 +1,49 @@
+{
+  "atUTC": "2026-11-02T18:41:59.282441+00:00",
+  "defect": "Shared structural guard rejected six complete Czech translations solely because visible source digits were naturally spelled out. Source/control identities remained exact.",
+  "firstDivergence": "validate_dialogue visible-digit regex equality, not controls/placeholder parser",
+  "changes": {
+    "tools/forest_localization/core.py": {
+      "beforeSha256": "3c22471845f8b2b2c45e86b63e5d24893b8babbe66c5a7e514aa283cfad32f51",
+      "afterSha256": "83b92c03fa98eecf71dee57cfdff499d50b75ac31fa31e488f5c30a4f5f1c1dd"
+    },
+    "tools/test_forest_localize.py": {
+      "beforeSha256": "6bf3bb051de47d23d728898b414b8d08312b2b726e761a1ab3e3e14fb1efb9cd",
+      "afterSha256": "f62775d0f010d38f79f9ee0181f77fd543b8c423e211e69701bf429b7c2a13e3"
+    },
+    "LOCALIZATION.md": {
+      "beforeSha256": "eaf003fe749be2c020216c8545bae86c9cea5dbbe01bf295e84072cd3490a430",
+      "afterSha256": "09d706dffe65265d7e0fa9e127061f93bac9f6b7000d8959a20790d41ccad46f"
+    }
+  },
+  "regression": {
+    "command": ".venv-assets314/bin/python -B -m unittest discover -s tools -p test_forest_localize.py -v",
+    "exitCode": 0,
+    "tests": 14,
+    "passed": true,
+    "boundary": "Real input/control parsers and fixture publication/resume; Unity decoding mocked in existing fixture. No real resource build/runtime or semantic acceptance."
+  },
+  "actualRejectedCzechIds": [
+    "ds:186:199:Dialogue Text",
+    "ds:68:97:Dialogue Text",
+    "ds:371:731:Dialogue Text",
+    "ds:943:740:Dialogue Text",
+    "ds:945:874:Dialogue Text",
+    "ds:495:218:Dialogue Text"
+  ],
+  "invalidation": "No source, inventory, glossary, selectors or resource binding changed. This removes an alphabet/spelling authoring heuristic from structural safety; existing semantic judgments remain version-bound. Future builds use the new compiler fingerprint.",
+  "preparationAttempts": [
+    {
+      "interpreter": "python3",
+      "outcome": "fontTools unavailable; zero model requests or language writes",
+      "recovery": "Use canonical .venv-assets314/bin/python from forest-localize."
+    },
+    {
+      "interpreter": ".venv-assets314/bin/python",
+      "outcome": "Concrete visible-digit preflight failure; zero model requests or language writes",
+      "recovery": "Named shared guard repair with exact controls retained."
+    }
+  ],
+  "modelRequests": 0,
+  "sourceAndTargetsModified": false
+}
