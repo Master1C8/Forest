@@ -1,0 +1,102 @@
+{
+  "status": "incomplete",
+  "locale": "he",
+  "taskComplete": false,
+  "reviewReady": false,
+  "executionStage": "translate-edit",
+  "runtime": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "parentThreadId": null,
+    "freshExecVerified": true,
+    "sessionId": "01a19be1-d3ae-71e0-993b-df080de2c5eb",
+    "evidence": "runtime-verification.json; live argv and session metadata independently inspected before localized input"
+  },
+  "immutablePinsVerified": 40,
+  "coverage": {
+    "catalog": 14606,
+    "ordinaryTotal": 12825,
+    "ordinaryAuthored": 969,
+    "ordinaryUntranslated": 11856,
+    "protectedExact": 1781,
+    "protectedMismatches": 0,
+    "fullPrimaryAudit": 0,
+    "independentAudit": 0,
+    "all23CaseGate": "not-passed",
+    "reviewReady": false
+  },
+  "language": {
+    "path": "localization/languages/he.json",
+    "sha256": "bc89ee2f933aafcf5dd8ff1424ef01ef8484ce70e583595dbe059a9a235efc01"
+  },
+  "partialArtifacts": {
+    "localization/editorial-delivery/six-next-locales-20261102-01/he/author-01/language.partial-07.json": "bc89ee2f933aafcf5dd8ff1424ef01ef8484ce70e583595dbe059a9a235efc01",
+    "localization/editorial-delivery/six-next-locales-20261102-01/he/author-01/authored-partial-07.jsonl": "7baf111e0a61c8d84116cb33e279065a185904b947beac36a1923bb24fcac93e",
+    "localization/editorial-delivery/six-next-locales-20261102-01/he/author-01/untranslated-07.ids": "db59801b40d7a7a726edcbf0b73b5d6448718b9376f2df3aa9abf45338f5877e",
+    "localization/editorial-delivery/six-next-locales-20261102-01/he/author-01/protected-comparison-07.jsonl": "0e51e5571d814318160ccfc69a6b1f9462926ce101cddcc4efdbb795d239a790"
+  },
+  "evidence": {
+    "checkpoint": "checkpoint.json",
+    "deterministicIntegrity": "partial-integrity-07.json",
+    "compilerValidation": "compiler-validation-07.json",
+    "haikuSourceTargetSelfRead": "localization/case-decisions/six-next-locales-20261102-01/he/author-01/haiku-self-read-01.json",
+    "haikuCompositionJudgments": "localization/case-decisions/six-next-locales-20261102-01/he/author-01/haiku-composition-judgments-01.json",
+    "haikuCorrectionDelta": "localization/case-decisions/six-next-locales-20261102-01/he/author-01/haiku-self-delta-02.json",
+    "fontSubset": "font-requirements-partial-06.json",
+    "fontReuseCurrentVersion": "font-requirements-reuse-07.json",
+    "fontRoleLimits": "registered-font-plan-partial-06.json",
+    "usage": "usage-07.json"
+  },
+  "blocker": null,
+  "externalBlockerEstablished": false,
+  "incompleteReason": "This execution has not completed the full finite assignment. No external/source/owner-decision blocker is asserted; unfinished translation and review remain work, not accepted coverage.",
+  "heldGates": [
+    "All23 actual special-case decision gate",
+    "11856 ordinary target units still null",
+    "One complete12825 primary audit and consolidated final corrections",
+    "Complete independent-review packet via locale_review_work.py prepare",
+    "Parent-owned independent semantic review",
+    "Final complete-corpus registered font/role inputs",
+    "Native bidi/pointing/layout/runtime not-authorized-not-run",
+    "Compilation/release/installation/publication not performed"
+  ],
+  "usage": {
+    "threadId": "01a19be1-d3ae-71e0-993b-df080de2c5eb",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "fresh": true,
+    "immutablePinsVerified": 40,
+    "usage": {
+      "input_tokens": 16282908,
+      "cached_input_tokens": 16001152,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 62585,
+      "reasoning_output_tokens": 24647,
+      "total_tokens": 16345493
+    },
+    "uncachedInput": 281756,
+    "usageIsNotAContextLimit": true,
+    "measurementCutoff": "2026-11-02T11:26:30.243819+00:00",
+    "accounting": "Fresh null-parent author session cumulative counters; cached input is a subset of input, reasoning output is a subset of output; no duplicated summation.",
+    "unmeasuredTail": "Current accounting/publication request, subsequent final response and platform overhead are not measured by this snapshot."
+  },
+  "nextTask": {
+    "kind": "work",
+    "taskClass": "translation-edit",
+    "executionStage": "translate-edit",
+    "title": "Complete remaining Hebrew authoring and primary editing against the saved exact draft",
+    "workCategory": "locale-content",
+    "entryPins": {
+      "localization/languages/he.json": "bc89ee2f933aafcf5dd8ff1424ef01ef8484ce70e583595dbe059a9a235efc01",
+      "localization/completion/five-new-locales-20261101-01/source-context.jsonl": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+      "localization/completion/six-next-locales-20261102-01/he/glossary.json": "7153d069c6d4f6897ec076cd0b4c72208b507c16f367dfe8fde4616af5be3674",
+      "localization/editorial-delivery/six-next-locales-20261102-01/he/author-01/untranslated-07.ids": "db59801b40d7a7a726edcbf0b73b5d6448718b9376f2df3aa9abf45338f5877e"
+    },
+    "contextPackets": [
+      "localization/completion/five-new-locales-20261101-01/source-context.jsonl"
+    ],
+    "authority": "Parent only decides any continuation; no worker/model/queue was launched. Same original task/write limits apply.",
+    "postcondition": "All12825 ordinary targets authored, all23 actual source-bound case decisions complete, one real full primary audit and exact correction self-read, then complete immutable independent-review preparation. Never return these969 draft units as the full assignment."
+  }
+}

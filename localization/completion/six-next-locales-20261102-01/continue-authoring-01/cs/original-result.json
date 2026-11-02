@@ -1,0 +1,153 @@
+{
+  "locale": "cs",
+  "taskClass": "translation-edit",
+  "status": "incomplete",
+  "outcome": "finite-assignment-not-completed",
+  "reviewReady": false,
+  "readyForIndependentReview": false,
+  "scopeComplete": false,
+  "blocker": null,
+  "failureReason": "This execution did not complete the finite assignment. Remaining authoring is authorized and actionable; no external, source, runtime or permission blocker has been established. Do not treat this partial result as ordinary phase completion or as a review-ready handoff.",
+  "actualRuntime": {
+    "session": {
+      "id": "01a19be1-9c45-7aa1-8f3d-4dba229f8689",
+      "source": "exec",
+      "model_provider": "openai",
+      "parent_thread_id": null
+    },
+    "turn": {
+      "model": "gpt-6.1-sol",
+      "effort": "high"
+    }
+  },
+  "runtimeEvidence": {
+    "path": "outputs/six-next-locales-20261102-01/cs/author-01/runtime-verification.json",
+    "sha256": "0a19fd4b75c9947a4a5c9ac44d48ab2489d7ca6287c7452fbed2b24a17c6bd2c"
+  },
+  "immutablePinsVerified": 40,
+  "language": {
+    "path": "localization/languages/cs.json",
+    "sha256": "1a3820d2511d82c5490c7d60a59c6707907be470514fcbb4b739a7725e191eb0"
+  },
+  "partialSnapshot": {
+    "path": "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-01/partial-language-234.json",
+    "sha256": "1a3820d2511d82c5490c7d60a59c6707907be470514fcbb4b739a7725e191eb0"
+  },
+  "scope": {
+    "catalog": 14606,
+    "ordinaryTotal": 12825,
+    "ordinaryAuthored": 234,
+    "ordinaryNull": 12591,
+    "protectedTotal": 1781,
+    "protectedExact": 1781,
+    "specialCasesTotal": 23,
+    "specialCasesPrepared": 4,
+    "specialCasesRemaining": 19,
+    "primaryAuditReviewed": 0,
+    "primaryAuditPending": 12825,
+    "independentReviewed": 0
+  },
+  "completedUsefulWork": [
+    "Verified fresh gpt-6.1-sol/high/OpenAI/null-parent runtime before localized input and all40 immutable pins.",
+    "Read all171 English/Czech approved glossary pairs and retained existing684 field acceptance cells; no new glossary acceptance.",
+    "Authored125 haiku dialogue targets and9 paired managed labels, read full259-node source context and all27 actual source/target compositions, recorded scansion and author decisions.",
+    "Authored7 admitted narrative pages across42 exact selected fields; retained108 held selectors outside selected catalog.",
+    "Authored35 sugar/lubricant item, quest and callback units with one quantity correction and exact saved-version self-read.",
+    "Authored23 complete Adventure title/body/status/notification units; preserved23 size-tag sequences and newline counts.",
+    "Read actual pinned Font439 face and verified current234-draft raw/NFC/NFD supply, positive space/ordinary advances and Czech script probe. No replacement font or layout values introduced.",
+    "Validated selected source coverage and1781 exact protected values. Saved immutable partial snapshot,234 author read/version bindings and complete pending ID lists."
+  ],
+  "caseEvidence": [
+    {
+      "path": "localization/case-decisions/six-next-locales-20261102-01/cs/author-01/haiku-decision.json",
+      "sha256": "8c1c5a4fd7576ca4fd9659be333af25f6b382c7f5d66fbd84598154271276f49"
+    },
+    {
+      "path": "localization/case-decisions/six-next-locales-20261102-01/cs/author-01/narrative-decision.json",
+      "sha256": "0ea5a1bec60e437899cd40321d2bdce6063af3a5528ff9b6356f7c20868cf9ec"
+    },
+    {
+      "path": "localization/case-decisions/six-next-locales-20261102-01/cs/author-01/sugar-decision.json",
+      "sha256": "9e51655c3f290e8962b46454b5f07b710483b71c3d874bad8420cdfb5365b6e2"
+    },
+    {
+      "path": "localization/case-decisions/six-next-locales-20261102-01/cs/author-01/adventure-decision.json",
+      "sha256": "65365bce3a4fc82e19fc56e6077f48b4efed4ee128651be00f8efa4b961e3881"
+    }
+  ],
+  "evidence": {
+    "authoredPacket": {
+      "path": "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-01/authored-234.jsonl",
+      "sha256": "83045ae8909237fcfa7aecdffea0ae4645fe323d2c463440ec93a03dc30a71b3"
+    },
+    "authorReadBindings": {
+      "path": "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-01/author-read-bindings-234.jsonl",
+      "sha256": "1fcc2cc1e81fe890b98d50b31ba7d89d1f069a6693f7f409af11d7b52634e2f6"
+    },
+    "untranslatedIds": {
+      "path": "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-01/untranslated-ids.json",
+      "sha256": "f6c96ae756f54bde58e9e3c8ddc1c707aee7075d764638046cdb430df8232d78"
+    },
+    "primaryPendingIds": {
+      "path": "localization/editorial-delivery/six-next-locales-20261102-01/cs/author-01/primary-audit-pending-ids.json",
+      "sha256": "c2015593c32a9bf0b4ce4e18b1a39e5df9789fa6b97a20f538bd86b7b032ce66"
+    },
+    "protectedComparison": {
+      "path": "outputs/six-next-locales-20261102-01/cs/author-01/protected-partial234.json",
+      "sha256": "52e98fcf1396c3d100cf8b1781392d87edfe581174968ce41274e2612698407b"
+    },
+    "validation": {
+      "path": "outputs/six-next-locales-20261102-01/cs/author-01/validation-partial234.json",
+      "sha256": "2c115ce935d2c29f58429cd2e11840b5ff4c6071b981d9ed06cce7b46c089cb5"
+    },
+    "fontDraftOnly": {
+      "path": "outputs/six-next-locales-20261102-01/cs/author-01/font-requirements-draft234.json",
+      "sha256": "c4f3f3d48fc17b9dd74f4ee9f94a5f7a714aa5d2d1258085dd64aa564baadca2"
+    },
+    "checkpoint": {
+      "path": "outputs/six-next-locales-20261102-01/cs/author-01/checkpoint.json",
+      "sha256": "ce9e87f11060dac59f702a3b5a70f366d7c0e4381af53588f0ad075210c3d4a4"
+    }
+  },
+  "unperformedRequiredWork": [
+    "Actual wording/solution decisions for remaining19 special cases, before ordinary batches.",
+    "All12591 remaining null targets.",
+    "Complete12825-unit semantic/native primary audit, consolidated findings/corrections and exact final self-delta.",
+    "Final complete-corpus font/role requirements.",
+    "tools/locale_review_work.py prepare for complete newly-authored independent review packet; not run because authoring/primary audit remain incomplete."
+  ],
+  "nextAction": "Continue the same authorized finite assignment from these versioned artifacts: settle remaining19 special-case groups, complete12591 null targets, perform full12825 primary audit/corrections and only then prepare complete independent review.",
+  "nextTask": null,
+  "authorityPreserved": {
+    "nestedModelOrAgent": false,
+    "git": false,
+    "oldQueue": false,
+    "gameGUI": false,
+    "screenshot": false,
+    "installer": false,
+    "publication": false,
+    "deployment": false,
+    "serverAction": false
+  },
+  "native": "not-authorized-not-run",
+  "resourceCompilation": "parent-owned-after-editorial-closure;not-run",
+  "glossaryHumanNSFW": "owner-deferred",
+  "usage": {
+    "sessionId": "01a19be1-9c45-7aa1-8f3d-4dba229f8689",
+    "actualModel": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "counts": {
+      "input_tokens": 12086513,
+      "cached_input_tokens": 11819008,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 49628,
+      "reasoning_output_tokens": 20968,
+      "total_tokens": 12136141
+    },
+    "measurementCutoffUtc": "2026-11-02T11:18:47.553156+00:00",
+    "method": "Latest nonoverlapping cumulative token_count total_token_usage of this fresh exec session. Cached input is included in input; reasoning is included in output.",
+    "unmeasuredTail": "Current accounting tool completion and final response are outside this cutoff; platform overhead unknown.",
+    "parentOrchestration": "Not available in this worker session; unknown, not zero."
+  }
+}

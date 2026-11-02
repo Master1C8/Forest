@@ -1,0 +1,9 @@
+{
+  "paths": [
+    "localization/completion/six-next-locales-20261102-01/continue-authoring-01/cs/brief.md",
+    "localization/completion/six-next-locales-20261102-01/continue-authoring-01/he/brief.md"
+  ],
+  "condition": "One additional blank EOF line per frozen live control brief, with byte-identical phase copies. No semantic/control/other whitespace defect.",
+  "preservation": "These already dispatched immutable inputs are retained unchanged; no live job input is reformatted to satisfy a cosmetic Git check.",
+  "check": "Normal git diff --cached --check on every other staged file; exact two-path check with only blank-at-eof disabled. All other whitespace checks remain active."
+}

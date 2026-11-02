@@ -1,0 +1,107 @@
+{
+  "status": "incomplete",
+  "reviewReady": false,
+  "summary": "Finite assigned work not completed. Saved2492 directly authored preparatory targets;10333 ordinary dialogue targets remain unauthored. Full primary audit,23-case closure and independent-review-ready handoff are not complete.",
+  "blocker": null,
+  "incompletionAccounting": "No external/source/permission blocker was established. This is unfinished authorized work, not a completed finite phase or a material-blocker claim.",
+  "locale": "bg",
+  "executionStage": "translate-edit",
+  "runtime": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "parentThreadId": null,
+    "freshExec": true,
+    "sessionId": "01a19be1-8a11-7da3-b67a-ad068f840327",
+    "verifiedBeforeLocalizedInput": true
+  },
+  "counts": {
+    "ordinaryTotal": 12825,
+    "authoredPreparatoryDraft": 2492,
+    "remainingUnauthored": 10333,
+    "canonicalOrdinaryApplied": 0,
+    "primaryAuditRead": 0,
+    "independentlyAccepted": 0,
+    "protectedTotal": 1781,
+    "protectedExactComparisons": 1781,
+    "specialCasesTotal": 23,
+    "specialCasesSettled": 0
+  },
+  "draft": {
+    "path": "localization/case-decisions/six-next-locales-20261102-01/bg/author-01/preparatory-draft-2492.jsonl",
+    "sha256": "2c7886995ebc8b843c06142932c75b86484644c3997a7dd488583f895dcdda09",
+    "actualAuthoredTargets": 2492,
+    "nonDialogue": 2360,
+    "specialDialogue": 132,
+    "appliedToCanonicalLanguage": false,
+    "selectionRule": "Use this complete JSONL, not historical TSV drafts or smaller candidates."
+  },
+  "checkpoint": {
+    "path": "outputs/six-next-locales-20261102-01/bg/author-01/checkpoint.json",
+    "sha256": "98f5000f08e01f5fb84e12127f9bf812911eb1b24a5f365fa0a4b6018d39fa9f"
+  },
+  "preflight": {
+    "path": "outputs/six-next-locales-20261102-01/bg/author-01/preparatory-preflight-2492.json",
+    "sha256": "eb0098b4f9a2be1fb72c67aa420be71ad177a5bba294ed5527654d8415936371"
+  },
+  "unread": {
+    "path": "outputs/six-next-locales-20261102-01/bg/author-01/primary-unread-current-12825.jsonl",
+    "sha256": "ad3eb7c37a58ce893398d406e142647b436567cafc1b3af6929c1f0a1a1713af",
+    "count": 12825
+  },
+  "unauthored": {
+    "path": "outputs/six-next-locales-20261102-01/bg/author-01/unauthored-10333.txt",
+    "sha256": "9442a2e0b7ec4597091ce3b63f198f4107105c228653006710b3ca5aa4060be5",
+    "count": 10333
+  },
+  "fontEvidence": {
+    "path": "outputs/six-next-locales-20261102-01/bg/author-01/font-requirements-2492.json",
+    "sha256": "9ae36b2144aec548d52e6826932d035c88180712c7b991c9155a2ce348f23495",
+    "scope": "Exact2492-unit incomplete draft; no final role allocation or native acceptance"
+  },
+  "caseWorkStatus": {
+    "path": "localization/case-decisions/six-next-locales-20261102-01/bg/author-01/case-work-status.json",
+    "sha256": "737b35068f7d1728f15096c37562531f93757c31041c617421c10a9110c810a3"
+  },
+  "usage": {
+    "path": "outputs/six-next-locales-20261102-01/bg/author-01/usage-checkpoint-final.json",
+    "sha256": "10624cca3e20c352bcf5675d2b26c3bfc118b55772ad043a91fd99f47dc8ce0c",
+    "counters": {
+      "input_tokens": 14335492,
+      "cached_input_tokens": 14057856,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 71250,
+      "reasoning_output_tokens": 27830,
+      "total_tokens": 14406742
+    },
+    "cutoff": "2026-11-02T11:32:46.682411+00:00",
+    "tail": "unmeasured"
+  },
+  "canonicalLanguageUnchanged": true,
+  "git": "not-used-owner-excluded",
+  "native": "not-authorized-not-run",
+  "resources": "not-built-parent-owned-after-independent-editorial",
+  "nextTask": {
+    "kind": "work",
+    "taskClass": "translation-edit",
+    "executionStage": "translate-edit",
+    "title": "Complete the unfinished Bulgarian finite authoring and primary-editing assignment",
+    "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+    "sourcePacketSha256": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+    "entryPins": {
+      "task": "64ae81207fb336a2ad3055c4b07f8643af38bdcaee6be8a367f4aa8cb5f33135",
+      "draft": "2c7886995ebc8b843c06142932c75b86484644c3997a7dd488583f895dcdda09",
+      "caseWorkStatus": "737b35068f7d1728f15096c37562531f93757c31041c617421c10a9110c810a3",
+      "unread": "ad3eb7c37a58ce893398d406e142647b436567cafc1b3af6929c1f0a1a1713af"
+    },
+    "instructions": "Finish23-case actual context/assembly/retention decisions and exact self-read of preparatory wording; only then apply and author remaining10333 dialogue targets. Complete full12825 primary audit, consolidated corrections/exact self-delta and parent-owned independent handoff. No ordinary batch or review-ready handoff has been completed.",
+    "launchAuthority": "No worker/model/agent launched here; continuation remains with the owning parent. Preserve drafts and do not interpret them as accepted coverage."
+  },
+  "independentReviewNextAfterAuthoring": {
+    "kind": "work",
+    "taskClass": "semantic-review",
+    "scope": "All12825 exact final newly authored ordinary versions, complete source/target/context and required regressions",
+    "ready": false,
+    "packet": "not-prepared-until-complete-final-primary-editing"
+  }
+}
