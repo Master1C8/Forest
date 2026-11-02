@@ -1,0 +1,41 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/last-six-locales-20261103-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "streamCap": 1,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/last-six-locales-20261103-01/hi-author-lifecycle-01",
+  "phasePrefix": "author-auto",
+  "editorialRoot": "localization/editorial-delivery/last-six-locales-20261103-01",
+  "caseRoot": "localization/case-decisions/last-six-locales-20261103-01",
+  "lanes": [
+    {
+      "locale": "hi",
+      "phase": "outputs/last-six-locales-20261103-01/hi/author-01",
+      "language": "localization/languages/hi.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/hi-authoring-01/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/hi/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/hi/author-01",
+        "localization/case-decisions/last-six-locales-20261103-01/hi/author-01"
+      ]
+    }
+  ],
+  "immutablePins": {
+    "localization/completion/last-six-locales-20261103-01/hi-authoring-01/lifecycle/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/last-six-locales-20261103-01/hi-authoring-01/lifecycle/runtime/locale_cli_lifecycle.py": "ab3396d96cc285a0ec3dc9de92f5cf3e1b26d49ed716987f2d25db3c54a2a9eb",
+    "localization/completion/last-six-locales-20261103-01/hi-authoring-01/task.json": "f7683f93fdf5c0f42d50cd8a2b4f5f1b90a0cf3ee7c434b7decfa6889dc71847"
+  },
+  "authority": "Continue only the new owner-approved Hindi static author assignment after exact own terminal receipts and actual new Sol/high/OpenAI turns. No inherited parent/fork, technical extra stream, native/publication/server action. Keep rendering risk accepted but native acceptance unverified."
+}
