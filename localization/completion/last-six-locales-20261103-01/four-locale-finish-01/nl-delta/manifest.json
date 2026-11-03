@@ -1,0 +1,19 @@
+{
+  "run": "last-six-locales-20261103-01",
+  "stage": "nl-independent-delta-01",
+  "lanes": [
+    {
+      "locale": "nl",
+      "phase": "outputs/last-six-locales-20261103-01/nl/independent-delta-01",
+      "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-delta",
+      "taskClass": "semantic-review"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "maxConcurrentModelProcesses": 1,
+  "overallModelProcessCap": 6,
+  "authority": "Continue the owner-authorized four-locale completion with one fresh exact independent repair review. No inherited history, extra technical stream or worker native/publication authority."
+}
