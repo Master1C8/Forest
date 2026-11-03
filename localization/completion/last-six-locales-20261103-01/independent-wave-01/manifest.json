@@ -1,0 +1,43 @@
+{
+  "run": "last-six-locales-20261103-01",
+  "stage": "independent-wave-01",
+  "lanes": [
+    {
+      "locale": "hu",
+      "phase": "outputs/last-six-locales-20261103-01/hu/independent-01",
+      "control": "localization/completion/last-six-locales-20261103-01/independent-wave-01/hu",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "nl",
+      "phase": "outputs/last-six-locales-20261103-01/nl/independent-01",
+      "control": "localization/completion/last-six-locales-20261103-01/independent-wave-01/nl",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "ro",
+      "phase": "outputs/last-six-locales-20261103-01/ro/independent-01",
+      "control": "localization/completion/last-six-locales-20261103-01/independent-wave-01/ro",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "sr",
+      "phase": "outputs/last-six-locales-20261103-01/sr/independent-01",
+      "control": "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr",
+      "taskClass": "semantic-review"
+    },
+    {
+      "locale": "sw",
+      "phase": "outputs/last-six-locales-20261103-01/sw/independent-01",
+      "control": "localization/completion/last-six-locales-20261103-01/independent-wave-01/sw",
+      "taskClass": "semantic-review"
+    }
+  ],
+  "authority": "Continue the five complete original locale CLI assignments through fresh independent full reviews. The sixth stream continues the existing owner-approved Hindi author task. No new technical stream or native/publication authority.",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "maxConcurrentModelProcesses": 5,
+  "overallModelProcessCap": 6
+}

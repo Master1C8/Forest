@@ -61,6 +61,37 @@ class LifecycleTests(unittest.TestCase):
         result['language']['sha256'] = 'stale'
         self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
 
+    def test_explicit_outcome_incomplete_continues_without_overriding_real_blockers_or_unknown_status(self):
+        result = {'outcome': 'incomplete', 'taskCompleted': False, 'reviewReady': False}
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], self.summary), 'continue-own-authoring')
+        life.save(self.phase / 'result.json', result)
+        with patch.object(life, 'process_identity', return_value=None), patch.object(self.supervisor, 'launch') as launch:
+            self.supervisor.tick(self.lane)
+            launch.assert_called_once()
+        result['blocker'] = 'Actual unresolved source prerequisite'
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], self.summary), 'held-real-blocker')
+        result.pop('blocker')
+        result['status'] = 'unknown'
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], self.summary), 'needs-attention-unclassified-result')
+
+    def test_top_level_language_hash_and_path_bindings_require_exact_unambiguous_current_version(self):
+        full = dict(self.summary, remaining=0)
+        for path_value in (None, 'language.json'):
+            result = {'status': 'review-ready', 'languageSha256': full['sha256']}
+            if path_value:
+                result['language'] = path_value
+            self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-parent-independent-review-verification')
+            self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], self.summary), 'needs-attention-invalid-ready-claim')
+            result['language'] = {'sha256': 'contradictory'}
+            self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
+            result['language']['sha256'] = full['sha256']
+            result['languageSha256'] = 'stale'
+            self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
+        result = {'status': 'review-ready', 'finalLanguageSha256': full['sha256'], 'finalLanguage': {'sha256': full['sha256']}}
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-parent-independent-review-verification')
+        result['finalLanguage']['sha256'] = 'stale'
+        self.assertEqual(life.classify({'exitCode': 0}, result, USAGE, [], full), 'needs-attention-invalid-ready-claim')
+
     def test_existing_canonical_language_alias_requires_exact_unambiguous_binding(self):
         full = dict(self.summary, remaining=0)
         result = {'status': 'review-ready', 'canonicalLanguage': {'path': 'language.json', 'sha256': full['sha256']}}

@@ -1,0 +1,18 @@
+{
+  "namedDefect": "Closed finite author result status-envelope routing",
+  "firstDivergence": "Result -> lifecycle classification: Hindi outcome=incomplete without status was unclassified; hu/sr exact final hashes were rejected by the narrow language-dictionary schema.",
+  "repair": "Normalize existing exact top-level/finalLanguage hash bindings; recognize unfinished outcome only when status absent. Real blockers, unknown conflicting status, missing targets and contradictory/stale hashes still reject.",
+  "regression": {
+    "command": "python3 -B -m unittest discover -s tools -p 'test_locale_*lifecycle.py' -q",
+    "passed": true,
+    "tests": 29,
+    "boundary": "Unit and supervisor-tick tests mock model launch/process state; actual new runtime verification is separate."
+  },
+  "changes": {
+    "tools/locale_cli_lifecycle.py": {
+      "beforeSha256": "ab3396d96cc285a0ec3dc9de92f5cf3e1b26d49ed716987f2d25db3c54a2a9eb",
+      "afterSha256": "2df59b1cdf8725eafb2538d85194a6219c5d491075264790d1a3c97ab612cf52"
+    }
+  },
+  "historicalInputs": "Old launchers, frozen runtime, classifications and result envelopes preserved. No accepted independent judgments created."
+}

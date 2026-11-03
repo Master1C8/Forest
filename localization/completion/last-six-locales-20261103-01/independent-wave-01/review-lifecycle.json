@@ -1,0 +1,83 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/last-six-locales-20261103-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "streamCap": 5,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/last-six-locales-20261103-01/independent-lifecycle-01",
+  "phasePrefix": "review-auto",
+  "editorialRoot": "localization/editorial-delivery/last-six-locales-20261103-01",
+  "caseRoot": "localization/case-decisions/last-six-locales-20261103-01",
+  "lanes": [
+    {
+      "locale": "hu",
+      "phase": "outputs/last-six-locales-20261103-01/hu/independent-01",
+      "language": "localization/languages/hu.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/independent-wave-01/hu/task.json",
+      "fullReviewPacket": "localization/editorial-delivery/last-six-locales-20261103-01/hu/author-auto-0001/independent-review/review-packet.jsonl",
+      "fullReviewPacketSha256": "04e00b14dc56b1557a8eaf2118f9be4fb696b33e3de91e47107f52a376dae416",
+      "status": "adopted-running",
+      "sequence": 0
+    },
+    {
+      "locale": "nl",
+      "phase": "outputs/last-six-locales-20261103-01/nl/independent-01",
+      "language": "localization/languages/nl.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/independent-wave-01/nl/task.json",
+      "fullReviewPacket": "localization/editorial-delivery/last-six-locales-20261103-01/nl/author-auto-0001/independent-scope/review-packet.jsonl",
+      "fullReviewPacketSha256": "e44672e9742942c3103412b48a45a24bf66829efed4b12bb5aa44a677551cf44",
+      "status": "adopted-running",
+      "sequence": 0
+    },
+    {
+      "locale": "ro",
+      "phase": "outputs/last-six-locales-20261103-01/ro/independent-01",
+      "language": "localization/languages/ro.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/independent-wave-01/ro/task.json",
+      "fullReviewPacket": "localization/editorial-delivery/last-six-locales-20261103-01/ro/author-auto-0001/independent-review-01/review-packet.jsonl",
+      "fullReviewPacketSha256": "4e93764efd60a17f793a540d321b706240a5e2b1e0d10047283e2a4add466661",
+      "status": "adopted-running",
+      "sequence": 0
+    },
+    {
+      "locale": "sr",
+      "phase": "outputs/last-six-locales-20261103-01/sr/independent-01",
+      "language": "localization/languages/sr.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr/task.json",
+      "fullReviewPacket": "outputs/last-six-locales-20261103-01/sr/author-auto-0001/independent-review-scope-01/review-packet.jsonl",
+      "fullReviewPacketSha256": "4ac1782930ed0f7be6fa395a95a65fca7314884b1310b02de2727f3de26bee1b",
+      "status": "adopted-running",
+      "sequence": 0
+    },
+    {
+      "locale": "sw",
+      "phase": "outputs/last-six-locales-20261103-01/sw/independent-01",
+      "language": "localization/languages/sw.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/independent-wave-01/sw/task.json",
+      "fullReviewPacket": "outputs/last-six-locales-20261103-01/sw/author-01/independent-review-scope/review-packet.jsonl",
+      "fullReviewPacketSha256": "c533a9b46fad020ffc56b35422e417da685230f9340cd809b6ded536ca0ec890",
+      "status": "adopted-running",
+      "sequence": 0
+    }
+  ],
+  "immutablePins": {
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/locale_cli_lifecycle.py": "2df59b1cdf8725eafb2538d85194a6219c5d491075264790d1a3c97ab612cf52",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/locale_review_lifecycle.py": "eadfe6ae1565d9d649674294043eb607efaedbf9c8d8a45c8464f9f10b8771a5",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/hu/task.json": "665f7eaf2f1fc0888d18e5dfbbc7ee253757c990bd046963d5980b2818c89f0a",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/nl/task.json": "3ae774030920c66f3e682e4ae81c9054c585bbbe8deb285ebc7ace2f367910b8",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/ro/task.json": "33ed41e3f2bd974b8672132396ab91dcb1d4c35fb228478c7f40168b84a7d5a5",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr/task.json": "b9e1bac5c964107f9b0cf9fa6f0e9a822851163edf2c6efbf9a5f5c8325a73d1",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/sw/task.json": "98c2421b23b81024df7dcb4bce5d6d6bd2b8de0dfc407b1c12bc447a43cbfc4f"
+  },
+  "authority": "Adopt only the five fresh independent full reviewers, retaining their own exact actual judgments and same-task continuation. Zero model requests at adoption. No author history, extra technical stream, native/publication/server action."
+}

@@ -1,0 +1,41 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/last-six-locales-20261103-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "streamCap": 1,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/last-six-locales-20261103-01/hi-author-lifecycle-02",
+  "phasePrefix": "author-auto",
+  "editorialRoot": "localization/editorial-delivery/last-six-locales-20261103-01",
+  "caseRoot": "localization/case-decisions/last-six-locales-20261103-01",
+  "lanes": [
+    {
+      "locale": "hi",
+      "phase": "outputs/last-six-locales-20261103-01/hi/author-01",
+      "language": "localization/languages/hi.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/independent-wave-01/hi-owner-task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/hi/author-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/hi/author-01",
+        "localization/case-decisions/last-six-locales-20261103-01/hi/author-01"
+      ]
+    }
+  ],
+  "immutablePins": {
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/locale_cli_lifecycle.py": "2df59b1cdf8725eafb2538d85194a6219c5d491075264790d1a3c97ab612cf52",
+    "localization/completion/last-six-locales-20261103-01/independent-wave-01/hi-owner-task.json": "525a0159bb7b3163bb00456c54aa29e70a18f8bb000168bc6c89296cad7a4c0f"
+  },
+  "authority": "Continue the existing owner-approved Hindi author task in its same own verified Sol/high/OpenAI session after the named incomplete-outcome routing repair. Preserve all old drafts and case evidence. No new technical stream, inherited parent/fork, native/publication/server action."
+}

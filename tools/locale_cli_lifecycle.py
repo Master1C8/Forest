@@ -168,13 +168,18 @@ def classify(receipt, result, usage, errors, language):
     if ready:
         # Existing author contracts use both exact names. Do not silently prefer
         # one if a report supplies contradictory bindings.
-        bindings = [result[key] for key in ('language', 'canonicalLanguage')
+        bindings = [result[key] for key in ('language', 'canonicalLanguage', 'finalLanguage')
                     if isinstance(result.get(key), dict)]
-        if (language['remaining'] or not bindings or
-                any(binding.get('sha256') != language['sha256'] for binding in bindings)):
+        hashes = [binding.get('sha256') for binding in bindings]
+        hashes.extend(result[key] for key in ('languageSha256', 'finalLanguageSha256') if key in result)
+        if (language['remaining'] or not hashes or
+                any(value != language['sha256'] for value in hashes)):
             return 'needs-attention-invalid-ready-claim'
         return 'needs-parent-independent-review-verification'
-    if status in ('incomplete', 'in-progress', 'incomplete-authoring'):
+    unfinished = ('incomplete', 'in-progress', 'incomplete-authoring')
+    # Author receipts may put the same explicit state in outcome. A missing
+    # status must not strand valid work, and a conflicting status is not ignored.
+    if status in unfinished or (not status and result.get('outcome') in unfinished):
         return 'continue-own-authoring'
     return 'needs-attention-unclassified-result'
 

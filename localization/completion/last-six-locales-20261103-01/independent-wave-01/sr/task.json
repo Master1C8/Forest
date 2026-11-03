@@ -1,0 +1,143 @@
+{
+  "job": {
+    "locale": "sr",
+    "culture": "sr",
+    "writePrefixes": [
+      "outputs/last-six-locales-20261103-01/sr/independent-01"
+    ],
+    "immutablePins": {
+      "localization/completion/five-new-locales-20261101-01/source-context.jsonl": "19b5e964254076441d3a6f31dd2b34f58d46ba12132193c73c67347b57923803",
+      "localization/completion/five-new-locales-20261101-01/glossary-en.json": "32a7a73776b9d3d5f61e68773c0f659d4911a2693a7650e84384ca75cdcfbc41",
+      "localization/completion/five-new-locales-20261101-01/source-preservation.json": "f4a3b8bed6ba62fa3c72ad3fc4ccc7befc17e451b7a9554fcc68a43532053f66",
+      "localization/completion/five-new-locales-20261101-01/source-prefix-context.json": "efffd5a54defd19f432e0b296812c9d3f47cefde730d08f808659b773626dce3",
+      "localization/completion/five-new-locales-20261101-01/special-source-cases.json": "52c25d0c3bf1b2e9d7b44d41d55ca616d2599f7ac6044e9d8d20a106d11ac748",
+      "localization/completion/five-new-locales-20261101-01/actor-roster.json": "278cd93f75fa251a038b7328c721b3c32abf2cf8ad149f7bb60bcb0df18af277",
+      "localization/completion/five-new-locales-20261101-01/poetry-authority.json": "61eaa9a19f7c7d64fb6a3e2a3350a7108524471bcf33f67c48120ccdeca0fdf8",
+      "localization/completion/five-new-locales-20261101-01/source-safety-01/index.json": "0d63f05f45c3aea3dc232e3c400d3528d9460408e0e1b12dee0c66e122564deb",
+      "localization/completion/five-new-locales-20261101-01/source-safety-01/haiku-source-controls.json": "8264246c16b77b7221bb4884da84953cb4441199235320ccea97af39cf380934",
+      "localization/completion/five-new-locales-20261101-01/source-safety-01/narrative150-source-only.jsonl": "090f04faa618f5af47789c99b95eece82ffddc02ea8a87a3e56371baa28b9bca",
+      "AGENTS.md": "db3336cda33b586550d433c54b6b04b711a3e2f93449a988547e5e56686d83a2",
+      "LOCALIZATION.md": "09d706dffe65265d7e0fa9e127061f93bac9f6b7000d8959a20790d41ccad46f",
+      "localization/PROCESS.md": "e9b48376525978067f84e8efe442b035440497c7fd1bb17fb02de9eae9f896c1",
+      "localization/completion/process-spec.json": "5b17f8d3dbfd4fa797d521c8847f3ef13a5482b018814c3f44425c02f617c747",
+      "localization/framework/forest045-shared-v2/framework.json": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f",
+      "tools/forest_localization/core.py": "83b92c03fa98eecf71dee57cfdff499d50b75ac31fa31e488f5c30a4f5f1c1dd",
+      "tools/locale_efficiency.py": "4628489f6996a16d3e84a50334691061fba7e033252a7841e299c0779a474cef",
+      "tools/locale_review_work.py": "9d4a52056afd5c24aa2b0d987a5913c4c8592c191031bc94f0c02773358e722f",
+      "tools/cli_runtime_identity.py": "f75cf5c9198cdaf7c5b92afa68bfe42a26fe3f114db03a48aaaf01e30326b14a",
+      "tools/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+      "localization/fonts/README.md": "e3107d191d8ff016fad99b22e52bb7fba90332b3fb64a79172a09e5888a8fef5",
+      "/Users/antonkrutov/.codex/instructions/sitefor-mods.md": "3ef8d75a62dd323cfa1bb536ee30a9c5e75ca3800af55729440e1f3a12894ebf",
+      "/Users/antonkrutov/.codex/instructions/game-localization-prompt.md": "68acfd48b4408a53af62bc0b021f355f25d089d784d417fe24f30fba3be935dd",
+      "/Users/antonkrutov/.codex/instructions/game-localization-audit-workflow.md": "37ff4269163b17cab4030c2d1c78651f7a79b9c8be3d569a2b9ea7f17748a5dc",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/SKILL.md": "709a5830d98842a0636e799230b68219057b36d0fd0d1dce0b78e7c5f32e2c12",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/COMMON.md": "0a3395e91ea72d756816a352a536d93fee48f94e1231904d5c7b2e6bc05dc541",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/WORKFLOW.md": "2aac4ad0036750ac212187982dad7b860957b87b2696390deb8fc5917a651200",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/CHECKPOINT.md": "de6fcd0119aceda9edeed0850eaa659b10aaf8e7cfc7e7c22ce7c627c9849b25",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/SPECIAL-SCENES.md": "905db2df1eaf945ec3a7c45e45c2478e2496bd98618464f5d9bcb0495861cc60",
+      "/Users/antonkrutov/.codex/skills/vn-game-localize/references/CHARACTERS.md": "140cbbb3d598f8255e1442a8b13bfd24f6f0253934a68c486fe2b9821ac27de1",
+      "assets/source-v2/trees/90744c19ec-resources.assets-439.json": "cfe8ca69ac61b9963ef179e9a7734034706e4894a5a2a879afdc04d445c8302f",
+      "localization/completion/last-six-locales-20261103-01/authoring-contract.md": "d9daa41c3b75725df135c5424bb72b5f21b330793c0e86c85a28702712e6eaf5",
+      "localization/completion/last-six-locales-20261103-01/prepare.py": "4173471a4fcdaed3766eb2e49fbf95a8c7cfc50b4ad81968b6174f515593c698",
+      "localization/completion/last-six-locales-20261103-01/eligibility-audit.json": "80ebc85f79da35195e6d73518bd474b549976e6af9e7674da18a442f85486565",
+      "localization/completion/last-six-locales-20261103-01/sr/glossary.json": "c612081a7780a79a4e59a7fc86f965429baa798df303f5f414dc5e4cee72a05a",
+      "localization/completion/last-six-locales-20261103-01/sr/glossary-coverage.json": "5ac43b87fea61fd3bb1b7abafcd32ceb83566fa97dfbce063a3701b6063f7720",
+      "localization/completion/last-six-locales-20261103-01/sr/name-decisions.json": "bb5e456a126e7e4496fbf47e88935923c6dfd36961849afd574df4f6d1804c65",
+      "localization/completion/last-six-locales-20261103-01/sr/locale-config.json": "5e6944e0b8d9099f38002ce518016c1a60285411a24fc289da834e140f06de0d",
+      "localization/completion/last-six-locales-20261103-01/sr/language-at-launch.json": "6f537dda8471c6d97e37733712d0b5c0d747a7c7f0db6f670ea94c3dd7b5a540",
+      "localization/source/quest-family-ui-20261028/special-decisions/sr.json": "83cb0afc5a98dd64e79b32480825d7d94de3f6f3f26540c8376badb420b79c6f",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/independent-review-scope-01/review-packet.jsonl": "4ac1782930ed0f7be6fa395a95a65fca7314884b1310b02de2727f3de26bee1b",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/independent-review-scope-01/scope.json": "c43dea5357a7a4e043c6caed93022a6e5a55210472de4daf6c5e7cf3c908af10",
+      "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/entry-pins.jsonl": "6daaf99191d5dae60eac5ccf8c04a57410d1e7e11ebd84f9599128d12b8f02a0",
+      "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/language-final.json": "4969bacfce2d88f2b955ac500ef370c56e5fc787602c8fdf007206112f18ffba",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/context-documents-final-02.jsonl": "7cf1a023528ca6e68db63c739d694cb168f982975ff78f534106545543da7b2c",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/protected-full-context-01.jsonl": "5525c109011e1f30b87041ab50953026065f4dc38987492180f95d73084e0195",
+      "localization/case-decisions/last-six-locales-20261103-01/sr/author-auto-0001/case-decisions-02.json": "c01e3fe8a4565a3daa2d8840add70a6f2e90fb878a49c339c29dcdb221c554c2",
+      "localization/case-decisions/last-six-locales-20261103-01/sr/author-auto-0001/haiku-02.json": "2a4daff59949bae937f3176d83ef74b461c552b7ccf8dc3c005102bbdfc9965a",
+      "localization/case-decisions/last-six-locales-20261103-01/sr/author-auto-0001/heading-assembly-02.json": "3568ec3cfe3de5bdea6eb3c4fd2fc97ed08dafd2e4d6a9cc85c502068df6793a",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/final-font-role-plan-01.json": "f359012d671bac91720b1367fb1d382700e6a690e34d2c258e5da34150e271ff",
+      "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/author-primary-manifest.json": "b10a60550c8f176869675e733175636cb67ddf337a2ca146ed4d0b16eff68c58",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/final-validation-01.json": "6670ca7f3e3b708d744d337b1d4f217a853474df380cab15e1a5946c09da31ac",
+      "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/primary-final-bindings.jsonl": "de35f6eff9dcb914a4f1a6cbd7f08d7433e191c2d488ee555eb56384722b85eb",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/result.json": "d2d80254ea1623bcc895080f53ad4b97428ccdc617481fa4fec035c49155c6c6",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/process-exit.json": "0bc9808feb5c1133beecd0e744685534e7cf78482067233aac5263585364eef3",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/runtime-verification.json": "4e1a76e882d80afa1ff1109aeab5f65d4752589867d8bc604a3cac7ea4cd6cbc",
+      "localization/languages/sr.json": "4969bacfce2d88f2b955ac500ef370c56e5fc787602c8fdf007206112f18ffba",
+      "localization/completion/last-six-locales-20261103-01/independent-wave-01/prepare.py": "fcd4877645d281481f2ed91342d3153593f2705701d37daf151c83c2aa892c08",
+      "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr/primary-ids.json": "f0c790c21d9f142fcd0b2675b7183ac34aab75189a304af140f48af3fcbd19f2",
+      "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr/brief.md": "b41b42864230a0c8d8d4c74f8745449ed9bf3c0755954eb20b2a68460d832561",
+      "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr/preflight.json": "e8e883170c4b21780eec807a49a0bd84081f14352099d8b38473286b8db18f07"
+    },
+    "initialLanguageSha256": "4969bacfce2d88f2b955ac500ef370c56e5fc787602c8fdf007206112f18ffba"
+  },
+  "task": {
+    "kind": "work",
+    "taskClass": "semantic-review",
+    "executionStage": "editorial",
+    "workCategory": "locale-content",
+    "title": "Independently review all 12825 final sr versions and required context",
+    "locale": "sr",
+    "culture": "sr",
+    "reviewPacket": "outputs/last-six-locales-20261103-01/sr/author-auto-0001/independent-review-scope-01/review-packet.jsonl",
+    "reviewPacketSha256": "4ac1782930ed0f7be6fa395a95a65fca7314884b1310b02de2727f3de26bee1b",
+    "reviewScope": {
+      "path": "outputs/last-six-locales-20261103-01/sr/author-auto-0001/independent-review-scope-01/scope.json",
+      "sha256": "c43dea5357a7a4e043c6caed93022a6e5a55210472de4daf6c5e7cf3c908af10"
+    },
+    "exactEntryPins": {
+      "path": "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/entry-pins.jsonl",
+      "sha256": "6daaf99191d5dae60eac5ccf8c04a57410d1e7e11ebd84f9599128d12b8f02a0"
+    },
+    "languageSnapshot": {
+      "path": "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/language-final.json",
+      "sha256": "4969bacfce2d88f2b955ac500ef370c56e5fc787602c8fdf007206112f18ffba"
+    },
+    "contextPackets": [
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/context-documents-final-02.jsonl",
+      "outputs/last-six-locales-20261103-01/sr/author-auto-0001/protected-full-context-01.jsonl"
+    ],
+    "expectedRuntime": {
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "parentThreadId": null,
+      "freshExec": true,
+      "inheritedHistory": false
+    },
+    "objective": "Read every one of the12825 assigned exact source/target/context versions, approved171 glossary pairs and required source/case/actor/haiku/assembly dependencies. Independently judge meaning, Serbian language quality, names, numbers, gender/agency/reveal timing, controls and literary solutions. Collect all objective findings before a consolidated repair and exact final delta. Protect1781 unchanged values. Author primary judgments are context, never independent acceptance.",
+    "constraints": [
+      "Parent owns dispatch; this author phase launches no reviewer.",
+      "Fresh explicitly pinned Sol/high/OpenAI, no inherited/forked parent history or nested model/agent.",
+      "No default pass rows or unread context credited as coverage.",
+      "No Git, old queue, game/GUI/screenshots, resource build, installer, publication, deployment or server action.",
+      "Native, font loading/layout, retained artwork, human NSFW and release gates remain separate."
+    ],
+    "authorAdaptationsToExamine": [
+      "Penny brand joke substitutes a naming-difficulty excuse and paired flight/cuddling/sex alternatives for an impossible literal surname rhyme.",
+      "Fannys is generalized to intimate parts to preserve textual exposure without unsupported dialect anatomy.",
+      "The retained icing quote is exact English plus Serbian meaning in inventory and final dialogue.",
+      "Haiku27 mixes keep source outcome identities and deliberate incongruity; named3/mixed24."
+    ],
+    "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+    "sourcePreservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+    "sourceGlossary": "localization/completion/five-new-locales-20261101-01/glossary-en.json",
+    "approvedLocaleGlossary": "localization/completion/last-six-locales-20261103-01/sr/glossary.json",
+    "glossaryCoverage": "localization/completion/last-six-locales-20261103-01/sr/glossary-coverage.json",
+    "nameDecisions": "localization/completion/last-six-locales-20261103-01/sr/name-decisions.json",
+    "sharedContract": "localization/completion/last-six-locales-20261103-01/authoring-contract.md",
+    "fullIndependentRequired": 12825,
+    "requiredPrimary": 12825,
+    "primaryIdsFile": {
+      "path": "localization/completion/last-six-locales-20261103-01/independent-wave-01/sr/primary-ids.json",
+      "sha256": "f0c790c21d9f142fcd0b2675b7183ac34aab75189a304af140f48af3fcbd19f2"
+    },
+    "authorThreadId": "01a19df5-b747-72b0-9fdd-babdaa21ef44",
+    "authorPrimaryBindings": {
+      "path": "localization/editorial-delivery/last-six-locales-20261103-01/sr/author-auto-0001/primary-final-bindings.jsonl",
+      "sha256": "de35f6eff9dcb914a4f1a6cbd7f08d7433e191c2d488ee555eb56384722b85eb",
+      "independent": false
+    },
+    "native": "not-authorized-not-run",
+    "resourceBuild": "wait-independent-editorial-closure"
+  }
+}
