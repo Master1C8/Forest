@@ -1,0 +1,43 @@
+{
+  "updatedAtUTC": "2026-11-03T11:27:25.741893+00:00",
+  "objective": "Finish reducing Forest to editable/rebuildable source plus required unfinished work, preserving saves and full Git metadata.",
+  "ownerApproved": [
+    "Private Master1C8/Forest repository and minimal rebuild backups",
+    "Remove protected Russian test copy after restore verification; preserve all saves"
+  ],
+  "alreadyDone": [
+    "3274 exact duplicate binary files removed,11,512,466,736 logical bytes; result.json and exact restore proof",
+    "Normal Dutch+Japanese build/check with OS-denied undeclared project reads;32 resource hashes passed in minimal-attempt-03/minimal-build-result.json",
+    "Private repo created and origin configured; full original main pushed without rewriting history",
+    "Hindi final author source committed2d5f36f97120de83b7856ab4367794f322d086db and pushed; all31 localization JSONs hash-matched pre-cleanup and remote main",
+    "Local owner saves preserved in place and duplicate local-only backup under localization/owner-saves/20261103",
+    "Owner game v1 archive195080892bytes and actual271-file restore verified; no game launch",
+    "Input v1 archive188215201bytes verified; v2 CAS+Git archive52004957bytes SHA949ed08d2a425d79829561913a54ba351e0936c44153cbcb11d43cdafe051bec with454 inputs and190payload blobs verified"
+  ],
+  "currentPlan": "source-retention-plan-final.json.gz",
+  "planSummary": "source-retention-summary-final.json",
+  "planTotals": {
+    "keepBytes": 1543299057,
+    "evidenceBytes": 16354212195,
+    "discardBytes": 43560413420
+  },
+  "liveKnown": "Only storage pack owner-game session42697 may still run; no model/game/server workers.",
+  "remaining": [
+    "Wait owner-game v2 pack, then restore it with metadata and verify; v1 has modes/mtime but not xattrs",
+    "Finalize evidence/companion/workspace source capsules using tools/forest_storage.py. Split companion rows from evidence if needed to stay under2GiB per Release asset. CAS+Git dedup means many historical bytes reuse already-pushed objects. Do not dump entire working folders. Preserve exact existing prior cleanup anchors or amend each affected map with verified replacement.",
+    "Exclude all dotnet-home caches, credentials and owner saves from cloud payloads. Keep all saves locally. Scan selected text for actual secrets without printing values.",
+    "Commit owned storage tools/proofs on main, preserving205 unrelated dirty source paths. Do not git add-all/reset/amend; parent owns index.",
+    "Create private draft storage recovery Release, upload selected archives,verify asset and downloaded SHA256. No mod/site publication.",
+    "Verify documented real restoration of binary inputs in canonical checkout without creating another project checkout; temporarily hold original frozen inputs and restore them from downloaded archive, normal build/check, then restore original inodes. Do not do this while a helper reads them.",
+    "Update prior cleanup anchor restoration through source-only recovery index plus per-map additive amendments; old plans/receipts stay immutable.",
+    "Apply final exact-path plan only after verified remote restoration and Git source revision. Recheck every file signature/retained source, preserve all31 language JSONs/all saves/Hindi+Swahili direct context and source pins. No job restarts.",
+    "Commit owned tracked deletions and source/recovery documentation on canonical main and push. Verify final size and normal build after cleanup; remove only task-created rebuild/download artifacts after checking exact manifests.",
+    "Report actual final size (likely slightly above initial2.5–3GiB due unfinished work/saves), remaining project unfinished, no new semantic/native acceptance."
+  ],
+  "notes": [
+    "Oversized128/102MiB objects exist only in Codex auxiliary refs, not main; normal main push succeeded. Never migrate/rewrite history. Full temporary Git bundle dist/Forest-history-before-storage-20261103.bundle verified; no need upload since normal main is on GitHub and auxiliary refs remain local. Remove this task-created duplicate only after final safety checks.",
+    "retention.py broad recursive provenance is NOT a local requirement. finalize_plan.py correctly keeps explicit next assignment pins and actual contexts; historical provenance/evidence is archived. All source words unchanged.",
+    "All progress/final replies Russian (explicit earlier request); authored operational docs/prompts English.",
+    "Source-only final project archival remains pending while Hindi/Swahili unfinished. Storage cleanup can finish without closing their tasks."
+  ]
+}

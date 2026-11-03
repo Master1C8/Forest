@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "locale": "nl",
+      "mode": "build",
+      "exitCode": 0,
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-f",
+        "/Users/antonkrutov/Desktop/Forest/localization/cleanup/20261103-source-retention-01/minimal-attempt-03/minimal-build.sb",
+        "/Users/antonkrutov/Desktop/Forest/forest-localize",
+        "build",
+        "localization/languages/nl.json",
+        "--output",
+        "dist/storage-minimal-nl-20261103-03",
+        "--mode",
+        "build"
+      ]
+    },
+    {
+      "locale": "nl",
+      "mode": "check",
+      "exitCode": 0,
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-f",
+        "/Users/antonkrutov/Desktop/Forest/localization/cleanup/20261103-source-retention-01/minimal-attempt-03/minimal-build.sb",
+        "/Users/antonkrutov/Desktop/Forest/forest-localize",
+        "build",
+        "localization/languages/nl.json",
+        "--output",
+        "dist/storage-minimal-nl-20261103-03",
+        "--mode",
+        "check"
+      ]
+    },
+    {
+      "locale": "ja",
+      "mode": "build",
+      "exitCode": 0,
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-f",
+        "/Users/antonkrutov/Desktop/Forest/localization/cleanup/20261103-source-retention-01/minimal-attempt-03/minimal-build.sb",
+        "/Users/antonkrutov/Desktop/Forest/forest-localize",
+        "build",
+        "localization/languages/ja.json",
+        "--output",
+        "dist/storage-minimal-ja-20261103-03",
+        "--mode",
+        "build"
+      ]
+    },
+    {
+      "locale": "ja",
+      "mode": "check",
+      "exitCode": 0,
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-f",
+        "/Users/antonkrutov/Desktop/Forest/localization/cleanup/20261103-source-retention-01/minimal-attempt-03/minimal-build.sb",
+        "/Users/antonkrutov/Desktop/Forest/forest-localize",
+        "build",
+        "localization/languages/ja.json",
+        "--output",
+        "dist/storage-minimal-ja-20261103-03",
+        "--mode",
+        "check"
+      ]
+    }
+  ],
+  "projectInputFiles": 454,
+  "projectInputBytes": 740454797,
+  "undeclaredProjectReads": "OS sandbox denied; negative and positive controls passed",
+  "compilerCache": "Preexisting compiler cache held; normal compiler rebuilt from source",
+  "tested": "Dutch registered layout and Japanese embedded CFF/font metrics, normal build/check and all16 resource hashes each",
+  "boundary": "Static rebuildability only. No game, model, installer, publication or fresh external SDK/Python-environment installation."
+}
