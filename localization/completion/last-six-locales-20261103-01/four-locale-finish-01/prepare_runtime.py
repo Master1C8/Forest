@@ -27,9 +27,10 @@ def main(loc):
     label_path=dest/'main-menu-expectations.jsonl'
     with (ROOT/label_path).open('x') as f:
         for r in labels:f.write(json.dumps(r,ensure_ascii=False)+'\n')
-    def one(source):
-        values={v['target'] for k,v in language['translations'].items() if k.startswith('level1:') and v['source']==source}
-        assert len(values)==1,(source,values)
+    def one(source_text,prefix):
+        selected=[r for r in source if r['source']==source_text and any(c.get('hierarchy','').startswith(prefix) for c in r.get('consumerContext',[]))]
+        values={language['translations'][r['id']]['target'] for r in selected}
+        assert len(values)==1,(source_text,prefix,values)
         return next(iter(values))
     framework=Path('localization/framework')/language['framework']/'framework.json'
     config=dict(projectRoot=str(ROOT),locale=loc,culture=language['culture'],
@@ -38,7 +39,7 @@ def main(loc):
                 scope='Finite native baseline: original loaded menu/settings, original resumed-fixture dialogue and next-state guard when available, all48 inventory and four neighbor branches, worst-height inventory frame, original Finley quest pane. Full story, all special callbacks/haiku, artwork textures and other platforms remain separate.',
                 compiledLanguage=pin(language_path),textAcceptance=pin(W/'editorial'/(loc+'.json')),framework=pin(framework),
                 staticLabels=pin(label_path),
-                menuGuards=dict(play=one('Play'),settings=[one('Fullscreen:'),one('Back')]),
+                menuGuards=dict(play=one('Play','Canvas/MainMenu/Controls/Start/'),settings=[one('Fullscreen:','Canvas/OptionsMenu/Controls/Fullscreen/'),one('Back','Canvas/OptionsMenu/Controls/Back/')]),
                 questBodyId='bgdb:resources.assets:320/sheet/t0mvbnMW90imSoe6SezMKA/row/k7McLhqBMESbYs8NcZIjMg/field/gt2E0tKZz0yCT5P2xrS3sA')
     files=[Path('tools/probe/locale_runtime_v1')/n for n in ['prepare.py','runner.py','compiled_contract.py','preflight.py','LocaleRuntimeProbe.cs']]
     files.extend([language_path,W/'editorial'/(loc+'.json'),label_path,framework])
