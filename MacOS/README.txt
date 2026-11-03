@@ -5,6 +5,8 @@ VN Revival — The Forest of Love: macOS language launcher
 3. Choose your language and click Apply language. If necessary, click Choose
    game and select the original TheForestOfLove.app (native macOS version 0.45).
 4. When preparation finishes, click Launch game in this launcher.
+   The launcher directly runs the managed copy's Contents/MacOS executable;
+   no Terminal command is needed. Startup output is saved in the launcher's Logs.
 
 Run this launcher again to change language. English (original) restores English
 in the managed copy. All 27 included language packs are available offline.

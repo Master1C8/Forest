@@ -1,12 +1,12 @@
 {
   "macosInstaller": {
     "status": "built-and-isolated-verified",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "platform": "macOS14+ universal arm64/x86_64",
     "gameVersion": "0.45",
     "artifact": "dist/Forest-Languages-macOS.zip",
-    "artifactSha256": "4ee5929fa998db32d7d0f348454d703fe4af7c3de27e9814b635d690aca6c4f3",
-    "artifactBytes": 50742131,
+    "artifactSha256": "3c4d22357da168d06c4cf1ed45bd097a11c86fc6019ba680f20ad22aa09b1a66",
+    "artifactBytes": 50751335,
     "translationLocales": 27,
     "englishOriginalRestore": true,
     "excludedLocales": [
@@ -33,7 +33,10 @@
     "gameLaunch": "not-run",
     "inGameRendering": "not-run",
     "signing": "ad-hoc-deep-strict-verified",
-    "projectArchival": "pending-unfinished-localization-and-native-acceptance"
+    "projectArchival": "pending-unfinished-localization-and-native-acceptance",
+    "directLaunch": "Contents/MacOS/<CFBundleExecutable>",
+    "directLaunchAssertions": 14,
+    "resourceValidation": "retained-version-matching-core-and-payload"
   },
   "windowsInstaller": {
     "status": "built-and-isolated-verified",

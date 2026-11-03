@@ -23,8 +23,9 @@ final class AppState: ObservableObject {
     @Published private(set) var source: URL?
     @Published private(set) var active: String?
     private var core: InstallerCore?
+    private var runningGame: GameSession?
     var locales: [LocaleLabel] { core?.config.locales ?? [] }
-    var canLaunch: Bool { active == selected && !busy }
+    var canLaunch: Bool { active == selected && !busy && runningGame?.process.isRunning != true }
     init() {
         do {
             guard let resources = Bundle.main.resourceURL else { throw ForestError("App resources are missing") }
@@ -53,7 +54,7 @@ final class AppState: ObservableObject {
         source = found; failed = false; message = "Choose a language, then click Apply language."
     }
     func gameIsRunning() -> Bool {
-        !NSRunningApplication.runningApplications(withBundleIdentifier: "com.CarrotsCrittersVulpineVisions.TheForestofLove").isEmpty
+        runningGame?.process.isRunning == true || !NSRunningApplication.runningApplications(withBundleIdentifier: "com.CarrotsCrittersVulpineVisions.TheForestofLove").isEmpty
     }
     func apply() {
         guard !busy, let core, let source else { return }
@@ -75,23 +76,23 @@ final class AppState: ObservableObject {
     func launch() {
         guard canLaunch, let core else { return }
         guard !gameIsRunning() else { failed = true; message = "The Forest of Love is already running."; return }
-        // Opening the exact owned URL preserves the original bundle identifier
-        // and Unity save location while avoiding LaunchServices app ambiguity.
+        // Verify the selected owned copy, then execute its native entry point.
         busy = true; failed = false; message = "Verifying the game copy…"
         let locale = selected
         Task { [self] in
             do {
                 let game = try await Task.detached(priority: .userInitiated) { try core.verifyLaunch(expectedLocale: locale) }.value
                 guard !gameIsRunning() else { throw ForestError("The Forest of Love is already running.") }
-                let configuration = NSWorkspace.OpenConfiguration()
-                configuration.createsNewApplicationInstance = true
-                NSWorkspace.shared.openApplication(at: game, configuration: configuration) { [weak self] _, error in
+                let session = try GameLauncher.start(game: game, logs: core.root.appendingPathComponent("Logs")) { [weak self] ended, log in
                     Task { @MainActor [weak self] in
-                        self?.busy = false
-                        if let error { self?.failed = true; self?.message = error.localizedDescription }
-                        else { self?.message = "The Forest of Love is running." }
+                        guard let self, self.runningGame?.process === ended else { return }
+                        self.runningGame = nil
+                        self.failed = ended.terminationStatus != 0
+                        self.message = ended.terminationStatus == 0 ? "The Forest of Love has closed." : "The game exited with code \(ended.terminationStatus). Log: \(log.path)"
                     }
                 }
+                runningGame = session
+                busy = false; message = "The Forest of Love is running."
             } catch {
                 busy = false; failed = true; message = error.localizedDescription
             }

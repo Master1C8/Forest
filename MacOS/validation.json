@@ -1,10 +1,20 @@
 {
   "appleNotarization": "not-performed-ad-hoc-signing",
-  "artifactSha256": "4ee5929fa998db32d7d0f348454d703fe4af7c3de27e9814b635d690aca6c4f3",
+  "artifactSha256": "3c4d22357da168d06c4cf1ed45bd097a11c86fc6019ba680f20ad22aa09b1a66",
+  "directLaunch": {
+    "assertions": 14,
+    "boundary": "Real Process execution of disposable stub executables; replaces Unity/game startup only",
+    "directExecutable": true,
+    "gameLaunched": false,
+    "logs": "unique stdout/stderr file per run",
+    "passed": true,
+    "pathsWithSpacesAndMetacharacters": true,
+    "workingDirectory": "Contents/MacOS"
+  },
   "distribution": {
     "allFileBytesAndModesExact": true,
-    "archiveBytes": 50742131,
-    "archiveSha256": "4ee5929fa998db32d7d0f348454d703fe4af7c3de27e9814b635d690aca6c4f3",
+    "archiveBytes": 50751335,
+    "archiveSha256": "3c4d22357da168d06c4cf1ed45bd097a11c86fc6019ba680f20ad22aa09b1a66",
     "deepStrictSignatureVerified": true,
     "externalNonSystemLibraries": false,
     "extractedFilesCompared": 10,
@@ -53,6 +63,12 @@
       "ru",
       "en"
     ]
+  },
+  "retainedResourceValidation": {
+    "payloadSha256": "94cab2764d198da724c474e4265f2275488a2ec8a849009814573ca35973b60f",
+    "previousArtifactSha256": "4ee5929fa998db32d7d0f348454d703fe4af7c3de27e9814b635d690aca6c4f3",
+    "reason": "InstallerCore, full language payload and native resources unchanged; prior isolated installation/switch/signature evidence retained. Direct process launch verified separately with stubs.",
+    "unchangedCoreSha256": "1821d0fb5736dacacd3c478e9193c030f9d25f9bd5681cec1f5b020c2a099eb3"
   },
   "sourcePinsMatchedBuild": true,
   "status": "passed",

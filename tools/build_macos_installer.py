@@ -109,7 +109,7 @@ def app():
     (WORK/'PackageConfig.json').write_bytes(encode(config))
     for arch in ['arm64','x86_64']:
         subprocess.run(['swiftc','-swift-version','6','-O','-warnings-as-errors','-parse-as-library','-target',arch+'-apple-macosx14.0',
-            str(ROOT/'MacOS/Sources/InstallerCore.swift'),str(ROOT/'MacOS/Sources/InstallerApp.swift'),'-o',str(WORK/('ForestLanguages-'+arch))],check=True)
+            *[str(p) for p in sorted((ROOT/'MacOS/Sources').glob('*.swift'))],'-o',str(WORK/('ForestLanguages-'+arch))],check=True)
     destination=ROOT/'dist/Forest Languages.app'
     if destination.exists():shutil.rmtree(destination)
     contents=destination/'Contents';(contents/'MacOS').mkdir(parents=True);resources=contents/'Resources';resources.mkdir()
@@ -119,7 +119,7 @@ def app():
     for source,name in [(ROOT/'Windows/vendor/lz4/LICENSE','LZ4-LICENSE.txt'),(ROOT/'Windows/vendor/lzma/LICENSE.txt','LZMA-NOTICE.txt'),(ROOT/'MacOS/README.txt','README.txt')]:shutil.copy2(source,resources/name)
     shutil.copy2(ROOT/'MacOS/App.icns',resources/'App.icns')
     info=dict(CFBundleName='Forest Languages',CFBundleDisplayName='Forest Languages',CFBundleExecutable='Forest Languages',CFBundleIdentifier='org.vnrevival.forest.languages',
-        CFBundlePackageType='APPL',CFBundleShortVersionString='1.0.0',CFBundleVersion='1',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
+        CFBundlePackageType='APPL',CFBundleShortVersionString='1.0.1',CFBundleVersion='2',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
         LSApplicationCategoryType='public.app-category.utilities')
     (contents/'Info.plist').write_bytes(plistlib.dumps(info))
     subprocess.run(['codesign','--force','--deep','--sign','-',str(destination)],check=True)
@@ -129,7 +129,7 @@ def app():
     subprocess.run(['ditto','-c','-k','--keepParent',str(destination),str(target)],check=True)
     assert target.stat().st_size<=100_000_000,'Distribution size exceeded the normal limit'
     pins={str(p.relative_to(ROOT)):sha(p) for p in sorted((ROOT/'MacOS').rglob('*')) if p.is_file() and not any(s in p.parts for s in ['build','bin','obj']) and p.name not in ['build-receipt.json','validation.json']}
-    for name in ['forest_macos.py','build_macos_installer.py','test_macos_installer.py','verify_macos_resources.py','forest_payload.py','forest_localization/Managed.cs']:
+    for name in ['forest_macos.py','build_macos_installer.py','test_macos_installer.py','test_macos_launch.py','verify_macos_resources.py','forest_payload.py','forest_localization/Managed.cs']:
         p=ROOT/'tools'/name;pins[str(p.relative_to(ROOT))]=sha(p)
     for name in ['forest_bundle.c','chunks.c','vendor/lz4/provenance.json','vendor/lzma/provenance.json']:
         p=ROOT/'Windows'/name;pins[str(p.relative_to(ROOT))]=sha(p)

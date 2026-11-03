@@ -38,6 +38,15 @@ re-signs its copy before launch and verifies it with `codesign --deep --strict`.
 It never signs the installed original or changes its bundle identifier. The
 distribution is ad-hoc signed and is not Apple-notarized.
 
+The Launch game action directly executes the verified owned copy's
+`Contents/MacOS/<CFBundleExecutable>` with no arguments and with `Contents/MacOS`
+as its working directory. It does not open the `.app` through LaunchServices.
+The owner's working absolute command identifies this entry point; its historical
+Downloads path is not hardcoded, so moving the original app does not break launch.
+Each run captures stdout/stderr in a unique `Logs/game-<UUID>.log` beneath the
+launcher support folder. Process exit errors include that log location. Closing
+the launcher does not terminate the game. Running-process checks remain enabled.
+
 ## Native adapter
 
 Mac and Windows 0.45 resources have different binary containers, shaders, textures,
@@ -74,6 +83,7 @@ cp dist/macos-installer-work/forest-codec-universal dist/macos-installer-work/fo
 python3 -B tools/verify_macos_resources.py
 python3 -B tools/build_macos_installer.py payload
 python3 -B tools/test_macos_installer.py --run 01
+python3 -B tools/test_macos_launch.py --run 01
 python3 -B tools/build_macos_installer.py app
 python3 -B tools/test_macos_installer.py --real --run 01
 ```
@@ -95,6 +105,10 @@ completed locales to be reused after an interrupted finite build.
   exact complete old/new game and finalized journal, not just a retry from scratch.
 - Reject corrupted payload/cache, incorrect build identity, foreign owned-path
   mods, unowned state, unclaimed backup folders, traversal and concurrent writers.
+- Exercise direct executable launch using a disposable stub at an owned path with
+  spaces and shell metacharacters. Verify the exact executable, empty arguments,
+  working directory, per-run stdout/stderr logs, observable nonzero exits and
+  rejection of missing/non-executable/traversing/external-symlink entry points.
 
 `native-resources.json`, `validation.json` and `build-receipt.json` bind actual
 checks and artifacts. Synthetic tests replace game data and signing; real-resource
