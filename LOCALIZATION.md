@@ -87,6 +87,12 @@ caches reject a face replacement. The face must have a matching family, explicit
 cap/x heights and a positive space advance. Unchanged baseline faces retain their
 accepted metrics. These are table-scaled serialized inputs, not a Unity font import.
 Existing shared runtime adapters supply the accepted Russian layout behavior.
+The compiler also registers the seven original quest-list name templates in the
+exact shared-v2 framework: `sharedassets2.assets:18330`, `18315`, `18305`,
+`18314`, `18312`, `18344` and `18341` (repeat the asset prefix for each key).
+Their original point size is14; a locale can set a smaller readable size without
+changing canonical quest titles, word bindings or the frozen framework. The
+exact framework/resource pins and original field values remain mandatory.
 Additional scripts such as CJK/RTL can require appropriate face data and actual
 target rendering/behavior validation. A successful compile alone does not prove
 font coverage, shaping, layout, visual parity or gameplay correctness.

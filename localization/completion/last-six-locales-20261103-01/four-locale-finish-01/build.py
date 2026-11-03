@@ -24,15 +24,16 @@ def save(p,d):
     t=p.with_suffix(p.suffix+'.pending');t.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');t.replace(p)
 
 
-def main(loc):
-    output=ROOT/O;output.mkdir(parents=True,exist_ok=True)
-    with (output/'compiler.lock').open('a') as lock:
+def main(loc,revision=1,acceptance=None):
+    assert 1<=revision<=99
+    output=ROOT/O.parent/('resource-builds-%02d'%revision);output.mkdir(parents=True,exist_ok=True)
+    with (ROOT/O.parent/'four-locale-compiler.lock').open('a') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         receipt=output/(loc+'-receipt.json');assert not receipt.exists(),'Reconcile existing receipt before another build'
         language=Path('localization/languages')/(loc+'.json')
-        config=dict(locale=loc,compiledLanguage=pin(language),textAcceptance=pin(W/'editorial'/(loc+'.json')))
+        config=dict(locale=loc,compiledLanguage=pin(language),textAcceptance=pin(Path(acceptance) if acceptance else W/'editorial'/(loc+'.json')))
         text_gate(ROOT,config)
-        artifact=Path('dist')/('Forest-'+loc+'-single-file-final-20261103-01')
+        artifact=Path('dist')/('Forest-'+loc+'-single-file-final-20261103-%02d'%revision)
         assert not (ROOT/artifact).exists(),'Reconcile partial/completed resource artifact, never overwrite'
         record=dict(locale=loc,status='building',startedAtUTC=now(),language=pin(language),textAcceptance=config['textAcceptance'],artifact=str(artifact),newModelRequests=0)
         save(receipt,record)
@@ -59,4 +60,4 @@ def main(loc):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('locale',choices=['hu','nl','ro','sr']);main(p.parse_args().locale)
+    p=argparse.ArgumentParser();p.add_argument('locale',choices=['hu','nl','ro','sr']);p.add_argument('--revision',type=int,default=1);p.add_argument('--acceptance');a=p.parse_args();main(a.locale,a.revision,a.acceptance)

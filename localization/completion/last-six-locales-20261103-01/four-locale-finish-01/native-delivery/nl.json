@@ -1,0 +1,366 @@
+{
+  "atUTC": "2026-11-03T09:23:44.259403+00:00",
+  "locale": "nl",
+  "status": "passed-bounded-native-baseline",
+  "language": {
+    "path": "localization/languages/nl.json",
+    "sha256": "f1dc415d4c303c380b25be6af1842c06e4e708f410d10f47cf6eba6909fed751"
+  },
+  "artifact": "dist/Forest-nl-single-file-final-20261103-02",
+  "artifactManifest": {
+    "path": "dist/Forest-nl-single-file-final-20261103-02/manifest.json",
+    "sha256": "e56a68ea35ef17ad851fc338736cbd09dd32b3086ee69e6bd7026ff2862bd29c"
+  },
+  "config": {
+    "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-native-02/config.json",
+    "sha256": "030aeb9065e27cc9cd617f3d262396a75ed8584901b6f352a7beb9475b3ae544"
+  },
+  "runtime": {
+    "path": "localization/probes/nl-20261103-compiled-02/runtime-result.json",
+    "sha256": "ad35b953332c08db0f63f3cda745368384930e6b5619e8c53134f1ce1e8fcc4d"
+  },
+  "cleanup": {
+    "path": "localization/probes/nl-20261103-compiled-02/cleanup.json",
+    "sha256": "b798e198127f908bd930aad325c0948aa6f7ef08e2e2d603867729f509f005e7"
+  },
+  "nativeManifest": {
+    "path": "localization/visual-qa/nl-compiled-20261103-02/native-manifest.json",
+    "sha256": "f971623dbcc0cd7f30794eddb025fe7a8f1190fbf8b1bd02282e742738fe1349"
+  },
+  "menuReplacement": null,
+  "images": [
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "runtimeLocale": "nl",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "nl-01-main-menu.png",
+        "sha256": "74ad4501e288b827b12ef2fb147bf709b138fb0746c1f34cba0ad6edc3c94205",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Besturing",
+          "Spelen",
+          "Afsluiten",
+          "Besturing",
+          "Opties\n",
+          "Galerij",
+          "Opties\n",
+          "Opties\n",
+          "Spelen",
+          "Spelen",
+          "Galerij",
+          "v0.45.1",
+          "Een fout melden",
+          "Galerij",
+          "TFoL.info",
+          "TFoL.info",
+          "TFoL.info",
+          "Opties\n",
+          "Een fout melden",
+          "Opties\n",
+          "Galerij",
+          "Een fout melden",
+          "Een fout melden",
+          "Een fout melden",
+          "Besturing",
+          "Galerij",
+          "Besturing",
+          "Afsluiten",
+          "Spelen",
+          "TFoL.info",
+          "Afsluiten",
+          "Afsluiten",
+          "Besturing",
+          "Spelen",
+          "TFoL.info",
+          "Afsluiten"
+        ],
+        "boundary": "Original loaded main menu; bridge finishes its opening animation, no replacement strings.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "127c9302b83b50be85b66877653b0f7cee672f41460cb68e806808e520dd46b8"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/nl-compiled-20261103-02/visual-review.json",
+        "sha256": "7e93c8af51dfa6e68471ad05dc28908b3699086050406ed0b3ab0e0f66bc0d5a"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "74ad4501e288b827b12ef2fb147bf709b138fb0746c1f34cba0ad6edc3c94205.webp",
+        "sha256": "156c7919dbe62d2657287ab8680e7a3de4b6fad4e225eac62f559df01dfcf208",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:19:14.731254+00:00",
+        "observations": "Inspected the entire 1280×720 prepared frame. Dutch menu labels match expectations and remain legible without clipping or overlap. Game logo, TFoL.info and v0.45.1 are intact. No fallback text, literal tags or notification overlays observed.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "runtimeLocale": "nl",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "nl-02-settings.png",
+        "sha256": "4fbe1bfd3c49af4d679ab2e8c0ffd4b6c5d398455265cbbf2a5e5920e53ab8ca",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Opgeslagen spel\nwissen",
+          "Opgeslagen spel\nwissen",
+          "v0.45.1",
+          "Opgeslagen spel\nwissen",
+          "Opgeslagen spel\nwissen",
+          "Opgeslagen spel\nwissen",
+          "Effecten",
+          "Volledig scherm:",
+          "Effecten",
+          "Effecten",
+          "Effecten",
+          "Volledig scherm:",
+          "Muziek",
+          "Terug",
+          "Uit",
+          "Muziek",
+          "Uit",
+          "Muziek",
+          "Muziek",
+          "Muziek",
+          "Schaal:",
+          "Volledig scherm:",
+          "Terug",
+          "Uit",
+          "Schaal:",
+          "Terug",
+          "Volledig scherm:",
+          "Schaal:",
+          "Uit",
+          "Terug",
+          "Uit",
+          "Terug",
+          "Volledig scherm:",
+          "Schaal:",
+          "Effecten",
+          "Schaal:"
+        ],
+        "boundary": "Original Options handler; current actual display mode independently logged. No fullscreen toggling in this batch.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "64ddeb74504d36d67d1c561772e08b0996d38ea844b1729975ef270efca7ae24"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/nl-compiled-20261103-02/visual-review.json",
+        "sha256": "7e93c8af51dfa6e68471ad05dc28908b3699086050406ed0b3ab0e0f66bc0d5a"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "4fbe1bfd3c49af4d679ab2e8c0ffd4b6c5d398455265cbbf2a5e5920e53ab8ca.webp",
+        "sha256": "75c0c3268693079905716c28eded6cb298daa4feabad76f0d15b42fe7543f2fc",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:19:14.731280+00:00",
+        "observations": "Inspected the entire 1280×720 prepared frame. Settings labels match expectations; Volledig scherm: Uit and Schaal: 1x are readable. Opgeslagen spel wissen wraps cleanly across two lines. No clipped glyphs, overlapping controls, literal tags or notification overlays observed.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "runtimeLocale": "nl",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "nl-03-dialogue.png",
+        "sha256": "0fbe0c6ee216f64677e6106788f2363dbc557095eb42c681f10bc3b497a0f38b",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": "Rakker! Hoe voel je je?",
+        "boundary": "Original resumed-fixture conversation. No text injection or forced conversation start.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "fbb7e3e046c02385af55535d10de396a306c15db3a050513d8254995ba9622fd"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/nl-compiled-20261103-02/visual-review.json",
+        "sha256": "7e93c8af51dfa6e68471ad05dc28908b3699086050406ed0b3ab0e0f66bc0d5a"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "0fbe0c6ee216f64677e6106788f2363dbc557095eb42c681f10bc3b497a0f38b.webp",
+        "sha256": "a8e6f340cd84c4acae2eb04c5ded9ce546e999b822f6bab9e737eca19d5a0129",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T09:19:44.221415+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. “Scarlett” matches the speaker contract; “Rakker! Hoe voel je je?” matches the expected dialogue. Both are readable and contained within their fields. No broken glyphs, visible tags, unexpected text or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "runtimeLocale": "nl",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "nl-04-inventory-owned-30.png",
+        "sha256": "530aa87bcd7b65c64efc1870b8c5734c4a70b5852d0a582c871c654ccc764bd6",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Beterschapskaart",
+          "Voor onze vermoeide reiziger~ Beterschap! We kijken ernaar uit je te ontmoeten! De volgende bladzijde staat vol handtekeningen en pootafdrukken."
+        ],
+        "boundary": "Original inventory consumer with cloned item argument; original sprites loaded in gameplay; no awards/quantity/progress change.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "81f1750985d3df26e93348f7878d7a49c4ef25426dc760cf66f282be3c28165c"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/nl-compiled-20261103-02/visual-review.json",
+        "sha256": "7e93c8af51dfa6e68471ad05dc28908b3699086050406ed0b3ab0e0f66bc0d5a"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "530aa87bcd7b65c64efc1870b8c5734c4a70b5852d0a582c871c654ccc764bd6.webp",
+        "sha256": "244b09ce4c8268940e71be44d09f073c0c199dc478c8572413e7808d85f9449e",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T09:19:44.221466+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. “Inventaris,” L/R prompts, “Beterschapskaart,” and the complete expected description are readable. The description wraps across three lines with all text inside the panel. No clipping, broken glyphs, visible tags or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "runtimeLocale": "nl",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "nl-05-finley-quest.png",
+        "sha256": "4360c331dc1fa9b81c2d0681c0dcd7b274573e967bf93945df8989c73996e5bd",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Het weer goedmaken",
+          "Help Finley het af te sluiten met zijn voormalige huisgenoten."
+        ],
+        "boundary": "Original QuestLogDetailsPane with reversible active-status fixture; exact corrected serialized Finley title/body. Quest awarding/progression not tested.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "e883da63b4f6b54fe779b43a7654e228969e4a0922311f156cc0cdfebf35b502"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/nl-compiled-20261103-02/quest-context-resolution/visual-review.json",
+        "sha256": "ec03de6ae9882794f00f62a7ec4eb959f290237608341cd64533238809bca4ca"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "nl",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "4360c331dc1fa9b81c2d0681c0dcd7b274573e967bf93945df8989c73996e5bd.webp",
+        "sha256": "43a3c2d034d64ea1a4b6ceea610c69b64ffec59c4950460dcfca0be0b04481af",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:22:12.764761+00:00",
+        "observations": "Inspected the complete delivered 1280×720 WebP. The ornamental OpdrachtenLogboek heading, Melody’s herinneringen, Na de regen, Finley title and complete description match the supplied expectations. Actief, Voltooid and L/R prompts are readable. Text fits without clipping, overlap, missing glyphs or visible tags. No notification banners or other contamination. Dutch LTR frame; progression is outside this visual review.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    }
+  ],
+  "frames": 5,
+  "independentOrdinary": 12825,
+  "protectedExact": 1781,
+  "inventoryConsumerMeasurements": 53,
+  "actualDialogueNextState": [
+    {
+      "predicate": "original-dialogue-next-state",
+      "status": "passed",
+      "before": [
+        120,
+        153
+      ],
+      "after": [
+        120,
+        153
+      ],
+      "responses": 1
+    }
+  ],
+  "scope": "Finite native baseline: original loaded menu/settings, original resumed-fixture dialogue and next-state guard when available, all48 inventory and four neighbor branches, worst-height inventory frame, original Finley quest pane. Full story, all special callbacks/haiku, artwork textures and other platforms remain separate.",
+  "installed": false,
+  "release": "not-published",
+  "boundary": "Complete exact five-scene native baseline and original guarded dialogue progression; not a full story playthrough, every special callback, installer or other-platform acceptance."
+}

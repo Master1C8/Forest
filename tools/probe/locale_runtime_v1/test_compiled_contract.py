@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from compiled_contract import empty_inventory_wording, resource_manifest, sha, text_gate
+from compiled_contract import empty_inventory_wording, fixture_dialogue_ready, resource_manifest, sha, text_gate
 
 
 class CompiledContractTests(unittest.TestCase):
@@ -94,6 +94,15 @@ class CompiledContractTests(unittest.TestCase):
         ident=f'managed:Managed/Assembly-CSharp.dll:{method}@82'
         data['translations'][ident]['source']='different original'
         with self.assertRaisesRegex(ValueError,'exact original inventory branch'):empty_inventory_wording(data)
+
+    def test_visible_dialogue_positive_control_and_silent_transition_or_wrong_locale(self):
+        contract=dict(conversationId=120,entryId=153,visibleText='Exact target subtitle')
+        state=dict(scene='CentralForest',conversationActive=True,typing=False,conversationId=120,entryId=153,conversationState='Exact target subtitle',visibleTypewriterText='Exact target subtitle')
+        self.assertTrue(fixture_dialogue_ready(state,contract))
+        self.assertFalse(fixture_dialogue_ready(dict(state,conversationId=109,entryId=5,conversationState=''),contract))
+        self.assertFalse(fixture_dialogue_ready(dict(state,conversationState='English source fallback'),contract))
+        self.assertFalse(fixture_dialogue_ready(dict(state,typing=True),contract))
+        self.assertFalse(fixture_dialogue_ready(dict(state,visibleTypewriterText='Exact target'),contract))
 
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,384 @@
+{
+  "atUTC": "2026-11-03T09:20:32.277269+00:00",
+  "locale": "ro",
+  "status": "passed-bounded-native-baseline",
+  "language": {
+    "path": "localization/languages/ro.json",
+    "sha256": "ea4d96a27e61bbd7e29a51a455248619636fe1e9bf1e64ffdfb7ac55225153e5"
+  },
+  "artifact": "dist/Forest-ro-single-file-final-20261103-01",
+  "artifactManifest": {
+    "path": "dist/Forest-ro-single-file-final-20261103-01/manifest.json",
+    "sha256": "4c827157660c3fe76d89431389facc0c502ff6a872a60cfccae6802155f76cab"
+  },
+  "config": {
+    "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-native/config.json",
+    "sha256": "d88c944b0f799991a80abd3988964c6211bbf73bffdddb5acfcc83dba2cc67b3"
+  },
+  "runtime": {
+    "path": "localization/probes/ro-20261103-compiled-01/runtime-result.json",
+    "sha256": "985a3d8b84de241230c191736b2730b91186f3029e4960bdc7e1d490fda376c6"
+  },
+  "cleanup": {
+    "path": "localization/probes/ro-20261103-compiled-01/cleanup.json",
+    "sha256": "e846366d979fbda9facc7227339fc2fed6edfab65975a71321c68bca74bd2c9a"
+  },
+  "nativeManifest": {
+    "path": "localization/visual-qa/ro-compiled-20261103-01/native-manifest.json",
+    "sha256": "2bf2fb34c8707693fc2925fbc8776647e4a413fe04041d68684c3aeb42b5b6c5"
+  },
+  "menuReplacement": {
+    "config": {
+      "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-native-02/config.json",
+      "sha256": "67f1d6be55a09dafe7110cc21f01e1ed3cb95d8e4311ebd65564dd22d6cc8ca9"
+    },
+    "runtime": {
+      "path": "localization/probes/ro-20261103-compiled-02/runtime-result.json",
+      "sha256": "24caad4386072a988d05157122f4f2b5724fb631f2ccdd5fc1f8677cb525e9fb"
+    },
+    "cleanup": {
+      "path": "localization/probes/ro-20261103-compiled-02/cleanup.json",
+      "sha256": "c6d88049cdcfed6ef8d70919441f53a03c66d1e571f58a9d45ccedefcb2bdf73"
+    },
+    "nativeManifest": {
+      "path": "localization/visual-qa/ro-compiled-20261103-02/native-manifest.json",
+      "sha256": "c307f27bc82a2284e8974dc43bceadbd09b2f5a32fa1cd9b52d6817510e01f5c"
+    },
+    "retainedOtherFourExact": true
+  },
+  "images": [
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "runtimeLocale": "ro",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "ro-01-main-menu.png",
+        "sha256": "f9e88a9fc7df44d7f0a1c16ed7fbf1ff6feb852d280040bae39534237849b7e7",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Comenzi",
+          "Joacă",
+          "Ieșire",
+          "Comenzi",
+          "Opțiuni\n",
+          "Galerie",
+          "Opțiuni\n",
+          "Opțiuni\n",
+          "Joacă",
+          "Joacă",
+          "Galerie",
+          "v0.45.1",
+          "Raportează o eroare",
+          "Galerie",
+          "TFoL.info",
+          "TFoL.info",
+          "TFoL.info",
+          "Opțiuni\n",
+          "Raportează o eroare",
+          "Opțiuni\n",
+          "Galerie",
+          "Raportează o eroare",
+          "Raportează o eroare",
+          "Raportează o eroare",
+          "Comenzi",
+          "Galerie",
+          "Comenzi",
+          "Ieșire",
+          "Joacă",
+          "TFoL.info",
+          "Ieșire",
+          "Ieșire",
+          "Comenzi",
+          "Joacă",
+          "TFoL.info",
+          "Ieșire"
+        ],
+        "boundary": "Original menu after all required captions are opaque and geometry is stable; affected animation-readiness correction only.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "31abc0dca70feb98a94f92647623fe651f894d70b919de0059607b55714b6de0"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/ro-compiled-20261103-02/visual-review.json",
+        "sha256": "c012f677f43eea86c37cc44332d4552dfaee42f9d9dfa97e2082ef2c8a2ed5fa"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "f9e88a9fc7df44d7f0a1c16ed7fbf1ff6feb852d280040bae39534237849b7e7.webp",
+        "sha256": "c0978b220391f5812493039ec491547f51adfdfa579a5a4cc29fcd9a5cd70065",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:20:20.225560+00:00",
+        "observations": "Inspected the complete 1280×720 prepared frame. Romanian menu captions match the supplied expectations, including diacritics, and remain readable without clipping or overlap. The small, low-contrast version label reads v0.45.1. The game logo and TFoL.info are consistent with the supplied context. No visible tags, unexpected fallback text or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "runtimeLocale": "ro",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "ro-02-settings.png",
+        "sha256": "80edf15fa0390a378b5aad65735b0f67f841158f42bfef91f98a5fdedb47740e",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Șterge\nsalvarea",
+          "Șterge\nsalvarea",
+          "v0.45.1",
+          "Șterge\nsalvarea",
+          "Șterge\nsalvarea",
+          "Șterge\nsalvarea",
+          "Efecte",
+          "Ecran complet:",
+          "Efecte",
+          "Efecte",
+          "Efecte",
+          "Ecran complet:",
+          "Muzică",
+          "Înapoi",
+          "Dezactivat",
+          "Muzică",
+          "Dezactivat",
+          "Muzică",
+          "Muzică",
+          "Muzică",
+          "Scalare:",
+          "Ecran complet:",
+          "Înapoi",
+          "Dezactivat",
+          "Scalare:",
+          "Înapoi",
+          "Ecran complet:",
+          "Scalare:",
+          "Dezactivat",
+          "Înapoi",
+          "Dezactivat",
+          "Înapoi",
+          "Ecran complet:",
+          "Scalare:",
+          "Efecte",
+          "Scalare:"
+        ],
+        "boundary": "Original Options handler; current actual display mode independently logged. No fullscreen toggling in this batch.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "97093b3c307f8cd5a2c779fd4ea4072bc3eea818ab136e00566453de9f59a59b"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/ro-compiled-20261103-01/visual-review.json",
+        "sha256": "adfb0f1c1673ae0c14b262fd24b9182663708f5a04721b4107dd5499b5ac06ea"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "80edf15fa0390a378b5aad65735b0f67f841158f42bfef91f98a5fdedb47740e.webp",
+        "sha256": "bdcfc4695025d6a633fec829ddd3cff0befb3051fb58f34b234e03aed32dabd6",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:08:05.348588+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. Muzică, Efecte, Ecran complet: Dezactivat, Scalare: 1x, Înapoi and Șterge salvarea are readable. Diacritics and the two-line deletion label render correctly, with no clipping, overlap, exposed tags or external overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "runtimeLocale": "ro",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "ro-03-dialogue.png",
+        "sha256": "ffdce30a3a46714e7eaaca9130f5023707c74e902a86ac4c2f5e0c54d28e3f91",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": "Ștrengar! Cum te simți?",
+        "boundary": "Original resumed-fixture conversation. No text injection or forced conversation start.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "167041429857db6de3a183e7f51d768ca6bcedd4993fc3cbf9f96efd7210edb3"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/ro-compiled-20261103-01/visual-review.json",
+        "sha256": "adfb0f1c1673ae0c14b262fd24b9182663708f5a04721b4107dd5499b5ac06ea"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "ffdce30a3a46714e7eaaca9130f5023707c74e902a86ac4c2f5e0c54d28e3f91.webp",
+        "sha256": "4696805e79a31c02afb514bee15f9e0d0747c5a887768fe632988f6b6e0c03a9",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T09:08:44.555329+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. Dialogue reads “Ștrengar! Cum te simți?” and matches the supplied expectation. “Scarlett” matches the target speaker contract. Text and Romanian diacritics are readable, with adequate padding and no clipping, overlap, visible tags or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "runtimeLocale": "ro",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "ro-04-inventory-owned-30.png",
+        "sha256": "28aaf9825ce03f9e6487f074f824290174243f22a81e21502ace2c68a81bad22",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Felicitare de însănătoșire",
+          "Pentru călătorul nostru ostenit~ Însănătoșire grabnică! Abia așteptăm să te cunoaștem! Pagina următoare e plină de semnături și amprente de lăbuțe."
+        ],
+        "boundary": "Original inventory consumer with cloned item argument; original sprites loaded in gameplay; no awards/quantity/progress change.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "513203040200e232ebab750ad584397eb58534aab0d2aba907bafddf5b809a6b"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/ro-compiled-20261103-01/visual-review.json",
+        "sha256": "adfb0f1c1673ae0c14b262fd24b9182663708f5a04721b4107dd5499b5ac06ea"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "28aaf9825ce03f9e6487f074f824290174243f22a81e21502ace2c68a81bad22.webp",
+        "sha256": "76298cbed9ce17259f1f9fae4f5fb10b94ec437dd6e62ddab000203a50f055a4",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T09:08:44.555360+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. The item title and complete Romanian description match the supplied expectations. INVENTAR and L/R prompts are legible. Diacritics render clearly; all three description lines fit within the panel without clipping or overlap. No visible tags, source fallback or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "runtimeLocale": "ro",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "ro-05-finley-quest.png",
+        "sha256": "5c0200ad655d78d5656a3afd86abfb71517a15e42312e46d25fe50aad8f7e322",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Cârpim relațiile",
+          "Ajută-l pe Finley să lămurească lucrurile cu fostele lui colege de casă."
+        ],
+        "boundary": "Original QuestLogDetailsPane with reversible active-status fixture; exact corrected serialized Finley title/body. Quest awarding/progression not tested.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "b05f986074e0349b8791502aed886667f954cb6b9a9224ea7276f4832103ffe8"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/ro-compiled-20261103-01/visual-review.json",
+        "sha256": "adfb0f1c1673ae0c14b262fd24b9182663708f5a04721b4107dd5499b5ac06ea"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "ro",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "5c0200ad655d78d5656a3afd86abfb71517a15e42312e46d25fe50aad8f7e322.webp",
+        "sha256": "e4633802c866ca8ee636930b51cc54d63aea718939befe275e539240ebce263c",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0003",
+        "reviewedAt": "2026-11-03T09:09:07.021194+00:00",
+        "observations": "Inspected the complete 1280×720 prepared frame. Quest title “Cârpim relațiile” and full description match the supplied target text. Romanian diacritics and all visible journal labels are readable. Text fits its fields without clipping, overlap or lost characters. No visible fallback text, literal tags or notification overlays. LTR frame; RTL checks do not apply.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    }
+  ],
+  "frames": 5,
+  "independentOrdinary": 12825,
+  "protectedExact": 1781,
+  "inventoryConsumerMeasurements": 53,
+  "actualDialogueNextState": [
+    {
+      "predicate": "original-dialogue-next-state",
+      "status": "passed",
+      "before": [
+        120,
+        153
+      ],
+      "after": [
+        120,
+        153
+      ],
+      "responses": 1
+    }
+  ],
+  "scope": "Finite native baseline: original loaded menu/settings, original resumed-fixture dialogue and next-state guard when available, all48 inventory and four neighbor branches, worst-height inventory frame, original Finley quest pane. Full story, all special callbacks/haiku, artwork textures and other platforms remain separate.",
+  "installed": false,
+  "release": "not-published",
+  "boundary": "Complete exact five-scene native baseline and original guarded dialogue progression; not a full story playthrough, every special callback, installer or other-platform acceptance."
+}

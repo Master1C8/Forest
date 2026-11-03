@@ -88,6 +88,22 @@ class LanguageCompilerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'framework-file-changed:base/a.bin'):
             c.load_language(self.language, self.frameworks)
 
+    def test_dynamic_quest_sizes_require_exact_framework_and_resource(self):
+        digest = '26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f'
+        framework = dict(id='forest045-shared-v2', layoutRoles={}, files={
+            'base/sharedassets2.assets': dict(sha256='bb67ae2f0b2eba4fab082b402aa31fdcc016b904689495e878cc801dac10aafd')})
+        roles = c.registered_layout_roles(framework, digest)
+        self.assertEqual(len(roles), 7)
+        self.assertEqual(roles['sharedassets2.assets:18315']['baseline'], 14)
+        self.assertEqual(framework['layoutRoles'], {})
+        self.assertEqual(c.registered_layout_roles(framework, 'different'), {})
+        framework['files']['base/sharedassets2.assets']['sha256'] = 'changed'
+        with self.assertRaisesRegex(ValueError, 'quest-template-resource-version'):
+            c.registered_layout_roles(framework, digest)
+        self.doc['layout'] = {'sharedassets2.assets:18315': 12}; self.save()
+        with self.assertRaisesRegex(ValueError, 'unregistered-layout-role'):
+            c.load_language(self.language, self.frameworks)
+
     def test_native_catalog_keeps_unchanged_baseline_field_and_rejects_overlap(self):
         selector = dict(kind='field', asset='a.bin', pathId=3, pointer='/m_text')
         row = dict(id='a.bin:3/m_text', source='Inventory', selector=selector)

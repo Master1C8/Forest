@@ -1,0 +1,93 @@
+{
+  "projectRoot": "/Users/antonkrutov/Desktop/Forest",
+  "locale": "nl",
+  "culture": "nl",
+  "run": "localization/probes/nl-20261103-compiled-02",
+  "candidate": "dist/Forest-nl-single-file-final-20261103-02",
+  "phase": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-native-02",
+  "evidence": "localization/visual-qa/nl-compiled-20261103-02",
+  "product": "ForestQANLCompiledProbe20261103_02",
+  "scope": "Finite native baseline: original loaded menu/settings, original resumed-fixture dialogue and next-state guard when available, all48 inventory and four neighbor branches, worst-height inventory frame, original Finley quest pane. Full story, all special callbacks/haiku, artwork textures and other platforms remain separate.",
+  "compiledLanguage": {
+    "path": "localization/languages/nl.json",
+    "sha256": "f1dc415d4c303c380b25be6af1842c06e4e708f410d10f47cf6eba6909fed751"
+  },
+  "textAcceptance": {
+    "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl-layout-02.json",
+    "sha256": "d3926efe274e3ddcbe750cd83914a579f535d6f5b0f5f300657f8a2798762cee"
+  },
+  "framework": {
+    "path": "localization/framework/forest045-shared-v2/framework.json",
+    "sha256": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f"
+  },
+  "staticLabels": {
+    "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-native-02/main-menu-expectations.jsonl",
+    "sha256": "f0aa2f48396c318cf077ca99b5e25bcb0d2bb3941d85161a087700f670084d74"
+  },
+  "menuGuards": {
+    "play": "Spelen",
+    "settings": [
+      "Volledig scherm:",
+      "Terug"
+    ]
+  },
+  "questBodyId": "bgdb:resources.assets:320/sheet/t0mvbnMW90imSoe6SezMKA/row/k7McLhqBMESbYs8NcZIjMg/field/gt2E0tKZz0yCT5P2xrS3sA",
+  "fixtureDialogue": {
+    "conversationId": 120,
+    "entryId": 153,
+    "sourceId": "ds:120:153:Dialogue Text",
+    "visibleText": "Rakker! Hoe voel je je?"
+  },
+  "mainMenuReadyTexts": [
+    "Afsluiten",
+    "Besturing",
+    "Een fout melden",
+    "Galerij",
+    "Opties\n",
+    "Spelen",
+    "TFoL.info",
+    "v0.45.1"
+  ],
+  "entryPins": [
+    {
+      "path": "tools/probe/locale_runtime_v1/prepare.py",
+      "sha256": "52974af91fb22571929b21d21d640e7ae751fcc8db2ae6a02acd10b56fd32091"
+    },
+    {
+      "path": "tools/probe/locale_runtime_v1/runner.py",
+      "sha256": "93e5d6934954d8ab12ad4476e6f84d6c1e0d5736ca02af1ff0280471d66fdc38"
+    },
+    {
+      "path": "tools/probe/locale_runtime_v1/compiled_contract.py",
+      "sha256": "531b35c11e5bdb39daed4c27eac92645102b77de69654c9c30ea2f2252cde8ba"
+    },
+    {
+      "path": "tools/probe/locale_runtime_v1/preflight.py",
+      "sha256": "fd3ceff29c04ef345c6b82837b2583aa54b0388ab1a2aee4d9c0beb77bdf13db"
+    },
+    {
+      "path": "tools/probe/locale_runtime_v1/LocaleRuntimeProbe.cs",
+      "sha256": "e4e38a0afd9f67cb56e84ec066c04eda09f8c7bcb433325481ee1db82df307eb"
+    },
+    {
+      "path": "tools/probe/MenuUiProbe.cs",
+      "sha256": "708581e2091201ee7beb2cd7f6b8a7a4bf8c00dfbd8f23807daeceaf3617b295"
+    },
+    {
+      "path": "localization/languages/nl.json",
+      "sha256": "f1dc415d4c303c380b25be6af1842c06e4e708f410d10f47cf6eba6909fed751"
+    },
+    {
+      "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl-layout-02.json",
+      "sha256": "d3926efe274e3ddcbe750cd83914a579f535d6f5b0f5f300657f8a2798762cee"
+    },
+    {
+      "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-native-02/main-menu-expectations.jsonl",
+      "sha256": "f0aa2f48396c318cf077ca99b5e25bcb0d2bb3941d85161a087700f670084d74"
+    },
+    {
+      "path": "localization/framework/forest045-shared-v2/framework.json",
+      "sha256": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f"
+    }
+  ]
+}

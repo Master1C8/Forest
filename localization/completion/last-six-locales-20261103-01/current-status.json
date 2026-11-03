@@ -1,7 +1,7 @@
 {
   "run": "last-six-locales-20261103-01",
-  "atUTC": "2026-11-03T07:30:56.027108+00:00",
-  "status": "four-locales-editorial-clean-resource-overlays-verified-native-qa-in-progress",
+  "atUTC": "2026-11-03T09:23:44.312298+00:00",
+  "status": "four-locales-editorial-resources-and-bounded-native-baselines-passed",
   "model": "gpt-6.1-sol",
   "reasoning": "high",
   "provider": "openai",
@@ -88,7 +88,7 @@
       "phase": "outputs/last-six-locales-20261103-01/hu/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-delta",
       "taskClass": "semantic-review",
-      "status": "editorial-and-resources-passed-native-pending",
+      "status": "editorial-resources-and-bounded-native-passed",
       "live": false,
       "language": "localization/languages/hu.json",
       "ordinaryTotal": 12825,
@@ -97,7 +97,7 @@
       "protectedExact": 1781,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "native": "not-authorized-not-run",
+      "native": "passed-bounded-native-baseline",
       "pid": 39913,
       "threadId": "01a1a02a-1c16-7f92-bc73-c3aa433f5618",
       "runtimeVerified": true,
@@ -107,12 +107,16 @@
       "inheritedHistory": false,
       "freshExec": true,
       "independentAccepted": 12825,
-      "languageSha256": "9b6176fd01c048845d5348acc2d4c381cfb9ff80eadcfcd5c4393221b5f764e3",
+      "languageSha256": "cbc6415f4c0a184697ae65e77f96e439841cbc2d3531ae888934dee95a635a98",
       "resumedOwnTask": false,
       "primaryAuthorReadingVersions": 12825,
       "currentDeltaUnits": 3,
-      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/hu.json",
-      "resourceArtifact": "dist/Forest-hu-single-file-final-20261103-01"
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/hu-layout-02.json",
+      "resourceArtifact": "dist/Forest-hu-single-file-final-20261103-02",
+      "nativeAcceptance": {
+        "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/hu.json",
+        "sha256": "083d7c63678981710ccbc262b60fa96418d803531edd062ee36e66df38d31b02"
+      }
     },
     {
       "locale": "nl",
@@ -120,7 +124,7 @@
       "phase": "outputs/last-six-locales-20261103-01/nl/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-delta",
       "taskClass": "semantic-review",
-      "status": "editorial-and-resources-passed-native-pending",
+      "status": "editorial-resources-and-bounded-native-passed",
       "live": false,
       "language": "localization/languages/nl.json",
       "ordinaryTotal": 12825,
@@ -129,7 +133,7 @@
       "protectedExact": 1781,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "native": "not-authorized-not-run",
+      "native": "passed-bounded-native-baseline",
       "pid": 43125,
       "threadId": "01a1a02d-e7b9-75d2-9958-b15cf39f94fc",
       "runtimeVerified": true,
@@ -139,12 +143,16 @@
       "inheritedHistory": false,
       "freshExec": true,
       "independentAccepted": 12825,
-      "languageSha256": "0ae6d402ae56c0774c107b60d51a7da898134ed821e927b69148579d9e273d87",
+      "languageSha256": "f1dc415d4c303c380b25be6af1842c06e4e708f410d10f47cf6eba6909fed751",
       "resumedOwnTask": false,
       "primaryAuthorReadingVersions": 12825,
       "currentDeltaUnits": 5,
-      "resourceArtifact": "dist/Forest-nl-single-file-final-20261103-01",
-      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl.json"
+      "resourceArtifact": "dist/Forest-nl-single-file-final-20261103-02",
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl-layout-02.json",
+      "nativeAcceptance": {
+        "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/nl.json",
+        "sha256": "89d4fd50a56d76642a970a6044834f9525695e211254000b21709945d8e51f96"
+      }
     },
     {
       "locale": "ro",
@@ -152,7 +160,7 @@
       "phase": "outputs/last-six-locales-20261103-01/ro/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-delta",
       "taskClass": "semantic-review",
-      "status": "editorial-and-resources-passed-native-pending",
+      "status": "editorial-resources-and-bounded-native-passed",
       "live": false,
       "language": "localization/languages/ro.json",
       "ordinaryTotal": 12825,
@@ -161,7 +169,7 @@
       "protectedExact": 1781,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "native": "not-authorized-not-run",
+      "native": "passed-bounded-native-baseline",
       "pid": 46177,
       "threadId": "01a1a032-2de7-7e90-8fa9-d8eb627bd064",
       "runtimeVerified": true,
@@ -176,16 +184,20 @@
       "primaryAuthorReadingVersions": 12825,
       "currentDeltaUnits": 28,
       "resourceArtifact": "dist/Forest-ro-single-file-final-20261103-01",
-      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/ro.json"
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/ro.json",
+      "nativeAcceptance": {
+        "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/ro.json",
+        "sha256": "0eebac992414944616c9b51d3e0c02125648b973fade13b750f8b02966a312dc"
+      }
     },
     {
       "locale": "hi",
       "label": "Hindi",
       "phase": "outputs/last-six-locales-20261103-01/hi/author-auto-0001",
       "control": "localization/completion/last-six-locales-20261103-01/independent-wave-01/hi-owner-task.json",
-      "taskClass": "translation-primary-editing",
-      "status": "full-primary-author-audit-running",
-      "live": true,
+      "taskClass": "semantic-review-ready",
+      "status": "author-primary-complete-independent-review-ready",
+      "live": false,
       "language": "localization/languages/hi.json",
       "ordinaryTotal": 12825,
       "filledOrdinary": 12825,
@@ -194,7 +206,6 @@
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
       "native": "not-authorized-not-run",
-      "pid": 96395,
       "threadId": "01a19e34-449f-7f91-be34-8e60d5b6b1a8",
       "runtimeVerified": true,
       "model": "gpt-6.1-sol",
@@ -207,10 +218,17 @@
       "ownerRenderingRiskAcceptance": "localization/completion/last-six-locales-20261103-01/hi-authoring-01/owner-risk-acceptance.json",
       "technicalProbe": "Complete static prerequisite preserved; owner risk decision supplied. Native feasibility remains unverified.",
       "independentAccepted": 0,
-      "languageSha256": "93f7b6d90349915bd1f7f1a2d2deffa82b3c0333e66eecdd18a41f22e8bb9a8e",
+      "languageSha256": "b07e32d85777772344a11a50c684523a50d5ae8c599c45d84df7af5a1e71f09d",
       "resumedOwnTask": true,
       "ownerRiskAcceptance": "localization/completion/last-six-locales-20261103-01/hi-authoring-01/owner-risk-acceptance.json",
-      "primaryAuthorRead": 5596
+      "primaryAuthorRead": 12825,
+      "primaryAuthorUnread": 0,
+      "independentAssigned": 12831,
+      "independentReview": "not-run",
+      "result": "outputs/last-six-locales-20261103-01/hi/author-auto-0001/result.json",
+      "processExit": "outputs/last-six-locales-20261103-01/hi/author-auto-0001/process-exit.json",
+      "resourceCompilation": "not-run-independent-editorial-closure-pending",
+      "completedPid": 96395
     },
     {
       "locale": "sr",
@@ -218,7 +236,7 @@
       "phase": "outputs/last-six-locales-20261103-01/sr/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-delta",
       "taskClass": "semantic-review",
-      "status": "editorial-and-resources-passed-native-pending",
+      "status": "editorial-resources-and-bounded-native-passed",
       "live": false,
       "language": "localization/languages/sr.json",
       "ordinaryTotal": 12825,
@@ -227,7 +245,7 @@
       "protectedExact": 1781,
       "glossaryEntries": 171,
       "glossaryVersionMatchingCells": 684,
-      "native": "not-authorized-not-run",
+      "native": "passed-bounded-native-baseline",
       "pid": 42126,
       "threadId": "01a1a02c-b2d6-71b3-bd90-37a934ca6d6d",
       "runtimeVerified": true,
@@ -242,7 +260,11 @@
       "primaryAuthorReadingVersions": 12825,
       "currentDeltaUnits": 6,
       "resourceArtifact": "dist/Forest-sr-single-file-final-20261103-01",
-      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/sr.json"
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/sr.json",
+      "nativeAcceptance": {
+        "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/sr.json",
+        "sha256": "d70eb4bd83ac939933632e6103f1b7d373156469199edce138ebd5cd0c18a1fa"
+      }
     },
     {
       "locale": "sw",
@@ -276,7 +298,7 @@
       "remainingSourceMeaningHolds": 3
     }
   ],
-  "native": "Current owner-authorized hu/nl/ro/sr isolated QA only. Previous menu capture failed at a confirmed Python environment boundary and restored cleanly; fresh corrected execution is being prepared. Other native permissions unchanged.",
+  "native": "Hungarian/Dutch/Romanian/Serbian exact bounded native baselines passed. Full-story, installer, other-platform and release acceptance remain separate. Hindi native rendering remains unrun.",
   "release": "not-accepted",
   "archival": "pending-unfinished-project",
   "runtimeVerification": "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime-verification.json",
@@ -289,9 +311,10 @@
       "sr"
     ],
     "repairStatus": "outputs/last-six-locales-20261103-01/four-locale-repair-lifecycle-01/status.json",
-    "native": "Authorized current four-locale follow-through; awaits exact editorial closure and candidate builds",
+    "native": "four exact bounded native baselines passed; full story/installer/other-platform/release acceptance remains separate",
     "publication": "not-authorized",
     "resourceDelivery": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/resource-delivery.json",
-    "nativeRepresentative": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-native-04/config.json"
+    "nativeRepresentative": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-native-07/config.json",
+    "nativeDelivery": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/index.json"
   }
 }

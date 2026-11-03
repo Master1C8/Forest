@@ -1,0 +1,660 @@
+{
+  "atUTC": "2026-11-03T09:24:13.801627+00:00",
+  "scope": "Current four-locale repair, exact independent delta and bounded native visual completion assignment. Hindi author telemetry and previous full-locale independent reviews excluded.",
+  "workers": [
+    {
+      "task": "hu/repair-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/hu/repair-01/process-exit.json",
+      "usage": {
+        "input_tokens": 3803550,
+        "cached_input_tokens": 3643392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17460,
+        "reasoning_output_tokens": 2393,
+        "total_tokens": 3821010
+      }
+    },
+    {
+      "task": "hu/independent-delta-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/hu/independent-delta-01/process-exit.json",
+      "usage": {
+        "input_tokens": 5239702,
+        "cached_input_tokens": 5028352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23182,
+        "reasoning_output_tokens": 4433,
+        "total_tokens": 5262884
+      }
+    },
+    {
+      "task": "nl/repair-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/nl/repair-01/process-exit.json",
+      "usage": {
+        "input_tokens": 5931850,
+        "cached_input_tokens": 5739264,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 25536,
+        "reasoning_output_tokens": 7047,
+        "total_tokens": 5957386
+      }
+    },
+    {
+      "task": "nl/independent-delta-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/nl/independent-delta-01/process-exit.json",
+      "usage": {
+        "input_tokens": 6852475,
+        "cached_input_tokens": 6660352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19980,
+        "reasoning_output_tokens": 2931,
+        "total_tokens": 6872455
+      }
+    },
+    {
+      "task": "ro/repair-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/ro/repair-01/process-exit.json",
+      "usage": {
+        "input_tokens": 10655044,
+        "cached_input_tokens": 10431232,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 35298,
+        "reasoning_output_tokens": 8260,
+        "total_tokens": 10690342
+      }
+    },
+    {
+      "task": "ro/independent-delta-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/ro/independent-delta-01/process-exit.json",
+      "usage": {
+        "input_tokens": 4540770,
+        "cached_input_tokens": 4382336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 23359,
+        "reasoning_output_tokens": 4411,
+        "total_tokens": 4564129
+      }
+    },
+    {
+      "task": "sr/repair-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/sr/repair-01/process-exit.json",
+      "usage": {
+        "input_tokens": 5435305,
+        "cached_input_tokens": 5259136,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 26613,
+        "reasoning_output_tokens": 6736,
+        "total_tokens": 5461918
+      }
+    },
+    {
+      "task": "sr/independent-delta-01",
+      "category": "wording-editor-or-independent-delta",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "receipt": "outputs/last-six-locales-20261103-01/sr/independent-delta-01/process-exit.json",
+      "usage": {
+        "input_tokens": 4638229,
+        "cached_input_tokens": 4454528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21214,
+        "reasoning_output_tokens": 3331,
+        "total_tokens": 4659443
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-04/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a058-0443-7910-b488-37e5d835ade4",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-04/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T07:38:41.257036+00:00",
+      "usage": {
+        "input_tokens": 56457,
+        "cached_input_tokens": 18176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 440,
+        "reasoning_output_tokens": 172,
+        "total_tokens": 56897
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-04/queue/attempt-0002",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a05a-edeb-7820-9205-b54e365cdf1f",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-04/queue/attempt-0002/usage.json",
+      "cutoff": "2026-11-03T07:42:13.699888+00:00",
+      "usage": {
+        "input_tokens": 37864,
+        "cached_input_tokens": 18176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1087,
+        "reasoning_output_tokens": 761,
+        "total_tokens": 38951
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-04/queue/attempt-0003",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a05b-cfd6-7143-a9d7-6edcf62519a8",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-04/queue/attempt-0003/usage.json",
+      "cutoff": "2026-11-03T07:42:37.262080+00:00",
+      "usage": {
+        "input_tokens": 37907,
+        "cached_input_tokens": 18176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 369,
+        "reasoning_output_tokens": 110,
+        "total_tokens": 38276
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-04/queue/attempt-0004",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a05c-2b73-73f1-b05b-a97f0e427299",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-04/queue/attempt-0004/usage.json",
+      "cutoff": "2026-11-03T07:43:07.936220+00:00",
+      "usage": {
+        "input_tokens": 56514,
+        "cached_input_tokens": 36480,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 510,
+        "reasoning_output_tokens": 233,
+        "total_tokens": 57024
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-04/settings-detail-review/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a063-d516-77a1-b424-10a81a4b69ca",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-04/settings-detail-review/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T07:51:30.263745+00:00",
+      "usage": {
+        "input_tokens": 36575,
+        "cached_input_tokens": 17536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 631,
+        "reasoning_output_tokens": 222,
+        "total_tokens": 37206
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-04/settings-detail-review/queue-both/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a067-1661-7bc1-9acd-38184e8ceb17",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-04/settings-detail-review/queue-both/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T07:55:50.683953+00:00",
+      "usage": {
+        "input_tokens": 36952,
+        "cached_input_tokens": 17664,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1685,
+        "reasoning_output_tokens": 1034,
+        "total_tokens": 38637
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-07/dialogue-resolution/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a08f-5707-73d1-9f87-ccbe8bb8c274",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-07/dialogue-resolution/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T08:38:53.942300+00:00",
+      "usage": {
+        "input_tokens": 36635,
+        "cached_input_tokens": 17536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 377,
+        "reasoning_output_tokens": 98,
+        "total_tokens": 37012
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-07/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a082-cae9-79c2-bbe4-d8e82c46a94b",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-07/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T08:25:45.261172+00:00",
+      "usage": {
+        "input_tokens": 39723,
+        "cached_input_tokens": 18304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1221,
+        "reasoning_output_tokens": 629,
+        "total_tokens": 40944
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-07/queue/attempt-0002",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a083-a9ce-7a81-b99c-6d399f62c3c2",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-07/queue/attempt-0002/usage.json",
+      "cutoff": "2026-11-03T08:26:29.986812+00:00",
+      "usage": {
+        "input_tokens": 39599,
+        "cached_input_tokens": 18432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1158,
+        "reasoning_output_tokens": 617,
+        "total_tokens": 40757
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-07/queue/attempt-0003",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a084-57d9-7aa0-a634-a0323d8ffdfa",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-07/queue/attempt-0003/usage.json",
+      "cutoff": "2026-11-03T08:26:50.742032+00:00",
+      "usage": {
+        "input_tokens": 38138,
+        "cached_input_tokens": 18304,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 416,
+        "reasoning_output_tokens": 141,
+        "total_tokens": 38554
+      }
+    },
+    {
+      "task": "hu-compiled-20261103-07/settings-resolution/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a08f-5707-7d61-a6b4-ae4160a211ca",
+      "receipt": "localization/visual-qa/hu-compiled-20261103-07/settings-resolution/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T08:39:07.186830+00:00",
+      "usage": {
+        "input_tokens": 37007,
+        "cached_input_tokens": 17536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 803,
+        "reasoning_output_tokens": 311,
+        "total_tokens": 37810
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-01/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0a7-87b1-7d81-b892-bbe9a138ac95",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-01/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:05:35.473125+00:00",
+      "usage": {
+        "input_tokens": 40505,
+        "cached_input_tokens": 18944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 765,
+        "reasoning_output_tokens": 368,
+        "total_tokens": 41270
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-01/queue/attempt-0002",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0a8-22b9-7790-af7b-bbe5e1dbacd1",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-01/queue/attempt-0002/usage.json",
+      "cutoff": "2026-11-03T09:06:01.448411+00:00",
+      "usage": {
+        "input_tokens": 40516,
+        "cached_input_tokens": 18944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 541,
+        "reasoning_output_tokens": 162,
+        "total_tokens": 41057
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-01/queue/attempt-0003",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0a8-8795-7693-ba59-2343a09148d4",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-01/queue/attempt-0003/usage.json",
+      "cutoff": "2026-11-03T09:06:42.848644+00:00",
+      "usage": {
+        "input_tokens": 39172,
+        "cached_input_tokens": 18944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 976,
+        "reasoning_output_tokens": 599,
+        "total_tokens": 40148
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-02/quest-context-resolution/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0b7-0208-7940-934f-652ff6c8a7fc",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-02/quest-context-resolution/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:22:12.731479+00:00",
+      "usage": {
+        "input_tokens": 44942,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 408,
+        "reasoning_output_tokens": 103,
+        "total_tokens": 45350
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-02/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0b4-2296-75b3-b072-e7dbead01d3f",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-02/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:19:14.714399+00:00",
+      "usage": {
+        "input_tokens": 59838,
+        "cached_input_tokens": 38016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 573,
+        "reasoning_output_tokens": 234,
+        "total_tokens": 60411
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-02/queue/attempt-0002",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0b4-a1e2-7dd0-8c8c-b4f624112024",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-02/queue/attempt-0002/usage.json",
+      "cutoff": "2026-11-03T09:19:44.191706+00:00",
+      "usage": {
+        "input_tokens": 40558,
+        "cached_input_tokens": 18944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 624,
+        "reasoning_output_tokens": 229,
+        "total_tokens": 41182
+      }
+    },
+    {
+      "task": "nl-compiled-20261103-02/queue/attempt-0003",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0b5-14cc-7963-8ffd-0a3a40647d03",
+      "receipt": "localization/visual-qa/nl-compiled-20261103-02/queue/attempt-0003/usage.json",
+      "cutoff": "2026-11-03T09:20:21.767897+00:00",
+      "usage": {
+        "input_tokens": 39161,
+        "cached_input_tokens": 18944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 949,
+        "reasoning_output_tokens": 574,
+        "total_tokens": 40110
+      }
+    },
+    {
+      "task": "ro-compiled-20261103-01/menu-resolution/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0ae-7c4b-7ec0-8479-376f7888fb55",
+      "receipt": "localization/visual-qa/ro-compiled-20261103-01/menu-resolution/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:13:14.503451+00:00",
+      "usage": {
+        "input_tokens": 40521,
+        "cached_input_tokens": 19072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 993,
+        "reasoning_output_tokens": 295,
+        "total_tokens": 41514
+      }
+    },
+    {
+      "task": "ro-compiled-20261103-01/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0a9-a1d4-7eb1-b997-d0f19d67ecc7",
+      "receipt": "localization/visual-qa/ro-compiled-20261103-01/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:08:05.326589+00:00",
+      "usage": {
+        "input_tokens": 40799,
+        "cached_input_tokens": 19072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1132,
+        "reasoning_output_tokens": 556,
+        "total_tokens": 41931
+      }
+    },
+    {
+      "task": "ro-compiled-20261103-01/queue/attempt-0002",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0aa-6b9f-7ae2-9263-5d4e15473d2a",
+      "receipt": "localization/visual-qa/ro-compiled-20261103-01/queue/attempt-0002/usage.json",
+      "cutoff": "2026-11-03T09:08:44.526866+00:00",
+      "usage": {
+        "input_tokens": 40762,
+        "cached_input_tokens": 19072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 904,
+        "reasoning_output_tokens": 425,
+        "total_tokens": 41666
+      }
+    },
+    {
+      "task": "ro-compiled-20261103-01/queue/attempt-0003",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0ab-0596-70f2-87df-54d47c7819cb",
+      "receipt": "localization/visual-qa/ro-compiled-20261103-01/queue/attempt-0003/usage.json",
+      "cutoff": "2026-11-03T09:09:06.989904+00:00",
+      "usage": {
+        "input_tokens": 39240,
+        "cached_input_tokens": 18816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 403,
+        "reasoning_output_tokens": 135,
+        "total_tokens": 39643
+      }
+    },
+    {
+      "task": "ro-compiled-20261103-02/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0b5-2206-7cb3-85e5-dbd1cd79d348",
+      "receipt": "localization/visual-qa/ro-compiled-20261103-02/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:20:20.200360+00:00",
+      "usage": {
+        "input_tokens": 38314,
+        "cached_input_tokens": 18432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 531,
+        "reasoning_output_tokens": 269,
+        "total_tokens": 38845
+      }
+    },
+    {
+      "task": "sr-compiled-20261103-01/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0ac-999e-7c72-babb-601104b21b67",
+      "receipt": "localization/visual-qa/sr-compiled-20261103-01/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:11:13.801872+00:00",
+      "usage": {
+        "input_tokens": 40785,
+        "cached_input_tokens": 19072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 977,
+        "reasoning_output_tokens": 380,
+        "total_tokens": 41762
+      }
+    },
+    {
+      "task": "sr-compiled-20261103-01/queue/attempt-0002",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0ad-4b6a-74e1-9e5d-593afac4a244",
+      "receipt": "localization/visual-qa/sr-compiled-20261103-01/queue/attempt-0002/usage.json",
+      "cutoff": "2026-11-03T09:11:49.061772+00:00",
+      "usage": {
+        "input_tokens": 60312,
+        "cached_input_tokens": 38272,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 774,
+        "reasoning_output_tokens": 397,
+        "total_tokens": 61086
+      }
+    },
+    {
+      "task": "sr-compiled-20261103-01/queue/attempt-0003",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0ad-d4d5-78d1-a131-2d6e301d6215",
+      "receipt": "localization/visual-qa/sr-compiled-20261103-01/queue/attempt-0003/usage.json",
+      "cutoff": "2026-11-03T09:12:10.565247+00:00",
+      "usage": {
+        "input_tokens": 39342,
+        "cached_input_tokens": 18944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 430,
+        "reasoning_output_tokens": 163,
+        "total_tokens": 39772
+      }
+    },
+    {
+      "task": "sr-compiled-20261103-02/queue/attempt-0001",
+      "category": "bounded-independent-visual-review",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "provider": "openai",
+      "sessionId": "01a1a0b6-3eaa-7cb0-91d4-a80866863f40",
+      "receipt": "localization/visual-qa/sr-compiled-20261103-02/queue/attempt-0001/usage.json",
+      "cutoff": "2026-11-03T09:21:24.578688+00:00",
+      "usage": {
+        "input_tokens": 38395,
+        "cached_input_tokens": 18432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 514,
+        "reasoning_output_tokens": 248,
+        "total_tokens": 38909
+      }
+    }
+  ],
+  "measuredWorkerSubtotal": {
+    "input_tokens": 48233458,
+    "cached_input_tokens": 46136832,
+    "output_tokens": 212833,
+    "total_tokens": 48446291
+  },
+  "coordinator": {
+    "threadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "baseline": {
+      "atUTC": "2026-11-03T06:32:15.893699+00:00",
+      "coordinatorThreadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+      "usage": {
+        "input_tokens": 359818091,
+        "cached_input_tokens": 356088576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1706034,
+        "reasoning_output_tokens": 925761,
+        "total_tokens": 361524125
+      },
+      "scope": "Four-locale consolidated repair, exact independent delta review, shared resource build and authorized verification. Initial status/instruction check precedes baseline."
+    },
+    "cutoff": "2026-11-03T09:24:13.801627+00:00",
+    "cumulativeAtCutoff": {
+      "input_tokens": 409711788,
+      "cached_input_tokens": 405671808,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1938884,
+      "reasoning_output_tokens": 1061434,
+      "total_tokens": 411650672
+    },
+    "nonoverlappingDelta": {
+      "input_tokens": 49893697,
+      "cached_input_tokens": 49583232,
+      "output_tokens": 232850,
+      "total_tokens": 50126547
+    },
+    "attribution": "Shared mixed coordinator implementation, orchestration, native diagnosis, current Hindi status reconciliation and accounting; no exact per-agent split. Initial scope/instruction checks before baseline excluded."
+  },
+  "subsets": "Cached input is contained in input; reasoning is contained in output. Total=input+output. No monetary charges inferred.",
+  "limitations": "Current reporting/commit tail and platform overhead after cutoff are unmeasured. Failed visual judgments and repaired malformed metadata echo are included once through actual request telemetry. No accounting-only model request."
+}

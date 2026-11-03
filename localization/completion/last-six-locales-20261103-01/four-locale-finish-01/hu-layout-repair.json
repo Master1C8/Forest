@@ -1,0 +1,36 @@
+{
+  "atUTC": "2026-11-03T08:05:34.144518+00:00",
+  "defect": "Hungarian Scale label outline touches 1x in original native settings frame, independently confirmed by full frame and source-bound crop.",
+  "beforeLanguageSha256": "9b6176fd01c048845d5348acc2d4c381cfb9ff80eadcfcd5c4393221b5f764e3",
+  "afterLanguageSha256": "cbc6415f4c0a184697ae65e77f96e439841cbc2d3531ae888934dee95a635a98",
+  "onlyChangedField": "layout",
+  "unchangedTranslations": 14606,
+  "roles": {
+    "level1:7878": {
+      "before": 20.0,
+      "after": 18.0
+    },
+    "level1:7922": {
+      "before": 20.0,
+      "after": 18.0
+    },
+    "level1:7956": {
+      "before": 20.0,
+      "after": 18.0
+    },
+    "level1:7975": {
+      "before": 20.0,
+      "after": 18.0
+    },
+    "level1:8019": {
+      "before": 20.0,
+      "after": 18.0
+    },
+    "level1:8032": {
+      "before": 20.0,
+      "after": 18.0
+    }
+  },
+  "scope": "All six registered glow/base layers of the same label; no wording, font payload, source or other layout change.",
+  "verification": "Structural registered-role preflight passes. Actual rebuilt settings/render/readability requires a new native frame."
+}

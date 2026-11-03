@@ -115,7 +115,7 @@ public sealed partial class ForestProbe {
                     minY=UnityEngine.Mathf.Min(minY,p.y);maxY=UnityEngine.Mathf.Max(maxY,p.y);
                 }
             }
-            bool visible=text.color.a>0 && text.canvasRenderer.GetAlpha()>0;
+            bool visible=text.color.a>0 && text.canvasRenderer.GetAlpha()>0 && text.canvasRenderer.GetInheritedAlpha()>=0.99f;
             var culture=System.Globalization.CultureInfo.InvariantCulture;
             output.Append(path).Append('\t').Append(System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text.text)))
                 .Append('\t').Append(visible).Append('\t').Append(ink).Append('\t')

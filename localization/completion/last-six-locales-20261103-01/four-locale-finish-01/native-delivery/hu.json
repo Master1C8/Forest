@@ -1,0 +1,365 @@
+{
+  "atUTC": "2026-11-03T09:00:31.775124+00:00",
+  "locale": "hu",
+  "status": "passed-bounded-native-baseline",
+  "language": {
+    "path": "localization/languages/hu.json",
+    "sha256": "cbc6415f4c0a184697ae65e77f96e439841cbc2d3531ae888934dee95a635a98"
+  },
+  "artifact": "dist/Forest-hu-single-file-final-20261103-02",
+  "artifactManifest": {
+    "path": "dist/Forest-hu-single-file-final-20261103-02/manifest.json",
+    "sha256": "a4a2b1c68b3192fd9bdf952dac9f3f18554ebabec97fc8000e34856d9cb0d3ed"
+  },
+  "config": {
+    "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-native-07/config.json",
+    "sha256": "9178e3fa7fafd6b2b767d7df79dc3b42d698e6c6ed54feebedd7d6b3c518dbbc"
+  },
+  "runtime": {
+    "path": "localization/probes/hu-20261103-compiled-07/runtime-result.json",
+    "sha256": "79a16b0c66b91a2e4a6a7564845c59c9bdb2371c10e207cf280aaf259936f1bf"
+  },
+  "cleanup": {
+    "path": "localization/probes/hu-20261103-compiled-07/cleanup.json",
+    "sha256": "0520a857313ea183c88177ee515f41f7b111c91efdaedcf1ba9756c812fefe31"
+  },
+  "nativeManifest": {
+    "path": "localization/visual-qa/hu-compiled-20261103-07/native-manifest.json",
+    "sha256": "2ff988628f44ad21704cea3cd47009277701e71a41c814bfdaf93b40c75277b4"
+  },
+  "images": [
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "runtimeLocale": "hu",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "hu-01-main-menu.png",
+        "sha256": "d5593de8c6219d9a707ca02c72fde497f64182609f9e65fac73138cef2fbef32",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Irányítás",
+          "Játék",
+          "Kilépés",
+          "Irányítás",
+          "Beállítások\n",
+          "Galéria",
+          "Beállítások\n",
+          "Beállítások\n",
+          "Játék",
+          "Játék",
+          "Galéria",
+          "v0.45.1",
+          "Hibajelentés",
+          "Galéria",
+          "TFoL.info",
+          "TFoL.info",
+          "TFoL.info",
+          "Beállítások\n",
+          "Hibajelentés",
+          "Beállítások\n",
+          "Galéria",
+          "Hibajelentés",
+          "Hibajelentés",
+          "Hibajelentés",
+          "Irányítás",
+          "Galéria",
+          "Irányítás",
+          "Kilépés",
+          "Játék",
+          "TFoL.info",
+          "Kilépés",
+          "Kilépés",
+          "Irányítás",
+          "Játék",
+          "TFoL.info",
+          "Kilépés"
+        ],
+        "boundary": "Original loaded main menu; bridge finishes its opening animation, no replacement strings.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "fe6c37b683861310c207692e9f4e1c45ee279c059024b51b4325eb673cfe9c80"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/hu-compiled-20261103-07/visual-review.json",
+        "sha256": "b434f84fef8aaafc606fe6763bdcfc87fa581a519c815bbab7d7bac7c15f5692"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "d5593de8c6219d9a707ca02c72fde497f64182609f9e65fac73138cef2fbef32.webp",
+        "sha256": "ab0b1ff1c21a8a80fd55303171e915d6fc750af052434d9a53514fb4c7470905",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T08:25:45.288884+00:00",
+        "observations": "Inspected the complete 1280×720 prepared frame. Hungarian menu labels match the supplied expectations, with readable accents and no clipping or overlap. The game-title logo, TFoL.info and v0.45.1 are consistent with context. No notification banners or added overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "runtimeLocale": "hu",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "hu-02-settings.png",
+        "sha256": "9867243d964434dd48d4c26e74ab98b2862bbf777f7fe24494f748f89d77d562",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Mentés\ntörlése",
+          "Mentés\ntörlése",
+          "v0.45.1",
+          "Mentés\ntörlése",
+          "Mentés\ntörlése",
+          "Mentés\ntörlése",
+          "Hangeffektek",
+          "Teljes képernyő:",
+          "Hangeffektek",
+          "Hangeffektek",
+          "Hangeffektek",
+          "Teljes képernyő:",
+          "Zene",
+          "Vissza",
+          "Ki",
+          "Zene",
+          "Ki",
+          "Zene",
+          "Zene",
+          "Zene",
+          "Méretezés:",
+          "Teljes képernyő:",
+          "Vissza",
+          "Ki",
+          "Méretezés:",
+          "Vissza",
+          "Teljes képernyő:",
+          "Méretezés:",
+          "Ki",
+          "Vissza",
+          "Ki",
+          "Vissza",
+          "Teljes képernyő:",
+          "Méretezés:",
+          "Hangeffektek",
+          "Méretezés:"
+        ],
+        "boundary": "Original Options handler; current actual display mode independently logged. No fullscreen toggling in this batch.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "f00438de05bf9e38c766a80bf49ee5cea32a7aacccbe79de4709ab766adc6c21"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/hu-compiled-20261103-07/settings-resolution/visual-review.json",
+        "sha256": "16bbc9cefe8b58345da18f7e35c23b899391bcfcd7ac24cb31d2c350d1fcc8c3"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "9867243d964434dd48d4c26e74ab98b2862bbf777f7fe24494f748f89d77d562.webp",
+        "sha256": "a298df4509cf1990b2d08393f4ee97e903b002ece58ca55281a045f2028a4272",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T08:39:07.201693+00:00",
+        "observations": "Inspected the complete 1280×720 frame. Hungarian settings labels, values and buttons are readable, including accents, with no clipping or overlap. “Méretezés:” and “1x” have a visible gap, confirmed by the diagnostic crop. The source-approved English logo and version remain intact. No literal tags or external overlays are visible.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "runtimeLocale": "hu",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "hu-03-dialogue.png",
+        "sha256": "6a363acde7d8e74735c23f9c183a674392f19ca181db6ccc3547ac249a3f1797",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": "Csibész! Hogy érzed magad?",
+        "boundary": "Original resumed-fixture conversation. No text injection or forced conversation start.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "fcc771f35a60f5fbddeba422dc026804d8865b5dcc922b3133fb369f8b084c02"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/hu-compiled-20261103-07/dialogue-resolution/visual-review.json",
+        "sha256": "0c8e36b92ef0d6d264f857e4add6501678f01dea7a2a3cb424e7835c6a14c9df"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "6a363acde7d8e74735c23f9c183a674392f19ca181db6ccc3547ac249a3f1797.webp",
+        "sha256": "e4f1c700b10e59caaf17c02139f79ca48b2589b1efd9c562149b6da4f0b91ad7",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001; exact delivery metadata reconstructed",
+        "reviewedAt": "2026-11-03T08:38:53.940256+00:00",
+        "observations": "Inspected the complete delivered 1280×720 prepared WebP for Hungarian revision02, native run07. Nameplate reads “Scarlett”, matching the supplied intentional proper-name mapping. Dialogue reads “Csibész! Hogy érzed magad?” with legible accents and sufficient padding. No clipping, overlap, literal tags, unexpected fallback text or external overlays are visible. No RTL text is present.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "runtimeLocale": "hu",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "hu-04-inventory-owned-440.png",
+        "sha256": "cadb54e32978c31b095af7b1ff631f9a557b54327646b524070312827337bb2b",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Lámpásüveg",
+          "Egy befőttesüvegnyi pajkos szentjánosbogár, amely remek lámpásként szolgál. Szeretnéd megnézni, mi folyik odabent, de túl gyorsan mozognak!"
+        ],
+        "boundary": "Original inventory consumer with cloned item argument; original sprites loaded in gameplay; no awards/quantity/progress change.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "9d7d19ba4838c0199fa1a714410b5b976c1e8caf0cc9cfae33fa643725723ab1"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/hu-compiled-20261103-07/visual-review.json",
+        "sha256": "b434f84fef8aaafc606fe6763bdcfc87fa581a519c815bbab7d7bac7c15f5692"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "cadb54e32978c31b095af7b1ff631f9a557b54327646b524070312827337bb2b.webp",
+        "sha256": "784d1f9cf38e5f43dfeb015b016b39221b072def23c428d83d7fb78361b7820e",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T08:26:29.998218+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. “TÁRGYKÉSZLET”, “Lámpásüveg” and the complete supplied description are readable. Hungarian accents render correctly; the description wraps across three lines within the panel without clipping or overlap. No visible tags, unexpected fallback text or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "runtimeLocale": "hu",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "hu-05-finley-quest.png",
+        "sha256": "5c69719d689152fa45c89bf07d6b0e54e2969c008bef818aecfeb7c9c7307a6b",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Kapcsolatfoltozás",
+          "Segíts Finleynek rendezni a dolgokat egykori lakótársaival."
+        ],
+        "boundary": "Original QuestLogDetailsPane with reversible active-status fixture; exact corrected serialized Finley title/body. Quest awarding/progression not tested.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "9efe76b7509b9e1ea4072f83ba23d5b503001699b07ddd15747e61a12a21bb66"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/hu-compiled-20261103-07/visual-review.json",
+        "sha256": "b434f84fef8aaafc606fe6763bdcfc87fa581a519c815bbab7d7bac7c15f5692"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "hu",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "5c69719d689152fa45c89bf07d6b0e54e2969c008bef818aecfeb7c9c7307a6b.webp",
+        "sha256": "451c9ccf4513f3493d771d0a131a9bb2096e3177f5d9f0932fe66d33b838649d",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0003",
+        "reviewedAt": "2026-11-03T08:26:50.768328+00:00",
+        "observations": "Inspected the complete 1280×720 prepared frame. “Kapcsolatfoltozás” and the complete Finley quest description match the supplied expectations. Visible Hungarian headings and quest labels are readable, with intact diacritics and spacing. Text fits its fields without clipping, overlap or truncation. No visible tags, unexpected source fallback or notification overlays. This frame does not exercise the settings label/value gap.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    }
+  ],
+  "frames": 5,
+  "independentOrdinary": 12825,
+  "protectedExact": 1781,
+  "inventoryConsumerMeasurements": 53,
+  "actualDialogueNextState": [
+    {
+      "predicate": "original-dialogue-next-state",
+      "status": "passed",
+      "before": [
+        120,
+        153
+      ],
+      "after": [
+        120,
+        153
+      ],
+      "responses": 1
+    }
+  ],
+  "scope": "Finite native baseline: original loaded menu/settings, original resumed-fixture dialogue and next-state guard when available, all48 inventory and four neighbor branches, worst-height inventory frame, original Finley quest pane. Full story, all special callbacks/haiku, artwork textures and other platforms remain separate.",
+  "installed": false,
+  "release": "not-published",
+  "boundary": "Complete exact five-scene native baseline and original guarded dialogue progression; not a full story playthrough, every special callback, installer or other-platform acceptance."
+}

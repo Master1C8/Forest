@@ -61,14 +61,41 @@ def wait_state(predicate,label,timeout=45):
         if predicate(d):write(label+'.json',d);return d
         time.sleep(.4)
     write(label+'-timeout.json',d);raise RuntimeError('Guard not reached',label,d.get('scene'))
+def fixture_dialogue_ready(state):
+    import compiled_contract
+    return compiled_contract.fixture_dialogue_ready(state,CONFIG['fixtureDialogue'])
+def wait_fixture_dialogue(label,timeout):
+    end=time.monotonic()+timeout;stable=0;last=None
+    while time.monotonic()<end:
+        last=dump()
+        if fixture_dialogue_ready(last):
+            stable+=1
+            if stable>=3:
+                write(label+'.json',last);return last
+        else:stable=0
+        time.sleep(.3)
+    write(label+'-timeout.json',last);raise RuntimeError('Exact complete visible fixture subtitle not reached',label)
 def geometry(label):
     command('menu-geometry');rows=[]
     for line in (RUN/'menu-geometry.tsv').read_text().splitlines()[1:]:
         f=line.split('\t');assert len(f)==8
         rows.append(dict(path=f[0],text=base64.b64decode(f[1]).decode(),visible=f[2]=='True',ink=f[3]=='True',bounds=list(map(float,f[4:]))))
     write(label+'-captions.json',rows);return rows
+def wait_main_menu():
+    expected=set(CONFIG['mainMenuReadyTexts']);end=time.monotonic()+45
+    previous=None;stable=0
+    while time.monotonic()<end:
+        rows=geometry('main-menu')
+        signature=sorted((r['text'],tuple(round(v,2) for v in r['bounds'])) for r in rows if r['visible'] and r['ink'])
+        visible={r[0] for r in signature}
+        stable=stable+1 if expected<=visible and signature==previous else 0
+        if stable>=3:return rows
+        previous=signature;time.sleep(.4)
+    raise RuntimeError('Complete opaque stable main menu not reached',sorted(expected-visible))
 def capture(slug,expected,boundary,capture_command='capture'):
     d=dump();command('locale-diagnostics')
+    if CONFIG.get('compiledLanguage') and slug in ['dialogue','npc-dialogue']:
+        assert fixture_dialogue_ready(d),'Exact nonempty target dialogue changed before capture'
     name=CONFIG['locale']+'-'+str(len(captures)+1).zfill(2)+'-'+slug+'.png';command(capture_command+' '+name)
     path=RUN/name
     from PIL import Image
@@ -131,7 +158,10 @@ def main():
         write('launch.json',dict(pid=child.pid,command=args,date=now()))
         ready=runtime_startup.wait_for_probe(RUN,child,process_rows,300);assert ready['readinessFileVerified']
         command('show-menu');d=wait_state(lambda s:s['scene']=='StartMenu' and 'StartScreenMainMenu Canvas/MainMenu' in s['components'],'main-menu')
-        if CONFIG.get('nativeBatch') in ['quest-layout','quest-callbacks','notebook-headings','quest-list-diagnostic','quest-list']:
+        if CONFIG.get('nativeBatch')=='main-menu-only':
+            rows=wait_main_menu();words=[r['text'] for r in rows if r['visible'] and r['ink']]
+            capture('main-menu',words,'Original menu after all required captions are opaque and geometry is stable; affected animation-readiness correction only.')
+        elif CONFIG.get('nativeBatch') in ['quest-layout','quest-callbacks','notebook-headings','quest-list-diagnostic','quest-list']:
             import quest_native
             command('menu StartScreenMainMenu OnClickStart')
             d=wait_state(lambda s:'PlayMenu Canvas/PlayMenu' in s['components'],'quest-play-menu')
@@ -151,8 +181,19 @@ def main():
         elif CONFIG.get('nativeBatch')=='original-tutorial':
             import tutorial_native
             tutorial_native.batch(globals())
+        elif CONFIG.get('nativeBatch')=='original-dialogue':
+            command('menu StartScreenMainMenu OnClickStart')
+            wait_state(lambda s:'PlayMenu Canvas/PlayMenu' in s['components'],'dialogue-play-menu')
+            command('menu PlayMenu OnClickContinue',75)
+            d=wait_fixture_dialogue('original-dialogue-ready',180)
+            assert d['responseCount']==0 and (d['conversationId'],d['entryId'])!=(120,158),'Explicit original-choice scope required'
+            capture('npc-dialogue',d['conversationState'],'Original natural dialogue after disposable Continue; no text injection or forced conversation start.')
+            old=(d['conversationId'],d['entryId'])
+            command('continue-bound '+str(old[0])+' '+str(old[1]))
+            after=wait_state(lambda s:not s['conversationActive'] or (s['conversationId'],s['entryId'])!=old or s['responseCount']>0,'original-dialogue-next-state',60)
+            progress.append(dict(predicate='original-dialogue-next-state',status='passed',before=list(old),after=[after['conversationId'],after['entryId']],responses=after['responseCount']))
         else:
-            rows=geometry('main-menu');words=[r['text'] for r in rows if r['visible'] and r['ink']]
+            rows=wait_main_menu() if CONFIG.get('mainMenuReadyTexts') else geometry('main-menu');words=[r['text'] for r in rows if r['visible'] and r['ink']]
             assert any(CONFIG.get('menuGuards',{}).get('play','Spielen') in t for t in words),('Exact menu locale guard',words)
             capture('main-menu',words,'Original loaded main menu; bridge finishes its opening animation, no replacement strings.')
             command('menu StartScreenMainMenu OnClickOptions')
@@ -174,6 +215,10 @@ def main():
             continuation=json.loads((RUN/'fixture-continuation.json').read_text());assert continuation['diagnosticsReady'] and continuation['gameplay'] and continuation['playerPresent']
             progress.append(dict(predicate='generated-fixture-original-continue',status='passed',scene=d['scene'],boundary='QA-only save restoration through original Continue; not owner-save or new-game-route acceptance'))
             command('items-ready',75);assert (RUN/'items-ready.txt').read_text().strip()=='48'
+            if CONFIG.get('compiledLanguage'):
+                # The loading snapshot precedes the fixture's natural delayed
+                # dialogue. Fresh guarded state, not that stale snapshot, owns capture.
+                d=wait_fixture_dialogue('fixture-original-dialogue-ready',90)
             # Original conversation is observed and advanced only with a fresh source-bound guard.
             if d['conversationActive']:
                 d=wait_state(lambda s:s['conversationActive'] and not s['typing'],'dialogue-settled',75)

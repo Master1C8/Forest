@@ -1,0 +1,384 @@
+{
+  "atUTC": "2026-11-03T09:22:11.908972+00:00",
+  "locale": "sr",
+  "status": "passed-bounded-native-baseline",
+  "language": {
+    "path": "localization/languages/sr.json",
+    "sha256": "f63e76c6484c2b3f3d4111f79a70952f0ec9c7d7f0018e123e2024f37a3c6ccc"
+  },
+  "artifact": "dist/Forest-sr-single-file-final-20261103-01",
+  "artifactManifest": {
+    "path": "dist/Forest-sr-single-file-final-20261103-01/manifest.json",
+    "sha256": "aa9db0286ad65eaa7168c392f6597f34b06af9dca8e5ed97eda800de5e4b323d"
+  },
+  "config": {
+    "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-native/config.json",
+    "sha256": "1c638e2d6edad6e20168873973be1b4ce62be8c6a2de6e4b3907e7b6fb9b611a"
+  },
+  "runtime": {
+    "path": "localization/probes/sr-20261103-compiled-01/runtime-result.json",
+    "sha256": "7ff5baa8c0cd1fca71c9e0d450668ddaa5ceac67d79956f1ce144f3a2ee14196"
+  },
+  "cleanup": {
+    "path": "localization/probes/sr-20261103-compiled-01/cleanup.json",
+    "sha256": "48869ef017310b830de6198fc492c8a977444a2447c68adaa642b51d72120773"
+  },
+  "nativeManifest": {
+    "path": "localization/visual-qa/sr-compiled-20261103-01/native-manifest.json",
+    "sha256": "97d818959dbe11637eb09804031597f0485e3aca0e22a077109bc4bfd79ffd2a"
+  },
+  "menuReplacement": {
+    "config": {
+      "path": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-native-02/config.json",
+      "sha256": "50fbecec960f9779efdc59df51fe1ce823cbe3557d58fba14f401f167a26a060"
+    },
+    "runtime": {
+      "path": "localization/probes/sr-20261103-compiled-02/runtime-result.json",
+      "sha256": "a336388bd32d6e50357087514258aa47dea39bc873c4fdb4747a10f8455ed3ea"
+    },
+    "cleanup": {
+      "path": "localization/probes/sr-20261103-compiled-02/cleanup.json",
+      "sha256": "04bacc291d2c55a7e5fcbc940b34f919169a031c9246bdac7716dfb4d10fac12"
+    },
+    "nativeManifest": {
+      "path": "localization/visual-qa/sr-compiled-20261103-02/native-manifest.json",
+      "sha256": "1581f41c370516882250943ad816b9ce733db54a21ee0b75ec6cb0b92eac75d7"
+    },
+    "retainedOtherFourExact": true
+  },
+  "images": [
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "runtimeLocale": "sr",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "sr-01-main-menu.png",
+        "sha256": "a6f27dbcd6cca3d0c5a2a58870aefe3fb128c761afd32c2493c443f7a49fe6a0",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Контроле",
+          "Играј",
+          "Изађи",
+          "Контроле",
+          "Подешавања\n",
+          "Галерија",
+          "Подешавања\n",
+          "Подешавања\n",
+          "Играј",
+          "Играј",
+          "Галерија",
+          "v0.45.1",
+          "Пријави грешку",
+          "Галерија",
+          "TFoL.info",
+          "TFoL.info",
+          "TFoL.info",
+          "Подешавања\n",
+          "Пријави грешку",
+          "Подешавања\n",
+          "Галерија",
+          "Пријави грешку",
+          "Пријави грешку",
+          "Пријави грешку",
+          "Контроле",
+          "Галерија",
+          "Контроле",
+          "Изађи",
+          "Играј",
+          "TFoL.info",
+          "Изађи",
+          "Изађи",
+          "Контроле",
+          "Играј",
+          "TFoL.info",
+          "Изађи"
+        ],
+        "boundary": "Original menu after all required captions are opaque and geometry is stable; affected animation-readiness correction only.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "ccf0464f090bfbc4f029f23e970fd76d7f9f4f19808cbbf35892af2755c6a9cb"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/sr-compiled-20261103-02/visual-review.json",
+        "sha256": "d897e43188dc22c4b7d9edf02bdc83e71d0de1e0efcae15863503fd67831de14"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "order": 1,
+        "direction": "ltr",
+        "filename": "a6f27dbcd6cca3d0c5a2a58870aefe3fb128c761afd32c2493c443f7a49fe6a0.webp",
+        "sha256": "73430d9d034b1a8418277c5bb24e15102c6a1b3aadb3da0b7b49aba17eab7d2d",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:21:24.609167+00:00",
+        "observations": "Inspected the complete 1280×720 prepared frame. All Serbian Cyrillic menu captions are readable, opaque and match the supplied expectations, with no clipping, overlap, missing glyphs or visible tags. TFoL.info and v0.45.1 are present; the English logo matches the supplied game title. No notification banners or added locale labels are visible. This frame contains LTR text only.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "runtimeLocale": "sr",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "sr-02-settings.png",
+        "sha256": "edcd46ba3e02757be7307db1ee5a100aec80e81982f3938297b4fdc875f39d49",
+        "width": 1280,
+        "height": 720,
+        "scene": "StartMenu",
+        "expected": [
+          "Избриши\nсачувану игру",
+          "Избриши\nсачувану игру",
+          "v0.45.1",
+          "Избриши\nсачувану игру",
+          "Избриши\nсачувану игру",
+          "Избриши\nсачувану игру",
+          "Ефекти",
+          "Цео екран:",
+          "Ефекти",
+          "Ефекти",
+          "Ефекти",
+          "Цео екран:",
+          "Музика",
+          "Назад",
+          "Искљ.",
+          "Музика",
+          "Искљ.",
+          "Музика",
+          "Музика",
+          "Музика",
+          "Размера:",
+          "Цео екран:",
+          "Назад",
+          "Искљ.",
+          "Размера:",
+          "Назад",
+          "Цео екран:",
+          "Размера:",
+          "Искљ.",
+          "Назад",
+          "Искљ.",
+          "Назад",
+          "Цео екран:",
+          "Размера:",
+          "Ефекти",
+          "Размера:"
+        ],
+        "boundary": "Original Options handler; current actual display mode independently logged. No fullscreen toggling in this batch.",
+        "conversationId": 0,
+        "entryId": 0,
+        "stateHash": "41d4828cb1c7af975ab8473ac4646a288e7e42e87b9ef4cd36b618fb18e0263f"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/sr-compiled-20261103-01/visual-review.json",
+        "sha256": "48fe70def70617762f1e9513b6c82a59999a7d3a13a6939ccc2af4f79870ad2d"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "order": 2,
+        "direction": "ltr",
+        "filename": "edcd46ba3e02757be7307db1ee5a100aec80e81982f3938297b4fdc875f39d49.webp",
+        "sha256": "0d40468a8b414bd29a5a214e76339b1d76d09f7f6f3880b1dee237430a727e71",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0001",
+        "reviewedAt": "2026-11-03T09:11:13.834120+00:00",
+        "observations": "Inspected the complete 1280×720 prepared frame. Музика, Ефекти, Цео екран:, Искљ., Размера:, Назад and the two-line Избриши сачувану игру match the supplied expectations. The 1x value and v0.45.1 are readable. Labels fit without clipping or overlap; no broken glyphs, literal tags or notification overlays are visible. The English game-title artwork remains visible.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "runtimeLocale": "sr",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "sr-03-dialogue.png",
+        "sha256": "165b40aa5118feb05f62ba2ba4dd29b847f46aaa3ac3c907dd0083132c640dc3",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": "Шврћо! Како се осећаш?",
+        "boundary": "Original resumed-fixture conversation. No text injection or forced conversation start.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "eb2c12f127e379ec3c01e35e0decc582bcd119a2ad5bf8d2498b4564ecd2a707"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/sr-compiled-20261103-01/visual-review.json",
+        "sha256": "48fe70def70617762f1e9513b6c82a59999a7d3a13a6939ccc2af4f79870ad2d"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "order": 3,
+        "direction": "ltr",
+        "filename": "165b40aa5118feb05f62ba2ba4dd29b847f46aaa3ac3c907dd0083132c640dc3.webp",
+        "sha256": "a1a52d1943607b09a6a8cedab6e3cc4142e9e6f852864215d09d8b66c394dfbc",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T09:11:49.093691+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. Speaker name “Скарлет” matches the target contract; dialogue matches “Шврћо! Како се осећаш?” Cyrillic glyphs and spacing are readable, with no clipping, overlap, visible tags or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "runtimeLocale": "sr",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "sr-04-inventory-owned-290.png",
+        "sha256": "a07b07f3b212cf474b7efa87c11435a4d582d328495800c715db4f60a58e6bb5",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Рекет за стони тенис",
+          "Одобрен за турнире, професионалног квалитета, од дрвета и угљеничних влакана. Права алатка за лупкање по задњици у завршници игре."
+        ],
+        "boundary": "Original inventory consumer with cloned item argument; original sprites loaded in gameplay; no awards/quantity/progress change.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "b031e1744252e50a4ac0d8ebef39f61bc6d98c2d5b086d718ee3aabafd399674"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/sr-compiled-20261103-01/visual-review.json",
+        "sha256": "48fe70def70617762f1e9513b6c82a59999a7d3a13a6939ccc2af4f79870ad2d"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "order": 4,
+        "direction": "ltr",
+        "filename": "a07b07f3b212cf474b7efa87c11435a4d582d328495800c715db4f60a58e6bb5.webp",
+        "sha256": "92bbad20094cc71aad2edeefd8090e47718eb58be7a565b2412b9654a2ddbf49",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0002",
+        "reviewedAt": "2026-11-03T09:11:49.093742+00:00",
+        "observations": "Inspected the full 1280×720 prepared frame. Inventory heading, item title and complete three-line description are readable. Item wording matches the supplied expectation; text stays within its panel. Latin L/R control prompts show no apparent source fallback. No broken glyphs, visible tags or notification overlays.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    },
+    {
+      "sourceImage": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "runtimeLocale": "sr",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "sr-05-finley-quest.png",
+        "sha256": "9b911e92306211b978f314a0d171285e88444ddaec54ffcd0901c464182641a3",
+        "width": 1280,
+        "height": 720,
+        "scene": "CentralForest",
+        "expected": [
+          "Да закрпимо односе",
+          "Помози Финлију да рашчисти односе с некадашњим цимеркама."
+        ],
+        "boundary": "Original QuestLogDetailsPane with reversible active-status fixture; exact corrected serialized Finley title/body. Quest awarding/progression not tested.",
+        "conversationId": 120,
+        "entryId": 153,
+        "stateHash": "5cdf5fdfbd95d794617733546828bc530a86ddd3a32f36fe1458f2f4a1ae3350"
+      },
+      "reviewLedger": {
+        "path": "localization/visual-qa/sr-compiled-20261103-01/visual-review.json",
+        "sha256": "48fe70def70617762f1e9513b6c82a59999a7d3a13a6939ccc2af4f79870ad2d"
+      },
+      "actualReview": {
+        "game": "The Forest of Love",
+        "locale": "sr",
+        "order": 5,
+        "direction": "ltr",
+        "filename": "9b911e92306211b978f314a0d171285e88444ddaec54ffcd0901c464182641a3.webp",
+        "sha256": "e7e72af21280d0a6d4cbf28f8b293599c4986a349af6387ed0985d695f1c3b0a",
+        "width": 1280,
+        "height": 720,
+        "url": null,
+        "reviewer": "gpt-6.1-sol/high; attempt-0003",
+        "reviewedAt": "2026-11-03T09:12:10.584478+00:00",
+        "observations": "Inspected the complete delivered 1280×720 frame. Quest title and body match the supplied Serbian Cyrillic expectations. All visible labels are readable, with intact glyphs and spacing. Text fits its fields without clipping or overlap. No literal tags, unexpected source fallback, or notification overlays are visible. Text direction is LTR.",
+        "findings": [],
+        "checks": {
+          "layout": "passed",
+          "glyphs": "passed",
+          "content": "passed",
+          "contamination": "passed",
+          "rtl": "not-applicable"
+        }
+      },
+      "exactPreparedImageIdentityMatchesOriginal": true
+    }
+  ],
+  "frames": 5,
+  "independentOrdinary": 12825,
+  "protectedExact": 1781,
+  "inventoryConsumerMeasurements": 53,
+  "actualDialogueNextState": [
+    {
+      "predicate": "original-dialogue-next-state",
+      "status": "passed",
+      "before": [
+        120,
+        153
+      ],
+      "after": [
+        120,
+        153
+      ],
+      "responses": 1
+    }
+  ],
+  "scope": "Finite native baseline: original loaded menu/settings, original resumed-fixture dialogue and next-state guard when available, all48 inventory and four neighbor branches, worst-height inventory frame, original Finley quest pane. Full story, all special callbacks/haiku, artwork textures and other platforms remain separate.",
+  "installed": false,
+  "release": "not-published",
+  "boundary": "Complete exact five-scene native baseline and original guarded dialogue progression; not a full story playthrough, every special callback, installer or other-platform acceptance."
+}

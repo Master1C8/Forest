@@ -48,3 +48,18 @@ Regression checks: `python -B -m unittest discover -s
 tools/probe/locale_runtime_v1 -p 'test_*.py' -q`. These exercise actual input hashes,
 versions, preservation, editorial coverage, reviewer identity and exact resource
 bindings with synthetic fixtures; they do not establish game loading or rendering.
+
+Dialogue readiness uses the existing original typewriter CurrentVisibleText from
+ForestProbe, not only formatted subtitle data or a transient typing=false flag.
+Require the exact fixture source/target identity and full visible text across
+three fresh snapshots. Retained real states prove the positive completed line
+and reject the earlier data-bound-but-empty frame; silent109 transition nodes
+never count as a dialogue workload or screenshot pass.
+
+Main-menu readiness must include every source-bound target caption, including
+the lower controls and links. Calling FinishShowingMenu starts an Animator
+transition; it does not establish completed visible pixels. GetInheritedAlpha
+must reach0.99, and complete caption geometry must remain stable across fresh
+samples before capture. Romanian/Serbian incomplete frames remain failed;
+menu-only corrected captures replace only the affected frame on the exact same
+artifact. Retain the other four exact accepted frames and consumer measurements.

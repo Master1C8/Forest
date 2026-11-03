@@ -1,42 +1,42 @@
 {
-  "atUTC": "2026-11-03T07:29:44.790641+00:00",
+  "atUTC": "2026-11-03T09:16:45.096547+00:00",
   "status": "four-local-resource-overlays-built-and-verified",
   "deliveries": [
     {
       "locale": "hu",
-      "artifact": "dist/Forest-hu-single-file-final-20261103-01",
+      "artifact": "dist/Forest-hu-single-file-final-20261103-02",
       "language": {
         "path": "localization/languages/hu.json",
-        "sha256": "9b6176fd01c048845d5348acc2d4c381cfb9ff80eadcfcd5c4393221b5f764e3"
+        "sha256": "cbc6415f4c0a184697ae65e77f96e439841cbc2d3531ae888934dee95a635a98"
       },
       "manifest": {
-        "path": "dist/Forest-hu-single-file-final-20261103-01/manifest.json",
-        "sha256": "f817f5319621d40871c4667cbc25e4ae312d969c4287b01a9d102bb3da53c4dd"
+        "path": "dist/Forest-hu-single-file-final-20261103-02/manifest.json",
+        "sha256": "a4a2b1c68b3192fd9bdf952dac9f3f18554ebabec97fc8000e34856d9cb0d3ed"
       },
       "resourcesVerified": 16,
-      "receipt": "outputs/last-six-locales-20261103-01/resource-builds-01/hu-receipt.json",
-      "receiptSha256": "96d64a2fe15672871c41d5e8626626fe36226547fbe88a2bca206f5bfe1a8f59",
-      "editorial": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/hu.json",
-      "native": "pending",
+      "receipt": "outputs/last-six-locales-20261103-01/resource-builds-02/hu-receipt.json",
+      "receiptSha256": "a55798bbfc85d905a2271fa029730413acf86beb52020177d1b956c26402e11d",
+      "editorial": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/hu-layout-02.json",
+      "native": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/hu.json",
       "release": "not-accepted",
       "installed": false
     },
     {
       "locale": "nl",
-      "artifact": "dist/Forest-nl-single-file-final-20261103-01",
+      "artifact": "dist/Forest-nl-single-file-final-20261103-02",
       "language": {
         "path": "localization/languages/nl.json",
-        "sha256": "0ae6d402ae56c0774c107b60d51a7da898134ed821e927b69148579d9e273d87"
+        "sha256": "f1dc415d4c303c380b25be6af1842c06e4e708f410d10f47cf6eba6909fed751"
       },
       "manifest": {
-        "path": "dist/Forest-nl-single-file-final-20261103-01/manifest.json",
-        "sha256": "d1835aa194ea774d067dce067b2e63c33499f82f89a7d869f3ec4dd8c484e7e3"
+        "path": "dist/Forest-nl-single-file-final-20261103-02/manifest.json",
+        "sha256": "e56a68ea35ef17ad851fc338736cbd09dd32b3086ee69e6bd7026ff2862bd29c"
       },
       "resourcesVerified": 16,
-      "receipt": "outputs/last-six-locales-20261103-01/resource-builds-01/nl-receipt.json",
-      "receiptSha256": "4679ea56c95b4e17b6dc2d5600bfa37f73b9102648b127e6da73546bdc1d2a6c",
-      "editorial": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl.json",
-      "native": "pending",
+      "receipt": "outputs/last-six-locales-20261103-01/resource-builds-02/nl-receipt.json",
+      "receiptSha256": "b11353bf182d3e97e428ac120409b8c0e285826a7b9c2ea3d612aeb84937d339",
+      "editorial": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl-layout-02.json",
+      "native": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/nl.json",
       "release": "not-accepted",
       "installed": false
     },
@@ -55,7 +55,7 @@
       "receipt": "outputs/last-six-locales-20261103-01/resource-builds-01/ro-receipt.json",
       "receiptSha256": "14e81ec5bf63ab1dc35a25dfbdda24eacb6bb51ef86f47f90f15189163da2554",
       "editorial": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/ro.json",
-      "native": "pending",
+      "native": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/ro.json",
       "release": "not-accepted",
       "installed": false
     },
@@ -74,7 +74,7 @@
       "receipt": "outputs/last-six-locales-20261103-01/resource-builds-01/sr-receipt.json",
       "receiptSha256": "3965ef8a6cdcd820603aefcfb7429d30657c1c8e84259e7eb4206a099ce5dde7",
       "editorial": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/sr.json",
-      "native": "pending",
+      "native": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/sr.json",
       "release": "not-accepted",
       "installed": false
     }
@@ -82,6 +82,7 @@
   "resourcesVerified": 64,
   "ordinaryIndependentPassesPerLocale": 12825,
   "protectedExactPerLocale": 1781,
-  "native": "pending separate exact target checks",
-  "release": "not-accepted"
+  "native": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/native-delivery/index.json",
+  "release": "not-accepted",
+  "supersedesResourceIndex": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/resource-delivery-v2.json"
 }

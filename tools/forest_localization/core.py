@@ -153,6 +153,25 @@ def framework_manifest(directory):
     return data, catalog
 
 
+def registered_layout_roles(framework, framework_sha):
+    """Add known dynamic quest templates without changing the frozen framework."""
+    roles = copy.deepcopy(framework.get('layoutRoles', {}))
+    if (framework.get('id') == 'forest045-shared-v2' and framework_sha ==
+            '26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f'):
+        need(framework['files']['base/sharedassets2.assets']['sha256'] ==
+             'bb67ae2f0b2eba4fab082b402aa31fdcc016b904689495e878cc801dac10aafd',
+             'quest-template-resource-version')
+        # Original overwritten-field inventory: completed, active, then all
+        # five selected-name layers. Only point size is registered; canonical
+        # titles, bindings, wrapping controls and row geometry remain exact.
+        for pid in (18330, 18315, 18305, 18314, 18312, 18344, 18341):
+            key = 'sharedassets2.assets:' + str(pid)
+            need(key not in roles, 'quest-template-layout-overlap:' + key)
+            roles[key] = dict(asset='sharedassets2.assets', pathId=pid,
+                              pointer='/m_FontData/m_FontSize', baseline=14)
+    return roles
+
+
 def native_additions(catalog, rows, original, baseline):
     """Register inventoried native fields even when Russian left them unchanged."""
     result = copy.deepcopy(catalog)
@@ -449,6 +468,7 @@ def load_language(path, frameworks):
     directory = child(frameworks, ident)
     need(binding(directory/'framework.json')['sha256'] == doc['framework']['sha256'], 'framework-version')
     framework, catalog = framework_manifest(directory)
+    framework['layoutRoles'] = registered_layout_roles(framework, doc['framework']['sha256'])
     rows = doc.get('translations')
     need(isinstance(rows, dict) and set(rows) == {r['id'] for r in catalog}, 'complete-exact-translation-ids')
     missing = []

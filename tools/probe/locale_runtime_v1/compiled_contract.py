@@ -100,3 +100,13 @@ def empty_inventory_wording(language):
             raise ValueError('Missing exact original inventory branch: '+ident)
         result.append(dict(branch=offset,id=ident,target=row['target']))
     return result
+
+
+def fixture_dialogue_ready(state, contract):
+    """Reject silent transition nodes and prove the exact target subtitle is loaded."""
+    return (state.get('scene')=='CentralForest' and state.get('conversationActive') is True and
+            state.get('typing') is False and bool(contract.get('visibleText')) and
+            (state.get('conversationId'),state.get('entryId'))==
+            (contract['conversationId'],contract['entryId']) and
+            state.get('conversationState')==contract['visibleText'] and
+            state.get('visibleTypewriterText')==contract['visibleText'])

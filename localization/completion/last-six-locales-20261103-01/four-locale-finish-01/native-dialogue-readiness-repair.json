@@ -1,0 +1,14 @@
+{
+  "atUTC": "2026-11-03T08:08:48.259910+00:00",
+  "run": "localization/probes/hu-20261103-compiled-06",
+  "failure": "Fresh capture guard correctly caught typing=true after the earlier exact subtitle snapshot had typing=false.",
+  "firstDivergence": "Subtitle data binding precedes actual typewriter/renderer completion.",
+  "repair": "Require exact original cue plus original active UI text, complete generated characters/max-visible count, source-relative opacity and three fresh complete samples. Capture rechecks actual visible ink. No text injection or forced typewriter completion.",
+  "sourceReady": "localization/probes/hu-20261103-compiled-06/original-dialogue-ready.json",
+  "sourceLater": "localization/probes/hu-20261103-compiled-06/state.json",
+  "gameRestorationVerified": true,
+  "nextAttempt": 7,
+  "currentRepair": "Reuse existing ForestProbe visibleTypewriterText from original typewriter.CurrentVisibleText, requiring exact nonempty expected target, typing=false and three fresh complete samples. No new renderer/probe command.",
+  "realRegression": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/dialogue-rendered-text-regression.json",
+  "unusedPrototype": "outputs/last-six-locales-20261103-01/native-bridge-preflight-02 contains a successful redundant prototype; not used in the current frozen execution."
+}
