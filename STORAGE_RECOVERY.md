@@ -79,6 +79,13 @@ Old cleanup plans and deletion receipts stay immutable. Their additive
 anchor content. Restore a missing anchor first using its exact digest, then
 use the original cleanup restore recipe. Do not rerun historical launchers.
 
+Historical tracked files removed from the working tree also remain in the
+recorded ancestor of `main`. `source-deletions.jsonl.gz` identifies these by
+their raw `gitBlob`, SHA256 and original metadata. For an absent historical
+path, use Git history or read that exact blob with `git cat-file blob OBJECT_ID`;
+do not overwrite current edited source. These optional historical files are
+separate from the complete normal build-input archive.
+
 All owner and QA save/settings files remain local at their original paths.
 An additional local owner-save copy is under `localization/owner-saves/20261103`.
 Personal save bytes and private key/cache files are excluded from the private

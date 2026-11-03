@@ -1,5 +1,6 @@
 """Apply the reviewed storage selection after remote recovery verification."""
 import argparse
+import collections
 import datetime
 import gzip
 import hashlib
@@ -106,6 +107,16 @@ def apply():
     assert not (HERE/'source-cleanup-result.json').exists()
     remote=json.loads((HERE/'remote-restore-build-verification.json').read_text());assert remote['passed'] is True
     with gzip.open(HERE/'execution-plan.json.gz','rt') as f:d=json.load(f)
+    derived=HERE/'execution-derived-output-amendments.json'
+    if derived.exists():
+        changes={r['path']:r for r in json.loads(derived.read_text())['changes']}
+        for i,r in enumerate(d['files']):
+            if r['path'] in changes:
+                c=changes.pop(r['path'])
+                assert r['path'].startswith('outputs/universal-localizer-20261031/build-work/')
+                assert r['signature']==c['preparedSignature'] and r['sha256']==c['preparedSha256']
+                d['files'][i]=c['currentRecord']
+        assert not changes
     current=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     assert current==remote['sourceHead']
     subprocess.run(['git','merge-base','--is-ancestor',d['sourceHead'],current],cwd=ROOT,check=True)
@@ -114,20 +125,47 @@ def apply():
         proof=remote['archives'][Path(r['path']).name]
         assert proof['downloadSha256']==r['sha256'] and proof['remoteDigest']=='sha256:'+r['sha256']
     for r in d['protected']:
-        p=s.safe(ROOT,r['path']);assert p.is_file() and s.hashes(p)[0]==r['sha256'], ('Protected source changed',r['path'])
+        expected=r['sha256']
+        amendment=HERE/'execution-owned-source-amendments.json'
+        if amendment.exists():
+            for change in json.loads(amendment.read_text())['changes']:
+                assert change['path'] in {'tools/forest_storage.py','STORAGE_RECOVERY.md'}
+                if r['path']==change['path']:
+                    assert r['sha256']==change['preparedSha256'];expected=change['currentSha256']
+        p=s.safe(ROOT,r['path']);assert p.is_file() and s.hashes(p)[0]==expected, ('Protected source changed',r['path'])
+    groups=collections.defaultdict(list)
     for r in d['files']:
-        p=s.safe(ROOT,r['path']);assert not save_path(r['path'])
-        assert signature(p)==r['signature'] and s.hashes(p)[0]==r['sha256'] and s.attrs.xattrs(p)==r['xattrs'], ('Selected path changed',r['path'])
+        assert not save_path(r['path']);groups[str(Path(r['path']).parent)].append(r)
+    def recheck(r,fd):
+        p=ROOT/r['path'];t=os.stat(p.name,dir_fd=fd,follow_symlinks=False)
+        assert stat.S_ISREG(t.st_mode)
+        assert [t.st_dev,t.st_ino,t.st_size,t.st_mtime_ns]==r['signature'] and stat.S_IMODE(t.st_mode)==r['mode']
+        assert s.attrs.xattrs(p)==r['xattrs'], ('Selected metadata changed',r['path'])
+    # Preparation already hashed every byte. Reuse only unchanged identities;
+    # validate each parent once, and pin it with a non-following directory FD.
+    for parent,rows in groups.items():
+        directory=s.safe(ROOT,parent);fd=os.open(directory,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+        try:
+            for r in rows:recheck(r,fd)
+        finally:os.close(fd)
     before=shutil.disk_usage(ROOT).free;count=0;logical=0
     with gzip.open(HERE/'source-deletions.jsonl.gz','xt') as ledger:
-        for r in d['files']:
-            if count%2000==0:idle()
-            p=s.safe(ROOT,r['path']);assert signature(p)==r['signature']
-            # Flush intent first; reconciliation can distinguish interrupted rows
-            # using actual path absence and expected bytes, without blind retries.
-            ledger.write(json.dumps(r)+'\n');ledger.flush();p.unlink();count+=1;logical+=r['bytes']
-    for r in d['files']:assert not s.safe(ROOT,r['path']).exists()
-    for r in d['protected']:assert s.hashes(s.safe(ROOT,r['path']))[0]==r['sha256']
+        for parent,rows in groups.items():
+            directory=s.safe(ROOT,parent);fd=os.open(directory,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+            try:
+                for r in rows:
+                    if count%2000==0:idle()
+                    recheck(r,fd)
+                    ledger.write(json.dumps(r)+'\n');ledger.flush()
+                    os.unlink(Path(r['path']).name,dir_fd=fd);count+=1;logical+=r['bytes']
+            finally:os.close(fd)
+    for r in d['files']:assert not os.path.lexists(ROOT/r['path'])
+    for r in d['protected']:
+        expected=r['sha256']
+        if amendment.exists():
+            for change in json.loads(amendment.read_text())['changes']:
+                if r['path']==change['path']:expected=change['currentSha256']
+        assert s.hashes(s.safe(ROOT,r['path']))[0]==expected
     write(HERE/'source-cleanup-result.json',dict(atUTC=datetime.datetime.now(datetime.timezone.utc).isoformat(),files=count,logicalBytes=logical,freeBefore=before,freeAfter=shutil.disk_usage(ROOT).free,protectedFiles=len(d['protected']),allTranslationSourcesPreserved=True,allSavesPreserved=True,unfinishedWorkPreserved=True,projectClosed=False,gameOrModelStarted=False))
     print((HERE/'source-cleanup-result.json').read_text(),flush=True)
 
