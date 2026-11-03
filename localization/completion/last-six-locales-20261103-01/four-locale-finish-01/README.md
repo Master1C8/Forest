@@ -20,7 +20,7 @@ QA adapter. Five high-value native screen types and all48 inventory/four neighbo
 consumers are a finite runtime baseline, not a complete game playthrough.
 
 The original247 data members matched the shared framework. Actual game work
-waits for independent closure. The compiler-format QA adapter has8 passing
+waits for independent closure. The compiler-format QA adapter has9 passing
 input/version/preservation/editorial/resource regressions; native loading and
 visual inspection remain separate. Original installed game, owner saves, old
 launchers/results and active immutable inputs are preserved. No archive cleanup
@@ -30,3 +30,11 @@ Usage is measured from orchestration-baseline.json, after the initial scope and
 instruction check. Parent work mixes shared adapter implementation, orchestration
 and accounting; no invented per-locale split. Intermediate cumulative subtotals
 are not additive; final reporting tails/platform overhead remain unmeasured.
+
+Current delivery: all four editorial closures and all64 actual compiled resource
+files passed their exact normal build/check gates; see resource-delivery.json.
+Native preparation failures01/02 and the restored capture environment failure03
+are preserved. The latter was a resolved-venv-symlink launcher defect, not a game
+rendering failure. launch.py now probes actual Pillow/prefix and retains the
+lexical project interpreter path. Representative Hungarian attempt04 uses new
+frozen inputs. Original game, candidate and QA fixture were byte-exact after03.

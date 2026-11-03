@@ -103,6 +103,8 @@ def interrupted(signum,frame):raise RuntimeError('Runner interrupted',signum)
 captures=[];measurements=[];progress=[];fixture_before={};error=None;success=False;child=None;inventory_open=False;quest_open=False
 def main():
     global child,error,success,inventory_open,quest_open,fixture_before
+    # Capture dependencies must reject before any game/application state change.
+    from PIL import Image
     # Check current acceptance before creating evidence or starting Wine. Frozen
     # historical runs retain their old execution versions as evidence only.
     if CONFIG.get('compiledLanguage'):

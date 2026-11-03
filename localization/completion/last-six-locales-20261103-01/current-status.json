@@ -1,7 +1,7 @@
 {
   "run": "last-six-locales-20261103-01",
-  "atUTC": "2026-11-03T06:59:54.442935+00:00",
-  "status": "four-consolidated-repairs-saved-independent-deltas-running",
+  "atUTC": "2026-11-03T07:30:56.027108+00:00",
+  "status": "four-locales-editorial-clean-resource-overlays-verified-native-qa-in-progress",
   "model": "gpt-6.1-sol",
   "reasoning": "high",
   "provider": "openai",
@@ -88,7 +88,7 @@
       "phase": "outputs/last-six-locales-20261103-01/hu/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-delta",
       "taskClass": "semantic-review",
-      "status": "editorial-clean-resource-build-next",
+      "status": "editorial-and-resources-passed-native-pending",
       "live": false,
       "language": "localization/languages/hu.json",
       "ordinaryTotal": 12825,
@@ -111,7 +111,8 @@
       "resumedOwnTask": false,
       "primaryAuthorReadingVersions": 12825,
       "currentDeltaUnits": 3,
-      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/hu.json"
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/hu.json",
+      "resourceArtifact": "dist/Forest-hu-single-file-final-20261103-01"
     },
     {
       "locale": "nl",
@@ -119,8 +120,8 @@
       "phase": "outputs/last-six-locales-20261103-01/nl/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-delta",
       "taskClass": "semantic-review",
-      "status": "independent-final-delta-running",
-      "live": true,
+      "status": "editorial-and-resources-passed-native-pending",
+      "live": false,
       "language": "localization/languages/nl.json",
       "ordinaryTotal": 12825,
       "filledOrdinary": 12825,
@@ -137,11 +138,13 @@
       "provider": "openai",
       "inheritedHistory": false,
       "freshExec": true,
-      "independentAccepted": "Retained unchanged passes plus pending exact repair scope",
+      "independentAccepted": 12825,
       "languageSha256": "0ae6d402ae56c0774c107b60d51a7da898134ed821e927b69148579d9e273d87",
       "resumedOwnTask": false,
       "primaryAuthorReadingVersions": 12825,
-      "currentDeltaUnits": 5
+      "currentDeltaUnits": 5,
+      "resourceArtifact": "dist/Forest-nl-single-file-final-20261103-01",
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/nl.json"
     },
     {
       "locale": "ro",
@@ -149,8 +152,8 @@
       "phase": "outputs/last-six-locales-20261103-01/ro/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-delta",
       "taskClass": "semantic-review",
-      "status": "independent-final-delta-running",
-      "live": true,
+      "status": "editorial-and-resources-passed-native-pending",
+      "live": false,
       "language": "localization/languages/ro.json",
       "ordinaryTotal": 12825,
       "filledOrdinary": 12825,
@@ -167,11 +170,13 @@
       "provider": "openai",
       "inheritedHistory": false,
       "freshExec": true,
-      "independentAccepted": "Retained unchanged passes plus pending exact repair scope",
+      "independentAccepted": 12825,
       "languageSha256": "ea4d96a27e61bbd7e29a51a455248619636fe1e9bf1e64ffdfb7ac55225153e5",
       "resumedOwnTask": false,
       "primaryAuthorReadingVersions": 12825,
-      "currentDeltaUnits": 28
+      "currentDeltaUnits": 28,
+      "resourceArtifact": "dist/Forest-ro-single-file-final-20261103-01",
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/ro.json"
     },
     {
       "locale": "hi",
@@ -213,8 +218,8 @@
       "phase": "outputs/last-six-locales-20261103-01/sr/independent-delta-01",
       "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-delta",
       "taskClass": "semantic-review",
-      "status": "independent-final-delta-running",
-      "live": true,
+      "status": "editorial-and-resources-passed-native-pending",
+      "live": false,
       "language": "localization/languages/sr.json",
       "ordinaryTotal": 12825,
       "filledOrdinary": 12825,
@@ -231,11 +236,13 @@
       "provider": "openai",
       "inheritedHistory": false,
       "freshExec": true,
-      "independentAccepted": "Retained unchanged passes plus pending exact repair scope",
+      "independentAccepted": 12825,
       "languageSha256": "f63e76c6484c2b3f3d4111f79a70952f0ec9c7d7f0018e123e2024f37a3c6ccc",
       "resumedOwnTask": false,
       "primaryAuthorReadingVersions": 12825,
-      "currentDeltaUnits": 6
+      "currentDeltaUnits": 6,
+      "resourceArtifact": "dist/Forest-sr-single-file-final-20261103-01",
+      "finalTextAcceptance": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/editorial/sr.json"
     },
     {
       "locale": "sw",
@@ -269,7 +276,7 @@
       "remainingSourceMeaningHolds": 3
     }
   ],
-  "native": "not-authorized-not-run",
+  "native": "Current owner-authorized hu/nl/ro/sr isolated QA only. Previous menu capture failed at a confirmed Python environment boundary and restored cleanly; fresh corrected execution is being prepared. Other native permissions unchanged.",
   "release": "not-accepted",
   "archival": "pending-unfinished-project",
   "runtimeVerification": "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime-verification.json",
@@ -283,6 +290,8 @@
     ],
     "repairStatus": "outputs/last-six-locales-20261103-01/four-locale-repair-lifecycle-01/status.json",
     "native": "Authorized current four-locale follow-through; awaits exact editorial closure and candidate builds",
-    "publication": "not-authorized"
+    "publication": "not-authorized",
+    "resourceDelivery": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/resource-delivery.json",
+    "nativeRepresentative": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-native-04/config.json"
   }
 }

@@ -29,8 +29,12 @@ ScreenCapture, not desktop clicks. All frames require separate bounded visual
 review under `SCREENSHOT_REVIEW.md`.
 
 Preparation: `.venv-assets314/bin/python -B
-tools/probe/locale_runtime_v1/prepare.py --config <pinned-config.json>`. Execute
-only the resulting frozen `execution/runner.py`. Restoration runs unconditionally;
+tools/probe/locale_runtime_v1/prepare.py --config <pinned-config.json>`. Launch with
+`python3 -B tools/probe/locale_runtime_v1/launch.py --config <pinned-config.json>`;
+it executes only the resulting frozen `execution/runner.py` and probes Pillow
+before starting a game. Keep the lexical `.venv-assets314/bin/python` path:
+resolving its symlink chooses the base interpreter and loses the environment.
+Restoration runs unconditionally;
 unknown outcomes require exact process/action-log reconciliation before retrying.
 No publisher, installer, server lifecycle or owner-session operation is included.
 

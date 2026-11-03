@@ -1,0 +1,40 @@
+{
+  "atUTC": "2026-11-03T07:27:49.578229+00:00",
+  "phase": "native-capture",
+  "locale": "hu",
+  "run": "localization/probes/hu-20261103-compiled-03",
+  "result": "isolated-game-menu-loaded-capture-environment-failure",
+  "cause": "Coordinator resolved the .venv-assets314/bin/python symlink; the resulting base interpreter omits the virtual environment and Pillow.",
+  "positiveControl": "Lexical project interpreter imports Pillow13.0.0 and sys.prefix is the project virtualenv.",
+  "negativeControl": "The same resolved binary has base sys.prefix and raises ModuleNotFoundError(PIL).",
+  "repair": "Shared launch.py preserves lexical interpreter path and probes the actual environment. Runner checks Pillow before game launch.",
+  "cleanup": {
+    "date": "2026-11-03T07:24:12.112161+00:00",
+    "taskOwnedProcessesAbsent": true,
+    "verifiedTaskProcessRowsBeforeQuit": [
+      "49532 49528 Tue Nov  3 14:21:26 2026     /Applications/CrossOver.app/Contents/SharedSupport/CrossOver/lib/wine/x86_64-windows/winewrapper.exe --run -- /Users/antonkrutov/Desktop/Forest/localization/probes/hu-20261103-compiled-03/game/The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/hu-20261103-compiled-03/player.log",
+      "49965     1 Tue Nov  3 14:22:12 2026     Y:\\Desktop\\Forest\\localization\\probes\\hu-20261103-compiled-03\\game\\The Forest of Love.exe -screen-fullscreen 0 -screen-width 1280 -screen-height 720 -logFile /Users/antonkrutov/Desktop/Forest/localization/probes/hu-20261103-compiled-03/player.log"
+    ],
+    "remainingTaskProcessRows": [],
+    "terminatedExactProcesses": [],
+    "cleanupErrors": [],
+    "originalGameByteExact": true,
+    "parentCandidateByteExact": true,
+    "bridgeRemoved": true,
+    "localizedAssemblyRestored": true,
+    "fixtureBefore": {
+      "tfol.settings": "5a1e19eaff21a668666311f41392beb57273914dd20460d2438242aac6a05352",
+      "tfol.savegame": "5017eb0df4076385ea0f0f4f40f3013bae171c55e627ac8a786b734688b35a92"
+    },
+    "fixtureAfterRuntime": {
+      "tfol.settings": "5a1e19eaff21a668666311f41392beb57273914dd20460d2438242aac6a05352",
+      "tfol.savegame": "5017eb0df4076385ea0f0f4f40f3013bae171c55e627ac8a786b734688b35a92"
+    },
+    "fixtureRestored": true,
+    "disposableSavegameByteExactBeforeRestoration": true,
+    "retainedCheckpoint": null,
+    "ownerSaveFilesUsed": false,
+    "ownerSessionControlled": false
+  },
+  "nextConfig": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-native-04/config.json"
+}
