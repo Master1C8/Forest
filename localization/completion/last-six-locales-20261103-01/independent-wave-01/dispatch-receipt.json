@@ -1,0 +1,40 @@
+{
+  "atUTC": "2026-11-03T03:52:05.630742+00:00",
+  "status": "observers-started-runtime-proof-pending",
+  "lanes": [
+    {
+      "controller": "hi-author",
+      "pid": 96386,
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/locale_cli_lifecycle.py",
+        "localization/completion/last-six-locales-20261103-01/independent-wave-01/hi-lifecycle.json"
+      ]
+    },
+    {
+      "controller": "five-reviewers",
+      "pid": 96387,
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "localization/completion/last-six-locales-20261103-01/run.py",
+        "localization/completion/last-six-locales-20261103-01/independent-wave-01/manifest.json"
+      ]
+    }
+  ],
+  "limit": 6,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "reviewerAdoption": {
+    "status": "observer-started",
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "-B",
+      "localization/completion/last-six-locales-20261103-01/independent-wave-01/runtime/locale_review_lifecycle.py",
+      "localization/completion/last-six-locales-20261103-01/independent-wave-01/review-lifecycle.json"
+    ],
+    "pid": 97289
+  }
+}

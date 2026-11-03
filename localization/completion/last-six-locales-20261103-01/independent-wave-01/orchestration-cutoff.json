@@ -1,0 +1,38 @@
+{
+  "cutoffUTC": "2026-11-03T03:53:53.339131+00:00",
+  "coordinatorThreadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "baseline": {
+    "atUTC": "2026-11-03T03:42:14.254089+00:00",
+    "coordinatorThreadId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "usage": {
+      "input_tokens": 354647290,
+      "cached_input_tokens": 351017216,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1671404,
+      "reasoning_output_tokens": 914002,
+      "total_tokens": 356318694
+    },
+    "scope": "Repair concrete result-schema routing failure, resume Hindi and preflight/dispatch five full independent reviews. Initial status/result inspection and completed-worker reporting precede baseline."
+  },
+  "finalCumulativeUsage": {
+    "input_tokens": 358184672,
+    "cached_input_tokens": 354467712,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1696786,
+    "reasoning_output_tokens": 922610,
+    "total_tokens": 359881458
+  },
+  "sharedMixedOrchestrationDelta": {
+    "input_tokens": 3537382,
+    "cached_input_tokens": 3450496,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 25382,
+    "reasoning_output_tokens": 8608,
+    "total_tokens": 3562764
+  },
+  "interpretation": "Exact nonoverlapping cumulative delta for shared status/repair/preparation/dispatch/verification/accounting; no per-locale split. Cache is subset of input; reasoning is subset of output. Initial status reads and prior closed-worker reporting precede baseline. This report, later Git and final response tail/platform overhead are unmeasured.",
+  "newWorkerOutcomes": "All five independent reviewers and the resumed Hindi author are running; no new terminal outcome to account. Eight prior terminal phase deltas were already reported in the preceding update; not recounted here."
+}

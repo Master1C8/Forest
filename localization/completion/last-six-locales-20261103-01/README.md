@@ -1,3 +1,26 @@
+## Current execution: independent wave 01
+
+Five full drafts and primary readings are complete: hu/nl/ro/sr/sw each have
+12825 current ordinary versions and1781 exact protected values. Five fresh
+Sol/high/OpenAI/null-parent independent reviewers now own their complete packets
+and required context. Independent closure is still pending, not inferred from
+author evidence or deterministic preflight.
+
+Hindi resumes its same owner-approved author session through a new pinned phase,
+retaining1191 targets (9.2865%) and saved special-case work. Its known rendering
+risk was already accepted; actual native rendering remains unrun. The shared
+result-envelope routing defect is repaired with29 passing lifecycle regressions.
+See independent-wave-01/routing-repair.json. All old frozen files/results remain
+unchanged; old controller holds below are historical.
+
+Use current-status.json and independent-wave-01's two lifecycle manifests. All
+six actual worker PIDs/model/provider/effort/session bindings were verified.
+Five reviewers continue only their own independent histories; Hindi continues
+only its original author history. No technical stream, native/game/installer,
+publication/deployment, cleanup or archival action was added.
+
+The following launch notes are historical and superseded by the current pointers.
+
 # Six remaining Forest localization CLI assignments
 
 ## Hindi static authoring now owner-authorized
