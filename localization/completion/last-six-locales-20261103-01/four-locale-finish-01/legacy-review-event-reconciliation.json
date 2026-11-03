@@ -1,0 +1,20 @@
+{
+  "atUTC": "2026-11-03T06:35:53.404773+00:00",
+  "phase": "outputs/last-six-locales-20261103-01/nl/review-auto-0001",
+  "pendingEventIds": [
+    "item_107"
+  ],
+  "commandSha256": "9315132ecda08cc8728d2359b681b029027f4cfb5b6fbdf7c3e19b30604039a6",
+  "loadedHelper": {
+    "path": "outputs/last-six-locales-20261103-01/nl/review-auto-0001/review_local.py",
+    "sha256": "2d6a77b78d09b086259916119fc44548b7c8f850b16d3a9024e62b4ff4b4a2d5"
+  },
+  "terminalReceipt": {
+    "path": "outputs/last-six-locales-20261103-01/nl/review-auto-0001/process-exit.json",
+    "sha256": "f508dbb4a177e0fb3529a8f2db98acaa1b010525ab2b5528c71371b09e02bd02",
+    "exitCode": 0
+  },
+  "inspection": "The command calls phase-local record() and writes only its own judgments/checkpoint. It does not edit language/source/glossary. The ended CLI has later verified final review/coverage records and turn.completed; no matching live process remains. Frozen outputs and original event stream stay unchanged.",
+  "uncertainty": "The individual item.completed transport event is missing; its exact command exit code is not reconstructed or claimed.",
+  "nextAction": "Do not retry that command or resume the closed reviewer. A distinct fresh editor reads pinned complete reviews and writes new prefixes plus its canonical language. All12825 actual final review versions independently verified; initial language hash still matches."
+}

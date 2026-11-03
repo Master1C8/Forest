@@ -1,0 +1,83 @@
+{
+  "root": "/Users/antonkrutov/Desktop/Forest",
+  "phaseRoot": "outputs/last-six-locales-20261103-01",
+  "sourcePacket": "localization/completion/five-new-locales-20261101-01/source-context.jsonl",
+  "preservation": "localization/completion/five-new-locales-20261101-01/source-preservation.json",
+  "cli": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "overallModelProcessCap": 6,
+  "streamCap": 4,
+  "maxCapacityRetries": 2,
+  "capacityBackoffSeconds": 60,
+  "maxNoProgressTurns": 2,
+  "pollSeconds": 5,
+  "output": "outputs/last-six-locales-20261103-01/four-locale-repair-lifecycle-01",
+  "phasePrefix": "repair-auto",
+  "editorialRoot": "localization/editorial-delivery/last-six-locales-20261103-01",
+  "caseRoot": "localization/case-decisions/last-six-locales-20261103-01",
+  "lanes": [
+    {
+      "locale": "hu",
+      "phase": "outputs/last-six-locales-20261103-01/hu/repair-01",
+      "language": "localization/languages/hu.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/hu/repair-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/hu/repair-01",
+        "localization/case-decisions/last-six-locales-20261103-01/hu/repair-01"
+      ]
+    },
+    {
+      "locale": "nl",
+      "phase": "outputs/last-six-locales-20261103-01/nl/repair-01",
+      "language": "localization/languages/nl.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/nl/repair-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/nl/repair-01",
+        "localization/case-decisions/last-six-locales-20261103-01/nl/repair-01"
+      ]
+    },
+    {
+      "locale": "ro",
+      "phase": "outputs/last-six-locales-20261103-01/ro/repair-01",
+      "language": "localization/languages/ro.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/ro/repair-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/ro/repair-01",
+        "localization/case-decisions/last-six-locales-20261103-01/ro/repair-01"
+      ]
+    },
+    {
+      "locale": "sr",
+      "phase": "outputs/last-six-locales-20261103-01/sr/repair-01",
+      "language": "localization/languages/sr.json",
+      "assignmentTask": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-repair/task.json",
+      "status": "adopted-running",
+      "sequence": 0,
+      "progressRoots": [
+        "outputs/last-six-locales-20261103-01/sr/repair-01",
+        "localization/editorial-delivery/last-six-locales-20261103-01/sr/repair-01",
+        "localization/case-decisions/last-six-locales-20261103-01/sr/repair-01"
+      ]
+    }
+  ],
+  "immutablePins": {
+    "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/runtime/locale_cli_lifecycle.py": "2df59b1cdf8725eafb2538d85194a6219c5d491075264790d1a3c97ab612cf52",
+    "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/runtime/cli_job_support.py": "76717fae5005b8bca2fbf667a9e050901bd9e996ab02e3a79cef9afdb18ef9a4",
+    "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-repair/task.json": "09cb7a8b2e88a423096349409096ef0b58223f9a53cc18da2eeae78e93a9d1fa",
+    "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-repair/task.json": "57d4383530cc54dd39403c120bbd866097ac93629db467cd6304dec2c0947d6f",
+    "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-repair/task.json": "c19e4f79d76ff13b50c422f5bbb54b6f979a001885d097eff0d59ee93d4b3757",
+    "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-repair/task.json": "97a0ee29e066703ba5cb6d4f77b13bab16aec6e6dcf4d231c0b50545a314b1d3"
+  },
+  "authority": "Continue only four owner-authorized consolidated locale repairs in their own fresh task histories after verified terminal receipts. Preserve active Hindi and held Swahili. No inherited parent, nested model, native/publication/server action by workers."
+}

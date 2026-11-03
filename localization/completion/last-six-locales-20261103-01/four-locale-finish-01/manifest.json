@@ -1,0 +1,37 @@
+{
+  "run": "last-six-locales-20261103-01",
+  "stage": "four-locale-repair-01",
+  "lanes": [
+    {
+      "locale": "hu",
+      "phase": "outputs/last-six-locales-20261103-01/hu/repair-01",
+      "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-repair",
+      "taskClass": "editorial-repair"
+    },
+    {
+      "locale": "nl",
+      "phase": "outputs/last-six-locales-20261103-01/nl/repair-01",
+      "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/nl-repair",
+      "taskClass": "editorial-repair"
+    },
+    {
+      "locale": "ro",
+      "phase": "outputs/last-six-locales-20261103-01/ro/repair-01",
+      "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/ro-repair",
+      "taskClass": "editorial-repair"
+    },
+    {
+      "locale": "sr",
+      "phase": "outputs/last-six-locales-20261103-01/sr/repair-01",
+      "control": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/sr-repair",
+      "taskClass": "editorial-repair"
+    }
+  ],
+  "authority": "Owner explicitly instructed completion of hu/nl/ro/sr after full independent reviews. Four locale-owned consolidated repairs, followed by fresh exact independent delta checks and shared builds. Preserve active Hindi and held Swahili. No extra technical stream, nested model, publication/deployment/server action.",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "provider": "openai",
+  "inheritedHistory": false,
+  "maxConcurrentModelProcesses": 4,
+  "overallModelProcessCap": 6
+}
