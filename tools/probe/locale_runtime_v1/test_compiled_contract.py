@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from compiled_contract import resource_manifest, sha, text_gate
+from compiled_contract import empty_inventory_wording, resource_manifest, sha, text_gate
 
 
 class CompiledContractTests(unittest.TestCase):
@@ -85,6 +85,15 @@ class CompiledContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Wrong compiled locale'):resource_manifest(self.root,self.config,candidate)
         m['locale']='hu';(candidate/'manifest.json').write_text(json.dumps(m));(candidate/'resource').write_bytes(b'other version')
         with self.assertRaisesRegex(ValueError,'resource changed'):resource_manifest(self.root,self.config,candidate)
+
+    def test_current_managed_ids_bind_exact_original_empty_branches(self):
+        method='System.Void TheForestOfLove.InventoryInfoTicker::OnCellSelected(TheForestOfLove.InventoryCellUiController)'
+        data=dict(translations={f'managed:Managed/Assembly-CSharp.dll:{method}@{i}':dict(source=s,target='synthetic '+str(i))
+                                for i,s in [(82,'SOMETHING?'),(83,'Nope, more nothing.'),(87,'Nothin’'),(88,'You’ve got a whole lot of it.')]})
+        self.assertEqual([r['branch'] for r in empty_inventory_wording(data)],['010c','0111','011d','0122'])
+        ident=f'managed:Managed/Assembly-CSharp.dll:{method}@82'
+        data['translations'][ident]['source']='different original'
+        with self.assertRaisesRegex(ValueError,'exact original inventory branch'):empty_inventory_wording(data)
 
 
 if __name__=='__main__':unittest.main()

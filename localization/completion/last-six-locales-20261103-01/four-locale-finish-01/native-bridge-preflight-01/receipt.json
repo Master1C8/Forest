@@ -1,0 +1,25 @@
+{
+  "atUTC": "2026-11-03T07:14:57.218460+00:00",
+  "predicate": "Ordinary compiled QA bridge compiles against actual delivered managed resources; unconfigured notebook-heading mode rejects its missing named configuration type.",
+  "results": [
+    {
+      "case": "ordinary",
+      "exitCode": 0
+    },
+    {
+      "case": "unconfigured-heading",
+      "exitCode": 1
+    }
+  ],
+  "gameLaunched": false,
+  "boundary": "Actual C# compiler/reference boundary; no runtime or visual acceptance",
+  "sources": {
+    "ForestProbe.cs": "77c9fcd6802868f2b523b1763b728740c0075e2b33ab80a000bbd4fe82e6e28a",
+    "MenuUiProbe.cs": "0e7f18730b4ddf265558fb56af3e2f3afe59d3ca290b8f5b918ea3ea9f17291c",
+    "ItemUiProbe.cs": "4ae812d2f22ce9efed29bcbb0e70e8e72afe472c70b54c25cffefe43ecacff28",
+    "InventoryUiProbe.cs": "c2cafcf2724cc1bdcdb2e8b1e110aef8e507c8f709deb5d77cef841c989a7f9e",
+    "NotebookUiProbe.cs": "97b9232ddb68c46280fb1e4268b6d751a1926d15fef727824f9c817439c651eb",
+    "QuestUiProbe.cs": "3fcbaa620834f26c88a2aae26e4848250ee7cc7cba09cc4cf9cb94d113b225b5",
+    "LocaleRuntimeProbe.cs": "e4e38a0afd9f67cb56e84ec066c04eda09f8c7bcb433325481ee1db82df307eb"
+  }
+}

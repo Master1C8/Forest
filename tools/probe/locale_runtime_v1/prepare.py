@@ -106,16 +106,17 @@ def prepare(config_path):
         selected[sheet['name']]=rows
     items=selected['InventoryItem'];assert len(items)==48
     (run/'inventory-expectations.tsv').write_text(''.join(str(r['item_type'])+'\t'+b64(r['title'])+'\t'+b64(r['description'])+'\n' for r in items))
-    empty=[json.loads(l) for l in (ROOT/'localization/de-assets/inventory52-20261030/authored.jsonl').read_text().splitlines() if l.strip()]
-    empty=[r for r in empty if r['id'].startswith('il:') or 'IL_' in r['id'] or '011d' in r['id']]
-    # Empty branches are already patched managed literals, supplied by their authored IDs.
-    all_inv=[json.loads(l) for l in (ROOT/'localization/de-assets/inventory52-20261030/authored.jsonl').read_text().splitlines()]
-    empty=[r for r in all_inv if not r['id'].startswith('bgdb:')];assert len(empty)==4
+    # Empty branches are already patched managed literals. New compiled data uses
+    # stable instruction indices, not the historical per-language IL-offset IDs.
     if compiled:
         language=json.loads(compiled_contract.read_pin(ROOT,config['compiledLanguage']).read_text())
-        empty=[dict(id=r['id'],target=language['translations'][r['id']]['target']) for r in empty]
-    import re
-    (run/'inventory-empty-expectations.tsv').write_text(''.join(re.search(r'(010c|0111|011d|0122)',r['id'],re.I)[1].lower()+'\t'+b64(r['target'])+'\n' for r in empty))
+        empty=compiled_contract.empty_inventory_wording(language)
+        (run/'inventory-empty-expectations.tsv').write_text(''.join(r['branch']+'\t'+b64(r['target'])+'\n' for r in empty))
+    else:
+        import re
+        all_inv=[json.loads(l) for l in (ROOT/'localization/de-assets/inventory52-20261030/authored.jsonl').read_text().splitlines()]
+        empty=[r for r in all_inv if not r['id'].startswith('bgdb:')];assert len(empty)==4
+        (run/'inventory-empty-expectations.tsv').write_text(''.join(re.search(r'(010c|0111|011d|0122)',r['id'],re.I)[1].lower()+'\t'+b64(r['target'])+'\n' for r in empty))
     quest_template=json.loads((ROOT/'localization/previews/ru-20261029-narrative42-01/quest-family-runtime.json').read_text())
     # Reuse source identities only, never Russian target wording.
     quest_rows=[]
@@ -242,7 +243,8 @@ def prepare(config_path):
     refs=sorted(managed.glob('*.dll'));sources=[snapshot/n for n in ['ForestProbe.cs','MenuUiProbe.cs','ItemUiProbe.cs','InventoryUiProbe.cs','NotebookUiProbe.cs','QuestUiProbe.cs','LocaleRuntimeProbe.cs']]
     if config.get('nativeBatch')=='quest-callbacks':sources.append(snapshot/'LocaleQuestCallbacks.cs')
     if config.get('nativeBatch')=='original-tutorial':sources.append(snapshot/'LocaleStoryProbe.cs')
-    subprocess.run(['dotnet',str(compiler),'-nologo','-target:library','-nostdlib+','-out:'+str(run/'ForestProbe.dll')]+['-r:'+str(p) for p in refs]+list(map(str,sources)),check=True)
+    defines=['-define:FOREST_NOTEBOOK_HEADINGS'] if config.get('nativeBatch')=='notebook-headings' else []
+    subprocess.run(['dotnet',str(compiler),'-nologo','-target:library','-nostdlib+','-out:'+str(run/'ForestProbe.dll')]+defines+['-r:'+str(p) for p in refs]+list(map(str,sources)),check=True)
     subprocess.run(['dotnet','build',str(snapshot/'InjectProbe.csproj'),'--nologo','-v','quiet','--ignore-failed-sources'],check=True)
     subprocess.run(['dotnet',str(snapshot/'bin/Debug/net8.0/InjectProbe.dll'),str(managed),str(run/'ForestProbe.dll'),str(run/'Assembly-CSharp.hook.dll'),'--startup-markers'],check=True)
     shutil.copy2(run/'ForestProbe.dll',managed/'ForestProbe.dll');shutil.copy2(run/'Assembly-CSharp.hook.dll',original)

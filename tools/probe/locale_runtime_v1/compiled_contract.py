@@ -85,3 +85,18 @@ def resource_manifest(root, config, candidate):
             raise ValueError('Compiled resource changed: ' + name)
     return dict(outputs=manifest['files'], gameResources=manifest['files'],
                 sourceCompanions={}, retainedOriginalBase={})
+
+
+def empty_inventory_wording(language):
+    """Bind the original four consumer branches to the compiler's stable managed IDs."""
+    method='System.Void TheForestOfLove.InventoryInfoTicker::OnCellSelected(TheForestOfLove.InventoryCellUiController)'
+    original=[('010c',82,'SOMETHING?'),('0111',83,'Nope, more nothing.'),
+              ('011d',87,'Nothin’'),('0122',88,'You’ve got a whole lot of it.')]
+    result=[]
+    for offset,index,source in original:
+        ident='managed:Managed/Assembly-CSharp.dll:'+method+'@'+str(index)
+        row=language['translations'].get(ident)
+        if not row or row['source']!=source or not isinstance(row['target'],str):
+            raise ValueError('Missing exact original inventory branch: '+ident)
+        result.append(dict(branch=offset,id=ident,target=row['target']))
+    return result

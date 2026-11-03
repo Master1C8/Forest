@@ -1,0 +1,13 @@
+{
+  "atUTC": "2026-11-03T07:18:08.958848+00:00",
+  "phase": "native-preparation",
+  "locale": "hu",
+  "failedRun": "localization/probes/hu-20261103-compiled-02",
+  "gameLaunched": false,
+  "bridgeInstalled": false,
+  "exitCode": 1,
+  "failure": "Optional notebook-heading probe references VNRevivalHeadingConfig, which is absent from ordinary compiled resources.",
+  "repair": "Scope those measurements behind the explicit FOREST_NOTEBOOK_HEADINGS resource/configuration contract; ordinary batches throw if that unsupported command is invoked. Actual ordinary C# compilation passes; the same references with unconfigured heading mode reject CS0103.",
+  "regression": "native-bridge-preflight-01/receipt.json",
+  "nextConfig": "localization/completion/last-six-locales-20261103-01/four-locale-finish-01/hu-native-03/config.json"
+}

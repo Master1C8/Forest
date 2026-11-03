@@ -34,6 +34,12 @@ only the resulting frozen `execution/runner.py`. Restoration runs unconditionall
 unknown outcomes require exact process/action-log reconciliation before retrying.
 No publisher, installer, server lifecycle or owner-session operation is included.
 
+The four original empty-inventory branches use their exact compiler managed IDs
+and original source strings. Legacy per-language IL-offset IDs are not used as
+language keys. Optional notebook-heading metrics compile only with the explicit
+`FOREST_NOTEBOOK_HEADINGS` resource/configuration contract; other batches reject
+that command rather than inventing a measurement pass.
+
 Regression checks: `python -B -m unittest discover -s
 tools/probe/locale_runtime_v1 -p 'test_*.py' -q`. These exercise actual input hashes,
 versions, preservation, editorial coverage, reviewer identity and exact resource
