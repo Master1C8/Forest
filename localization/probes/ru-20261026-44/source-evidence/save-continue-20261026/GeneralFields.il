@@ -1,5 +1,0 @@
-TYPE TheForestOfLove.Services.Persistence.GeneralData BASE System.Object
-FIELD System.Single TheForestOfLove.Services.Persistence.GeneralData::storyClock
-FIELD System.Boolean TheForestOfLove.Services.Persistence.GeneralData::finishedControlTutorial
-FIELD System.Boolean TheForestOfLove.Services.Persistence.GeneralData::finishedDialogueTutorial
-FIELD System.Boolean TheForestOfLove.Services.Persistence.GeneralData::finishedGossipTutorial

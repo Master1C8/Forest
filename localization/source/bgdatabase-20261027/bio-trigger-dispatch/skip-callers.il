@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.QuestSkipController::TrySkipConversation() | IL_001a: call System.Void TheForestOfLove.QuestSkipController::SkipConversation(TheForestOfLove.Narrative.Dialogue,TheForestOfLove.Narrative.Arc)
-System.Void TheForestOfLove.DevTools.DevRoomController::TrySkipConversation() | IL_0029: call System.Void TheForestOfLove.DevTools.DevRoomController::SkipConversation(TheForestOfLove.Narrative.Dialogue,TheForestOfLove.Narrative.Arc)

@@ -1,1 +1,0 @@
-TYPE TheForestOfLove.DialogueSkipProgressIndicator BASE TheForestOfLove.Core.BaseBehavior

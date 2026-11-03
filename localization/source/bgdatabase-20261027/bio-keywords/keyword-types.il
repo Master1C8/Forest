@@ -1,9 +1,0 @@
-TheForestOfLove.Services.Persistence.SavegameBioKeywordData
-TheForestOfLove.Events.ActorBioKeywordEvent
-TheForestOfLove.Narrative.BioKeyword
-TheForestOfLove.Narrative.BioKeywordData
-TheForestOfLove.DB.BioKeyword
-TheForestOfLove.DB.BioKeyword/Factory
-TheForestOfLove.DB.BioKeyword/<>c__DisplayClass334_0
-TheForestOfLove.DB.BioKeyword/<>c__DisplayClass335_0
-TheForestOfLove.DB.BioKeyword/<>c__DisplayClass336_0

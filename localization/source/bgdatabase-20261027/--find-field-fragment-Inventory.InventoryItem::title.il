@@ -1,7 +1,0 @@
-System.Void TheForestOfLove.InventoryInfoTicker::OnCellSelected(TheForestOfLove.InventoryCellUiController) | IL_00c5: ldfld System.String TheForestOfLove.Inventory.InventoryItem::title
-System.Void TheForestOfLove.InventoryInfoTicker::OnCellSelected(TheForestOfLove.InventoryCellUiController) | IL_012f: ldfld System.String TheForestOfLove.Inventory.InventoryItem::title
-System.Void TheForestOfLove.DialogueCanvasItemGetNotificationController::OnItemAdded(TheForestOfLove.Inventory.InventoryItem,System.Int32) | IL_0011: ldfld System.String TheForestOfLove.Inventory.InventoryItem::title
-System.Void TheForestOfLove.DialogueCanvasItemLostNotificationController::OnItemRemoved(TheForestOfLove.Inventory.InventoryItem,System.Int32) | IL_0009: ldfld System.String TheForestOfLove.Inventory.InventoryItem::title
-System.Void TheForestOfLove.OverworldAllInOneNotification::EnqueueItemNotification(TheForestOfLove.Inventory.InventoryItem,TheForestOfLove.OverworldAllInOneNotification/QueuedNotificationType) | IL_0028: ldfld System.String TheForestOfLove.Inventory.InventoryItem::title
-System.Void TheForestOfLove.OverworldItemGetNotificationLite::OnItemAdded(TheForestOfLove.Inventory.InventoryItem,System.Int32) | IL_0011: ldfld System.String TheForestOfLove.Inventory.InventoryItem::title
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass14_0::<GenerateItems>b__0(TheForestOfLove.DB.InventoryItem) | IL_005c: stfld System.String TheForestOfLove.Inventory.InventoryItem::title

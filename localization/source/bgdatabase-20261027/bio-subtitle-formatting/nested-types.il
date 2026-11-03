@@ -1,8 +1,0 @@
-PixelCrushers.DialogueSystem.FormattedText
-PixelCrushers.DialogueSystem.FormattedText/<>c
-PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass60_0
-PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass65_0
-PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass67_0
-PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass68_0
-PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass69_0
-PixelCrushers.DialogueSystem.FormattedText/<>c__DisplayClass70_0

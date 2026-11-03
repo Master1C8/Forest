@@ -1,7 +1,0 @@
-{
-  "result": "held-before-copy-or-launch",
-  "reason": "Whole-game original-byte guard reached the declared QA app.info identity",
-  "fullMismatchEnumeration": "Only catalog.json and app.info differ outside five declared serialized resources; all other bytes match originals",
-  "repair": "Assert exact original and QA identity bytes plus both catalog hashes; all other byte checks retained",
-  "recipe": "tools/build_renderer_probe.py:273-276"
-}

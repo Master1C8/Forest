@@ -1,1 +1,0 @@
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_002d: callvirt System.String TheForestOfLove.DB.Actor::get_savekey()

@@ -1,6 +1,0 @@
-System.Void TheForestOfLove.CritterLog::UpdateResidentLabelState(TheForestOfLove.CritterLog/NamedResident) | IL_001b: callvirt System.String TheForestOfLove.Narrative.Actor::get_NameplateName()
-System.Void TheForestOfLove.CustomPortraitsUi::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_0224: callvirt System.String TheForestOfLove.Narrative.Actor::get_NameplateName()
-System.Void TheForestOfLove.CustomPortraitsUi::OnConversationLine_Handler(TheForestOfLove.Narrative.Actor,PixelCrushers.DialogueSystem.Subtitle) | IL_02a2: callvirt System.String TheForestOfLove.Narrative.Actor::get_NameplateName()
-System.Void TheForestOfLove.DialogueNameplateController::UpdateNameplate(System.String) | IL_00ee: callvirt System.String TheForestOfLove.Narrative.Actor::get_NameplateName()
-System.Void TheForestOfLove.MapUI::InitCritterLocations() | IL_0041: callvirt System.String TheForestOfLove.Narrative.Actor::get_NameplateName()
-System.Void TheForestOfLove.OverworldAllInOneNotification::EnqueueGossipNotification(TheForestOfLove.Narrative.Actor,TheForestOfLove.OverworldAllInOneNotification/QueuedNotificationType) | IL_001d: callvirt System.String TheForestOfLove.Narrative.Actor::get_NameplateName()

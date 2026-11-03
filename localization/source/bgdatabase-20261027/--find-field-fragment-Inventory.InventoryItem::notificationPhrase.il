@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.ItemGetNotification::ShowInventoryItemNotification(TheForestOfLove.Inventory.InventoryItemType) | IL_0066: ldfld System.String TheForestOfLove.Inventory.InventoryItem::notificationPhrase
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass14_0::<GenerateItems>b__0(TheForestOfLove.DB.InventoryItem) | IL_006d: stfld System.String TheForestOfLove.Inventory.InventoryItem::notificationPhrase

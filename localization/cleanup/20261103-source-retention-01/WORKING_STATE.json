@@ -1,5 +1,5 @@
 {
-  "updatedAtUTC": "2026-11-03T11:27:25.741893+00:00",
+  "updatedAtUTC": "2026-11-03T13:03:03.723540+00:00",
   "objective": "Finish reducing Forest to editable/rebuildable source plus required unfinished work, preserving saves and full Git metadata.",
   "ownerApproved": [
     "Private Master1C8/Forest repository and minimal rebuild backups",
@@ -16,7 +16,12 @@
     "All six selected v2 archives uploaded to private draft Release; server SHA256 digests match local receipts",
     "Owner game v2 actual271-file restoration with mode/mtime/xattrs passed",
     "Actual93 raw Git blobs (313675655bytes) downloaded and verified by Git object ID for independent recovery tests",
-    "Storage workflow committed on canonical main at99497b37d210bcd9517536bf2f0edd04e551858a; push in progress"
+    "Storage workflow committed on canonical main at99497b37d210bcd9517536bf2f0edd04e551858a; push in progress",
+    "All six archives reverse-downloaded and SHA256-verified against remote asset digests",
+    "Actual remote owner game/prior-anchor restoration and357-file in-place build-input restore passed; original input inodes returned",
+    "Dutch+Japanese normal build/check32 resources passed on restored inputs; Dutch normal cold build16 resources passed after physical cleanup",
+    "378130 selected files removed;38 canonical glossary/license files restored exactly and shared selection guard corrected",
+    "434 task-created temporary files removed;8706 protected files and all69 canonical glossary/language source files verified"
   ],
   "currentPlan": "source-retention-plan-final.json.gz",
   "planSummary": "source-retention-summary-final.json",
@@ -25,18 +30,17 @@
     "evidenceBytes": 16354212195,
     "discardBytes": 43560413420
   },
-  "liveKnown": "Verified storage-only preparation and ranged-download tasks. No model/game/server workers.",
+  "liveKnown": "No storage/model/game worker remains; final Git integration and measurement only.",
   "remaining": [
-    "Finish real reverse downloads and verify full remote archive hashes",
-    "Run normal Dutch/Japanese compiler from actual remotely restored inputs, preserving original input inodes",
-    "Apply exact reviewed source cleanup, preserving all205 preexisting tracked changes, all saves, translation sources and HI/SW continuation",
-    "Verify post-cleanup build, exact remaining sources, final size; remove task-owned caches/downloads only after final checks",
-    "Commit/push owned deletion and compact recovery receipts; project remains unfinished"
+    "Hindi independent review and Swahili editorial/source holds remain unfinished; full project archival pending"
   ],
   "notes": [
     "Oversized128/102MiB objects exist only in Codex auxiliary refs, not main; normal main push succeeded. Never migrate/rewrite history. Full temporary Git bundle dist/Forest-history-before-storage-20261103.bundle verified; no need upload since normal main is on GitHub and auxiliary refs remain local. Remove this task-created duplicate only after final safety checks.",
     "retention.py broad recursive provenance is NOT a local requirement. finalize_plan.py correctly keeps explicit next assignment pins and actual contexts; historical provenance/evidence is archived. All source words unchanged.",
     "All progress/final replies Russian (explicit earlier request); authored operational docs/prompts English.",
     "Source-only final project archival remains pending while Hindi/Swahili unfinished. Storage cleanup can finish without closing their tasks."
-  ]
+  ],
+  "currentStage": "Source cleanup and actual recovery/build checks passed; project localization remains unfinished.",
+  "cleanupStatus": "verified",
+  "gitDeliveryGate": "Final owned changes integrated into main and synchronized before reporting completion"
 }

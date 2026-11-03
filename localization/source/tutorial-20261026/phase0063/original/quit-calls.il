@@ -1,5 +1,0 @@
-System.Void TheForestOfLove.DevConsoleCommands/MiscCommands::Quit() | IL_0000: call System.Void UnityEngine.Application::Quit()
-System.Void TheForestOfLove.QuitHelper::Quit() | IL_000e: call System.Void UnityEngine.Application::Quit()
-System.Void TheForestOfLove.QuitHelper::Quit() | IL_001b: call System.Void UnityEngine.Application::Quit()
-System.Void TheForestOfLove.DebugHelper::DebugClearSavegame() | IL_003f: call System.Void UnityEngine.Application::Quit()
-System.Void TheForestOfLove.DevTools.DevRoomController::Update() | IL_0022: call System.Void UnityEngine.Application::Quit()

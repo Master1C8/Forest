@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.StormQuestPageCollectionUIController::OnCollectedPage() | IL_0048: call System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3::OnCollectedAllTheFlyingPages_StormQuest()
-System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3::OnCollectedAllTheFlyingPages_StormQuest() | IL_004c: ldftn System.Void TheForestOfLove.Events.TriggerHandlers.TriggerHandlerAct3/<>c::<OnCollectedAllTheFlyingPages_StormQuest>b__16_0()

@@ -1,8 +1,0 @@
-{
-  "observed": "Exact process-path selector matched both CrossOver wrapper PID32416 and actual QA child PID32432. It rejected before CGEvent creation or input submission. Actual original runtime InputHelper player=0:Player1, joystick absent, nativeKeyboard=True, unityInput=False, ignoreUnfocused=True; menu focus=True.",
-  "firstDivergingBoundary": "Process path identity -> unique native window owner; the former alone is insufficient for CrossOver.",
-  "repair": "Join exact executable-matching process candidates against native game-window owner PID, require exactly one matching game-sized layer0 window; never pick first or assume launcher PID.",
-  "cleanupSha256": "c638190c15c5276ac8e5c05c6a7da810e6c0276c1fd36aa5cc73484d9ab458d6",
-  "samples": "not-run; no key submission, no policy change by qa-background-input, no intro or movement",
-  "newCandidateRequired": "27; preserve26 immutable artifacts"
-}

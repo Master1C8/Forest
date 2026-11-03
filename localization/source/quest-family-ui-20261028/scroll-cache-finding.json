@@ -1,9 +1,0 @@
-{
-  "predicate": "Actual ScrollRect internal viewRect must equal the assigned viewport,not the cached root",
-  "assemblySha256": "a1404c877e7f7297bec6cc78e2c43ca7cbd426ccc6349d88b608f65756a55cff",
-  "traceSha256": "49cd07c7fb3d8fa0aa8d69ff1c2ab8468aa91fa279e360e1faf19ff34e97bd1e",
-  "observation": "QA08 viewport154.8135/content161.2501 but top setter returned0 and shifted content to30.2;internal bounds still used root189",
-  "firstDivergence": "Assigning viewport before content makes IsActive false;SetDirtyCaching returns before invalidating m_ViewRect. content setter stores only the field.",
-  "repair": "Assign content before viewport;source setter then invalidates cached viewRect through its normal public API",
-  "regression": "Actual protected get_viewRect must reference the new viewport;when content overflows,top/bottom readbacks equal1/0 after three fresh frames"
-}

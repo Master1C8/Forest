@@ -1,1 +1,0 @@
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddArcPreconditionsAndTriggers(TheForestOfLove.Narrative.DataManifest) | IL_02ae: call System.Void TheForestOfLove.Narrative.DialogueSystemLoader::AddConversationTriggerUnlockBioFragment(TheForestOfLove.Narrative.DataManifest,TheForestOfLove.Narrative.Dialogue,PixelCrushers.DialogueSystem.DialogueEntry)

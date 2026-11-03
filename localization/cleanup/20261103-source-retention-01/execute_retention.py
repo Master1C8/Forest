@@ -31,6 +31,12 @@ def save_path(name):
     return n.startswith('tfol.') or 'savegame' in n or 'playerprefs' in n or p.suffix.lower() in {'.sav','.save','.savegame','.settings'} or name.startswith('localization/owner-saves/')
 
 
+def canonical_source(name):
+    # Authored source ownership takes precedence over filename heuristics and
+    # over optional historical evidence classification, including font licenses.
+    return str(Path(name)).casefold().startswith(('localization/languages/','localization/glossary/'))
+
+
 def idle():
     rows=subprocess.check_output(['ps','-axo','pid=,args='],text=True).splitlines()
     hits=[r for r in rows if ('The Forest of Love.exe' in r or 'run_locale_completion.py' in r or 'forest_localize.py build' in r or 'codex exec --ignore-user-config' in r and '/Forest' in r)]
@@ -43,6 +49,7 @@ def prepare():
     with gzip.open(HERE/'source-retention-plan-final.json.gz','rt') as f:old=json.load(f)
     dirty=set(subprocess.check_output(['git','diff','--name-only','-z'],cwd=ROOT,text=True).split('\0'))-{''}
     kept={r['path'] for r in old['keep']}|dirty|{'tools/forest_storage.py','STORAGE_RECOVERY.md','localization/cleanup/20261031-verified-duplicates/cleanup.py'}
+    kept.update(r['path'] for category in ['keep','evidence','discard'] for r in old[category] if canonical_source(r['path']))
     for p in (ROOT/'localization/cleanup').rglob('*'):
         if not p.is_file() or p.is_symlink() or 'dotnet-home' in p.parts:continue
         if p.suffix in {'.py','.json','.md'} or p.name in {'plan.json.gz','deletions.jsonl.gz','source-deletions.jsonl.gz'}:
@@ -135,7 +142,7 @@ def apply():
         p=s.safe(ROOT,r['path']);assert p.is_file() and s.hashes(p)[0]==expected, ('Protected source changed',r['path'])
     groups=collections.defaultdict(list)
     for r in d['files']:
-        assert not save_path(r['path']);groups[str(Path(r['path']).parent)].append(r)
+        assert not save_path(r['path']) and not canonical_source(r['path']);groups[str(Path(r['path']).parent)].append(r)
     def recheck(r,fd):
         p=ROOT/r['path'];t=os.stat(p.name,dir_fd=fd,follow_symlinks=False)
         assert stat.S_ISREG(t.st_mode)

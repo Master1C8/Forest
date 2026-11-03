@@ -1,9 +1,0 @@
-TYPE TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage BASE System.Enum
-FIELD System.Int32 TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::value__
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::Starting = 0
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::BunnyWalksIn = 1
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::BunnyApproachesBed = 2
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::BunnySaysHi = 3
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::BunnyLeavesRoom = 4
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::Ending = 5
-FIELD TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage TheForestOfLove.IntroBunnyHouseCutscene/CutsceneStage::Cleanup = 6

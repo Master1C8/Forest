@@ -1,3 +1,0 @@
-System.Void TheForestOfLove.Services.Persistence.DataService::RestoreNonlinearContent(TheForestOfLove.Services.Persistence.Savestate) | IL_0089: ldfld System.Boolean TheForestOfLove.Narrative.Actor::isExcludedFromSavestate
-System.Void TheForestOfLove.Services.Persistence.DataService::SaveActor(TheForestOfLove.Narrative.Actor) | IL_0001: ldfld System.Boolean TheForestOfLove.Narrative.Actor::isExcludedFromSavestate
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_0095: stfld System.Boolean TheForestOfLove.Narrative.Actor::isExcludedFromSavestate

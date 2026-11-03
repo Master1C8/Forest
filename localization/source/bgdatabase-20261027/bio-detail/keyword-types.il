@@ -1,1 +1,0 @@
-TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass9_0

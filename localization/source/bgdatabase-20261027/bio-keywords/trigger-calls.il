@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.Narrative.NarrativeActions::UnlockBioKeyword(System.String,System.String) | IL_0016: callvirt System.Void TheForestOfLove.Narrative.Actor::UnlockBioKeyword(TheForestOfLove.Narrative.BioKeyword)
-System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTriggerUnlockBioFragment::OnExecute() | IL_000c: call System.Void TheForestOfLove.Narrative.NarrativeActions::UnlockBioKeyword(System.String,System.String)

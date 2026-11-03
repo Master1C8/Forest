@@ -1,1 +1,0 @@
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass20_0::<GenerateQuests>b__0(TheForestOfLove.DB.Quest) | IL_0095: callvirt UnityEngine.Sprite TheForestOfLove.DB.Quest::get_bio_portrait()

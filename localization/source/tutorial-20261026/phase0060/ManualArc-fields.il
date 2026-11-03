@@ -1,2 +1,0 @@
-TYPE TheForestOfLove.Narrative.ArcTriggers.ArcTriggerManuallyCompleteArc BASE TheForestOfLove.Narrative.ArcTriggers.ArcTrigger
-FIELD TheForestOfLove.Narrative.Arc TheForestOfLove.Narrative.ArcTriggers.ArcTriggerManuallyCompleteArc::targetArc

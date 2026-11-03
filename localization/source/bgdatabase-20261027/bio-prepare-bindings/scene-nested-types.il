@@ -1,3 +1,0 @@
-PixelCrushers.DialogueSystem.DialogueSystemSceneEvents/<>c__DisplayClass8_0
-PixelCrushers.DialogueSystem.DialogueSystemSceneEvents/<>c__DisplayClass9_0
-PixelCrushers.DialogueSystem.DialogueSystemSceneEvents/<>c__DisplayClass10_0

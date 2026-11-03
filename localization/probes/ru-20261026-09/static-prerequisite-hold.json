@@ -1,8 +1,0 @@
-{
-  "result": "not-launched",
-  "noOpAndReadback": "passed for all five files; build.json preserved",
-  "dynamicFontPrerequisite": "failed: original primary atlas is m_IsReadable=False; TMP TryAddCharacterInternal rejects that before adding glyphs",
-  "newEvidence": "Exact game TMP_FontAsset.TryAddCharacterInternal IL tests Texture.isReadable; source atlas typetree independently confirms false",
-  "changedHypothesis": "Candidate10 additionally uses a readable cleared Alpha8 atlas and bilinear sampling, retaining original dimensions/object identity and bitmap shader",
-  "runtime": "not-run; no images captured"
-}

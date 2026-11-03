@@ -1,9 +1,0 @@
-System.Void TheForestOfLove.InteractionUiController::AddEventListeners() | IL_0032: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.InteractionUiController::RemoveEventListeners() | IL_0032: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.InteractionUiStatusIconController::AddEventListeners() | IL_0141: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.InteractionUiStatusIconController::RemoveEventListeners() | IL_0157: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.Events.GameEvents::.cctor() | IL_019f: stsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.Narrative.ActorTrackingService::AddEventListeners() | IL_0048: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.Narrative.ActorTrackingService::RemoveEventListeners() | IL_0048: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.Narrative.NarrativeActions::UpdateTags(System.Collections.Generic.List`1<System.String>,System.Collections.Generic.List`1<System.String>) | IL_00ec: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged
-System.Void TheForestOfLove.Narrative.NarrativeActions::UpdateTags(System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag>,System.Collections.Generic.List`1<TheForestOfLove.Narrative.Tag>) | IL_006b: ldsfld UnityEngine.Events.UnityEvent TheForestOfLove.Events.GameEvents::onActiveTagsChanged

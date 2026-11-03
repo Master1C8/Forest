@@ -1,3 +1,0 @@
-TYPE TheForestOfLove.UI.AutomaticDepthSortUI BASE UnityEngine.MonoBehaviour
-FIELD TheForestOfLove.UI.AutomaticDepthSortUILayer TheForestOfLove.UI.AutomaticDepthSortUI::layer
-FIELD System.Int32 TheForestOfLove.UI.AutomaticDepthSortUI::additionalCustomOffset

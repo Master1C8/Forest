@@ -1,3 +1,0 @@
-System.Void TheForestOfLove.Narrative.DialogueService::Initialize() | IL_0086: stfld System.Int32 TheForestOfLove.Narrative.DialogueService::lastCurrentLineDialogueDbConversantId
-System.Boolean TheForestOfLove.Narrative.DialogueService::CheckIfActorChanged(TheForestOfLove.Narrative.Actor) | IL_000f: ldfld System.Int32 TheForestOfLove.Narrative.DialogueService::lastCurrentLineDialogueDbConversantId
-System.Boolean TheForestOfLove.Narrative.DialogueService::CheckIfActorChanged(TheForestOfLove.Narrative.Actor) | IL_0022: stfld System.Int32 TheForestOfLove.Narrative.DialogueService::lastCurrentLineDialogueDbConversantId

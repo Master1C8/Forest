@@ -1,5 +1,0 @@
-System.Void TheForestOfLove.GossipUIItemTemplate::SetText(System.String)
-System.Void TheForestOfLove.GossipUIItemTemplate::TryPrependGlyphCode(TMPro.TextMeshProUGUI,System.Boolean,System.String,System.String)
-System.Void TheForestOfLove.GossipUIItemTemplate::SetNewLabelVisible(System.Boolean)
-System.Void TheForestOfLove.GossipUIItemTemplate::SetLockIconVisible(System.Boolean)
-System.Void TheForestOfLove.GossipUIItemTemplate::.ctor()

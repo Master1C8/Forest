@@ -1,6 +1,0 @@
-System.String BansheeGz.BGDatabase.BGLoaderForRepo::get_Name()
-System.Byte[] BansheeGz.BGDatabase.BGLoaderForRepo::Load(BansheeGz.BGDatabase.BGLoaderForRepo/LoadRequest)
-System.String BansheeGz.BGDatabase.BGLoaderForRepo::AppendPaths(System.String,System.String[])
-System.Boolean BansheeGz.BGDatabase.BGLoaderForRepo::IsEmpty(BansheeGz.BGDatabase.BGLoaderForRepo/LoadRequest)
-System.String BansheeGz.BGDatabase.BGLoaderForRepo::ToPath(BansheeGz.BGDatabase.BGLoaderForRepo/LoadRequest)
-System.Void BansheeGz.BGDatabase.BGLoaderForRepo::.ctor()

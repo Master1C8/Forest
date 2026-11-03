@@ -1,8 +1,0 @@
-System.Void TheForestOfLove.PlantQuestMinigameUIController::Awake()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::Update()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::UpdateAnimators()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::ShowButtonHints()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::HideButtonHints()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsNormal()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::LabelsOozingAlert()
-System.Void TheForestOfLove.PlantQuestMinigameUIController::.ctor()

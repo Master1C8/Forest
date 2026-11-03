@@ -1,6 +1,0 @@
-System.Void Language.Lua.LuaNil::.ctor()
-System.Object Language.Lua.LuaNil::get_Value()
-System.String Language.Lua.LuaNil::GetTypeCode()
-System.Boolean Language.Lua.LuaNil::GetBooleanValue()
-System.String Language.Lua.LuaNil::ToString()
-System.Void Language.Lua.LuaNil::.cctor()

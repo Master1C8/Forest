@@ -1,7 +1,0 @@
-System.Void Language.Lua.LuaString::.ctor(System.String)
-System.String Language.Lua.LuaString::get_Text()
-System.Void Language.Lua.LuaString::set_Text(System.String)
-System.Object Language.Lua.LuaString::get_Value()
-System.String Language.Lua.LuaString::GetTypeCode()
-System.String Language.Lua.LuaString::ToString()
-System.Void Language.Lua.LuaString::.cctor()

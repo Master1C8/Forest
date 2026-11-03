@@ -1,4 +1,0 @@
-TYPE PixelCrushers.DialogueSystem.DialogueSystemSceneEvents BASE UnityEngine.MonoBehaviour
-FIELD System.Collections.Generic.List`1<PixelCrushers.DialogueSystem.DialogueEntrySceneEvent> PixelCrushers.DialogueSystem.DialogueSystemSceneEvents::dialogueEntrySceneEvents
-FIELD PixelCrushers.DialogueSystem.DialogueSystemSceneEvents PixelCrushers.DialogueSystem.DialogueSystemSceneEvents::m_sceneInstance
-PROPERTY PixelCrushers.DialogueSystem.DialogueSystemSceneEvents PixelCrushers.DialogueSystem.DialogueSystemSceneEvents::sceneInstance()

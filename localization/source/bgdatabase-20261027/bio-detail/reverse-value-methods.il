@@ -1,5 +1,0 @@
-System.Collections.Generic.List`1<BansheeGz.BGDatabase.BGEntity> BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue::get_List()
-System.Void BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue::.ctor()
-System.Void BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue::Add(BansheeGz.BGDatabase.BGEntity)
-System.Void BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue::Remove(BansheeGz.BGDatabase.BGEntity)
-System.Void BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue::MarkDirty()

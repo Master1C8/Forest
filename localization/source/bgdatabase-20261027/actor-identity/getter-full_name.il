@@ -1,1 +1,0 @@
-System.Void TheForestOfLove.Narrative.DialogueSystemLoader/<>c__DisplayClass15_0::<GenerateActors>b__0(TheForestOfLove.DB.Actor) | IL_0084: callvirt System.String TheForestOfLove.DB.Actor::get_full_name()

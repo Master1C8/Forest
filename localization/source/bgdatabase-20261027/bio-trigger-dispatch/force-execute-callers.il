@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.Narrative.Dialogue::ForceFireArcTriggers(TheForestOfLove.Narrative.Arc) | IL_005d: callvirt System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTrigger::ForceExecute()
-System.Void TheForestOfLove.Narrative.StoryManager::MarkQuestStepAsPlayed(TheForestOfLove.Narrative.Dialogue,System.String) | IL_0051: callvirt System.Void TheForestOfLove.Narrative.ArcTriggers.ArcTrigger::ForceExecute()

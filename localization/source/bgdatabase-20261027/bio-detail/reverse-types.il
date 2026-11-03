@@ -1,4 +1,0 @@
-BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCache
-BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValueI
-BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValue
-BansheeGz.BGDatabase.BGFieldRelationA`2/ReverseRelationCacheValueMulti

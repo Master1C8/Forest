@@ -1,1 +1,0 @@
-System.Void TheForestOfLove.Narrative.StoryManager::MarkConversationsAsPlayed(System.String,System.String) | IL_003b: call System.Void TheForestOfLove.Narrative.StoryManager::MarkQuestStepAsPlayed(TheForestOfLove.Narrative.Dialogue,System.String)

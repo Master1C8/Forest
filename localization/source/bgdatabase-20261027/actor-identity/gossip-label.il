@@ -1,3 +1,0 @@
-System.Void TheForestOfLove.OverworldAllInOneNotification::InstantiateNewNotification() | IL_00e2: ldfld System.String TheForestOfLove.OverworldAllInOneNotification/QueuedNotification::actorName
-System.Void TheForestOfLove.OverworldAllInOneNotification::InstantiateNewNotification() | IL_00f8: ldfld System.String TheForestOfLove.OverworldAllInOneNotification/QueuedNotification::actorName
-System.Void TheForestOfLove.OverworldAllInOneNotification::EnqueueGossipNotification(TheForestOfLove.Narrative.Actor,TheForestOfLove.OverworldAllInOneNotification/QueuedNotificationType) | IL_0022: stfld System.String TheForestOfLove.OverworldAllInOneNotification/QueuedNotification::actorName

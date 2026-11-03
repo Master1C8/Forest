@@ -1,1 +1,0 @@
-TYPE PixelCrushers.DialogueSystem.CanvasDialogueUI BASE PixelCrushers.DialogueSystem.AbstractDialogueUI

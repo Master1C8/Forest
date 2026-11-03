@@ -1,3 +1,0 @@
-System.Void PixelCrushers.DialogueSystem.ConversationView::StartSubtitle(PixelCrushers.DialogueSystem.Subtitle,System.Boolean,System.Boolean) | IL_0070: stfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationView::_subtitle
-System.Void PixelCrushers.DialogueSystem.ConversationView::SetupContinueButton() | IL_0002: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationView::_subtitle
-System.Void PixelCrushers.DialogueSystem.ConversationView::FinishSubtitle() | IL_0042: ldfld PixelCrushers.DialogueSystem.Subtitle PixelCrushers.DialogueSystem.ConversationView::_subtitle

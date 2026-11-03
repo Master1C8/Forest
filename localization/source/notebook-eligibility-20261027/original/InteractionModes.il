@@ -1,5 +1,0 @@
-TYPE TheForestOfLove.Narrative.QuestManagerInteractionMode BASE System.Enum
-FIELD System.Int32 TheForestOfLove.Narrative.QuestManagerInteractionMode::value__
-FIELD TheForestOfLove.Narrative.QuestManagerInteractionMode TheForestOfLove.Narrative.QuestManagerInteractionMode::Quest = 0
-FIELD TheForestOfLove.Narrative.QuestManagerInteractionMode TheForestOfLove.Narrative.QuestManagerInteractionMode::Detail = 1
-FIELD TheForestOfLove.Narrative.QuestManagerInteractionMode TheForestOfLove.Narrative.QuestManagerInteractionMode::Gossip = 2

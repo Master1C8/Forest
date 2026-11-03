@@ -1,8 +1,0 @@
-TYPE TheForestOfLove.Narrative.DialogueSystemLoader BASE System.Object
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::UNIQUE_DATA_KEY_SUFFIX_FIELD = TfolUniqueDataKeySuffix
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::DIALOGUE_ARC_ROOTNODE_PRIMARY = PRIMARY
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::DIALOGUE_ARC_ROOTNODE_SECONDARY = SECONDARY
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::DIALOGUE_ARC_ROOTNODE_IDLE = IDLE
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::DIALOGUE_ARC_ROOTNODE_NAMED = NAMED
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::PASSTHROUGH_STEP_CONVERSATION_NAME = PASSTHROUGH
-FIELD System.String TheForestOfLove.Narrative.DialogueSystemLoader::PASSTHROUGH_STEP_DB_CONVERSATION_NAME = system/empty

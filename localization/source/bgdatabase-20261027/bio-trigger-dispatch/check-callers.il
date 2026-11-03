@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.Narrative.StoryManager::AddEventListeners() | IL_0022: ldftn System.Void TheForestOfLove.Narrative.StoryManager::HandleArcTriggerCheck(TheForestOfLove.Narrative.Dialogue,TheForestOfLove.Narrative.Arc,System.Int32,System.Int32)
-System.Void TheForestOfLove.Narrative.StoryManager::RemoveEventListeners() | IL_0022: ldftn System.Void TheForestOfLove.Narrative.StoryManager::HandleArcTriggerCheck(TheForestOfLove.Narrative.Dialogue,TheForestOfLove.Narrative.Arc,System.Int32,System.Int32)

@@ -1,2 +1,0 @@
-System.Void TheForestOfLove.QuestSkipController::SkipConversation(TheForestOfLove.Narrative.Dialogue,TheForestOfLove.Narrative.Arc) | IL_008f: callvirt System.Void TheForestOfLove.Narrative.Dialogue::ForceFireArcTriggers(TheForestOfLove.Narrative.Arc)
-System.Void TheForestOfLove.Narrative.StoryManager::MarkQuestStepAsPlayed(TheForestOfLove.Narrative.Dialogue,System.String) | IL_00a1: callvirt System.Void TheForestOfLove.Narrative.Dialogue::ForceFireArcTriggers(TheForestOfLove.Narrative.Arc)

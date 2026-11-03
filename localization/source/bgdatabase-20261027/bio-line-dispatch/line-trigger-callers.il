@@ -1,1 +1,0 @@
-System.Void TheForestOfLove.Narrative.DialogueService::Handler_OnConversationLineBegin(PixelCrushers.DialogueSystem.Subtitle) | IL_0002: call System.Void TheForestOfLove.Narrative.DialogueService::HandleDialogueLineTriggering(PixelCrushers.DialogueSystem.Subtitle)
