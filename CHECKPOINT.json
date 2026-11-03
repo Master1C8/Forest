@@ -1,4 +1,38 @@
 {
+  "windowsInstaller": {
+    "status": "built-and-isolated-verified",
+    "version": "1.0.0",
+    "platform": "Windows10/11 x64",
+    "gameVersion": "0.45",
+    "artifact": "dist/Forest-Language-Installer-Windows.zip",
+    "artifactSha256": "998d2931e65c250f8303dab602321b80a86d6e70e0be62c1a9b247e271f6fbef",
+    "artifactBytes": 51316398,
+    "translationLocales": 27,
+    "englishOriginalRestore": true,
+    "excludedLocales": [
+      "hi",
+      "sw",
+      "uk"
+    ],
+    "buildReceipt": "Windows/build-receipt.json",
+    "validation": "Windows/validation.json",
+    "normalCompilerLocalesPassed": 27,
+    "nativeBundleRoundtripsPassed": 27,
+    "syntheticAssertions": 1079,
+    "actualResourceTestLocales": [
+      "ar",
+      "de",
+      "ja",
+      "ru"
+    ],
+    "actualResourceAssertions": 78,
+    "windowsUi": "not-run",
+    "windowsPowerShell51": "not-run",
+    "realGameInstall": "not-run",
+    "gameLaunch": "not-run",
+    "privateInputRecovery": "Windows/original-inputs.json",
+    "projectArchival": "pending-unfinished-localization-and-native-acceptance"
+  },
   "sixNewLocaleCliTasks20261101": {
     "run": "six-new-locales-20261101-01",
     "locales": [

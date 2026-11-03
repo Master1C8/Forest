@@ -1,0 +1,24 @@
+{
+  "baseProject": "StardewTranslationInstaller",
+  "baseRevision": "68088632f217203f6c3532d2d6d38ad7ca49438d",
+  "baseFiles": {
+    "Windows/StardewTranslationInstaller.c": "893e11567bd9041def074414d650af5e61f7aaa80d5b2d6950a21ceea6d581b9",
+    "Windows/install.ps1": "01f3a9b22511c8233882577f82a92befa432f35d680af230f5bba340c62f298f",
+    "Windows/Installer.rc": "353995311b5edd229938923c940a0d2113f5a1c890d8e6a7fa49f4c1843b4bf4",
+    "Windows/Installer.manifest": "ccd8aba6711f174453f3ee06438f59fedf83a8ff0f19a51500dbbdd62bd6f5ae",
+    "Scripts/build-windows-release.sh": "8dc6e407dca69a71256a61976ea12009a82aa4007f7213530f107468b6343883"
+  },
+  "icon": {
+    "source": "The Forest of Love.exe, original Windows 0.45 distribution",
+    "sourceSha256": "5cf49ed3b1fc2aa967479e993d5d3427e892ce25d5d756f01a03a2e815118464",
+    "sha256": "706fc3ee6fd1c35d53c1216f747f981d0d4d552abf2c9ca2db47118a9fcc287f",
+    "extraction": "tools/extract_windows_icon.py, PE resources only; executable never launched"
+  },
+  "coordinator": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "provider": "openai",
+    "verifiedFrom": "current session turn_context before work",
+    "workersUsed": false
+  }
+}

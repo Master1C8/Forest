@@ -1,0 +1,42 @@
+{
+  "finalDistributableBytes": 51316398,
+  "finalPayloadBytes": 51068323,
+  "budgetBytes": 100000000,
+  "finishedTranslationLocales": 27,
+  "englishOriginalChoice": true,
+  "attempts": [
+    {
+      "method": "direct chunks of compressed bundles",
+      "partialLocales": 9,
+      "partialCompressedDataBytes": 303517146,
+      "result": "exceeded budget before the full set"
+    },
+    {
+      "method": "binary deltas of compressed UnityFS bundles",
+      "observedPartialSize": "over 200 MB before completion",
+      "result": "replaced after tracing shifted ResS block boundaries"
+    },
+    {
+      "method": "lossless UnityFS storage plus32KiB average chunks",
+      "allLocales": 27,
+      "rawZipBytes": 138737712,
+      "result": "all exact native bundle and storage reconstructions passed"
+    },
+    {
+      "method": "4KiB average literal size probe",
+      "allLocales": 27,
+      "literalOnlyZipBytes": 145844518,
+      "includesManifestAndRecipes": false,
+      "result": "not selected; higher per-entry overhead and still over budget"
+    },
+    {
+      "method": "solid LZMA over stored ZIP,32KiB recipes",
+      "allLocales": 27,
+      "bytes": 51068323,
+      "decodedBytes": 665214317,
+      "result": "selected; every entry and installed resource unchanged"
+    }
+  ],
+  "fontsSubsetted": false,
+  "gameObjectSerializationAdded": false
+}
