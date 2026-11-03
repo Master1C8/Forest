@@ -1,0 +1,73 @@
+{
+  "appleNotarization": "not-performed-ad-hoc-signing",
+  "artifactSha256": "4ee5929fa998db32d7d0f348454d703fe4af7c3de27e9814b635d690aca6c4f3",
+  "distribution": {
+    "allFileBytesAndModesExact": true,
+    "archiveBytes": 50742131,
+    "archiveSha256": "4ee5929fa998db32d7d0f348454d703fe4af7c3de27e9814b635d690aca6c4f3",
+    "deepStrictSignatureVerified": true,
+    "externalNonSystemLibraries": false,
+    "extractedFilesCompared": 10,
+    "gameLaunched": false,
+    "localeOptions": 28,
+    "packageAndCodecPinsMatched": true,
+    "passed": true,
+    "uiLaunched": false,
+    "universalAppAndHelper": true
+  },
+  "gameLaunch": "not-run",
+  "inGameRendering": "not-run",
+  "intelCodec": {
+    "armBundleSha256": "08a48bb7768e41941172bcea7edb8c615bfb8ca4a42dbff8c9b865d8c0c51286",
+    "armExtractionSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
+    "bundleCompositionSha256": "08a48bb7768e41941172bcea7edb8c615bfb8ca4a42dbff8c9b865d8c0c51286",
+    "composition": {
+      "bytes": 42074807,
+      "contiguousMembers": true,
+      "crc32": 4121544327,
+      "originalEncodedTailPreserved": true
+    },
+    "execution": "x86_64 codec under Rosetta on Apple Silicon",
+    "passed": true,
+    "serializedExtractionSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e"
+  },
+  "launcherUI": "not-run",
+  "nativeResourceEvidence": "MacOS/native-resources.json",
+  "originalApplication": {
+    "allBytesAndSignatureExtendedAttributesExact": true,
+    "filesAndLinksCompared": 275,
+    "snapshotSha256": "b5275b2b3badce4341662e2160071614959429764f480e445665176956e33458"
+  },
+  "projectArchival": "pending-unfinished-localization-and-native-acceptance",
+  "realResources": {
+    "assertions": 111,
+    "boundary": "Native macOS resources, isolated signed game copies, exact hash readback; no game startup",
+    "gameLaunched": false,
+    "originalGameModified": false,
+    "passed": true,
+    "realResources": true,
+    "testedSequence": [
+      "de",
+      "ja",
+      "ar",
+      "ru",
+      "en"
+    ]
+  },
+  "sourcePinsMatchedBuild": true,
+  "status": "passed",
+  "synthetic": {
+    "assertions": 112,
+    "boundary": "Synthetic resources, real filesystem/codec/locking/transaction/cache; signing replaced by sign=false",
+    "gameLaunched": false,
+    "originalGameModified": false,
+    "passed": true,
+    "realResources": false,
+    "testedSequence": [
+      "de",
+      "ja",
+      "en",
+      "en"
+    ]
+  }
+}

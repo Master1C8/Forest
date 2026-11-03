@@ -1,3 +1,12 @@
+# macOS language launcher
+
+The native universal launcher provides 27 offline translations and original English
+for The Forest of Love 0.45 on macOS 14+. It prepares an owned game copy, preserves
+the installed original and settings, and launches the selected version. Native
+resource readback, signed-copy switching and recovery checks pass; game startup
+and in-game rendering remain untested. See [the app instructions](MacOS/README.md),
+[build receipt](MacOS/build-receipt.json) and [validation](MacOS/validation.json).
+
 # Six new locale tasks
 
 Six new locale-owned CLI tasks are configured for Korean, French, Turkish,
