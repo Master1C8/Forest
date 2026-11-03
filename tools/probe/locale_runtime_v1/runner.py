@@ -32,7 +32,7 @@ def command(value,timeout=25):
             receipt=next((r for r in lines if ' OK '+value in r or ' FAIL '+value in r),None)
             if receipt:
                 assert ' OK '+value in receipt,receipt
-                if value.startswith(('capture ','locale-story-capture ')):
+                if value.startswith(('capture ','locale-story-capture ','locale-heading-capture ')):
                     path=RUN/value.split(' ',1)[1]
                     while time.monotonic()<end:
                         if path.exists():
@@ -69,7 +69,7 @@ def geometry(label):
     write(label+'-captions.json',rows);return rows
 def capture(slug,expected,boundary,capture_command='capture'):
     d=dump();command('locale-diagnostics')
-    name='de-'+str(len(captures)+1).zfill(2)+'-'+slug+'.png';command(capture_command+' '+name)
+    name=CONFIG['locale']+'-'+str(len(captures)+1).zfill(2)+'-'+slug+'.png';command(capture_command+' '+name)
     path=RUN/name
     from PIL import Image
     with Image.open(path) as im:
@@ -77,7 +77,7 @@ def capture(slug,expected,boundary,capture_command='capture'):
         assert max(x[1] for x in im.convert('RGB').getextrema())>20,'Blank frame'
     assert (width,height)==(d['width'],d['height']),('Viewport dimensions differ',width,height,d['width'],d['height'])
     shutil.copy2(path,UPLOAD/name)
-    row=dict(game='The Forest of Love',locale='de',runtimeLocale='de',order=len(captures)+1,direction='ltr',filename=name,sha256=sha(path),width=width,height=height,
+    row=dict(game='The Forest of Love',locale=CONFIG['locale'],runtimeLocale=CONFIG['locale'],order=len(captures)+1,direction='ltr',filename=name,sha256=sha(path),width=width,height=height,
              scene=d['scene'],expected=expected,boundary=boundary,conversationId=d.get('conversationId'),entryId=d.get('entryId'),stateHash=sha(RUN/'state.json'))
     captures.append(row);write('captures.json',captures)
     shutil.copy2(RUN/'state.json',EVIDENCE/(name+'.state.json'))
@@ -105,8 +105,12 @@ def main():
     global child,error,success,inventory_open,quest_open,fixture_before
     # Check current acceptance before creating evidence or starting Wine. Frozen
     # historical runs retain their old execution versions as evidence only.
-    subprocess.run([sys.executable,'-B',str(ROOT/'tools/locale_queue.py'),
-                    'text-gate','--locale',CONFIG['locale'],'--json'],cwd=ROOT,check=True)
+    if CONFIG.get('compiledLanguage'):
+        import compiled_contract
+        compiled_contract.text_gate(ROOT,CONFIG)
+    else:
+        subprocess.run([sys.executable,'-B',str(ROOT/'tools/locale_queue.py'),
+                        'text-gate','--locale',CONFIG['locale'],'--json'],cwd=ROOT,check=True)
     assert not (RUN/'launch.json').exists() and not process_rows(),'Reconcile prior launch before another run'
     rows=subprocess.check_output(['ps','-axo','pid=,args='],text=True).splitlines();assert not any('The Forest of Love.exe' in r for r in rows),'Unrelated game active'
     for name,pin in json.loads((RUN/'execution-pins.json').read_text()).items():assert sha(RUN/name)==pin,('Frozen execution changed',name)
@@ -116,7 +120,7 @@ def main():
     assert shutil.disk_usage(ROOT).free>5*1024**3
     assert not EVIDENCE.exists();UPLOAD.mkdir(parents=True)
     fixture_before={p.name:sha(p) for p in (RUN/'fixture-inputs').iterdir()};assert set(fixture_before)=={'tfol.settings','tfol.savegame'}
-    candidate=ROOT/CONFIG['candidate'];cm=json.loads((candidate/'manifest.json').read_text());parent_pins={n:r['sha256'] for n,r in cm['outputs'].items()}
+    candidate=ROOT/CONFIG['candidate'];cm=(compiled_contract.resource_manifest(ROOT,CONFIG,candidate) if CONFIG.get('compiledLanguage') else json.loads((candidate/'manifest.json').read_text()));parent_pins={n:r['sha256'] for n,r in cm['outputs'].items()}
     args=['/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin/wine','--bottle','/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam','--no-update',str(EXE),'-screen-fullscreen','0','-screen-width','1280','-screen-height','720','-logFile',str(RUN/'player.log')]
     signal.signal(signal.SIGTERM,interrupted);signal.signal(signal.SIGINT,interrupted)
     start=time.monotonic();write('launch-intent.json',dict(command=args,date=now(),configSha256=sha(RUN/'execution/config.json'),executionPinsSha256=sha(RUN/'execution-pins.json')))
@@ -125,7 +129,7 @@ def main():
         write('launch.json',dict(pid=child.pid,command=args,date=now()))
         ready=runtime_startup.wait_for_probe(RUN,child,process_rows,300);assert ready['readinessFileVerified']
         command('show-menu');d=wait_state(lambda s:s['scene']=='StartMenu' and 'StartScreenMainMenu Canvas/MainMenu' in s['components'],'main-menu')
-        if CONFIG.get('nativeBatch') in ['quest-layout','quest-callbacks']:
+        if CONFIG.get('nativeBatch') in ['quest-layout','quest-callbacks','notebook-headings','quest-list-diagnostic','quest-list']:
             import quest_native
             command('menu StartScreenMainMenu OnClickStart')
             d=wait_state(lambda s:'PlayMenu Canvas/PlayMenu' in s['components'],'quest-play-menu')
@@ -133,7 +137,11 @@ def main():
             command('menu PlayMenu OnClickContinue',75)
             wait_state(lambda s:s['scene']=='CentralForest','quest-fixture-loaded',180)
             command('items-ready',75)
-            if CONFIG.get('nativeBatch')=='quest-callbacks':quest_native.callback_batch(globals())
+            if CONFIG.get('nativeBatch')=='quest-list-diagnostic':
+                progress.append(dict(predicate='quest-list-scene-loading-diagnostic',status='observed',boundary='Original Continue and loading only; unchanged sizing decision with added rejection metrics. No heading/story/inventory/callback workload.'))
+            elif CONFIG.get('nativeBatch')=='quest-list':quest_native.list_batch(globals())
+            elif CONFIG.get('nativeBatch')=='notebook-headings':quest_native.heading_batch(globals())
+            elif CONFIG.get('nativeBatch')=='quest-callbacks':quest_native.callback_batch(globals())
             else:quest_native.quest_batch(globals())
         elif CONFIG.get('nativeBatch')=='original-intro':
             import quest_native
@@ -143,16 +151,16 @@ def main():
             tutorial_native.batch(globals())
         else:
             rows=geometry('main-menu');words=[r['text'] for r in rows if r['visible'] and r['ink']]
-            assert any('Spielen' in t for t in words),('German menu locale guard',words)
+            assert any(CONFIG.get('menuGuards',{}).get('play','Spielen') in t for t in words),('Exact menu locale guard',words)
             capture('main-menu',words,'Original loaded main menu; bridge finishes its opening animation, no replacement strings.')
             command('menu StartScreenMainMenu OnClickOptions')
             d=wait_state(lambda s:'OptionsMenu Canvas/OptionsMenu' in s['components'],'options-menu')
             rows=geometry('settings');words=[r['text'] for r in rows if r['visible'] and r['ink']]
-            assert any('Vollbild' in t for t in words) and any('Zurück' in t for t in words),('German settings guard',words)
+            assert all(any(expected in t for t in words) for expected in CONFIG.get('menuGuards',{}).get('settings',['Vollbild','Zurück'])),('Exact settings locale guard',words)
             capture('settings',words,'Original Options handler; current actual display mode independently logged. No fullscreen toggling in this batch.')
             assert 'Canvas/OptionsMenu/Controls/Back' in d['buttons'];command('click Canvas/OptionsMenu/Controls/Back')
             wait_state(lambda s:'StartScreenMainMenu Canvas/MainMenu' in s['components'],'options-back')
-            for panel in ['play','gallery','delete','new','quit']:
+            for panel in CONFIG.get('extraMenuPanels', [] if CONFIG.get('compiledLanguage') else ['play','gallery','delete','new','quit']):
                 assert dump()['scene']=='StartMenu'
                 command('menu-panel '+panel);time.sleep(.6);d=dump('panel-'+panel);rows=geometry(panel);words=[r['text'] for r in rows if r['visible'] and r['ink']]
                 assert words,('Empty staged panel',panel)
@@ -185,7 +193,7 @@ def main():
             ordinary=[r for r in measurements if r['case'].startswith('owned ') and r['case']!='owned 400']
             worst_body=max(ordinary,key=lambda r:next(f['preferredHeight'] for f in r['fields'] if f['role']=='tickerText'))['case']
             worst_title=max(ordinary,key=lambda r:next((f['preferredHeight'],f['preferredWidth']) for f in r['fields'] if f['role']=='itemTitleText'))['case']
-            for case in dict.fromkeys([worst_body,worst_title,'owned 10','empty-special','empty']):
+            for case in dict.fromkeys([worst_body] if CONFIG.get('compiledLanguage') else [worst_body,worst_title,'owned 10','empty-special','empty']):
                 command('inventory-select '+case);time.sleep(.4);fields=inventory_geometry(case)
                 if case.startswith('owned '):command('locale-sprite '+case.split()[1])
                 capture('inventory-'+case.replace(' ','-'),[r['text'] for r in fields],'Original inventory consumer with cloned item argument; original sprites loaded in gameplay; no awards/quantity/progress change.')
@@ -202,14 +210,14 @@ def main():
     except BaseException as ex:
         error=repr(ex);print('FAILED',error,flush=True)
         if process_rows() and not (RUN/'command.txt').exists():
-            try:command('capture de-99-failure.png',10)
+            try:command('capture '+CONFIG['locale']+'-99-failure.png',10)
             except Exception:pass
     finally:
         # Do not interrupt restoration when a second signal arrives.
         signal.signal(signal.SIGTERM,signal.SIG_IGN);signal.signal(signal.SIGINT,signal.SIG_IGN)
         cleanup_errors=[];owned=process_rows()
         if owned and not (RUN/'command.txt').exists():
-            for condition,action in [(CONFIG.get('nativeBatch')=='quest-callbacks','locale-queue-restore'),(inventory_open,'inventory-close'),(quest_open,'quest-restore'),(True,'restore-input-policy'),(True,'quit')]:
+            for condition,action in [(CONFIG.get('nativeBatch')=='notebook-headings','locale-heading-restore'),(CONFIG.get('nativeBatch')=='quest-callbacks','locale-queue-restore'),(inventory_open,'inventory-close'),(quest_open,'quest-restore'),(True,'restore-input-policy'),(True,'quit')]:
                 if condition:
                     try:command(action,15)
                     except Exception as ex:cleanup_errors.append([action,repr(ex)])
@@ -255,7 +263,7 @@ def main():
                      disposableSavegameByteExactBeforeRestoration=fixture_after.get('tfol.savegame')==fixture_before['tfol.savegame'],retainedCheckpoint=retained,ownerSaveFilesUsed=False,ownerSessionControlled=False)
         write('cleanup.json',cleanup)
         passed=success and not remaining and cleanup['originalGameByteExact'] and cleanup['parentCandidateByteExact'] and cleanup['fixtureRestored'] and not cleanup_errors
-        write('runtime-result.json',dict(result='capture-pass-review-pending' if passed else 'automated-fail',automatedResult='pass' if passed else 'fail',error=error,captures=captures,progress=progress,inventoryCases=len(measurements),durationSeconds=round(time.monotonic()-start,3),visual='pending' if captures else 'not-run',locale='de',scope=CONFIG['scope'],cleanupSha256=sha(RUN/'cleanup.json')))
+        write('runtime-result.json',dict(result='capture-pass-review-pending' if passed else 'automated-fail',automatedResult='pass' if passed else 'fail',error=error,captures=captures,progress=progress,inventoryCases=len(measurements),durationSeconds=round(time.monotonic()-start,3),visual='pending' if captures else 'not-run',locale=CONFIG['locale'],scope=CONFIG['scope'],cleanupSha256=sha(RUN/'cleanup.json')))
         print('RESULT',json.dumps(dict(passed=passed,captures=len(captures),error=error,cleanupErrors=cleanup_errors,processesRemaining=len(remaining))),flush=True)
     return 0 if passed else 1
 if __name__=='__main__':sys.exit(main())
