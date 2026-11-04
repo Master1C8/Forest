@@ -35,7 +35,7 @@ def fixture(target):
     write(source/'Contents/Info.plist',plistlib.dumps(dict(CFBundleIdentifier='com.CarrotsCrittersVulpineVisions.TheForestofLove',CFBundleShortVersionString='0.45')))
     codec=resources/'forest-codec';shutil.copy2(WORK/'forest-codec',codec)
     manifest=dict(format=1,bundleID='com.CarrotsCrittersVulpineVisions.TheForestofLove',gameVersion='0.45',identityPath='globalgamemanagers.assets',identitySha256=hashlib.sha256(identity).hexdigest(),bundlePath=bundle,originals=originals,baselines=[dict(path='__bundle.asset',bytes=len(asset),sha256=hashlib.sha256(asset).hexdigest())],locales=[])
-    codes=['ar','bg','cs','de','el','es-419','es','fa','fil','fr','he','hu','id','it','ja','ko','nl','pl','pt-BR','ro','ru','sr','th','tr','vi','zh-TW','zh']
+    codes=sorted(p.stem for p in (ROOT/'localization/languages').glob('*.json') if p.stem!='ru-baseline')
     with zipfile.ZipFile(target/'raw.zip','w') as z:
         for code in codes:
             files=[]
@@ -55,13 +55,13 @@ def fixture(target):
     return target,source
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--real',action='store_true');p.add_argument('--run',default='01');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--real',action='store_true');p.add_argument('--run',default='01');p.add_argument('--app',type=Path,default=ROOT/'dist/Forest Languages.app');a=p.parse_args()
     assert a.run.isalnum(),'Run ID must be alphanumeric'
     binary=WORK/('CoreTests-'+('real-' if a.real else 'synthetic-')+a.run)
     subprocess.run(['swiftc','-swift-version','6','-warnings-as-errors','-parse-as-library','-target','arm64-apple-macosx14.0',str(ROOT/'MacOS/Sources/InstallerCore.swift'),str(ROOT/'MacOS/Tests/CoreTests.swift'),'-o',str(binary)],check=True)
     if a.real:
         target=WORK/('real-tests-'+a.run);assert not target.exists(),'Preserve an existing test run'
-        target.mkdir();shutil.copytree(ROOT/'dist/Forest Languages.app/Contents/Resources',target/'Resources')
+        target.mkdir();shutil.copytree(a.app/'Contents/Resources',target/'Resources')
         source=Path('/Applications/TheForestOfLove.app')
     else:target,source=fixture(WORK/('synthetic-tests-'+a.run))
     subprocess.run([str(binary),str(target),str(source)]+(['--real'] if a.real else []),check=True)

@@ -169,7 +169,7 @@ final class InstallerCore: @unchecked Sendable {
         let cache = root.appendingPathComponent("Payload-" + config.payloadSha256)
         let manifestURL = cache.appendingPathComponent("manifest.json")
         if !fm.fileExists(atPath: cache.appendingPathComponent("verified.txt").path) {
-            progress("Preparing all 27 language packs…")
+            progress("Preparing all \(config.locales.filter { $0.code != "en" }.count) language packs…")
             if fm.fileExists(atPath: cache.path) { try fm.removeItem(at: cache) }
             try fm.createDirectory(at: cache, withIntermediateDirectories: true)
             let decoded = cache.appendingPathComponent("payload.zip")
@@ -181,8 +181,9 @@ final class InstallerCore: @unchecked Sendable {
         }
         try require(try fileSHA(manifestURL) == config.manifestSha256, "Cached language manifest is damaged. Preserve the game copy and reinstall the launcher.")
         let manifest = try JSONDecoder().decode(PayloadManifest.self, from: Data(contentsOf: manifestURL))
-        try require(manifest.format == 1 && manifest.locales.count == 27 && Set(manifest.originals.map(\.path)).count == 14, "Unsupported language package")
-        try require(Set(manifest.locales.map(\.code)) == Set(config.locales.map(\.code)).subtracting(["en"]), "Language catalog differs from package")
+        let packedCodes = manifest.locales.map(\.code), configuredCodes = config.locales.map(\.code)
+        try require(manifest.format == 1 && !packedCodes.isEmpty && Set(manifest.originals.map(\.path)).count == 14, "Unsupported language package")
+        try require(Set(packedCodes).count == packedCodes.count && Set(configuredCodes).count == configuredCodes.count && configuredCodes.contains("en") && Set(packedCodes) == Set(configuredCodes).subtracting(["en"]), "Language catalog differs from package")
         return (manifest, cache)
     }
     func validateSource(_ source: URL, _ manifest: PayloadManifest) throws -> URL {

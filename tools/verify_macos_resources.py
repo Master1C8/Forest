@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Static native resource readback. Does not launch a game or alter its files."""
 import base64
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -21,13 +22,21 @@ def catalog(data):
     assert at==len(raw);return rows
 
 if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--locale',action='append');parser.add_argument('--output',type=Path);args=parser.parse_args()
+    if args.locale and not args.output:parser.error('A locale subset requires an explicit separate --output receipt')
     win=ROOT/'Windows';binary=WORK/'verify-bundle'
     subprocess.run(['cc','-O2','-Wall','-Wextra','-Werror','-I',str(win/'vendor/lz4'),'-I',str(win/'vendor/lzma'),
         str(ROOT/'MacOS/BundleVerify.c'),str(win/'vendor/lz4/lz4.c'),str(win/'vendor/lz4/lz4hc.c'),str(win/'vendor/lzma/LzmaDec.c'),'-lz','-o',str(binary)],check=True)
     data=Path('/Applications/TheForestOfLove.app/Contents/Resources/Data')
     original=next((data/'StreamingAssets/aa/StandaloneOSX').glob('defaultlocalgroup_assets_all*'))
     original_catalog=catalog((data/'StreamingAssets/aa/catalog.json').read_bytes());records=json.loads((WORK/'resources.json').read_bytes());proofs=[]
-    assert len(records)==27
+    from build_windows_installer import selection
+    if args.locale:
+        assert len(args.locale)==len(set(args.locale))
+        assert set(args.locale)<={p.stem for p in (ROOT/'localization/languages').glob('*.json') if p.stem!='ru-baseline'}
+        records=[r for r in records if r['locale'] in args.locale]
+        assert len(records)==len(args.locale) and {r['locale'] for r in records}==set(args.locale)
+    else:assert len(records)==len(selection()) and {r['locale'] for r in records}==set(selection())
     for record in records:
         directory=WORK/'overlays'/record['locale'];paths=record['files'];assert len(paths)==14
         for name,pin in paths.items():assert sha(directory/name)==pin['sha256'] and (directory/name).stat().st_size==pin['bytes']
@@ -44,6 +53,8 @@ if __name__=='__main__':
             bundleReadback=result,nativeCatalogOnlyCRCAndSizeChanged=True,managed=record['proofs'][0],
             serialized=[p for p in record['proofs'] if 'selectedBeforeImagesEqual' in p]))
         print('verified native macOS '+record['locale'],flush=True)
-    result=dict(passed=True,locales=len(proofs),resources=14,completeNativeStreamingReadbacks=27,gameLaunched=False,
+    result=dict(passed=True,locales=len(proofs),resources=14,completeNativeStreamingReadbacks=len(proofs),gameLaunched=False,
         rendererAcceptance='not-run',boundary='All produced resource bytes and complete native stream; excludes Unity execution/rendering',localesEvidence=proofs)
-    (ROOT/'MacOS/native-resources.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')
+    output=args.output or ROOT/'MacOS/native-resources.json'
+    assert output.resolve().is_relative_to(ROOT)
+    output.write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')

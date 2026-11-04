@@ -1,11 +1,19 @@
-# macOS language launcher
+# Language launchers
 
-The native universal launcher provides 27 offline translations and original English
-for The Forest of Love 0.45 on macOS 14+. It prepares an owned game copy, preserves
-the installed original and settings, and launches the selected version. Native
-resource readback, signed-copy switching and recovery checks pass; game startup
-and in-game rendering remain untested. See [the app instructions](MacOS/README.md),
-[build receipt](MacOS/build-receipt.json) and [validation](MacOS/validation.json).
+The macOS launcher and Windows installer now include all 30 translations plus
+original English. Hindi, Swahili and Ukrainian have complete independent wording
+review, exact correction closure and both platform resource builds. Russian keeps
+the owner's accepted baseline. The upgraded macOS app was opened and all 31 menu
+options were verified through native accessibility; Russian remains selected.
+
+Version 1.1.0 passes 118 actual-resource macOS assertions, 141 synthetic macOS
+assertions and 83 actual Windows-payload assertions on the macOS host. Switching
+and original-English restoration preserve test saves/settings. No new target game
+was launched. In-game font/layout acceptance, including Hindi Devanagari shaping,
+remains separate; whole-project archival remains pending.
+
+See [macOS instructions](MacOS/README.md), [Windows instructions](Windows/README.md)
+and [the all-30 completion record](localization/completion/launcher-all30-20261104-01/delivery.json).
 
 # Six new locale tasks
 

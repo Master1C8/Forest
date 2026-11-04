@@ -126,7 +126,7 @@ struct ContentView: View {
                 Button("Launch game", action: state.launch).buttonStyle(.borderedProminent)
                     .disabled(!state.canLaunch).keyboardShortcut(.defaultAction)
             }
-            Text("27 languages + original English • Offline\nA separate game copy is used. The original stays untouched.")
+            Text("\(state.locales.filter { $0.code != "en" }.count) languages + original English • Offline\nA separate game copy is used. The original stays untouched.")
                 .font(.caption).foregroundStyle(.tertiary).multilineTextAlignment(.center)
         }.padding(28)
     }

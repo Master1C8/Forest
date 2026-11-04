@@ -1,16 +1,19 @@
 {
+  "application": "dist/Forest Languages.app",
   "architectures": [
     "arm64",
     "x86_64"
   ],
   "artifact": "dist/Forest-Languages-macOS.zip",
-  "bytes": 50751335,
+  "bytes": 52580775,
+  "configurationSha256": "b1875a95598692f785f243f8abd73f198559a64ea201ae61cdb32d3e3dee028f",
+  "executableSha256": "5be7f860da5c5884b13f48995c6f76da8e79d6be881acceb2dbf86bcd9f52d2d",
   "gameLaunched": false,
   "minimumMacOS": "14.0",
   "originalGameModified": false,
   "payload": {
     "codecSha256": "b74f87c7bbbb02846da33b226a46f29f266f59c6387499b077f8c0027260ddc5",
-    "decodedSha256": "e084d2259a2d47fa81c5645d6f401d5b9e7b70a1d2ed64a8228b45169f699490",
+    "decodedSha256": "5248bd2b4d24227cd26e2ba08fed0edefc6237595852a5898bf32a1bc56f0254",
     "locales": [
       {
         "code": "en",
@@ -37,12 +40,12 @@
         "name": "Greek / \u03b5\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"
       },
       {
-        "code": "es-419",
-        "name": "Latin American Spanish / espa\u00f1ol latinoamericano"
-      },
-      {
         "code": "es",
         "name": "Spanish / espa\u00f1ol"
+      },
+      {
+        "code": "es-419",
+        "name": "Latin American Spanish / espa\u00f1ol latinoamericano"
       },
       {
         "code": "fa",
@@ -59,6 +62,10 @@
       {
         "code": "he",
         "name": "Hebrew / \u05e2\u05d1\u05e8\u05d9\u05ea"
+      },
+      {
+        "code": "hi",
+        "name": "Hindi / \u0939\u093f\u0928\u094d\u0926\u0940"
       },
       {
         "code": "hu",
@@ -105,6 +112,10 @@
         "name": "Serbian / \u0441\u0440\u043f\u0441\u043a\u0438"
       },
       {
+        "code": "sw",
+        "name": "Swahili / Kiswahili"
+      },
+      {
         "code": "th",
         "name": "Thai / \u0e44\u0e17\u0e22"
       },
@@ -113,22 +124,26 @@
         "name": "Turkish / T\u00fcrk\u00e7e"
       },
       {
+        "code": "uk",
+        "name": "Ukrainian / \u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430"
+      },
+      {
         "code": "vi",
         "name": "Vietnamese / Ti\u1ebfng Vi\u1ec7t"
       },
       {
-        "code": "zh-TW",
-        "name": "Chinese (Traditional) / \u4e2d\u6587\uff08\u7e41\u9ad4\uff09"
-      },
-      {
         "code": "zh",
         "name": "Chinese (Simplified) / \u4e2d\u6587\uff08\u7b80\u4f53\uff09"
+      },
+      {
+        "code": "zh-TW",
+        "name": "Chinese (Traditional) / \u4e2d\u6587\uff08\u7e41\u9ad4\uff09"
       }
     ],
-    "manifestSha256": "d9ce6a26acc0d465157198d4afd22322ea2e808aebd111053ac9f6ab3d2b1390",
-    "payloadSha256": "94cab2764d198da724c474e4265f2275488a2ec8a849009814573ca35973b60f"
+    "manifestSha256": "0e04881aa40f39fa6ffcb666e711bf0d62b9974c23f2b34025ff78e1f17dd477",
+    "payloadSha256": "1bc8128051c3db0bd7ea3f78100e6598e35f888b6fa493fbf69c059a350f1822"
   },
-  "sha256": "3c4d22357da168d06c4cf1ed45bd097a11c86fc6019ba680f20ad22aa09b1a66",
+  "sha256": "e90ac072844c2846bf755fe07b3cbadfa11d84e2c5e2a5b0bb0466274499de17",
   "sourcePins": {
     "MacOS/.gitignore": "5572d8825c6e17e492d0de5f7af6c0c2fab76fccc562d0f85792a95f37d9ea2a",
     "MacOS/App.icns": "edcd18b83373f6b609720a302dae4c08b53fd23e56f9c172234d3c3ead13dd0b",
@@ -136,26 +151,27 @@
     "MacOS/BundleVerify.c": "fcd46d55dbde4ac736475c6516c50a1869b8730619a0a53e33e45b45305f81a5",
     "MacOS/Compiler/AssemblyPort.cs": "fe38b0d53038ce41b0d702a8a8bd537532af8dc020a4cf637703deadcbe08494",
     "MacOS/Compiler/AssemblyPort.csproj": "513f17f74a7d75dcdbba0c6ddf40aee28dacc343ab2bb40518eb1d3c7e5deb8d",
-    "MacOS/README.md": "f24c00f4dec213dc0321398ec1982b6733e5f8867456e48f52751373737314de",
-    "MacOS/README.txt": "44d89435aa8bc7ec4972a0ad631923000dd6cd7db0b9e87768cc1630983ff9af",
+    "MacOS/README.md": "83634419cd90658d91ba726c6ad82d4f29beb45fa333296d056e315442cbc1a2",
+    "MacOS/README.txt": "842aa9073fcaf413df387d29b4e5249d190e9ee60d89b7d0eda24da54d8d4eb5",
     "MacOS/Sources/GameLauncher.swift": "4f124a9aefd116826ed842f32c4e1f71fa8b9f42ae5bf0721d9e19a9e5d735fe",
-    "MacOS/Sources/InstallerApp.swift": "d4e68d1b6b1eb001bad371332f6e8de26e70cc78f09e085cfba2f5ca832fdd1f",
-    "MacOS/Sources/InstallerCore.swift": "1821d0fb5736dacacd3c478e9193c030f9d25f9bd5681cec1f5b020c2a099eb3",
-    "MacOS/Tests/CoreTests.swift": "150e062f1945cf0bb53d1d6d01116b3da52f163318070a6d4227ff8c2290b5d4",
+    "MacOS/Sources/InstallerApp.swift": "c5281d388dc35f4b6bfade82fd397c93802a6c82efe9ff25f9c097519d18d204",
+    "MacOS/Sources/InstallerCore.swift": "6814f81ecc33798cdb23f65da58708a5129f1d355173dbe4b39bb57736e5fc77",
+    "MacOS/Tests/CoreTests.swift": "05ff9b0cfc22880d91d2ff73c8590933a5724905d0213844616b707845e5d8a6",
     "MacOS/Tests/LaunchTests.swift": "330b612abb99a81d3dc8e3b92492427e6d2e01c181cab86d947ad0d3204aa9df",
-    "MacOS/native-resources.json": "0fe9d712e7ece56c0fcb03f75fc5aac0e0775b94d50eaebb668a453f813c8ac8",
-    "MacOS/original-inputs.json": "6eb333fae0c769e3add078d77b7832e35eda49360cf482bd2778b5eeebdccdf6",
-    "MacOS/payload-receipt.json": "a6c466e5d627f34f33c3e970516d548c424bff1d543e0caf812deac0a411bb33",
+    "MacOS/native-resources.json": "ceb29fc5b259c9deff75173fc9d3dbd2379cd260d0d499e20238c90da3198323",
+    "MacOS/original-inputs.json": "13327b3aa24cea6a7637cbe2fbefb26763081e83955b9341b1b0fa7907e43608",
+    "MacOS/payload-receipt.json": "d627f8e6632e4b42286a88585eea23734333b917e23c11cee0dcf068dac52096",
+    "Windows/THIRD-PARTY-NOTICES.txt": "8e9002e11c87b5b1a082cd062db72d76691e8a48397c98ad14bc89a38d467db3",
     "Windows/chunks.c": "2e8f1b90fc0456a6488f34b10cbc384d697146d663ba5e2f3e9b788d5fe81426",
     "Windows/forest_bundle.c": "e7bb789f1e71a4a6fa8e16a7b8e6d94c6f47b3a890d35a410c9cca73cd82ea95",
     "Windows/vendor/lz4/provenance.json": "14082c2141802b55edac1e7c4bf48361e7977018f8f39f6b8f5fc2fd2fd8f9c8",
     "Windows/vendor/lzma/provenance.json": "1a1f332047af0c425a0d7d7ac129cee3cf51bba80f75f78381b4c7b40c3fd8d0",
-    "tools/build_macos_installer.py": "e857f7ffc348c5e9bb092e38e087383809a83a0e8b9616efa18975bd88dfd325",
+    "tools/build_macos_installer.py": "d7267b25ff31dc7d8d6983da3cd921f1bb7158df660621767ac30177cb5055eb",
     "tools/forest_localization/Managed.cs": "740c92fcae635aa353fe05ad8514950a5f859210f1c2bc527a72c23bc967c664",
-    "tools/forest_macos.py": "1c19c8e952d061711458d16f3305e18680e54fdca19a6500ae93e84ecdb0fe6f",
+    "tools/forest_macos.py": "06d956f7f16752ac6dad1bafb9866139d875c0a67ab092dae853202eb1a0b6ac",
     "tools/forest_payload.py": "d45819217a95aa9e34ed45af5f3875d888451ca9a3e2a9deb47a83f277e42156",
-    "tools/test_macos_installer.py": "aae93fd2a654900b9109d516a60ae93911f6b1bc1a4e1a61d279685c364a8a2b",
+    "tools/test_macos_installer.py": "a684bc208a1b3c5638cec277e50c65ba4c8bf3d8af67a3f606f6e0ec44247cf4",
     "tools/test_macos_launch.py": "81199204379d917e4c3de04f7f40c2c5b5d233bfe5973a4af3dbdd10bc616835",
-    "tools/verify_macos_resources.py": "cabc4a43f582d538eccae343701801d61fd611a59285db5c01fac76011597c4e"
+    "tools/verify_macos_resources.py": "25ae43417ba662a9027d78f8b6f3666ed8da414f6bb90783fbca92d6806a11fd"
   }
 }

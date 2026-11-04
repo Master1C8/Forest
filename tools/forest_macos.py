@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -20,6 +21,27 @@ DATA=GAME/'Contents/Resources/Data'
 
 
 def digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+
+def verified_source_asset(source, target, codec):
+    """Bind a cached serialized member to its exact original and decoder."""
+    receipt=target.with_suffix(target.suffix+'.source.json')
+    pins=dict(sourceSha256=digest(source),codecSha256=digest(codec))
+    if receipt.exists():
+        saved=json.loads(receipt.read_bytes())
+        assert all(saved[k]==v for k,v in pins.items()),'serialized-source-cache-input-drift'
+        assert target.exists() and digest(target)==saved['assetSha256'],'serialized-source-cache-body-drift'
+        return target
+    fresh=target.with_suffix(target.suffix+'.verification')
+    assert not fresh.exists(),'Preserve and reconcile the previous serialized-source verification'
+    subprocess.run([str(codec),'extract',str(source),str(fresh)],check=True)
+    expected=digest(fresh)
+    if target.exists():
+        assert digest(target)==expected,'unverified-serialized-source-cache-differs'
+        fresh.unlink()
+    else:fresh.replace(target)
+    receipt.write_text(json.dumps(dict(pins,assetSha256=expected),indent=2)+'\n')
+    return target
 
 
 def managed():
@@ -76,12 +98,46 @@ def port_serialized(original_windows, target_windows, original_mac, output):
     del we,te,me,saved,wo,to,mo,so;gc.collect();return result
 
 
+def port_locale(locale, inputs, win, win_bundle, win_asset, mac_bundle, mac_asset, tool, codec):
+    code=locale['code'];out=WORK/'overlays'/code;out.mkdir(parents=True,exist_ok=True)
+    receipt=out/'manifest.json'
+    if receipt.exists():
+        saved=json.loads(receipt.read_bytes());assert saved['languageSha256']==locale['languageSha256']
+        assert all(digest(out/n)==v['sha256'] for n,v in saved['files'].items())
+        print('reused macOS '+code,flush=True);return saved
+    mac_bundle_name=mac_bundle.relative_to(DATA).as_posix()
+    files={};proofs=[];temp=out/'target-windows.bin'
+    for name,data in inputs:
+        temp.write_bytes(data)
+        mac_name=mac_bundle_name if name==win_bundle else name;dest=out/mac_name
+        if name.endswith('VNRevivalInventoryLayout.dll') or name.endswith('VNRevivalQuestLayout.dll'):
+            dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+        elif name.endswith('Assembly-CSharp.dll'):
+            dest.parent.mkdir(parents=True,exist_ok=True);proof=out/'managed-proof.json'
+            subprocess.run(['dotnet',str(tool),'port',str(win/name),str(DATA/name),str(temp),str(dest),str(proof)],check=True)
+            proofs.append(json.loads(proof.read_bytes()))
+        elif name==win_bundle:
+            asset=out/'bundle.asset';proofs.append(port_serialized(win_asset,temp,mac_asset,asset))
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            meta=json.loads(subprocess.check_output([str(codec),'compose',str(mac_bundle),str(asset),str(dest)]))
+            catalog=catalog_update((DATA/'StreamingAssets/aa/catalog.json').read_bytes(),mac_bundle.stat().st_size,meta['crc32'],dest.stat().st_size)
+            catalog_path=out/'StreamingAssets/aa/catalog.json';catalog_path.parent.mkdir(parents=True,exist_ok=True);catalog_path.write_bytes(catalog)
+            files['StreamingAssets/aa/catalog.json']=dict(bytes=len(catalog),sha256=digest(catalog_path));proofs.append(meta)
+        elif name=='StreamingAssets/aa/catalog.json':continue
+        else:proofs.append(port_serialized(win/name,temp,DATA/name,dest))
+        files[mac_name]=dict(bytes=dest.stat().st_size,sha256=digest(dest))
+    saved=dict(locale=code,culture=locale['culture'],name=locale['name'],languageSha256=locale['languageSha256'],files=files,proofs=proofs)
+    if 'compilerManifestSha256' in locale:saved['windowsCompilerManifestSha256']=locale['compilerManifestSha256']
+    receipt.write_text(json.dumps(saved,indent=2)+'\n');print('built macOS '+code,flush=True)
+    return saved
+
+
 def build_resources():
     codec=WORK/'forest-codec';tool=managed()
     win=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data')
-    package=ROOT/'dist/Forest-Language-Installer-Windows/Resources/ForestLanguages.forestpack'
+    package=Path(os.environ.get('FOREST_WINDOWS_PAYLOAD',str(ROOT/'dist/Forest-Language-Installer-Windows/Resources/ForestLanguages.forestpack')))
     pins=json.loads((ROOT/'Windows/build-receipt.json').read_bytes());assert digest(package)==pins['payload']['sha256']
-    decoded=WORK/'windows-payload.zip'
+    decoded=WORK/('windows-payload-'+pins['payload']['sha256']+'.zip')
     if not decoded.exists():subprocess.run([str(codec),'inflate',str(package),str(decoded)],check=True)
     header=package.read_bytes()[:80];assert digest(decoded)==header[16:80].decode()
     mac_bundle=next((DATA/'StreamingAssets/aa/StandaloneOSX').glob('defaultlocalgroup_assets_all*'));mac_bundle_name=mac_bundle.relative_to(DATA).as_posix()
@@ -100,38 +156,69 @@ def build_resources():
             if receipt.exists():
                 saved=json.loads(receipt.read_bytes());assert saved['languageSha256']==locale['languageSha256']
                 assert all(digest(out/n)==v['sha256'] for n,v in saved['files'].items());all_receipts.append(saved);print('reused macOS '+code,flush=True);continue
-            files={};proofs=[];temp=WORK/'target-windows.bin'
-            for item in locale['files']:
-                name=item['path'];data=bytearray()
-                for part in item['segments']:
-                    piece=archive.read('chunks/'+part['blob']) if part['blob'] else bases[part['base']][part['offset']:part['offset']+part['bytes']]
-                    assert len(piece)==part['bytes'];data+=piece
-                temp.write_bytes(data);assert digest(temp)==item['storageSha256']
-                mac_name=mac_bundle_name if name==win_bundle else name;dest=out/mac_name
-                if name.endswith('VNRevivalInventoryLayout.dll') or name.endswith('VNRevivalQuestLayout.dll'):
-                    dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
-                elif name.endswith('Assembly-CSharp.dll'):
-                    dest.parent.mkdir(parents=True,exist_ok=True);proof=out/'managed-proof.json'
-                    subprocess.run(['dotnet',str(tool),'port',str(win/name),str(DATA/name),str(temp),str(dest),str(proof)],check=True)
-                    proofs.append(json.loads(proof.read_bytes()))
-                elif name==win_bundle:
-                    asset=out/'bundle.asset';proofs.append(port_serialized(win_asset,temp,mac_asset,asset))
-                    dest.parent.mkdir(parents=True,exist_ok=True)
-                    meta=json.loads(subprocess.check_output([str(codec),'compose',str(mac_bundle),str(asset),str(dest)]))
-                    catalog=catalog_update((DATA/'StreamingAssets/aa/catalog.json').read_bytes(),mac_bundle.stat().st_size,meta['crc32'],dest.stat().st_size)
-                    catalog_path=out/'StreamingAssets/aa/catalog.json';catalog_path.parent.mkdir(parents=True,exist_ok=True);catalog_path.write_bytes(catalog)
-                    files['StreamingAssets/aa/catalog.json']=dict(bytes=len(catalog),sha256=digest(catalog_path));proofs.append(meta)
-                elif name=='StreamingAssets/aa/catalog.json':continue
-                else:proofs.append(port_serialized(win/name,temp,DATA/name,dest))
-                files[mac_name]=dict(bytes=dest.stat().st_size,sha256=digest(dest))
-            saved=dict(locale=code,culture=locale['culture'],name=locale['name'],languageSha256=locale['languageSha256'],files=files,proofs=proofs)
-            receipt.write_text(json.dumps(saved,indent=2)+'\n');all_receipts.append(saved);print('built macOS '+code,flush=True)
+            def inputs():
+                for item in locale['files']:
+                    data=bytearray()
+                    for part in item['segments']:
+                        piece=archive.read('chunks/'+part['blob']) if part['blob'] else bases[part['base']][part['offset']:part['offset']+part['bytes']]
+                        assert len(piece)==part['bytes'];data+=piece
+                    assert hashlib.sha256(data).hexdigest()==item['storageSha256']
+                    yield item['path'],data
+            all_receipts.append(port_locale(locale, inputs(), win, win_bundle, win_asset, mac_bundle, mac_asset, tool, codec))
     (WORK/'resources.json').write_text(json.dumps(all_receipts,indent=2)+'\n')
 
 
+def build_from_overlays(directory, codes):
+    """Use the normal compiler directly; the native port operation is shared."""
+    from build_windows_installer import CONFIG
+    assert codes and len(codes)==len(set(codes))
+    codec=WORK/'forest-codec'
+    win=Path(os.environ.get('FOREST_ORIGINAL_GAME','/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest'))/CONFIG['dataDirectory']
+    framework=json.loads((ROOT/'localization/framework/forest045-shared/framework.json').read_bytes())
+    paths=sorted(set(framework['resources'])-set(CONFIG['preservedFiles']))
+    for name in paths:
+        pin=framework['sourceMembers'].get(name)
+        if pin:assert (win/name).stat().st_size==pin['bytes'] and digest(win/name)==pin['sha256'],('original-windows-input-drift',name)
+    native=json.loads((ROOT/'MacOS/original-inputs.json').read_bytes())
+    for pin in native['originals']:
+        if pin['sha256']:assert (DATA/pin['path']).stat().st_size==pin['bytes'] and digest(DATA/pin['path'])==pin['sha256'],('original-macos-input-drift',pin['path'])
+    tool=managed()
+    win_bundle=next(n for n in paths if n.endswith('.bundle'))
+    mac_bundle=next((DATA/'StreamingAssets/aa/StandaloneOSX').glob('defaultlocalgroup_assets_all*'))
+    win_asset=WORK/'original-windows.asset';mac_asset=WORK/'original-macos.asset'
+    for source,target in [(win/win_bundle,win_asset),(mac_bundle,mac_asset)]:
+        verified_source_asset(source,target,codec)
+    assert digest(mac_asset)==native['serializedBundle']['sha256'],'original-macos-serialized-drift'
+    for code in codes:
+        assert code in {p.stem for p in (ROOT/'localization/languages').glob('*.json')} and code!='ru-baseline'
+        language=ROOT/'localization/languages'/CONFIG['sourceOverrides'].get(code,code+'.json')
+        overlay=directory/code;manifest=overlay/'manifest.json';built=json.loads(manifest.read_bytes())
+        assert built['locale']==code and built['languageSha256']==digest(language)
+        expected_paths={CONFIG['dataDirectory']+'/'+n for n in framework['resources']}
+        assert set(built['files'])==expected_paths
+        for name,pin in built['files'].items():
+            source=overlay/name
+            assert digest(source)==pin['sha256'] and source.stat().st_size==pin['bytes']
+        locale=dict(code=code,culture=built['culture'],name=code,languageSha256=built['languageSha256'],compilerManifestSha256=digest(manifest))
+        def inputs():
+            for name in paths:
+                source=overlay/CONFIG['dataDirectory']/name
+                if name==win_bundle:
+                    serialized=WORK/'overlays'/code/'windows-bundle.asset';serialized.parent.mkdir(parents=True,exist_ok=True)
+                    subprocess.run([str(codec),'extract',str(source),str(serialized)],check=True)
+                    yield name,serialized.read_bytes()
+                else:yield name,source.read_bytes()
+        port_locale(locale,inputs(),win,win_bundle,win_asset,mac_bundle,mac_asset,tool,codec)
+    receipts=[json.loads(p.read_bytes()) for p in sorted((WORK/'overlays').glob('*/manifest.json'))]
+    (WORK/'resources.json').write_text(json.dumps(receipts,indent=2)+'\n')
+
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('stage',choices=['managed-probe','resources']);a=p.parse_args()
-    if a.stage=='resources':build_resources()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('stage',choices=['managed-probe','resources']);p.add_argument('--windows-overlays',type=Path);p.add_argument('--locale',action='append');a=p.parse_args()
+    if a.windows_overlays or a.locale:
+        assert a.stage=='resources' and a.windows_overlays and a.locale
+        build_from_overlays(a.windows_overlays,a.locale)
+    elif a.stage=='resources':build_resources()
     else:
         tool=managed();original=ROOT/'localization/framework/forest045-shared/references/Assembly-CSharp.dll'
         subprocess.run(['dotnet',str(tool),'compare',str(original),str(DATA/'Managed/Assembly-CSharp.dll'),str(WORK/'managed-probe.json')],check=True)

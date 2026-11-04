@@ -86,6 +86,33 @@ path, use Git history or read that exact blob with `git cat-file blob OBJECT_ID`
 do not overwrite current edited source. These optional historical files are
 separate from the complete normal build-input archive.
 
+### Editorial receipt bodies
+
+A checksum, row reference or coverage counter does not preserve the underlying
+editorial judgment. The November 4 all-language launcher reconciliation found
+that the Ukrainian primary review body and final quantity-delta receipt were
+classified as replaceable by the old cleanup. Their references survived, but
+their actual judgments were absent from both the recorded Git blobs and the
+recovery archives. The current Ukrainian wording therefore receives a fresh
+independent review; the old reference-only count is not accepted coverage.
+
+For new editorial deliveries, retain the actual version-bound primary and context
+judgments, reviewer identity, terminal receipt and any supersession decisions
+together with their manifest under `localization/editorial-delivery/`. Compression
+may reduce storage, but restoration must reproduce the complete judgment bodies
+and hashes. Before removing a referenced output, resolve its evidence dependency
+to recoverable bytes and verify their restoration. Regression: retaining 12,806
+row references while dropping their sole JSONL body must leave editorial recovery
+incomplete, even when every referenced SHA and row number remains available.
+
+`tools/locale_review_archive.py pack OUTPUT --selection SELECTION.json` checks
+every selected actual body before creating compressed copies and a manifest.
+Each selection row supplies its original `path` and `sha256`. Verify a saved
+delivery with `python3 -B tools/locale_review_archive.py verify OUTPUT`; this
+decompresses every body and checks its original bytes and digest without relying
+on the old output path. Missing or changed selected bodies reject before archive
+publication. This tool does not delete originals or produce editorial acceptance.
+
 All owner and QA save/settings files remain local at their original paths.
 An additional local owner-save copy is under `localization/owner-saves/20261103`.
 Personal save bytes and private key/cache files are excluded from the private

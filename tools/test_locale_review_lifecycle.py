@@ -30,6 +30,29 @@ class ReviewLifecycleTests(unittest.TestCase):
         return {k: v for k, v in self.packet[ident].items() if k.endswith('Sha256') or k == 'id'} | {
             'verdict': verdict, 'rationale': 'Actual exact-version judgment', 'reviewerThreadId': 'own-thread'}
 
+    def test_only_explicit_pinned_supplemental_wording_extends_full_inventory(self):
+        extra = {'id': 'art:label', 'source': 'Title', 'target': 'Authored title'}
+        for field in ('source', 'target'):
+            extra[field + 'Sha256'] = hashlib.sha256(extra[field].encode()).hexdigest()
+        path = self.root / 'packet.jsonl'
+        with path.open('a') as stream:
+            stream.write(json.dumps(extra) + '\n')
+        self.lane['fullReviewPacketSha256'] = base.digest(path)
+        with self.assertRaisesRegex(ValueError, 'Invalid independent packet inventory'):
+            review.ReviewSupervisor(self.root, self.cfg, self.root / 'review-controller')
+        supplemental = self.root / 'supplemental.jsonl'
+        supplemental.write_text(json.dumps(extra) + '\n')
+        self.lane['supplementalReviewPacket'] = {'path': supplemental.name, 'sha256': base.digest(supplemental)}
+        supervisor = review.ReviewSupervisor(self.root, self.cfg, self.root / 'review-controller')
+        self.assertEqual(set(supervisor.packets['xx']), {'a', 'b', 'art:label'})
+        self.assertEqual(supervisor.known['xx'], {})
+        supplemental.write_text(json.dumps(extra | {'target': 'Other'}) + '\n')
+        with self.assertRaisesRegex(ValueError, 'Supplemental review packet changed'):
+            review.ReviewSupervisor(self.root, self.cfg, self.root / 'review-controller')
+        self.lane['supplementalReviewPacket']['sha256'] = base.digest(supplemental)
+        with self.assertRaisesRegex(ValueError, 'Supplemental review version differs'):
+            review.ReviewSupervisor(self.root, self.cfg, self.root / 'review-controller')
+
     def result_rows(self, rows):
         path = self.phase / 'reviews.jsonl'
         path.write_text(''.join(json.dumps(r) + '\n' for r in rows))

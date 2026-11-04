@@ -1,76 +1,72 @@
 {
   "macosInstaller": {
-    "status": "built-and-isolated-verified",
-    "version": "1.0.1",
+    "status": "built-isolated-and-launcherUI-verified",
+    "version": "1.1.0",
     "platform": "macOS14+ universal arm64/x86_64",
     "gameVersion": "0.45",
     "artifact": "dist/Forest-Languages-macOS.zip",
-    "artifactSha256": "3c4d22357da168d06c4cf1ed45bd097a11c86fc6019ba680f20ad22aa09b1a66",
-    "artifactBytes": 50751335,
-    "translationLocales": 27,
+    "artifactSha256": "e90ac072844c2846bf755fe07b3cbadfa11d84e2c5e2a5b0bb0466274499de17",
+    "artifactBytes": 52580775,
+    "translationLocales": 30,
     "englishOriginalRestore": true,
-    "excludedLocales": [
-      "hi",
-      "sw",
-      "uk"
-    ],
+    "excludedLocales": [],
     "buildReceipt": "MacOS/build-receipt.json",
     "validation": "MacOS/validation.json",
     "nativeResourceEvidence": "MacOS/native-resources.json",
-    "nativeResourceLocalesPassed": 27,
-    "syntheticAssertions": 112,
-    "actualResourceAssertions": 111,
+    "nativeResourceLocalesPassed": 30,
+    "syntheticAssertions": 141,
+    "actualResourceAssertions": 118,
     "actualResourceTestSequence": [
-      "de",
-      "ja",
-      "ar",
+      "hi",
+      "sw",
+      "uk",
       "ru",
       "en"
     ],
     "originalInstalledApplicationUnchanged": true,
     "ownedCopyOnly": true,
-    "launcherUI": "not-run",
-    "gameLaunch": "not-run",
+    "launcherUI": "actual-all31-options-and-footer-verified",
+    "gameLaunch": "no-new-target-launch",
     "inGameRendering": "not-run",
     "signing": "ad-hoc-deep-strict-verified",
     "projectArchival": "pending-unfinished-localization-and-native-acceptance",
     "directLaunch": "Contents/MacOS/<CFBundleExecutable>",
     "directLaunchAssertions": 14,
-    "resourceValidation": "retained-version-matching-core-and-payload"
+    "resourceValidation": "retained-version-matching-core-and-payload",
+    "newNativeStreamingReadbacks": 3,
+    "retainedNativeStreamingReadbacks": 27
   },
   "windowsInstaller": {
     "status": "built-and-isolated-verified",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "platform": "Windows10/11 x64",
     "gameVersion": "0.45",
-    "artifact": "dist/Forest-Language-Installer-Windows.zip",
-    "artifactSha256": "998d2931e65c250f8303dab602321b80a86d6e70e0be62c1a9b247e271f6fbef",
-    "artifactBytes": 51316398,
-    "translationLocales": 27,
+    "artifact": "dist/Forest-Language-Installer-Windows-1_1.zip",
+    "artifactSha256": "157a512006939eb890df671bbe73228220baabb04c7401841668b31748b71f68",
+    "artifactBytes": 53235441,
+    "translationLocales": 30,
     "englishOriginalRestore": true,
-    "excludedLocales": [
+    "excludedLocales": [],
+    "buildReceipt": "Windows/build-receipt.json",
+    "validation": "Windows/validation.json",
+    "normalCompilerLocalesPassed": 30,
+    "nativeBundleRoundtripsPassed": 30,
+    "syntheticAssertions": 1079,
+    "actualResourceTestLocales": [
       "hi",
+      "ru",
       "sw",
       "uk"
     ],
-    "buildReceipt": "Windows/build-receipt.json",
-    "validation": "Windows/validation.json",
-    "normalCompilerLocalesPassed": 27,
-    "nativeBundleRoundtripsPassed": 27,
-    "syntheticAssertions": 1079,
-    "actualResourceTestLocales": [
-      "ar",
-      "de",
-      "ja",
-      "ru"
-    ],
-    "actualResourceAssertions": 78,
+    "actualResourceAssertions": 83,
     "windowsUi": "not-run",
     "windowsPowerShell51": "not-run",
     "realGameInstall": "not-run",
     "gameLaunch": "not-run",
     "privateInputRecovery": "Windows/original-inputs.json",
-    "projectArchival": "pending-unfinished-localization-and-native-acceptance"
+    "projectArchival": "pending-unfinished-localization-and-native-acceptance",
+    "freshNormalCompilerBuilds": 3,
+    "retainedPublishedCompilerOutputs": 27
   },
   "sixNewLocaleCliTasks20261101": {
     "run": "six-new-locales-20261101-01",
@@ -6731,5 +6727,18 @@
     "inheritedHistory": false,
     "concurrentLocaleLimit": 5,
     "scope": "Static whole-locale author translation and primary editing; independent review/native acceptance separate."
+  },
+  "launcherAll30Completion20261104": {
+    "status": "all30-editorial-and-both-app-delivery-verified",
+    "locales": [
+      "hi",
+      "sw",
+      "uk"
+    ],
+    "translationLocales": 30,
+    "totalOptions": 31,
+    "delivery": "localization/completion/launcher-all30-20261104-01/delivery.json",
+    "runtime": "No new target game launch; target font/layout/Devanagari acceptance remains unrun",
+    "projectArchival": "pending-unfinished-project-and-owner-delivery-acceptance"
   }
 }

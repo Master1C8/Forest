@@ -1,8 +1,8 @@
 {
-  "boundary": "All produced resource bytes and complete native stream; excludes Unity execution/rendering",
-  "completeNativeStreamingReadbacks": 27,
+  "boundary": "Exact current native resource bytes; three fresh complete stream readbacks plus27 preserved version-matching readbacks. Excludes Unity execution/rendering.",
+  "completeNativeStreamingReadbacks": 30,
   "gameLaunched": false,
-  "locales": 27,
+  "locales": 30,
   "localesEvidence": [
     {
       "bundleReadback": {
@@ -83,6 +83,7 @@
         "windowsTargetSha256": "3741eeba5636b893ee935d1295352752f68793b596847311fa0f054553b99545"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -265,6 +266,7 @@
         "windowsTargetSha256": "2bad340dd4de835eae0f0ef2308543574d5fddc3733ca8db62d84ccd28de5f64"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -447,6 +449,7 @@
         "windowsTargetSha256": "755a3d73187ba838f1aee19eb57313bda5420b405bb53ab59c178c4e5d6f844e"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -629,6 +632,7 @@
         "windowsTargetSha256": "f544d30160d02f14eff5c48c17cbe3a5db0bf0b281c6eaaf366080db2e88be34"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -811,6 +815,7 @@
         "windowsTargetSha256": "e253a29b3e7dd57d084591eaba89d5164f5f7ebd0353a85bb11bb8421671c110"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -917,188 +922,6 @@
     {
       "bundleReadback": {
         "completeNativeStreamExact": true,
-        "crc32": 2068672302,
-        "serializedExact": true,
-        "streamBytes": 945053052
-      },
-      "files": {
-        "Managed/Assembly-CSharp.dll": {
-          "bytes": 2261504,
-          "sha256": "f0dd7df16512bd412ff40428fe08b45baa6feb700e4a2110ec729b416296f847"
-        },
-        "Managed/VNRevivalInventoryLayout.dll": {
-          "bytes": 11264,
-          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
-        },
-        "Managed/VNRevivalQuestLayout.dll": {
-          "bytes": 14848,
-          "sha256": "65e4c83c36295b8b5bc3bd50a032f35456666c792841463240105ea1ef65e624"
-        },
-        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
-          "bytes": 42051254,
-          "sha256": "31b91b9e19fd3e1c8036a8ad4d4fe4f3f7f42826c8cbfc0a001248e8c808eb7f"
-        },
-        "StreamingAssets/aa/catalog.json": {
-          "bytes": 312299,
-          "sha256": "9fda2f6be7c67a5398ffb697a22c57056ddfa37bdd1736f28116c8e6801fbe44"
-        },
-        "level1": {
-          "bytes": 1438696,
-          "sha256": "f69b2e7f35741aeb970a6b3bd8b1a046e03feb3981060093df56d9bc89729875"
-        },
-        "level5": {
-          "bytes": 25872,
-          "sha256": "dc7f589879bae65224b550407bdd3e9809b209387002b483cc4bae60cc8d12d7"
-        },
-        "level6": {
-          "bytes": 28704,
-          "sha256": "43183821db67e91369d7df4a8e0d165ec6f3659753920881e43c2a9d17e0d9e6"
-        },
-        "resources.assets": {
-          "bytes": 9011040,
-          "sha256": "1398c162e77c05ed724b684c5eb2b78511fe927c5a5f3c047557d94707eb1f12"
-        },
-        "sharedassets0.assets": {
-          "bytes": 16401480,
-          "sha256": "401dcf384193a58b136dfdba8538fde3ed7980bec41b07b2513fb75c4b946c8a"
-        },
-        "sharedassets1.assets": {
-          "bytes": 957032,
-          "sha256": "0724dd417605e655f06a128a8837cac6fafff91e6d94f4c0091d2a4b8ba2c067"
-        },
-        "sharedassets15.assets": {
-          "bytes": 1773552,
-          "sha256": "2f2c451e2a782e377a00a1482aed2395d03d7faa4bef9532364ec8b7e8cf5752"
-        },
-        "sharedassets2.assets": {
-          "bytes": 4404088,
-          "sha256": "5d67eff12023ad0241f88a8144c06f12bfea1242e647e8523616fa4eb9d37616"
-        },
-        "sharedassets4.assets": {
-          "bytes": 21242416,
-          "sha256": "d80c2d5df327da1fe3fb9d29da1c597070d3083e39473eabd2a9336178d567e7"
-        }
-      },
-      "languageSha256": "0e39c375aae50b714164cc05f7e962f7e6e2f8d24813140353806b335cfca26e",
-      "locale": "es-419",
-      "managed": {
-        "completeSemanticTreeReadback": true,
-        "macMvidPreserved": true,
-        "mergedPlatformMethods": [],
-        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
-        "outputSha256": "f0dd7df16512bd412ff40428fe08b45baa6feb700e4a2110ec729b416296f847",
-        "passed": true,
-        "platformSpecificOriginalEntries": 27,
-        "selectedDeltaEntries": 54,
-        "windowsTargetSha256": "b686a4b103b67a1e82e00a2b7deaa016116e1cc12442dd83b4cc4fb08f70bd97"
-      },
-      "nativeCatalogOnlyCRCAndSizeChanged": true,
-      "serialized": [
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
-          "objects": 54296,
-          "outputSha256": "a407722b8b4c6236c2525d17d1c564d02cd05c764faa47a495c30cb6f873b7b6",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1359,
-          "windowsTargetSha256": "3ccac270d98c93d2f0da575bba5b6a6b097aba1e6b0b1b5c724e64fc59952f45"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
-          "objects": 10029,
-          "outputSha256": "f69b2e7f35741aeb970a6b3bd8b1a046e03feb3981060093df56d9bc89729875",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 710,
-          "windowsTargetSha256": "d70255af252dd4750a62c1ca24e8c088e96753f42a9b59c86a0b89821d23ea4e"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
-          "objects": 211,
-          "outputSha256": "dc7f589879bae65224b550407bdd3e9809b209387002b483cc4bae60cc8d12d7",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1,
-          "windowsTargetSha256": "2a98b351d114439190f58f494082df33f5e89a4cd0f1538e5be141b77ec42dd6"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
-          "objects": 247,
-          "outputSha256": "43183821db67e91369d7df4a8e0d165ec6f3659753920881e43c2a9d17e0d9e6",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1,
-          "windowsTargetSha256": "54a5f3dbfed3678b1ed3e023203ada6875ac38e73eb3e8621505722517dbeee6"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
-          "objects": 1229,
-          "outputSha256": "1398c162e77c05ed724b684c5eb2b78511fe927c5a5f3c047557d94707eb1f12",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 3,
-          "windowsTargetSha256": "17c0c0594c3826628b45d58e4ace047f2913aa85d4fdf70884acff421870af31"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
-          "objects": 4633,
-          "outputSha256": "401dcf384193a58b136dfdba8538fde3ed7980bec41b07b2513fb75c4b946c8a",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 184,
-          "windowsTargetSha256": "2a6eb584fe65395622c1eb85a1adc4e58c3774d5115e487bcd48db95f9c87e02"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
-          "objects": 1312,
-          "outputSha256": "0724dd417605e655f06a128a8837cac6fafff91e6d94f4c0091d2a4b8ba2c067",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 70,
-          "windowsTargetSha256": "db6ae70766cf826cf756a1e9fb199261505784146aaf098b639ed5955d0b31ae"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
-          "objects": 7508,
-          "outputSha256": "2f2c451e2a782e377a00a1482aed2395d03d7faa4bef9532364ec8b7e8cf5752",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 6,
-          "windowsTargetSha256": "f1fc90d4a4ed97f5d1a80aec53e5155889450f335cc5c5198d681880f2c0af51"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
-          "objects": 18905,
-          "outputSha256": "5d67eff12023ad0241f88a8144c06f12bfea1242e647e8523616fa4eb9d37616",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1596,
-          "windowsTargetSha256": "e6b313ca613365e1568f36f98789debbf203e0fbe65e3c47508db69686cc1b6e"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
-          "objects": 38113,
-          "outputSha256": "d80c2d5df327da1fe3fb9d29da1c597070d3083e39473eabd2a9336178d567e7",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 66,
-          "windowsTargetSha256": "3c77b45ee81317abc0236ca661f172d96ee20c6067a36ac94de4baab94c43438"
-        }
-      ]
-    },
-    {
-      "bundleReadback": {
-        "completeNativeStreamExact": true,
         "crc32": 3733948645,
         "serializedExact": true,
         "streamBytes": 945053052
@@ -1175,6 +998,7 @@
         "windowsTargetSha256": "7546a0dbc7bc79b8461efc4a38138c5eb47e8bc5665095a5b1d3f8f51b67f0d1"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -1281,6 +1105,189 @@
     {
       "bundleReadback": {
         "completeNativeStreamExact": true,
+        "crc32": 2068672302,
+        "serializedExact": true,
+        "streamBytes": 945053052
+      },
+      "files": {
+        "Managed/Assembly-CSharp.dll": {
+          "bytes": 2261504,
+          "sha256": "f0dd7df16512bd412ff40428fe08b45baa6feb700e4a2110ec729b416296f847"
+        },
+        "Managed/VNRevivalInventoryLayout.dll": {
+          "bytes": 11264,
+          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
+        },
+        "Managed/VNRevivalQuestLayout.dll": {
+          "bytes": 14848,
+          "sha256": "65e4c83c36295b8b5bc3bd50a032f35456666c792841463240105ea1ef65e624"
+        },
+        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
+          "bytes": 42051254,
+          "sha256": "31b91b9e19fd3e1c8036a8ad4d4fe4f3f7f42826c8cbfc0a001248e8c808eb7f"
+        },
+        "StreamingAssets/aa/catalog.json": {
+          "bytes": 312299,
+          "sha256": "9fda2f6be7c67a5398ffb697a22c57056ddfa37bdd1736f28116c8e6801fbe44"
+        },
+        "level1": {
+          "bytes": 1438696,
+          "sha256": "f69b2e7f35741aeb970a6b3bd8b1a046e03feb3981060093df56d9bc89729875"
+        },
+        "level5": {
+          "bytes": 25872,
+          "sha256": "dc7f589879bae65224b550407bdd3e9809b209387002b483cc4bae60cc8d12d7"
+        },
+        "level6": {
+          "bytes": 28704,
+          "sha256": "43183821db67e91369d7df4a8e0d165ec6f3659753920881e43c2a9d17e0d9e6"
+        },
+        "resources.assets": {
+          "bytes": 9011040,
+          "sha256": "1398c162e77c05ed724b684c5eb2b78511fe927c5a5f3c047557d94707eb1f12"
+        },
+        "sharedassets0.assets": {
+          "bytes": 16401480,
+          "sha256": "401dcf384193a58b136dfdba8538fde3ed7980bec41b07b2513fb75c4b946c8a"
+        },
+        "sharedassets1.assets": {
+          "bytes": 957032,
+          "sha256": "0724dd417605e655f06a128a8837cac6fafff91e6d94f4c0091d2a4b8ba2c067"
+        },
+        "sharedassets15.assets": {
+          "bytes": 1773552,
+          "sha256": "2f2c451e2a782e377a00a1482aed2395d03d7faa4bef9532364ec8b7e8cf5752"
+        },
+        "sharedassets2.assets": {
+          "bytes": 4404088,
+          "sha256": "5d67eff12023ad0241f88a8144c06f12bfea1242e647e8523616fa4eb9d37616"
+        },
+        "sharedassets4.assets": {
+          "bytes": 21242416,
+          "sha256": "d80c2d5df327da1fe3fb9d29da1c597070d3083e39473eabd2a9336178d567e7"
+        }
+      },
+      "languageSha256": "0e39c375aae50b714164cc05f7e962f7e6e2f8d24813140353806b335cfca26e",
+      "locale": "es-419",
+      "managed": {
+        "completeSemanticTreeReadback": true,
+        "macMvidPreserved": true,
+        "mergedPlatformMethods": [],
+        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
+        "outputSha256": "f0dd7df16512bd412ff40428fe08b45baa6feb700e4a2110ec729b416296f847",
+        "passed": true,
+        "platformSpecificOriginalEntries": 27,
+        "selectedDeltaEntries": 54,
+        "windowsTargetSha256": "b686a4b103b67a1e82e00a2b7deaa016116e1cc12442dd83b4cc4fb08f70bd97"
+      },
+      "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
+      "serialized": [
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
+          "objects": 54296,
+          "outputSha256": "a407722b8b4c6236c2525d17d1c564d02cd05c764faa47a495c30cb6f873b7b6",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1359,
+          "windowsTargetSha256": "3ccac270d98c93d2f0da575bba5b6a6b097aba1e6b0b1b5c724e64fc59952f45"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
+          "objects": 10029,
+          "outputSha256": "f69b2e7f35741aeb970a6b3bd8b1a046e03feb3981060093df56d9bc89729875",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 710,
+          "windowsTargetSha256": "d70255af252dd4750a62c1ca24e8c088e96753f42a9b59c86a0b89821d23ea4e"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
+          "objects": 211,
+          "outputSha256": "dc7f589879bae65224b550407bdd3e9809b209387002b483cc4bae60cc8d12d7",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "2a98b351d114439190f58f494082df33f5e89a4cd0f1538e5be141b77ec42dd6"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
+          "objects": 247,
+          "outputSha256": "43183821db67e91369d7df4a8e0d165ec6f3659753920881e43c2a9d17e0d9e6",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "54a5f3dbfed3678b1ed3e023203ada6875ac38e73eb3e8621505722517dbeee6"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
+          "objects": 1229,
+          "outputSha256": "1398c162e77c05ed724b684c5eb2b78511fe927c5a5f3c047557d94707eb1f12",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 3,
+          "windowsTargetSha256": "17c0c0594c3826628b45d58e4ace047f2913aa85d4fdf70884acff421870af31"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
+          "objects": 4633,
+          "outputSha256": "401dcf384193a58b136dfdba8538fde3ed7980bec41b07b2513fb75c4b946c8a",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 184,
+          "windowsTargetSha256": "2a6eb584fe65395622c1eb85a1adc4e58c3774d5115e487bcd48db95f9c87e02"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
+          "objects": 1312,
+          "outputSha256": "0724dd417605e655f06a128a8837cac6fafff91e6d94f4c0091d2a4b8ba2c067",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 70,
+          "windowsTargetSha256": "db6ae70766cf826cf756a1e9fb199261505784146aaf098b639ed5955d0b31ae"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
+          "objects": 7508,
+          "outputSha256": "2f2c451e2a782e377a00a1482aed2395d03d7faa4bef9532364ec8b7e8cf5752",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 6,
+          "windowsTargetSha256": "f1fc90d4a4ed97f5d1a80aec53e5155889450f335cc5c5198d681880f2c0af51"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
+          "objects": 18905,
+          "outputSha256": "5d67eff12023ad0241f88a8144c06f12bfea1242e647e8523616fa4eb9d37616",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1596,
+          "windowsTargetSha256": "e6b313ca613365e1568f36f98789debbf203e0fbe65e3c47508db69686cc1b6e"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
+          "objects": 38113,
+          "outputSha256": "d80c2d5df327da1fe3fb9d29da1c597070d3083e39473eabd2a9336178d567e7",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 66,
+          "windowsTargetSha256": "3c77b45ee81317abc0236ca661f172d96ee20c6067a36ac94de4baab94c43438"
+        }
+      ]
+    },
+    {
+      "bundleReadback": {
+        "completeNativeStreamExact": true,
         "crc32": 766178723,
         "serializedExact": true,
         "streamBytes": 945053052
@@ -1357,6 +1364,7 @@
         "windowsTargetSha256": "81e45e2d97e325280f737bc45527c4199067accbd8c50cca2a3935a17ee8a390"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -1539,6 +1547,7 @@
         "windowsTargetSha256": "230f1ae5907dc0459339a511b3ff4ca51a5715e1295efdce964fb1486d172819"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -1721,6 +1730,7 @@
         "windowsTargetSha256": "71f388c11b8fb542627c2450bd51dcc20c9412ca4090b0e83ae1d04ac1c2e581"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -1903,6 +1913,7 @@
         "windowsTargetSha256": "73787cc0ab2e41fad73242c5b836b4872e85126df730d77e3314151c66ff8113"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -2009,6 +2020,189 @@
     {
       "bundleReadback": {
         "completeNativeStreamExact": true,
+        "crc32": 3609103673,
+        "serializedExact": true,
+        "streamBytes": 945053052
+      },
+      "files": {
+        "Managed/Assembly-CSharp.dll": {
+          "bytes": 2260992,
+          "sha256": "1dbce7453f6ef5bb13f10be18d5c5c66a3501a50ddfbfab2f5e141c3b728a0e4"
+        },
+        "Managed/VNRevivalInventoryLayout.dll": {
+          "bytes": 11264,
+          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
+        },
+        "Managed/VNRevivalQuestLayout.dll": {
+          "bytes": 14848,
+          "sha256": "6936c188e57fe4b14eda00fa045902013db51f8fb49ea2c868a48e594ada54ad"
+        },
+        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
+          "bytes": 41955290,
+          "sha256": "8642c7140e7ef04d1e46acfc310b9ea49c6cec900025a81eb9eeeb55e81e2a01"
+        },
+        "StreamingAssets/aa/catalog.json": {
+          "bytes": 312299,
+          "sha256": "ab10fae7ddad4118cb155a75eebe3366a55f3ef3169c0a78c4cfb7dd51017237"
+        },
+        "level1": {
+          "bytes": 1449184,
+          "sha256": "0901a3a218d5f825bf148bb33a2e1c485b46d659d0232c54e9e2db26d7a796c7"
+        },
+        "level5": {
+          "bytes": 25936,
+          "sha256": "9ef882ed947c10df7c7603bcbc6b94221dc65a545caf52a3a7578e20482649c7"
+        },
+        "level6": {
+          "bytes": 28768,
+          "sha256": "9f6aa045987158a9508452066fb6fd034c2774aac13746ee59e03345bdd1fb85"
+        },
+        "resources.assets": {
+          "bytes": 9383056,
+          "sha256": "60f45b3d8c34dfef9af01d7150c71d71685ad6a9f55ad4871ffb9573d92a7e59"
+        },
+        "sharedassets0.assets": {
+          "bytes": 16840512,
+          "sha256": "584350248cf81613d0860ba39d87008fe6525d4848a503e79b1fdd28d3fbea7c"
+        },
+        "sharedassets1.assets": {
+          "bytes": 957096,
+          "sha256": "c8e0b56d6f3741b43ac6253cfe48af19c51f089b667fd50968a32a09fc1cbdb8"
+        },
+        "sharedassets15.assets": {
+          "bytes": 1773792,
+          "sha256": "5c5398649992f2f09679fd08ac322ec97407573fed66a0143bfc8ae512d307d5"
+        },
+        "sharedassets2.assets": {
+          "bytes": 4447720,
+          "sha256": "f7b183682165c9132f199cf2d07e608b3970baf54636617a800c0ad9766e0c6d"
+        },
+        "sharedassets4.assets": {
+          "bytes": 21244384,
+          "sha256": "b4225c57f083656ec40bab372f7d1bffd3f3c5db54dee5a079e23de50f3ae4de"
+        }
+      },
+      "languageSha256": "25369b15dc51155aa2acee03e1ce98d71484b53e2a1efdd6cacca514e0a46a95",
+      "locale": "hi",
+      "managed": {
+        "completeSemanticTreeReadback": true,
+        "macMvidPreserved": true,
+        "mergedPlatformMethods": [],
+        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
+        "outputSha256": "1dbce7453f6ef5bb13f10be18d5c5c66a3501a50ddfbfab2f5e141c3b728a0e4",
+        "passed": true,
+        "platformSpecificOriginalEntries": 27,
+        "selectedDeltaEntries": 54,
+        "windowsTargetSha256": "f0eb16be1556ee9d0dda98ede32b23aacbe6e5102d636697723b3be6f8ea3cd9"
+      },
+      "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "new-current-attempt",
+      "serialized": [
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
+          "objects": 54296,
+          "outputSha256": "e65df091c07d6c1d929bfbceb921aa05e22be34da359420bec1c6f0703b7f66c",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1359,
+          "windowsTargetSha256": "fcf6899f77dc278f8a329c9a448176f8228d476b9c0cbd25a35cedf5c2d4698c"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
+          "objects": 10029,
+          "outputSha256": "0901a3a218d5f825bf148bb33a2e1c485b46d659d0232c54e9e2db26d7a796c7",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 713,
+          "windowsTargetSha256": "e4a488fe9856882cac9baa5722612bdf6ecafa75c92b8881f7821f3605694bf8"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
+          "objects": 211,
+          "outputSha256": "9ef882ed947c10df7c7603bcbc6b94221dc65a545caf52a3a7578e20482649c7",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "ea34612d24ef9afb5198ee7a28662ca22a036c8cf253d39452ba94a075db3239"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
+          "objects": 247,
+          "outputSha256": "9f6aa045987158a9508452066fb6fd034c2774aac13746ee59e03345bdd1fb85",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "23e51e5293d5ef509f559e251e2f15028ec34cd23ce57c47ffde9e0424ed7419"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
+          "objects": 1229,
+          "outputSha256": "60f45b3d8c34dfef9af01d7150c71d71685ad6a9f55ad4871ffb9573d92a7e59",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 7,
+          "windowsTargetSha256": "5bcfbf9ffd2168e33f390a1c3d8da6b76104905152090982b46fd6ae0ea592eb"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
+          "objects": 4633,
+          "outputSha256": "584350248cf81613d0860ba39d87008fe6525d4848a503e79b1fdd28d3fbea7c",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 184,
+          "windowsTargetSha256": "ffc8c855b002f23ddb0e35fba89c2ac591a4fff8d9143dab3a619ed7f8cb066a"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
+          "objects": 1312,
+          "outputSha256": "c8e0b56d6f3741b43ac6253cfe48af19c51f089b667fd50968a32a09fc1cbdb8",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 71,
+          "windowsTargetSha256": "af7227b71ed2589c836bcf8fd9c6e66db7258d75c5dbd786e5922ddb2b0258d6"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
+          "objects": 7508,
+          "outputSha256": "5c5398649992f2f09679fd08ac322ec97407573fed66a0143bfc8ae512d307d5",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 6,
+          "windowsTargetSha256": "674c04cafbc624b1fba8f984c615bb86ea9bacf50423333d1e93ec35a1e96dfc"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
+          "objects": 18905,
+          "outputSha256": "f7b183682165c9132f199cf2d07e608b3970baf54636617a800c0ad9766e0c6d",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1600,
+          "windowsTargetSha256": "b0d75ffd0f26f83de00b6c3b813fcfcdbd6f97bc8f66d6e83c4cd351fe4910de"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
+          "objects": 38113,
+          "outputSha256": "b4225c57f083656ec40bab372f7d1bffd3f3c5db54dee5a079e23de50f3ae4de",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 66,
+          "windowsTargetSha256": "6bcc2eb08995ca577e97e5d57dc788e37080b2c29f4739cf8adeea660dbcac6b"
+        }
+      ]
+    },
+    {
+      "bundleReadback": {
+        "completeNativeStreamExact": true,
         "crc32": 2508233428,
         "serializedExact": true,
         "streamBytes": 945053052
@@ -2085,6 +2279,7 @@
         "windowsTargetSha256": "8f93cf5abb7c315e8dd7a995078298d9d541af398cade3347abfc645b8cb0fe9"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -2267,6 +2462,7 @@
         "windowsTargetSha256": "ba2dacdf1da3370e2955032e1d2aa71f5af99476d6c82d8d0acd9e82dcbe6bc6"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -2449,6 +2645,7 @@
         "windowsTargetSha256": "98233a8a80046e2705ad4551a83db9a75ebcb406b991e3ddb90be479f7c5a71c"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -2631,6 +2828,7 @@
         "windowsTargetSha256": "4a8ab639fa6dccc983decc3f4d3e5adbc9ebd3bde2a1f1860672748a394879fc"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -2813,6 +3011,7 @@
         "windowsTargetSha256": "147026c0b2090b26e4370908b6bab5a1c3110b33e720cc967e8348a9f8b5a6b6"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -2995,6 +3194,7 @@
         "windowsTargetSha256": "bcb48b61cabc37c3543aede05aa54ee1aa2920ce932cdc17f2ae4fddf564e7ad"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -3177,6 +3377,7 @@
         "windowsTargetSha256": "69a530e175bc46be1c0e0c7072240982267b29d2690dc2954adaa7cc63c250a8"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -3359,6 +3560,7 @@
         "windowsTargetSha256": "d62c17d00320099a7cf86fd031e54a8a862dd14088e2d1abaece314a04398c47"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -3541,6 +3743,7 @@
         "windowsTargetSha256": "d2ff36377337043fd1f29aac2e97d783079d32092364e6b2edcc9f055d09cc15"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -3723,6 +3926,7 @@
         "windowsTargetSha256": "656d111de59ecff5ccc3548c91c0269f187384eca436e45e10147b0effc2e2dd"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -3905,6 +4109,7 @@
         "windowsTargetSha256": "452703ed87ccf5846a287cd5f500da6c32ca4f7cdfa736a6746602d372e3e847"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -4011,6 +4216,189 @@
     {
       "bundleReadback": {
         "completeNativeStreamExact": true,
+        "crc32": 4144997597,
+        "serializedExact": true,
+        "streamBytes": 945053052
+      },
+      "files": {
+        "Managed/Assembly-CSharp.dll": {
+          "bytes": 2261504,
+          "sha256": "8ede0c59292fbfd8089fa9d0d556611845770e9ef3c3ac0ee1455b39d5401b6a"
+        },
+        "Managed/VNRevivalInventoryLayout.dll": {
+          "bytes": 11264,
+          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
+        },
+        "Managed/VNRevivalQuestLayout.dll": {
+          "bytes": 14848,
+          "sha256": "603104c1a4baa94a46ed9822eed9a7a1c1cdb9f3e79c31d9d33e2c7491a61c8e"
+        },
+        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
+          "bytes": 42022629,
+          "sha256": "65b22ad08ba6e1776e906a15b0ca7d9d40e783d2f47201ede7f9f87875ce06ee"
+        },
+        "StreamingAssets/aa/catalog.json": {
+          "bytes": 312299,
+          "sha256": "4b2588c3c07a0e3a9cd9d0e527a8d315a086d0087e4d2eb9b31f23357b62597a"
+        },
+        "level1": {
+          "bytes": 1438184,
+          "sha256": "d9e9ae7472ba9bef7265fc2f3f0ef88da4b5ad758f7afe7729ca81998a7c40e3"
+        },
+        "level5": {
+          "bytes": 25872,
+          "sha256": "9819f6920931f5093c9084c384badcaea554ac0a482bcf60545ac0a1f8ba0a11"
+        },
+        "level6": {
+          "bytes": 28704,
+          "sha256": "0296ebf353248ada5fa260fa3e8f05b60811a50c187232e40a488937975721ca"
+        },
+        "resources.assets": {
+          "bytes": 9010536,
+          "sha256": "ab9a79d44bf323c30422ef6b3191e15712fb489b8c9fb5da3b8ad0bbd30218ca"
+        },
+        "sharedassets0.assets": {
+          "bytes": 16373888,
+          "sha256": "ee179dfd5b5ed39f4b8e0e41269cb8b0440aa075d0060e258fad6959510eea5c"
+        },
+        "sharedassets1.assets": {
+          "bytes": 957032,
+          "sha256": "afdc5784319362ceaf7c5723e92f8ab2a28a20f0030a69e66ef233cc2d2426af"
+        },
+        "sharedassets15.assets": {
+          "bytes": 1773600,
+          "sha256": "558a44457f45a0d1e167370b4559ec78a86e1369171b79bfebd2f51b13803c7f"
+        },
+        "sharedassets2.assets": {
+          "bytes": 4402280,
+          "sha256": "2b98a6fa5d44bb0eb948ac3f62543e6d3b19e18c0bfb9a8aafcdaa841da213f6"
+        },
+        "sharedassets4.assets": {
+          "bytes": 21242224,
+          "sha256": "eeb3a6cc3cb7d8a717e583212ae5872eec4414825e19f5030f53df71fc8cf833"
+        }
+      },
+      "languageSha256": "a1d11335f49d8e98a823a251b674216ddc345859b0c001d876fce8477acbc2f9",
+      "locale": "sw",
+      "managed": {
+        "completeSemanticTreeReadback": true,
+        "macMvidPreserved": true,
+        "mergedPlatformMethods": [],
+        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
+        "outputSha256": "8ede0c59292fbfd8089fa9d0d556611845770e9ef3c3ac0ee1455b39d5401b6a",
+        "passed": true,
+        "platformSpecificOriginalEntries": 27,
+        "selectedDeltaEntries": 54,
+        "windowsTargetSha256": "5c2db47bc187b49a753ce87fa6babef241b587a95a297eb8b140929413ad4c4d"
+      },
+      "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "new-current-attempt",
+      "serialized": [
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
+          "objects": 54296,
+          "outputSha256": "10480121ec8b4798175887bfbc55db612b564296d7225b2fcb1d416749418062",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1359,
+          "windowsTargetSha256": "9814386f299dc152d1d2623033153704810f829176526967434e09f904209c19"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
+          "objects": 10029,
+          "outputSha256": "d9e9ae7472ba9bef7265fc2f3f0ef88da4b5ad758f7afe7729ca81998a7c40e3",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 713,
+          "windowsTargetSha256": "0fffe7f30e57491efe5aa8b46259918565d1a2268521f53eef64269d82ffc045"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
+          "objects": 211,
+          "outputSha256": "9819f6920931f5093c9084c384badcaea554ac0a482bcf60545ac0a1f8ba0a11",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "c6e36e05105ab74d3427c7b0ada1058359008ec738b982ce5754c34787f67c56"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
+          "objects": 247,
+          "outputSha256": "0296ebf353248ada5fa260fa3e8f05b60811a50c187232e40a488937975721ca",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "2fc22e96947032de9c572523cb146ae10c4bcf2db2e652d05629ba753df75aca"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
+          "objects": 1229,
+          "outputSha256": "ab9a79d44bf323c30422ef6b3191e15712fb489b8c9fb5da3b8ad0bbd30218ca",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 3,
+          "windowsTargetSha256": "c2d586c2ec3e57d497a0f59681ebf86e68e53111268f65a953fa49dde4f141ff"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
+          "objects": 4633,
+          "outputSha256": "ee179dfd5b5ed39f4b8e0e41269cb8b0440aa075d0060e258fad6959510eea5c",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 184,
+          "windowsTargetSha256": "33cb5f9c2be9b3f9b8bae077b8e85f9cee8c7f130619a07a753141d877e2b4d9"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
+          "objects": 1312,
+          "outputSha256": "afdc5784319362ceaf7c5723e92f8ab2a28a20f0030a69e66ef233cc2d2426af",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 71,
+          "windowsTargetSha256": "bc3b107cbeab98f33497ee8af167851de70865b7a47564d95aacbd9fdd6a8a4f"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
+          "objects": 7508,
+          "outputSha256": "558a44457f45a0d1e167370b4559ec78a86e1369171b79bfebd2f51b13803c7f",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 6,
+          "windowsTargetSha256": "9d9b34b60d698a25e935bbfaf28c72986ed05c775e47e00d5cf617e3647d6e68"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
+          "objects": 18905,
+          "outputSha256": "2b98a6fa5d44bb0eb948ac3f62543e6d3b19e18c0bfb9a8aafcdaa841da213f6",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1600,
+          "windowsTargetSha256": "c5a5f7eff3528e21a41528a2bc0903bbaecb7f71b8e6466373e8f9e1a8d7da11"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
+          "objects": 38113,
+          "outputSha256": "eeb3a6cc3cb7d8a717e583212ae5872eec4414825e19f5030f53df71fc8cf833",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 66,
+          "windowsTargetSha256": "a044c78a76486178a31c1bd60cc9a6aa7573241515057e872895bc4611e9a4ee"
+        }
+      ]
+    },
+    {
+      "bundleReadback": {
+        "completeNativeStreamExact": true,
         "crc32": 85491659,
         "serializedExact": true,
         "streamBytes": 945053052
@@ -4087,6 +4475,7 @@
         "windowsTargetSha256": "3584242a84c8bb3c42869215b5738a4bd317c4e0398396087c04b79dd70b9659"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -4269,6 +4658,7 @@
         "windowsTargetSha256": "e5cd57f91ce68d53a839c021df00b874fc1c9faa26713fe95b71aa90104d0e21"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -4375,6 +4765,189 @@
     {
       "bundleReadback": {
         "completeNativeStreamExact": true,
+        "crc32": 1311231859,
+        "serializedExact": true,
+        "streamBytes": 945053052
+      },
+      "files": {
+        "Managed/Assembly-CSharp.dll": {
+          "bytes": 2260992,
+          "sha256": "262adf89e6354e322c6eaa6722cfc5b705679fe4e2475ec158eb25f113c3e823"
+        },
+        "Managed/VNRevivalInventoryLayout.dll": {
+          "bytes": 11264,
+          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
+        },
+        "Managed/VNRevivalQuestLayout.dll": {
+          "bytes": 14848,
+          "sha256": "ae5e69c534f3bf21fbf80fbab8b1f90d7ce34eaae838f65974cd0bb85178968f"
+        },
+        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
+          "bytes": 42098134,
+          "sha256": "7bc5b3ba6d6f7c62a2acd05e45c1fa25670f8502363bf5858685b43b37b76483"
+        },
+        "StreamingAssets/aa/catalog.json": {
+          "bytes": 312299,
+          "sha256": "df6d3794abf35876220db47c8df09e96ac998e4dd90f0709b4026d65266a7de5"
+        },
+        "level1": {
+          "bytes": 1444000,
+          "sha256": "3f654d0b46653aadb8fc1087f2e912f86c7fa98b13a854d17f8dd3f00562bc02"
+        },
+        "level5": {
+          "bytes": 25888,
+          "sha256": "c211b00914db2b0144af5f3bf85ceaf1bc11be8182f869b13c30e911991835de"
+        },
+        "level6": {
+          "bytes": 28720,
+          "sha256": "71089645a7dfe5fbd8fee5c944cf88dbd29b29c9905438d4420731b2f91efd4d"
+        },
+        "resources.assets": {
+          "bytes": 9780728,
+          "sha256": "cd25fae47f1d16f5bbeaa5e6d16906e52dbee54869ae68f24bef512fb024f2b8"
+        },
+        "sharedassets0.assets": {
+          "bytes": 16637048,
+          "sha256": "a6518db12766ff043a7d13c8e172c35d83262ba4847a7d72b671621dada961aa"
+        },
+        "sharedassets1.assets": {
+          "bytes": 957136,
+          "sha256": "e71f9192bb72b0d3ea22ebe8c738fcb6feedc16d6a018d7e1cf5c18ad3276603"
+        },
+        "sharedassets15.assets": {
+          "bytes": 1773744,
+          "sha256": "cc874ffa2c10a482d03b96e8c22c396c09fa1c1a1192952e91c6e8ea84d60452"
+        },
+        "sharedassets2.assets": {
+          "bytes": 4426448,
+          "sha256": "6ff1cabb9e3c34223f3c9d4b56bbc863ca5dbf52c5c682d9e125d0ae9d3e6a6c"
+        },
+        "sharedassets4.assets": {
+          "bytes": 21243520,
+          "sha256": "142ecd22f7b44b41e8f377ad34f9e8ee63fe59c7a179b42ea6eb52f2431c31a9"
+        }
+      },
+      "languageSha256": "54fa441fe7103fc0249e4a4275cda0bcce0316dd56d4aa7a6ce42bca2d097f44",
+      "locale": "uk",
+      "managed": {
+        "completeSemanticTreeReadback": true,
+        "macMvidPreserved": true,
+        "mergedPlatformMethods": [],
+        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
+        "outputSha256": "262adf89e6354e322c6eaa6722cfc5b705679fe4e2475ec158eb25f113c3e823",
+        "passed": true,
+        "platformSpecificOriginalEntries": 27,
+        "selectedDeltaEntries": 54,
+        "windowsTargetSha256": "a3e4d063a6a66bec834eae05799249c04287ceef0deadf9ba5a63803de78fc88"
+      },
+      "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "new-current-attempt",
+      "serialized": [
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
+          "objects": 54296,
+          "outputSha256": "8a0811ecfdd236359bbb82c8628daab8fd8b8c9f9deb4239b06e41dc06bc63fe",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1359,
+          "windowsTargetSha256": "af100927f5fc75c9c6a63bcf2a900e11c9a3a684a7d39a1b7ccd50abc9c50646"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
+          "objects": 10029,
+          "outputSha256": "3f654d0b46653aadb8fc1087f2e912f86c7fa98b13a854d17f8dd3f00562bc02",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 713,
+          "windowsTargetSha256": "c240be52d34fea63827f6c8f64dc5714b431d273a0019896880f7b46bd717b2e"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
+          "objects": 211,
+          "outputSha256": "c211b00914db2b0144af5f3bf85ceaf1bc11be8182f869b13c30e911991835de",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "d99099c4cd50e7510517375d8e533b12f6b3e06f06d64d5186c65e76a6c66403"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
+          "objects": 247,
+          "outputSha256": "71089645a7dfe5fbd8fee5c944cf88dbd29b29c9905438d4420731b2f91efd4d",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "5261af2ccbb337671c5a3fc40590c31ddc6d8b1c449a0aa39a46179f1fd0b60a"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
+          "objects": 1229,
+          "outputSha256": "cd25fae47f1d16f5bbeaa5e6d16906e52dbee54869ae68f24bef512fb024f2b8",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 5,
+          "windowsTargetSha256": "6527368d4175aef20e4e4385096747dadd116f1444f47aacb24e189a5a2fbe5e"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
+          "objects": 4633,
+          "outputSha256": "a6518db12766ff043a7d13c8e172c35d83262ba4847a7d72b671621dada961aa",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 184,
+          "windowsTargetSha256": "38ae488da0b89bca66cffd411bd35c13b4b6fed1125dbd4a1df7b49f9341402a"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
+          "objects": 1312,
+          "outputSha256": "e71f9192bb72b0d3ea22ebe8c738fcb6feedc16d6a018d7e1cf5c18ad3276603",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 71,
+          "windowsTargetSha256": "972c60d1b75fe282bc7b1610f1067cf9887c277bf9724410c62d1749f4657d98"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
+          "objects": 7508,
+          "outputSha256": "cc874ffa2c10a482d03b96e8c22c396c09fa1c1a1192952e91c6e8ea84d60452",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 6,
+          "windowsTargetSha256": "73ef183ff9d3996a6821aaba3dca25302846198e9360c9e0addc159e5aae6c3b"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
+          "objects": 18905,
+          "outputSha256": "6ff1cabb9e3c34223f3c9d4b56bbc863ca5dbf52c5c682d9e125d0ae9d3e6a6c",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1600,
+          "windowsTargetSha256": "6f590f6724b55833db3ef47a5a46e1d5ffca60fdc9df2be7d8493c258d695afc"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
+          "objects": 38113,
+          "outputSha256": "142ecd22f7b44b41e8f377ad34f9e8ee63fe59c7a179b42ea6eb52f2431c31a9",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 66,
+          "windowsTargetSha256": "473820eaa88bf647507219ff2c2707cc0650fc75f216a1de326169bb7291e404"
+        }
+      ]
+    },
+    {
+      "bundleReadback": {
+        "completeNativeStreamExact": true,
         "crc32": 1198382439,
         "serializedExact": true,
         "streamBytes": 945053052
@@ -4451,6 +5024,7 @@
         "windowsTargetSha256": "f463a9e6b3308eedfc67fe6ccedf70ec572a6f28d698098da19ceccd9a2d1d56"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -4557,188 +5131,6 @@
     {
       "bundleReadback": {
         "completeNativeStreamExact": true,
-        "crc32": 1869402926,
-        "serializedExact": true,
-        "streamBytes": 945053052
-      },
-      "files": {
-        "Managed/Assembly-CSharp.dll": {
-          "bytes": 2257920,
-          "sha256": "de5bc79c3716463061e8240a3426ea830df4359a82943a199f0b76544b4ab0e1"
-        },
-        "Managed/VNRevivalInventoryLayout.dll": {
-          "bytes": 11264,
-          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
-        },
-        "Managed/VNRevivalQuestLayout.dll": {
-          "bytes": 14848,
-          "sha256": "bab875d7f928d85e765ae4709a42afdcd7d2cd0c567489621e4b66329c55d2b2"
-        },
-        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
-          "bytes": 71100830,
-          "sha256": "7cc4062a856de4cdb055a50b0063a5441cfa95bf9b9078ae5e392d0de8a7c073"
-        },
-        "StreamingAssets/aa/catalog.json": {
-          "bytes": 312299,
-          "sha256": "57c57ca9e23adc027ac69a60ab828905609cd2ab64015018ef32618ed1c6f996"
-        },
-        "level1": {
-          "bytes": 1437240,
-          "sha256": "fa166277d70265c0ce846ace172befed0d41cf3474e71bca675fe6190d0573a2"
-        },
-        "level5": {
-          "bytes": 25872,
-          "sha256": "32e7028191f97e942a6e0f219d75116d578a8f56d97c473053d73038d8942f00"
-        },
-        "level6": {
-          "bytes": 28704,
-          "sha256": "6f05baf4b4a34cfd8507682f95a95bf21c39f0ae8d699d73f4256cf8be2229ea"
-        },
-        "resources.assets": {
-          "bytes": 75289768,
-          "sha256": "43e6f8b10fc24f333d37f8c3263991e98bca427c7a136b7702842a0bf75fc2d3"
-        },
-        "sharedassets0.assets": {
-          "bytes": 48542664,
-          "sha256": "fc2d3527f25e8e2eb2066b0b480bea71b2a6018c466a26c33c1be60d920a7c23"
-        },
-        "sharedassets1.assets": {
-          "bytes": 957040,
-          "sha256": "e09fb47f0cf568065bf3ddec74939495eef02df59a6eccbf179de6439f27cad6"
-        },
-        "sharedassets15.assets": {
-          "bytes": 1773456,
-          "sha256": "a675a44b5e0a6d53952f7f2b3d10554d62d6fcd8a79aedd3a06878fb3155166d"
-        },
-        "sharedassets2.assets": {
-          "bytes": 4398344,
-          "sha256": "6513ca313cae0f83b9383fc14af1cb60dc9848484b0b73873c8f119a03dec874"
-        },
-        "sharedassets4.assets": {
-          "bytes": 21242320,
-          "sha256": "baec8ea0e80bd12b008be578352187e55fe3abbb283dd24cc17b314cffaf10b6"
-        }
-      },
-      "languageSha256": "9821c9b8565fc17962d5b7c11750e3dd63409161597029fae5af18d564f796b3",
-      "locale": "zh-TW",
-      "managed": {
-        "completeSemanticTreeReadback": true,
-        "macMvidPreserved": true,
-        "mergedPlatformMethods": [],
-        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
-        "outputSha256": "de5bc79c3716463061e8240a3426ea830df4359a82943a199f0b76544b4ab0e1",
-        "passed": true,
-        "platformSpecificOriginalEntries": 27,
-        "selectedDeltaEntries": 54,
-        "windowsTargetSha256": "a228b1b054a23c1ce843adb2006c19684991814854cb807e6af632cecdf26490"
-      },
-      "nativeCatalogOnlyCRCAndSizeChanged": true,
-      "serialized": [
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
-          "objects": 54296,
-          "outputSha256": "0d3c1cf4b4e132c61533fd0c079195d0f81b13050dc1c04503974db7e6b59b95",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1359,
-          "windowsTargetSha256": "fa502d3e957687996f4407d6c4c5aa1986c352a63eba4e24949648771a045eff"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
-          "objects": 10029,
-          "outputSha256": "fa166277d70265c0ce846ace172befed0d41cf3474e71bca675fe6190d0573a2",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 710,
-          "windowsTargetSha256": "fbeb53b5aa3b7953eab81361592b17e07eff197adbee5375ee66c683d49e9eb9"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
-          "objects": 211,
-          "outputSha256": "32e7028191f97e942a6e0f219d75116d578a8f56d97c473053d73038d8942f00",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1,
-          "windowsTargetSha256": "e9a5c43ffa3a89f69fbc6ee228e2c7d5080e72bb3bb98d9e502a0bd0a892d5e4"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
-          "objects": 247,
-          "outputSha256": "6f05baf4b4a34cfd8507682f95a95bf21c39f0ae8d699d73f4256cf8be2229ea",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1,
-          "windowsTargetSha256": "ee03ef72175e075d50a3ad0dbe95206cf74d74ff0c905fc0632422109aaaf67f"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
-          "objects": 1229,
-          "outputSha256": "43e6f8b10fc24f333d37f8c3263991e98bca427c7a136b7702842a0bf75fc2d3",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 7,
-          "windowsTargetSha256": "4521f7576748f19e686d30e16f1f9dc4b05bb1333e47dbb72862a07d527ba505"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
-          "objects": 4633,
-          "outputSha256": "fc2d3527f25e8e2eb2066b0b480bea71b2a6018c466a26c33c1be60d920a7c23",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 184,
-          "windowsTargetSha256": "9a41624dc6cd7f140092d140d079951818fb2d8f48190ad9a126880d09ec162f"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
-          "objects": 1312,
-          "outputSha256": "e09fb47f0cf568065bf3ddec74939495eef02df59a6eccbf179de6439f27cad6",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 71,
-          "windowsTargetSha256": "d06283f045e7905cccca26d0ae67c6f5b45c3c2f338535a53b7953b67125d8ab"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
-          "objects": 7508,
-          "outputSha256": "a675a44b5e0a6d53952f7f2b3d10554d62d6fcd8a79aedd3a06878fb3155166d",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 6,
-          "windowsTargetSha256": "23f08d085ea6e1251f21e043631141ed6a03992eed1c7aaaecc6714da5649826"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
-          "objects": 18905,
-          "outputSha256": "6513ca313cae0f83b9383fc14af1cb60dc9848484b0b73873c8f119a03dec874",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 1597,
-          "windowsTargetSha256": "cead937bbaa23fdfcd843811d7a764922a9c2a9b83adb4d17c1eb1bc77ce6cb3"
-        },
-        {
-          "allUnselectedNativeObjectsExact": true,
-          "nativePlatformAndExternalsPreserved": true,
-          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
-          "objects": 38113,
-          "outputSha256": "baec8ea0e80bd12b008be578352187e55fe3abbb283dd24cc17b314cffaf10b6",
-          "selectedBeforeImagesEqual": true,
-          "selectedObjects": 66,
-          "windowsTargetSha256": "1fc0a0833ecba1510dd1f9c66f5c245aa633dcd485eb7111b11f90b804f3bb65"
-        }
-      ]
-    },
-    {
-      "bundleReadback": {
-        "completeNativeStreamExact": true,
         "crc32": 609300540,
         "serializedExact": true,
         "streamBytes": 945053052
@@ -4815,6 +5207,7 @@
         "windowsTargetSha256": "d22397025295517c5549e20b762bf9b2305014cf9434283c571ab57666f30c45"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -4917,9 +5310,200 @@
           "windowsTargetSha256": "bbefda894fa7d6062f711f60584e39d6e18cd7bbea14d26cac02af1651f640ad"
         }
       ]
+    },
+    {
+      "bundleReadback": {
+        "completeNativeStreamExact": true,
+        "crc32": 1869402926,
+        "serializedExact": true,
+        "streamBytes": 945053052
+      },
+      "files": {
+        "Managed/Assembly-CSharp.dll": {
+          "bytes": 2257920,
+          "sha256": "de5bc79c3716463061e8240a3426ea830df4359a82943a199f0b76544b4ab0e1"
+        },
+        "Managed/VNRevivalInventoryLayout.dll": {
+          "bytes": 11264,
+          "sha256": "aa9badeaaf998967488a1c5a1f0fb65e516f899ea071f2afab6c45723bb0d93e"
+        },
+        "Managed/VNRevivalQuestLayout.dll": {
+          "bytes": 14848,
+          "sha256": "bab875d7f928d85e765ae4709a42afdcd7d2cd0c567489621e4b66329c55d2b2"
+        },
+        "StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle": {
+          "bytes": 71100830,
+          "sha256": "7cc4062a856de4cdb055a50b0063a5441cfa95bf9b9078ae5e392d0de8a7c073"
+        },
+        "StreamingAssets/aa/catalog.json": {
+          "bytes": 312299,
+          "sha256": "57c57ca9e23adc027ac69a60ab828905609cd2ab64015018ef32618ed1c6f996"
+        },
+        "level1": {
+          "bytes": 1437240,
+          "sha256": "fa166277d70265c0ce846ace172befed0d41cf3474e71bca675fe6190d0573a2"
+        },
+        "level5": {
+          "bytes": 25872,
+          "sha256": "32e7028191f97e942a6e0f219d75116d578a8f56d97c473053d73038d8942f00"
+        },
+        "level6": {
+          "bytes": 28704,
+          "sha256": "6f05baf4b4a34cfd8507682f95a95bf21c39f0ae8d699d73f4256cf8be2229ea"
+        },
+        "resources.assets": {
+          "bytes": 75289768,
+          "sha256": "43e6f8b10fc24f333d37f8c3263991e98bca427c7a136b7702842a0bf75fc2d3"
+        },
+        "sharedassets0.assets": {
+          "bytes": 48542664,
+          "sha256": "fc2d3527f25e8e2eb2066b0b480bea71b2a6018c466a26c33c1be60d920a7c23"
+        },
+        "sharedassets1.assets": {
+          "bytes": 957040,
+          "sha256": "e09fb47f0cf568065bf3ddec74939495eef02df59a6eccbf179de6439f27cad6"
+        },
+        "sharedassets15.assets": {
+          "bytes": 1773456,
+          "sha256": "a675a44b5e0a6d53952f7f2b3d10554d62d6fcd8a79aedd3a06878fb3155166d"
+        },
+        "sharedassets2.assets": {
+          "bytes": 4398344,
+          "sha256": "6513ca313cae0f83b9383fc14af1cb60dc9848484b0b73873c8f119a03dec874"
+        },
+        "sharedassets4.assets": {
+          "bytes": 21242320,
+          "sha256": "baec8ea0e80bd12b008be578352187e55fe3abbb283dd24cc17b314cffaf10b6"
+        }
+      },
+      "languageSha256": "9821c9b8565fc17962d5b7c11750e3dd63409161597029fae5af18d564f796b3",
+      "locale": "zh-TW",
+      "managed": {
+        "completeSemanticTreeReadback": true,
+        "macMvidPreserved": true,
+        "mergedPlatformMethods": [],
+        "originalMacSha256": "586223a0b279b094454472e9a54748f06d72392dc952e59c28414154e30b673a",
+        "outputSha256": "de5bc79c3716463061e8240a3426ea830df4359a82943a199f0b76544b4ab0e1",
+        "passed": true,
+        "platformSpecificOriginalEntries": 27,
+        "selectedDeltaEntries": 54,
+        "windowsTargetSha256": "a228b1b054a23c1ce843adb2006c19684991814854cb807e6af632cecdf26490"
+      },
+      "nativeCatalogOnlyCRCAndSizeChanged": true,
+      "readbackOrigin": "retained-exact-version-matching-published-evidence",
+      "serialized": [
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "0b223ae95cddf58e6ae342880727b1d25e2f562105f48df2dfc1cbb563ef188e",
+          "objects": 54296,
+          "outputSha256": "0d3c1cf4b4e132c61533fd0c079195d0f81b13050dc1c04503974db7e6b59b95",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1359,
+          "windowsTargetSha256": "fa502d3e957687996f4407d6c4c5aa1986c352a63eba4e24949648771a045eff"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "7141997476c69f6662c30f10dfa6abbc9c8bfb064df6d3c6046e1d3c881b31bc",
+          "objects": 10029,
+          "outputSha256": "fa166277d70265c0ce846ace172befed0d41cf3474e71bca675fe6190d0573a2",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 710,
+          "windowsTargetSha256": "fbeb53b5aa3b7953eab81361592b17e07eff197adbee5375ee66c683d49e9eb9"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "511ab0a880f5dddb35f32557161b70199b3153083818aa820df3a938b4d7a66e",
+          "objects": 211,
+          "outputSha256": "32e7028191f97e942a6e0f219d75116d578a8f56d97c473053d73038d8942f00",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "e9a5c43ffa3a89f69fbc6ee228e2c7d5080e72bb3bb98d9e502a0bd0a892d5e4"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "24e58a560bcbb7c36e25b6a3bdf07067ee34d3be3787b24b05fd6a06348fbc98",
+          "objects": 247,
+          "outputSha256": "6f05baf4b4a34cfd8507682f95a95bf21c39f0ae8d699d73f4256cf8be2229ea",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1,
+          "windowsTargetSha256": "ee03ef72175e075d50a3ad0dbe95206cf74d74ff0c905fc0632422109aaaf67f"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "2b9294bda124cdb9c82bb244eb6d09404a7a1a4baaa70f7be36416cd42ec10ad",
+          "objects": 1229,
+          "outputSha256": "43e6f8b10fc24f333d37f8c3263991e98bca427c7a136b7702842a0bf75fc2d3",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 7,
+          "windowsTargetSha256": "4521f7576748f19e686d30e16f1f9dc4b05bb1333e47dbb72862a07d527ba505"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "9ad1faca098973fe10f321af7e9f5e81ad492e9e2f5c94383cb2a268a81e61a3",
+          "objects": 4633,
+          "outputSha256": "fc2d3527f25e8e2eb2066b0b480bea71b2a6018c466a26c33c1be60d920a7c23",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 184,
+          "windowsTargetSha256": "9a41624dc6cd7f140092d140d079951818fb2d8f48190ad9a126880d09ec162f"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "4ed4fb8b6619d846aa77a14b043c6374bcafc71036ed2f082fae7fe0a90de90f",
+          "objects": 1312,
+          "outputSha256": "e09fb47f0cf568065bf3ddec74939495eef02df59a6eccbf179de6439f27cad6",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 71,
+          "windowsTargetSha256": "d06283f045e7905cccca26d0ae67c6f5b45c3c2f338535a53b7953b67125d8ab"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "de5bcbdfcce39bebe811b98ef9db039f07a44d3235efbbba37177d307d31abca",
+          "objects": 7508,
+          "outputSha256": "a675a44b5e0a6d53952f7f2b3d10554d62d6fcd8a79aedd3a06878fb3155166d",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 6,
+          "windowsTargetSha256": "23f08d085ea6e1251f21e043631141ed6a03992eed1c7aaaecc6714da5649826"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
+          "objects": 18905,
+          "outputSha256": "6513ca313cae0f83b9383fc14af1cb60dc9848484b0b73873c8f119a03dec874",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 1597,
+          "windowsTargetSha256": "cead937bbaa23fdfcd843811d7a764922a9c2a9b83adb4d17c1eb1bc77ce6cb3"
+        },
+        {
+          "allUnselectedNativeObjectsExact": true,
+          "nativePlatformAndExternalsPreserved": true,
+          "nativeSourceSha256": "083f94507e739454363b9278ebd8680e53ab55dc706fef20aacb74e370f5ee3f",
+          "objects": 38113,
+          "outputSha256": "baec8ea0e80bd12b008be578352187e55fe3abbb283dd24cc17b314cffaf10b6",
+          "selectedBeforeImagesEqual": true,
+          "selectedObjects": 66,
+          "windowsTargetSha256": "1fc0a0833ecba1510dd1f9c66f5c245aa633dcd485eb7111b11f90b804f3bb65"
+        }
+      ]
     }
   ],
+  "newCompleteNativeStreamingReadbacks": 3,
   "passed": true,
   "rendererAcceptance": "not-run",
-  "resources": 14
+  "resources": 14,
+  "retainedEvidence": {
+    "buildReceiptSha256": "cb5862b92cef8af8e243bde543585af1d7d8e183bb660e265091c3de422c9f2a",
+    "originalInputsSha256": "6eb333fae0c769e3add078d77b7832e35eda49360cf482bd2778b5eeebdccdf6",
+    "path": "localization/completion/launcher-all30-20261104-01/baseline-MacOS-native-resources.json",
+    "sha256": "0fe9d712e7ece56c0fcb03f75fc5aac0e0775b94d50eaebb668a453f813c8ac8"
+  },
+  "reusedVersionMatchingNativeStreamingReadbacks": 27
 }

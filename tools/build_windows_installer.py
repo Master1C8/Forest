@@ -72,12 +72,29 @@ def build_locales():
         compile_one(items.pop(0))
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
         list(pool.map(compile_one, items))
+    collect_receipts()
+
+
+def collect_receipts():
+    """Bind existing normal or byte-exact recovered outputs without recompiling."""
     records = []
-    for code in selection():
+    framework = json.loads((ROOT / 'localization/framework/forest045-shared/framework.json').read_bytes())
+    expected_paths = {DATA + '/' + name for name in framework['resources']}
+    for code, language in selection().items():
         path = WORK / 'overlays' / code / 'manifest.json'
         d = json.loads(path.read_bytes())
-        records.append({k: d[k] for k in ['locale', 'culture', 'languageSha256', 'compilerSha256', 'frameworkSha256', 'files']} |
-                       {'manifestSha256': sha(path.read_bytes())})
+        if d['locale'] != code or d['languageSha256'] != sha(language.read_bytes()):
+            raise ValueError('Stale compiler output: ' + code)
+        if set(d['files']) != expected_paths:
+            raise ValueError('Incomplete compiler resource inventory: ' + code)
+        for name, expected in d['files'].items():
+            resource = path.parent / name
+            if expected != dict(bytes=resource.stat().st_size, sha256=sha(resource.read_bytes())):
+                raise ValueError('Compiler output changed: ' + code + '/' + name)
+        record = {k: d[k] for k in ['locale', 'culture', 'languageSha256', 'compilerSha256', 'frameworkSha256', 'files']} | {'manifestSha256': sha(path.read_bytes())}
+        if d.get('format') == 'forest-restored-published-output-v1':
+            record['reusedPublishedOutput'] = {k: d[k] for k in ['publishedPayloadSha256', 'reusedOriginalCompilerManifestSha256', 'reconstructionVerified']}
+        records.append(record)
     (WIN / 'compiler-receipts.json').write_bytes(encode(dict(format=1, locales=records,
         normalResourcesPerLocale=16, installedResourcesPerLocale=14, gameLaunched=False)))
 
@@ -229,7 +246,9 @@ def package():
               'static const wchar_t *localeCodes[] = {L"en",' + ','.join('L"' + x['code'] + '"' for x in manifest['locales']) + '};',
               'static const wchar_t *localeNames[] = {L"English (original)",' + ','.join('L"' + label(x) + '"' for x in manifest['locales']) + '};']
     (WORK / 'Locales.h').write_text('\n'.join(header) + '\n')
-    dest = ROOT / 'dist/Forest-Language-Installer-Windows'
+    dest = ROOT / 'dist' / os.environ.get('FOREST_WINDOWS_PACKAGE_NAME', 'Forest-Language-Installer-Windows')
+    if dest.parent != ROOT / 'dist' or dest.suffix:
+        raise ValueError('Windows package name must be a direct distribution folder name')
     resources = dest / 'Resources'
     resources.mkdir(parents=True, exist_ok=True)
     for source in ['install.ps1', 'ForestInstaller.cs']:
@@ -252,7 +271,7 @@ def package():
                     '-lcomctl32', '-lshell32', '-lole32', '-luuid', '-ladvapi32'], check=True)
     # Script and helper hashes are compiled into the UI too; tampering must reject
     # before PowerShell execution. See verifyCompanions in the native launcher.
-    artifact = ROOT / 'dist/Forest-Language-Installer-Windows.zip'
+    artifact = dest.with_suffix('.zip')
     with zipfile.ZipFile(artifact, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for path in sorted(dest.rglob('*')):
             if path.is_file():
@@ -271,8 +290,8 @@ def package():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('stage', choices=['catalog', 'compile', 'payload', 'solid', 'package', 'all'])
+    parser.add_argument('stage', choices=['catalog', 'compile', 'receipts', 'payload', 'solid', 'package', 'all'])
     args = parser.parse_args()
-    for name, action in [('catalog', refresh_catalog), ('compile', build_locales), ('payload', payload), ('solid', solid), ('package', package)]:
-        if args.stage == name or args.stage == 'all' and name not in ['catalog', 'solid']:
+    for name, action in [('catalog', refresh_catalog), ('compile', build_locales), ('receipts', collect_receipts), ('payload', payload), ('solid', solid), ('package', package)]:
+        if args.stage == name or args.stage == 'all' and name not in ['catalog', 'receipts', 'solid']:
             action()

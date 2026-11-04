@@ -89,18 +89,33 @@ class ReviewSupervisor(Supervisor):
                 raise ValueError('Full review packet changed')
             packet = {}
             language = read(self.root / lane['language'])['translations']
+            supplemental = {}
+            declared = lane.get('supplementalReviewPacket')
+            if declared:
+                extra_path = self.root / declared['path']
+                if digest(extra_path) != declared['sha256']:
+                    raise ValueError('Supplemental review packet changed')
+                for row in map(json.loads, extra_path.read_text().splitlines()):
+                    ident = row['id']
+                    if ident in supplemental or ident in self.source:
+                        raise ValueError('Invalid supplemental review inventory')
+                    if not all(isinstance(row.get(field), str) for field in ('source', 'target')):
+                        raise ValueError('Invalid supplemental wording')
+                    supplemental[ident] = row
             for row in map(json.loads, path.read_text().splitlines()):
                 ident = row['id']
-                if ident in packet or ident in self.preserved or ident not in self.source:
+                if ident in packet or ident in self.preserved or ident not in self.source.keys() | supplemental.keys():
                     raise ValueError('Invalid independent packet inventory')
-                value = language[ident]
+                value = supplemental[ident] if ident in supplemental else language[ident]
+                if ident in supplemental and row != value:
+                    raise ValueError('Supplemental review version differs from frozen full packet')
                 if row['source'] != value['source'] or row['target'] != value['target']:
                     raise ValueError('Independent packet is not current')
                 for key, field in [('sourceSha256', 'source'), ('targetSha256', 'target')]:
                     if row[key] != hashlib.sha256(value[field].encode()).hexdigest():
                         raise ValueError('Invalid packet hash')
                 packet[ident] = row
-            if set(packet) != self.source.keys() - self.preserved.keys():
+            if set(packet) != (self.source.keys() - self.preserved.keys()) | supplemental.keys():
                 raise ValueError('Incomplete independent packet')
             self.packets[lane['locale']], self.known[lane['locale']] = packet, {}
             lane['boundLanguageSha256'] = digest(self.root / lane['language'])

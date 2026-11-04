@@ -24,11 +24,13 @@ The matching LZ4 helper is bundled; the player installs no development tools.
 
 `installer-config.json` selects the eligible canonical language documents.
 Russian deliberately maps to the owner's accepted `ru-baseline.json`, rather
-than the later wording revision in `ru.json`. Hindi and Swahili retain their
-unfinished editorial gates. Ukrainian is omitted because the available final
-quantity-family review record does not establish acceptance. No wording is
-modified by this app task. Most included locales still need full native layout,
-font and image-text acceptance; installation does not confer those passes.
+than the later wording revision in `ru.json`. All 30 translations are included.
+Hindi, Swahili and Ukrainian received complete version-bound independent review
+and consolidated correction closure in `localization/editorial-delivery/launcher-all30-20261104-01`.
+The new receipts retain actual judgment bodies; Ukrainian's earlier reference-only
+coverage was replaced by a fresh complete independent review. Most included locales
+still need full native layout, font and image-text acceptance, including Hindi
+Devanagari shaping; installation does not confer those passes.
 
 `locale-labels.generated.json` is a generated projection of the canonical
 SiteForMods catalog, bound to its source SHA. It is not a separately authored

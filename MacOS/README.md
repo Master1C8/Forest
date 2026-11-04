@@ -1,8 +1,9 @@
 # Forest macOS language launcher
 
 The native universal SwiftUI launcher supports macOS 14+, Apple Silicon and Intel.
-It contains the same 27 locale versions as the Windows app, plus original English.
-Hindi, Swahili and Ukrainian remain excluded under the existing editorial gates.
+It contains the same 30 locale versions as the Windows app, plus original English.
+Hindi, Swahili and Ukrainian now have complete version-bound independent wording
+review and exact correction closure. Target runtime/rendering acceptance is separate.
 Russian is bound to `localization/languages/ru-baseline.json`.
 
 The proven UI/distribution base is `StardewTranslationInstaller`, revision
@@ -93,8 +94,34 @@ IDs are preserved; choose a new ID for a materially changed test. Do not overwri
 a helper being used by a live resource build. Resource receipts allow verified
 completed locales to be reused after an interrupted finite build.
 
+Already compiled locales can also use the normal compiler's overlay directly,
+before the complete Windows distribution is repacked:
+
+```sh
+.venv-assets314/bin/python -B tools/forest_macos.py resources \
+  --windows-overlays dist/windows-installer-work/overlays --locale sw
+python3 -B tools/verify_macos_resources.py --locale sw \
+  --output localization/completion/RUN/sw-native-resource-validation.json
+```
+
+Choose an existing task-owned `RUN` directory. Repeat `--locale` for additional
+ready locales. This route checks the full normal compiler output and original
+platform inputs, then uses the same object/assembly/catalog port operation as the
+payload route. A subset validation requires a separate receipt and does not
+replace the complete distribution validation. Neither route starts the game.
+`FOREST_WINDOWS_PAYLOAD` selects a separately built Windows package for the
+payload route; decoded ZIP caches are keyed to that package's exact hash.
+`FOREST_MAC_APP_NAME` selects a direct `.app` destination beneath `dist/`, allowing
+a new version to be built while the previous launcher's resources remain intact.
+
 ## Regression recipes and evidence limits
 
+- Bind a cached original serialized member to the full source bundle and decoder
+  hashes, then check its actual body hash on reuse. Establish that binding by a
+  fresh extraction when adopting an older cache. A changed cache must reject
+  before object selection; it must never make changed target objects appear
+  unchanged. The source-cache unit tests mock extraction, while the Swahili
+  verification uses the actual native decoder and original game inputs.
 - Snapshot expected Unity object bytes before save. `set_raw_data` stores pending
   bytes separately; `get_raw_data` still reads the original reader. Compare saved
   bytes against explicit selected targets and original unselected snapshots.

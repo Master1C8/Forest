@@ -1,18 +1,17 @@
 {
   "format": "forest-windows-installer-config-v1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "gameVersion": "0.45",
   "dataDirectory": "The Forest of Love_Data",
   "executable": "The Forest of Love.exe",
   "baseRevision": "68088632f217203f6c3532d2d6d38ad7ca49438d",
-  "excludedLocales": {
-    "hi": "Independent editorial review is unfinished; Devanagari runtime is unverified.",
-    "sw": "Independent editorial findings and meaning holds remain.",
-    "uk": "The recorded final quantity-family independent review is not yet accepted."
-  },
+  "excludedLocales": {},
   "sourceOverrides": {
     "ru": "ru-baseline.json"
   },
-  "preservedFiles": ["app.info", "tfol.settings"],
+  "preservedFiles": [
+    "app.info",
+    "tfol.settings"
+  ],
   "ownershipId": "VNRevival.Forest.Localization"
 }

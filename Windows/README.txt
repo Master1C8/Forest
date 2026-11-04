@@ -17,8 +17,8 @@ languages. An interrupted install is reconciled on the next installation attempt
 Saves, player settings, app.info and unrelated mods are preserved.
 
 This package contains finished wording/resource builds. Most languages still
-need complete in-game font/layout testing. Hindi, Swahili and Ukrainian are
-omitted while their final independent review remains unresolved. Russian uses
+need complete in-game font/layout testing, including Devanagari shaping in Hindi.
+All 30 translations are included after independent wording review. Russian uses
 the owner's accepted baseline, rather than the later unaccepted wording revision.
 
 Windows 10/11 x64, built-in Windows PowerShell 5.1 and .NET Framework 4.8.

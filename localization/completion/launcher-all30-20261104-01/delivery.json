@@ -1,0 +1,98 @@
+{
+  "format": "forest-all30-delivery-v1",
+  "recordedAt": "2026-11-04T00:00:28.252935+00:00",
+  "version": "1.1.0",
+  "translationLocales": 30,
+  "totalOptions": 31,
+  "newLocales": {
+    "hi": {
+      "languageSha256": "25369b15dc51155aa2acee03e1ce98d71484b53e2a1efdd6cacca514e0a46a95",
+      "ordinaryCurrentPasses": 12825,
+      "protectedSourceStates": 1781,
+      "editorialClosure": {
+        "path": "localization/editorial-delivery/launcher-all30-20261104-01/hi/editorial-closure-01/closure.json",
+        "sha256": "55da3d9185b03f8395a45a0dff121d7b54a00ae61db4aad3d8c0d2ce72255fc4"
+      },
+      "resourceBuilds": "localization/editorial-delivery/launcher-all30-20261104-01/hi/editorial-closure-01/resource-builds.json",
+      "nativeRendering": "not-run"
+    },
+    "sw": {
+      "languageSha256": "a1d11335f49d8e98a823a251b674216ddc345859b0c001d876fce8477acbc2f9",
+      "ordinaryCurrentPasses": 12825,
+      "protectedSourceStates": 1781,
+      "editorialClosure": {
+        "path": "localization/editorial-delivery/launcher-all30-20261104-01/sw/editorial-closure-01/closure.json",
+        "sha256": "4165877cf09a7fb132afca25dc6c351d8e5c05170bc1d00462fd57ef9a6e6351"
+      },
+      "resourceBuilds": "localization/editorial-delivery/launcher-all30-20261104-01/sw/editorial-closure-01/resource-builds.json",
+      "nativeRendering": "not-run"
+    },
+    "uk": {
+      "languageSha256": "54fa441fe7103fc0249e4a4275cda0bcce0316dd56d4aa7a6ce42bca2d097f44",
+      "ordinaryCurrentPasses": 12825,
+      "protectedSourceStates": 1781,
+      "editorialClosure": {
+        "path": "localization/editorial-delivery/launcher-all30-20261104-01/uk/editorial-closure-01/closure.json",
+        "sha256": "74e0ad5e49f0f0bfd376a876849f03f4ed0cbf70aeb076d7aa16c912b3f92dd3"
+      },
+      "resourceBuilds": "localization/editorial-delivery/launcher-all30-20261104-01/uk/editorial-closure-01/resource-builds.json",
+      "nativeRendering": "not-run"
+    }
+  },
+  "artifacts": {
+    "MacOS": {
+      "path": "dist/Forest-Languages-macOS.zip",
+      "bytes": 52580775,
+      "sha256": "e90ac072844c2846bf755fe07b3cbadfa11d84e2c5e2a5b0bb0466274499de17",
+      "buildReceipt": "MacOS/build-receipt.json",
+      "validation": "MacOS/validation.json"
+    },
+    "Windows": {
+      "path": "dist/Forest-Language-Installer-Windows-1_1.zip",
+      "bytes": 53235441,
+      "sha256": "157a512006939eb890df671bbe73228220baabb04c7401841668b31748b71f68",
+      "buildReceipt": "Windows/build-receipt.json",
+      "validation": "Windows/validation.json"
+    }
+  },
+  "macOSApplication": "dist/Forest Languages.app",
+  "macOSUI": "macos-ui-validation.json",
+  "tests": {
+    "macOSSynthetic": 141,
+    "macOSActualResource": 118,
+    "windowsActualResource": 83,
+    "windowsRetainedSynthetic": 1079,
+    "macOSActualSequence": [
+      "hi",
+      "sw",
+      "uk",
+      "ru",
+      "en"
+    ],
+    "windowsActualSequence": [
+      "hi",
+      "ru",
+      "sw",
+      "uk",
+      "en"
+    ]
+  },
+  "russian": "Accepted ru-baseline retained byte-exact; actual app left selected on Russian",
+  "ownerGameOrSavesChanged": false,
+  "gameLaunched": false,
+  "all12CliAttemptsClosed": true,
+  "cliUsage": "cli-usage.json",
+  "sourceBranch": "main",
+  "sitePublication": false,
+  "projectArchival": "Pending unfinished target runtime/human acceptance and owner delivery acceptance. This app task does not close the Forest localization project.",
+  "evidenceBodies": [
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-01/manifest.json",
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-02/manifest.json",
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-03/manifest.json",
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-04/manifest.json",
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-05/manifest.json",
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-06/manifest.json",
+    "localization/editorial-delivery/launcher-all30-20261104-01/closed-review-evidence-07/manifest.json"
+  ],
+  "coordinatorUsage": "coordinator-usage-final.json"
+}

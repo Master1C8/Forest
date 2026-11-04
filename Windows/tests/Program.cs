@@ -151,21 +151,24 @@ class Program {
             if (f.GetProperty("sha256").ValueKind != JsonValueKind.Null) Write(PathOf(game, name), File.ReadAllBytes(Path.Combine(data, name)));
         }
         Write(PathOf(game, "globalgamemanagers.assets"), File.ReadAllBytes(Path.Combine(data, "globalgamemanagers.assets")));
-        byte[] identity = Content("preserved identity", 0), settings = Content("preserved settings", 0);
+        byte[] identity = Content("preserved identity", 0), settings = Content("preserved settings", 0), save = Content("personal player save", 0);
         Write(PathOf(game, "app.info"), identity); Write(PathOf(game, "tfol.settings"), settings);
+        Write(PathOf(game, "tfol.savegame"), save);
         // Each actual compiler recipe runs through the shipping C# materializer and
         // transaction, then a fresh invocation checks the persisted previous version.
         int count = 0;
-        foreach (var locale in manifest.RootElement.GetProperty("locales").EnumerateArray().Where(x => new [] { "ru", "de", "ja", "ar" }.Contains(x.GetProperty("code").GetString()))) {
+        foreach (var locale in manifest.RootElement.GetProperty("locales").EnumerateArray().Where(x => new [] { "hi", "sw", "uk", "ru" }.Contains(x.GetProperty("code").GetString()))) {
             string code = locale.GetProperty("code").GetString();
             Apply(game, package, code);
             foreach (var f in locale.GetProperty("files").EnumerateArray())
                 Check(Installer.Hash(PathOf(game, f.GetProperty("path").GetString())) == f.GetProperty("sha256").GetString(), "real compiler payload differs");
             Check(File.ReadAllBytes(PathOf(game, "app.info")).SequenceEqual(identity), "actual payload changed identity");
             Check(File.ReadAllBytes(PathOf(game, "tfol.settings")).SequenceEqual(settings), "actual payload changed settings");
+            Check(File.ReadAllBytes(PathOf(game, "tfol.savegame")).SequenceEqual(save), "actual payload changed personal save");
             Console.WriteLine("actual payload passed: " + code); count++;
         }
         Apply(game, package, "en");
+        Check(File.ReadAllBytes(PathOf(game, "tfol.savegame")).SequenceEqual(save), "English restore changed personal save");
         foreach (var f in manifest.RootElement.GetProperty("originals").EnumerateArray()) {
             string name = f.GetProperty("path").GetString();
             Check(f.GetProperty("sha256").ValueKind == JsonValueKind.Null ? !File.Exists(PathOf(game, name)) :

@@ -28,9 +28,14 @@ import Darwin
         let settings = try Data(contentsOf: originalSettings)
         let originalAssembly = source.appendingPathComponent("Contents/Resources/Data/Managed/Assembly-CSharp.dll")
         let sourceHash = try fileSHA(originalAssembly)
-        let sequence = real ? ["de", "ja", "ar", "ru", "en"] : ["de", "ja", "en", "en"]
+        let sequence = real ? ["hi", "sw", "uk", "ru", "en"] : ["hi", "sw", "uk", "en", "en"]
         for code in sequence {
-            _ = try core.apply(source: source, locale: code, sign: real, progress: { print($0) })
+            var messages: [String] = []
+            _ = try core.apply(source: source, locale: code, sign: real, progress: { messages.append($0); print($0) })
+            if code == sequence[0] {
+                let count = config.locales.filter { $0.code != "en" }.count
+                try expect(messages.contains("Preparing all \(count) language packs…"), "progress reports actual package language count")
+            }
             let state = try core.state(at: core.current)
             try expect(state.locale == code, "selected locale state")
             let (manifest, _) = try core.preparePayload(progress: { _ in })
@@ -49,14 +54,23 @@ import Darwin
             try expect(try fileSHA(originalAssembly) == sourceHash, "original assembly untouched")
             if code == sequence[0] {
                 try Data("user preferences changed in managed copy".utf8).write(to: core.game.appendingPathComponent("Contents/tfol.settings"))
+                try Data("personal save changed during play".utf8).write(to: core.game.appendingPathComponent("Contents/tfol.savegame"))
                 try Data("unrelated mod".utf8).write(to: core.game.appendingPathComponent("Contents/Resources/unrelated-mod.txt"))
             } else {
                 try expect(try String(contentsOf: core.game.appendingPathComponent("Contents/tfol.settings"), encoding: .utf8) == "user preferences changed in managed copy", "managed settings preserved across switches")
+                try expect(try String(contentsOf: core.game.appendingPathComponent("Contents/tfol.savegame"), encoding: .utf8) == "personal save changed during play", "managed save preserved across switches")
                 try expect(try String(contentsOf: core.game.appendingPathComponent("Contents/Resources/unrelated-mod.txt"), encoding: .utf8) == "unrelated mod", "unrelated mod preserved")
             }
             try expect(!fm.fileExists(atPath: root.appendingPathComponent("Previous").path), "transaction backup removed")
             try expect(!fm.fileExists(atPath: root.appendingPathComponent("transaction.json").path), "journal removed")
         }
+        let labels = config.locales
+        let duplicate = PackageConfig(payloadSha256: config.payloadSha256, decodedSha256: config.decodedSha256, codecSha256: config.codecSha256, manifestSha256: config.manifestSha256, locales: labels + [labels[0]])
+        let duplicateCore = InstallerCore(root: root, resources: resources, config: duplicate)
+        try rejected("Language catalog differs") { _ = try duplicateCore.preparePayload(progress: { _ in }) }
+        let missing = PackageConfig(payloadSha256: config.payloadSha256, decodedSha256: config.decodedSha256, codecSha256: config.codecSha256, manifestSha256: config.manifestSha256, locales: Array(labels.dropLast()))
+        let missingCore = InstallerCore(root: root, resources: resources, config: missing)
+        try rejected("Language catalog differs") { _ = try missingCore.preparePayload(progress: { _ in }) }
         if real {
             try Data("settings changed during normal play".utf8).write(to: core.game.appendingPathComponent("Contents/tfol.settings"))
             _ = try core.verifyLaunch(expectedLocale: "en") // Validates signature and files; never opens a game.
