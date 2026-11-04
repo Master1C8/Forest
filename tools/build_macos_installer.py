@@ -35,7 +35,9 @@ def codecs():
 
 def payload():
     records=json.loads((WORK/'resources.json').read_bytes())
-    from build_windows_installer import selection
+    from build_windows_installer import CONFIG, selection
+    from forest_inventory_headings import validate_selection
+    validate_selection(ROOT, selection())
     expected=set(selection())
     assert len(records)==len(expected) and {r['locale'] for r in records}==expected
     labels=json.loads((ROOT/'Windows/locale-labels.generated.json').read_bytes())
@@ -66,7 +68,6 @@ def payload():
         for record in records:
             code=record['locale'];directory=WORK/'overlays'/code
             locale=dict(code=code,name=labels['englishNames'][code]+' / '+labels['names'][code],culture=record['culture'],languageSha256=record['languageSha256'],files=[])
-            from build_windows_installer import CONFIG
             source=ROOT/'localization/languages'/CONFIG['sourceOverrides'].get(code,code+'.json')
             assert sha(source)==record['languageSha256']
             for name in names:
@@ -97,7 +98,7 @@ def payload():
         restore='Install the licensed original macOS game 0.45 at /Applications/TheForestOfLove.app; preserve saves/settings. Restore Windows compiler inputs using STORAGE_RECOVERY.md.',
         identityPath=manifest['identityPath'],identitySha256=manifest['identitySha256'],originals=originals,
         serializedBundle=dict(bytes=asset.stat().st_size,sha256=sha(asset)),
-        windowsPayloadSha256=sha(Path(os.environ.get('FOREST_WINDOWS_PAYLOAD',str(ROOT/'dist/Forest-Language-Installer-Windows/Resources/ForestLanguages.forestpack')))),
+        nativeResourceReceiptsSha256=sha(WORK/'resources.json'),
         originalApplicationModified=False,externalSavesRead=False)
     (ROOT/'MacOS/original-inputs.json').write_bytes(encode(inputs))
     receipt=wrap(archive,WORK/'ForestLanguages.forestpack',6)
@@ -105,8 +106,12 @@ def payload():
     return manifest,receipt
 
 def app():
+    from build_windows_installer import selection
+    from forest_inventory_headings import validate_selection, validate_packed_sources
+    manifest=json.loads((WORK/'manifest.json').read_bytes())
+    selected=selection();validate_selection(ROOT,selected);validate_packed_sources(manifest,selected)
     codecs()
-    manifest=json.loads((WORK/'manifest.json').read_bytes());receipt=json.loads((ROOT/'MacOS/payload-receipt.json').read_bytes())
+    receipt=json.loads((ROOT/'MacOS/payload-receipt.json').read_bytes())
     assert sha(WORK/'ForestLanguages.forestpack')==receipt['sha256']
     config=dict(payloadSha256=receipt['sha256'],decodedSha256=receipt['decodedSha256'],codecSha256=sha(WORK/'forest-codec-universal'),
         manifestSha256=sha(WORK/'manifest.json'),locales=[dict(code='en',name='English (original)')]+[dict(code=x['code'],name=x['name']) for x in manifest['locales']])
@@ -124,7 +129,7 @@ def app():
     for source,name in [(ROOT/'Windows/vendor/lz4/LICENSE','LZ4-LICENSE.txt'),(ROOT/'Windows/vendor/lzma/LICENSE.txt','LZMA-NOTICE.txt'),(ROOT/'Windows/THIRD-PARTY-NOTICES.txt','THIRD-PARTY-NOTICES.txt'),(ROOT/'MacOS/README.txt','README.txt')]:shutil.copy2(source,resources/name)
     shutil.copy2(ROOT/'MacOS/App.icns',resources/'App.icns')
     info=dict(CFBundleName='Forest Languages',CFBundleDisplayName='Forest Languages',CFBundleExecutable='Forest Languages',CFBundleIdentifier='org.vnrevival.forest.languages',
-        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.1',CFBundleVersion='4',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
+        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.2',CFBundleVersion='5',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
         LSApplicationCategoryType='public.app-category.utilities')
     (contents/'Info.plist').write_bytes(plistlib.dumps(info))
     subprocess.run(['codesign','--force','--deep','--sign','-',str(destination)],check=True)
@@ -134,9 +139,9 @@ def app():
     subprocess.run(['ditto','-c','-k','--keepParent',str(destination),str(target)],check=True)
     assert target.stat().st_size<=100_000_000,'Distribution size exceeded the normal limit'
     pins={str(p.relative_to(ROOT)):sha(p) for p in sorted((ROOT/'MacOS').rglob('*')) if p.is_file() and not any(s in p.parts for s in ['build','bin','obj']) and p.name not in ['build-receipt.json','validation.json']}
-    for name in ['forest_macos.py','build_macos_installer.py','test_macos_installer.py','test_macos_launch.py','verify_macos_resources.py','forest_payload.py','forest_localization/Managed.cs']:
+    for name in ['forest_macos.py','build_macos_installer.py','build_windows_installer.py','forest_inventory_headings.py','test_macos_installer.py','test_macos_launch.py','verify_macos_resources.py','forest_payload.py','forest_localization/Managed.cs']:
         p=ROOT/'tools'/name;pins[str(p.relative_to(ROOT))]=sha(p)
-    for name in ['forest_bundle.c','chunks.c','THIRD-PARTY-NOTICES.txt','vendor/lz4/provenance.json','vendor/lzma/provenance.json']:
+    for name in ['forest_bundle.c','chunks.c','installer-config.json','THIRD-PARTY-NOTICES.txt','vendor/lz4/provenance.json','vendor/lzma/provenance.json']:
         p=ROOT/'Windows'/name;pins[str(p.relative_to(ROOT))]=sha(p)
     result=dict(artifact=str(target.relative_to(ROOT)),bytes=target.stat().st_size,sha256=sha(target),architectures=['arm64','x86_64'],minimumMacOS='14.0',
         payload=config,sourcePins=pins,gameLaunched=False,originalGameModified=False)

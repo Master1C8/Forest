@@ -1,35 +1,19 @@
 {
-  "status": "Russian-heading-repair-artifact-verified",
-  "version": "1.1.1",
+  "passed": true,
+  "version": "1.1.2",
   "artifact": "dist/Forest-Languages-macOS.zip",
-  "artifactSha256": "2cd5ecd2cc515fc8376a6f58ee5a117ed8266ada07396447ac1b3f48167c2838",
-  "artifactBytes": 52576058,
-  "actualResourceAssertions": 118,
-  "actualResourceTestSequence": [
-    "hi",
-    "sw",
-    "uk",
-    "ru",
-    "en"
-  ],
+  "bytes": 52583521,
+  "sha256": "0fc50707c86f12701e944b96600406801dd21422ee815084e3fd80395c657249",
+  "sourcePinsMatched": true,
+  "archiveInventoryMatched": true,
   "translationLocales": 30,
-  "totalOptions": 31,
-  "settingsAndSavePreservedAcrossSwitches": true,
-  "originalApplicationUnchanged": true,
-  "exactHeadingLayersReadback": 12,
-  "allOtherSerializedObjectsUnchanged": true,
-  "finalArchiveInventoryPassed": true,
-  "implementationSourcePinsMatched": true,
-  "postBuildEvidenceUpdates": {
-    "MacOS/native-resources.json": {
-      "atBuild": "ceb29fc5b259c9deff75173fc9d3dbd2379cd260d0d499e20238c90da3198323",
-      "current": "458a629e0a3744202483a5e6e6d27eeb5a5e0c03c64e3a9362a07a0526e212c0",
-      "reason": "Post-build aggregation of generated validation evidence; not an application input"
-    }
+  "headingFieldsReadBackAcrossBothPlatforms": 720,
+  "assertions": {
+    "synthetic": 149,
+    "actualNativeResources": 150
   },
-  "signing": "ad-hoc-deep-strict-verified",
-  "inGameHeadingRendering": "not-run",
-  "independentNewWordingReview": "not-run",
-  "projectArchival": "pending-unfinished-project",
-  "boundary": "Actual packaged resources and isolated installation; excludes visual Unity acceptance."
+  "inGameVisualAcceptance": "not-run",
+  "independentNewHeadingReview": "not-run",
+  "boundary": "Native Swift core and exact delivered resources; isolated owned copies, save/settings preservation, stale selected-version rejection and normal update",
+  "projectArchival": "pending-unfinished-project"
 }

@@ -306,12 +306,30 @@ final class InstallerCore: @unchecked Sendable {
             }
         }
     }
+    func validateLaunchVersion(_ manifest: PayloadManifest, expectedLocale: String) throws {
+        let value = try state(at: current)
+        try require(value.locale == expectedLocale, "The language changed in another launcher window. Apply your selected language again.")
+        var expected: [String: FilePin] = [:]
+        if expectedLocale == "en" {
+            for original in manifest.originals where original.sha256 != nil {
+                try require(expected[original.path] == nil, "Duplicate original resource")
+                expected[original.path] = FilePin(bytes: original.bytes, sha256: original.sha256!)
+            }
+        } else {
+            guard let locale = manifest.locales.first(where: { $0.code == expectedLocale }) else { throw ForestError("Unknown language") }
+            for file in locale.files {
+                try require(expected[file.path] == nil, "Duplicate language resource")
+                expected[file.path] = FilePin(bytes: file.bytes, sha256: file.sha256)
+            }
+        }
+        try require(value.files == expected, "This game copy uses an older language pack. Click Apply language to update it.")
+    }
     func verifyLaunch(expectedLocale: String) throws -> URL {
         try locked {
             try ensureGameStopped(); try recover()
             let (manifest, _) = try preparePayload(progress: { _ in })
             try validateCurrent(manifest)
-            try require(try state(at: current).locale == expectedLocale, "The language changed in another launcher window. Apply your selected language again.")
+            try validateLaunchVersion(manifest, expectedLocale: expectedLocale)
             try validateBundleLinks(game)
             // Forest writes Contents/tfol.settings inside its app. That changes
             // an ad-hoc sealed entry during normal play. Re-seal only our owned

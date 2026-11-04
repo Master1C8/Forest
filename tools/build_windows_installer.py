@@ -36,7 +36,8 @@ def source_pins():
     paths = [p for p in WIN.rglob('*') if p.is_file() and
              not any(x in p.relative_to(WIN).parts for x in ['bin', 'obj', 'build']) and p.name not in evidence]
     paths += [ROOT / 'tools' / n for n in ['build_windows_installer.py', 'forest_bundle_storage.py',
-              'forest_payload.py', 'restore_windows_inputs.py', 'extract_windows_icon.py', 'probe_windows_payload_size.py']]
+              'forest_payload.py', 'restore_windows_inputs.py', 'extract_windows_icon.py', 'probe_windows_payload_size.py',
+              'forest_inventory_headings.py', 'refresh_windows_payload.py']]
     return {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in sorted(paths)}
 
 
@@ -77,6 +78,8 @@ def build_locales():
 
 def collect_receipts():
     """Bind existing normal or byte-exact recovered outputs without recompiling."""
+    from forest_inventory_headings import validate_selection
+    validate_selection(ROOT, selection())
     records = []
     framework = json.loads((ROOT / 'localization/framework/forest045-shared/framework.json').read_bytes())
     expected_paths = {DATA + '/' + name for name in framework['resources']}
@@ -126,6 +129,8 @@ def catalog():
 
 def payload():
     from forest_bundle_storage import prepare
+    from forest_inventory_headings import validate_selection
+    validate_selection(ROOT, selection())
     WORK.mkdir(parents=True, exist_ok=True)
     chunker = WORK / 'chunks'
     subprocess.run(['cc', '-O2', '-Wall', '-Wextra', '-Werror', str(WIN / 'chunks.c'), '-o', str(chunker)], check=True)
@@ -229,9 +234,13 @@ def solid():
 
 
 def package():
+    from forest_inventory_headings import validate_selection, validate_packed_sources
+    selected = selection()
+    validate_selection(ROOT, selected)
+    manifest = json.loads((WORK / 'payload-manifest.json').read_bytes())
+    validate_packed_sources(manifest, selected)
     pin = solid()
     pin['bytes'] = pin['packedBytes']; pin['sha256'] = pin['packedSha256']
-    manifest = json.loads((WORK / 'payload-manifest.json').read_bytes())
     if sha((WORK / 'ForestLanguages.forestpack').read_bytes()) != pin['sha256']:
         raise ValueError('payload changed')
     english = json.loads((WIN / 'locale-labels.generated.json').read_bytes())['englishNames']
@@ -290,8 +299,12 @@ def package():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('stage', choices=['catalog', 'compile', 'receipts', 'payload', 'solid', 'package', 'all'])
+    parser.add_argument('stage', choices=['catalog', 'compile', 'receipts', 'payload', 'refresh', 'solid', 'package', 'all'])
     args = parser.parse_args()
+    if args.stage == 'refresh':
+        collect_receipts()
+        from refresh_windows_payload import refresh
+        refresh(ROOT, WORK, CONFIG, selection)
     for name, action in [('catalog', refresh_catalog), ('compile', build_locales), ('receipts', collect_receipts), ('payload', payload), ('solid', solid), ('package', package)]:
         if args.stage == name or args.stage == 'all' and name not in ['catalog', 'receipts', 'solid']:
             action()

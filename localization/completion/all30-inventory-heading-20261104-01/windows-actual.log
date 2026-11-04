@@ -1,0 +1,9 @@
+Unhandled exception. System.InvalidOperationException: Invalid recipe segment.
+   at VNRevival.Forest.Installer.Need(Boolean condition, String message) in /Users/antonkrutov/Desktop/Forest/Windows/ForestInstaller.cs:line 79
+   at VNRevival.Forest.Installer.ValidateRecipes(Resource[] files, Fingerprint[] bases) in /Users/antonkrutov/Desktop/Forest/Windows/ForestInstaller.cs:line 180
+   at VNRevival.Forest.Installer.LoadManifest(ZipArchive archive) in /Users/antonkrutov/Desktop/Forest/Windows/ForestInstaller.cs:line 168
+   at VNRevival.Forest.Installer.ApplyZip(String root, String package, String expectedSha, String code, String codec, String codecSha, Action`1 status, String decoded) in /Users/antonkrutov/Desktop/Forest/Windows/ForestInstaller.cs:line 346
+   at VNRevival.Forest.Installer.Apply(String root, String package, String expectedSha, String code, String codec, String codecSha, Action`1 status) in /Users/antonkrutov/Desktop/Forest/Windows/ForestInstaller.cs:line 328
+   at Program.Apply(String game, String package, String code) in /Users/antonkrutov/Desktop/Forest/Windows/tests/Program.cs:line 122
+   at Program.RealPackage(String package, String original) in /Users/antonkrutov/Desktop/Forest/Windows/tests/Program.cs:line 166
+   at Program.Main(String[] args) in /Users/antonkrutov/Desktop/Forest/Windows/tests/Program.cs:line 189

@@ -178,6 +178,25 @@ for both platform payload builders; a platform-specific Russian override must no
 silently select the old file again. Regression: both packaged Russian resources
 must read back all twelve headings as `ИНВЕНТАРЬ`, with every other object unchanged.
 
+Launcher 1.1.2 also migrates German's unchanged v1 wording to v2 and adds its twelve
+`INVENTAR` layers. The remaining 28 languages already contained the selectors.
+`tools/forest_inventory_headings.py` gates both payload builders and final
+packages: every selected locale must contain all twelve translated fields, and
+the packed language hashes must match the current configured sources. The macOS
+launch guard compares installed selected-language resource pins with the current
+payload, while allowing an unchanged locale from an older overall package.
+Old owned files can still be updated through normal Apply language.
+
+For a verified existing Windows payload, `tools/build_windows_installer.py refresh`
+updates changed non-bundle resources and retains exact unchanged bundle evidence.
+Changed bundles require the full `payload` route. Every reconstructed resource
+is checked, literal segments are limited to 65536 bytes by the shipping installer
+contract, and unused blobs are pruned. Publication preserves the old archive,
+manifest and receipt; replacements are sequential, with the receipt last.
+An interruption is rejected as inconsistent, not treated as a multi-file
+transaction. Regressions cover interruption after the first two writes, retained
+recovery inputs, the 64 KiB limit, stale sources and English fallback.
+
 Run the small input/publication regressions with:
 
 ```sh
@@ -197,8 +216,9 @@ twelve English inventory-heading layers omitted by the difference-only catalog,
 and a German compound split without a hyphen in the quest list. The shared v2
 catalog fixes the selector omission for new builds; Spanish includes all twelve
 localized layers. The six-frame
-visual gate is not accepted. The tested package remains unchanged; the findings
-still need a German rebuild and layout verification.
+visual gate is not accepted. The tested package remains unchanged. Launcher 1.1.2
+now includes the German heading rebuild; the remaining layout/visual findings
+are outside this heading repair and remain pending.
 
 Filled JSON entries establish schema completeness only. Target selectors must
 also cover the existing canonical inventory, including fields unchanged in the

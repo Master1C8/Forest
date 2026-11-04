@@ -40,6 +40,37 @@ import Darwin
             try expect(state.locale == code, "selected locale state")
             let (manifest, _) = try core.preparePayload(progress: { _ in })
             try core.validateCurrent(manifest)
+            try core.validateLaunchVersion(manifest, expectedLocale: code)
+            try expect(true, "installed selected language matches current payload")
+            if code == sequence[0] {
+                let stateURL = core.current.appendingPathComponent("state.json")
+                let originalState = try Data(contentsOf: stateURL)
+                let heading = core.game.appendingPathComponent("Contents/Resources/Data/sharedassets2.assets")
+                let goodHeading = try Data(contentsOf: heading)
+                var upgraded = false
+                do {
+                    defer { if !upgraded { try? goodHeading.write(to: heading); try? originalState.write(to: stateURL) } }
+                    let olderPayload = String(repeating: "0", count: 64)
+                    let unchanged = InstalledState(owner: state.owner, transaction: state.transaction, locale: state.locale,
+                        source: state.source, payloadSha256: olderPayload, files: state.files)
+                    try core.write(unchanged, to: stateURL)
+                    try core.validateLaunchVersion(manifest, expectedLocale: code)
+                    try expect(true, "other-language package updates retain matching selected resources")
+                    let originalHeading = try Data(contentsOf: source.appendingPathComponent("Contents/Resources/Data/sharedassets2.assets"))
+                    try originalHeading.write(to: heading)
+                    var oldFiles = state.files
+                    oldFiles["sharedassets2.assets"] = FilePin(bytes: originalHeading.count, sha256: sha256(originalHeading))
+                    try core.write(InstalledState(owner: state.owner, transaction: state.transaction, locale: state.locale,
+                        source: state.source, payloadSha256: olderPayload, files: oldFiles), to: stateURL)
+                    try core.validateCurrent(manifest) // Ownership/hash integrity is valid; only the version differs.
+                    try rejected("older language pack") { _ = try core.verifyLaunch(expectedLocale: code) }
+                    _ = try core.apply(source: source, locale: code, sign: real, progress: { _ in })
+                    upgraded = true
+                }
+                try core.validateCurrent(manifest)
+                try core.validateLaunchVersion(manifest, expectedLocale: code)
+                try expect(true, "older owned language version upgraded through normal apply")
+            }
             _ = try core.validateSource(source, manifest)
             try expect(true, "all original resource hashes unchanged")
             for original in manifest.originals {

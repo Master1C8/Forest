@@ -147,3 +147,14 @@ Authenticate as Master1C8, then download the two versioned assets with
 Verify their hashes against the retained checksums before use. These are backups
 of the two final offline installers, not a published mod or a source-only archival
 closure. The unfinished Forest project's native/human acceptance gates remain.
+# Launcher inventory-heading repair, 1.1.2
+
+The current final macOS and Windows launchers use these recovery asset names in
+the private draft Release in `Master1C8/Forest`, tag `storage-recovery-20261103`:
+`Forest-Languages-macOS-1.1.2.zip`, `Forest-Languages-Windows-1.1.2.zip`, and
+`Forest-launchers-1.1.2-SHA256SUMS.txt`. Their source, 720 exact heading readbacks,
+installation/upgrade tests and final backup receipt are indexed under
+`localization/completion/all30-inventory-heading-20261104-01/`.
+Download these three assets through the existing authenticated `gh release download`
+workflow and verify their SHA-256 values. Older delivery/backup assets are preserved.
+This finite repair does not complete whole-project archival or native visual QA.

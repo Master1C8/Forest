@@ -1,0 +1,46 @@
+{
+  "status": "local-delivery-verified",
+  "version": "1.1.2",
+  "sourceBinding": "canonical source in this commit",
+  "assets": [
+    {
+      "name": "Forest-Languages-macOS-1.1.2.zip",
+      "sha256": "0fc50707c86f12701e944b96600406801dd21422ee815084e3fd80395c657249",
+      "bytes": 52583521
+    },
+    {
+      "name": "Forest-Languages-Windows-1.1.2.zip",
+      "sha256": "e23bbdd081f5626bbf97449c77ed285cba1420fbc10be299846e641e24e02d88",
+      "bytes": 60438098
+    }
+  ],
+  "sourceChanges": [
+    "Russian and German migrated to existing shared v2 heading selectors",
+    "Other28 exact source wordings retained",
+    "All30 source and packed-version release guards",
+    "Native installed selected-version launch guard and normal upgrade",
+    "Verified incremental Windows payload refresh with64KiB segments"
+  ],
+  "evidence": {
+    "headings": "all30-readback.json",
+    "headingReadbacks": 720,
+    "nativeRealAssertions": 150,
+    "nativeSyntheticAssertions": 149,
+    "windowsActualAssertions": 102,
+    "windowsActualLocales": [
+      "de",
+      "hi",
+      "ru",
+      "sw",
+      "uk"
+    ],
+    "sourceAndArchiveChecks": "delivery-validation.json",
+    "UI": "launcher-ui-validation.json"
+  },
+  "runtimeVisualAcceptance": "not-run; owner had not checked Russian; no new multilingual screenshot review",
+  "independentNewHeadingReview": "not-run",
+  "privateBackup": "pending-final1.1.2-assets",
+  "additionalModelWorkersStarted": 0,
+  "projectArchival": "pending-unfinished-project",
+  "ownerGameOrSavesModifiedInAll30Continuation": false
+}

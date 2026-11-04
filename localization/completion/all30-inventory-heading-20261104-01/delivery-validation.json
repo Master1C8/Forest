@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "platforms": {
+    "MacOS": {
+      "passed": true,
+      "version": "1.1.2",
+      "artifact": "dist/Forest-Languages-macOS.zip",
+      "bytes": 52583521,
+      "sha256": "0fc50707c86f12701e944b96600406801dd21422ee815084e3fd80395c657249",
+      "sourcePinsMatched": true,
+      "archiveInventoryMatched": true,
+      "translationLocales": 30,
+      "headingFieldsReadBackAcrossBothPlatforms": 720,
+      "assertions": {
+        "synthetic": 149,
+        "actualNativeResources": 150
+      },
+      "inGameVisualAcceptance": "not-run",
+      "independentNewHeadingReview": "not-run",
+      "boundary": "Native Swift core and exact delivered resources; isolated owned copies, save/settings preservation, stale selected-version rejection and normal update",
+      "projectArchival": "pending-unfinished-project"
+    },
+    "Windows": {
+      "passed": true,
+      "version": "1.1.2",
+      "artifact": "dist/Forest-Language-Installer-Windows-1_1_2.zip",
+      "bytes": 60438098,
+      "sha256": "e23bbdd081f5626bbf97449c77ed285cba1420fbc10be299846e641e24e02d88",
+      "sourcePinsMatched": true,
+      "archiveInventoryMatched": true,
+      "translationLocales": 30,
+      "headingFieldsReadBackAcrossBothPlatforms": 720,
+      "assertions": {
+        "actualPayload": 102
+      },
+      "inGameVisualAcceptance": "not-run",
+      "independentNewHeadingReview": "not-run",
+      "boundary": "Shipping C# core on macOS .NET8 with matching-source host codec; isolated Windows resources and a dummy never-run executable; Windows native UI/PowerShell5.1 not run",
+      "projectArchival": "pending-unfinished-project"
+    }
+  },
+  "immutableRussianBaselinePreserved": true
+}

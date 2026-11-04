@@ -156,8 +156,12 @@ class Program {
         Write(PathOf(game, "tfol.savegame"), save);
         // Each actual compiler recipe runs through the shipping C# materializer and
         // transaction, then a fresh invocation checks the persisted previous version.
+        string[] targetCodes = (Environment.GetEnvironmentVariable("FOREST_TEST_LOCALES") ?? "hi,sw,uk,ru").Split(',');
+        Check(targetCodes.Length > 0 && targetCodes.Distinct().Count() == targetCodes.Length, "invalid actual test locale selection");
+        var targetLocales = manifest.RootElement.GetProperty("locales").EnumerateArray().Where(x => targetCodes.Contains(x.GetProperty("code").GetString())).ToArray();
+        Check(targetLocales.Length == targetCodes.Length, "actual test locale selection is incomplete");
         int count = 0;
-        foreach (var locale in manifest.RootElement.GetProperty("locales").EnumerateArray().Where(x => new [] { "hi", "sw", "uk", "ru" }.Contains(x.GetProperty("code").GetString()))) {
+        foreach (var locale in targetLocales) {
             string code = locale.GetProperty("code").GetString();
             Apply(game, package, code);
             foreach (var f in locale.GetProperty("files").EnumerateArray())
@@ -180,6 +184,14 @@ class Program {
         Installer.TestTemporaryRoot=Path.GetFullPath("dist/windows-installer-work/core-temp");
         Directory.CreateDirectory(Installer.TestTemporaryRoot);
         Codec = Path.GetFullPath(Environment.GetEnvironmentVariable("FOREST_TEST_CODEC") ?? "dist/windows-installer-work/forest-bundle"); CodecSha = Installer.Hash(Codec);
+        if (args.Length == 2 && args[0] == "manifest") {
+            using var archive = ZipFile.OpenRead(args[1]);
+            var reader = typeof(Installer).GetMethod("LoadManifest", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+            if (reader == null) throw new Exception("Shipping manifest reader is unavailable");
+            try { reader.Invoke(null, new object[] { archive }); }
+            catch (System.Reflection.TargetInvocationException e) { throw e.InnerException ?? e; }
+            Console.WriteLine("PASS shipping manifest reader: all locale/resource recipes accepted; no install"); return 0;
+        }
         if (args.Length > 0 && args[0] == "actual") {
             Root=Path.GetFullPath(args[1]); Directory.CreateDirectory(Root);
             RealPackage(Path.GetFullPath(args[2]),Path.GetFullPath(args[3]));

@@ -1,0 +1,10 @@
+{
+  "firstActualInstall": {
+    "exitCode": 134,
+    "failure": "Invalid recipe segment",
+    "boundary": "Shipping C# LoadManifest/ValidateRecipes; installer rejects new4.4MB literal before applying resources",
+    "ownerGameTouched": false
+  },
+  "repair": "Use maximum65536-byte literals and validate through the actual shipping manifest reader before compression",
+  "rejectedArtifact": "dist/all30-inventory-work/rejected-oversized-segment-Windows-1.1.2.zip"
+}
