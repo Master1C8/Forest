@@ -1,5 +1,5 @@
 {
-  "status": "Mac1.1.1-delivered-continued-by-all30-owner-request",
+  "status": "Russian1.1.1-delivered-and-finalized-by-all30-1.1.2",
   "sourceCommit": "5f7a4b1bb6d41399017f4e78e8df433390ce750c",
   "sourcePushed": true,
   "macOS": {
@@ -20,8 +20,8 @@
       "cs",
       "de",
       "el",
-      "es-419",
       "es",
+      "es-419",
       "fa",
       "fil",
       "fr",
@@ -35,20 +35,29 @@
       "nl",
       "pl",
       "pt-BR",
-      "ro"
+      "ro",
+      "ru",
+      "sr",
+      "sw",
+      "th",
+      "tr",
+      "uk",
+      "vi",
+      "zh",
+      "zh-TW"
     ],
-    "next": "Wait for exact session completion, then package and run actual materializer tests",
+    "next": "No remaining work; final Windows1.1.2 delivery is in the all30 control",
     "normalPayloadComplete": true
   },
   "backup": {
     "privateDraft": "storage-recovery-20261103",
-    "macUploadSession": 31337
+    "macUploadSession": null,
+    "macUploadComplete": true
   },
-  "remaining": [
-    "Finish Windows payload/package and real-payload materializer test",
-    "Verify remote final artifact downloads and commit final delivery evidence"
-  ],
+  "remaining": [],
   "projectArchival": "pending-unfinished-project",
   "noExtraModelJobs": true,
-  "nextControl": "localization/completion/all30-inventory-heading-20261104-01"
+  "nextControl": "localization/completion/all30-inventory-heading-20261104-01",
+  "activeJobs": [],
+  "finalDelivery": "localization/completion/all30-inventory-heading-20261104-01/delivery.json"
 }
