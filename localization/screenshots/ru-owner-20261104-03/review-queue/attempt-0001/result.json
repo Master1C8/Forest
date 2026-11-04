@@ -1,0 +1,44 @@
+{
+  "packetSha256": "30e7941866fb8c6310198d364260cb698282a440ad0955a8fe1f917a996b23eb",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "4496c91ff9620b82a04feb789ba5a748948582c080eb2581e332d97a2c5e52f0.webp",
+      "sha256": "8b7a8bc2caaf88ed8a16b23614370bb2cbc6cd45e9a68959453ad97b8ef4f4dc",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T13:24:54.316873+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. The quest title, complete description and all three history rows, including [Задание выполнено], are readable without portrait overlap. Other fully visible quest labels are readable. No missing glyphs, literal markup or external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Quest list, upper edge, approximately x175–380, y158–195",
+          "observed": "The first visible quest entry is clipped at the panel’s upper boundary; only «перехода» remains visible.",
+          "expected": "At the stated original top boundary, the first quest label must be completely visible with padding.",
+          "nextAction": "Check the quest list’s actual ScrollRect position and clipping bounds, correct the lost label area, and recapture the complete frame."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Quest list, clipped first entry",
+          "observed": "The complete first label cannot be verified. «Друг интересуется» is not visible in this frame, so its requested clipping check cannot be resolved.",
+          "expected": "Required quest labels must be visible in full to establish readability.",
+          "nextAction": "Provide a corrected prepared capture exposing the complete first entry and the requested «Друг интересуется» label."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "packetSha256": "021479ad156099f020a19e810955dccf1f957bcc7d7d7ddc058f4b0b3669f126",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "951d3adc1cfca10b83811898f0687ea8453d5e0f148e25f7f7fd78df238c7695.webp",
+      "sha256": "02237fdf8baf015f09104d1417e139e386ca54e7599420b2f50942f5c38c15ca",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T12:51:16.280979+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. Russian labels, controls and unlocked counters (11/11 and 46/46) are readable without clipping or overlap. No missing glyphs or external overlays are visible. The gallery heading remains English.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top-center heading, approximately x=395–890, y=65–245",
+          "observed": "The prominent heading reads “Gallery”. This English UI heading is outside the protected branding literals.",
+          "expected": "A Russian gallery heading matching the authored localization.",
+          "nextAction": "Trace the heading’s authored text and title asset/resource binding, then supply a corrected, version-bound capture for review."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

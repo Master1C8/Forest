@@ -1,0 +1,36 @@
+{
+  "packetSha256": "0a4bee7f7293d7fcb37d9cf61dafa9f0e16e71d43f572d638c750a59d9ce157b",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 5,
+      "direction": "ltr",
+      "filename": "8d8a365a271b010b045f327f9e26203669f0bccc1ee11e0b7a5f28fd9f95e46c.webp",
+      "sha256": "02b75a425fc51234d54a22aaa627dee2e989c75b5f9006baf086cd1f7ab903d3",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0005",
+      "reviewedAt": "2026-11-04T12:52:49.263718+00:00",
+      "observations": "Inspected the entire 1280×800 prepared frame. Russian names, character details and both fact sections are readable without visible clipping or overlap. Intentional ??? entries and original L/R prompts are acceptable. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Upper-left panel heading, approximately x=187–381, y=184–232",
+          "observed": "The visible heading “Residents” remains in English within the Russian interface.",
+          "expected": "A Russian heading matching the authored localization; this label has no protected-literal exemption.",
+          "nextAction": "Trace this heading’s authored text and resource binding through the packaged UI, correct the English fallback, and review a new capture of the affected frame."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

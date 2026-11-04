@@ -1,0 +1,36 @@
+{
+  "packetSha256": "783243539db16f7daa5caa3cbd621007a24e20c5b705b6c829bcdc148cf70e1a",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "2ef4ae9aeef1fba34d27c2670670199859d3bcf17ff9c9e013f81a3caa817c30.webp",
+      "sha256": "4a404af80309f28216d14112c801b63a0b1884420c531b3797b555ca7fab729d",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T13:30:09.090554+00:00",
+      "observations": "Inspected the entire 1280×800 prepared frame. «Горячие кадры», its complete description and all three history rows, including «[Задание выполнено]», are readable without portrait overlap. «Друг интересуется» wraps cleanly without isolated letters. No missing glyphs or external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout/content",
+          "severity": "minor",
+          "region": "Bottom of completed-quest list, approximately x170–410, y638–681",
+          "observed": "The bottommost entry shows «Возможен» near the viewport boundary. This packet does not establish whether that is its complete title or whether another wrapped line is hidden below the boundary.",
+          "expected": "Enough visible text and source context to establish the complete quest label.",
+          "nextAction": "Compare this entry with its authored title. If it continues, provide a prepared capture with that row fully visible to resolve the uncertainty."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

@@ -1,5 +1,15 @@
 # Screenshot review
 
+Russian screenshot regression (2026-11-04): source sprite names `gallery_logo`
+and `CritterLog_Residents_Label` contain visible English headings even when all
+nearby text is translated. Inspect the actual native replacement captions.
+For completed quests, verify the final history row as well as separation from
+the portrait. Fixed artwork and scrolling body geometry use different origins;
+test a repeated selection after scrolling. A partly visible neighboring quest
+row at an intermediate scroll offset is not evidence of a truncated translation:
+capture a complete row boundary and inspect its actual word wrapping. Keep all
+earlier failed frames and judgments; subsequent captures use a new immutable run.
+
 New review work uses the shared queue maintained in the canonical SiteForMods checkout.
 Existing capture and review processes are not modified or redirected.
 

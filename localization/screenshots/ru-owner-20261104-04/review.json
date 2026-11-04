@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "84b390445bc5fbd38342d0548a01ed95cb3ecdd047dfc95b18ef3848459e4ab2",
+    "provenance:sourceManifest": "d2d66fa5faf4b709b4fdbd787a94314c06dad07af83309197d77e4df209a43e6",
+    "provenance:source:cleanup": "a5028a7c28dec71e791a9c60bfb4bc3bb26c317fbb8846c312ec9ac9fbc2933b",
+    "provenance:source:build": "155b79f32066570b4fce82f52cbc4b7b2c9dce5afff9004857c755ad69c43aea",
+    "provenance:source:state": "53a3b11e96044c15a86dc59fc206c09080b6ea34465f2726b42c6a8081068df6",
+    "provenance:source-image:ru-06-hot-takes.png": "2ef4ae9aeef1fba34d27c2670670199859d3bcf17ff9c9e013f81a3caa817c30",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "feae85a5b05397bbf59ce0e9b0cb2db60a2f0f84bea612027452eb42152e8d95"
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "2ef4ae9aeef1fba34d27c2670670199859d3bcf17ff9c9e013f81a3caa817c30.webp",
+      "sha256": "4a404af80309f28216d14112c801b63a0b1884420c531b3797b555ca7fab729d",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T13:30:09.090554+00:00",
+      "observations": "Inspected the entire 1280×800 prepared frame. «Горячие кадры», its complete description and all three history rows, including «[Задание выполнено]», are readable without portrait overlap. «Друг интересуется» wraps cleanly without isolated letters. No missing glyphs or external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout/content",
+          "severity": "minor",
+          "region": "Bottom of completed-quest list, approximately x170–410, y638–681",
+          "observed": "The bottommost entry shows «Возможен» near the viewport boundary. This packet does not establish whether that is its complete title or whether another wrapped line is hidden below the boundary.",
+          "expected": "Enough visible text and source context to establish the complete quest label.",
+          "nextAction": "Compare this entry with its authored title. If it continues, provide a prepared capture with that row fully visible to resolve the uncertainty."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

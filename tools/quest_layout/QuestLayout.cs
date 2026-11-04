@@ -92,9 +92,17 @@ public static class VNRevivalQuestLayout {
         float cursor=4;
         var dr=s.description.rectTransform;dr.anchorMin=dr.anchorMax=new Vector2(0,1);dr.pivot=new Vector2(0,1);dr.anchoredPosition=new Vector2(s.descX,-cursor);
         Wrap(s.description,Mathf.Min(148,width-s.descX-12));float descHeight=Place(s.description,s.content,-cursor);
-        var pr=s.portrait.rectTransform;
-        float portraitHeight=s.portrait.enabled&&s.portrait.gameObject.activeInHierarchy?pr.rect.height*pr.localScale.y-s.portraitDeltaY:0;
-        cursor+=Mathf.Max(descHeight,portraitHeight)+10;
+        // The portrait stays fixed under the title while the body viewport moves
+        // with the generated title ink. Measure the actual bottom in content
+        // coordinates; height plus the old authored delta loses that offset.
+        float portraitBottom=0;
+        if(s.portrait.enabled&&s.portrait.gameObject.activeInHierarchy) {
+            var corners=new Vector3[4];s.portrait.rectTransform.GetWorldCorners(corners);
+            foreach(var corner in corners)portraitBottom=Mathf.Max(portraitBottom,-s.content.InverseTransformPoint(corner).y);
+        }
+        // Fill the available left column below the description first. Waiting
+        // for the entire portrait wasted enough space to hide the final row.
+        cursor+=descHeight+8;
         foreach(var text in s.history) {
             var r=text.rectTransform;var row=(RectTransform)r.parent;
             bool present=!String.IsNullOrWhiteSpace(text.text);row.gameObject.SetActive(present);if(!present)continue;
@@ -102,7 +110,8 @@ public static class VNRevivalQuestLayout {
             r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(r.anchoredPosition.x,0);
             float leftColumnWidth=s.descX+148-10-r.anchoredPosition.x;
             float available=width-26-r.anchoredPosition.x;
-            Wrap(text,reservePortraitColumn?Mathf.Min(leftColumnWidth,available):available);float h=Place(text,s.content,-cursor);row.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,h);cursor+=h+5;
+            bool besidePortrait=reservePortraitColumn||cursor<portraitBottom+6;
+            Wrap(text,besidePortrait?Mathf.Min(leftColumnWidth,available):available);float h=Place(text,s.content,-cursor);row.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,h);cursor+=h+4;
         }
         return cursor+4;
     }
@@ -115,6 +124,10 @@ public static class VNRevivalQuestLayout {
         var tr=s.title.rectTransform;tr.anchorMin=tr.anchorMax=new Vector2(.5f,1);tr.pivot=new Vector2(.5f,1);tr.anchoredPosition=new Vector2(-5,s.titleY);
         Wrap(s.title,width-16);float titleHeight=Place(s.title,s.root,s.root.rect.yMax+s.titleY);float header=Mathf.Abs(s.titleY)+titleHeight+8;
         s.viewport.offsetMin=new Vector2(0,4);s.viewport.offsetMax=new Vector2(0,-header);
+        // Measure against the unscrolled content origin, then restore the
+        // reader's normalized position below. Otherwise repeated Apply calls
+        // feed the previous ScrollRect offset back into the portrait gap.
+        s.content.anchoredPosition=Vector2.zero;
         // History begins below both description and portrait. Use the full row
         // width when the whole body fits, rather than reserving an empty column.
         // A genuinely scrolling body retains the narrower column so text cannot

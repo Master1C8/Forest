@@ -20,7 +20,7 @@ import subprocess
 import sys
 import tempfile
 
-from forest_localization import font_metrics
+from forest_localization import font_metrics, image_captions
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_NAME = 'The Forest of Love_Data'
@@ -504,6 +504,7 @@ def load_language(path, frameworks):
         need(type(size) in (int, float) and 8 <= size <= 128, 'layout-size-bounds:' + role)
         # No translation may replace a technical whole field carried by the
         # original complete dialogue inventory. Use its owning inline guard.
+    image_captions.validate(doc, need)
     return doc, directory, framework, catalog, missing
 
 
@@ -664,6 +665,8 @@ def merge_wording(language, wording, output):
 
 def engine_fingerprint():
     paths = ['tools/forest_localization/core.py', 'tools/forest_localization/Managed.cs',
+             'tools/forest_localization/image_captions.py', 'tools/forest_localization/CaptionPatch.cs',
+             'tools/quest_layout/QuestLayout.cs', 'tools/quest_layout/ImageCaptions.cs',
              'tools/forest_localization/font_metrics.py',
              'tools/forest_localization/Managed.csproj', 'tools/extract_assets.py', 'tools/addressables_catalog.py',
              'tools/locale_completion/resource_composition_v1/compose.py',
@@ -835,6 +838,10 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
                                                        directory/'base'/name, target)
             files['StreamingAssets/aa/catalog.json'] = catalog_out.read_bytes()
             proofs.append(dict(asset='StreamingAssets/aa/catalog.json', **proof))
+        proofs.extend(image_captions.build(doc, files, ROOT, directory, work, need))
+        if 'imageCaptions' in doc:
+            by_asset.setdefault('Managed/Assembly-CSharp.dll', [])
+            by_asset.setdefault('Managed/VNRevivalQuestLayout.dll', [])
     need(binding(language)['sha256'] == stamp['languageSha256'] and engine_fingerprint()[1] == engine_hash,
          'build-input-or-engine-changed-during-compilation')
     framework_manifest(directory)

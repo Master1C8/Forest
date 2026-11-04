@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "39c4d6111cbe948b094cc662863d994ebed09f8c779dacb76ed42ff4ed4860a4",
+    "provenance:sourceManifest": "c0d4dfd8ffd3b11922740e468facefc5dc218398692a27bd05eae104054795e5",
+    "provenance:source:cleanup": "f3727bb722917d9df780df0a7572354b920b2f38caa3137afb043261b176027e",
+    "provenance:source:build": "9757c0bde96ad50fb8da31ccd0d85cef65e04a96d95efd353f0c9335ee672e1c",
+    "provenance:source:resources": "3065f804f7de8ae23ad1451e698cc3498b59819cf435f5d5cb77f65f60ab838b",
+    "provenance:source-image:ru-03-gallery.png": "a5dbf14fafa947d84806423233b26d38c296b812c3ec740e467518f6eb782cea",
+    "provenance:source-image:ru-05-scarlett.png": "4e1edb392fe2baa720060a3222c057839f63796741df38d9f2ad813172fd0066",
+    "provenance:source-image:ru-06-hot-takes.png": "48439b1e06f7c92c1981848c6c316ecea464c53f6244fe0028b8279c91a14a4e",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "d8c8f856accde16d17f91e2081d3f8418a618ddd54c5857d3302d37dfd77359b"
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "a5dbf14fafa947d84806423233b26d38c296b812c3ec740e467518f6eb782cea.webp",
+      "sha256": "ecbc747e6832d796d84495527a5f5afe64418b3d2afb05e2aba2bb3186e4f609",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T13:16:57.208207+00:00",
+      "observations": "Inspected the complete delivered 1280×800 prepared image. «Галерея», «Фильмы (открыто: 11/11)», «Истории (открыто: 46/46)» and all bottom controls are readable Russian with intact glyphs, adequate spacing and no text clipping or overlap. No untranslated UI, visible markup or external overlays observed.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 5,
+      "direction": "ltr",
+      "filename": "4e1edb392fe2baa720060a3222c057839f63796741df38d9f2ad813172fd0066.webp",
+      "sha256": "dc344266b857707ce76faa96d2f85c6fe51efec4e938b47b0c25c2da9b7a826c",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T13:17:34.516916+00:00",
+      "observations": "Inspected the complete delivered 1280×800 image. The Жители heading, resident list, Скарлетт Нежнолапка card, facts and section labels are readable without visible clipping or overlap. Cyrillic glyphs render correctly. Intentional ??? entries and original L/R prompts are preserved. No untranslated UI, visible markup or external overlays observed.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "48439b1e06f7c92c1981848c6c316ecea464c53f6244fe0028b8279c91a14a4e.webp",
+      "sha256": "3224d382522ff39daf4763e9e250090b88dc3fa4f7e84ff864caafff28c91158",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T13:18:35.321910+00:00",
+      "observations": "Inspected the entire delivered 1280×800 image. The Russian quest title, description and first two history entries are readable. The camera illustration does not overlap them. Lower history text is clipped; the completed-quest list also contains broken word wrapping. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Quest history, approximately x454–850, y642–662",
+          "observed": "An additional history line is reduced to partial upper glyph fragments at the lower content boundary. Its wording and glyphs cannot be resolved.",
+          "expected": "The complete completed-quest history remains readable without clipped lines.",
+          "nextAction": "Inspect the quest-history viewport and text bounds, correct the clipping, and provide a new full-frame capture showing the complete history."
+        },
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Completed-quest list, «Друг интересуется», approximately x165–390, y369–464",
+          "observed": "«интересуется» breaks inside the word, leaving its final «я» alone on a third line.",
+          "expected": "The quest label wraps at word boundaries without an isolated final letter.",
+          "nextAction": "Adjust the list label's available width, wrapping or sizing and verify it in a new prepared capture."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

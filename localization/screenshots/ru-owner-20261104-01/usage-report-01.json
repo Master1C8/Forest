@@ -1,0 +1,103 @@
+{
+  "workers": [
+    {
+      "task": "attempt-0001",
+      "sessionId": "01a1a69a-a470-7d42-9025-2a766b8070d5",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37104,
+      "cachedInput": 17792,
+      "output": 410,
+      "reasoningOutput": 155,
+      "total": 37514
+    },
+    {
+      "task": "attempt-0002",
+      "sessionId": "01a1a69b-499d-7ba1-9c02-0e2408ad2257",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 55264,
+      "cachedInput": 35712,
+      "output": 498,
+      "reasoningOutput": 200,
+      "total": 55762
+    },
+    {
+      "task": "attempt-0003",
+      "sessionId": "01a1a69c-0cd6-71c3-a4cf-8212db4d11f5",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37115,
+      "cachedInput": 17792,
+      "output": 618,
+      "reasoningOutput": 293,
+      "total": 37733
+    },
+    {
+      "task": "attempt-0004",
+      "sessionId": "01a1a69d-1b2b-7aa1-9358-d64ec5dfde77",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 55260,
+      "cachedInput": 35712,
+      "output": 481,
+      "reasoningOutput": 188,
+      "total": 55741
+    },
+    {
+      "task": "attempt-0005",
+      "sessionId": "01a1a69d-f4fc-74f1-9c72-3cc048d49cbf",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37138,
+      "cachedInput": 17792,
+      "output": 547,
+      "reasoningOutput": 219,
+      "total": 37685
+    },
+    {
+      "task": "attempt-0006",
+      "sessionId": "01a1a69e-8660-7e72-91a4-bf340c660a6b",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37133,
+      "cachedInput": 17792,
+      "output": 961,
+      "reasoningOutput": 516,
+      "total": 38094
+    },
+    {
+      "task": "attempt-0007",
+      "sessionId": "01a1a69f-6832-70c0-9036-7f4ba1476a14",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37127,
+      "cachedInput": 17792,
+      "output": 357,
+      "reasoningOutput": 97,
+      "total": 37484
+    }
+  ],
+  "workerSubtotal": {
+    "input": 296141,
+    "cachedInput": 160384,
+    "output": 3872,
+    "total": 300013
+  },
+  "coordinator": {
+    "sessionId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "delta": {
+      "input_tokens": 5179641,
+      "cached_input_tokens": 5172736,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 22653,
+      "reasoning_output_tokens": 18821,
+      "total_tokens": 5202294
+    },
+    "baselineAt": "2026-11-04T12:40:56.641Z",
+    "cutoff": "2026-11-04T12:55:57.002Z",
+    "attribution": "mixed review orchestration, result handling and read-only defect diagnosis",
+    "unmeasuredTail": "later reporting, delivery and any future work; current report does not measure itself"
+  },
+  "subsets": "Cached input is part of input; reasoning is part of output; neither is added twice"
+}

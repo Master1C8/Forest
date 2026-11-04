@@ -1,0 +1,44 @@
+{
+  "packetSha256": "13c64fa4cc57c603193479c46c3d5577830c1f3c023ab3a8258983139ae517a8",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "5f4874fb8e6916a71bfb08e865d79abe570bf599d24bfa717b4a37b5472e2f7c.webp",
+      "sha256": "d79f51400500f007be87b2417599baeaefd67db7c49dcf1f7296d81cb3b7b5ed",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0006",
+      "reviewedAt": "2026-11-04T12:53:47.059679+00:00",
+      "observations": "Inspected the full delivered 1280×800 image. The Russian quest title, description and completion status are readable. The uppermost list entry is clipped, and the camera illustration frame overlaps the first history line. No external overlays or added labels are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Left quest list, uppermost entry around x195–355, y164–215",
+          "observed": "The first line is cut horizontally at the panel's upper edge; only the lower portions of its letters remain visible above «свет». Complete wording and glyph readability cannot be verified.",
+          "expected": "Every displayed quest label is fully readable within the list viewport.",
+          "nextAction": "Check the list viewport and scroll position; provide a corrected full-frame capture with this entry fully visible."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Camera frame bottom edge and first history line, around x923–1070, y477–488",
+          "observed": "The illustration's bottom border intersects the top of the history text near «Маверику в».",
+          "expected": "The illustration frame and history text have clear separation without overlap.",
+          "nextAction": "Verify the history and illustration layout bounds, correct their overlap, and review a new capture."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

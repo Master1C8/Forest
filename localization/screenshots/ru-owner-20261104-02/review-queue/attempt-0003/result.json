@@ -1,0 +1,44 @@
+{
+  "packetSha256": "3529292cb3c78ef1e22840d348b3f3f57b850dda025aedc342e5a18a8f31b4e7",
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "48439b1e06f7c92c1981848c6c316ecea464c53f6244fe0028b8279c91a14a4e.webp",
+      "sha256": "3224d382522ff39daf4763e9e250090b88dc3fa4f7e84ff864caafff28c91158",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T13:18:35.321910+00:00",
+      "observations": "Inspected the entire delivered 1280×800 image. The Russian quest title, description and first two history entries are readable. The camera illustration does not overlap them. Lower history text is clipped; the completed-quest list also contains broken word wrapping. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Quest history, approximately x454–850, y642–662",
+          "observed": "An additional history line is reduced to partial upper glyph fragments at the lower content boundary. Its wording and glyphs cannot be resolved.",
+          "expected": "The complete completed-quest history remains readable without clipped lines.",
+          "nextAction": "Inspect the quest-history viewport and text bounds, correct the clipping, and provide a new full-frame capture showing the complete history."
+        },
+        {
+          "check": "layout",
+          "severity": "minor",
+          "region": "Completed-quest list, «Друг интересуется», approximately x165–390, y369–464",
+          "observed": "«интересуется» breaks inside the word, leaving its final «я» alone on a third line.",
+          "expected": "The quest label wraps at word boundaries without an isolated final letter.",
+          "nextAction": "Adjust the list label's available width, wrapping or sizing and verify it in a new prepared capture."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "app": {
     "bytes": 747467,
-    "sha256": "3d2c02a6ec1fd4fdd68944ca682175df0dd9c9f4cef15d544e44776327180933"
+    "sha256": "bbe86a563c06344b4ddfb04fef26fefca71a0342d662eaa2117556dcd24041b4"
   },
-  "artifact": "dist/Forest-Language-Installer-Windows-1_1_2.zip",
-  "bytes": 60438098,
+  "artifact": "dist/Forest-Language-Installer-Windows-1_1_3.zip",
+  "bytes": 60650762,
   "inputRecovery": "Windows/original-inputs.json",
   "localeSources": [
     {
@@ -156,10 +156,10 @@
     },
     {
       "code": "ru",
-      "compilerManifestSha256": "3d698a95b0bcd32272826ae1b53635c039974a254ceb046a818ed21c013da6c2",
+      "compilerManifestSha256": "7bc172e0b9bf3d6ea0b4249d195a44d17d2fb70028934ee3a3a2e052022fb6c7",
       "culture": "ru-RU",
       "languagePath": "localization/languages/ru.json",
-      "languageSha256": "475257299248a76f10b006e27ce04317c699b37962d00f09c3d4e7473c918283"
+      "languageSha256": "b315e1f83ae240eaf33938c4b976383b20d1d7043ce24e04c9f8509f45e5fe13"
     },
     {
       "code": "sr",
@@ -220,10 +220,10 @@
   ],
   "nativeRuntime": "not-run",
   "payload": {
-    "bytes": 60187012,
+    "bytes": 60399598,
     "changedEntryContents": false,
-    "decodedBytes": 736581758,
-    "decodedSha256": "83ee16630accdaae5bb3a3de48142be848c8acf65c7848fea7f24fba98c1bdeb",
+    "decodedBytes": 737947464,
+    "decodedSha256": "28dd7935844ec1b91358687a58866d4eb1bc0ccb5b0ebf1bc21f637609345abb",
     "dictionaryBytes": 134217728,
     "encoderPreset": 6,
     "filesPerLocale": 14,
@@ -232,17 +232,19 @@
       "changedLocales": [
         {
           "changedResources": [
+            "Managed/VNRevivalQuestLayout.dll",
             "sharedassets2.assets"
           ],
-          "locale": "de"
+          "locale": "ru"
         }
       ],
       "exactUnchangedBundleRoundtripsRetained": 30,
-      "previousPayloadSha256": "838c7eaf37c2ada240610f6d199c5d2b2674eb44c930f0467f68b832dad092ff",
+      "previousPayloadSha256": "e452c2c3d2e1c32f2244e1b2bddd43a9e077a9b72bc124a15e1b442c824f1908",
       "unchangedLocaleRecords": [
         "ar",
         "bg",
         "cs",
+        "de",
         "el",
         "es-419",
         "es",
@@ -260,7 +262,6 @@
         "pl",
         "pt-BR",
         "ro",
-        "ru",
         "sr",
         "sw",
         "th",
@@ -271,18 +272,18 @@
         "zh"
       ]
     },
-    "literalChunks": 15840,
+    "literalChunks": 15839,
     "locales": 30,
-    "packedBytes": 60187012,
-    "packedSha256": "55dac8f683aa4061a41afd83ebd908290aeee493788a7194d5dd7408a517a189",
-    "rawArchiveBytes": 736327822,
-    "rawArchiveSha256": "6b237dc5e7a48407a01d62a699d6e2423c946f556572361d44edb86a15687018",
-    "sha256": "55dac8f683aa4061a41afd83ebd908290aeee493788a7194d5dd7408a517a189",
-    "sourceZipSha256": "6b237dc5e7a48407a01d62a699d6e2423c946f556572361d44edb86a15687018"
+    "packedBytes": 60399598,
+    "packedSha256": "b0e9d4636045d7bd1d63c7f2ae0cb79017645c20dd7271315fd24df73aa23d97",
+    "rawArchiveBytes": 737693544,
+    "rawArchiveSha256": "0699c376c9d17d50994bfb7d2586f0c962b3c3b7f451f526ea5645ca1dc156a9",
+    "sha256": "b0e9d4636045d7bd1d63c7f2ae0cb79017645c20dd7271315fd24df73aa23d97",
+    "sourceZipSha256": "0699c376c9d17d50994bfb7d2586f0c962b3c3b7f451f526ea5645ca1dc156a9"
   },
   "published": false,
   "realGameInstall": "not-run",
-  "sha256": "e23bbdd081f5626bbf97449c77ed285cba1420fbc10be299846e641e24e02d88",
+  "sha256": "fb01f05e24035f729c9ab7b22b39366c6f8521920f153d9a977b9618d895a328",
   "sourcePins": {
     "Windows/.gitattributes": "2fc932473dba6adc5a91f7f307dc30f06453e9e01cc0b9b3dd3043d08bc103bc",
     "Windows/.gitignore": "5969c3643c28d97612806528cd32be96cbde2459b743abe742d5045d9191fa98",
@@ -299,7 +300,7 @@
     "Windows/compat/Compat.csproj": "3587a006e9323246b40accca19284e354beceedd87c770afbad13cf66cf5f846",
     "Windows/forest_bundle.c": "e7bb789f1e71a4a6fa8e16a7b8e6d94c6f47b3a890d35a410c9cca73cd82ea95",
     "Windows/install.ps1": "0400588e3bbd0add7d89be57208f8d387b057ccec9cb3fb886919e93344203a6",
-    "Windows/installer-config.json": "d34f63daafdb2671e96cb947aa91be8eefcbeda027069d18d90f4d768e973723",
+    "Windows/installer-config.json": "f13bd6f469903539a0659c8de3d7802e87084b880104ec31b8e8b15138be1d00",
     "Windows/locale-labels.generated.json": "c293f7d7441f1f69bb1b99d5b771b915535e28975702681c54af8be30cc92ec8",
     "Windows/original-inputs.json": "efe8b6b7618782b2b3036ba35cd817a86ca5619876112df109ba036286b5f9f7",
     "Windows/provenance.json": "91191ccdd6b85fb21a5d125bed56c62d9e22519ac728e86bc2ff6ee57fc534eb",

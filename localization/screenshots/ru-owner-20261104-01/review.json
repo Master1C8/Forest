@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "6def83026715ccf14871cfad269f8827df1ed7ed45042a562a28da5efe65a4ac",
+    "provenance:sourceManifest": "b9cde68da2207c9cb2195bf26a180e39349dafa419f846bfb0f0f39ab5022bdc",
+    "provenance:source:capture": "705c3ee440f4d7cbd23f2f3c57d76a41e2c62268e51e87d01dcb1f6f97314b81",
+    "provenance:source:cleanup": "7dfe0ff7c8959fbab14ea0b2fc4dfa1ae88dcc9bb71d263578ae49c199ec3d79",
+    "provenance:source:build": "322153856a0906f77f53887c7726b82e2458b8d4319566b840e61053f98625f5",
+    "provenance:source-image:ru-01-main-menu.png": "ffa036810aa7ec7656287232a0f89fd789023679c593db61841cd0da9d9a3c08",
+    "provenance:source-image:ru-02-settings.png": "d22435eded4c4ea6dba17f3f3f0c7894157355af09585eaf083bf51311afe603",
+    "provenance:source-image:ru-03-gallery.png": "951d3adc1cfca10b83811898f0687ea8453d5e0f148e25f7f7fd78df238c7695",
+    "provenance:source-image:ru-04-camera-inventory.png": "03679a4925b125a756d10082963398dcdb67411d1c736711a7517a2072a5ac25",
+    "provenance:source-image:ru-05-scarlett.png": "8d8a365a271b010b045f327f9e26203669f0bccc1ee11e0b7a5f28fd9f95e46c",
+    "provenance:source-image:ru-06-hot-takes.png": "5f4874fb8e6916a71bfb08e865d79abe570bf599d24bfa717b4a37b5472e2f7c",
+    "provenance:source-image:ru-07-maverick-warmth.png": "81f54d2b96e81801eeedc9655bc285a83b559cc945f9098e9729afa1a943a3ef",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "a306d844293736be41b14c565a31532cdd7b186f0b5de906f6608a5c4e2a2876"
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "ffa036810aa7ec7656287232a0f89fd789023679c593db61841cd0da9d9a3c08.webp",
+      "sha256": "e175e025ed30a49c06c7f9bcc17def0d530137e4e4d56e52aad54cb71504b631",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T12:49:17.059491+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared frame. All six Russian menu labels are readable, complete and unclipped, with no overlap or missing glyphs. Protected logo, TFoL.info and v0.45.1 remain visible. No unexpected untranslated UI, placeholders, markup or external overlays appear.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "d22435eded4c4ea6dba17f3f3f0c7894157355af09585eaf083bf51311afe603.webp",
+      "sha256": "650831da2f337e9e67ec6476a5fa00efddef51835d2b88dd12848e1def71a090",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T12:50:07.081122+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared WebP. Russian settings labels, toggle values, Назад and the two-line Удалить сохранение button are readable and fit without clipping or overlap. Cyrillic glyphs render correctly. Protected logo and v0.45.1 remain visible. No unexpected English UI, placeholders, markup or external overlays observed.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "951d3adc1cfca10b83811898f0687ea8453d5e0f148e25f7f7fd78df238c7695.webp",
+      "sha256": "02237fdf8baf015f09104d1417e139e386ca54e7599420b2f50942f5c38c15ca",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T12:51:16.280979+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. Russian labels, controls and unlocked counters (11/11 and 46/46) are readable without clipping or overlap. No missing glyphs or external overlays are visible. The gallery heading remains English.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Top-center heading, approximately x=395–890, y=65–245",
+          "observed": "The prominent heading reads “Gallery”. This English UI heading is outside the protected branding literals.",
+          "expected": "A Russian gallery heading matching the authored localization.",
+          "nextAction": "Trace the heading’s authored text and title asset/resource binding, then supply a corrected, version-bound capture for review."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 4,
+      "direction": "ltr",
+      "filename": "03679a4925b125a756d10082963398dcdb67411d1c736711a7517a2072a5ac25.webp",
+      "sha256": "015636791c62207a5ba13b3b69ac985023e885da4364a60b47e6e7d7bf729329",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-11-04T12:52:12.041830+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared image. «Инвентарь», «Фотоаппарат» and the complete two-line professional-camera description are readable and fit within their fields. Cyrillic glyphs, item count and protected L/R prompts render clearly. No clipping, overlap, unexpected English, visible markup or external overlays observed.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 5,
+      "direction": "ltr",
+      "filename": "8d8a365a271b010b045f327f9e26203669f0bccc1ee11e0b7a5f28fd9f95e46c.webp",
+      "sha256": "02b75a425fc51234d54a22aaa627dee2e989c75b5f9006baf086cd1f7ab903d3",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0005",
+      "reviewedAt": "2026-11-04T12:52:49.263718+00:00",
+      "observations": "Inspected the entire 1280×800 prepared frame. Russian names, character details and both fact sections are readable without visible clipping or overlap. Intentional ??? entries and original L/R prompts are acceptable. No external overlays are visible.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Upper-left panel heading, approximately x=187–381, y=184–232",
+          "observed": "The visible heading “Residents” remains in English within the Russian interface.",
+          "expected": "A Russian heading matching the authored localization; this label has no protected-literal exemption.",
+          "nextAction": "Trace this heading’s authored text and resource binding through the packaged UI, correct the English fallback, and review a new capture of the affected frame."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "5f4874fb8e6916a71bfb08e865d79abe570bf599d24bfa717b4a37b5472e2f7c.webp",
+      "sha256": "d79f51400500f007be87b2417599baeaefd67db7c49dcf1f7296d81cb3b7b5ed",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0006",
+      "reviewedAt": "2026-11-04T12:53:47.059679+00:00",
+      "observations": "Inspected the full delivered 1280×800 image. The Russian quest title, description and completion status are readable. The uppermost list entry is clipped, and the camera illustration frame overlaps the first history line. No external overlays or added labels are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Left quest list, uppermost entry around x195–355, y164–215",
+          "observed": "The first line is cut horizontally at the panel's upper edge; only the lower portions of its letters remain visible above «свет». Complete wording and glyph readability cannot be verified.",
+          "expected": "Every displayed quest label is fully readable within the list viewport.",
+          "nextAction": "Check the list viewport and scroll position; provide a corrected full-frame capture with this entry fully visible."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Camera frame bottom edge and first history line, around x923–1070, y477–488",
+          "observed": "The illustration's bottom border intersects the top of the history text near «Маверику в».",
+          "expected": "The illustration frame and history text have clear separation without overlap.",
+          "nextAction": "Verify the history and illustration layout bounds, correct their overlap, and review a new capture."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 7,
+      "direction": "ltr",
+      "filename": "81f54d2b96e81801eeedc9655bc285a83b559cc945f9098e9729afa1a943a3ef.webp",
+      "sha256": "c883b47a01302ae5b3c1f6cfb6908616b455fd0449f620021d685ee5f4bda946",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0007",
+      "reviewedAt": "2026-11-04T12:54:25.610698+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared WebP. Speaker name «Маверик» and the complete expected dialogue are readable, correctly rendered, and contained within their panels with ample padding. No clipping, overlap, missing glyphs, unexpected English, visible markup, or external overlays. Russian is LTR.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

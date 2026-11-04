@@ -87,6 +87,18 @@ caches reject a face replacement. The face must have a matching family, explicit
 cap/x heights and a positive space advance. Unchanged baseline faces retain their
 accepted metrics. These are table-scaled serialized inputs, not a Unity font import.
 Existing shared runtime adapters supply the accepted Russian layout behavior.
+The optional `imageCaptions` object replaces the two registered text-bearing
+Images through native UI text, without changing texture pixels. Its exact roles
+are `gallery` (`source: "Gallery"`) and `residents` (`source: "Residents"`), each
+with an explicit nonempty `target`. Unspecified means preserve the existing
+framework; unknown roles, line breaks or NUL characters reject. The compiler builds the
+existing quest helper with these captions and hooks only the original menu and
+critter-log `Start` methods. Complete method-tree readback and reversal protect
+the original code. The helper also uses the actual portrait bounds and available
+left column when placing quest history, measuring from an unscrolled origin.
+Only those two layout method bodies change; other existing helper entries remain
+exact. Rebuilding uses deterministic compilation. This feature does not award
+editorial or native visual acceptance to another locale.
 The compiler also registers the seven original quest-list name templates in the
 exact shared-v2 framework: `sharedassets2.assets:18330`, `18315`, `18305`,
 `18314`, `18312`, `18344` and `18341` (repeat the asset prefix for each key).

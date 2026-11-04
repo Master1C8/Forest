@@ -1,0 +1,99 @@
+{
+  "workers": [
+    {
+      "cycle": 2,
+      "task": "attempt-0001",
+      "sessionId": "01a1a6b3-f857-76f2-a037-1e6371b39ba4",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37332,
+      "cachedInput": 17920,
+      "output": 365,
+      "reasoningOutput": 98,
+      "total": 37697
+    },
+    {
+      "cycle": 2,
+      "task": "attempt-0002",
+      "sessionId": "01a1a6b4-9e9e-7d90-becf-d3c9cdf4a05c",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37320,
+      "cachedInput": 17920,
+      "output": 411,
+      "reasoningOutput": 154,
+      "total": 37731
+    },
+    {
+      "cycle": 2,
+      "task": "attempt-0003",
+      "sessionId": "01a1a6b5-30eb-7e31-ba3a-dae8d0e892c3",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37334,
+      "cachedInput": 0,
+      "output": 955,
+      "reasoningOutput": 516,
+      "total": 38289
+    },
+    {
+      "cycle": 3,
+      "task": "attempt-0001",
+      "sessionId": "01a1a6bb-1a33-7781-8d7d-81d6c87784b7",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37496,
+      "cachedInput": 17920,
+      "output": 840,
+      "reasoningOutput": 388,
+      "total": 38336
+    },
+    {
+      "cycle": 4,
+      "task": "attempt-0001",
+      "sessionId": "01a1a6bf-668e-76c0-99e2-0e04d73378c3",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 55810,
+      "cachedInput": 35968,
+      "output": 1196,
+      "reasoningOutput": 797,
+      "total": 57006
+    },
+    {
+      "cycle": 5,
+      "task": "attempt-0001",
+      "sessionId": "01a1a6c5-20c9-76c0-a25e-548602f06af1",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "input": 37660,
+      "cachedInput": 18048,
+      "output": 528,
+      "reasoningOutput": 231,
+      "total": 38188
+    }
+  ],
+  "workerTotals": {
+    "input": 242952,
+    "cachedInput": 107776,
+    "output": 4295,
+    "total": 247247
+  },
+  "coordinator": {
+    "sessionId": "01a1920d-a919-7fe1-a97a-08bac2f0329f",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "baselineAt": "2026-11-04T13:15:42.299Z",
+    "cutoffAt": "2026-11-04T13:36:24.346Z",
+    "usage": {
+      "input_tokens": 12349699,
+      "cached_input_tokens": 12314368,
+      "output_tokens": 32786,
+      "reasoning_output_tokens": 14736,
+      "total_tokens": 12382485
+    },
+    "attribution": "Mixed review orchestration, fixes, capture and launcher preparation; earlier repair/preparation before this baseline and later reporting/delivery excluded",
+    "reportingTailMeasured": false
+  },
+  "notes": "Cached input is part of input; reasoning is part of output. No nested agents. No cost estimate."
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "183af7eef8eb315937bcb02917e58a568a190197f71a105e72ae82aec9641b6d",
+    "provenance:sourceManifest": "acfc96009455c845a9f4d579d402d1f7427e90f018ded4f0096929b596cefb0a",
+    "provenance:source:cleanup": "8d510e843ccdcd4fc81069cb887ca2d5481dd6f7501e7217ef4d7d4281bfb84e",
+    "provenance:source:build": "013d38b5502a15361b674d063aca4c2e0be9bfeb705897ab9bbb6a4c1629bc53",
+    "provenance:source:repeatLayout": "9f20cc821d08a39b47238684c403d10956be334df249d18a8eddb045d5bf83a1",
+    "provenance:source-image:ru-06-hot-takes.png": "4496c91ff9620b82a04feb789ba5a748948582c080eb2581e332d97a2c5e52f0",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "5a0113024366aecad1fe8c07251381406806b10a106c7306d46a6ab9c6e7ebae"
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ru",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "4496c91ff9620b82a04feb789ba5a748948582c080eb2581e332d97a2c5e52f0.webp",
+      "sha256": "8b7a8bc2caaf88ed8a16b23614370bb2cbc6cd45e9a68959453ad97b8ef4f4dc",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T13:24:54.316873+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. The quest title, complete description and all three history rows, including [Задание выполнено], are readable without portrait overlap. Other fully visible quest labels are readable. No missing glyphs, literal markup or external overlays are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Quest list, upper edge, approximately x175–380, y158–195",
+          "observed": "The first visible quest entry is clipped at the panel’s upper boundary; only «перехода» remains visible.",
+          "expected": "At the stated original top boundary, the first quest label must be completely visible with padding.",
+          "nextAction": "Check the quest list’s actual ScrollRect position and clipping bounds, correct the lost label area, and recapture the complete frame."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Quest list, clipped first entry",
+          "observed": "The complete first label cannot be verified. «Друг интересуется» is not visible in this frame, so its requested clipping check cannot be resolved.",
+          "expected": "Required quest labels must be visible in full to establish readability.",
+          "nextAction": "Provide a corrected prepared capture exposing the complete first entry and the requested «Друг интересуется» label."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

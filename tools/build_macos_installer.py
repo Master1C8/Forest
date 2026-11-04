@@ -129,7 +129,7 @@ def app():
     for source,name in [(ROOT/'Windows/vendor/lz4/LICENSE','LZ4-LICENSE.txt'),(ROOT/'Windows/vendor/lzma/LICENSE.txt','LZMA-NOTICE.txt'),(ROOT/'Windows/THIRD-PARTY-NOTICES.txt','THIRD-PARTY-NOTICES.txt'),(ROOT/'MacOS/README.txt','README.txt')]:shutil.copy2(source,resources/name)
     shutil.copy2(ROOT/'MacOS/App.icns',resources/'App.icns')
     info=dict(CFBundleName='Forest Languages',CFBundleDisplayName='Forest Languages',CFBundleExecutable='Forest Languages',CFBundleIdentifier='org.vnrevival.forest.languages',
-        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.2',CFBundleVersion='5',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
+        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.3',CFBundleVersion='6',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
         LSApplicationCategoryType='public.app-category.utilities')
     (contents/'Info.plist').write_bytes(plistlib.dumps(info))
     subprocess.run(['codesign','--force','--deep','--sign','-',str(destination)],check=True)
