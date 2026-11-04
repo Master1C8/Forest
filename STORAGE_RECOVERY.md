@@ -133,3 +133,17 @@ removal of the task-owned test tree. It was a file restoration, with no game
 launch. Remote-download and final cleanup receipts must also pass before
 storage cleanup is reported complete. Project archival remains pending while
 unfinished localization work remains.
+
+## Current all-30 launcher backups
+
+The existing private draft Release `storage-recovery-20261103` also retains
+`Forest-Languages-macOS-1.1.0.zip`, `Forest-Languages-Windows-1.1.0.zip` and
+`Forest-launchers-1.1.0-SHA256SUMS.txt`. Both remote downloads passed exact SHA256
+and ZIP integrity checks. Their source revision and byte counts are recorded in
+`localization/completion/launcher-all30-20261104-01/private-backup-validation.json`.
+
+Authenticate as Master1C8, then download the two versioned assets with
+`gh release download storage-recovery-20261103 --repo Master1C8/Forest --pattern 'Forest-Languages-*-1.1.0.zip' --dir dist/recovery/launchers-1.1.0`.
+Verify their hashes against the retained checksums before use. These are backups
+of the two final offline installers, not a published mod or a source-only archival
+closure. The unfinished Forest project's native/human acceptance gates remain.
