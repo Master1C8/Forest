@@ -1,6 +1,7 @@
 {
-  "boundary": "Exact current native resource bytes; three fresh complete stream readbacks plus27 preserved version-matching readbacks. Excludes Unity execution/rendering.",
+  "boundary": "All30 current native resources: one fresh complete Russian stream readback and29 exact version-matching prior readbacks; excludes Unity rendering.",
   "completeNativeStreamingReadbacks": 30,
+  "freshReadbacks": 1,
   "gameLaunched": false,
   "locales": 30,
   "localesEvidence": [
@@ -3904,15 +3905,15 @@
           "sha256": "3fd8ac4f4e01a989fafc7435b5fcdc75adfc03bef7ce1eaca422ddb66c530854"
         },
         "sharedassets2.assets": {
-          "bytes": 4423608,
-          "sha256": "581e61e717762386163b874fab403beaeb3b64b5c688d309321a9040536e4e8f"
+          "bytes": 4423704,
+          "sha256": "2e14a98c2f216845567bbdc691dc54c04ce2c56c811c74457c4aa69e5c7401af"
         },
         "sharedassets4.assets": {
           "bytes": 21243136,
           "sha256": "daccb524b9a9a6dbd467bb28c33884a045a65579258b35d09e9002dab9ebe0ba"
         }
       },
-      "languageSha256": "f81807d069e3d17ce4c59364a57aa55d8142098ef6ffcfd63b5487d08ec9790f",
+      "languageSha256": "475257299248a76f10b006e27ce04317c699b37962d00f09c3d4e7473c918283",
       "locale": "ru",
       "managed": {
         "completeSemanticTreeReadback": true,
@@ -3926,7 +3927,6 @@
         "windowsTargetSha256": "656d111de59ecff5ccc3548c91c0269f187384eca436e45e10147b0effc2e2dd"
       },
       "nativeCatalogOnlyCRCAndSizeChanged": true,
-      "readbackOrigin": "retained-exact-version-matching-published-evidence",
       "serialized": [
         {
           "allUnselectedNativeObjectsExact": true,
@@ -4013,10 +4013,10 @@
           "nativePlatformAndExternalsPreserved": true,
           "nativeSourceSha256": "213ecf9802335a62ffac8beda887f21e3457f655c5a91ea2756ca7a76e350d01",
           "objects": 18905,
-          "outputSha256": "581e61e717762386163b874fab403beaeb3b64b5c688d309321a9040536e4e8f",
+          "outputSha256": "2e14a98c2f216845567bbdc691dc54c04ce2c56c811c74457c4aa69e5c7401af",
           "selectedBeforeImagesEqual": true,
           "selectedObjects": 1600,
-          "windowsTargetSha256": "bb67ae2f0b2eba4fab082b402aa31fdcc016b904689495e878cc801dac10aafd"
+          "windowsTargetSha256": "985fdbc59743b150c796eb1534073776d9ee8e1dff00a787599e3a74617c9eea"
         },
         {
           "allUnselectedNativeObjectsExact": true,
@@ -5505,5 +5505,6 @@
     "path": "localization/completion/launcher-all30-20261104-01/baseline-MacOS-native-resources.json",
     "sha256": "0fe9d712e7ece56c0fcb03f75fc5aac0e0775b94d50eaebb668a453f813c8ac8"
   },
+  "reusedReadbacks": 29,
   "reusedVersionMatchingNativeStreamingReadbacks": 27
 }

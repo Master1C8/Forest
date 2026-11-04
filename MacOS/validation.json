@@ -1,17 +1,9 @@
 {
-  "status": "all30-delivered-artifact-and-native-accessibility-verified",
+  "status": "Russian-heading-repair-artifact-verified",
+  "version": "1.1.1",
   "artifact": "dist/Forest-Languages-macOS.zip",
-  "artifactSha256": "e90ac072844c2846bf755fe07b3cbadfa11d84e2c5e2a5b0bb0466274499de17",
-  "artifactBytes": 52580775,
-  "application": "dist/Forest Languages.app",
-  "version": "1.1.0",
-  "architectures": [
-    "arm64",
-    "x86_64"
-  ],
-  "translationLocales": 30,
-  "totalOptions": 31,
-  "syntheticAssertions": 141,
+  "artifactSha256": "2cd5ecd2cc515fc8376a6f58ee5a117ed8266ada07396447ac1b3f48167c2838",
+  "artifactBytes": 52576058,
   "actualResourceAssertions": 118,
   "actualResourceTestSequence": [
     "hi",
@@ -20,22 +12,24 @@
     "ru",
     "en"
   ],
+  "translationLocales": 30,
+  "totalOptions": 31,
   "settingsAndSavePreservedAcrossSwitches": true,
   "originalApplicationUnchanged": true,
-  "nativeResourceLocalesPassed": 30,
-  "newNativeStreamingReadbacks": 3,
-  "retainedVersionMatchingNativeStreamingReadbacks": 27,
-  "launcherUI": "Stable application AX footer and all31 options verified; left ready on Russian",
-  "directLaunchAssertions": 14,
-  "directLaunchEvidence": "Retained exact unchanged GameLauncher.swift test evidence; no new game launch",
-  "signing": "ad-hoc-deep-strict-verified",
+  "exactHeadingLayersReadback": 12,
+  "allOtherSerializedObjectsUnchanged": true,
   "finalArchiveInventoryPassed": true,
-  "appleDoubleMetadataEntries": 15,
-  "sourcePinsMatched": true,
-  "inGameRendering": "not-run",
-  "devanagariShaping": "not-run",
-  "gameLaunched": false,
-  "publication": false,
-  "projectArchival": "pending-unfinished-project-native/human-acceptance",
-  "boundary": "Actual resource materialization, isolated owned-copy switching, signatures, save/settings preservation and English restore, plus actual launcher menu; excludes target Unity execution/rendering."
+  "implementationSourcePinsMatched": true,
+  "postBuildEvidenceUpdates": {
+    "MacOS/native-resources.json": {
+      "atBuild": "ceb29fc5b259c9deff75173fc9d3dbd2379cd260d0d499e20238c90da3198323",
+      "current": "458a629e0a3744202483a5e6e6d27eeb5a5e0c03c64e3a9362a07a0526e212c0",
+      "reason": "Post-build aggregation of generated validation evidence; not an application input"
+    }
+  },
+  "signing": "ad-hoc-deep-strict-verified",
+  "inGameHeadingRendering": "not-run",
+  "independentNewWordingReview": "not-run",
+  "projectArchival": "pending-unfinished-project",
+  "boundary": "Actual packaged resources and isolated installation; excludes visual Unity acceptance."
 }

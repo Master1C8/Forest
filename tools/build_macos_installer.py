@@ -66,7 +66,8 @@ def payload():
         for record in records:
             code=record['locale'];directory=WORK/'overlays'/code
             locale=dict(code=code,name=labels['englishNames'][code]+' / '+labels['names'][code],culture=record['culture'],languageSha256=record['languageSha256'],files=[])
-            source=ROOT/'localization/languages'/('ru-baseline.json' if code=='ru' else code+'.json')
+            from build_windows_installer import CONFIG
+            source=ROOT/'localization/languages'/CONFIG['sourceOverrides'].get(code,code+'.json')
             assert sha(source)==record['languageSha256']
             for name in names:
                 final=directory/name;assert sha(final)==record['files'][name]['sha256']
@@ -123,7 +124,7 @@ def app():
     for source,name in [(ROOT/'Windows/vendor/lz4/LICENSE','LZ4-LICENSE.txt'),(ROOT/'Windows/vendor/lzma/LICENSE.txt','LZMA-NOTICE.txt'),(ROOT/'Windows/THIRD-PARTY-NOTICES.txt','THIRD-PARTY-NOTICES.txt'),(ROOT/'MacOS/README.txt','README.txt')]:shutil.copy2(source,resources/name)
     shutil.copy2(ROOT/'MacOS/App.icns',resources/'App.icns')
     info=dict(CFBundleName='Forest Languages',CFBundleDisplayName='Forest Languages',CFBundleExecutable='Forest Languages',CFBundleIdentifier='org.vnrevival.forest.languages',
-        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.0',CFBundleVersion='3',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
+        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.1',CFBundleVersion='4',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
         LSApplicationCategoryType='public.app-category.utilities')
     (contents/'Info.plist').write_bytes(plistlib.dumps(info))
     subprocess.run(['codesign','--force','--deep','--sign','-',str(destination)],check=True)

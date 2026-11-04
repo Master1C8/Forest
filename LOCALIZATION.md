@@ -167,6 +167,17 @@ fixture. The real Spanish saved-resource check separately reads all twelve layer
 Future unchanged-field omissions use this same explicit inventory mechanism.
 Existing v1 language files and tested packages retain their exact old binding.
 
+The Russian launcher source is now `localization/languages/ru.json`, rebound to
+v2 from the immutable accepted `ru-baseline.json`. The former launcher override
+selected v1 and therefore still displayed English inventory headings. The repair
+adds only the twelve inventoried fields, preserving the 14,594 shipped wording
+entries and the original initial-letter markup. Reproduce its source delta with
+`python3 -B localization/completion/ru-inventory-heading-20261104-01/prepare.py`,
+then use the normal compiler. `Windows/installer-config.json` owns source overrides
+for both platform payload builders; a platform-specific Russian override must not
+silently select the old file again. Regression: both packaged Russian resources
+must read back all twelve headings as `ИНВЕНТАРЬ`, with every other object unchanged.
+
 Run the small input/publication regressions with:
 
 ```sh
