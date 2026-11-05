@@ -1,0 +1,277 @@
+{
+  "version": "1.2.0",
+  "revision": "r2",
+  "nativeVisualEvidence": {
+    "path": "localization/completion/site-revision-20261105/native-validation.json",
+    "sha256": "053a416b896c2163b1336f752f3a7afe0999f6f6ba09ffdf76e629d8af01beec"
+  },
+  "translationLocales": 30,
+  "platforms": {
+    "macos": {
+      "archiveIntegrity": {
+        "passed": true,
+        "artifact": "dist/Forest-Languages-macOS-1.2.0-r2.zip",
+        "bytes": 55808754,
+        "sha256": "66546835164d1456938c7eddecc5950e96a77200436bf592c1586fcd1dfe48b3",
+        "buildReceipt": {
+          "path": "/Users/antonkrutov/Desktop/Forest/MacOS/build-receipt.json",
+          "sha256": "1db634df82d80d33a769130a70e0d47472e5471188f3e5e0477c08acd61e7fa0"
+        },
+        "sourcePinsMatched": true,
+        "completeZipInventoryMatched": true,
+        "regularFiles": 15,
+        "associatedAppleDoubleMetadata": [
+          "Forest Languages 1.2.0 r2.app/Contents/_CodeSignature/._CodeResources",
+          "Forest Languages 1.2.0 r2.app/Contents/.__CodeSignature",
+          "Forest Languages 1.2.0 r2.app/Contents/MacOS/._Forest Languages",
+          "Forest Languages 1.2.0 r2.app/Contents/._MacOS",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._forest-codec",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._Complex-fonts-NOTICE.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._LZMA-NOTICE.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._BidiSharp-MIT-LICENSE.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._PackageConfig.json",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._App.icns",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._Unicode-17-LICENSE.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._THIRD-PARTY-NOTICES.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._README.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._ForestLanguages.forestpack",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._Complex-fonts-OFL-1.1.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/Resources/._LZ4-LICENSE.txt",
+          "Forest Languages 1.2.0 r2.app/Contents/._Resources",
+          "Forest Languages 1.2.0 r2.app/Contents/._Info.plist",
+          "Forest Languages 1.2.0 r2.app/._Contents"
+        ],
+        "sourceFileCount": 33,
+        "boundary": "Complete archive bytes, file inventory and current source pins; excludes GUI, installation and game execution"
+      },
+      "hostedReleaseFile": {
+        "game": "the-forest-of-love",
+        "platform": "macos",
+        "version": "1.2.0",
+        "fileId": "89",
+        "filename": "the-forest-of-love-macos-66546835164d.zip",
+        "sizeBytes": 55808754,
+        "fileUpdatedAt": "2026-11-05T07:19:55.079Z",
+        "sha256": "66546835164d1456938c7eddecc5950e96a77200436bf592c1586fcd1dfe48b3",
+        "sourceCommit": null
+      },
+      "nativeCore": {
+        "passed": true,
+        "coveredLocales": [
+          "ar",
+          "bg",
+          "cs",
+          "de",
+          "el",
+          "es",
+          "es-419",
+          "fa",
+          "fil",
+          "fr",
+          "he",
+          "hi",
+          "hu",
+          "id",
+          "it",
+          "ja",
+          "ko",
+          "nl",
+          "pl",
+          "pt-BR",
+          "ro",
+          "ru",
+          "sr",
+          "sw",
+          "th",
+          "tr",
+          "uk",
+          "vi",
+          "zh",
+          "zh-TW"
+        ],
+        "completedRuns": [
+          {
+            "receipt": {
+              "path": "localization/completion/site-revision-20261105/installer-evidence/macos-core-completed-1.json",
+              "sha256": "eb6901f812d19d1374a610d6392688f90374333ddb880af1e5ed038e32a63199"
+            },
+            "assertions": 131,
+            "boundary": "Native macOS resources, isolated signed game copies, exact hash readback; no game startup",
+            "gameLaunched": false,
+            "originalGameModified": false,
+            "passed": true,
+            "realResources": true,
+            "testedSequence": [
+              "hi",
+              "sw",
+              "uk",
+              "ru",
+              "en"
+            ]
+          },
+          {
+            "receipt": {
+              "path": "localization/completion/site-revision-20261105/installer-evidence/macos-core-completed-2.json",
+              "sha256": "57550338eb3c203874c6e549fab1b68879a57a9070aa8a3d34606b39b695af9b"
+            },
+            "assertions": 282,
+            "boundary": "Native macOS resources, isolated signed game copies, exact hash readback; no game startup",
+            "gameLaunched": false,
+            "originalGameModified": false,
+            "passed": true,
+            "realResources": true,
+            "testedSequence": [
+              "nl",
+              "pl",
+              "pt-BR",
+              "ro",
+              "sr",
+              "th",
+              "tr",
+              "vi",
+              "zh-TW",
+              "zh",
+              "en"
+            ]
+          }
+        ],
+        "retainedCompletedIterations": [
+          {
+            "completedLocales": [
+              "ar",
+              "bg",
+              "cs",
+              "de",
+              "el",
+              "es-419",
+              "es",
+              "fa",
+              "fil",
+              "fr",
+              "he"
+            ],
+            "terminalGuard": "macOS disk space",
+            "evidence": {
+              "path": "localization/completion/site-revision-20261105/installer-evidence/package-r2-macos-actual-all30.log",
+              "sha256": "337c3e23e33515978357140cf14824c05225bb22e077343152afa506d4ace812"
+            }
+          },
+          {
+            "completedLocales": [
+              "hu",
+              "id",
+              "it",
+              "ja",
+              "ko"
+            ],
+            "terminalGuard": "macOS disk space",
+            "evidence": {
+              "path": "localization/completion/site-revision-20261105/installer-evidence/package-r2-macos-actual-remaining.log",
+              "sha256": "e2f361d2511345559de4313f0988c413abf9a6c553afd2d6ed90ac3225abcf16"
+            }
+          }
+        ],
+        "existingCacheHarness": {
+          "adaptation": {
+            "path": "localization/completion/site-revision-20261105/installer-evidence/macos-core-existing-cache-test.diff",
+            "sha256": "3cb25ef6610dd1b292f2666f822f14b2bede9c1cedd016957a321e5f288046d0"
+          },
+          "canonical": {
+            "path": "MacOS/Tests/CoreTests.swift",
+            "sha256": "8f0cb605afdd2c58c6477cd550eb7c031991f7fc955f6c641173b32cd8a568ea"
+          },
+          "testSha256": "3e50de61104d0850f75405a963589f88e13a31fc564ec6439ce6c131c8578e78"
+        },
+        "boundary": "Actual packaged payload through the native Swift core; isolated signed copies, hash readback and English restoration; no gameplay in these installer runs."
+      }
+    },
+    "windows": {
+      "archiveIntegrity": {
+        "passed": true,
+        "artifact": "dist/Forest-Language-Installer-Windows-1_2_0-r2.zip",
+        "bytes": 64336647,
+        "sha256": "816b8511ff694220acc5a84d15bcfaadc2ca2469b8389efaffb2316fbae403cd",
+        "buildReceipt": {
+          "path": "/Users/antonkrutov/Desktop/Forest/Windows/build-receipt.json",
+          "sha256": "8611767eb0414e5f2ca5f6e22450deaf69bbbf33f3b75f26b3285ac1b6518b37"
+        },
+        "sourcePinsMatched": true,
+        "completeZipInventoryMatched": true,
+        "regularFiles": 13,
+        "associatedAppleDoubleMetadata": [],
+        "sourceFileCount": 47,
+        "boundary": "Complete archive bytes, file inventory and current source pins; excludes GUI, installation and game execution"
+      },
+      "hostedReleaseFile": {
+        "game": "the-forest-of-love",
+        "platform": "windows",
+        "version": "1.2.0",
+        "fileId": "88",
+        "filename": "the-forest-of-love-windows-816b8511ff69.zip",
+        "sizeBytes": 64336647,
+        "fileUpdatedAt": "2026-11-05T07:18:57.286Z",
+        "sha256": "816b8511ff694220acc5a84d15bcfaadc2ca2469b8389efaffb2316fbae403cd",
+        "sourceCommit": null
+      },
+      "shippingCore": {
+        "passed": true,
+        "groups": [
+          {
+            "group": 1,
+            "locales": [
+              "ar",
+              "bg",
+              "cs",
+              "de",
+              "el",
+              "es-419",
+              "es",
+              "fa",
+              "fil",
+              "fr",
+              "he",
+              "hi",
+              "hu",
+              "id",
+              "it"
+            ],
+            "assertions": 308,
+            "restoredEnglish": true,
+            "evidence": {
+              "path": "localization/completion/site-revision-20261105/installer-evidence/package-r2-windows-actual-1.log",
+              "sha256": "06ac7c8755b43b798b20433f51a282a4d6df9063b2d78126d651eb8740c0f5cf"
+            }
+          },
+          {
+            "group": 2,
+            "locales": [
+              "ja",
+              "ko",
+              "nl",
+              "pl",
+              "pt-BR",
+              "ro",
+              "ru",
+              "sr",
+              "sw",
+              "th",
+              "tr",
+              "uk",
+              "vi",
+              "zh-TW",
+              "zh"
+            ],
+            "assertions": 308,
+            "restoredEnglish": true,
+            "evidence": {
+              "path": "localization/completion/site-revision-20261105/installer-evidence/package-r2-windows-actual-2.log",
+              "sha256": "b93893c902b3002e43b904df276c3a8c21fae9b16e8a672bc3eebd9823cd3bee"
+            }
+          }
+        ],
+        "assertions": 616,
+        "boundary": "Windows installer core through .NET 8 on macOS with matching-source host codec; Windows UI, PowerShell 5.1 and gameplay not run."
+      }
+    }
+  }
+}

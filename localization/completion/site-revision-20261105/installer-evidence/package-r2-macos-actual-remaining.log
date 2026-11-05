@@ -1,0 +1,108 @@
+Preparing all 30 language packs…
+Preparing a separate game copy…
+Installing Hungarian / magyar… 1/15
+Installing Hungarian / magyar… 2/15
+Installing Hungarian / magyar… 3/15
+Installing Hungarian / magyar… 4/15
+Installing Hungarian / magyar… 5/15
+Installing Hungarian / magyar… 6/15
+Installing Hungarian / magyar… 7/15
+Installing Hungarian / magyar… 8/15
+Installing Hungarian / magyar… 9/15
+Installing Hungarian / magyar… 10/15
+Installing Hungarian / magyar… 11/15
+Installing Hungarian / magyar… 12/15
+Installing Hungarian / magyar… 13/15
+Installing Hungarian / magyar… 14/15
+Installing Hungarian / magyar… 15/15
+Signing and verifying the localized game copy…
+Preparing a separate game copy…
+Installing Indonesian / Bahasa Indonesia… 1/15
+Installing Indonesian / Bahasa Indonesia… 2/15
+Installing Indonesian / Bahasa Indonesia… 3/15
+Installing Indonesian / Bahasa Indonesia… 4/15
+Installing Indonesian / Bahasa Indonesia… 5/15
+Installing Indonesian / Bahasa Indonesia… 6/15
+Installing Indonesian / Bahasa Indonesia… 7/15
+Installing Indonesian / Bahasa Indonesia… 8/15
+Installing Indonesian / Bahasa Indonesia… 9/15
+Installing Indonesian / Bahasa Indonesia… 10/15
+Installing Indonesian / Bahasa Indonesia… 11/15
+Installing Indonesian / Bahasa Indonesia… 12/15
+Installing Indonesian / Bahasa Indonesia… 13/15
+Installing Indonesian / Bahasa Indonesia… 14/15
+Installing Indonesian / Bahasa Indonesia… 15/15
+Signing and verifying the localized game copy…
+Preparing a separate game copy…
+Installing Italian / italiano… 1/15
+Installing Italian / italiano… 2/15
+Installing Italian / italiano… 3/15
+Installing Italian / italiano… 4/15
+Installing Italian / italiano… 5/15
+Installing Italian / italiano… 6/15
+Installing Italian / italiano… 7/15
+Installing Italian / italiano… 8/15
+Installing Italian / italiano… 9/15
+Installing Italian / italiano… 10/15
+Installing Italian / italiano… 11/15
+Installing Italian / italiano… 12/15
+Installing Italian / italiano… 13/15
+Installing Italian / italiano… 14/15
+Installing Italian / italiano… 15/15
+Signing and verifying the localized game copy…
+Preparing a separate game copy…
+Installing Japanese / 日本語… 1/15
+Installing Japanese / 日本語… 2/15
+Installing Japanese / 日本語… 3/15
+Installing Japanese / 日本語… 4/15
+Installing Japanese / 日本語… 5/15
+Installing Japanese / 日本語… 6/15
+Installing Japanese / 日本語… 7/15
+Installing Japanese / 日本語… 8/15
+Installing Japanese / 日本語… 9/15
+Installing Japanese / 日本語… 10/15
+Installing Japanese / 日本語… 11/15
+Installing Japanese / 日本語… 12/15
+Installing Japanese / 日本語… 13/15
+Installing Japanese / 日本語… 14/15
+Installing Japanese / 日本語… 15/15
+Signing and verifying the localized game copy…
+Preparing a separate game copy…
+Installing Korean / 한국어… 1/15
+Installing Korean / 한국어… 2/15
+Installing Korean / 한국어… 3/15
+Installing Korean / 한국어… 4/15
+Installing Korean / 한국어… 5/15
+Installing Korean / 한국어… 6/15
+Installing Korean / 한국어… 7/15
+Installing Korean / 한국어… 8/15
+Installing Korean / 한국어… 9/15
+Installing Korean / 한국어… 10/15
+Installing Korean / 한국어… 11/15
+Installing Korean / 한국어… 12/15
+Installing Korean / 한국어… 13/15
+Installing Korean / 한국어… 14/15
+Installing Korean / 한국어… 15/15
+Signing and verifying the localized game copy…
+Preparing a separate game copy…
+Installing Dutch / Nederlands… 1/15
+Installing Dutch / Nederlands… 2/15
+Installing Dutch / Nederlands… 3/15
+Installing Dutch / Nederlands… 4/15
+Installing Dutch / Nederlands… 5/15
+Installing Dutch / Nederlands… 6/15
+Installing Dutch / Nederlands… 7/15
+Installing Dutch / Nederlands… 8/15
+Installing Dutch / Nederlands… 9/15
+Installing Dutch / Nederlands… 10/15
+Installing Dutch / Nederlands… 11/15
+Installing Dutch / Nederlands… 12/15
+Installing Dutch / Nederlands… 13/15
+Installing Dutch / Nederlands… 14/15
+Swift/ErrorType.swift:254: Fatal error: Error raised at top level: main.ForestError(text: "At least 4 GB of free disk space is needed to prepare a game copy")
+Traceback (most recent call last):
+  File "/Users/antonkrutov/Desktop/Forest/tools/test_macos_installer.py", line 83, in <module>
+    subprocess.run([str(binary),str(target),str(source)]+(['--real'] if a.real else []),check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/antonkrutov/Desktop/Forest/dist/macos-installer-work/CoreTests-real-site06remainingr2', '/Users/antonkrutov/Desktop/Forest/dist/macos-installer-work/real-tests-site06remainingr2', '/Applications/TheForestOfLove.app', '--real']' died with <Signals.SIGTRAP: 5>.

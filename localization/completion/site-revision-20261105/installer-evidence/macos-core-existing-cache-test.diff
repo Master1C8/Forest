@@ -1,0 +1,11 @@
+--- MacOS/Tests/CoreTests.swift
++++ CoreTests-existing-fixture.swift
+@@ -40,7 +40,7 @@
+             _ = try core.apply(source: source, locale: code, sign: real, progress: { messages.append($0); print($0) })
+             if code == sequence[0] {
+                 let count = config.locales.filter { $0.code != "en" }.count
+-                try expect(messages.contains("Preparing all \(count) language packs…"), "progress reports actual package language count")
++                try expect(fm.fileExists(atPath: root.appendingPathComponent("Payload-" + config.payloadSha256).appendingPathComponent("manifest.json").path) && count == 30 && !messages.contains("Preparing all \(count) language packs…"), "reuses the existing verified package cache")
+             }
+             let state = try core.state(at: core.current)
+             try expect(state.locale == code, "selected locale state")
