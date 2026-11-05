@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1];FAMILY=ROOT/'localization/screenshots/a
 def read(p):return json.loads(p.read_bytes())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('plan',type=Path);p.add_argument('--check-only',action='store_true');p.add_argument('--candidate',help='Use a separate final-<candidate> directory and preserve the earlier accepted set');a=p.parse_args();plan=read(a.plan);code=plan['locale'];assert a.candidate is None or a.candidate.isalnum();dest=FAMILY/code/('final-'+a.candidate if a.candidate else 'final');assert a.check_only or not dest.exists()
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('plan',type=Path);p.add_argument('--check-only',action='store_true');p.add_argument('--candidate',help='Use a separate final-<candidate> directory and preserve the earlier accepted set');p.add_argument('--reuse-candidate',help='Use this earlier accepted candidate for unaffected frames');a=p.parse_args();plan=read(a.plan);code=plan['locale'];assert a.candidate is None or a.candidate.isalnum();dest=FAMILY/code/('final-'+a.candidate if a.candidate else 'final');assert a.check_only or not dest.exists()
+assert a.reuse_candidate is None or (a.candidate and a.reuse_candidate.isalnum() and a.reuse_candidate!=a.candidate)
 language=ROOT/'localization/languages'/(code+'.json');current=sha(language);native=Path(plan['nativeResources']);assert read(native/'manifest.json')['languageSha256']==current
 assert sorted(r['order']for r in plan['frames'])==list(range(1,8)),'Exactly seven unique required frame orders'
 images=[];reviews=[];bindings=[];originals=[]
@@ -39,10 +40,14 @@ if a.candidate and affected!=set(range(1,8)):
  for member in evidence.get('transitionChain',[]):
   member_path=Path(member['path']).resolve()
   assert member_path.is_relative_to(FAMILY) and sha(member_path)==member['sha256'] and read(member_path)['passed']
- previous=FAMILY/code/'final' if code!='ru' else FAMILY.parent/'ru-owner-20261104-final'
+ previous=(FAMILY/code/('final-'+a.reuse_candidate) if a.reuse_candidate else
+           FAMILY/code/'final' if code!='ru' else FAMILY.parent/'ru-owner-20261104-final')
  accepted=read(previous/'acceptance.json');assert sha(previous/'acceptance.json')==evidence['previousAcceptanceSha256']
  assert accepted['gameClosed'] and not accepted['savedProgressWritten']
- if code=='ru':assert accepted['allVisualChecksPassed'] and accepted['screenCount']==7
+ if a.reuse_candidate:
+  old_native=Path(accepted['nativeResources']).resolve()
+  assert old_native.is_relative_to(ROOT/'dist') and evidence['oldNativeManifestSha256']==sha(old_native/'manifest.json')
+ if code=='ru' and not a.reuse_candidate:assert accepted['allVisualChecksPassed'] and accepted['screenCount']==7
  else:assert accepted['passed'] and accepted['allIndependentlyReviewed'] and accepted['frames']==7 and accepted['languageSha256']==evidence['oldLanguageSha256']
 for frame in sorted(plan['frames'],key=lambda r:r['order']):
  order=frame['order'];source=Path(frame['capture']).resolve();review=Path(frame['review']).resolve();manifest=source/'native-manifest.json'

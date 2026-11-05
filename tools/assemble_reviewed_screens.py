@@ -7,10 +7,10 @@ not a new visual judgment, and makes no publication or model request.
 import argparse
 import os
 from pathlib import Path
-from stage_reviewed_installer import ROOT, read, sha, pin, write
+from stage_reviewed_installer import ROOT, read, sha, pin, write, candidate_folder
 
 
-def assemble(family, destination, candidate=None):
+def assemble(family, destination, candidate=None, fallback=None):
     from build_windows_installer import selection
     assert family.is_relative_to(ROOT / 'localization/screenshots')
     assert destination.parent == ROOT / 'dist' and not destination.exists()
@@ -18,7 +18,7 @@ def assemble(family, destination, candidate=None):
     references = {r['locale']: r for r in initial['locales']}
     rows, originals, names = [], [], set()
     for code, language in selection().items():
-        source = (family / code / ('final-' + candidate) if candidate else
+        source = (candidate_folder(family, code, candidate, fallback) if candidate else
                   ROOT / 'localization/screenshots/ru-owner-20261104-final' if code == 'ru' else family / code / 'final')
         acceptance = read(source / 'acceptance.json')
         if code == 'ru' and not candidate:
@@ -69,6 +69,8 @@ if __name__ == '__main__':
     parser.add_argument('--family', required=True, type=Path)
     parser.add_argument('--destination', required=True, type=Path)
     parser.add_argument('--candidate', help='Use separate final-<candidate> sets, including Russian')
+    parser.add_argument('--fallback-candidate', help='Use this earlier accepted set only for absent candidate directories')
     args = parser.parse_args()
     assert args.candidate is None or args.candidate.isalnum()
-    assemble(args.family.resolve(), args.destination.resolve(), args.candidate)
+    assert args.fallback_candidate is None or (args.candidate and args.fallback_candidate.isalnum() and args.fallback_candidate != args.candidate)
+    assemble(args.family.resolve(), args.destination.resolve(), args.candidate, args.fallback_candidate)

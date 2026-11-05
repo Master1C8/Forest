@@ -34,7 +34,15 @@ def write(path, value):
     path.write_text(json.dumps(value, sort_keys=True, indent=2) + '\n')
 
 
-def stage(family, index, destination, candidate=None):
+def candidate_folder(family, code, candidate, fallback):
+    folder = family / code / ('final-' + candidate if candidate else 'final')
+    if fallback and not folder.exists():
+        assert not folder.is_symlink()
+        folder = family / code / ('final-' + fallback)
+    return folder
+
+
+def stage(family, index, destination, candidate=None, fallback=None):
     from build_windows_installer import selection, DATA
     assert family.is_relative_to(ROOT / 'localization/screenshots')
     assert destination.parent == ROOT / 'dist' and not destination.exists()
@@ -51,7 +59,7 @@ def stage(family, index, destination, candidate=None):
             native = Path(old['native'])
             compiled = Path(old['compiled'])
         else:
-            acceptance = family / code / ('final-' + candidate if candidate else 'final') / 'acceptance.json'
+            acceptance = candidate_folder(family, code, candidate, fallback) / 'acceptance.json'
             accepted = read(acceptance)
             assert accepted['passed'] and accepted['frames'] == 7
             assert accepted['allIndependentlyReviewed']
@@ -113,6 +121,8 @@ if __name__ == '__main__':
     parser.add_argument('--source-index', required=True, type=Path)
     parser.add_argument('--destination', required=True, type=Path)
     parser.add_argument('--candidate', help='Use separate final-<candidate> sets, including Russian')
+    parser.add_argument('--fallback-candidate', help='Use this earlier accepted set only for absent candidate directories')
     args = parser.parse_args()
     assert args.candidate is None or args.candidate.isalnum()
-    stage(args.family.resolve(), args.source_index.resolve(), args.destination.resolve(), args.candidate)
+    assert args.fallback_candidate is None or (args.candidate and args.fallback_candidate.isalnum() and args.fallback_candidate != args.candidate)
+    stage(args.family.resolve(), args.source_index.resolve(), args.destination.resolve(), args.candidate, args.fallback_candidate)

@@ -25,6 +25,9 @@ from forest_localization import font_metrics, image_captions, complex_text, inve
 ROOT = Path(__file__).resolve().parents[2]
 DATA_NAME = 'The Forest of Love_Data'
 FORMAT = 'forest-language-v1'
+QUEST_MUTED_ROLE_IDS = (18330, 18338, 18342, 16317, 13986)
+QUEST_MUTED_SOURCE = dict(r=0.5098039507865906, g=0.48235297203063965, b=0.40392160415649414, a=1.0)
+QUEST_MUTED_READABLE = dict(r=0.28125, g=0.25, b=0.1875, a=1.0)
 
 
 def need(value, reason):
@@ -191,6 +194,23 @@ def registered_layout_roles(framework, framework_sha):
         need(key not in roles,'speaker-label-layout-overlap')
         roles[key]=dict(asset='sharedassets0.assets',pathId=4545,pointer='/m_FontData/m_FontSize',baseline=14)
     return roles
+
+
+def quest_contrast_fields(doc, framework):
+    enabled = doc.get('questReadableCompletedText', False)
+    need(type(enabled) is bool, 'quest-readable-completed-text-boolean')
+    if not enabled:
+        return []
+    asset = 'sharedassets2.assets'
+    need(framework['id'] == 'forest045-shared-v2' and
+         framework['files'].get('base/' + asset, {}).get('sha256') ==
+         'bb67ae2f0b2eba4fab082b402aa31fdcc016b904689495e878cc801dac10aafd',
+         'quest-readable-completed-text-resource-version')
+    # Completed sidebar template and the four older history slots, never the
+    # active/selected name, the current step, the panel, or the source data.
+    return [dict(asset=asset, kind='field', pathId=pid, id=f'quest-muted-color:{pid}',
+                 pointer='/m_Color', source=QUEST_MUTED_SOURCE, target=QUEST_MUTED_READABLE)
+            for pid in QUEST_MUTED_ROLE_IDS]
 
 
 def native_additions(catalog, rows, original, baseline):
@@ -490,6 +510,7 @@ def load_language(path, frameworks):
     need(binding(directory/'framework.json')['sha256'] == doc['framework']['sha256'], 'framework-version')
     framework, catalog = framework_manifest(directory)
     framework['layoutRoles'] = registered_layout_roles(framework, doc['framework']['sha256'])
+    quest_contrast_fields(doc, framework)
     rows = doc.get('translations')
     need(isinstance(rows, dict) and set(rows) == {r['id'] for r in catalog}, 'complete-exact-translation-ids')
     missing = []
@@ -785,6 +806,8 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
     for role, size in doc.get('layout', {}).items():
         s = framework['layoutRoles'][role]
         by_asset[s['asset']].append(dict(s, kind='field', id=role + '/layout', source=s['baseline'], target=size))
+    for edit in quest_contrast_fields(doc, framework):
+        by_asset[edit['asset']].append(edit)
     for role, spec in doc.get('fonts', {}).items():
         s = framework['fontRoles'][role]
         by_asset[s['asset']].append(dict(s, kind='font', id=role, spec=spec))

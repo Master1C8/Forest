@@ -204,6 +204,13 @@ it is not itself an allowlist. Preserve every unregistered field and keep the
 compiler's rejection guard. Regression: the24 Patreon/TFoL.info/dormant Continue
 rows remain untouched while registered Korean menu rows receive14/10/12 sizes.
 
+`questReadableCompletedText: true` darkens the original completed sidebar
+label and the four older history roles in the pinned shared v2 resource.
+The default keeps the source colors. Current, active, and selected text retain
+their separate colors; wording, layouts, and saves are unchanged. Regression:
+the five exact muted components change color even when their font-size fields
+also have edits, and an unexpected source color rejects before publication.
+
 `questStatusHeadingMinimumPointSize` (8–12, default12) registers the lower bound
 for the Active/Completed sprite captions. It changes neither words nor list
 geometry. A lower bound alone does not ensure fitting when the native control
