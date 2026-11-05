@@ -34,7 +34,7 @@ def write(path, value):
     path.write_text(json.dumps(value, sort_keys=True, indent=2) + '\n')
 
 
-def stage(family, index, destination):
+def stage(family, index, destination, candidate=None):
     from build_windows_installer import selection, DATA
     assert family.is_relative_to(ROOT / 'localization/screenshots')
     assert destination.parent == ROOT / 'dist' and not destination.exists()
@@ -46,12 +46,12 @@ def stage(family, index, destination):
         current = sha(language)
         old = previous[code]
         acceptance_pin = None
-        if code == 'ru':
+        if code == 'ru' and not candidate:
             # The already accepted Russian resources are an immutable reference.
             native = Path(old['native'])
             compiled = Path(old['compiled'])
         else:
-            acceptance = family / code / 'final/acceptance.json'
+            acceptance = family / code / ('final-' + candidate if candidate else 'final') / 'acceptance.json'
             accepted = read(acceptance)
             assert accepted['passed'] and accepted['frames'] == 7
             assert accepted['allIndependentlyReviewed']
@@ -65,9 +65,10 @@ def stage(family, index, destination):
             for binding in accepted['sourceBindings']:
                 for key in ['captureManifest', 'review']:
                     assert sha(Path(binding[key])) == binding[key + 'Sha256']
-            if accepted.get('reuseEvidence'):
-                evidence = accepted['reuseEvidence']
-                assert sha(Path(evidence['path'])) == evidence['sha256']
+            for evidence_type in ['reuseEvidence', 'transitionEvidence']:
+                evidence = accepted.get(evidence_type)
+                for item in evidence if isinstance(evidence, list) else [evidence] if evidence else []:
+                    assert sha(Path(item['path'])) == item['sha256']
         wm, nm = compiled / 'manifest.json', native / 'manifest.json'
         w, n = read(wm), read(nm)
         assert w['locale'] == n['locale'] == code
@@ -111,5 +112,7 @@ if __name__ == '__main__':
     parser.add_argument('--family', required=True, type=Path)
     parser.add_argument('--source-index', required=True, type=Path)
     parser.add_argument('--destination', required=True, type=Path)
+    parser.add_argument('--candidate', help='Use separate final-<candidate> sets, including Russian')
     args = parser.parse_args()
-    stage(args.family.resolve(), args.source_index.resolve(), args.destination.resolve())
+    assert args.candidate is None or args.candidate.isalnum()
+    stage(args.family.resolve(), args.source_index.resolve(), args.destination.resolve(), args.candidate)

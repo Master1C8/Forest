@@ -123,6 +123,13 @@ It tries the configured point size down to8pt, then uses a bounded ScrollRect
 if necessary; the portrait and identity block stay fixed. This option requires
 `imageCaptions`. Native review must inspect every required fact and any scroll
 boundary. Unshaped advance measurements select candidates, not visual passes.
+Optional `residentBodyTopLift` (0–24 canvas units), `residentPreferenceGap`
+(0–12) and `residentBodyBottomInset` (1–4, default 4) reserve space around the
+original dividers. These values require resident reflow. The first fact row
+stays below the portrait when the top of the body moves up. The adapter measures
+the actual shaped TMP glyphs for complex scripts. Verify both dividers, the
+portrait, and all fact rows in a capture; moving the top of a still overflowing
+viewport can leave bottom aligned text in its original position.
 Additional scripts such as CJK/RTL can require appropriate face data and actual
 target rendering/behavior validation. A successful compile alone does not prove
 font coverage, shaping, layout, visual parity or gameplay correctness.
@@ -149,6 +156,12 @@ uses display-only TMP children while preserving original Text components and
 references. Full target native, animation and screenshot acceptance remains
 required. Compiler success or corpus idempotence is not that acceptance.
 
+`residentProfileFit: true` is available to the complex script adapter for the original
+resident `FullName` and `Subtitles` fields. Their exact rectangles and hierarchy
+are checked. The shaped display fits the existing rectangle without truncating
+logical lines or moving the portrait. Native verification must show the name,
+each original subtitle line and clear space around the portrait and dividers.
+
 Thai alone adds an optional word-wrap hook to the original TMP word-candidate
 boundary in both mesh renderers. Offline PyThaiNLP5.4.0/newmm and its CC0
 `words_th.txt` produce corpus-bound word and Thai Character Cluster metadata;
@@ -165,10 +178,24 @@ moves the original CritterLog heading group up and right by four canvas units.
 Only its exact original pose, prior vertical pose or already-applied pose is
 accepted; wording and inline font tags stay
 unchanged. A source-bound crop must verify all descenders and portrait clearance.
+`critterHeadingScale`, `questHeadingScale`, `questHeadingLift`, and
+`questHeadingShiftX` configure the original heading groups for complex scripts.
+Scale is 0.6–1; lift and shift are 0–8 canvas units. The quest defaults to a lift
+of 4, zero shift and full scale. Do not configure both complex and native
+CritterLog scaling for the same locale.
+Optional `settingsBackLift` and `settingsDeleteLift` (0–8 canvas units) move
+the original main-menu Settings label groups and their glows. The buttons,
+cursors and hit areas keep their original positions. Verify the complete
+labels and clearance in the Settings frame.
 Regression: Hebrew final ן may intersect the divider even after shrinking the
 heading enough to avoid its portrait; raising it can put a wider portion beside
 the portrait again. Check both clearances together. A reduced full frame alone
 cannot resolve that boundary. These changes require version-bound native acceptance.
+
+The caption helper also sets the original `v0.45.1` label to white after the
+main menu creates its logo. The exact path and component are checked at runtime;
+the protected source label and scene controls are unchanged. Verify the badge
+against its background in the menu and settings captures.
 
 Menu-layout authoring must intersect inventory rows with
 `registered_layout_roles(framework, language.framework.sha256)` before changing

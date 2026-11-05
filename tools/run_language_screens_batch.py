@@ -24,7 +24,7 @@ def refresh_progress():
    row.update(captured=len(captured),visuallyPassed=0)
   row['resourcesPrepared']=row['resourcesPrepared']or any(FAMILY.glob(code+'-resources-*.json'))
  d.update(updatedAt=datetime.datetime.now(datetime.timezone.utc).isoformat(),newCaptured=sum(x['captured']for x in d['locales']if x['locale']!='ru' and x['visuallyPassed']==7),capturedAtAnyVersion=sum(x['captured']for x in d['locales']),passed=sum(x['visuallyPassed']for x in d['locales']),countingNote='passed/newCaptured count final accepted version-bound slots only; capturedAtAnyVersion includes historical candidates. Individual judgments remain in their immutable reviews.');write(p,d)
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('plan',type=Path);p.add_argument('--name',required=True);a=p.parse_args();assert a.name.isalnum();plan=read(a.plan);d=FAMILY/('capture-batch-'+a.name);d.mkdir(exist_ok=False)
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('plan',type=Path);p.add_argument('--name',required=True);p.add_argument('--capture-only',action='store_true',help='Capture assigned slots without changing accepted sets or starting model review');a=p.parse_args();assert a.name.isalnum();plan=read(a.plan);d=FAMILY/('capture-batch-'+a.name);d.mkdir(exist_ok=False)
 pin_paths=[ROOT/'tools'/n for n in ['capture_language_screens.py','review_language_screens.py','finalize_language_screens.py','review_screenshots.py']]+list((ROOT/'tools/probe').glob('*.py'))+list((ROOT/'tools/probe').glob('*.cs'))
 pins={str(p):sha(p)for p in pin_paths};state=dict(pid=os.getpid(),status='starting',completed=[],sourcePins=pins,planSha256=sha(a.plan));write(d/'state.json',state)
 def check():
@@ -56,7 +56,12 @@ for task in plan['tasks']:
    time.sleep(.5)
  if child.returncode:
   state.update(status='capture-failed',exitCode=child.returncode);write(d/'state.json',state);break
- capture=FAMILY/code/attempt;assert read(capture/'capture.json')['cleanup']['taskProcessStopped'];check();refresh_progress()
+ capture=FAMILY/code/attempt;captured=read(capture/'capture.json');assert captured['cleanup']['taskProcessStopped'];check()
+ if a.capture_only:
+  assert sorted(row['order'] for row in captured['images'])==sorted(orders)
+  assert all(captured['cleanup'][key] for key in ['ownerSaveSettingsUnchanged','taskSaveByteExact','bridgeRemoved','localizedAssemblyRestored','settingsRestored','progressSaveWritesBlocked'])
+  state['completed'].append(dict(locale=code,capture=str(capture),orders=orders,captureSha256=sha(capture/'capture.json')));state.pop('childPid',None);write(d/'state.json',state);continue
+ refresh_progress()
  with(d/(code+'-review.log')).open('wb')as log:
   child=subprocess.Popen([sys.executable,'-B',str(ROOT/'tools/review_language_screens.py'),code,'--attempt',attempt,'--execute'],stdout=log,stderr=subprocess.STDOUT,start_new_session=True);state.update(status='reviewing',childPid=child.pid);write(d/'state.json',state);rc=child.wait()
  if rc:

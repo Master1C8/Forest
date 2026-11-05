@@ -29,8 +29,29 @@ public static partial class VNRevivalImageCaptions {
         if(outlined){var outline=go.AddComponent<Outline>();outline.effectColor=Color.black;outline.effectDistance=new Vector2(2,-2);}
         selected.enabled=false;
     }
-    public static void Gallery(Component owner) {Apply(owner,"gallery_logo","/GalleryMenu/Logo",__GALLERY__,__GALLERY_SIZE__,true);ScaleGalleryCounters(owner,__GALLERY_COUNTER_SCALE__);}
+    static float residentBodyTopLift;
+    static void VersionLabel(Component owner) {
+        // The original Start method instantiates the logo after our prefix.
+        // Bind only the live, exact source label after that lifecycle boundary.
+        if(owner.GetComponent<VersionContrast>()==null)owner.gameObject.AddComponent<VersionContrast>();
+    }
+    public sealed class VersionContrast:MonoBehaviour {
+        void LateUpdate() {
+            Graphic selected=null;
+            foreach(var graphic in Resources.FindObjectsOfTypeAll<Graphic>())
+                if(graphic.gameObject.scene.IsValid()&&graphic.gameObject.activeInHierarchy&&
+                   Address(graphic.transform)=="Canvas/Logo/BuildVersionNumber (3)") {
+                    if(selected!=null)throw new InvalidOperationException("Ambiguous source version label");selected=graphic;
+                }
+            if(selected==null)return;
+            if(selected.GetType().FullName!="TMPro.TextMeshProUGUI")throw new InvalidOperationException("Unregistered source version component");
+            if((string)selected.GetType().GetProperty("text").GetValue(selected,null)!="v0.45.1")return;
+            selected.color=Color.white;enabled=false;
+        }
+    }
+    public static void Gallery(Component owner) {VersionLabel(owner);Apply(owner,"gallery_logo","/GalleryMenu/Logo",__GALLERY__,__GALLERY_SIZE__,true);ScaleGalleryCounters(owner,__GALLERY_COUNTER_SCALE__);}
     public static void Residents(Component owner) {
+        residentBodyTopLift=__RESIDENT_BODY_TOP_LIFT__;
         preferenceHeadingLift=__PREFERENCE_HEADING_LIFT__;ScaleCritterHeading(owner,__CRITTER_HEADING_SCALE__);
         Apply(owner,"CritterLog_Residents_Label","/ResidentsScrollView/Title",__RESIDENTS__,__RESIDENTS_SIZE__,false);
         if(__RESIDENT_REFLOW__)InstallResidentBody(owner);

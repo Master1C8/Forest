@@ -65,8 +65,12 @@ def route(run):
         width,height=struct.unpack('>II',raw[16:24]);assert (width,height)==(2880,1800)
         images.append(dict(game='The Forest of Love',locale=code,runtimeLocale=code,publishingLocale=code,order=order,direction='rtl' if code in ['ar','fa','he'] else 'ltr',filename=name,sha256=sha(path),width=width,height=height))
         write(run/'capture-progress.json',dict(locale=code,images=images,completed=len(images),total=7))
-    command(run,'show-menu');wait_state(run,lambda s:'Canvas/MainMenu/Controls/Options' in s['buttons'] and menu_rendered(s,'Canvas/MainMenu/Controls/Start'),'main');capture(1,'main-menu')
+    command(run,'show-menu');wait_state(run,lambda s:'Canvas/MainMenu/Controls/Options' in s['buttons'] and menu_rendered(s,'Canvas/MainMenu/Controls/Start'),'main')
+    if 1 in config.get('captureOrders',list(range(1,8))):
+        wait_state(run,lambda s:'version-contrast|Canvas/Logo/BuildVersionNumber (3)|pass=True' in s['details'],'version-contrast')
+    capture(1,'main-menu')
     click(run,'Canvas/MainMenu/Controls/Options');wait_state(run,lambda s:'Canvas/OptionsMenu/Controls/Back' in s['buttons'] and menu_rendered(s,'Canvas/OptionsMenu/Controls/Back'),'settings');capture(2,'settings')
+    if set(config['captureOrders'])<={1,2}:return images
     click(run,'Canvas/OptionsMenu/Controls/Back');click(run,'Canvas/MainMenu/Controls/Gallery');wait_state(run,lambda s:'Canvas/GalleryMenu/Controls/Column/Back' in s['buttons'] and menu_rendered(s,'Canvas/GalleryMenu/Controls/Column/Back'),'gallery')
     if config.get('verifyGalleryRtlGroup'):
         def toggle_value(s):
@@ -120,8 +124,8 @@ def route(run):
     command(run,'continue 279 143');s=wait_state(run,lambda s:s['conversationId']==279 and s['entryId']==144 and not s['typing'],'maverick-target')
     assert s['conversationText']==config['dialogueTarget'],'Loaded subtitle differs from the exact authored target'
     capture(7,'maverick-warmth');return images
-def run_locale(code,overlay,attempt,reuse_run=None,orders=None):
-    plan=read(FAMILY/'plan.json');assert code in [r['locale'] for r in plan['locales']] and code!='ru';assert attempt.isalnum()
+def run_locale(code,overlay,attempt,reuse_run=None,orders=None,background_best_effort=False):
+    plan=read(FAMILY/'plan.json');assert code in {r['locale'] for r in plan['locales']}|{'ru'};assert attempt.isalnum()
     run=ROOT/'localization/probes'/('locale-owner-shots-20261104-'+code+'-'+attempt);assert not run.exists();run.mkdir();source=freeze(run)
     language=ROOT/'localization/languages'/(code+'.json');doc=read(language);native=read(overlay/'manifest.json');assert native['locale']==code and native['languageSha256']==sha(language)
     camera_row=doc['translations']['bgdb:resources.assets:320/sheet/0BzeuogxqUOTnLWmTpBxVw/row/qePqzfpKTE%2BQlx%2FSCoUyQw/field/idzA%2BSihD062xkfAt9az8Q']
@@ -168,6 +172,8 @@ def run_locale(code,overlay,attempt,reuse_run=None,orders=None):
         startup=state(run,'startup-focus')
         if startup.get('focused') is False:
             write(run/'background-ready.json',dict(background=True,hidden=False,method='Original Unity Application.isFocused=false, runInBackground already true; no OS activation performed'))
+        elif background_best_effort:
+            write(run/'background-ready.json',dict(background=False,hidden=False,method='Existing project fallback: hidden-window framebuffer captures stalled. No OS activation or synthetic input; native framebuffer capture continues if the owner changes focus. Actual focused startup is recorded.'))
         write(FAMILY/'current-capture.json',dict(locale=code,run=str(run),state='awaiting-background',supervisorPid=session.pid,launch=read(run/'launch.json')))
         end=time.monotonic()+180
         while not (run/'background-ready.json').exists():
@@ -197,5 +203,5 @@ def run_locale(code,overlay,attempt,reuse_run=None,orders=None):
     write(FAMILY/'current-capture.json',dict(locale=code,run=str(run),state='captured-review-pending',destination=str(destination),count=len(images)))
     print(json.dumps(dict(locale=code,screens=len(images),destination=str(destination),native='captured',visual='pending')))
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('locale');p.add_argument('--overlay',type=Path,required=True);p.add_argument('--attempt',default='01');p.add_argument('--reuse-run',type=Path);p.add_argument('--orders');a=p.parse_args()
-    run_locale(a.locale,a.overlay.resolve(),a.attempt,a.reuse_run,list(map(int,a.orders.split(','))) if a.orders else None)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('locale');p.add_argument('--overlay',type=Path,required=True);p.add_argument('--attempt',default='01');p.add_argument('--reuse-run',type=Path);p.add_argument('--orders');p.add_argument('--background-best-effort',action='store_true');a=p.parse_args()
+    run_locale(a.locale,a.overlay.resolve(),a.attempt,a.reuse_run,list(map(int,a.orders.split(','))) if a.orders else None,a.background_best_effort)

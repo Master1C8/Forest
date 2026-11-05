@@ -28,6 +28,20 @@ namespace ForestComplexText {
         void OnDestroy() { UnityEngine.Canvas.willRenderCanvases -= HideOriginalMesh; }
         void HideOriginalMesh() { if(active && source != null && source.enabled) source.canvasRenderer.SetMesh(null); }
         void LateUpdate() { Sync(); }
+#if FOREST_RESIDENT_PROFILE_FIT
+        bool IsResidentProfile() {
+            if(source.name!="FullName"&&source.name!="Subtitles")return false;
+            var bio=source.transform.parent;
+            var content=bio==null?null:bio.parent;
+            if(bio==null||bio.name!="Bio"||content==null||content.name!="Content"||
+               content.parent==null||content.parent.name!="CritterLog UI")return false;
+            float height=source.name=="FullName"?18:39;
+            var size=source.rectTransform.rect.size;
+            if(!UnityEngine.Mathf.Approximately(size.x,186)||!UnityEngine.Mathf.Approximately(size.y,height))
+                throw new System.InvalidOperationException("Unregistered resident profile rectangle");
+            return true;
+        }
+#endif
         void Sync() {
             bool next = source.enabled && source.font != null && TextShaper.RequiresShaping(source.text);
             if (active && !next) source.SetVerticesDirty();
@@ -40,7 +54,12 @@ namespace ForestComplexText {
                 if (font == null) throw new System.Exception("Native font could not create TMP face");
                 font.name = "ForestComplex-"+source.font.name; Fonts.Add(source.font,font);
             }
-            display.font = font; display.fontSize = source.fontSize;
+            display.font = font;
+#if FOREST_RESIDENT_PROFILE_FIT
+            bool profile=IsResidentProfile();
+            if(!profile)
+#endif
+                display.fontSize = source.fontSize;
             display.fontStyle = source.fontStyle == UnityEngine.FontStyle.Bold ? TMPro.FontStyles.Bold :
                 source.fontStyle == UnityEngine.FontStyle.Italic ? TMPro.FontStyles.Italic :
                 source.fontStyle == UnityEngine.FontStyle.BoldAndItalic ? TMPro.FontStyles.Bold|TMPro.FontStyles.Italic : TMPro.FontStyles.Normal;
@@ -50,7 +69,18 @@ namespace ForestComplexText {
             display.outlineWidth=outline!=null&&outline.enabled?
                 UnityEngine.Mathf.Clamp01(UnityEngine.Mathf.Max(UnityEngine.Mathf.Abs(outline.effectDistance.x),UnityEngine.Mathf.Abs(outline.effectDistance.y))*2/source.fontSize):0;
             display.enableWordWrapping = source.horizontalOverflow == UnityEngine.HorizontalWrapMode.Wrap;
-            display.overflowMode = source.verticalOverflow == UnityEngine.VerticalWrapMode.Overflow ? TMPro.TextOverflowModes.Overflow : TMPro.TextOverflowModes.Truncate;
+#if FOREST_RESIDENT_PROFILE_FIT
+            if(profile) {
+                // Legacy point sizes can leave no room for a shaped line in
+                // TMP. Fit all lines into the original box without truncation.
+                display.enableAutoSizing=true;
+                display.fontSizeMin=source.name=="FullName"?10:8;
+                display.fontSizeMax=source.fontSize;
+                display.overflowMode=TMPro.TextOverflowModes.Overflow;
+            }
+            else
+#endif
+                display.overflowMode = source.verticalOverflow == UnityEngine.VerticalWrapMode.Overflow ? TMPro.TextOverflowModes.Overflow : TMPro.TextOverflowModes.Truncate;
             int align = (int)source.alignment;
             int horizontal=align%3;
             if(TextShaper.RequiresRightToLeft(source.text)&&horizontal==0)horizontal=2;

@@ -24,6 +24,15 @@ namespace ForestComplexText
         public static float CritterHeadingShiftX {
             get {string value;return Layout.TryGetValue("critterHeadingShiftX",out value)?Single.Parse(value,CultureInfo.InvariantCulture):0;}
         }
+        static float LayoutNumber(string key,float fallback) {
+            string value;return Layout.TryGetValue(key,out value)?Single.Parse(value,CultureInfo.InvariantCulture):fallback;
+        }
+        public static float CritterHeadingScale {get{return LayoutNumber("critterHeadingScale",1);}}
+        public static float QuestHeadingScale {get{return LayoutNumber("questHeadingScale",1);}}
+        public static float QuestHeadingShiftX {get{return LayoutNumber("questHeadingShiftX",0);}}
+        public static float QuestHeadingLift {get{return LayoutNumber("questHeadingLift",4);}}
+        public static float SettingsBackLift {get{return LayoutNumber("settingsBackLift",0);}}
+        public static float SettingsDeleteLift {get{return LayoutNumber("settingsDeleteLift",0);}}
         private static readonly int Mode;
         private static readonly bool RightToLeft;
 

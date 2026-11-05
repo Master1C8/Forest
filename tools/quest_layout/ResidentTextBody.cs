@@ -25,7 +25,7 @@ public static partial class VNRevivalImageCaptions {
     public sealed class ResidentBody:MonoBehaviour {
         RectTransform root,view,content;ScrollRect scroll;
         Text notesTitle,kinksTitle;Text[] notes,kinks;int[] sizes;
-        float[] lefts,widths;float notesHeadingLeft,notesHeadingWidth,kinksHeadingLeft,kinksHeadingWidth;string signature;
+        float[] lefts,widths;float notesHeadingLeft,notesHeadingWidth,kinksHeadingLeft,kinksHeadingWidth,firstFactsFloor;string signature;
         static RectTransform Child(string name,Transform parent,params Type[] extra) {
             var types=new List<Type>{typeof(RectTransform)};types.AddRange(extra);
             var go=new GameObject(name,types.ToArray());go.layer=parent.gameObject.layer;
@@ -41,6 +41,17 @@ public static partial class VNRevivalImageCaptions {
             notes=new Text[6];kinks=new Text[9];sizes=new int[15];lefts=new float[3];widths=new float[3];
             for(int i=0;i<6;i++)notes[i]=fields["Notes"+(i+1)];for(int i=0;i<9;i++)kinks[i]=fields["Kinks"+(i+1)];
             float top=Bounds(notesTitle,root,false).y,bottom=float.PositiveInfinity;
+            if(residentBodyTopLift>0) {
+                var portrait=root.Find("Portrait") as RectTransform;
+                if(portrait==null||portrait.rect.width!=65||portrait.rect.height!=60)
+                    throw new InvalidOperationException("Resident portrait geometry changed");
+                var corners=new Vector3[4];portrait.GetWorldCorners(corners);float portraitBottom=float.PositiveInfinity;
+                foreach(var corner in corners)portraitBottom=Mathf.Min(portraitBottom,root.InverseTransformPoint(corner).y);
+                top+=residentBodyTopLift;
+                // The centered heading may occupy the empty space beside the
+                // portrait. The first actual fact row must clear its bottom.
+                firstFactsFloor=Mathf.Max(0,top-portraitBottom+4);
+            }
             for(int i=0;i<15;i++){var t=i<6?notes[i]:kinks[i-6];sizes[i]=t.fontSize;bottom=Mathf.Min(bottom,Bounds(t,root,false).x);}
             for(int i=0;i<3;i++)lefts[i]=Bounds(notes[i],root,true).x-root.rect.xMin;
             for(int i=0;i<3;i++)widths[i]=i<2?lefts[i+1]-lefts[i]-4:notes[i].rectTransform.rect.width;
@@ -52,9 +63,9 @@ public static partial class VNRevivalImageCaptions {
             var kb=Bounds(kinksTitle,root,true);float kc=(kb.x+kb.y)*.5f-root.rect.xMin;
             notesHeadingWidth=Mathf.Min(band,2*Mathf.Min(nc-4,root.rect.width-4-nc));notesHeadingLeft=nc-notesHeadingWidth*.5f;
             kinksHeadingWidth=Mathf.Min(band,2*Mathf.Min(kc-4,root.rect.width-4-kc));kinksHeadingLeft=kc-kinksHeadingWidth*.5f;
-            // The original189-unit pane has12 units below the last fact.
-            // Use its real bottom with a4-unit painted-frame inset.
-            bottom=root.rect.yMin+4;
+            // The original 189-unit pane has 12 units below the last fact.
+            // Reserve the registered inset from the painted frame.
+            bottom=root.rect.yMin+__RESIDENT_BODY_BOTTOM_INSET__;
             if(top-bottom<40||Array.Exists(widths,w=>w<30))throw new InvalidOperationException("Resident body geometry changed");
             view=Child("VNRevivalResidentViewport",root,typeof(RectMask2D),typeof(Image),typeof(ScrollRect));
             view.anchorMin=new Vector2(0,1);view.anchorMax=Vector2.one;view.pivot=new Vector2(0,1);
@@ -64,15 +75,18 @@ public static partial class VNRevivalImageCaptions {
             foreach(var t in fields.Values)t.rectTransform.SetParent(content,false);
             scroll=view.GetComponent<ScrollRect>();scroll.content=content;scroll.viewport=view;scroll.horizontal=false;scroll.vertical=true;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.scrollSensitivity=12;
         }
+        static Vector2 ResidentInkY(Text text,RectTransform content) {
+            var gen=text.cachedTextGenerator;if(!gen.Populate(text.text,text.GetGenerationSettings(text.rectTransform.rect.size)))throw new InvalidOperationException("Resident text generation failed");
+            float lo=float.PositiveInfinity,hi=float.NegativeInfinity;
+            foreach(var vertex in gen.verts){if(vertex.color.a==0)continue;var p=content.InverseTransformPoint(text.transform.TransformPoint(vertex.position/text.pixelsPerUnit));lo=Mathf.Min(lo,p.y);hi=Mathf.Max(hi,p.y);}
+            return float.IsInfinity(lo)?Vector2.zero:new Vector2(lo,hi);
+        }
         float Place(Text text,float left,float top,float width) {
             var r=text.rectTransform;r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(left,-top);
             text.horizontalOverflow=HorizontalWrapMode.Wrap;text.verticalOverflow=VerticalWrapMode.Overflow;text.alignment=TextAnchor.UpperCenter;
             r.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,width);r.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,text.preferredHeight);
-            var gen=text.cachedTextGenerator;if(!gen.Populate(text.text,text.GetGenerationSettings(r.rect.size)))throw new InvalidOperationException("Resident text generation failed");
-            float lo=float.PositiveInfinity,hi=float.NegativeInfinity;
-            foreach(var vertex in gen.verts){if(vertex.color.a==0)continue;var p=content.InverseTransformPoint(text.transform.TransformPoint(vertex.position/text.pixelsPerUnit));lo=Mathf.Min(lo,p.y);hi=Mathf.Max(hi,p.y);}
-            if(float.IsInfinity(lo))return 0;
-            var pos=r.anchoredPosition;pos.y+=-top-hi;r.anchoredPosition=pos;return hi-lo;
+            var ink=ResidentInkY(text,content);if(ink.x==ink.y)return 0;
+            var pos=r.anchoredPosition;pos.y+=-top-ink.y;r.anchoredPosition=pos;return ink.y-ink.x;
         }
         float Rows(Text[] texts,int sizeOffset,int reduction,float cursor) {
             for(int row=0;row<texts.Length/3;row++) {
@@ -84,7 +98,8 @@ public static partial class VNRevivalImageCaptions {
         }
         float Layout(int reduction) {
             float cursor=Place(notesTitle,notesHeadingLeft,2,notesHeadingWidth)+5;
-            cursor=Rows(notes,0,reduction,cursor)+4;
+            cursor=Mathf.Max(cursor,firstFactsFloor);
+            cursor=Rows(notes,0,reduction,cursor)+__RESIDENT_PREFERENCE_BASE_GAP__;
             cursor+=Place(kinksTitle,kinksHeadingLeft,cursor,kinksHeadingWidth)+5;
             kinksTitle.rectTransform.anchoredPosition+=new Vector2(0,preferenceHeadingLift);
             return Rows(kinks,6,reduction,cursor)+2;

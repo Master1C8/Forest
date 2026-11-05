@@ -7,7 +7,7 @@ def read(p):return json.loads(p.read_bytes())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):
  t=p.with_suffix('.pending');t.write_text(json.dumps(v,indent=2)+'\n');t.replace(p)
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('locales',nargs='+');p.add_argument('--name',required=True);p.add_argument('--after-receipt',type=Path);p.add_argument('--dependency-timeout',type=int,default=43200);a=p.parse_args()
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('locales',nargs='+');p.add_argument('--name',required=True);p.add_argument('--after-receipt',type=Path);p.add_argument('--dependency-timeout',type=int,default=43200);p.add_argument('--baseline-index',type=Path);a=p.parse_args()
 assert a.name.isalnum() and len(a.locales)==len(set(a.locales))
 assert 1<=a.dependency_timeout<=43200,'Dependency wait must be finite, at most12 hours'
 d=FAMILY/('resource-batch-'+a.name);d.mkdir(exist_ok=False)
@@ -18,6 +18,9 @@ sys.path.insert(0,str(ROOT/'tools'))
 from forest_localization.complex_text import SOURCES
 paths += [ROOT/'tools/complex_text'/name for name in SOURCES+['prepare_corpus.py','font_shaping.py','thai_wrap.py','requirements.txt','CorpusTests.cs']]
 pins={str(p):sha(p) for p in paths if p.is_file()}
+if a.baseline_index:
+ a.baseline_index=a.baseline_index.resolve();assert a.baseline_index.is_relative_to(ROOT) and a.baseline_index.is_file()
+ pins[str(a.baseline_index)]=sha(a.baseline_index)
 state=dict(pid=os.getpid(),locales=a.locales,completed=[],status='waiting',sourcePins=pins,stopPolicy='Touch stop.request; current finite build completes before stopping. No helpers may be rewritten while the batch is live.')
 write(d/'state.json',state)
 if a.after_receipt:
@@ -31,10 +34,12 @@ for task in a.locales:
  assert cycle.isalnum()
  if (d/'stop.request').exists():state['status']='stopped-between-builds';break
  assert all(sha(Path(p))==v for p,v in pins.items()),'Shared helper drift: preserve current outputs and reconcile before another build'
- assert code!='ru' and (ROOT/'localization/languages'/(code+'.json')).is_file()
+ assert (code!='ru' or a.baseline_index) and (ROOT/'localization/languages'/(code+'.json')).is_file()
  assert not (FAMILY/(code+'-resources-'+cycle+'.json')).exists(),'Already prepared; choose only pending locale versions'
  with (d/(code+'.log')).open('wb') as log:
-  child=subprocess.Popen([sys.executable,'-B',str(ROOT/'tools/prepare_language_screens.py'),code,'--cycle',cycle],stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+  command=[sys.executable,'-B',str(ROOT/'tools/prepare_language_screens.py'),code,'--cycle',cycle]
+  if a.baseline_index:command+=['--baseline-index',str(a.baseline_index)]
+  child=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
   state.update(status='building',current=code,cycle=cycle,childPid=child.pid);write(d/'state.json',state);rc=child.wait()
  state['lastExitCode']=rc
  if rc:

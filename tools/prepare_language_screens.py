@@ -9,11 +9,24 @@ except ModuleNotFoundError:
 sys.path.insert(0,str(ROOT/'tools'));import forest_macos
 def read(p):return json.loads(p.read_bytes())
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('locale');p.add_argument('--cycle',default='01');p.add_argument('--resume',action='store_true');a=p.parse_args();assert a.cycle.isalnum()
-code=a.locale;language=ROOT/'localization/languages'/(code+'.json');assert language.is_file() and code!='ru'
-wording=next(row for row in read(FAMILY/'caption-wording-01.json')['rows'] if row['locale']==code)
-old=ROOT/'dist/windows-installer-work/overlays'/code;native=ROOT/'dist/macos-installer-work/overlays'/code
-assert read(old/'manifest.json')['languageSha256']==wording['beforeSha256']==read(native/'manifest.json')['languageSha256']
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('locale');p.add_argument('--cycle',default='01');p.add_argument('--resume',action='store_true');p.add_argument('--baseline-index',type=Path);a=p.parse_args();assert a.cycle.isalnum()
+code=a.locale;language=ROOT/'localization/languages'/(code+'.json');assert language.is_file()
+baseline=None
+if a.baseline_index:
+    index=a.baseline_index.resolve();assert index.is_relative_to(ROOT) and index.is_file() and not index.is_symlink()
+    rows=read(index)['sourceRows'];assert len({r['locale']for r in rows})==len(rows)
+    prior=next(r for r in rows if r['locale']==code);assert prior['visualAccepted'] is True
+    old=Path(prior['compiled']).resolve();native=Path(prior['native']).resolve()
+    assert old.is_relative_to(ROOT/'dist') and native.is_relative_to(ROOT/'dist')
+    assert sha(old/'manifest.json')==prior['compilerManifestSha256'] and sha(native/'manifest.json')==prior['nativeManifestSha256']
+    assert read(old/'manifest.json')['locale']==read(native/'manifest.json')['locale']==code
+    assert read(old/'manifest.json')['languageSha256']==read(native/'manifest.json')['languageSha256']==prior['languageSha256']
+    baseline=dict(index=str(index),sha256=sha(index),source=prior)
+else:
+    assert code!='ru','Use an explicit verified baseline index for Russian'
+    wording=next(row for row in read(FAMILY/'caption-wording-01.json')['rows'] if row['locale']==code)
+    old=ROOT/'dist/windows-installer-work/overlays'/code;native=ROOT/'dist/macos-installer-work/overlays'/code
+    assert read(old/'manifest.json')['languageSha256']==wording['beforeSha256']==read(native/'manifest.json')['languageSha256']
 compiled=ROOT/'dist'/('Forest-'+code+'-owner-screens-20261104-'+a.cycle);output=ROOT/'dist/all30-owner-screens-native-delta'/code/a.cycle
 assert a.resume or (not compiled.exists() and not output.exists())
 log=FAMILY/(code+'-compiler-'+a.cycle+'.log')
@@ -43,5 +56,6 @@ with (FAMILY/(code+'-native-'+a.cycle+'.log')).open('wb') as stream:
         result=forest_macos.port_full_compiled_overlay(code,compiled,native,output,full_work)
     else:result=forest_macos.port_changed_overlay(code,compiled,old,native,output,tool)
 record=dict(locale=code,languageSha256=sha(language),compiled=str(compiled),native=str(output),unchangedWindowsMembersShared=shared,nativeManifestSha256=sha(output/'manifest.json'),nativeManifest=result,modelRequests=0)
+if baseline:record['baseline']=baseline
 (FAMILY/(code+'-resources-'+a.cycle+'.json')).write_text(json.dumps(record,indent=2)+'\n')
 print(json.dumps(dict(locale=code,compiled=str(compiled),native=str(output),changedResources=result['reuse']['changedResources'])))

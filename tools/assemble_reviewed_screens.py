@@ -10,7 +10,7 @@ from pathlib import Path
 from stage_reviewed_installer import ROOT, read, sha, pin, write
 
 
-def assemble(family, destination):
+def assemble(family, destination, candidate=None):
     from build_windows_installer import selection
     assert family.is_relative_to(ROOT / 'localization/screenshots')
     assert destination.parent == ROOT / 'dist' and not destination.exists()
@@ -18,9 +18,10 @@ def assemble(family, destination):
     references = {r['locale']: r for r in initial['locales']}
     rows, originals, names = [], [], set()
     for code, language in selection().items():
-        source = ROOT / 'localization/screenshots/ru-owner-20261104-final' if code == 'ru' else family / code / 'final'
+        source = (family / code / ('final-' + candidate) if candidate else
+                  ROOT / 'localization/screenshots/ru-owner-20261104-final' if code == 'ru' else family / code / 'final')
         acceptance = read(source / 'acceptance.json')
-        if code == 'ru':
+        if code == 'ru' and not candidate:
             assert acceptance['allVisualChecksPassed'] and acceptance['screenCount'] == 7
             assert sha(language) == references[code]['sourceLanguageSha256']
         else:
@@ -67,5 +68,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--family', required=True, type=Path)
     parser.add_argument('--destination', required=True, type=Path)
+    parser.add_argument('--candidate', help='Use separate final-<candidate> sets, including Russian')
     args = parser.parse_args()
-    assemble(args.family.resolve(), args.destination.resolve())
+    assert args.candidate is None or args.candidate.isalnum()
+    assemble(args.family.resolve(), args.destination.resolve(), args.candidate)

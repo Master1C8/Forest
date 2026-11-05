@@ -14,6 +14,14 @@ def validate(doc, need):
     scale=doc.get('galleryCounterScale',1)
     need(type(scale) in (int,float) and .6<=scale<=1,'gallery-counter-scale')
     need(type(doc.get('residentTextLayout', False)) is bool,'resident-layout-boolean')
+    body_lift=doc.get('residentBodyTopLift',0)
+    need(type(body_lift)in(int,float)and 0<=body_lift<=24,'resident-body-top-lift')
+    need(body_lift==0 or doc.get('residentTextLayout',False),'resident-body-lift-requires-reflow')
+    preference_gap=doc.get('residentPreferenceGap',0)
+    body_inset=doc.get('residentBodyBottomInset',4)
+    need(type(preference_gap)in(int,float)and 0<=preference_gap<=12,'resident-preference-gap')
+    need(type(body_inset)in(int,float)and 1<=body_inset<=4,'resident-body-bottom-inset')
+    need((preference_gap==0 and body_inset==4) or doc.get('residentTextLayout',False),'resident-spacing-requires-reflow')
     heading_scale=doc.get('critterHeadingScale',1);heading_lift=doc.get('residentPreferenceHeadingLift',0)
     need(type(heading_scale)in(int,float)and .6<=heading_scale<=1,'critter-heading-scale')
     need(type(heading_lift)in(int,float)and 0<=heading_lift<=6,'resident-preference-heading-lift')
@@ -24,6 +32,7 @@ def validate(doc, need):
         need(not single_line,'single-line-status-fit-requires-caption-input')
         need(not doc.get('imageCaptionSizes'),'caption-sizes-require-caption-input')
         need(not doc.get('residentTextLayout'),'resident-layout-requires-caption-input')
+        need(body_lift==0,'resident-body-lift-requires-caption-input')
         need(scale==1,'counter-scale-requires-caption-input')
         need(heading_scale==1 and heading_lift==0,'resident-heading-layout-requires-caption-input')
         return
@@ -78,6 +87,7 @@ def build(doc, files, root, directory, work, need, complex_directory=None):
     for role in SOURCES:caption=caption.replace('__'+role.upper()+'__',json.dumps(doc['imageCaptions'][role]['target'],ensure_ascii=True))
     for role,default in [('gallery',50),('residents',18)]:caption=caption.replace('__'+role.upper()+'_SIZE__',str(doc.get('imageCaptionSizes',{}).get(role,default)))
     caption=caption.replace('__RESIDENT_REFLOW__',str(doc.get('residentTextLayout',False)).lower())
+    caption=caption.replace('__RESIDENT_BODY_TOP_LIFT__',str(doc.get('residentBodyTopLift',0))+'f')
     caption=caption.replace('__GALLERY_COUNTER_SCALE__',str(doc.get('galleryCounterScale',1))+'f')
     caption=caption.replace('__CRITTER_HEADING_SCALE__',str(doc.get('critterHeadingScale',1))+'f')
     caption=caption.replace('__PREFERENCE_HEADING_LIFT__',str(doc.get('residentPreferenceHeadingLift',0))+'f')
@@ -89,6 +99,12 @@ def build(doc, files, root, directory, work, need, complex_directory=None):
         (folder/'QuestLayout.cs').write_text(source)
     (folder/'ImageCaptions.cs').write_text(caption)
     resident=(root/'tools/quest_layout/ResidentTextBody.cs').read_text()
+    resident=resident.replace('__RESIDENT_PREFERENCE_BASE_GAP__',str(4+doc.get('residentPreferenceGap',0))+'f')
+    resident=resident.replace('__RESIDENT_BODY_BOTTOM_INSET__',str(doc.get('residentBodyBottomInset',4))+'f')
+    if complex_directory is not None:
+        slot='static Vector2 ResidentInkY(Text text,RectTransform content) {'
+        need(resident.count(slot)==1,'exact-shaped-resident-ink-selector')
+        resident=resident.replace(slot,slot+' Vector2 shaped; if(ForestComplexText.LegacyMirror.TryInkY(text,content,out shaped))return shaped;')
     if not heading_layout:
         slot='            kinksTitle.rectTransform.anchoredPosition+=new Vector2(0,preferenceHeadingLift);\n'
         need(resident.count(slot)==1,'exact-optional-resident-heading-lift')

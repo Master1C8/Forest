@@ -82,6 +82,14 @@ public sealed class ForestProbe : MonoBehaviour {
         var geometry=new List<string>();
         foreach(var rect in Resources.FindObjectsOfTypeAll<RectTransform>())if(rect.gameObject.scene.IsValid()) {
             string path=Address(rect);
+            if(path.EndsWith("/CritterLog UI/Content/Bio",StringComparison.Ordinal)||
+               path.EndsWith("/CritterLog UI/Content/Bio/Portrait",StringComparison.Ordinal)||
+               path.EndsWith("/CritterLog UI/Content/Bio/Notes_Title",StringComparison.Ordinal)) {
+                var bio=path.EndsWith("/Bio",StringComparison.Ordinal)?rect:rect.parent as RectTransform;
+                var corners=new Vector3[4];rect.GetWorldCorners(corners);float low=float.PositiveInfinity,high=float.NegativeInfinity;
+                foreach(var corner in corners){float y=bio.InverseTransformPoint(corner).y;low=Mathf.Min(low,y);high=Mathf.Max(high,y);}
+                geometry.Add("resident-source-rect|"+path+"|y="+low+","+high+"|rect="+rect.rect+"|position="+rect.anchoredPosition);
+            }
             if(path=="Canvas/GalleryMenu/Dialogue/Dialogue"||path=="Canvas/GalleryMenu/Dialogue/On"||path=="Canvas/GalleryMenu/Dialogue/Off"||path.EndsWith("/MasterLog/Canvas/Container/Labels/QuestLog",StringComparison.Ordinal))
                 geometry.Add("layout-pose|"+path+"|x="+rect.anchoredPosition.x.ToString(System.Globalization.CultureInfo.InvariantCulture)+"|y="+rect.anchoredPosition.y.ToString(System.Globalization.CultureInfo.InvariantCulture)+"|active="+rect.gameObject.activeInHierarchy);
         }
@@ -97,6 +105,46 @@ public sealed class ForestProbe : MonoBehaviour {
         foreach(var t in Resources.FindObjectsOfTypeAll<TextMeshProUGUI>())
             if(t.gameObject.activeInHierarchy && (Address(t.transform).StartsWith("Canvas/MainMenu/") || Address(t.transform).StartsWith("Canvas/OptionsMenu/") || Address(t.transform).StartsWith("Canvas/GalleryMenu/")))
                 details.Add("render-ready|"+Address(t.transform)+"|alpha="+(t.color.a*t.canvasRenderer.GetAlpha()*t.canvasRenderer.GetInheritedAlpha()).ToString(System.Globalization.CultureInfo.InvariantCulture)+"|chars="+t.textInfo.characterCount+"|cull="+t.canvasRenderer.cull);
+        foreach(var t in Resources.FindObjectsOfTypeAll<TextMeshProUGUI>())if(t.enabled&&t.gameObject.activeInHierarchy) {
+            string path=Address(t.transform);
+            if(path=="Canvas/Logo/BuildVersionNumber (3)") {
+                details.Add("version-color|"+path+"|"+t.color+"|point="+t.fontSize);
+                bool ready=t.text=="v0.45.1"&&t.color.r>=.95f&&t.color.g>=.95f&&t.color.b>=.95f&&
+                    t.color.a*t.canvasRenderer.GetAlpha()*t.canvasRenderer.GetInheritedAlpha()>=.95f;
+                details.Add("version-contrast|"+path+"|pass="+ready);
+            }
+            if(path.EndsWith("/Bio/FullName/ForestComplexDisplay",StringComparison.Ordinal)||
+               path.EndsWith("/Bio/Subtitles/ForestComplexDisplay",StringComparison.Ordinal)) {
+                var canvas=t.canvas.rootCanvas;
+                var camera=canvas.renderMode==RenderMode.ScreenSpaceOverlay?null:canvas.worldCamera;
+                var lineBounds=new SortedDictionary<int,Rect>();
+                var info=t.textInfo;
+                for(int i=0;i<info.characterCount;i++) {
+                    var c=info.characterInfo[i];if(!c.isVisible)continue;
+                    Vector2 lo=RectTransformUtility.WorldToScreenPoint(camera,t.transform.TransformPoint(c.bottomLeft));
+                    Vector2 hi=RectTransformUtility.WorldToScreenPoint(camera,t.transform.TransformPoint(c.topRight));
+                    Rect r;
+                    if(!lineBounds.TryGetValue(c.lineNumber,out r))r=Rect.MinMaxRect(lo.x,Screen.height-hi.y,hi.x,Screen.height-lo.y);
+                    else r=Rect.MinMaxRect(Mathf.Min(r.xMin,lo.x),Mathf.Min(r.yMin,Screen.height-hi.y),Mathf.Max(r.xMax,hi.x),Mathf.Max(r.yMax,Screen.height-lo.y));
+                    lineBounds[c.lineNumber]=r;
+                }
+                var lines=new List<string>();foreach(var pair in lineBounds)lines.Add(pair.Key+":"+pair.Value);
+                details.Add("resident-profile-ink|"+path+"|chars="+info.characterCount+"|lines="+info.lineCount+"|visible="+String.Join(";",lines.ToArray())+"|alpha="+t.canvasRenderer.GetAlpha()*t.canvasRenderer.GetInheritedAlpha()+"|cull="+t.canvasRenderer.cull+"|overflow="+t.overflowMode+"|rect="+t.rectTransform.rect);
+            }
+            if(!path.Contains("/Bio/VNRevivalResidentViewport/")||!path.EndsWith("/ForestComplexDisplay",StringComparison.Ordinal))continue;
+            t.ForceMeshUpdate();
+            foreach(var mask in t.GetComponentsInParent<RectMask2D>())if(mask.enabled&&mask.gameObject.activeInHierarchy) {
+                float low=float.PositiveInfinity,high=float.NegativeInfinity;int inside=0,outside=0;
+                for(int i=0;i<t.textInfo.characterCount;i++) {
+                    var c=t.textInfo.characterInfo[i];if(!c.isVisible)continue;
+                    foreach(var vertex in new[]{c.bottomLeft,c.topLeft,c.topRight,c.bottomRight}) {
+                        var p=mask.rectTransform.InverseTransformPoint(t.transform.TransformPoint(vertex));
+                        low=Mathf.Min(low,p.y);high=Mathf.Max(high,p.y);if(mask.rectTransform.rect.Contains(p))inside++;else outside++;
+                    }
+                }
+                geometry.Add("shaped-ink|"+path+"|inside="+inside+"|outside="+outside+"|y="+low+","+high+"|mask="+mask.rectTransform.rect);
+            }
+        }
         s.texts=texts.ToArray();s.buttons=buttons.ToArray();s.details=details.ToArray();s.responses=responses.ToArray();s.images=images.ToArray();s.scrolls=scrolls.ToArray();s.geometry=geometry.ToArray();
         File.WriteAllText(Path.Combine(Root,"state.json"),JsonUtility.ToJson(s,true));
     }

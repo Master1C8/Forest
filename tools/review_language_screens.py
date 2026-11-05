@@ -29,7 +29,7 @@ resident_context=[dict(id=k,**r) for k,r in doc['translations'].items() if k.sta
 assert len(resident_context)==7
 context+='Complete authored facts known in Scarlett fixture (??? elsewhere are undiscovered; complete wording must remain visible): '+json.dumps(resident_context,ensure_ascii=False)+'\n'
 run=Path(capture['run']);visible_context={}
-for order,prefix in [(1,'Canvas/MainMenu/'),(2,'Canvas/OptionsMenu/'),(3,'Canvas/GalleryMenu/'),(4,None),(6,None)]:
+for order,prefix in [(1,'Canvas/MainMenu/'),(2,'Canvas/OptionsMenu/'),(3,'Canvas/GalleryMenu/'),(4,None),(5,None),(6,None)]:
     snapshot=run/('state-before-'+str(order)+'.json')
     if not snapshot.exists():continue
     import base64
@@ -38,13 +38,18 @@ for order,prefix in [(1,'Canvas/MainMenu/'),(2,'Canvas/OptionsMenu/'),(3,'Canvas
         path,encoded,*_=row.split('\t')
         if ((prefix and path.startswith(prefix))
             or (order==4 and ('/ItemInfoMultilineFixedWidths/' in path or '/Labels/Inventory/' in path))
-            or (order==6 and ('/QuestLog/' in path or '/Labels/QuestLog/' in path))):values.add(base64.b64decode(encoded).decode())
+            or (order==6 and ('/QuestLog/' in path or '/Labels/QuestLog/' in path))
+            or (order==5 and ('/CritterLog UI/Content/Bio/' in path or '/Labels/CritterLog/' in path))):
+            value=base64.b64decode(encoded).decode();values.add(value)
+            if order==5 and path.endswith('/Bio/Subtitles'):values.update(value.splitlines())
     authored=[]
     for value in sorted(values):
         if not value.strip():continue
         matches=sorted({r['source'] for r in doc['translations'].values() if r['target']==value})
         if matches:authored.append(dict(target=value,sourceVariants=matches))
     visible_context[order]=authored
+gallery=sorted({(r['source'],r['target'])for key,r in doc['translations'].items()if 'StartScreenGalleryMenu::' in key})
+context+='Exact original gallery category and counter-format references (Movies/Stories are distinct from the Gallery heading): '+json.dumps([dict(source=s,target=t)for s,t in gallery],ensure_ascii=False)+'\n'
 terminology=FAMILY/'terminology-decisions'/(a.locale+'.json')
 if terminology.exists():context+='Exact source/target terminology clarification (assess it; source equality alone proves neither pass nor defect): '+json.dumps(read(terminology),ensure_ascii=False)+'\n'
 jobs=[]

@@ -6,6 +6,13 @@ static class CorpusTests {
     static void Main(string[] args) {
         using var doc=JsonDocument.Parse(File.ReadAllBytes(args[0]));int checkedValues=0,failed=0,thaiValues=0;
         bool thai=doc.RootElement.GetProperty("locale").GetString()=="th";
+        JsonElement layout;bool hasLayout=doc.RootElement.TryGetProperty("complexTextLayout",out layout);
+        float Expected(string key,float fallback){JsonElement value;return hasLayout&&layout.TryGetProperty(key,out value)?value.GetSingle():fallback;}
+        foreach(var pair in new[]{("critterHeadingLift",TextShaper.CritterHeadingLift,0f),("critterHeadingShiftX",TextShaper.CritterHeadingShiftX,0f),
+            ("critterHeadingScale",TextShaper.CritterHeadingScale,1f),("questHeadingScale",TextShaper.QuestHeadingScale,1f),
+            ("questHeadingShiftX",TextShaper.QuestHeadingShiftX,0f),("questHeadingLift",TextShaper.QuestHeadingLift,4f),
+            ("settingsBackLift",TextShaper.SettingsBackLift,0f),("settingsDeleteLift",TextShaper.SettingsDeleteLift,0f)})
+            if(pair.Item2!=Expected(pair.Item1,pair.Item3))throw new Exception("Embedded layout metadata differs: "+pair.Item1);
         foreach(var row in doc.RootElement.GetProperty("translations").EnumerateObject()) {
             string value=row.Value.GetProperty("target").GetString();
             try {

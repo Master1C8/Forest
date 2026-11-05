@@ -56,18 +56,43 @@ namespace ForestComplexText {
             if(heading==null||heading.name!="QuestLog"||heading.parent==null||heading.parent.name!="Labels"||heading.parent.parent==null||heading.parent.parent.name!="Container"||heading.parent.parent.parent==null||heading.parent.parent.parent.name!="Canvas")return;
             // Original foreground artwork occludes Arabic descenders at y=0.
             // Move the complete heading (including outline children) above it.
-            if(heading.anchorMin!=new UnityEngine.Vector2(.5f,1)||heading.anchorMax!=heading.anchorMin||heading.pivot!=heading.anchorMin||heading.sizeDelta!=new UnityEngine.Vector2(88,15)||heading.localScale!=UnityEngine.Vector3.one||heading.anchoredPosition.x!=0||(heading.anchoredPosition.y!=0&&heading.anchoredPosition.y!=4))throw new System.InvalidOperationException("Unregistered quest heading pose");
-            heading.anchoredPosition=new UnityEngine.Vector2(0,4);
+            var target=new UnityEngine.Vector2(TextShaper.QuestHeadingShiftX,TextShaper.QuestHeadingLift);
+            var scale=new UnityEngine.Vector3(TextShaper.QuestHeadingScale,TextShaper.QuestHeadingScale,1);
+            bool knownPose=heading.anchoredPosition==UnityEngine.Vector2.zero||heading.anchoredPosition==new UnityEngine.Vector2(0,4)||heading.anchoredPosition==target;
+            if(heading.anchorMin!=new UnityEngine.Vector2(.5f,1)||heading.anchorMax!=heading.anchorMin||heading.pivot!=heading.anchorMin||heading.sizeDelta!=new UnityEngine.Vector2(88,15)||(heading.localScale!=UnityEngine.Vector3.one&&heading.localScale!=scale)||!knownPose)throw new System.InvalidOperationException("Unregistered quest heading pose");
+            heading.localScale=scale;heading.anchoredPosition=target;
         }
         static void CritterHeadingClearance(TMPro.TMP_Text text) {
             float lift=TextShaper.CritterHeadingLift,shift=TextShaper.CritterHeadingShiftX;
-            if((lift==0&&shift==0)||text.name!="NameContainer (1)")return;
+            float factor=TextShaper.CritterHeadingScale;
+            if((lift==0&&shift==0&&factor==1)||text.name!="NameContainer (1)")return;
             var heading=text.transform.parent as UnityEngine.RectTransform;
             if(heading==null||heading.name!="CritterLog"||heading.parent==null||heading.parent.name!="Labels"||heading.parent.parent==null||heading.parent.parent.name!="Container"||heading.parent.parent.parent==null||heading.parent.parent.parent.name!="Canvas")return;
             var target=new UnityEngine.Vector2(shift,lift);
+            var scale=new UnityEngine.Vector3(factor,factor,1);
             bool knownPose=heading.anchoredPosition==UnityEngine.Vector2.zero||heading.anchoredPosition==new UnityEngine.Vector2(0,lift)||heading.anchoredPosition==target;
-            if(heading.anchorMin!=new UnityEngine.Vector2(.5f,1)||heading.anchorMax!=heading.anchorMin||heading.pivot!=heading.anchorMin||heading.sizeDelta!=new UnityEngine.Vector2(88,15)||heading.localScale!=UnityEngine.Vector3.one||!knownPose)throw new System.InvalidOperationException("Unregistered CritterLog heading pose");
-            heading.anchoredPosition=target;
+            if(heading.anchorMin!=new UnityEngine.Vector2(.5f,1)||heading.anchorMax!=heading.anchorMin||heading.pivot!=heading.anchorMin||heading.sizeDelta!=new UnityEngine.Vector2(88,15)||(heading.localScale!=UnityEngine.Vector3.one&&heading.localScale!=scale)||!knownPose)throw new System.InvalidOperationException("Unregistered CritterLog heading pose");
+            heading.localScale=scale;heading.anchoredPosition=target;
+        }
+        static void SettingsLabelClearance(TMPro.TMP_Text text) {
+            if(text.name!="NameContainer")return;
+            var label=text.transform as UnityEngine.RectTransform;
+            var button=label?.parent;
+            if(button==null)return;
+            bool delete=button.name=="Delete Savegame";
+            if(!delete&&(button.name!="Back"||button.parent?.name!="Controls"))return;
+            var options=delete?button.parent:button.parent?.parent;var canvas=options?.parent;
+            if(options?.name!="OptionsMenu"||canvas?.name!="Canvas"||canvas.parent!=null)return;
+            float lift=delete?TextShaper.SettingsDeleteLift:TextShaper.SettingsBackLift;
+            if(lift==0)return;
+            // Keep the button and cursors at their original positions. All
+            // glows move together with their exact original label group.
+            var original=new UnityEngine.Vector2(60,9);
+            var target=original+new UnityEngine.Vector2(0,lift);
+            if(label.anchorMin!=UnityEngine.Vector2.zero||label.anchorMax!=label.anchorMin||
+               label.pivot!=new UnityEngine.Vector2(.5f,.5f)||label.sizeDelta.x!=72||label.localScale!=UnityEngine.Vector3.one||
+               (label.anchoredPosition!=original&&label.anchoredPosition!=target))throw new System.InvalidOperationException("Unregistered settings label pose: "+button.name);
+            label.anchoredPosition=target;
         }
         void Bind() {
             foreach(var text in UnityEngine.Resources.FindObjectsOfTypeAll<TMPro.TMP_Text>()) {
@@ -75,6 +100,7 @@ namespace ForestComplexText {
                 GalleryDirection(text);
                 QuestHeadingClearance(text);
                 CritterHeadingClearance(text);
+                SettingsLabelClearance(text);
                 if(text.textPreprocessor is Processor)continue;
                 if(text.textPreprocessor!=null)throw new System.InvalidOperationException("Unregistered text preprocessor conflict");
                 string logical=text.text;Prepare(text);text.havePropertiesChanged=true;text.SetVerticesDirty();

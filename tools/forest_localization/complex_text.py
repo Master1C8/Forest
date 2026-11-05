@@ -8,14 +8,19 @@ SOURCES=['TextShaper.cs','Processor.cs','Runtime.cs','LegacyMirror.cs','BidiForF
 
 def validate(doc,need):
     need(type(doc.get('complexText',False)) is bool,'complex-text-boolean')
+    profile_fit=doc.get('residentProfileFit',False)
+    need(type(profile_fit) is bool,'resident-profile-fit-boolean')
+    need(not profile_fit or (doc.get('complexText') and doc['locale'] in LOCALES),'resident-profile-fit-requires-complex-renderer')
     if not doc.get('complexText'):
         need(not doc.get('complexTextLayout'),'complex-layout-requires-renderer');return
     need(doc['locale'] in LOCALES,'registered-complex-script-locale')
     need(bool(doc.get('fonts')) and len({r['asset'] for r in doc['fonts'].values()})==1,'one-explicit-complex-font-face')
     need(bool(doc.get('imageCaptions')),'complex-text-requires-shared-bootstrap')
     layout=doc.get('complexTextLayout',{})
-    need(isinstance(layout,dict) and set(layout)<={'critterHeadingLift','critterHeadingShiftX'},'registered-complex-layout')
-    need(all(type(v) in (int,float) and 0<=v<=8 for v in layout.values()),'complex-heading-lift-bounds')
+    scales={'critterHeadingScale','questHeadingScale'}
+    need(isinstance(layout,dict) and set(layout)<={'critterHeadingLift','critterHeadingShiftX','questHeadingLift','questHeadingShiftX','settingsBackLift','settingsDeleteLift'}|scales,'registered-complex-layout')
+    need(all(type(v) in (int,float) and (.6<=v<=1 if key in scales else 0<=v<=8) for key,v in layout.items()),'complex-heading-layout-bounds')
+    need(not ('critterHeadingScale' in layout and doc.get('critterHeadingScale',1)!=1),'one-critter-heading-scale-owner')
 
 def prepare(doc,root,work,need):
     if not doc.get('complexText'):return doc,None
@@ -44,4 +49,7 @@ def compiler_inputs(root,folder,derived):
     sources=[]
     for name in SOURCES:
         target=folder/('Complex-'+Path(name).name);target.write_bytes((root/'tools/complex_text'/name).read_bytes());sources.append(target)
-    return sources,['-resource:'+str(derived/'shaping-map.tsv')+',VNRevival.ShapingMap']
+    args=['-resource:'+str(derived/'shaping-map.tsv')+',VNRevival.ShapingMap']
+    if json.loads((derived/'font-input.json').read_bytes()).get('residentProfileFit'):
+        args.append('-define:FOREST_RESIDENT_PROFILE_FIT')
+    return sources,args
