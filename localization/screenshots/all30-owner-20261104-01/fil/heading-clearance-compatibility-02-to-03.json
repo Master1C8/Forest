@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "locale": "fil",
+  "oldManifestSha256": "220feb416e7f2b70dc2e866092038a8cc5341c6a1d5d37dfc31c6e907a15402f",
+  "newManifestSha256": "8357971df089375498e5f1103bbc90d863d60c4ea9636f5e332a54fea8aa59eb",
+  "changedResources": [
+    "Managed/VNRevivalQuestLayout.dll"
+  ],
+  "changedFields": [],
+  "helperProof": {
+    "passed": true,
+    "changedEntries": [
+      "body:System.Single VNRevivalImageCaptions/ResidentBody::Layout(System.Int32)",
+      "body:System.Void VNRevivalImageCaptions::Residents(UnityEngine.Component)",
+      "body:System.Void VNRevivalImageCaptions::ScaleCritterHeading(UnityEngine.Component,System.Single)",
+      "field:System.Single VNRevivalImageCaptions::preferenceHeadingLift",
+      "method:System.Void VNRevivalImageCaptions::ScaleCritterHeading(UnityEngine.Component,System.Single)"
+    ],
+    "allOtherEntriesExact": true,
+    "captionWordingExact": true,
+    "moduleIdentityNormalized": "MVID only"
+  },
+  "boundary": "Only registered point sizes and scoped gallery/resident/status-heading helper changes; no wording, data, other code or font resource changes. Per-scene applicability and original image review still required."
+}

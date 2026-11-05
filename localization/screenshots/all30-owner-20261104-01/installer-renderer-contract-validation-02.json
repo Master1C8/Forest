@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "checks": {
+    "windowsRenderer15": {
+      "assertions": 172,
+      "log": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/installer-core-windows-renderer15-01.log",
+      "sha256": "61b56bac25b5ee821887339968483f3bdeeec64ebeba3ab4ed504545a399797c"
+    },
+    "macOSRenderer15": {
+      "assertions": 44,
+      "log": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/installer-core-macos-renderer15-01.log",
+      "sha256": "1522b92d34759af1b6407cafaa7b10e30b34835e451793fcf52e41c4e3741a3c"
+    },
+    "windowsLegacy14": {
+      "assertions": 1079,
+      "log": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/installer-core-windows-regression-02.log",
+      "sha256": "86bb85d9096cc81f47d1aacf92d3565c10989f63ccda6929b7ce40701e447551"
+    },
+    "macOSLegacy14": {
+      "assertions": 149,
+      "log": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/installer-core-macos-regression-02.log",
+      "sha256": "9d15c3e38859382abdaad8e6811f6786fb40b2296379a5662df3fcb59612453e"
+    }
+  },
+  "sourcePins": {
+    "MacOS/Sources/InstallerCore.swift": "e18b6eaaead4b9f050ebea77c094a5e65766e7f6ce077c7c2f2a37fccce09d1f",
+    "Windows/ForestInstaller.cs": "ddf6b5786f4c7c6f1db85b6c35d11dbab102501266e7b514fcc462a3620e5a57",
+    "MacOS/Tests/RendererTests.swift": "0d1a7f3bf84238edb52d5a4822a995e65052b2ab0ddbcdd592c84b57b1ab323a",
+    "Windows/tests/Program.cs": "f92f95ae1f1b383f0a165038a179f0ca72e0adc4f7261e6605601da18210c5bb",
+    "tools/test_macos_renderer.py": "c3dab37d5ff5888973d357285baf69824ba9ce95caa02fb9bdff720660d5988b",
+    "tools/test_macos_installer.py": "fbac7040c9790a70f9ed64edf2a99a9d2ed9eeb74130eb93c2980922b6f29efe"
+  },
+  "boundary": "Actual real original/patched TMP bytes for15 ownership tests; other game resources synthetic. Real filesystem transaction/recovery/foreign-file preservation exercised. No native installer UI, PowerShell5.1, signing or game execution. Full packaged artifact acceptance remains pending."
+}

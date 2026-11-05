@@ -66,6 +66,8 @@ namespace VNRevival.Forest {
         public const string Owner = "VNRevival.Forest.Localization";
         public const string DataName = "The Forest of Love_Data";
         public const string ExeName = "The Forest of Love.exe";
+        public const string RendererPath = "Managed/Unity.TextMeshPro.dll";
+        public const string RendererOriginalSha256 = "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483";
         static readonly string[] Paths = new [] {
             "Managed/Assembly-CSharp.dll", "Managed/VNRevivalInventoryLayout.dll", "Managed/VNRevivalQuestLayout.dll",
             "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle",
@@ -115,9 +117,10 @@ namespace VNRevival.Forest {
             return path;
         }
         static void ValidateFiles(Fingerprint[] files) {
-            Need(files != null && files.Length == Paths.Length, "Incomplete resource list.");
-            Need(files.Select(x => x.path).Distinct(StringComparer.OrdinalIgnoreCase).Count() == Paths.Length, "Duplicate resource path.");
-            Need(new HashSet<string>(files.Select(x => x.path), StringComparer.Ordinal).SetEquals(Paths), "Unknown resource path.");
+            Need(files != null && (files.Length == Paths.Length || files.Length == Paths.Length + 1), "Incomplete resource list.");
+            var expected = files.Length == Paths.Length ? Paths : Paths.Concat(new [] { RendererPath }).ToArray();
+            Need(files.Select(x => x.path).Distinct(StringComparer.OrdinalIgnoreCase).Count() == expected.Length, "Duplicate resource path.");
+            Need(new HashSet<string>(files.Select(x => x.path), StringComparer.Ordinal).SetEquals(expected), "Unknown resource path.");
             foreach (var f in files) Need(f.bytes >= 0 && f.bytes <= 300000000 && (IsHash(f.sha256) || f.sha256 == null && f.bytes == 0), "Invalid resource fingerprint.");
         }
         static void Verify(string root, Fingerprint[] files) {
@@ -157,6 +160,8 @@ namespace VNRevival.Forest {
             Manifest m; using (var s = entry.Open()) m = Read<Manifest>(s);
             Need(m.format == 3 && m.gameVersion == "0.45" && m.dataDirectory == DataName && m.identityPath == "globalgamemanagers.assets" && IsHash(m.identitySha256), "Unsupported game package.");
             ValidateFiles(m.originals);
+            var renderer = m.originals.SingleOrDefault(x => x.path == RendererPath);
+            if (renderer != null) Need(renderer.bytes == 370176 && renderer.sha256 == RendererOriginalSha256, "Unregistered original TMP renderer.");
             Need(m.baselines != null && m.baselines.Length == m.originals.Count(x => x.sha256 != null)+1
                 && m.baselines.Select(x => x.path).Distinct(StringComparer.OrdinalIgnoreCase).Count() == m.baselines.Length, "Invalid source dictionary.");
             Need(m.baselines.Count(x => x.path == "__bundle.asset" && IsHash(x.sha256) && x.bytes > 0 && x.bytes < 536870912) == 1, "Missing original bundle asset.");
@@ -166,6 +171,7 @@ namespace VNRevival.Forest {
             foreach (var locale in m.locales) {
                 Need(locale.code != "en" && !String.IsNullOrEmpty(locale.code) && locale.code.All(c => Char.IsLetterOrDigit(c) || c == '-'), "Invalid locale code.");
                 ValidateRecipes(locale.files, m.baselines);
+                Need(new HashSet<string>(locale.files.Select(x => x.path), StringComparer.Ordinal).SetEquals(m.originals.Select(x => x.path)), "Locale resource inventory differs from originals.");
             }
             return m;
         }
@@ -370,6 +376,10 @@ namespace VNRevival.Forest {
                     State old = File.Exists(statePath) ? ReadFile<State>(statePath) : null;
                     if (old != null) Need(old.owner == Owner && old.format == 1 && SafeId(old.transaction), "Invalid installer ownership state.");
                     Fingerprint[] previous = old == null ? m.originals : old.files;
+                    ValidateFiles(previous);
+                    bool rendererUpgrade = old != null && previous.Length == Paths.Length && m.originals.Length == Paths.Length + 1;
+                    if (rendererUpgrade) previous = previous.Concat(new [] { m.originals.Single(x => x.path == RendererPath) }).ToArray();
+                    Need(new HashSet<string>(previous.Select(x => x.path), StringComparer.Ordinal).SetEquals(m.originals.Select(x => x.path)), "Installed resource inventory cannot be downgraded by this package.");
                     Verify(data, previous);
                     // Original backups are permanent and never refreshed from translated resources.
                     string originals = Child(owned, "originals");
@@ -377,7 +387,7 @@ namespace VNRevival.Forest {
                         string dest = Child(originals, f.path);
                         if (f.sha256 == null) Need(!File.Exists(dest) && !Directory.Exists(dest), "Unexpected original backup.");
                         else if (!File.Exists(dest)) {
-                            Need(old == null, "The original backup is missing. No game files were changed.");
+                            Need(old == null || rendererUpgrade && f.path == RendererPath, "The original backup is missing. No game files were changed.");
                             CopyVerified(Child(data, f.path), dest, f);
                         } else Need(Matches(dest, f), "The original backup has changed. No game files were changed.");
                     }

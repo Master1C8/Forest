@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "751b4d0c6aa9754d3c180faa7f0f19feadc8b0b8dd687c34e321ce68c58f1a3e"
+  },
+  "partitions": [
+    {
+      "group": "a",
+      "review": "localization/screenshots/all30-owner-20261104-01/ar/04/review-a/review.json",
+      "sha256": "e7cb18ed2af33181650c09033f553b92a69f303e64858c84bfbb46e3a939d6cb"
+    },
+    {
+      "group": "b",
+      "review": "localization/screenshots/all30-owner-20261104-01/ar/04/review-b/review.json",
+      "sha256": "c3be7b59b302e9cb6244a5b02abcaeccf365304f2279e363585df0f6011ced98"
+    }
+  ],
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 1,
+      "direction": "rtl",
+      "filename": "07caf228d7b9d35348f17999c28570c53a5f4f597139adf552787e2c493faaf5.webp",
+      "sha256": "479d2307a91d2252d4fb5a4ac4977c98311e75f1a3b0c9ca3a8938bc7cb1843a",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T20:41:47.013304+00:00",
+      "observations": "Inspected the full 1280×800 prepared frame. All six Arabic menu labels match the supplied wording, remain readable and fit without clipping or overlap. Arabic order and joining appear correct. المعرض correctly denotes Gallery. Protected branding, TFoL.info and v0.45.1 remain intact. No overlays or visible tags. Inline mixed Arabic/Latin text is not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 2,
+      "direction": "rtl",
+      "filename": "45f1ef12a729b2796505c6484025f8a8bf0b6c337353ef28ce54a8e3f5dd44ec.webp",
+      "sha256": "68de6e1e5d7516b83c72952b31754a6ef9902485b269f5584e85bd7ae7bdee9a",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T20:42:14.210595+00:00",
+      "observations": "Inspected the complete 1280×800 prepared settings frame. All Arabic labels match the supplied targets and remain readable without visible clipping or overlap. Arabic word order, joining and punctuation appear correct. Protected branding and v0.45.1 retain LTR order. No overlays or unexpected source-language UI appear. Embedded mixed Arabic/Latin text is not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 3,
+      "direction": "rtl",
+      "filename": "230638dabc5b8f602b1c88ce8501d6dac79df21de50f7ff31a72885197521e02.webp",
+      "sha256": "82ba2a5b657fb7a4c67cb898029efcbf347f6bb49cb6ecabe86cd01dcdbf8422",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T20:42:56.459289+00:00",
+      "observations": "Inspected the full 1280×800 prepared frame. المعرض correctly identifies the gallery; counters show 11/11 and 46/46. Visible Arabic is readable and joined, with no clipping, tags or external overlays. No embedded Latin-name run is exercised. The dialogue toggle retains an incorrect label/value order for RTL reading.",
+      "findings": [
+        {
+          "check": "rtl",
+          "severity": "major",
+          "region": "Lower-right dialogue toggle, approximately x=910–1165, y=650–695",
+          "observed": "تشغيل appears to the right of الحوار:, producing the right-to-left reading order تشغيل الحوار:.",
+          "expected": "The label/value group should read الحوار: تشغيل, with the label on the right and its value on the left.",
+          "nextAction": "Trace the authored label and toggle value through RTL layout and the packaged native rendering; correct the group ordering and review a newly bound capture."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "failed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 4,
+      "direction": "rtl",
+      "filename": "bcf41745d666fd9b2dc11175587d80fd1ba5bafc126d59e4c30cd76463625e06.webp",
+      "sha256": "703113400ff9b4edf0939be737a1ff05628edb18a55a67ad63183d5d73bdfcab",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-11-04T20:43:47.076240+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. The owned camera inventory displays كاميرا. Arabic text is joined and readable, and the description wraps with right alignment. L/R prompts retain their identities. No visible overlap, missing glyphs or external overlays. Inline mixed Arabic/Latin text is not exercised.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Inventory heading and camera description, approximately x165–1125, y555–723",
+          "observed": "The camera label matches the supplied target, but the complete authored source/target description and inventory heading were not supplied, preventing fidelity verification.",
+          "expected": "Visible heading and complete description match their exact authored source/target context.",
+          "nextAction": "Provide the version-bound authored heading and complete camera description for comparison with this immutable frame."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 5,
+      "direction": "rtl",
+      "filename": "e567031f845cb787e27150015447de810340b6f4eb58b07bf4c58e2f95534353.webp",
+      "sha256": "2d9fe3bce71ea5e8f0b2023669b070596aace62277b7fd94b6946d581990de04",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T20:42:11.093871+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. The السكان caption correctly denotes the residents roster. All seven supplied Scarlett facts are visible and complete; undiscovered facts retain intentional ??? placeholders. Arabic joining and reading order are coherent, BDSM remains internally LTR, and L/R prompts retain their identities. No visible clipping, missing glyphs, literal tags or external overlays. Gallery caption and dynamic dialogue are not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 6,
+      "direction": "rtl",
+      "filename": "182d6475258a0d2509851c893d166091c8840eba06159dbaa38ce3c3798d9380.webp",
+      "sha256": "3c9cbb39c23542fe7a3ad3990d5945d7e6e14be6c899054ec8b45f7c80e82b76",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T20:42:52.279515+00:00",
+      "observations": "Reviewed the full 1280×800 prepared frame. The quest title, description, both history entries and completion marker match the supplied Arabic context. Visible Arabic joining, multiline order, punctuation and L/R prompts appear correct. No overlays or source-language fallback are visible.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Quest-log heading سجل المهام; approximately x440–850, y125–158",
+          "observed": "The heading’s lower strokes meet the foreground panel’s upper border; the delivered copy does not establish whether the leftmost م descender remains fully visible.",
+          "expected": "The entire heading, including descenders and outline, remains visible with clearance from the panel.",
+          "nextAction": "Provide a source-bound crop of the heading/panel boundary to resolve possible occlusion."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 7,
+      "direction": "rtl",
+      "filename": "b4ef2d83def1a05a521dad5406995c2c34814f363e7f5d6c0dcef0253f383c30.webp",
+      "sha256": "a4df91509f7546c21b30a3c504edec5cd4f9ee5896467183bb7d12bbc9721e23",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T20:43:11.127188+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared WebP. The speaker label reads «مافريك». The complete dialogue matches the supplied Arabic target, wrapping before «الصغير؟». Text is legible, correctly joined and ordered, with appropriate question-mark placement and no visible clipping, overlap, missing glyphs, tags or overlays. No mixed Latin/digit runs are present, so that path is unexercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    }
+  ]
+}

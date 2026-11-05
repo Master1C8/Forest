@@ -4,7 +4,9 @@ The native universal SwiftUI launcher supports macOS 14+, Apple Silicon and Inte
 It contains the same 30 locale versions as the Windows app, plus original English.
 Hindi, Swahili and Ukrainian now have complete version-bound independent wording
 review and exact correction closure. Target runtime/rendering acceptance is separate.
-Russian is bound to `localization/languages/ru-baseline.json`.
+Russian is bound to the owner-accepted `localization/languages/ru.json` version.
+The seven-scene native evidence for each delivered language is recorded under
+`localization/screenshots/all30-owner-20261104-01`; wider game coverage is separate.
 
 The proven UI/distribution base is `StardewTranslationInstaller`, revision
 `68088632f217203f6c3532d2d6d38ad7ca49438d`. That checkout is read-only.
@@ -19,10 +21,13 @@ No API credentials, Python, .NET or developer tools are required on player machi
 The original `.app`, Info.plist, save identity and external saves remain unchanged.
 `~/Library/Application Support/VN Revival/Forest/Current/The Forest of Love.app`
 is the owned copy. The complete verified language package is cached alongside it.
-Only 14 named data resource paths are owned. Switching starts from the current
+Only 15 named data resource paths are owned. Switching starts from the current
 copy and preserves its latest `Contents/tfol.settings` and unrelated mods.
 Unknown edits to owned resources reject before staging. English restores the
-12 original files and removes the two owned helper DLLs in the copy.
+13 original files and removes the two owned helper DLLs in the copy.
+Legacy14 ownership upgrades only if the newly owned TMP renderer is still the
+exact stock module. Arabic, Persian, Hebrew, Hindi and Thai select the shared
+complex-script renderer; other languages and English restore the stock module.
 External bundle symlinks reject before signing so recursive signing cannot modify
 another application or an external mod. Internal framework symlinks remain valid.
 

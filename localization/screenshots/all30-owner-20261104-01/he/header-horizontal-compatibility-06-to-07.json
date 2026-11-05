@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "locale": "he",
+  "oldManifestSha256": "832a0dd2b32ae00d178aa620d31e982524398cc16cfd09ffe414c24765def87a",
+  "newManifestSha256": "4126dd8d22366361a9bfcaf8a000db8a46d95e50103c5e5acaea24a26b0ef653",
+  "changedResources": [
+    "Managed/VNRevivalQuestLayout.dll"
+  ],
+  "helperProof": {
+    "passed": true,
+    "changedEntries": [
+      "body:System.Single ForestComplexText.TextShaper::get_CritterHeadingShiftX()",
+      "body:System.Void ForestComplexText.Runtime::CritterHeadingClearance(TMPro.TMP_Text)",
+      "method:System.Single ForestComplexText.TextShaper::get_CritterHeadingShiftX()",
+      "property:System.Single ForestComplexText.TextShaper::CritterHeadingShiftX()",
+      "resources"
+    ],
+    "allOtherEntriesExact": true,
+    "logicalShapingMapRowsExact": true,
+    "oldMapSha256": "3cd3a457787ec6a23c4ea6976a70222c50eecee64223b8df9a529fd8f8c331b4",
+    "newMapSha256": "a42d8a8667052f1be0839407d3c5b7d4a98a2956818d9c0e1ebb9cda21b8d0a7",
+    "moduleIdentityNormalized": "MVID only"
+  },
+  "affectedOrders": [
+    5
+  ],
+  "unchangedOrders": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7
+  ],
+  "applicability": "Only complete original CritterLog heading X pose changes0 to4; Y remains4. It is inactive in all other requested scenes. All other native bytes, logical/map shaping values and helper code are exact; reuse only the6 prior actually passed originals."
+}

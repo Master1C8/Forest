@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "cd0e6b581c6b077b3cc6d1899e4b2b1c20a4a163260dfb7e3c3712437dde727d",
+    "provenance:sourceManifest": "2eae331b7a886fd791de342c8085f74a57bd20deacea25e988922d9630f7ca3e",
+    "provenance:source:build": "3991d65b44658fe0721b9bb44422f3e6676c0be2b9c6726af2c0651556411e5c",
+    "provenance:source:cleanup": "6f84e492004a75402da589eb5a08588e7de0669acfe0980475b4e3deb909943c",
+    "provenance:source:configuration": "6e7057c0dc3439b9c1a5361da3b582eed312ce1189a7d215c0b4c6d0bffc53db",
+    "provenance:source:sourceImage": "3e86a9ce812bc91cae7cb73b14ec7186d95b5ea9a15a1293364ddbe5b484cd84",
+    "provenance:source:sourceManifest": "9cc9ce80cba4d3faec8433de6ce278d1628d26615372ebcb5b9cb8b17784c948",
+    "provenance:source:crop": "ed467de71e080d15383d05757d613cdf1f0ca158e01454b7a1d4545e5ea7294c",
+    "provenance:source-image:he-05-scarlett.png": "3e86a9ce812bc91cae7cb73b14ec7186d95b5ea9a15a1293364ddbe5b484cd84",
+    "provenance:source-image:he-5005-header-detail.webp": "19f251b410f9a08ae71c66eaf7aca2b840452ceffa2eba634570e4e17e55c22c",
+    "provenance:converter:screenshot_preview.py": "5e87a67ec4f409ad8bd8ecc6f321335f0b521fe14c835d8cf9dabf9f195f97b6",
+    "provenance:converter:review_entry.py": "334b92a4d9b4c233249007cf8ff8dc4bad48643b03a9ef085c4118cb5f72ab15",
+    "provenance:converter:review.py": "3804be2adfbf26a693d6955fc02d379cf03df1cd842bd600af87f85d89b09ecd",
+    "provenance:sourceBindings": "fe3db336a7cf0d54de66cc52b84bb80e2aeafec8bf42746a277603281d457e10"
+  },
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "he",
+      "order": 5,
+      "direction": "rtl",
+      "filename": "3e86a9ce812bc91cae7cb73b14ec7186d95b5ea9a15a1293364ddbe5b484cd84.webp",
+      "sha256": "1d584c7f484f6083e289102d2ff7bd9ba49afe26c4d2f124f8682adc620920a7",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T23:32:47.255782+00:00",
+      "observations": "Inspected the entire 1280×800 prepared frame. The roster, portrait, descriptions, notes and kink fields remain readable and contained. All seven supplied Scarlett facts are visible; undiscovered entries retain intentional ???. תושבים correctly identifies the residents roster, separately from יומן החיות. Hebrew word order and visible punctuation are coherent; L/R prompts retain their identities. No missing glyphs, literal tags or overlays observed. Header clearances are resolved by image 1. Mixed dialogue, counters and Gallery are not exercised here.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "he",
+      "order": 5005,
+      "direction": "rtl",
+      "filename": "19f251b410f9a08ae71c66eaf7aca2b840452ceffa2eba634570e4e17e55c22c.webp",
+      "sha256": "8a375029a25ce131e7ffa69bc84bd3c3c4a90a5e786ef300035c5ae60eb7eddd",
+      "width": 1200,
+      "height": 300,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T23:32:47.255831+00:00",
+      "observations": "Inspected the entire 1200×300 source-bound detail from original 3e86a9ce812bc91cae7cb73b14ec7186d95b5ea9a15a1293364ddbe5b484cd84, crop [900,150,1200,300]. Every letter of יומן החיות is visible in correct order. The final ן in יומן clears the white divider, and the final ת in החיות has a visible background gap from the portrait. Enlarged initials remain intact. The R prompt preserves its identity; no overlays or exposed tags appear.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    }
+  ]
+}

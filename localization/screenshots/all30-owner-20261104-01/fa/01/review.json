@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "8a076bdcd9d6f7ddff953f1bbc1501c6164e6ebe209bab6da1c61dda19a3f9dc"
+  },
+  "partitions": [
+    {
+      "group": "a",
+      "review": "localization/screenshots/all30-owner-20261104-01/fa/01/review-a/review.json",
+      "sha256": "7500582b772ef54a63c1d50bdcb84e670ce4896e468eac6ed150115dbd9d47cc"
+    },
+    {
+      "group": "b",
+      "review": "localization/screenshots/all30-owner-20261104-01/fa/01/review-b/review.json",
+      "sha256": "8ba1d38a52fe2ecf588a18fb6b127d4e427b532476402e7b71a1a195d184a63d"
+    }
+  ],
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 1,
+      "direction": "rtl",
+      "filename": "3d198f3c3ac10726687cdf52177e1d5715774c6ec9193ed22536aca32c4b4e24.webp",
+      "sha256": "fddb802d259b44ad601ce04e23fffb7cc89a810446ec59d9d1b8dc3631249079",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:16:05.292070+00:00",
+      "observations": "Inspected the complete delivered 1280×800 prepared frame. All six Persian menu labels match their authored context, remain readable and fit without clipping or overlap. گالری correctly identifies the gallery. Persian letter joining and RTL order appear correct. Protected title branding, TFoL.info and v0.45.1 retain correct LTR order. No missing glyphs, visible tags or external overlays observed. Latin branding and version appear separately; embedded mixed-direction dialogue is not exercised by this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 2,
+      "direction": "rtl",
+      "filename": "667911f5f487af189c4dc66e51e5967b0b918370c0cfc614fa9bf890bd1fac51.webp",
+      "sha256": "e6e7add6e9ffc0e285699db68d1d7e7d53de08c24570d3898d696934f71f8054",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T21:16:49.355736+00:00",
+      "observations": "Inspected the complete 1280×800 prepared settings frame. Main Persian labels have readable joining and word order. Branding and v0.45.1 remain intact; no overlays are visible. Complete rendering of the bottom-right delete-save label is unresolved. Inline mixed RTL/LTR text is not exercised.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Bottom-right delete-save control, approximately x1015–1145, y730–760",
+          "observed": "The second line, «ذخیرهٔ بازی», reaches the lower scene boundary. Its lowest strokes and complete edge clearance cannot be verified from this prepared image; clipping is suspected.",
+          "expected": "Both lines of «حذف\\nذخیرهٔ بازی» remain fully readable, including marks and descenders, with padding inside the visible scene.",
+          "nextAction": "Provide a source-bound crop covering this label and the lower scene boundary, with original hash and crop bounds. If clipping is confirmed, repair the control layout and recapture."
+        }
+      ],
+      "checks": {
+        "layout": "needs-review",
+        "glyphs": "needs-review",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "needs-review"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 3,
+      "direction": "rtl",
+      "filename": "57a5c0e6207184844221f3345649fcd0a92ec00cb110211c106149e5792891d7.webp",
+      "sha256": "4934b1d3637a1eed8ac3d78a77af1b8d82fe7ae5e35ba55f7c7322109cdf9182",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T21:17:14.953925+00:00",
+      "observations": "Inspected the entire 1280×800 prepared gallery frame. «گالری» correctly identifies the gallery. Persian labels and controls are readable, joined correctly and contained within their fields. Unlocked counters retain 11/11 and 46/46 with coherent surrounding RTL text and parentheses. No clipping, overlap, visible tags, unexpected English UI or external overlays. Mixed Latin-name rendering is not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 4,
+      "direction": "rtl",
+      "filename": "5fc259ed4115d2aa73bbbe34579a85be9bdb19996ba19d1d498c323e6c25fe3f.webp",
+      "sha256": "f01ed1444052ae8a4786e027501976675658675f23b21af1aac27a2755e33c7b",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-11-04T21:17:41.460814+00:00",
+      "observations": "Inspected the complete 1280×800 prepared WebP. Inventory title, camera name دوربین and complete camera description match the supplied context and remain legible without clipping or overlap. Persian joining, word order and sentence punctuation appear correct. L/R prompts preserve their input identities. No visible fallback text, literal tags, missing glyphs or external overlays. Embedded Latin names and mixed-direction dialogue are not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 5,
+      "direction": "rtl",
+      "filename": "dd6701bf654ec9b3b9e8e6bdbdfba94332568301106e778f7b3d6c6c79a772b6.webp",
+      "sha256": "dccf08dba1951ae900246c9e7edb1b37253d0adf7a07497505147d51baaee918",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:16:08.581713+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. ساکنان correctly labels the residents roster. All seven supplied Scarlett facts are visible and readable. Persian joining and word order, the mixed BDSM run, punctuation, intentional ??? placeholders and L/R prompts appear intact. No clipping, overlap, missing glyphs or overlays observed.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 6,
+      "direction": "rtl",
+      "filename": "ad0cf14accd6af572e6742975976e6712aba90032a5df9db4091e292a7781810.webp",
+      "sha256": "7e5ec3c4ada49c9a8150680000fe33292a3f23c9857b0eea72988bd2002c6a4b",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T21:16:37.291492+00:00",
+      "observations": "Inspected the entire delivered 1280×800 frame. The Hot Takes title, complete description, both history steps and completion marker match the supplied Persian context. Visible text is readable, joined correctly and contained within its fields. Persian ordering, wrapping, alignment and punctuation appear correct; L/R prompts retain their identities. No overlays or exposed markup are visible. Mixed Latin names and numeric runs are not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 7,
+      "direction": "rtl",
+      "filename": "e6754e5c37df8551ed646a930b5a6092f48445b1736b3c43b3b42fb8e28dd9b1.webp",
+      "sha256": "90c392743ae6ac4bdea8c16683bce52106992656d6b69e4daea4e2b738a38ae2",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T21:16:55.723728+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. Maverick’s Persian speaker label and complete two-line dialogue match the supplied context. Joining, RTL reading order and question-mark placement are correct; text remains readable within its fields without clipping or overlap. No missing glyphs, literal tags or external overlays are visible. No mixed Latin/digit text is present, so that path is unexercised.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    }
+  ]
+}

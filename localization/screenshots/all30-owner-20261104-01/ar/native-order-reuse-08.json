@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "proof": {
+    "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/native-order-compatibility-08.json",
+    "sha256": "2cf03ded59ea89bb194df6724f5f45cc9c43e26df3d27b2b3a91183da81e1d69"
+  },
+  "sourcePins": {
+    "/Users/antonkrutov/Desktop/Forest/tools/verify_screenshot_resource_delta.py": "ad36f78cae0905412385c10fdc714827493187c9d6820124d21fbc49f175da17",
+    "/Users/antonkrutov/Desktop/Forest/tools/forest_localization/Managed.cs": "740c92fcae635aa353fe05ad8514950a5f859210f1c2bc527a72c23bc967c664",
+    "/Users/antonkrutov/Desktop/Forest/tools/quest_layout/ImageCaptions.cs": "6c33a29790d067b68a391c32cab28412b1cad239ffea8f74a92a7670c3078e55",
+    "/Users/antonkrutov/Desktop/Forest/tools/complex_text/LegacyMirror.cs": "606aed1486bc31d887d1a81a246d2743b7562880ffe30802e21202c3631c473a"
+  },
+  "unchangedOrders": [
+    1,
+    2,
+    3
+  ],
+  "affectedOrders": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "sources": [
+    {
+      "order": 1,
+      "capture": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/04/capture.json",
+        "sha256": "25dde5d06621cb67f42cf81d1049b434516331b773a11db83888a31b52fb5acc"
+      },
+      "state": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/locale-owner-shots-20261104-ar-04/state-before-1.json",
+        "sha256": "442aac9f4c7da14a599e2c742136468c8c0a698266ace5bb80ad7db121873c4d"
+      },
+      "review": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/04/review.json",
+        "sha256": "40fda81164b7c26c1f437a24b69cb152b45770ccdef0a7ccb50847066da3483d"
+      },
+      "nativeLocalizedCaptions": []
+    },
+    {
+      "order": 2,
+      "capture": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/04/capture.json",
+        "sha256": "25dde5d06621cb67f42cf81d1049b434516331b773a11db83888a31b52fb5acc"
+      },
+      "state": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/locale-owner-shots-20261104-ar-04/state-before-2.json",
+        "sha256": "2a63552b3b711f8f7a6ef9c173ab746eb2df77b653163c15ee91d03386f4c022"
+      },
+      "review": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/04/review.json",
+        "sha256": "40fda81164b7c26c1f437a24b69cb152b45770ccdef0a7ccb50847066da3483d"
+      },
+      "nativeLocalizedCaptions": []
+    },
+    {
+      "order": 3,
+      "capture": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/05/capture.json",
+        "sha256": "66a1057f0c94f9131b242a29220c2b6ba8e47e6defae905bcbcbf2c45554719f"
+      },
+      "state": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/probes/locale-owner-shots-20261104-ar-05/state-before-3.json",
+        "sha256": "6a42b35da1ea047312697eae737cd0affb3fcf16f07964ea6f03bb4b9d0d94a8"
+      },
+      "review": {
+        "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ar/05/review.json",
+        "sha256": "ba92462f32785bd1c58a911a25e4e534bdb20d6a3d5f7043897a616051e0ff92"
+      },
+      "nativeLocalizedCaptions": [
+        {
+          "path": "Canvas/GalleryMenu/Logo/VNRevivalImageCaption",
+          "target": "المعرض",
+          "onlyDisplayChild": true,
+          "constructor": "VNRevivalImageCaptions.Apply creates a new caption Text GameObject"
+        }
+      ]
+    }
+  ],
+  "applicability": "All resources and all helper code except LegacyMirror.Awake are exact. Menus1-3 use direct TMP; localized native gallery captions have only the injected display child, so first/last sibling order is identical. World4-7 are recaptured and independently reviewed. Logical wording/fonts/control IDs/saves unchanged."
+}

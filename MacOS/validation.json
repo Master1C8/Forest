@@ -1,16 +1,83 @@
 {
   "passed": true,
-  "version": "1.1.3",
-  "artifact": "dist/Forest-Languages-macOS.zip",
-  "bytes": 52818636,
-  "sha256": "fb1a73402a0d389559422d0733c7f8f9502815fd95810b43b9eb2940d451b192",
+  "version": "1.2.0",
+  "artifact": "dist/Forest-Languages-macOS-1.2.0.zip",
+  "bytes": 55836287,
+  "sha256": "59281d2c859bac685ee32c07403657e6f22ce13f7a1393a0c8c48d864b235af2",
   "sourcePinsMatched": true,
   "completeZipInventoryMatched": true,
   "translationLocales": 30,
-  "tests": {
-    "compiler": 15,
-    "actualResources": 126
+  "checks": {
+    "artifactIntegrity": {
+      "path": "localization/screenshots/all30-owner-20261104-01/macos-archive-integrity-1.2.0.json",
+      "sha256": "64c36d413f4ab16d4e67b8c8772f65cc778132950ec903661d05bdaf7a329346"
+    },
+    "actualNativeCore": {
+      "passed": true,
+      "assertions": 782,
+      "sequence": [
+        "ar",
+        "bg",
+        "cs",
+        "de",
+        "el",
+        "es-419",
+        "es",
+        "fa",
+        "fil",
+        "fr",
+        "he",
+        "hi",
+        "hu",
+        "id",
+        "it",
+        "ja",
+        "ko",
+        "nl",
+        "pl",
+        "pt-BR",
+        "ro",
+        "ru",
+        "sr",
+        "sw",
+        "th",
+        "tr",
+        "uk",
+        "vi",
+        "zh-TW",
+        "zh",
+        "en"
+      ],
+      "signing": true,
+      "sourceGameModified": false,
+      "gameLaunched": false,
+      "log": {
+        "path": "localization/screenshots/all30-owner-20261104-01/installer-macos-actual30-01.log",
+        "sha256": "d5a0e46a7943ea61499f9c355365e5ffc9e262994f9e2c2cba81e4b7c60cb57a"
+      },
+      "coreSource": {
+        "path": "MacOS/Sources/InstallerCore.swift",
+        "sha256": "e18b6eaaead4b9f050ebea77c094a5e65766e7f6ce077c7c2f2a37fccce09d1f"
+      },
+      "testSource": {
+        "path": "MacOS/Tests/CoreTests.swift",
+        "sha256": "8f0cb605afdd2c58c6477cd550eb7c031991f7fc955f6c641173b32cd8a568ea"
+      }
+    },
+    "nativeResources": {
+      "path": "MacOS/native-resources.json",
+      "sha256": "8c81afecb3e7d449cb6b0872ba40b284de96ded872f41190487e7917ca6b43e1"
+    },
+    "retainedCoreRegressions": {
+      "path": "localization/screenshots/all30-owner-20261104-01/installer-renderer-contract-validation-02.json",
+      "sha256": "97f2d3ee8e2d7e66dc95c1594a530ad223088d12254370c3abfcef2582e15635"
+    },
+    "archiveVerifierRegressions": {
+      "path": "localization/screenshots/all30-owner-20261104-01/archive-integrity-regressions-02.log",
+      "passed": true,
+      "cases": 4
+    }
   },
-  "boundary": "Native Swift materializer and signed game copies; Russian screenshot coverage separately bound",
-  "projectArchival": "pending-unfinished-multilingual-project"
+  "boundary": "Actual1.2.0 packaged resources through the native Swift materializer and signed task-owned game copies, every30 locale plus English restoration. No game or launcher GUI executed by this test. Seven-scene rendering has separate version-bound native acceptance for all30 locales.",
+  "projectArchival": "pending-unfinished-multilingual-project-and-delivery-acceptance"
 }

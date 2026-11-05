@@ -5,3 +5,9 @@ assets/source-v2/fonts/* -text -diff
 *.jpg binary
 *.gz binary
 *.zip binary
+
+# Pinned upstream bidi bytes and their mechanically derived adapter are inputs.
+tools/complex_text/vendor/BidiSharp/** -text -whitespace
+tools/complex_text/BidiForForest.cs -text -whitespace
+# Preserve the authored, fingerprinted EOF; retain other code whitespace checks.
+tools/complex_text/font_shaping.py whitespace=-blank-at-eof

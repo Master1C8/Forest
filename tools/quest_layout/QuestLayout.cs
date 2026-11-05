@@ -49,7 +49,7 @@ public static class VNRevivalQuestLayout {
     // Russian preview-only caption replacement. The source sprites, textures and
     // stream payloads remain unchanged; replace their visible Image components.
     static void RussianStatusHeadings(Component pane,Font font) {
-        if(font==null||!font.HasCharacter('Ё')||!font.HasCharacter('А'))throw new InvalidOperationException("Quest heading font lacks Cyrillic");
+        if(font==null)throw new InvalidOperationException("Quest heading font unavailable");
         var selected=new List<Image>();
         foreach(var image in Resources.FindObjectsOfTypeAll<Image>())
             if(image.gameObject.scene.IsValid()&&image.gameObject.scene==pane.gameObject.scene&&image.sprite!=null&&
@@ -57,6 +57,7 @@ public static class VNRevivalQuestLayout {
         if(selected.Count!=2)throw new InvalidOperationException("Quest status image inventory changed");
         foreach(var image in selected) {
             string value=image.sprite.name=="QuestLog_Label_Active"?"Активные":"Завершённые";
+            foreach(char c in value)if(!Char.IsWhiteSpace(c)&&!font.HasCharacter(c))throw new InvalidOperationException("Quest heading font lacks an authored character");
             var old=image.transform.Find("VNRevivalRussianStatusLabel");Text text;
             if(old==null){var rect=Child("VNRevivalRussianStatusLabel",image.transform,typeof(Text));rect.anchorMin=Vector2.zero;rect.anchorMax=Vector2.one;rect.offsetMin=rect.offsetMax=Vector2.zero;text=rect.GetComponent<Text>();}
             else text=old.GetComponent<Text>();

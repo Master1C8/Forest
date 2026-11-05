@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "eaa53b50c50724977f9d192cbdc9826bef1e999c8043aa3f8b8d442bd0e634c1"
+  },
+  "partitions": [
+    {
+      "group": "a",
+      "review": "localization/screenshots/all30-owner-20261104-01/ar/05/review-a/review.json",
+      "sha256": "c65136f5f8d7efb50420e08574b6109d4c7a59dfde5f46cb94bb581eea05330c"
+    },
+    {
+      "group": "b",
+      "review": "localization/screenshots/all30-owner-20261104-01/ar/05/review-b/review.json",
+      "sha256": "506a0aea05a61e363449929717150e8693bb637d3c45fc2d8aa946d3b4a2c010"
+    }
+  ],
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 3,
+      "direction": "rtl",
+      "filename": "6a72f75ac7553dc6195e4ff562b820d72c315c98b5d35a35b9a4ccdf7299d93b.webp",
+      "sha256": "1d932ec325c31cef6c7ceabd7fe1ab3c5291eb6d762ed063663c94767824534a",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:04:27.605696+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. المعرض correctly identifies the gallery. Visible menu labels match the supplied Arabic targets; counters retain 11/11 and 46/46. Arabic joining, word order, punctuation and mixed digit runs are readable and coherent. No visible clipping, overlap, missing glyphs, untranslated UI or external overlays. This frame does not exercise mixed Latin-name dialogue.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ar",
+      "order": 6,
+      "direction": "rtl",
+      "filename": "645abe27f40c790d678ad240747d20ac0f0aae08c66f179080583aa89be6d9ce.webp",
+      "sha256": "aa9d93619b76fa387e2f9539c1ea1efb458a83b8f0739105ac12971c4f6b8a64",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:04:40.984197+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared frame. The quest title, complete description, both history entries and completion marker match the supplied Arabic wording and remain visible without clipping or overlap. Arabic joining, multiline order, right alignment and punctuation appear correct. L/R prompts preserve their identities. No missing glyphs, literal tags or external overlays are visible. Embedded Latin names and numeric counters are not exercised.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "minor",
+          "region": "Left quest list: middle and bottom quest titles",
+          "observed": "Both additional Arabic quest titles are legible, but their source/target references are absent from the packet, leaving their fidelity unresolved.",
+          "expected": "Exact authored context sufficient to verify every visible quest title.",
+          "nextAction": "Provide the source/target bindings for these two titles in a fresh review packet."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "needs-review",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    }
+  ]
+}

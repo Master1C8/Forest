@@ -96,8 +96,11 @@ existing quest helper with these captions and hooks only the original menu and
 critter-log `Start` methods. Complete method-tree readback and reversal protect
 the original code. The helper also uses the actual portrait bounds and available
 left column when placing quest history, measuring from an unscrolled origin.
-Only those two layout method bodies change; other existing helper entries remain
-exact. Rebuilding uses deterministic compilation. This feature does not award
+The two layout method bodies and the status-caption glyph guard change; other
+existing helper entries remain exact. The guard checks the actual authored
+heading characters rather than requiring Cyrillic from every locale. Optional
+`imageCaptionSizes` maps `gallery`/`residents` to point sizes12–64; omitted sizes
+retain50/18. Rebuilding uses deterministic compilation. This feature does not award
 editorial or native visual acceptance to another locale.
 The compiler also registers the seven original quest-list name templates in the
 exact shared-v2 framework: `sharedassets2.assets:18330`, `18315`, `18305`,
@@ -105,9 +108,134 @@ exact shared-v2 framework: `sharedassets2.assets:18330`, `18315`, `18305`,
 Their original point size is14; a locale can set a smaller readable size without
 changing canonical quest titles, word bindings or the frozen framework. The
 exact framework/resource pins and original field values remain mandatory.
+The same pinned resource also registers the six dynamic resident-note fields
+and nine preference fields at their original10pt. Locale `layout` values may
+reduce these to the supported minimum8pt when a complete value exceeds its
+original82×12 cell. This changes point size only; wording, row geometry and
+undiscovered facts remain intact. Native review must still establish that the
+complete strings fit and remain readable. Regression: French “Bavarde du village”,
+“« Maman du village »” and “BDSM - Dominante” must display completely.
+For values that still exceed the cells at8pt, optional boolean
+`residentTextLayout: true` enables the common resident-body layout. It retains
+the original three-column order, all six notes, nine preferences and unknown
+facts, wraps complete text, measures generated ink and grows row heights.
+It tries the configured point size down to8pt, then uses a bounded ScrollRect
+if necessary; the portrait and identity block stay fixed. This option requires
+`imageCaptions`. Native review must inspect every required fact and any scroll
+boundary. Unshaped advance measurements select candidates, not visual passes.
 Additional scripts such as CJK/RTL can require appropriate face data and actual
 target rendering/behavior validation. A successful compile alone does not prove
 font coverage, shaping, layout, visual parity or gameplay correctness.
+
+Optional `galleryCounterScale` (0.6–1, default1) scales each original gallery
+counter group while retaining its original top-left corner. This preserves the
+logical counter, tags and thumbnail geometry. Center-pivot scaling alone can
+leave Japanese closing punctuation under the first thumbnail. Native review
+must establish a readable gap. The seven resident-name templates at12pt and the
+native speaker label `sharedassets0.assets:4545` at14pt are also registered point
+size roles; their exact resource/version guards remain mandatory.
+
+`complexText: true` opts ar/fa/he/hi/th into the shared experimental script
+adapter. Select one explicit merged general-purpose face through the existing
+font roles; fictional fonts remain outside those roles. A separate pinned
+`.venv-shaping` (`tools/complex_text/requirements.txt`) derives a corpus-bound font
+and map. Canonical wording and control values remain logical. Positioned cluster
+outlines and zero-advance slots preserve logical character indices for animated
+text. TMP input preprocessing handles both ordinary parsing and direct
+`SetText`/`GetTextInfo` used by Febucci. The additional registered
+`Managed/Unity.TextMeshPro.dll` starts from the exact same immutable original on
+Windows and macOS; all other assembly entries are checked. Native Unity Text
+uses display-only TMP children while preserving original Text components and
+references. Full target native, animation and screenshot acceptance remains
+required. Compiler success or corpus idempotence is not that acceptance.
+
+Thai alone adds an optional word-wrap hook to the original TMP word-candidate
+boundary in both mesh renderers. Offline PyThaiNLP5.4.0/newmm and its CC0
+`words_th.txt` produce corpus-bound word and Thai Character Cluster metadata;
+no model or dictionary download runs in the game. Word breaks are preferred,
+with cluster-safe fallback for a first word longer than its line. Unknown-word
+tokenization boundaries inside a cluster are discarded. Logical text, glyph
+slots and animated character counts remain unchanged; prepared serialized
+values use the same boundaries. Other complex locales retain their exact
+previous TMP module. The saved module is read back completely and its optional
+prefixes are reversed to the original complete semantic tree.
+
+Optional `complexTextLayout: {"critterHeadingLift": 4, "critterHeadingShiftX": 4}`
+moves the original CritterLog heading group up and right by four canvas units.
+Only its exact original pose, prior vertical pose or already-applied pose is
+accepted; wording and inline font tags stay
+unchanged. A source-bound crop must verify all descenders and portrait clearance.
+Regression: Hebrew final ן may intersect the divider even after shrinking the
+heading enough to avoid its portrait; raising it can put a wider portion beside
+the portrait again. Check both clearances together. A reduced full frame alone
+cannot resolve that boundary. These changes require version-bound native acceptance.
+
+Menu-layout authoring must intersect inventory rows with
+`registered_layout_roles(framework, language.framework.sha256)` before changing
+point sizes. The inventory includes protected branding and dormant labels;
+it is not itself an allowlist. Preserve every unregistered field and keep the
+compiler's rejection guard. Regression: the24 Patreon/TFoL.info/dormant Continue
+rows remain untouched while registered Korean menu rows receive14/10/12 sizes.
+
+`questStatusHeadingMinimumPointSize` (8–12, default12) registers the lower bound
+for the Active/Completed sprite captions. It changes neither words nor list
+geometry. A lower bound alone does not ensure fitting when the native control
+permits wrapped vertical overflow; use the explicit measurement option below.
+Exact non-quest
+resources and helper entries must match before reusing the other six frames.
+`questStatusHeadingSingleLineFit: true` opts the native Text route into explicit
+single-line measurement. Wrap plus vertical overflow can retain the maximum
+font and two lines regardless of a lower best-fit minimum; VI runtime proves
+18 logical points (288 scaled generator points), two lines and preferred
+width127 in an84-unit band even with minimum8. The opt-in assigns the text,
+disables automatic fitting/wrapping, then measures width and height from18 down
+to the configured minimum, with a2-unit inset. A non-fitting result rejects.
+This option requires the native renderer; complex TMP mirrors retain their
+separately accepted layout until an actual renderer-bound fitter is provided.
+
+`critterHeadingScale` (0.6–1, default1) scales the entire original88×15 CritterLog
+heading group, preserving the ratio of inline enlarged initials. The L/R prompts
+are in sibling Controls and retain their original pose. Source/target scale,
+anchors, pivot and size are guarded. `residentPreferenceHeadingLift` (0–6,
+default0; requires `residentTextLayout`) lifts only the preference title after
+fresh ink placement; its consumed row space and fact positions stay unchanged.
+The original fact gap must still clear the preceding note row. Filipino
+regression: shrinking the preference title to9pt still leaves the painted rule
+through its text. A5.5-unit lift preserves1.5 units after the last note; a0.7
+group scale separates the long upper title from R. Both clearances require native
+whole-frame review, independently of the passing field/helper delta proofs.
+
+Production packages containing this adapter must retain the OFL, BidiSharp MIT
+and Unicode notices under `tools/complex_text/vendor` and
+`localization/fonts/complex-sources`. Installer resource/baseline inventories must
+include the optional TMP module before packaging; restoration must restore that
+original when switching to a locale without the adapter.
+
+Both installer producers normalize their installed inventory to15 resources,
+including the registered original TMP module for locales without the adapter.
+Normal compiler manifests still own16 resources; adapter manifests own17.
+The stock TMP bytes come from the verified immutable framework reference when
+minimal Windows recovery inputs omit that unchanged module. Its same exact hash
+is required from the owner's game before installation. An old14-resource owned
+installation can upgrade only while its previously unowned TMP remains original;
+foreign modifications reject without being claimed or replaced. English restore
+also restores the original renderer. Legacy14 payload refresh requires a full
+normal rebuild before the15-resource refresh route can be used.
+
+`FOREST_WINDOWS_WORK` and `FOREST_MAC_WORK` select separate task-owned packaging
+work folders inside this project's `dist/`. `FOREST_MAC_ARCHIVE_NAME` and the
+existing package/app name options permit versioned candidate deliverables while
+preserving accepted packages. They do not select another source checkout or
+authorize installation, game launch or publication. Validate the actual final
+payload and all version-bound native acceptances before delivery.
+
+Finite resource builds may run in two disjoint locale lanes after warming the
+shared content-addressed compiler cache. Every native assembly-port tool build
+uses its own `dist/all30-owner-screens-native-work-v2/<locale>-<cycle>/` folder.
+The old shared tool directory is preserved. Regression: simultaneous Czech and
+Bulgarian builds must never rewrite each other's SharedInspection.cs, project,
+obj or binary outputs; final locale manifests and normal readback gates remain
+independent. Native capture still owns one window sequentially.
 
 Font regression: replacing Font439 with the pinned Japanese CFF face must also
 replace TMP1017's Liberation Sans face metadata, preserve TMP1020's fallback and
@@ -242,3 +370,15 @@ Spanish conversion evidence and outstanding editorial/native predicates are in
 receipt retains the old translated drafts for 619 protected original values and
 two repaired service prefixes. Those source-contract repairs are not new Spanish
 semantic passes. Ordinary builds consume the final language JSON directly.
+
+## Installer resource identity regression
+
+Run installer producers in the pinned project asset environment when they need
+`lz4.block`; the system Python does not provide that dependency. Native macOS
+inventory checks and payload production both use
+`forest_macos.native_resource_paths`: map the single Windows framework bundle
+identity to the registered StandaloneOSX identity before comparing resource sets.
+All other names remain exact. Missing or ambiguous source bundle identities reject.
+Regression: all30 native manifests pass the mapped inventory, while a missing
+bundle or an additional native bundle in the Windows framework rejects before
+payload compression. A Windows path must never be treated as a native original.

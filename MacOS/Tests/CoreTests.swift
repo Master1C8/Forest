@@ -28,7 +28,13 @@ import Darwin
         let settings = try Data(contentsOf: originalSettings)
         let originalAssembly = source.appendingPathComponent("Contents/Resources/Data/Managed/Assembly-CSharp.dll")
         let sourceHash = try fileSHA(originalAssembly)
-        let sequence = real ? ["hi", "sw", "uk", "ru", "en"] : ["hi", "sw", "uk", "en", "en"]
+        var sequence = real ? ["hi", "sw", "uk", "ru", "en"] : ["hi", "sw", "uk", "en", "en"]
+        if real, let requested = ProcessInfo.processInfo.environment["FOREST_TEST_LOCALES"] {
+            let selected = requested == "*" ? config.locales.map(\.code).filter { $0 != "en" } : requested.components(separatedBy: ",")
+            let available = Set(config.locales.map(\.code).filter { $0 != "en" })
+            try expect(!selected.isEmpty && Set(selected).count == selected.count && Set(selected).isSubset(of: available), "actual package locale selection")
+            sequence = selected + ["en"]
+        }
         for code in sequence {
             var messages: [String] = []
             _ = try core.apply(source: source, locale: code, sign: real, progress: { messages.append($0); print($0) })

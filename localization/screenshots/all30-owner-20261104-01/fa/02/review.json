@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "8b636b4d5f35065a1b744b3779a9c00b84470611c9b03b2baeb02706d31fc3ef"
+  },
+  "partitions": [
+    {
+      "group": "a",
+      "review": "localization/screenshots/all30-owner-20261104-01/fa/02/review-a/review.json",
+      "sha256": "fea5fc0235114b50e423bf4ead45331e4af0a96de0824d08834989bd943e57e1"
+    }
+  ],
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "fa",
+      "order": 2,
+      "direction": "rtl",
+      "filename": "8adac71ac2c05128f64a185074759fa210409d32cf154c05bf854d98a0c6deb7.webp",
+      "sha256": "c137513d8311680add6c4c3aa5500d2b4d8bf330769c01fcb69d572346c14e67",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:31:37.462585+00:00",
+      "observations": "Inspected the complete prepared 1280×800 settings frame. All eight authored settings labels are visible and readable, with correct Persian joining, word order and colon placement. No clipping, overlap, missing glyphs, fallback text or overlays observed. Original title branding and v0.45.1 remain intact. Embedded mixed RTL/LTR sentences are not exercised in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "passed"
+      }
+    }
+  ]
+}

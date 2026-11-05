@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "nativeManifest": "9ba6c3d272a4bbfaa30734a308dd9db873a66edc41cc3676ff86175386df9d92"
+  },
+  "partitions": [
+    {
+      "group": "a",
+      "review": "localization/screenshots/all30-owner-20261104-01/ko/01/review-a/review.json",
+      "sha256": "809f61fe8f218a16f4113510dd0e0cd3e4cb9810647126e271a5e3f806a76b79"
+    },
+    {
+      "group": "b",
+      "review": "localization/screenshots/all30-owner-20261104-01/ko/01/review-b/review.json",
+      "sha256": "6aff3febeb67da925379307d85a8e6efbba204ff12268d800e21f2176a712d53"
+    }
+  ],
+  "images": [
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 1,
+      "direction": "ltr",
+      "filename": "a0470acebefd725fb9d0ab8bb03d3d70a6b3ea96ab834ef985c2cb0158b49c6a.webp",
+      "sha256": "ec13131f0c4e8aa4fecb79fb79a6f1911cf78d2862ae9e3e73e7f47f06590193",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:47:48.394042+00:00",
+      "observations": "Inspected the entire delivered 1280×800 frame. Korean menu labels match the supplied wording; 갤러리 correctly denotes Gallery. Protected branding and version remain visible. No missing glyphs, literal tags or external overlays observed.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Central menu stack, approximately x=565–718, y=501–727",
+          "observed": "Adjacent menu labels collide vertically, with overlapping outlines around 갤러리, 설정 and 조작. The stack lacks clear separation between rows.",
+          "expected": "Each menu label occupies a separate row with sufficient vertical padding and no overlap.",
+          "nextAction": "Inspect the menu text bounds and row spacing, correct the overlapping layout, then recapture and review this frame."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 2,
+      "direction": "ltr",
+      "filename": "5d75ff0fc111f7f0a4fae7ded403a9a44e1582a9c1a11acc55f659a0a4d25f5f.webp",
+      "sha256": "fb48ab1b2c3c0fa1d14339ba4f0fab5684ef61e090117b86e864e9082fa33a8b",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T21:48:21.841144+00:00",
+      "observations": "Inspected the complete delivered 1280×800 WebP. Korean settings text renders without apparent missing glyphs. Original branding and v0.45.1 remain visible. No external overlays appear. Settings labels overlap, and the delete-save label is cropped.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Settings labels, approximately x375–635, y507–692",
+          "observed": "The 음악, 효과음, 전체 화면: and 늘이기: label rows collide vertically, with adjacent text outlines overlapping.",
+          "expected": "Each settings label occupies a separate readable row with padding.",
+          "nextAction": "Trace the authored labels through the packaged font/layout configuration, correct row spacing or text sizing, and recapture this settings frame."
+        },
+        {
+          "check": "content",
+          "severity": "major",
+          "region": "Lower-right 저장 데이터 / 삭제 control, approximately x948–1210, y655–760",
+          "observed": "The second line 삭제 extends below the visible game area and is cut off by the bottom black band.",
+          "expected": "The complete authored label 저장 데이터\\n삭제 remains visible inside its control.",
+          "nextAction": "Correct the control's vertical placement or text bounds in the delivered layout, then recapture and verify both lines in full."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 3,
+      "direction": "ltr",
+      "filename": "3005875a7f99b19a52d9b638251fe507de671f2323a1b3ceeadf09f9878a5a9d.webp",
+      "sha256": "8c85aa355997b93b4a6f1a378e1a108dd7bfafe8d64bd8464de89fd8ffd5c3da",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T21:48:53.744344+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. 갤러리 matches the gallery caption; unlocked counters remain 11/11 and 46/46. Korean glyphs render without visible missing characters or literal tags. No external overlays appear. Bottom controls overlap.",
+      "findings": [
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Bottom center, approximately x565–717, y646–744: 뒤로 / 도움말",
+          "observed": "The two control labels overlap vertically, with touching and intersecting outlines.",
+          "expected": "Both labels occupy separate fields with clear padding and unobstructed characters.",
+          "nextAction": "Trace the packaged Korean gallery control bounds and text sizing, correct the overlap, and review a newly captured frame."
+        },
+        {
+          "check": "layout",
+          "severity": "major",
+          "region": "Bottom right, approximately x814–1176, y649–745: 대사: 켜짐 / 모두 해금 (치트)",
+          "observed": "The dialogue toggle and unlock control overlap vertically, crowding and intersecting their text outlines.",
+          "expected": "The toggle and unlock control remain clearly separated with every character unobstructed.",
+          "nextAction": "Verify the rendered control geometry against the authored layout, correct the spacing or sizing, and review a newly captured frame."
+        }
+      ],
+      "checks": {
+        "layout": "failed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 4,
+      "direction": "ltr",
+      "filename": "14df139621eefa8c1993b756bcf9060a371e088abee8f1541b6d43467a69d385.webp",
+      "sha256": "b116b77a827002de822c41d25449810c3e925be1ca49799c524eecb6df331418",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0004",
+      "reviewedAt": "2026-11-04T21:49:14.500711+00:00",
+      "observations": "Inspected the complete 1280×800 prepared frame. The inventory heading, 카메라 label and full two-line camera description are readable and match the authored context, with no clipping, overlap, missing glyphs or exposed tags. The owned camera is visible. L/R prompts and quantity 2 remain intact. No external overlays are present.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 5,
+      "direction": "ltr",
+      "filename": "b6d7a9151743cf4898c3dbc2aa4a96878ade09b360e4a850ff1b334b607e7740.webp",
+      "sha256": "b57a23dbf1d70e77ef4932a98065682ac53688d47c15bb0dd9031bb23b2bae76",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0001",
+      "reviewedAt": "2026-11-04T21:47:49.104138+00:00",
+      "observations": "Inspected the entire delivered 1280×800 WebP. Scarlett is selected. Visible Korean text is legible and contained; 주민 correctly labels the inhabitants roster. L/R prompts remain intact. No overlays or exposed markup are visible. The resident card’s lower detail sections are blank.",
+      "findings": [
+        {
+          "check": "content",
+          "severity": "blocker",
+          "region": "Scarlett resident card, right panel below portrait, approximately x=445–1155, y=350–665",
+          "observed": "Both detail sections are empty; none of the seven required discovered facts is visible.",
+          "expected": "Complete visible facts: BDSM - 도미넌트; 스위치; 이종 간; 마을 소식통; 과거 농부 생활; ‘마을의 엄마’; 기혼.",
+          "nextAction": "Trace the authored facts through the packaged resources and resident-card rendering to identify the missing-content boundary. Restore complete display and submit a new bound screenshot for review."
+        }
+      ],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "failed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 6,
+      "direction": "ltr",
+      "filename": "aae0913216023018918358401c096a08111a94705471b4ad264bd33758856137.webp",
+      "sha256": "794ffc5508d4b00ae2556bebb2715921397703cf59dca4b54b94586aa041cdac",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0002",
+      "reviewedAt": "2026-11-04T21:48:06.834749+00:00",
+      "observations": "Inspected the entire 1280×800 prepared frame. Korean quest title, description, both history objectives, completion marker and visible sidebar labels match the supplied context. Text is readable without clipping, overlap, missing glyphs or exposed tags. L/R prompts retain their identities. No overlays or contamination are visible. Caption labels are not present in this frame.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    },
+    {
+      "game": "The Forest of Love",
+      "locale": "ko",
+      "order": 7,
+      "direction": "ltr",
+      "filename": "fcc03cc833df1b089e72071431979ca96b606717f8098d261c992a7388a526c9.webp",
+      "sha256": "3ff1dcc611018b82d2baaa9bd37fe84796142c58218f0747d600ba23dbc699ee",
+      "width": 1280,
+      "height": 800,
+      "url": null,
+      "reviewer": "gpt-6.1-sol/high; attempt-0003",
+      "reviewedAt": "2026-11-04T21:48:20.197258+00:00",
+      "observations": "Inspected the entire delivered 1280×800 prepared frame. Speaker name ‘매버릭’ and the complete supplied dialogue are readable, with intact Korean glyphs. Dialogue wraps across two lines within the panel without clipping or overlap. No visible untranslated UI, exposed tags, or external overlays. Korean is LTR.",
+      "findings": [],
+      "checks": {
+        "layout": "passed",
+        "glyphs": "passed",
+        "content": "passed",
+        "contamination": "passed",
+        "rtl": "not-applicable"
+      }
+    }
+  ]
+}

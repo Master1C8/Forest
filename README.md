@@ -1,3 +1,22 @@
+# Native screenshot QA
+
+The requested30-language, seven-scene native screenshot set is complete.
+All30 locales have accepted version-bound7/7 sets (210/210 frames).
+All five complex-script locales—Arabic, Persian, Hebrew, Hindi and Thai—passed.
+Thai word/TCC wrapping preserves character slots; Hebrew's upper heading passes
+both full-frame and source-pixel portrait/divider clearance checks. Logical
+wording, original controls and owner saves remain unchanged.
+
+Installer1.2.0 source now normalizes15 resources, preserves legacy14 ownership,
+and restores the stock renderer for other languages and English. Core validation
+passes172 Windows/44 macOS renderer checks plus1079/149 legacy checks. Both1.2.0
+archives are built: actual30-locale consumer tests pass616 Windows-core and782
+macOS checks. Windows GUI/PowerShell/game execution remains unrun. Stable1.1.3
+archives are unchanged. The flat original-PNG delivery contains210 images.
+See the [current checkpoint](localization/screenshots/all30-owner-20261104-01/checkpoint-current.json)
+for exact accepted artifacts, independent review and remaining work. Historical
+technical records below retain their original version scope.
+
 # Language launchers
 
 The macOS launcher and Windows installer now include all 30 translations plus

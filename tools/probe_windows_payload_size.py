@@ -2,12 +2,14 @@
 """Measure a denser chunk layout without changing or accepting any game bytes."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-WORK = ROOT / 'dist/windows-installer-work'
+WORK = Path(os.environ.get('FOREST_WINDOWS_WORK',str(ROOT/'dist/windows-installer-work'))).resolve()
+if not WORK.is_relative_to(ROOT/'dist'):raise ValueError('Probe work must stay inside this project')
 PROBE = WORK / 'size-probe'
 PROBE.mkdir(exist_ok=True)
 CHUNKER = WORK / 'chunks-4k'

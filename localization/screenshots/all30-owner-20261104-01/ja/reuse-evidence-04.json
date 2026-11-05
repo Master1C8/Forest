@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "locale": "ja",
+  "targetNativeManifestSha256": "4a792bd4d9160a9abdb10e1ad5daab64b6ed5381ed1fc7df50d39f9eb3a7f99f",
+  "proofs": [
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/compatibility-01-to-04.json",
+      "sha256": "9b8ef4c40ff3e2bb76ce0c8e946a0dc764f026f8611204f607c04b0b6df5bd2c"
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/compatibility-02-to-04.json",
+      "sha256": "a62a7321b9cf50cb8c1c5e23a729ab7a1442c4965f60b074dccd2e8e126c9feb"
+    },
+    {
+      "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/compatibility-03-to-04.json",
+      "sha256": "69c2f12ab6d7fecfb1cf200f55661789cb9bda8859ba0d35ea7e92c044457237"
+    }
+  ],
+  "sourceSaveSha256": "193e3270450d27c7c406e37e62e15ce58b34b852117623846cef1e0b0e7d6045",
+  "frames": [
+    {
+      "order": 1,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/01",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/01/review.json"
+    },
+    {
+      "order": 2,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/03",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/03/review.json"
+    },
+    {
+      "order": 3,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/04",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/04/review.json"
+    },
+    {
+      "order": 4,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/01",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/01/review.json"
+    },
+    {
+      "order": 5,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/02",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/02/review.json"
+    },
+    {
+      "order": 6,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/01",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/01/review.json"
+    },
+    {
+      "order": 7,
+      "capture": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/02",
+      "review": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/ja/02/review.json"
+    }
+  ],
+  "sceneSpecificLocality": {
+    "1": "Main labels, geometry and font payloads unchanged. Changed gallery labels belong to an inactive branch in its captured main-menu state.",
+    "2": "03→04 changes only the gallery counter helper; every native serialized resource and all settings role sizes remain exact.",
+    "4,6": "01→04 retains inventory helper, all data/fonts/sprites and dialogue code. Size fields belong only to menu/resident/speaker roles. Gallery/Residents helper changes cannot change these inventory/quest bodies.",
+    "5,7": "02→04 retains world serialized resources, speaker/resident sizes and complete resident/quest methods; only level1 settings sizes and gallery counter helper change."
+  },
+  "boundary": "Unchanged reviewed PNG originals with complete scoped native deltas; not a new visual judgment."
+}

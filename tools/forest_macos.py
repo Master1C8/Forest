@@ -18,6 +18,16 @@ ROOT=Path(__file__).resolve().parents[1]
 WORK=ROOT/'dist/macos-installer-work'
 GAME=Path('/Applications/TheForestOfLove.app')
 DATA=GAME/'Contents/Resources/Data'
+NATIVE_BUNDLE='StreamingAssets/aa/StandaloneOSX/defaultlocalgroup_assets_all_376e2641519a356eded756c3d05ae96a.bundle'
+
+
+def native_resource_paths(framework, preserved):
+    """Map the one registered Windows bundle identity to its native equivalent."""
+    paths=set(framework['resources'])-set(preserved)
+    bundles=[p for p in paths if p.endswith('.bundle')]
+    assert len(bundles)==1 and bundles[0].startswith('StreamingAssets/aa/StandaloneWindows64/'),'Expected one Windows framework bundle identity'
+    assert NATIVE_BUNDLE not in paths,'Ambiguous native/framework bundle identities'
+    return (paths-{bundles[0]})|{NATIVE_BUNDLE}
 
 
 def digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -110,7 +120,10 @@ def port_locale(locale, inputs, win, win_bundle, win_asset, mac_bundle, mac_asse
     for name,data in inputs:
         temp.write_bytes(data)
         mac_name=mac_bundle_name if name==win_bundle else name;dest=out/mac_name
-        if name.endswith('VNRevivalInventoryLayout.dll') or name.endswith('VNRevivalQuestLayout.dll'):
+        if name=='Managed/Unity.TextMeshPro.dll':
+            assert digest(win/name)==digest(DATA/name)=='775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483','Shared TMP platform identity'
+            dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+        elif name.endswith('VNRevivalInventoryLayout.dll') or name.endswith('VNRevivalQuestLayout.dll'):
             dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
         elif name.endswith('Assembly-CSharp.dll'):
             dest.parent.mkdir(parents=True,exist_ok=True);proof=out/'managed-proof.json'
@@ -195,13 +208,20 @@ def build_from_overlays(directory, codes):
         overlay=directory/code;manifest=overlay/'manifest.json';built=json.loads(manifest.read_bytes())
         assert built['locale']==code and built['languageSha256']==digest(language)
         expected_paths={CONFIG['dataDirectory']+'/'+n for n in framework['resources']}
+        extra=built.get('rendererOriginals',{})
+        assert set(extra)<={'Managed/Unity.TextMeshPro.dll'}
+        for name,pin in extra.items():
+            assert pin==framework['files']['references/'+Path(name).name]
+            assert (win/name).stat().st_size==pin['bytes'] and digest(win/name)==pin['sha256']
+            assert (DATA/name).stat().st_size==pin['bytes'] and digest(DATA/name)==pin['sha256']
+        expected_paths|={CONFIG['dataDirectory']+'/'+name for name in extra}
         assert set(built['files'])==expected_paths
         for name,pin in built['files'].items():
             source=overlay/name
             assert digest(source)==pin['sha256'] and source.stat().st_size==pin['bytes']
         locale=dict(code=code,culture=built['culture'],name=code,languageSha256=built['languageSha256'],compilerManifestSha256=digest(manifest))
         def inputs():
-            for name in paths:
+            for name in sorted(set(paths)|set(extra)):
                 source=overlay/CONFIG['dataDirectory']/name
                 if name==win_bundle:
                     serialized=WORK/'overlays'/code/'windows-bundle.asset';serialized.parent.mkdir(parents=True,exist_ok=True)
@@ -211,6 +231,81 @@ def build_from_overlays(directory, codes):
         port_locale(locale,inputs(),win,win_bundle,win_asset,mac_bundle,mac_asset,tool,codec)
     receipts=[json.loads(p.read_bytes()) for p in sorted((WORK/'overlays').glob('*/manifest.json'))]
     (WORK/'resources.json').write_text(json.dumps(receipts,indent=2)+'\n')
+
+
+def port_changed_overlay(code, compiled, previous_windows, previous_native, output, tool):
+    """Reuse exact unchanged platform resources; port only a verified finite delta.
+
+    The full normal compiler remains the producer. Bundle changes use its existing
+    full adapter route; this shortcut never pretends Windows bytes are native.
+    """
+    old=json.loads((previous_windows/'manifest.json').read_bytes())
+    new=json.loads((compiled/'manifest.json').read_bytes())
+    native=json.loads((previous_native/'manifest.json').read_bytes())
+    assert old['locale']==new['locale']==native['locale']==code
+    assert old['languageSha256']==native['languageSha256']
+    assert old['files'].keys()==new['files'].keys()
+    prefix='The Forest of Love_Data/'
+    changed={n[len(prefix):] for n in new['files'] if new['files'][n]!=old['files'][n]}
+    assert changed and not any(n.endswith('.bundle') or n.endswith('catalog.json') for n in changed),'Bundle changes require the full native adapter'
+    assert not output.exists();output.mkdir(parents=True)
+    original_windows=Path('/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest/The Forest of Love_Data')
+    proofs=[];files={};preserved=[]
+    for name,pin in old['files'].items():
+        p=previous_windows/name;assert digest(p)==pin['sha256'] and p.stat().st_size==pin['bytes']
+        q=compiled/name;assert digest(q)==new['files'][name]['sha256'] and q.stat().st_size==new['files'][name]['bytes']
+    for name,pin in native['files'].items():
+        before=previous_native/name;assert digest(before)==pin['sha256'] and before.stat().st_size==pin['bytes']
+        dest=output/name;dest.parent.mkdir(parents=True,exist_ok=True)
+        if name not in changed:
+            os.link(before,dest);preserved.append(name)
+        elif name in ['Managed/VNRevivalInventoryLayout.dll','Managed/VNRevivalQuestLayout.dll']:
+            shutil.copy2(compiled/prefix/name,dest)
+        elif name=='Managed/Assembly-CSharp.dll':
+            receipt=output/'managed-proof.json'
+            subprocess.run(['dotnet',str(tool),'port',str(original_windows/name),str(DATA/name),str(compiled/prefix/name),str(dest),str(receipt)],check=True)
+            proofs.append(json.loads(receipt.read_bytes()))
+        else:proofs.append(port_serialized(original_windows/name,compiled/prefix/name,DATA/name,dest))
+        files[name]=dict(bytes=dest.stat().st_size,sha256=digest(dest))
+    assert changed<=set(native['files']),'Unknown native resource delta'
+    if (previous_native/'bundle.asset').exists():os.link(previous_native/'bundle.asset',output/'bundle.asset')
+    result=dict(locale=code,culture=new['culture'],name=native['name'],languageSha256=new['languageSha256'],windowsCompilerManifestSha256=digest(compiled/'manifest.json'),files=files,proofs=proofs,
+        reuse=dict(previousWindowsManifestSha256=digest(previous_windows/'manifest.json'),previousNativeManifestSha256=digest(previous_native/'manifest.json'),changedResources=sorted(changed),preservedNativeResources=preserved,allIncomingAndOutputResourcesReadBack=True))
+    (output/'manifest.json').write_text(json.dumps(result,indent=2)+'\n')
+    return result
+
+
+def port_full_compiled_overlay(code, compiled, previous_native, output, work):
+    """Use the established full adapter when fonts change the addressable bundle."""
+    global WORK
+    assert not output.exists() and not work.exists()
+    prior=json.loads((previous_native/'manifest.json').read_bytes())
+    built=json.loads((compiled/'manifest.json').read_bytes())
+    assert prior['locale']==built['locale']==code
+    work.mkdir(parents=True)
+    codec=ROOT/'dist/macos-installer-work/forest-codec'
+    assert codec.is_file(),'Existing verified native codec is required'
+    shutil.copy2(codec,work/'forest-codec')
+    assert digest(codec)==digest(work/'forest-codec')
+    inputs=work/'inputs';inputs.mkdir();(inputs/code).symlink_to(compiled.resolve(),target_is_directory=True)
+    original_work=WORK
+    try:
+        WORK=work
+        build_from_overlays(inputs,[code])
+        generated=work/'overlays'/code
+        result=json.loads((generated/'manifest.json').read_bytes())
+        assert set(result['files'])==set(prior['files'])|set(built.get('rendererOriginals',{})),'Preserve native resource inventory'
+        assert all(digest(generated/name)==pin['sha256'] for name,pin in result['files'].items())
+        result['name']=prior['name']
+        result['rendererOriginals']=built.get('rendererOriginals',{})
+        result['reuse']=dict(strategy='full-native-adapter',previousNativeManifestSha256=digest(previous_native/'manifest.json'),
+            changedResources=sorted(name for name,pin in result['files'].items() if pin!=prior['files'].get(name)),
+            allIncomingAndOutputResourcesReadBack=True)
+        result['adapter']=dict(sourceSha256=digest(Path(__file__)),codecSha256=digest(codec),windowsCompilerManifestSha256=digest(compiled/'manifest.json'))
+        (generated/'manifest.json').write_text(json.dumps(result,indent=2)+'\n')
+        output.parent.mkdir(parents=True,exist_ok=True);generated.rename(output)
+        return result
+    finally:WORK=original_work
 
 
 if __name__=='__main__':

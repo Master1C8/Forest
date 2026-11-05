@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "locale": "it",
+  "oldManifestSha256": "26797f7ee5e04c168193f184b354fbc0862b4371e390d4e7efb40037ca938cf3",
+  "newManifestSha256": "3b29f8f05a0909e9c2438bbe7ac0d2bc62c74aab94ccb1e9cd61fbcb76b987a8",
+  "languageSha256": "8f31a9fc90f63746c300e6ad0f084dfcca5858cf9040088b5579723a5e8ea648",
+  "changedResources": [
+    "Managed/VNRevivalQuestLayout.dll"
+  ],
+  "helperProof": {
+    "passed": true,
+    "mode": "resident-body",
+    "oldHelperSha256": "d279a9e3008ca79906133a3a2c8fc96c604d2caf1dad9a619bf13cee52ce88a0",
+    "newHelperSha256": "807b7eb9e94a4558a60c8bb259697b48c651cee9543e6d17b526d21dbef3993a",
+    "retainedEntries": 113,
+    "changedEntries": [
+      "body:System.Boolean VNRevivalImageCaptions/ResidentBody/<>c::<Initialize>b__16_0(System.Single)",
+      "body:System.Boolean VNRevivalImageCaptions/ResidentBody/<>c::<Initialize>b__18_0(System.Single)",
+      "body:System.Single VNRevivalImageCaptions/ResidentBody::Layout(System.Int32)",
+      "body:System.Single VNRevivalImageCaptions/ResidentBody::Rows(UnityEngine.UI.Text[],System.Int32,System.Int32,System.Single)",
+      "body:System.Void VNRevivalImageCaptions/ResidentBody::Initialize(UnityEngine.RectTransform,System.Collections.Generic.Dictionary`2<System.String,UnityEngine.UI.Text>)",
+      "field:System.Predicate`1<System.Single> VNRevivalImageCaptions/ResidentBody/<>c::<>9__16_0",
+      "field:System.Predicate`1<System.Single> VNRevivalImageCaptions/ResidentBody/<>c::<>9__18_0",
+      "field:System.Single VNRevivalImageCaptions/ResidentBody::headingLeft",
+      "field:System.Single VNRevivalImageCaptions/ResidentBody::headingWidth",
+      "field:System.Single VNRevivalImageCaptions/ResidentBody::kinksHeadingLeft",
+      "field:System.Single VNRevivalImageCaptions/ResidentBody::kinksHeadingWidth",
+      "field:System.Single VNRevivalImageCaptions/ResidentBody::notesHeadingLeft",
+      "field:System.Single VNRevivalImageCaptions/ResidentBody::notesHeadingWidth",
+      "method:System.Boolean VNRevivalImageCaptions/ResidentBody/<>c::<Initialize>b__16_0(System.Single)",
+      "method:System.Boolean VNRevivalImageCaptions/ResidentBody/<>c::<Initialize>b__18_0(System.Single)"
+    ],
+    "moduleIdentityNormalized": "MVID only",
+    "allOtherHelperEntriesExact": true
+  },
+  "boundary": "Same language and every other native resource exact. Only named resident body changes; unaffected screen reuse still requires scene-specific inactive-body evidence."
+}

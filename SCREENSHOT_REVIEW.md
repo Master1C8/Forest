@@ -1,5 +1,24 @@
 # Screenshot review
 
+Complex-script regression (2026-11-05): correct bidi within separate strings does
+not order the gallery's original label and On/Off controls. Check the complete
+group. Inspect quest heading descenders against the foreground panel; source-bound
+crops resolve ambiguous overlap without replacing whole-frame coverage. Review
+context must include exact authored inventory heading/camera description and quest
+heading/body/history; a context omission remains pending, never a visual pass.
+Include every visible quest sidebar title in the same context. Supplemental native
+details use `tools/prepare_screenshot_detail.py`; include the complete affected
+control and surrounding clearance, even when only its lower edge is uncertain.
+Regression: a Persian two-line Delete Savegame label has a clipped second line;
+a crop that also cuts the first line can confirm that defect but cannot accept
+the whole control. Preserve it, repair the bound control and inspect a new frame.
+
+Menu readiness regression (2026-11-05): active buttons and loaded labels can
+precede the splash/menu animation's visible output. The capture bridge reports
+the original label's effective/inherited opacity, generated character count
+and canvas culling. Main/settings/gallery capture waits for its exact source
+control to be rendered, rather than accepting an empty panel with valid strings.
+
 Russian screenshot regression (2026-11-04): source sprite names `gallery_logo`
 and `CritterLog_Residents_Label` contain visible English headings even when all
 nearby text is translated. Inspect the actual native replacement captions.
@@ -9,6 +28,16 @@ test a repeated selection after scrolling. A partly visible neighboring quest
 row at an intermediate scroll offset is not evidence of a truncated translation:
 capture a complete row boundary and inspect its actual word wrapping. Keep all
 earlier failed frames and judgments; subsequent captures use a new immutable run.
+
+Multilingual capture uses save identities (`InventoryItem.savekey=camera`,
+`Actor.savekey=scarlett`) and the source quest name `Act3_MelodyQuest`; display
+names and case-sensitive database names are different fields. The final dialogue
+is279:144. Its authored `[pic=1]` prefix is consumed by the original formatter;
+compare the remaining body with the runtime subtitle rather than reporting the
+consumed command as a missing translation. Run-in-background is set before Unity
+startup, not only when the late menu bridge installs. Prepared review queues are
+held after a transport failure; preserve successful judgments and reconcile the
+exact exited process before one bounded actual-image recovery trial.
 
 New review work uses the shared queue maintained in the canonical SiteForMods checkout.
 Existing capture and review processes are not modified or redirected.

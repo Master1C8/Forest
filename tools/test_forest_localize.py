@@ -91,15 +91,25 @@ class LanguageCompilerTests(unittest.TestCase):
     def test_dynamic_quest_sizes_require_exact_framework_and_resource(self):
         digest = '26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f'
         framework = dict(id='forest045-shared-v2', layoutRoles={}, files={
+            'base/sharedassets0.assets': dict(sha256='0b16874d428172d176f35e067d481fd601c8cc77d4c0a7f0b97d0450c2940086'),
             'base/sharedassets2.assets': dict(sha256='bb67ae2f0b2eba4fab082b402aa31fdcc016b904689495e878cc801dac10aafd')})
         roles = c.registered_layout_roles(framework, digest)
-        self.assertEqual(len(roles), 7)
+        self.assertEqual(len(roles), 30)
         self.assertEqual(roles['sharedassets2.assets:18315']['baseline'], 14)
+        self.assertEqual(roles['sharedassets2.assets:18716'], dict(
+            asset='sharedassets2.assets', pathId=18716,
+            pointer='/m_FontData/m_FontSize', baseline=10))
         self.assertEqual(framework['layoutRoles'], {})
+        self.assertEqual(roles['sharedassets2.assets:18707']['baseline'],12)
+        self.assertEqual(roles['sharedassets0.assets:4545']['baseline'],14)
         self.assertEqual(c.registered_layout_roles(framework, 'different'), {})
         framework['files']['base/sharedassets2.assets']['sha256'] = 'changed'
         with self.assertRaisesRegex(ValueError, 'quest-template-resource-version'):
             c.registered_layout_roles(framework, digest)
+        framework['files']['base/sharedassets2.assets']['sha256']='bb67ae2f0b2eba4fab082b402aa31fdcc016b904689495e878cc801dac10aafd'
+        framework['files']['base/sharedassets0.assets']['sha256']='changed'
+        with self.assertRaisesRegex(ValueError,'speaker-template-resource-version'):
+            c.registered_layout_roles(framework,digest)
         self.doc['layout'] = {'sharedassets2.assets:18315': 12}; self.save()
         with self.assertRaisesRegex(ValueError, 'unregistered-layout-role'):
             c.load_language(self.language, self.frameworks)

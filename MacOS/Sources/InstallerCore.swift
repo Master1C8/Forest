@@ -51,6 +51,8 @@ struct Transaction: Codable, Sendable { let owner: String; let id: String; let s
 // started by preparation, installation, validation, recovery or English restore.
 final class InstallerCore: @unchecked Sendable {
     static let owner = "org.vnrevival.forest.macos.v1"
+    static let rendererPath = "Managed/Unity.TextMeshPro.dll"
+    static let rendererOriginalSHA = "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483"
     let root: URL
     let resources: URL
     let config: PackageConfig
@@ -182,7 +184,15 @@ final class InstallerCore: @unchecked Sendable {
         try require(try fileSHA(manifestURL) == config.manifestSha256, "Cached language manifest is damaged. Preserve the game copy and reinstall the launcher.")
         let manifest = try JSONDecoder().decode(PayloadManifest.self, from: Data(contentsOf: manifestURL))
         let packedCodes = manifest.locales.map(\.code), configuredCodes = config.locales.map(\.code)
-        try require(manifest.format == 1 && !packedCodes.isEmpty && Set(manifest.originals.map(\.path)).count == 14, "Unsupported language package")
+        let paths = Set(manifest.originals.map(\.path))
+        let expectedCount = paths.contains(Self.rendererPath) ? 15 : 14
+        try require(manifest.format == 1 && !packedCodes.isEmpty && paths.count == expectedCount && manifest.originals.count == expectedCount, "Unsupported language package")
+        if let renderer = manifest.originals.first(where: { $0.path == Self.rendererPath }) {
+            try require(renderer.bytes == 370176 && renderer.sha256 == Self.rendererOriginalSHA, "Unregistered original TMP renderer")
+        }
+        for locale in manifest.locales {
+            try require(locale.files.count == expectedCount && Set(locale.files.map(\.path)) == paths, "Locale resource inventory differs from originals")
+        }
         try require(Set(packedCodes).count == packedCodes.count && Set(configuredCodes).count == configuredCodes.count && configuredCodes.contains("en") && Set(packedCodes) == Set(configuredCodes).subtracting(["en"]), "Language catalog differs from package")
         return (manifest, cache)
     }
@@ -201,10 +211,15 @@ final class InstallerCore: @unchecked Sendable {
     }
     func validateCurrent(_ manifest: PayloadManifest) throws {
         let value = try state(at: current), data = game.appendingPathComponent("Contents/Resources/Data")
-        try require(Set(value.files.keys) == Set(manifest.originals.filter { value.locale != "en" || $0.sha256 != nil }.map(\.path)), "Installed ownership manifest differs")
+        let expected = Set(manifest.originals.filter { value.locale != "en" || $0.sha256 != nil }.map(\.path))
+        let legacyRendererUpgrade = expected.contains(Self.rendererPath) && Set(value.files.keys) == expected.subtracting([Self.rendererPath])
+        try require(Set(value.files.keys) == expected || legacyRendererUpgrade, "Installed ownership manifest differs")
         for original in manifest.originals {
             let path = try safe(original.path, beneath: data)
             if let pin = value.files[original.path] { try check(path, pin) }
+            else if legacyRendererUpgrade && original.path == Self.rendererPath, let hash = original.sha256 {
+                try check(path, FilePin(bytes: original.bytes, sha256: hash))
+            }
             else { try require(!fm.fileExists(atPath: path.path), "A mod conflicts with English restore: \(original.path)") }
         }
     }

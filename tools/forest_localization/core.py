@@ -20,7 +20,7 @@ import subprocess
 import sys
 import tempfile
 
-from forest_localization import font_metrics, image_captions
+from forest_localization import font_metrics, image_captions, complex_text, inventory_layout, tmp_renderer
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_NAME = 'The Forest of Love_Data'
@@ -154,7 +154,7 @@ def framework_manifest(directory):
 
 
 def registered_layout_roles(framework, framework_sha):
-    """Add known dynamic quest templates without changing the frozen framework."""
+    """Register inventoried dynamic labels without changing the frozen framework."""
     roles = copy.deepcopy(framework.get('layoutRoles', {}))
     if (framework.get('id') == 'forest045-shared-v2' and framework_sha ==
             '26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f'):
@@ -169,6 +169,27 @@ def registered_layout_roles(framework, framework_sha):
             need(key not in roles, 'quest-template-layout-overlap:' + key)
             roles[key] = dict(asset='sharedassets2.assets', pathId=pid,
                               pointer='/m_FontData/m_FontSize', baseline=14)
+        # CritterLog's six notes and nine preferences are populated at runtime.
+        # Their original 82x12 fields truncate longer localized values at10pt.
+        # Expose the existing point-size control, preserving all row geometry,
+        # wording, wrapping and unknown-state behavior.
+        for pid in (18703, 18705, 18706, 18716, 18723, 18727, 18728,
+                    18730, 18739, 18742, 18745, 18746, 18750, 18751, 18752):
+            key = 'sharedassets2.assets:' + str(pid)
+            need(key not in roles, 'resident-template-layout-overlap:' + key)
+            roles[key] = dict(asset='sharedassets2.assets', pathId=pid,
+                              pointer='/m_FontData/m_FontSize', baseline=10)
+        # Native resident-name templates and the single dialogue speaker label.
+        # Exact source binding is inventoried by menu_layout_inventory.py.
+        for pid in (18707,18713,18717,18724,18729,18740,18747):
+            key='sharedassets2.assets:'+str(pid)
+            need(key not in roles,'resident-roster-layout-overlap:'+key)
+            roles[key]=dict(asset='sharedassets2.assets',pathId=pid,pointer='/m_FontData/m_FontSize',baseline=12)
+        need(framework.get('files',{}).get('base/sharedassets0.assets',{}).get('sha256')==
+             '0b16874d428172d176f35e067d481fd601c8cc77d4c0a7f0b97d0450c2940086','speaker-template-resource-version')
+        key='sharedassets0.assets:4545'
+        need(key not in roles,'speaker-label-layout-overlap')
+        roles[key]=dict(asset='sharedassets0.assets',pathId=4545,pointer='/m_FontData/m_FontSize',baseline=14)
     return roles
 
 
@@ -505,6 +526,7 @@ def load_language(path, frameworks):
         # No translation may replace a technical whole field carried by the
         # original complete dialogue inventory. Use its owning inline guard.
     image_captions.validate(doc, need)
+    complex_text.validate(doc, need)
     return doc, directory, framework, catalog, missing
 
 
@@ -667,6 +689,13 @@ def engine_fingerprint():
     paths = ['tools/forest_localization/core.py', 'tools/forest_localization/Managed.cs',
              'tools/forest_localization/image_captions.py', 'tools/forest_localization/CaptionPatch.cs',
              'tools/quest_layout/QuestLayout.cs', 'tools/quest_layout/ImageCaptions.cs',
+             'tools/quest_layout/ResidentTextBody.cs',
+             'tools/quest_layout/GalleryCounterLayout.cs',
+             'tools/quest_layout/LogHeadingLayout.cs',
+             'tools/forest_localization/complex_text.py',
+             'tools/forest_localization/inventory_layout.py', 'tools/forest_localization/InventoryLayout.cs',
+             'tools/forest_localization/InventoryHelperProof.cs',
+             'tools/forest_localization/tmp_renderer.py', 'tools/forest_localization/TmpPreprocessorPatch.cs',
              'tools/forest_localization/font_metrics.py',
              'tools/forest_localization/Managed.csproj', 'tools/extract_assets.py', 'tools/addressables_catalog.py',
              'tools/locale_completion/resource_composition_v1/compose.py',
@@ -674,6 +703,8 @@ def engine_fingerprint():
              'tools/locale_completion/inventory52/bg_peer.py', 'localization/ru-assets/inline_guard.py',
              'localization/ru-assets/source-dispositions.json', 'localization/source/dialogue-candidates.jsonl']
     pins = {name:binding(ROOT/name)['sha256'] for name in paths}
+    for name in complex_text.SOURCES+['prepare_corpus.py','font_shaping.py','thai_wrap.py','requirements.txt','CorpusTests.cs']:
+        path='tools/complex_text/'+name;pins[path]=binding(ROOT/path)['sha256']
     # Only the reused writer function is a dependency of this compiler.
     import ast
     source = (ROOT/'tools/build_russian_preview.py').read_text()
@@ -765,6 +796,10 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
     work_root.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=doc['locale'] + '-', dir=work_root) as tmp:
         work = Path(tmp)
+        font_doc,complex_directory=complex_text.prepare(doc,ROOT,work,need)
+        for edits in by_asset.values():
+            for edit in edits:
+                if edit['kind']=='font':edit['spec']=font_doc['fonts'][edit['id']]
         for name in framework['resources']:
             path = child(directory/'base', name)
             edits = by_asset.get(name, [])
@@ -788,7 +823,7 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
                 need(pid not in font_targets, 'one-face-per-font-role')
                 current = tree(obs[pid], gen)
                 need(digest(bytes(current['m_FontData'])) == font['faceSha256'], 'exact-baseline-font')
-                face = base64.b64decode(doc['fontAssets'][font['spec']['asset']], validate=True)
+                face = base64.b64decode(font_doc['fontAssets'][font['spec']['asset']], validate=True)
                 if face == bytes(current['m_FontData']):
                     need(font['spec']['family'] in current['m_FontNames'], 'unchanged-face-family')
                     font_targets[pid] = current
@@ -838,7 +873,13 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
                                                        directory/'base'/name, target)
             files['StreamingAssets/aa/catalog.json'] = catalog_out.read_bytes()
             proofs.append(dict(asset='StreamingAssets/aa/catalog.json', **proof))
-        proofs.extend(image_captions.build(doc, files, ROOT, directory, work, need))
+        proofs.extend(image_captions.build(doc, files, ROOT, directory, work, need,complex_directory))
+        proofs.extend(inventory_layout.build(doc,files,ROOT,directory,work,need))
+        proofs.extend(tmp_renderer.build(doc,files,ROOT,directory,work,need))
+        if doc.get('complexText'):by_asset.setdefault('Managed/VNRevivalInventoryLayout.dll',[])
+        if doc.get('complexText'):by_asset.setdefault(tmp_renderer.RESOURCE,[])
+        if complex_directory is not None:
+            proofs.append(dict(asset='Managed/VNRevivalQuestLayout.dll',complexTextPreparation=read(complex_directory/'receipt.json')))
         if 'imageCaptions' in doc:
             by_asset.setdefault('Managed/Assembly-CSharp.dll', [])
             by_asset.setdefault('Managed/VNRevivalQuestLayout.dll', [])
@@ -846,6 +887,7 @@ def compile_language(language, output, frameworks, mode='build', fail_after=None
          'build-input-or-engine-changed-during-compilation')
     framework_manifest(directory)
     marker = dict(format='forest-compiled-language-v1', **stamp, culture=doc['culture'], gameVersion=framework['gameVersion'],
+        complexText=bool(doc.get('complexText')),rendererOriginals={tmp_renderer.RESOURCE:binding(directory/'references/Unity.TextMeshPro.dll')} if doc.get('complexText') else {},
         engineInputs=engine_pins,
         files={DATA_NAME + '/' + n:dict(bytes=len(b), sha256=digest(b)) for n,b in files.items()},
         baselineUnits=len(catalog), changedUnits=len(changed), readbacks=proofs,

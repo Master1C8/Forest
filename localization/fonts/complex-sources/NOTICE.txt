@@ -1,0 +1,22 @@
+Forest complex-script font derivatives
+
+Copyright 2015-2021 Google LLC. All Rights Reserved.
+Copyright 2018 The Noto Project Authors (github.com/googlei18n/noto-fonts)
+
+NotoSansArabicLatin-Regular.ttf
+NotoSansDevanagariLatin-Regular.ttf
+NotoSansHebrewLatin-Regular.ttf
+NotoSansThaiLatin-Regular.ttf
+
+These merged general-purpose Noto font inputs and their corpus-bound glyph
+derivatives are distributed under the SIL Open Font License, Version 1.1.
+The complete license is in OFL-1.1.txt (Complex-fonts-OFL-1.1.txt in installers).
+Forest's build adds positioned outline composites and zero-advance glyph slots;
+upstream copyright and license records remain in the font name table.
+
+Thai wrapping uses build-time PyThaiNLP5.4.0/newmm and its words_th.txt word
+list, released by the PyThaiNLP project under CC0-1.0. The game receives only
+derived boundary metadata, with no tokenizer code, model or dictionary runtime.
+Source code for PyThaiNLP is Apache-2.0; no upstream tokenizer code is included
+in the game helper. Corpus licensing reference:
+https://github.com/PyThaiNLP/pythainlp/blob/dev/pythainlp/corpus/corpus_license.md

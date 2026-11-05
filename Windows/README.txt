@@ -16,10 +16,9 @@ the complete language package and recovery state. Never delete it to switch
 languages. An interrupted install is reconciled on the next installation attempt.
 Saves, player settings, app.info and unrelated mods are preserved.
 
-This package contains finished wording/resource builds. Most languages still
-need complete in-game font/layout testing, including Devanagari shaping in Hindi.
-All 30 translations are included after independent wording review. Russian uses
-the owner's accepted baseline, rather than the later unaccepted wording revision.
+All 30 translations are included after independent wording review. The native
+screenshot checks cover seven selected scenes per language; they are not a full
+playthrough. Russian retains the owner's accepted version.
 
 Windows 10/11 x64, built-in Windows PowerShell 5.1 and .NET Framework 4.8.
 This is a resource patch, not a copy of the game. Keep your original game.

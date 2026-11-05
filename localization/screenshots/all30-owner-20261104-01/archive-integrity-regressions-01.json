@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "positive",
+      "passed": true
+    },
+    {
+      "case": "wrong-member-bytes",
+      "passed": true,
+      "rejection": "('Archive member differs', 'integrity-guard-fixture-01/data.bin')"
+    },
+    {
+      "case": "missing-member",
+      "passed": true,
+      "rejection": "('Incomplete delivered inventory', ['integrity-guard-fixture-01/data.bin'])"
+    },
+    {
+      "case": "unassociated-appledouble",
+      "passed": true,
+      "rejection": "('Unassociated AppleDouble metadata', 'integrity-guard-fixture-01/._unknown.bin')"
+    }
+  ],
+  "negativeBoundary": "Each negative archive has a matching outer size/hash receipt; unrelated earlier guards remain satisfied",
+  "sourceSha256": "7dc79c3ec4fe33d27d2598a639e43cfe3b6cb3fc2e8688bc55f7e5cc11e2b763"
+}

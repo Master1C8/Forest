@@ -12,7 +12,8 @@ import zipfile
 from forest_payload import wrap
 
 ROOT=Path(__file__).resolve().parents[1]
-WORK=ROOT/'dist/macos-installer-work'
+WORK=Path(os.environ.get('FOREST_MAC_WORK',str(ROOT/'dist/macos-installer-work'))).resolve()
+assert WORK.is_relative_to(ROOT/'dist'),'macOS build work must stay inside this project distribution tree'
 DATA=Path('/Applications/TheForestOfLove.app/Contents/Resources/Data')
 
 def sha(p):
@@ -37,14 +38,19 @@ def payload():
     records=json.loads((WORK/'resources.json').read_bytes())
     from build_windows_installer import CONFIG, selection
     from forest_inventory_headings import validate_selection
+    from forest_renderer_contract import PATH as renderer, ORIGINAL_SHA, ORIGINAL_BYTES, localized as renderer_localized
     validate_selection(ROOT, selection())
     expected=set(selection())
     assert len(records)==len(expected) and {r['locale'] for r in records}==expected
     labels=json.loads((ROOT/'Windows/locale-labels.generated.json').read_bytes())
-    names=sorted(records[0]['files']);bundle=next(n for n in names if n.endswith('.bundle'))
+    framework=json.loads((ROOT/'localization/framework/forest045-shared/framework.json').read_bytes())
+    from forest_macos import native_resource_paths
+    base_names=native_resource_paths(framework,CONFIG['preservedFiles'])
+    names=sorted(base_names|{renderer});bundle=next(n for n in names if n.endswith('.bundle'))
     originals=[];bases=[];basepaths=[]
     for name in names:
         source=DATA/name
+        if name==renderer:assert source.is_file() and source.stat().st_size==ORIGINAL_BYTES and sha(source)==ORIGINAL_SHA,'Original macOS TMP differs'
         originals.append(dict(path=name,bytes=source.stat().st_size if source.exists() else 0,sha256=sha(source) if source.exists() else None))
         # Bundle storage uses only the first serialized member. Its large native
         # texture/audio stream is always retained from the player's original game.
@@ -70,8 +76,12 @@ def payload():
             locale=dict(code=code,name=labels['englishNames'][code]+' / '+labels['names'][code],culture=record['culture'],languageSha256=record['languageSha256'],files=[])
             source=ROOT/'localization/languages'/CONFIG['sourceOverrides'].get(code,code+'.json')
             assert sha(source)==record['languageSha256']
+            adapter=bool(json.loads(source.read_bytes()).get('complexText'))
+            assert set(record['files'])==base_names|({renderer}if adapter else set()),'Incomplete native resource inventory: '+code
             for name in names:
-                final=directory/name;assert sha(final)==record['files'][name]['sha256']
+                if name==renderer:final,expected_pin=renderer_localized(ROOT,directory,record['files'],adapter)
+                else:final=directory/name;expected_pin=record['files'][name]
+                assert sha(final)==expected_pin['sha256'] and final.stat().st_size==expected_pin['bytes']
                 storage=directory/'bundle.asset' if name==bundle else final
                 segments=[]
                 for _,length,key,block in chunks(storage):
@@ -79,7 +89,7 @@ def payload():
                     else:
                         segments.append(dict(base=-1,offset=0,bytes=length,blob=key))
                         if key not in literals:z.writestr('chunks/'+key,block);literals.add(key)
-                locale['files'].append(dict(path=name,**record['files'][name],storageBytes=storage.stat().st_size,storageSha256=sha(storage),segments=segments,bundle=name==bundle))
+                locale['files'].append(dict(path=name,**expected_pin,storageBytes=storage.stat().st_size,storageSha256=sha(storage),segments=segments,bundle=name==bundle))
             manifest['locales'].append(locale);print('packed macOS '+code,flush=True)
         z.writestr('manifest.json',encode(manifest))
     # Every reconstructed payload resource must match its native build, including
@@ -102,11 +112,11 @@ def payload():
         originalApplicationModified=False,externalSavesRead=False)
     (ROOT/'MacOS/original-inputs.json').write_bytes(encode(inputs))
     receipt=wrap(archive,WORK/'ForestLanguages.forestpack',6)
-    (ROOT/'MacOS/payload-receipt.json').write_bytes(encode(dict(receipt,locales=len(records),resources=14,reconstructionChecks=14*len(records))))
+    (ROOT/'MacOS/payload-receipt.json').write_bytes(encode(dict(receipt,locales=len(records),resources=len(names),reconstructionChecks=len(names)*len(records))))
     return manifest,receipt
 
 def app():
-    from build_windows_installer import selection
+    from build_windows_installer import selection,CONFIG
     from forest_inventory_headings import validate_selection, validate_packed_sources
     manifest=json.loads((WORK/'manifest.json').read_bytes())
     selected=selection();validate_selection(ROOT,selected);validate_packed_sources(manifest,selected)
@@ -127,19 +137,22 @@ def app():
     for name in ['ForestLanguages.forestpack','forest-codec-universal','PackageConfig.json']:
         shutil.copy2(WORK/name,resources/('forest-codec' if name=='forest-codec-universal' else name))
     for source,name in [(ROOT/'Windows/vendor/lz4/LICENSE','LZ4-LICENSE.txt'),(ROOT/'Windows/vendor/lzma/LICENSE.txt','LZMA-NOTICE.txt'),(ROOT/'Windows/THIRD-PARTY-NOTICES.txt','THIRD-PARTY-NOTICES.txt'),(ROOT/'MacOS/README.txt','README.txt')]:shutil.copy2(source,resources/name)
+    from forest_renderer_contract import copy_notices
+    copy_notices(ROOT,resources)
     shutil.copy2(ROOT/'MacOS/App.icns',resources/'App.icns')
     info=dict(CFBundleName='Forest Languages',CFBundleDisplayName='Forest Languages',CFBundleExecutable='Forest Languages',CFBundleIdentifier='org.vnrevival.forest.languages',
-        CFBundlePackageType='APPL',CFBundleShortVersionString='1.1.3',CFBundleVersion='6',CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
+        CFBundlePackageType='APPL',CFBundleShortVersionString=CONFIG['version'],CFBundleVersion=CONFIG['version'],CFBundleIconFile='App.icns',LSMinimumSystemVersion='14.0',NSHighResolutionCapable=True,
         LSApplicationCategoryType='public.app-category.utilities')
     (contents/'Info.plist').write_bytes(plistlib.dumps(info))
     subprocess.run(['codesign','--force','--deep','--sign','-',str(destination)],check=True)
     subprocess.run(['codesign','--verify','--deep','--strict',str(destination)],check=True)
-    target=ROOT/'dist/Forest-Languages-macOS.zip'
+    target=ROOT/'dist'/os.environ.get('FOREST_MAC_ARCHIVE_NAME','Forest-Languages-macOS.zip')
+    assert target.parent==ROOT/'dist' and target.suffix=='.zip'
     if target.exists():target.unlink()
     subprocess.run(['ditto','-c','-k','--keepParent',str(destination),str(target)],check=True)
     assert target.stat().st_size<=100_000_000,'Distribution size exceeded the normal limit'
     pins={str(p.relative_to(ROOT)):sha(p) for p in sorted((ROOT/'MacOS').rglob('*')) if p.is_file() and not any(s in p.parts for s in ['build','bin','obj']) and p.name not in ['build-receipt.json','validation.json']}
-    for name in ['forest_macos.py','build_macos_installer.py','build_windows_installer.py','forest_inventory_headings.py','test_macos_installer.py','test_macos_launch.py','verify_macos_resources.py','forest_payload.py','forest_localization/Managed.cs']:
+    for name in ['forest_macos.py','build_macos_installer.py','build_windows_installer.py','forest_renderer_contract.py','forest_inventory_headings.py','test_macos_installer.py','test_macos_launch.py','verify_macos_resources.py','forest_payload.py','forest_localization/Managed.cs']:
         p=ROOT/'tools'/name;pins[str(p.relative_to(ROOT))]=sha(p)
     for name in ['forest_bundle.c','chunks.c','installer-config.json','THIRD-PARTY-NOTICES.txt','vendor/lz4/provenance.json','vendor/lzma/provenance.json']:
         p=ROOT/'Windows'/name;pins[str(p.relative_to(ROOT))]=sha(p)

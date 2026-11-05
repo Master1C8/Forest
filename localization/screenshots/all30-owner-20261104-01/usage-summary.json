@@ -1,0 +1,26 @@
+{
+  "workerMeasuredSubtotal": {
+    "workers": 296,
+    "input_tokens": 12506727,
+    "cached_input_tokens": 6380672,
+    "output_tokens": 201105,
+    "total_tokens": 12707832,
+    "scope": "Measured raw CLI usage inside all30-owner-20261104-01, including rejected/replaced/failed attempts with telemetry. Outside-family feasibility/review probes and coordinator are excluded. This is a measured subtotal, not a complete whole-task model total.",
+    "perWorkerRecords": "localization/screenshots/all30-owner-20261104-01/usage-measured-family-current.json",
+    "modelFieldsMissing": 25
+  },
+  "coordinatorMixedCumulative": {
+    "input_tokens": 240737069,
+    "cached_input_tokens": 239645312,
+    "output_tokens": 1124030,
+    "total_tokens": 241861099
+  },
+  "coordinatorCutoff": "2026-11-05T02:04:27.758Z",
+  "coordinatorScope": "Mixed implementation, review orchestration, capture, packaging and source integration since the saved baseline; exact orchestration-only attribution unavailable. Outside-baseline preparation and the reporting/push tail are unmeasured.",
+  "outsideFamilyProbeUsage": "unknown in this subtotal",
+  "exactOrchestrationOnlyAttribution": "unavailable",
+  "cachedInputIsSubsetOfInput": true,
+  "reasoningIsSubsetOfOutput": true,
+  "reportingTailUnmeasured": true,
+  "tokenCountsAreNotCharges": true
+}

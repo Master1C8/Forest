@@ -2,12 +2,15 @@
 """Compile the lossless UnityFS adapter with the compiler's exact LZ4 version."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 
 WIN = Path(__file__).resolve().parent
 SOURCE = WIN / 'vendor/lz4'
-WORK = WIN.parent / 'dist/windows-installer-work'
+WORK = Path(os.environ.get('FOREST_WINDOWS_WORK',str(WIN.parent/'dist/windows-installer-work'))).resolve()
+if not WORK.is_relative_to(WIN.parent/'dist'):
+    raise ValueError('Codec work must stay inside the project distribution tree')
 
 
 def build():

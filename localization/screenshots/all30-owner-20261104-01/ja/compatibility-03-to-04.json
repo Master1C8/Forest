@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "locale": "ja",
+  "oldManifestSha256": "f709b50042b615432840087a23c6810b3e911be22d66ab58668ac20c455a244e",
+  "newManifestSha256": "4a792bd4d9160a9abdb10e1ad5daab64b6ed5381ed1fc7df50d39f9eb3a7f99f",
+  "changedResources": [
+    "Managed/VNRevivalQuestLayout.dll"
+  ],
+  "changedFields": [],
+  "helperProof": {
+    "passed": true,
+    "changedEntries": [
+      "body:System.Void VNRevivalImageCaptions::Gallery(UnityEngine.Component)",
+      "body:System.Void VNRevivalImageCaptions::ScaleGalleryCounters(UnityEngine.Component,System.Single)",
+      "body:System.Void VNRevivalImageCaptions/CounterPose::.ctor()",
+      "field:System.Collections.Generic.Dictionary`2<System.Int32,VNRevivalImageCaptions/CounterPose> VNRevivalImageCaptions::counterPoses",
+      "field:UnityEngine.RectTransform VNRevivalImageCaptions/CounterPose::rect",
+      "field:UnityEngine.Vector2 VNRevivalImageCaptions/CounterPose::position",
+      "method:System.Void VNRevivalImageCaptions/CounterPose::.ctor()",
+      "type:VNRevivalImageCaptions/CounterPose"
+    ],
+    "allOtherEntriesExact": true,
+    "captionWordingExact": true,
+    "moduleIdentityNormalized": "MVID only"
+  },
+  "boundary": "Only registered point sizes and scoped gallery/resident helper changes; no wording, data, other code or font resource changes. Per-scene applicability and original image review still required."
+}

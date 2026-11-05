@@ -1,0 +1,92 @@
+{
+  "objective": "Prevent Thai word and cluster splits without logical/display character insertion",
+  "locale": "th",
+  "sourcePins": {
+    "tools/complex_text/thai_wrap.py": "985fd05425b5d7db0573eff764d2b81ffba367244685ddee39eef9ac74d6040c",
+    "tools/complex_text/TextShaper.cs": "051bc9cf808beb85ad29ac4c10a1f11a3e906d13c9c7c556aabf9057bee7bb33",
+    "tools/complex_text/Processor.cs": "742b476a122b64ad0ef670ca6bda5953c4bccbcce5955f240c94ce920ff511c5",
+    "tools/complex_text/Runtime.cs": "61e9cd2b67a5cb232c5362f79a2831afdfc25e2534dc2ef7e6257622ca481566",
+    "tools/complex_text/CorpusTests.cs": "df0a5b308154a5c8cd8ba371dd0075f50386ad58ddeee5c7642571a0a8309599",
+    "tools/complex_text/prepare_corpus.py": "6c7bb4ae03269845b3e3e5c4d57cf41cbf20208ce3ea2e156188a3bef5cea39c",
+    "tools/complex_text/requirements.txt": "2437d6bc47cf0d7d29754678d299b9fd95fe35be73576c5210a8ebb22bed8524",
+    "tools/forest_localization/TmpPreprocessorPatch.cs": "582325931d174b264f61a1a357eed898345704e8f867078f15068c037a19192a",
+    "tools/forest_localization/tmp_renderer.py": "9bf3fbb8e8efe9db7bd780f90a322dedece4fd083bfe6947068a2872998e95f5"
+  },
+  "corpusGate": {
+    "checkedValues": 14606,
+    "thaiValues": 14606,
+    "failed": 0,
+    "boundary": "Complete deterministic logical target corpus through the shared display shaper and Thai logical/pre-shaped index/word/TCC gates; no visual or semantic acceptance"
+  },
+  "fontMapPreparation": {
+    "locale": "th",
+    "languageSha256": "4bc2ea19996cd9473d13e9b3a04d1abd32440f9293d6eee1c812b44cb768e1ea",
+    "sourceFaceSha256": "587d24571c0509bf756c9062ad58556fdfbd00163660167557ce1515ebbbb631",
+    "preparedFaceSha256": "09f86ef0efabe87d9488d0d574752f79c2ce26150aeae543f03f0467433fb93e",
+    "mode": 4,
+    "rtl": false,
+    "logicalStrings": 10315,
+    "exactMappings": 9829,
+    "spanMappings": 13573,
+    "glyphInstances": 617,
+    "mapSha256": "0fbd0a696c0b1d333abd96bb77066925a9e58d7895f7b2002530e60bbbe181b9",
+    "logicalWordingUnchanged": true,
+    "dependencies": {
+      "fonttools": "4.60.2",
+      "uharfbuzz": "0.51.7"
+    },
+    "boundary": "Deterministic font/map preparation only; independent target native acceptance remains required",
+    "thaiWordWrap": {
+      "engine": "PyThaiNLP/newmm",
+      "version": "5.4.0",
+      "dictionarySha256": "35f65d43ea83b5b981134d5edc3b9afcb64b4ba96146900fc4d312f2940c3265",
+      "dictionaryWordsFile": "pythainlp/corpus/words_th.txt",
+      "dictionaryLicense": "CC0-1.0",
+      "codeLicense": "Apache-2.0",
+      "logicalRuns": 13587,
+      "aliases": 27174,
+      "characterSlotsUnchanged": true,
+      "modelRequests": 0
+    }
+  },
+  "tmpPatch": {
+    "passed": true,
+    "sourceSha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+    "outputSha256": "71fbf48757638cc39dac5c8e40c12e532dcba7d0dd685b0da6933a7b6ab647fc",
+    "changedBodies": [
+      "System.Void TMPro.TMP_Text::SetText(System.String,System.Boolean)",
+      "System.Void TMPro.TMP_Text::ParseInputText()"
+    ],
+    "completeOriginalTreeRestored": true,
+    "completeOtherEntriesRetained": true,
+    "addedField": "System.Action`1<TMPro.TMP_Text> TMPro.TMP_Text::ForestPrepareText",
+    "wordWrap": true,
+    "wordWrapBodies": [
+      "System.Void TMPro.TextMeshProUGUI::GenerateTextMesh()",
+      "System.Void TMPro.TextMeshPro::GenerateTextMesh()"
+    ],
+    "logicalStore": "Original arg1 -> m_text unchanged; prepared backing data never replaces its getter",
+    "displayRoute": "Existing ITextPreprocessor -> PopulateTextBackingArray, including GetTextInfo and Febucci"
+  },
+  "nonThaiPositiveControl": {
+    "passed": true,
+    "sourceSha256": "775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483",
+    "outputSha256": "7bdd258daa6daa62f7006add8e691261bef7b044c371de903d3f67963d200ec2",
+    "changedBodies": [
+      "System.Void TMPro.TMP_Text::SetText(System.String,System.Boolean)",
+      "System.Void TMPro.TMP_Text::ParseInputText()"
+    ],
+    "completeOriginalTreeRestored": true,
+    "completeOtherEntriesRetained": true,
+    "addedField": "System.Action`1<TMPro.TMP_Text> TMPro.TMP_Text::ForestPrepareText",
+    "wordWrap": false,
+    "wordWrapBodies": [],
+    "logicalStore": "Original arg1 -> m_text unchanged; prepared backing data never replaces its getter",
+    "displayRoute": "Existing ITextPreprocessor -> PopulateTextBackingArray, including GetTextInfo and Febucci"
+  },
+  "currentNativeRun": "localization/probes/locale-owner-shots-20261104-th-02",
+  "nativeVisualAcceptance": "pending",
+  "nonBMPThaiAuthoredValues": 0,
+  "modelRequestsForSegmentation": 0,
+  "excluded": "No source/glossary/control IDs/save data were rewritten. The dictionary is build-time only."
+}

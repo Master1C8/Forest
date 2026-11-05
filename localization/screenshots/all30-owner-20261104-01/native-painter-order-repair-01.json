@@ -1,0 +1,29 @@
+{
+  "status": "implemented-native-verification-pending",
+  "cause": "Original parent white glow was replaced with a last-child TMP display, putting it after the dark Name child. Insert the display as first sibling to retain original parent-before-descendant paint order.",
+  "sourceEvidence": "hi/selected-native-text-order-01.json",
+  "sourceChange": "tools/complex_text/LegacyMirror.cs::Awake",
+  "codeSha256": "606aed1486bc31d887d1a81a246d2743b7562880ffe30802e21202c3631c473a",
+  "affectedLocales": [
+    "hi",
+    "ar",
+    "fa",
+    "he",
+    "th"
+  ],
+  "nativeRecaptureOrders": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "unchangedMenuOrders": [
+    1,
+    2,
+    3
+  ],
+  "unchangedMenuReason": "Menu controls/counters use TMP directly; the new gallery caption creates an otherwise childless native Text object, whose sole display has the same position in either sibling order. No logical input, font, shaping, code outside Awake or original child order changes.",
+  "resourceQueue": "resource-batch-11/state.json",
+  "ordinaryQueue": "resource-batch-10 stopped after KO01; ordinary outputs do not embed LegacyMirror",
+  "existingAcceptedOriginalsPreserved": true
+}

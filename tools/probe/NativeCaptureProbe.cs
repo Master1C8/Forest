@@ -18,7 +18,7 @@ public sealed class ForestProbe : MonoBehaviour {
     [Serializable] public class Snapshot {
         public string scene, company, product, conversationText;
         public int frame,width,height,conversationId,entryId;
-        public bool conversationActive,typing;
+        public bool conversationActive,typing,focused;
         public string[] texts,buttons,details,responses,images,scrolls,geometry;
     }
     public static void Install() {
@@ -52,7 +52,7 @@ public sealed class ForestProbe : MonoBehaviour {
     void Dump() {
         var s=new Snapshot{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
             company=Application.companyName,product=Application.productName,frame=Time.frameCount,
-            width=Screen.width,height=Screen.height,conversationActive=DialogueManager.isConversationActive,
+            width=Screen.width,height=Screen.height,focused=Application.isFocused,conversationActive=DialogueManager.isConversationActive,
             typing=TheForestOfLove.CustomTypewriterEffectTextMeshPro.IsTyping()};
         var texts=new List<string>();var buttons=new List<string>();var details=new List<string>();var responses=new List<string>();
         foreach(var t in Resources.FindObjectsOfTypeAll<Text>())if(t.enabled&&t.gameObject.activeInHierarchy&&t.color.a>.01f)
@@ -72,22 +72,31 @@ public sealed class ForestProbe : MonoBehaviour {
         foreach(var a in Resources.FindObjectsOfTypeAll<TheForestOfLove.Gameplay.SpawnableActor>())if(a.gameObject.scene.IsValid()&&a.gameObject.activeInHierarchy)
             details.Add("actor|"+a.ActorDbName+"|"+Address(a.transform)+"|"+a.transform.position);
         foreach(var i in Resources.FindObjectsOfTypeAll<TheForestOfLove.Interaction.DialogueInteractionTrigger>())if(i.gameObject.scene.IsValid()&&i.gameObject.activeInHierarchy)
-            details.Add("trigger|"+Address(i.transform)+"|dialogue="+i.dialogueDbName+"|authority="+Property(i,"IsAuthority")+"|mode="+i.interactionMode+"|blocked="+i.interactionBlocked);
+            details.Add("trigger|"+Address(i.transform)+"|dialogue="+i.dialogueDbName+"|authority="+Property(i,"IsAuthority")+"|mode="+i.interactionMode+"|blocked="+i.interactionBlocked+"|canTrigger="+i.GetType().GetMethod("CanTrigger",Flags).Invoke(i,null)+"|");
         if(TheForestOfLove.Player.current!=null)details.Add("player|"+TheForestOfLove.Player.current.transform.position);
         var images=new List<string>();var scrolls=new List<string>();
         foreach(var image in Resources.FindObjectsOfTypeAll<Image>())if(image.gameObject.scene.IsValid()&&image.gameObject.activeInHierarchy&&image.sprite!=null)
             images.Add(Address(image.transform)+"\t"+image.sprite.name+"\t"+image.enabled+"\t"+image.rectTransform.rect);
         foreach(var scroll in Resources.FindObjectsOfTypeAll<ScrollRect>())if(scroll.gameObject.scene.IsValid()&&scroll.gameObject.activeInHierarchy)
-            scrolls.Add(Address(scroll.transform)+"\t"+scroll.verticalNormalizedPosition+"\t"+(scroll.viewport==null?"no-viewport":scroll.viewport.rect.ToString()));
+            scrolls.Add(Address(scroll.transform)+"\t"+scroll.verticalNormalizedPosition+"\t"+(scroll.viewport==null?"no-viewport":scroll.viewport.rect.ToString())+"\tcontent="+(scroll.content==null?"none":scroll.content.rect.ToString()));
         var geometry=new List<string>();
-        foreach(var t in Resources.FindObjectsOfTypeAll<Text>())if(t.enabled&&t.gameObject.activeInHierarchy&&!String.IsNullOrEmpty(t.text)&&Address(t.transform).Contains("/QuestLog/")) {
+        foreach(var rect in Resources.FindObjectsOfTypeAll<RectTransform>())if(rect.gameObject.scene.IsValid()) {
+            string path=Address(rect);
+            if(path=="Canvas/GalleryMenu/Dialogue/Dialogue"||path=="Canvas/GalleryMenu/Dialogue/On"||path=="Canvas/GalleryMenu/Dialogue/Off"||path.EndsWith("/MasterLog/Canvas/Container/Labels/QuestLog",StringComparison.Ordinal))
+                geometry.Add("layout-pose|"+path+"|x="+rect.anchoredPosition.x.ToString(System.Globalization.CultureInfo.InvariantCulture)+"|y="+rect.anchoredPosition.y.ToString(System.Globalization.CultureInfo.InvariantCulture)+"|active="+rect.gameObject.activeInHierarchy);
+        }
+        foreach(var t in Resources.FindObjectsOfTypeAll<Text>())if(t.enabled&&t.gameObject.activeInHierarchy&&!String.IsNullOrEmpty(t.text)&&(Address(t.transform).Contains("/QuestLog/")||Address(t.transform).Contains("/Bio/VNRevivalResidentViewport/"))) {
             var gen=t.cachedTextGenerator;gen.Populate(t.text,t.GetGenerationSettings(t.rectTransform.rect.size));
+            if(t.name=="VNRevivalRussianStatusLabel")details.Add("status-fit|"+Address(t.transform)+"|font="+t.fontSize+"|bestFit="+t.resizeTextForBestFit+"|min="+t.resizeTextMinSize+"|max="+t.resizeTextMaxSize+"|used="+gen.fontSizeUsedForBestFit+"|lines="+gen.lineCount+"|rect="+t.rectTransform.rect+"|preferredWidth="+t.preferredWidth+"|preferredHeight="+t.preferredHeight+"|dynamic="+t.font.dynamic+"|horizontal="+t.horizontalOverflow+"|vertical="+t.verticalOverflow);
             foreach(var mask in t.GetComponentsInParent<RectMask2D>())if(mask.enabled&&mask.gameObject.activeInHierarchy) {
                 int inside=0,outside=0;float low=float.PositiveInfinity,high=float.NegativeInfinity;
                 foreach(var v in gen.verts)if(v.color.a>0){var p=mask.rectTransform.InverseTransformPoint(t.transform.TransformPoint(v.position/t.pixelsPerUnit));low=Mathf.Min(low,p.y);high=Mathf.Max(high,p.y);if(mask.rectTransform.rect.Contains(p))inside++;else outside++;}
                 geometry.Add(Address(t.transform)+"\tmask="+Address(mask.transform)+"\tinside="+inside+"\toutside="+outside+"\ty="+low+","+high+"\tmaskRect="+mask.rectTransform.rect);
             }
         }
+        foreach(var t in Resources.FindObjectsOfTypeAll<TextMeshProUGUI>())
+            if(t.gameObject.activeInHierarchy && (Address(t.transform).StartsWith("Canvas/MainMenu/") || Address(t.transform).StartsWith("Canvas/OptionsMenu/") || Address(t.transform).StartsWith("Canvas/GalleryMenu/")))
+                details.Add("render-ready|"+Address(t.transform)+"|alpha="+(t.color.a*t.canvasRenderer.GetAlpha()*t.canvasRenderer.GetInheritedAlpha()).ToString(System.Globalization.CultureInfo.InvariantCulture)+"|chars="+t.textInfo.characterCount+"|cull="+t.canvasRenderer.cull);
         s.texts=texts.ToArray();s.buttons=buttons.ToArray();s.details=details.ToArray();s.responses=responses.ToArray();s.images=images.ToArray();s.scrolls=scrolls.ToArray();s.geometry=geometry.ToArray();
         File.WriteAllText(Path.Combine(Root,"state.json"),JsonUtility.ToJson(s,true));
     }
@@ -110,7 +119,9 @@ public sealed class ForestProbe : MonoBehaviour {
             var schemas=Read(c.node,"possibleSchemas") as IEnumerable;
             if(schemas==null)continue;
             foreach(var o in schemas){var item=o as TheForestOfLove.Inventory.InventoryItem;
-                if(item!=null&&item.title=="Фотоаппарат"&&item.quantity>0&&!item.isConsumed){Invoke(c,"OnSelected");count++;break;}}
+                if(item!=null&&item.savekey=="camera"&&item.quantity>0&&!item.isConsumed){
+                    if(item.sprite==null||item.sprite.texture==null)throw new Exception("Owned camera sprite has not loaded");
+                    Invoke(c,"OnSelected");count++;break;}}
         }
         if(count!=1)throw new Exception("Expected one actually owned camera cell; got "+count);
     }
@@ -135,7 +146,24 @@ public sealed class ForestProbe : MonoBehaviour {
         var settings=(TheForestOfLove.DialogueSettings)Read(match,"settings");
         if(!TheForestOfLove.Narrative.StoryManager.PlayDialogue(match.interactionMode,settings))throw new Exception("Current StoryManager interaction rejected");
     }
-    void AlignQuestList() {
+    void LabelId(string kind,string id) {
+        object owner=kind=="resident"?(object)One<TheForestOfLove.CritterLog>():One<TheForestOfLove.QuestLog>();
+        var labels=(IList)Read(owner,kind=="resident"?"residentLabels":"questLabels");int found=-1;
+        for(int i=0;i<labels.Count;i++) {
+            string key=kind=="resident"?((TheForestOfLove.Narrative.Actor)Property(labels[i],"actor")).savekey:(string)Read(labels[i],"questDbName");
+            if(key==id){if(found!=-1)throw new Exception("Ambiguous stable label identity");found=i;}
+        }
+        if(found<0)throw new Exception("Loaded stable label unavailable: "+id);
+        Invoke(owner,kind=="resident"?"SelectResidentLabel":"SelectQuestLabel",found);
+    }
+    void PlaceMaverickFixture() {
+        if(DialogueManager.isConversationActive)throw new Exception("Cannot place player during dialogue");
+        var player=TheForestOfLove.Player.current;if(player==null)throw new Exception("No loaded player");
+        var before=player.transform.position;if(Vector2.Distance(before,new Vector2(2.26f,.74f))>.2f)throw new Exception("Unexpected saved player checkpoint");
+        player.transform.position=new Vector3(1.8f,1.4f,before.z);Physics2D.SyncTransforms();
+        File.WriteAllText(Path.Combine(Root,"player-placement-fixture.txt"),"Transient QA position only; original loaded save and trigger authority retained. Before="+before+"; after="+player.transform.position);
+    }
+    void AlignQuestList(string requiredTitle) {
         ScrollRect list=null;
         foreach(var s in Resources.FindObjectsOfTypeAll<ScrollRect>())if(s.gameObject.scene.IsValid()&&s.gameObject.activeInHierarchy&&Address(s.transform).EndsWith("/QuestLog UI/Content/QuestsScrollView")) {
             if(list!=null)throw new Exception("Ambiguous quest list");list=s;
@@ -145,14 +173,17 @@ public sealed class ForestProbe : MonoBehaviour {
         int attempts=(int)Mathf.Ceil(extent);var trace=new List<string>();
         for(int step=0;step<=attempts;step++) {
             list.verticalNormalizedPosition=extent==0?1:Mathf.Clamp01(1-step/extent);Canvas.ForceUpdateCanvases();
-            int partial=0,visible=0;bool required=false;var bounds=new List<string>();
+            int partial=0,visible=0;bool required=String.IsNullOrEmpty(requiredTitle);var bounds=new List<string>();
             foreach(var t in list.content.GetComponentsInChildren<Text>())if(t.enabled&&!String.IsNullOrEmpty(t.text)) {
                 var gen=t.cachedTextGenerator;gen.Populate(t.text,t.GetGenerationSettings(t.rectTransform.rect.size));
                 float low=float.PositiveInfinity,high=float.NegativeInfinity;
                 foreach(var v in gen.verts)if(v.color.a>0){var pt=list.viewport.InverseTransformPoint(t.transform.TransformPoint(v.position/t.pixelsPerUnit));low=Mathf.Min(low,pt.y);high=Mathf.Max(high,pt.y);}
                 var rect=list.viewport.rect;bool intersects=high>rect.yMin+.1f&&low<rect.yMax-.1f;
-                bool complete=low>=rect.yMin+.1f&&high<=rect.yMax-.1f;
-                if(intersects){visible++;if(!complete)partial++;if(t.text=="Друг интересуется"&&complete)required=true;bounds.Add(B64(t.text)+"|"+low+"|"+high+"|"+complete);}
+                // The original illustrated frame covers the viewport edge.
+                // A mathematical half-pixel clearance still lost the final
+                // Portuguese line. Keep generated ink3 logical units inside.
+                bool complete=low>=rect.yMin+3&&high<=rect.yMax-3;
+                if(intersects){visible++;if(!complete)partial++;if(t.text==requiredTitle&&complete)required=true;bounds.Add(B64(t.text)+"|"+low+"|"+high+"|"+complete);}
             }
             trace.Add(step+"|"+list.verticalNormalizedPosition+"|"+partial+"|"+required);
             if(partial==0&&required&&visible>=3) {
@@ -177,9 +208,14 @@ public sealed class ForestProbe : MonoBehaviour {
             else if(cmd.StartsWith("page "))Page(cmd.Substring(5));
             else if(cmd=="close-log")Invoke(One<TheForestOfLove.MasterLog>(),"ToggleVisible",false);
             else if(cmd=="camera")CameraItem();
+            else if(cmd.StartsWith("resident-id "))LabelId("resident",cmd.Substring(12));
+            else if(cmd.StartsWith("quest-id "))LabelId("quest",cmd.Substring(9));
             else if(cmd.StartsWith("resident "))Label("resident",cmd.Substring(9));
             else if(cmd.StartsWith("quest "))Label("quest",cmd.Substring(6));
-            else if(cmd=="align-quest-list")AlignQuestList();
+            else if(cmd=="align-quest-list")AlignQuestList("Друг интересуется");
+            else if(cmd=="align-quest-list-any")AlignQuestList(null);
+            else if(cmd.StartsWith("align-quest-list-title "))AlignQuestList(cmd.Substring(23));
+            else if(cmd=="place-maverick-fixture")PlaceMaverickFixture();
             else if(cmd.StartsWith("scroll ")) {
                 int separator=cmd.LastIndexOf(' ');string address=cmd.Substring(7,separator-7);
                 float position=float.Parse(cmd.Substring(separator+1),System.Globalization.CultureInfo.InvariantCulture);

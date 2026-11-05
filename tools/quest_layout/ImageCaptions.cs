@@ -3,7 +3,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-public static class VNRevivalImageCaptions {
+public static partial class VNRevivalImageCaptions {
     static string Address(Transform t) {return t.parent==null?t.name:Address(t.parent)+"/"+t.name;}
     static void Apply(Component owner,string spriteName,string suffix,string wording,int size,bool outlined) {
         Image selected=null;
@@ -29,6 +29,10 @@ public static class VNRevivalImageCaptions {
         if(outlined){var outline=go.AddComponent<Outline>();outline.effectColor=Color.black;outline.effectDistance=new Vector2(2,-2);}
         selected.enabled=false;
     }
-    public static void Gallery(Component owner) {Apply(owner,"gallery_logo","/GalleryMenu/Logo",__GALLERY__,50,true);}
-    public static void Residents(Component owner) {Apply(owner,"CritterLog_Residents_Label","/ResidentsScrollView/Title",__RESIDENTS__,18,false);}
+    public static void Gallery(Component owner) {Apply(owner,"gallery_logo","/GalleryMenu/Logo",__GALLERY__,__GALLERY_SIZE__,true);ScaleGalleryCounters(owner,__GALLERY_COUNTER_SCALE__);}
+    public static void Residents(Component owner) {
+        preferenceHeadingLift=__PREFERENCE_HEADING_LIFT__;ScaleCritterHeading(owner,__CRITTER_HEADING_SCALE__);
+        Apply(owner,"CritterLog_Residents_Label","/ResidentsScrollView/Title",__RESIDENTS__,__RESIDENTS_SIZE__,false);
+        if(__RESIDENT_REFLOW__)InstallResidentBody(owner);
+    }
 }

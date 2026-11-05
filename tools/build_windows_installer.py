@@ -17,7 +17,9 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 WIN = ROOT / 'Windows'
-WORK = ROOT / 'dist/windows-installer-work'
+WORK = Path(os.environ.get('FOREST_WINDOWS_WORK', str(ROOT / 'dist/windows-installer-work'))).resolve()
+if not WORK.is_relative_to(ROOT / 'dist'):
+    raise ValueError('Windows build work must stay inside this project distribution tree')
 CONFIG = json.loads((WIN / 'installer-config.json').read_text())
 DATA = CONFIG['dataDirectory']
 
@@ -37,7 +39,10 @@ def source_pins():
              not any(x in p.relative_to(WIN).parts for x in ['bin', 'obj', 'build']) and p.name not in evidence]
     paths += [ROOT / 'tools' / n for n in ['build_windows_installer.py', 'forest_bundle_storage.py',
               'forest_payload.py', 'restore_windows_inputs.py', 'extract_windows_icon.py', 'probe_windows_payload_size.py',
-              'forest_inventory_headings.py', 'refresh_windows_payload.py']]
+              'forest_inventory_headings.py', 'refresh_windows_payload.py', 'forest_renderer_contract.py']]
+    paths += [ROOT / p for p in ['tools/complex_text/vendor/BidiSharp/LICENSE',
+              'tools/complex_text/vendor/Unicode-17.0.0/LICENSE.txt',
+              'localization/fonts/complex-sources/OFL-1.1.txt', 'localization/fonts/complex-sources/NOTICE.txt']]
     return {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in sorted(paths)}
 
 
@@ -79,6 +84,7 @@ def build_locales():
 def collect_receipts():
     """Bind existing normal or byte-exact recovered outputs without recompiling."""
     from forest_inventory_headings import validate_selection
+    from forest_renderer_contract import PATH as renderer
     validate_selection(ROOT, selection())
     records = []
     framework = json.loads((ROOT / 'localization/framework/forest045-shared/framework.json').read_bytes())
@@ -88,7 +94,8 @@ def collect_receipts():
         d = json.loads(path.read_bytes())
         if d['locale'] != code or d['languageSha256'] != sha(language.read_bytes()):
             raise ValueError('Stale compiler output: ' + code)
-        if set(d['files']) != expected_paths:
+        adapter = bool(json.loads(language.read_bytes()).get('complexText'))
+        if set(d['files']) != expected_paths | ({DATA + '/' + renderer} if adapter else set()):
             raise ValueError('Incomplete compiler resource inventory: ' + code)
         for name, expected in d['files'].items():
             resource = path.parent / name
@@ -99,7 +106,7 @@ def collect_receipts():
             record['reusedPublishedOutput'] = {k: d[k] for k in ['publishedPayloadSha256', 'reusedOriginalCompilerManifestSha256', 'reconstructionVerified']}
         records.append(record)
     (WIN / 'compiler-receipts.json').write_bytes(encode(dict(format=1, locales=records,
-        normalResourcesPerLocale=16, installedResourcesPerLocale=14, gameLaunched=False)))
+        normalResourcesPerLocale=16, adapterResourcesPerLocale=17, installedResourcesPerLocale=15, gameLaunched=False)))
 
 
 def refresh_catalog():
@@ -130,6 +137,7 @@ def catalog():
 def payload():
     from forest_bundle_storage import prepare
     from forest_inventory_headings import validate_selection
+    from forest_renderer_contract import PATH as renderer, ORIGINAL_SHA, ORIGINAL_BYTES, original as renderer_original, localized as renderer_localized
     validate_selection(ROOT, selection())
     WORK.mkdir(parents=True, exist_ok=True)
     chunker = WORK / 'chunks'
@@ -137,7 +145,7 @@ def payload():
     subprocess.run(['python3', str(WIN / 'build_codec.py')], check=True)
     codec = WORK / 'forest-bundle'
     framework = json.loads((ROOT / 'localization/framework/forest045-shared/framework.json').read_bytes())
-    paths = sorted(set(framework['resources']) - set(CONFIG['preservedFiles']))
+    paths = sorted((set(framework['resources']) - set(CONFIG['preservedFiles'])) | {renderer})
     bundle = next(x for x in paths if x.endswith('.bundle'))
     names, catalog_pin = catalog()
     original_root = Path(os.environ.get('FOREST_ORIGINAL_GAME', '/Volumes/KINGSTONMAC/CrossOver/Bottles/Steam/drive_c/forest')) / DATA
@@ -154,10 +162,11 @@ def payload():
             yield offset, length, sha(block), block
 
     for name in paths:
-        original = framework['sourceMembers'].get(name)
+        original = dict(bytes=ORIGINAL_BYTES,sha256=ORIGINAL_SHA) if name==renderer else framework['sourceMembers'].get(name)
         manifest['originals'].append(dict(path=name, sha256=original['sha256'] if original else None, bytes=original['bytes'] if original else 0))
         if original:
             source = original_root / name
+            if name==renderer and not source.exists():source=renderer_original(ROOT)
             if original != dict(bytes=source.stat().st_size, sha256=sha(source.read_bytes())): raise ValueError('original input drift: ' + name)
             manifest['baselines'].append(dict(path=name, **original)); bases.append(source)
     manifest['baselines'].append(dict(path='__bundle.asset', bytes=original_asset.stat().st_size, sha256=sha(original_asset.read_bytes())))
@@ -176,10 +185,14 @@ def payload():
             built = json.loads((directory / 'manifest.json').read_bytes())
             source_sha = sha(source.read_bytes())
             if built['languageSha256'] != source_sha: raise ValueError('stale compiled language: ' + code)
+            adapter=bool(json.loads(source.read_bytes()).get('complexText'))
+            compiler_paths={DATA+'/'+name for name in framework['resources']} | ({DATA+'/'+renderer} if adapter else set())
+            if set(built['files'])!=compiler_paths:raise ValueError('Incomplete compiler inventory: '+code)
             locale = dict(code=code, name=names[code], culture=built['culture'], languageSha256=source_sha,
                           languagePath=str(source.relative_to(ROOT)), compilerManifestSha256=sha((directory / 'manifest.json').read_bytes()), files=[])
             for name in paths:
-                path = directory / DATA / name; expected = built['files'][DATA + '/' + name]
+                if name==renderer:path,expected=renderer_localized(ROOT,directory,built['files'],adapter,DATA+'/')
+                else:path = directory / DATA / name; expected = built['files'][DATA + '/' + name]
                 if expected != dict(bytes=path.stat().st_size, sha256=sha(path.read_bytes())): raise ValueError('compiler artifact drift: ' + str(path))
                 raw = path; recipe_key = None; recipe_bytes = 0
                 if name == bundle:
@@ -268,6 +281,8 @@ def package():
     shutil.copy2(WIN / 'vendor/lzma/LICENSE.txt', dest / 'LZMA-NOTICE.txt')
     shutil.copy2(WIN / 'README.txt', dest / 'README.txt')
     shutil.copy2(WIN / 'THIRD-PARTY-NOTICES.txt', dest / 'THIRD-PARTY-NOTICES.txt')
+    from forest_renderer_contract import copy_notices
+    copy_notices(ROOT,dest)
     version = CONFIG['version'].split('.')
     if len(version) != 3 or any(not x.isdigit() or not 0 <= int(x) <= 65535 for x in version): raise ValueError('invalid app version')
     (WORK / 'Version.h').write_text('\n'.join('#define VERSION_'+key+' '+value for key,value in zip(['MAJOR','MINOR','PATCH'],version)) + '\n#define VERSION_TEXT "' + CONFIG['version'] + '"\n')

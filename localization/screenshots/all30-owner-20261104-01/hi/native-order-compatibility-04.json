@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "locale": "hi",
+  "oldManifestSha256": "110048a48fee04242b8404325ce5682570dfe35a5b664edab036c7b749ef6a10",
+  "newManifestSha256": "8205488149bbb6e617850fd5ddd5d97ac9afdd2e201f7f1d7dcfa994253425c3",
+  "languageSha256": "371fcac8920af7e1c21097e384f7e13a5e184749ab2c5637e4c8f92f4081ce80",
+  "changedResources": [
+    "Managed/VNRevivalQuestLayout.dll"
+  ],
+  "helperProof": {
+    "passed": true,
+    "mode": "complex-native-painter-order",
+    "oldHelperSha256": "c6d7c913fa7ed0978675fb409aafb8934abf33d07094b69137ea3810d7e9bce0",
+    "newHelperSha256": "019bd0a4c7ec537f010bf6b785b3e934979bcb703c9c0af131cfd6b6c981bc9a",
+    "retainedEntries": 340,
+    "changedEntries": [
+      "body:System.Void ForestComplexText.LegacyMirror::Awake()"
+    ],
+    "moduleIdentityNormalized": "MVID only",
+    "allOtherHelperEntriesExact": true
+  },
+  "boundary": "Same language and every other native resource exact. Only the explicitly selected helper delta changes; unaffected screen reuse still requires scene-specific applicability evidence."
+}

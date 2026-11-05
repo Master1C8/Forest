@@ -23,8 +23,36 @@
     "id": "forest045-shared-v2",
     "sha256": "26cf1b28a0d9877a21367d7426571a382f349ed24ab9a8d2ab8b2107e285298f"
   },
-  "layout": {},
+  "imageCaptionSizes": {
+    "gallery": 50,
+    "residents": 18
+  },
+  "imageCaptions": {
+    "gallery": {
+      "source": "Gallery",
+      "target": "Συλλογή"
+    },
+    "residents": {
+      "source": "Residents",
+      "target": "Κάτοικοι"
+    }
+  },
+  "layout": {
+    "level1:7367": 12,
+    "level1:7404": 12,
+    "level1:7429": 14,
+    "level1:7502": 12,
+    "level1:7516": 14,
+    "level1:7521": 14,
+    "level1:7543": 12,
+    "level1:7680": 14,
+    "level1:7695": 12,
+    "level1:7712": 14,
+    "level1:7777": 12,
+    "level1:7791": 14
+  },
   "locale": "el",
+  "residentTextLayout": true,
   "translations": {
     "StreamingAssets/aa/StandaloneWindows64/defaultlocalgroup_assets_all_298c5a4d1d1846b1a8d2c7d5da3f319c.bundle:-1345613035101942638/m_text": {
       "source": "You tell Mabel what she got up to.\nYou spared no juicy detail.\nShe blushed a lot.",
@@ -58450,5 +58478,7 @@
       "source": "Mash [Spacebar] or Joystick [A] to clench!",
       "target": "Πάτα επανειλημμένα [Spacebar] ή [A] στο χειριστήριο για να σφιχτείς!"
     }
-  }
+  },
+  "questStatusHeadingMinimumPointSize": 8,
+  "questStatusHeadingSingleLineFit": true
 }

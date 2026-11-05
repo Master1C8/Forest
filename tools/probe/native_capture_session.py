@@ -3,7 +3,7 @@ from pathlib import Path
 import datetime,hashlib,json,os,plistlib,shutil,subprocess,time
 ROOT=Path(__file__).resolve().parents[2]
 RUN=ROOT/'localization/probes'/os.environ.get('FOREST_CAPTURE_RUN','ru-owner-shots-20261104-01')
-assert RUN.parent==ROOT/'localization/probes' and RUN.name.startswith('ru-owner-shots-')
+assert RUN.parent==ROOT/'localization/probes' and RUN.name.startswith(('ru-owner-shots-','locale-owner-shots-'))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(name,value):(RUN/name).write_text(json.dumps(value,indent=2)+'\n')
 build=json.loads((RUN/'build.json').read_bytes());game=Path(build['game']);source=Path(build['source']);contents=game/'Contents';data=contents/'Resources/Data'

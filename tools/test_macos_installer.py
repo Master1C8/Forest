@@ -14,12 +14,18 @@ from forest_payload import wrap
 ROOT=Path(__file__).resolve().parents[1];WORK=ROOT/'dist/macos-installer-work'
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,b):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
-def fixture(target):
+def fixture(target, renderer=None):
     assert not target.exists(),'Preserve and inspect an existing test run before replacing it'
     resources=target/'Resources';resources.mkdir(parents=True)
     source=target/'Original.app';data=source/'Contents/Resources/Data'
     names=['Managed/Assembly-CSharp.dll','Managed/VNRevivalInventoryLayout.dll','Managed/VNRevivalQuestLayout.dll',
         'StreamingAssets/aa/StandaloneOSX/default.bundle','StreamingAssets/aa/catalog.json','level1','level5','level6','resources.assets']+['sharedassets'+n+'.assets' for n in ['0','1','15','2','4']]
+    renderer_name='Managed/Unity.TextMeshPro.dll'
+    renderer_original=ROOT/'localization/framework/forest045-shared-v2/references/Unity.TextMeshPro.dll'
+    if renderer is not None:
+        assert sha(renderer_original)=='775eab21aef1558df02968234ce1e506c2685c95813ba7cbb89e8f3e9102c483'
+        assert Path(renderer).is_file() and sha(renderer)!=sha(renderer_original)
+        names.append(renderer_name)
     bundle=next(n for n in names if n.endswith('.bundle'));asset=b'original native serialized data';stream=b'native streaming bytes'*100
     raw=asset+stream;info=bytes(16)+struct.pack('>I',1)+struct.pack('>IIH',len(raw),len(raw),0)+struct.pack('>I',2)
     for offset,body,flags,name in [(0,asset,4,'CAB-7cd732d37ea0297d073a22a52ce72d28'),(len(asset),stream,0,'CAB-7cd732d37ea0297d073a22a52ce72d28.resS')]:
@@ -28,6 +34,7 @@ def fixture(target):
     originals=[]
     for name in names:
         original=None if 'VNRevival' in name else header+raw+info if name==bundle else ('native original '+name).encode()
+        if renderer is not None and name==renderer_name:original=renderer_original.read_bytes()
         if original is not None:write(data/name,original)
         originals.append(dict(path=name,bytes=len(original) if original else 0,sha256=hashlib.sha256(original).hexdigest() if original else None))
     identity=b'Forest 0.45 native identity';write(data/'globalgamemanagers.assets',identity)
@@ -41,12 +48,21 @@ def fixture(target):
             files=[]
             for name in names:
                 block=('localized '+code+' '+name).encode();key=hashlib.sha256(block).hexdigest();z.writestr('chunks/'+key,block)
+                if renderer is not None and name==renderer_name:
+                    block=Path(renderer if code in {'ar','fa','he','hi','th'} else renderer_original).read_bytes()
+                    key=hashlib.sha256(block).hexdigest()
+                    if 'chunks/'+key not in z.namelist():z.writestr('chunks/'+key,block)
                 if name==bundle:
                     localized=target/'asset';localized.write_bytes(block)
                     final=target/'bundle';subprocess.run([str(codec),'compose',str(data/bundle),str(localized),str(final)],check=True,stdout=subprocess.DEVNULL)
                     size=final.stat().st_size;final_sha=sha(final)
                 else:size=len(block);final_sha=key
-                files.append(dict(path=name,bytes=size,sha256=final_sha,storageBytes=len(block),storageSha256=key,segments=[dict(base=-1,offset=0,bytes=len(block),blob=key)],bundle=name==bundle))
+                segments=[]
+                for offset in range(0,len(block),65536):
+                    part=block[offset:offset+65536];part_key=hashlib.sha256(part).hexdigest()
+                    if 'chunks/'+part_key not in z.namelist():z.writestr('chunks/'+part_key,part)
+                    segments.append(dict(base=-1,offset=0,bytes=len(part),blob=part_key))
+                files.append(dict(path=name,bytes=size,sha256=final_sha,storageBytes=len(block),storageSha256=key,segments=segments,bundle=name==bundle))
             manifest['locales'].append(dict(code=code,name=code,culture=code,languageSha256='synthetic-only',files=files))
         raw_manifest=(json.dumps(manifest,sort_keys=True,indent=2)+'\n').encode();z.writestr('manifest.json',raw_manifest)
     receipt=wrap(target/'raw.zip',resources/'ForestLanguages.forestpack')

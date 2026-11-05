@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "proof": {
+    "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/zh/gallery-compatibility-02-to-03.json",
+    "sha256": "7000a97a08de0d1f4c5020fcb00ad35e7e82ec53fd35ad7b7b66c7c79ca14a2c"
+  },
+  "repair": {
+    "path": "/Users/antonkrutov/Desktop/Forest/localization/screenshots/all30-owner-20261104-01/cjk-gallery-counter-scale-04.json",
+    "sha256": "4e7e5a4c86449ccbf82cdf73f63df09e0d80d42283d4734eca08328c7f156388"
+  },
+  "affectedOrders": [
+    3
+  ],
+  "unchangedOrders": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7
+  ],
+  "applicability": "Only Gallery calls the two original gallery counter groups with .7 instead of1. Complete helper tree except that body, every other native resource and all caption strings are exact. The changed scalar is inactive on other scenes; retain only prior actually passed frames."
+}

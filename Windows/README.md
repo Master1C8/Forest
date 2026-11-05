@@ -11,7 +11,7 @@ distribution, zipped for delivery. Keep `Resources` beside the executable.
 | --- | --- |
 | Win32 status/progress, background PowerShell, folder picker, launch action | Retained, with a language picker and an explicit apply button |
 | Steam folder discovery | Forest executable/data names, multiple-copy ambiguity requires the folder picker |
-| SMAPI/Content Patcher installation | Fourteen exact Unity resource replacements through `ForestInstaller.cs` |
+| SMAPI/Content Patcher installation | Fifteen exact Unity resource replacements through `ForestInstaller.cs` |
 | Owned folder staging and rollback | Original fingerprints, permanent backups, exclusive lock, durable journal and verified rollback |
 | Payload integrity | Native pins for script/helper/core, payload SHA, per-chunk and full-resource SHA |
 | Native PE/manifest/icon/ZIP packaging | Retained; Forest branding and icon extracted without executing the game |
@@ -23,14 +23,16 @@ The matching LZ4 helper is bundled; the player installs no development tools.
 ## Language and version binding
 
 `installer-config.json` selects the eligible canonical language documents.
-Russian deliberately maps to the owner's accepted `ru-baseline.json`, rather
-than the later wording revision in `ru.json`. All 30 translations are included.
+Russian maps to the owner-accepted `ru.json` version pinned by the package.
+All 30 translations are included.
 Hindi, Swahili and Ukrainian received complete version-bound independent review
 and consolidated correction closure in `localization/editorial-delivery/launcher-all30-20261104-01`.
 The new receipts retain actual judgment bodies; Ukrainian's earlier reference-only
-coverage was replaced by a fresh complete independent review. Most included locales
-still need full native layout, font and image-text acceptance, including Hindi
-Devanagari shaping; installation does not confer those passes.
+coverage was replaced by a fresh complete independent review. Version-bound
+seven-scene native rendering evidence is maintained separately under
+`localization/screenshots/all30-owner-20261104-01`. It includes the complex-script
+adapter for Arabic, Persian, Hebrew, Hindi and Thai. Installation and those finite
+scenes do not establish unexercised gameplay or Windows GUI/runtime coverage.
 
 `locale-labels.generated.json` is a generated projection of the canonical
 SiteForMods catalog, bound to its source SHA. It is not a separately authored
@@ -48,11 +50,16 @@ Unknown manual patches and same-name extra DLLs reject before resource writes.
 An installation owned by this app must match its last persisted resource set.
 The app never terminates the game and refuses a matching running game process.
 
-Only the fourteen resource paths compiled into the adapter may change.
+Only the fifteen resource paths compiled into the adapter may change.
 `app.info`, `tfol.settings`, personal saves, streams and unrelated mods are
 preserved. In particular, the compiler's QA identity and factory settings are
-never installed. English restores the twelve original files and removes the
+never installed. English restores the thirteen original files and removes the
 two added DLLs only when they match this app's owned version.
+
+Legacy fourteen-resource ownership may upgrade only when the newly owned
+`Unity.TextMeshPro.dll` still matches its exact original fingerprint. Complex-script
+languages receive their reviewed renderer; other languages and English restore
+the stock renderer. Foreign edits reject before adoption or replacement.
 
 All original backups are verified before any resource replacement. Originals
 and the complete offline language package are copied through verified temporary

@@ -19,14 +19,14 @@ identifier and save location stay the same. Contents/tfol.savegame and
 Contents/tfol.settings are preserved when switching languages; external saves
 are never edited by this app.
 Keep the original game installed. At least 4 GB of free disk space is required.
-Unknown modifications of the 14 owned resource paths are rejected; unrelated
+Unknown modifications of localization resources are rejected; unrelated
 files and mods are preserved. An interrupted install recovers on the next Apply.
 
 macOS 14 or later, Apple Silicon and Intel. The app and localized game copy are
 ad-hoc signed, not Apple-notarized. If macOS asks, use its Open Anyway option
 in Privacy & Security for this app. The launcher never disables Gatekeeper.
 
-These are compiled wording/resource builds. Full in-game font/layout acceptance
-is still pending for most languages, including Devanagari shaping in Hindi.
-All 30 translations are included after independent wording review. Russian uses
-the owner-accepted baseline. This launcher does not include or replace the original game.
+All 30 translations are included after independent wording review. Native
+screenshot checks cover seven selected scenes per language; they are not a full
+playthrough. Russian retains the owner-accepted version. This launcher does not
+include or replace the original game.

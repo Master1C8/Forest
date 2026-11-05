@@ -93,6 +93,7 @@ def publish(source, candidate, manifest, pin, work, previous_sha, fail_after=Non
 
 
 def refresh(root, work, config, selection):
+    from forest_renderer_contract import PATH as renderer, original as renderer_original, localized as renderer_localized
     source = work / 'ForestLanguages.zip'
     old_pin = json.loads((work / 'payload-receipt.json').read_bytes())
     if sha(source.read_bytes()) != old_pin['sha256']:
@@ -102,6 +103,8 @@ def refresh(root, work, config, selection):
         if json.loads(z.read('manifest.json')) != old:
             raise ValueError('previous manifest differs')
     manifest = copy.deepcopy(old)
+    if renderer not in {r['path']for r in manifest['originals']}:
+        raise ValueError('renderer ownership inventory changed; use normal full payload build')
     selected = selection()
     if {r['code'] for r in manifest['locales']} != set(selected):
         raise ValueError('locale catalog changed; use normal payload build')
@@ -113,6 +116,7 @@ def refresh(root, work, config, selection):
     for base in manifest['baselines']:
         path = (work / 'bundles' / (bundle['sha256'] + '.asset')
                 if base['path'] == '__bundle.asset' else original / base['path'])
+        if base['path']==renderer and not path.exists():path=renderer_original(root)
         data = path.read_bytes()
         if len(data) != base['bytes'] or sha(data) != base['sha256']:
             raise ValueError('original baseline differs')
@@ -127,9 +131,12 @@ def refresh(root, work, config, selection):
         if built['locale'] != code or built['languageSha256'] != language_sha:
             raise ValueError('stale compiler output: ' + code)
         before = copy.deepcopy(locale); edits = []
+        adapter=bool(json.loads(language.read_bytes()).get('complexText'))
         for resource in locale['files']:
-            name = resource['path']; pin = built['files'][data_name + '/' + name]
-            data = (directory / data_name / name).read_bytes()
+            name = resource['path']
+            if name==renderer:path,pin=renderer_localized(root,directory,built['files'],adapter,data_name+'/')
+            else:path=directory/data_name/name;pin=built['files'][data_name+'/'+name]
+            data = path.read_bytes()
             if dict(bytes=len(data), sha256=sha(data)) != pin:
                 raise ValueError('compiler resource differs: ' + code + '/' + name)
             valid_segments = all(0 < s['bytes'] <= 65536 and s['offset'] >= 0 for s in resource['segments'])

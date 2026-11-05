@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Buffers.Binary;
+using System.Diagnostics;
 using VNRevival.Forest;
 
 class Program {
@@ -131,6 +132,66 @@ class Program {
             Check(File.ReadAllBytes(PathOf(game, pair.Item1)).SequenceEqual(Content(pair.Item2, 0)), "player file overwritten");
         Check(File.ReadAllBytes(Path.Combine(game, "saves/player.sav")).SequenceEqual(Content("save", 0)), "save overwritten");
     }
+    static string RendererPackage(string name, byte[] original, byte[] patched, Action<JsonObject> mutate = null) {
+        string package = MakePackage(name);
+        using var zip = ZipFile.Open(package, ZipArchiveMode.Update);
+        var entry = zip.GetEntry("manifest.json"); JsonObject manifest;
+        using (var stream = entry.Open()) manifest = JsonNode.Parse(stream).AsObject();
+        entry.Delete();
+        var originals = manifest["originals"].AsArray();
+        originals.Add(JsonSerializer.SerializeToNode(new { path=Installer.RendererPath,bytes=original.Length,sha256=Hash(original) }));
+        manifest["baselines"].AsArray().Add(originals.Last().DeepClone());
+        var written = zip.Entries.Select(x => x.FullName).ToHashSet();
+        foreach (var locale in manifest["locales"].AsArray()) {
+            byte[] data = locale["code"].GetValue<string>() == "first" ? patched : original;
+            var segments = new List<object>();
+            for (int offset=0;offset<data.Length;offset+=65536) {
+                byte[] block=data.Skip(offset).Take(65536).ToArray();string key=Hash(block);
+                if (written.Add("chunks/"+key)) { using var stream=zip.CreateEntry("chunks/"+key).Open();stream.Write(block); }
+                segments.Add(new { @base=-1,offset=0,bytes=block.Length,blob=key });
+            }
+            locale["files"].AsArray().Add(JsonSerializer.SerializeToNode(new { path=Installer.RendererPath,bytes=data.Length,sha256=Hash(data),storageBytes=data.Length,storageSha256=Hash(data),bundleRecipe=(string)null,bundleRecipeBytes=0,segments }));
+        }
+        if (mutate != null) mutate(manifest);
+        using (var stream=zip.CreateEntry("manifest.json").Open()) stream.Write(JsonSerializer.SerializeToUtf8Bytes(manifest));
+        return package;
+    }
+    static void RendererCases(string patchedPath) {
+        byte[] original=File.ReadAllBytes("localization/framework/forest045-shared-v2/references/Unity.TextMeshPro.dll");
+        byte[] patched=File.ReadAllBytes(patchedPath);
+        Check(original.Length==370176 && Hash(original)==Installer.RendererOriginalSha256,"registered renderer prerequisite");
+        Check(Hash(patched)!=Hash(original),"actual patched renderer prerequisite");
+        string legacy=MakePackage("renderer-legacy14"),package=RendererPackage("renderer15",original,patched);
+        string game=Fixture("renderer-upgrade");Write(PathOf(game,Installer.RendererPath),original);
+        Apply(game,legacy,"first");AssertGame(game,"first");
+        string statePath=Path.Combine(game,".vnrevival-forest/state.json");
+        int OwnedCount()=>JsonNode.Parse(File.ReadAllText(statePath))["files"].AsArray().Count;
+        void Module(byte[] expected)=>Check(File.ReadAllBytes(PathOf(game,Installer.RendererPath)).SequenceEqual(expected),"renderer readback differs");
+        Check(OwnedCount()==14,"actual legacy ownership shape");
+        byte[] foreign=Encoding.UTF8.GetBytes("unowned foreign renderer");Write(PathOf(game,Installer.RendererPath),foreign);
+        Reject(()=>Apply(game,package,"first"),"Unexpected or modified resource");Module(foreign);AssertGame(game,"first");
+        Check(OwnedCount()==14,"rejected upgrade changed ownership");Write(PathOf(game,Installer.RendererPath),original);
+        Installer.TestCheckpoint=p=>{if(p=="applied-14")throw new IOException("injected renderer upgrade failure");};
+        try { Reject(()=>Apply(game,package,"first"),"injected renderer upgrade failure"); }
+        finally { Installer.TestCheckpoint=null; }
+        AssertGame(game,"first");Module(original);Check(OwnedCount()==14,"failed upgrade changed old state");
+        Apply(game,package,"first");AssertGame(game,"first");Module(patched);Check(OwnedCount()==15,"renderer upgrade not admitted");
+        string backup=Path.Combine(game,".vnrevival-forest/originals",Installer.RendererPath);
+        Check(File.ReadAllBytes(backup).SequenceEqual(original),"renderer backup must be original");
+        Apply(game,package,"first");Module(patched);Check(File.ReadAllBytes(backup).SequenceEqual(original),"repeat refreshed original from patch");
+        Apply(game,package,"second");AssertGame(game,"second");Module(original);
+        Apply(game,package,"first");Module(patched);
+        CrashChild(game,package,"applied-14");
+        Check(File.Exists(Path.Combine(game,".vnrevival-forest/journal.json")),"renderer crash journal absent");
+        Apply(game,package,"en");AssertGame(game,"original");Module(original);
+        Reject(()=>Apply(game,legacy,"first"),"cannot be downgraded");AssertGame(game,"original");Module(original);
+        string missing=RendererPackage("renderer-missing-locale",original,patched,m=>m["locales"][0]["files"].AsArray().RemoveAt(14));
+        Reject(()=>Apply(game,missing,"first"),"Locale resource inventory differs");
+        string wrong=RendererPackage("renderer-wrong-original",original,patched,m=>m["originals"][14]["sha256"]=new string('0',64));
+        Reject(()=>Apply(game,wrong,"first"),"Unregistered original TMP renderer");
+        AssertGame(game,"original");Module(original);
+        File.WriteAllText(Path.Combine(Root,"renderer-result.json"),JsonSerializer.Serialize(new {passed=true,assertions,realRendererBytes=true,otherResources="synthetic",legacy14Upgrade=true,complexToNormalToEnglish=true,interruptedUpgradeRollback=true,hardCrashAtRendererRecovered=true,foreignRendererPreserved=true,gameLaunched=false}));
+    }
     static void CrashChild(string game, string package, string checkpoint) {
         using var p = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo {
             FileName = "dotnet",
@@ -140,15 +201,37 @@ class Program {
         p.WaitForExit(); Check(p.ExitCode == 77, "child did not reach crash boundary " + checkpoint);
     }
     static void RealPackage(string package, string original) {
-        string game = Path.Combine(Root, "real-compiler-payload"); Directory.CreateDirectory(game);
+        string game = Path.Combine(Root, "real-compiler-payload");
+        Check(!Directory.Exists(game),"Preserve previous actual payload test game");Directory.CreateDirectory(game);
         Write(Path.Combine(game, Installer.ExeName), Content("fixture exe, never run", 0));
-        using var zip = ZipFile.OpenRead("dist/windows-installer-work/ForestLanguages.zip");
+        // Inspect the exact delivered envelope, rather than an unrelated raw
+        // archive left in the default build directory.
+        string decoded=Path.Combine(Root,"actual-package.zip");Check(!File.Exists(decoded),"Preserve previous decoded actual package");
+        using(var inflate=Process.Start(new ProcessStartInfo {FileName=Codec,ArgumentList={"inflate",package,decoded},UseShellExecute=false})) {
+            Check(inflate!=null,"actual package inflate started");
+            if(!inflate.WaitForExit(180000)){inflate.Kill(entireProcessTree:true);inflate.WaitForExit();throw new Exception("actual package inflate deadline; owned child stopped, partial output preserved");}
+            Check(inflate.ExitCode==0,"actual package inflate failed");
+        }
+        using(var input=File.OpenRead(package)) {
+            byte[] header=new byte[80];input.ReadExactly(header);
+            Check(Encoding.ASCII.GetString(header,0,8)=="FRSTPKG1","actual envelope identity");
+            Check((ulong)new FileInfo(decoded).Length==BinaryPrimitives.ReadUInt64BigEndian(header.AsSpan(8,8))&&Installer.Hash(decoded)==Encoding.ASCII.GetString(header,16,64),"actual decoded archive binding");
+        }
+        using var zip = ZipFile.OpenRead(decoded);
+        var manifestReader=typeof(Installer).GetMethod("LoadManifest",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);
+        Check(manifestReader!=null,"shipping manifest reader exists");
+        try{manifestReader.Invoke(null,new object[]{zip});}catch(System.Reflection.TargetInvocationException e){throw e.InnerException??e;}
         using var manifestStream = zip.GetEntry("manifest.json").Open();
         using var manifest = JsonDocument.Parse(manifestStream);
         string data = Path.Combine(original, Installer.DataName);
         foreach (var f in manifest.RootElement.GetProperty("originals").EnumerateArray()) {
             string name = f.GetProperty("path").GetString();
-            if (f.GetProperty("sha256").ValueKind != JsonValueKind.Null) Write(PathOf(game, name), File.ReadAllBytes(Path.Combine(data, name)));
+            if (f.GetProperty("sha256").ValueKind != JsonValueKind.Null) {
+                string source=Path.Combine(data,name);
+                if(name==Installer.RendererPath&&!File.Exists(source))source=Path.GetFullPath("localization/framework/forest045-shared-v2/references/Unity.TextMeshPro.dll");
+                byte[] bytes=File.ReadAllBytes(source);Check(bytes.Length==f.GetProperty("bytes").GetInt64()&&Hash(bytes)==f.GetProperty("sha256").GetString(),"actual original input binding: "+name);
+                Write(PathOf(game,name),bytes);
+            }
         }
         Write(PathOf(game, "globalgamemanagers.assets"), File.ReadAllBytes(Path.Combine(data, "globalgamemanagers.assets")));
         byte[] identity = Content("preserved identity", 0), settings = Content("preserved settings", 0), save = Content("personal player save", 0);
@@ -158,6 +241,7 @@ class Program {
         // transaction, then a fresh invocation checks the persisted previous version.
         string[] targetCodes = (Environment.GetEnvironmentVariable("FOREST_TEST_LOCALES") ?? "hi,sw,uk,ru").Split(',');
         Check(targetCodes.Length > 0 && targetCodes.Distinct().Count() == targetCodes.Length, "invalid actual test locale selection");
+        if(targetCodes.SequenceEqual(new[]{"*"}))targetCodes=manifest.RootElement.GetProperty("locales").EnumerateArray().Select(x=>x.GetProperty("code").GetString()).ToArray();
         var targetLocales = manifest.RootElement.GetProperty("locales").EnumerateArray().Where(x => targetCodes.Contains(x.GetProperty("code").GetString())).ToArray();
         Check(targetLocales.Length == targetCodes.Length, "actual test locale selection is incomplete");
         int count = 0;
@@ -181,7 +265,7 @@ class Program {
         Console.WriteLine("Representative real compiler locales installed/switched/restored: " + count);
     }
     static int Main(string[] args) {
-        Installer.TestTemporaryRoot=Path.GetFullPath("dist/windows-installer-work/core-temp");
+        Installer.TestTemporaryRoot=Path.GetFullPath(Environment.GetEnvironmentVariable("FOREST_TEST_TEMPORARY_ROOT")??"dist/windows-installer-work/core-temp");
         Directory.CreateDirectory(Installer.TestTemporaryRoot);
         Codec = Path.GetFullPath(Environment.GetEnvironmentVariable("FOREST_TEST_CODEC") ?? "dist/windows-installer-work/forest-bundle"); CodecSha = Installer.Hash(Codec);
         if (args.Length == 2 && args[0] == "manifest") {
@@ -196,6 +280,10 @@ class Program {
             Root=Path.GetFullPath(args[1]); Directory.CreateDirectory(Root);
             RealPackage(Path.GetFullPath(args[2]),Path.GetFullPath(args[3]));
             Console.WriteLine("PASS actual payload: " + assertions + " assertions. No real game executed."); return 0;
+        }
+        if (args.Length == 3 && args[0] == "renderer") {
+            Root=Path.GetFullPath(args[1]);Directory.CreateDirectory(Root);RendererCases(Path.GetFullPath(args[2]));
+            Console.WriteLine("PASS renderer contract: "+assertions+" assertions; real DLL bytes, isolated synthetic game, no game executed");return 0;
         }
         if (args.Length > 0 && args[0] == "apply") { Apply(args[1], args[2], args[3]); return 0; }
         if (args.Length > 0 && args[0] == "crash") {

@@ -2,7 +2,7 @@
 import argparse,json,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser();p.add_argument('run',type=Path);p.add_argument('command');p.add_argument('--timeout',type=float,default=20);a=p.parse_args()
-r=a.run.resolve();assert 'Forest/localization/probes/ru-owner-shots-' in str(r)
+r=a.run.resolve();assert r.parent.name=='probes' and r.parent.parent.name=='localization' and r.name.startswith(('ru-owner-shots-','locale-owner-shots-'))
 launch=json.loads((r/'launch.json').read_bytes())
 actual=subprocess.check_output(['ps','-p',str(launch['pid']),'-o','command='],text=True).strip()
 assert actual.startswith(launch['argv'][0]),'Exact task process is not live'

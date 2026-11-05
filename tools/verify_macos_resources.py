@@ -4,11 +4,13 @@ import base64
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import struct
 import subprocess
 
-ROOT=Path(__file__).resolve().parents[1];WORK=ROOT/'dist/macos-installer-work'
+ROOT=Path(__file__).resolve().parents[1];WORK=Path(os.environ.get('FOREST_MAC_WORK',str(ROOT/'dist/macos-installer-work'))).resolve()
+assert WORK.is_relative_to(ROOT/'dist'),'Native verification work must stay inside this project'
 def sha(p):
     h=hashlib.sha256()
     with p.open('rb') as f:
@@ -30,7 +32,11 @@ if __name__=='__main__':
     data=Path('/Applications/TheForestOfLove.app/Contents/Resources/Data')
     original=next((data/'StreamingAssets/aa/StandaloneOSX').glob('defaultlocalgroup_assets_all*'))
     original_catalog=catalog((data/'StreamingAssets/aa/catalog.json').read_bytes());records=json.loads((WORK/'resources.json').read_bytes());proofs=[]
-    from build_windows_installer import selection
+    from build_windows_installer import selection,CONFIG
+    from forest_renderer_contract import PATH as renderer, localized as renderer_localized, ORIGINAL_SHA, ORIGINAL_BYTES
+    framework=json.loads((ROOT/'localization/framework/forest045-shared/framework.json').read_bytes())
+    from forest_macos import native_resource_paths
+    base_names=native_resource_paths(framework,CONFIG['preservedFiles'])
     if args.locale:
         assert len(args.locale)==len(set(args.locale))
         assert set(args.locale)<={p.stem for p in (ROOT/'localization/languages').glob('*.json') if p.stem!='ru-baseline'}
@@ -38,7 +44,11 @@ if __name__=='__main__':
         assert len(records)==len(args.locale) and {r['locale'] for r in records}==set(args.locale)
     else:assert len(records)==len(selection()) and {r['locale'] for r in records}==set(selection())
     for record in records:
-        directory=WORK/'overlays'/record['locale'];paths=record['files'];assert len(paths)==14
+        directory=WORK/'overlays'/record['locale'];paths=record['files']
+        language=selection()[record['locale']];doc=json.loads(language.read_bytes());assert sha(language)==record['languageSha256']
+        adapter=bool(doc.get('complexText'));assert set(paths)==base_names|({renderer}if adapter else set())
+        renderer_localized(ROOT,directory,paths,adapter)
+        if adapter:assert record['rendererOriginals']=={renderer:dict(bytes=ORIGINAL_BYTES,sha256=ORIGINAL_SHA)}
         for name,pin in paths.items():assert sha(directory/name)==pin['sha256'] and (directory/name).stat().st_size==pin['bytes']
         result=json.loads(subprocess.check_output([str(binary),str(original),str(directory/'bundle.asset'),str(directory/original.relative_to(data))]))
         new_catalog=catalog((directory/'StreamingAssets/aa/catalog.json').read_bytes());assert len(new_catalog)==len(original_catalog)
@@ -53,8 +63,8 @@ if __name__=='__main__':
             bundleReadback=result,nativeCatalogOnlyCRCAndSizeChanged=True,managed=record['proofs'][0],
             serialized=[p for p in record['proofs'] if 'selectedBeforeImagesEqual' in p]))
         print('verified native macOS '+record['locale'],flush=True)
-    result=dict(passed=True,locales=len(proofs),resources=14,completeNativeStreamingReadbacks=len(proofs),gameLaunched=False,
-        rendererAcceptance='not-run',boundary='All produced resource bytes and complete native stream; excludes Unity execution/rendering',localesEvidence=proofs)
+    result=dict(passed=True,locales=len(proofs),resources=len(base_names|{renderer}),resourceCountByLocale={r['locale']:len(r['files'])for r in proofs},completeNativeStreamingReadbacks=len(proofs),gameLaunched=False,
+        rendererAcceptance='not-exercised-by-this-static-command',boundary='All produced resource bytes and complete native stream; excludes Unity execution/rendering and does not revoke separate version-bound native acceptance',localesEvidence=proofs)
     output=args.output or ROOT/'MacOS/native-resources.json'
     assert output.resolve().is_relative_to(ROOT)
     output.write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')
